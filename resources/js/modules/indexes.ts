@@ -286,9 +286,9 @@ const addIndexGo = function (sourceArray, arrayIndex, index, colIndex) {
         );
     } else {
         ajaxShowMessage(
-            '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt=""' +
-            ' class="icon ic_s_error"> ' + window.Messages.strMissingColumn +
-            ' </div>', false,
+            '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strMissingColumn,
+            false,
+            'error',
         );
 
         return false;
@@ -417,9 +417,10 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
                     );
                 } else {
                     ajaxShowMessage(
-                        '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt=""' +
-                        ' class="icon ic_s_error"> ' + window.Messages.strMissingColumn +
-                        ' </div>', false
+                        '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' +
+                            window.Messages.strMissingColumn,
+                        false,
+                        'error'
                     );
 
                     return false;
@@ -474,11 +475,10 @@ function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
             if ($('input[name="composite_with"]').length !== 0 && $('input[name="composite_with"]:checked').length === 0
             ) {
                 ajaxShowMessage(
-                    '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title=""' +
-                    ' alt="" class="icon ic_s_error"> ' +
-                    window.Messages.strFormEmpty +
-                    ' </div>',
-                    false
+                    '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' +
+                        window.Messages.strFormEmpty,
+                    false,
+                    'error',
                 );
 
                 return false;

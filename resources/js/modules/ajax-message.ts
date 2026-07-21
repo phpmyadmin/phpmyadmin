@@ -31,90 +31,65 @@ let ajaxMessageCount = 0;
  * This will show a message that will not disappear automatically, but it
  * can be dismissed by the user after they have finished reading it.
  *
- * @param {string|null} message string containing the message to be shown.
- *                              optional, defaults to 'Loading...'
- * @param {any} timeout         number of milliseconds for the message to be visible
- *                              optional, defaults to 5000. If set to 'false', the
- *                              notification will never disappear
- * @param {string|null} type    string to dictate the type of message shown.
- *                              optional, defaults to normal notification.
- *                              If set to 'error', the notification will show message
- *                              with red background.
- *                              If set to 'success', the notification will show with
- *                              a green background.
- * @return {JQuery<Element>}   jQuery Element that holds the message div
- *                              this object can be passed to ajaxRemoveMessage()
- *                              to remove the notification
+ * @param message string containing the message to be shown.
+ *                optional, defaults to 'Loading...'
+ * @param timeout number of milliseconds for the message to be visible
+ *                optional, defaults to 5000. If set to 'false', the notification will never disappear
+ * @param type    string to dictate the type of message shown. optional, defaults to normal notification.
+ *                If set to 'error', the notification will show message with red background.
+ *                If set to 'warning', the notification will show with a yellow background.
+ *                If set to 'success', the notification will show with a green background.
+ * @return        jQuery Element that holds the message div this object can be passed
+ *                to ajaxRemoveMessage() to remove the notification
  */
-const ajaxShowMessage = function (message = null, timeout = null, type = null) {
-    let msg = message;
-    let newTimeOut = timeout;
-    /**
-     * @var self_closing Whether the notification will automatically disappear
-     */
-    let selfClosing = true;
-    /**
-     * @var dismissable Whether the user will be able to remove
-     *                  the notification by clicking on it
-     */
-    let dismissable = true;
+const ajaxShowMessage = function (
+    message: string|null = null,
+    timeout: number|false|null = null,
+    type: 'error'|'warning'|'success'|null = null,
+): JQuery<HTMLElement>|true {
     // Handle the case when a empty data.message is passed.
     // We don't want the empty message
-    if (msg === '') {
+    if (message === '') {
         return true;
-    } else if (! msg) {
-        // If the message is undefined, show the default
-        msg = window.Messages.strLoading;
-        dismissable = false;
-        selfClosing = false;
-    } else if (msg === window.Messages.strProcessingRequest) {
-        // This is another case where the message should not disappear
-        dismissable = false;
-        selfClosing = false;
-    }
-
-    // Figure out whether (or after how long) to remove the notification
-    if (newTimeOut === undefined || newTimeOut === null) {
-        newTimeOut = 5000;
-    } else if (newTimeOut === false) {
-        selfClosing = false;
-    }
-
-    // Determine type of message, add styling as required
-    if (type === 'error') {
-        msg = '<div class="alert alert-danger" role="alert">' + msg + '</div>';
-    } else if (type === 'success') {
-        msg = '<div class="alert alert-success" role="alert">' + msg + '</div>';
     }
 
     // Create a parent element for the AJAX messages, if necessary
     if ($('#loading_parent').length === 0) {
-        $('<div id="loading_parent"></div>')
-            .prependTo('#page_content');
+        $('<div id="loading_parent"></div>').prependTo('#page_content');
     }
 
-    // Update message count to create distinct message elements every time
-    ajaxMessageCount++;
     // Remove all old messages, if any
     $('[role="tooltip"]').remove();
     $('span.ajax_notification[id^=ajax_message_num]').remove();
-    /**
-     * @var $retval    a jQuery object containing the reference
-     *                 to the created AJAX message
-     */
+
+    const msg = message ?? window.Messages.strLoading;
+    // Determine type of message, add styling as required
+    let html = msg;
+    if (type === 'error') {
+        html = `<div class="alert alert-danger" role="alert">${msg}</div>`;
+    } else if (type === 'warning') {
+        html = `<div class="alert alert-warning" role="alert">${msg}</div>`;
+    } else if (type === 'success') {
+        html = `<div class="alert alert-success" role="alert">${msg}</div>`;
+    }
+
+    /** A jQuery object containing the reference to the created AJAX message with unique id */
     const $retval = $(
-        '<span class="ajax_notification" id="ajax_message_num_' +
-        ajaxMessageCount +
-        '"></span>',
+        `<span class="ajax_notification" id="ajax_message_num_${++ajaxMessageCount}"></span>`,
     )
         .hide()
         .appendTo('#loading_parent')
-        .html(msg)
+        .html(html)
         .show();
     // If the notification is self-closing we should create a callback to remove it
+    /** Whether the notification will automatically disappear */
+    const selfClosing =
+        msg !== window.Messages.strLoading &&
+        msg !== window.Messages.strProcessingRequest &&
+        timeout !== false;
     if (selfClosing) {
         $retval
-            .delay(newTimeOut)
+            .delay(timeout ?? 5000)
             .fadeOut('medium', function () {
                 bootstrap.Tooltip.getInstance(this)?.dispose();
 
@@ -125,6 +100,9 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
 
     // If the notification is dismissable we need to add the relevant class to it
     // and add a tooltip so that the users know that it can be removed
+    const dismissable =
+        msg !== window.Messages.strLoading &&
+        msg !== window.Messages.strProcessingRequest;
     if (dismissable) {
         $retval.addClass('dismissable').css('cursor', 'pointer');
         /**

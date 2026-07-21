@@ -790,10 +790,9 @@ function checkTimeOut (timeLimit) {
             function (data) {
                 if (data.message === 'timeout') {
                     ajaxShowMessage(
-                        '<div class="alert alert-danger" role="alert">' +
-                        window.Messages.strTimeOutError +
-                        '</div>',
-                        false
+                        window.Messages.strTimeOutError,
+                        false,
+                        'error'
                     );
                 }
             }
