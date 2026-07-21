@@ -241,4 +241,85 @@
     </div>
   </div>
 </div>
+
+{# Select2 for relation dropdowns #}
+<link rel="stylesheet" href="{{ base_dir }}js/vendor/select2/select2.min.css">
+<style>
+.pma-rel-select2 ~ .select2-container { min-width: 200px; }
+</style>
+<script src="{{ base_dir }}js/vendor/select2/select2.min.js"></script>
+<script>
+AJAX.registerOnload('table/relation.js', function () {
+    var s2cfg = { width: '100%', allowClear: true, placeholder: '' };
+
+    function initRelSelect2($elements) {
+        $elements.each(function () {
+            var $el = $(this);
+            if ($el.hasClass('select2-hidden-accessible')) {
+                try { $el.select2('destroy'); } catch (e) {}
+            }
+            $el.siblings('.select2-container').remove();
+            $el.select2(s2cfg);
+        });
+    }
+
+    initRelSelect2($('.pma-rel-select2'));
+
+    $(document).on('select2:open', '.pma-rel-select2', function () {
+        document.querySelector('.select2-container--open .select2-search__field').focus();
+    });
+
+    var _orig = TableRelation.setDropdownValues;
+    TableRelation.setDropdownValues = function ($dd, values, selected) {
+        _orig($dd, values, selected);
+        $dd.each(function () {
+            if ($(this).hasClass('pma-rel-select2')) {
+                $(this).trigger('change');
+            }
+        });
+    };
+
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            $(mutation.addedNodes).each(function () {
+                var $n = $(this);
+                var $targets = $n.is('.pma-rel-select2') ? $n : $n.find('.pma-rel-select2');
+                if ($targets.length) {
+                    initRelSelect2($targets);
+                }
+            });
+        });
+    });
+    var el = document.getElementById('structure_content');
+    if (el) { observer.observe(el, { childList: true, subtree: true }); }
+
+    // Auto-select foreign table from column naming convention: <table>_id or tbl_<x>_id
+    $(document).on('change', 'select[name^="foreign_key_fields_name"]', function () {
+        var col = $(this).val();
+        if (!col || !/_id$/.test(col)) {
+            return;
+        }
+        var base = col.replace(/_id$/, '');
+        var candidates = [base];
+        if (base.indexOf('tbl_') !== 0) {
+            candidates.push('tbl_' + base);
+        }
+        var $tableDd = $(this).closest('tr').find('select[name^="destination_foreign_table"]');
+        if (!$tableDd.length) {
+            return;
+        }
+        for (var c = 0; c < candidates.length; c++) {
+            var match = $tableDd.find('option').filter(function () {
+                return $(this).val() === candidates[c];
+            });
+            if (match.length) {
+                if ($tableDd.val() !== candidates[c]) {
+                    $tableDd.val(candidates[c]).trigger('change');
+                }
+                return;
+            }
+        }
+    });
+});
+</script>
 {% endblock %}
