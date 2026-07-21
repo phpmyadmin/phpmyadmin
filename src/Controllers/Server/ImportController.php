@@ -23,6 +23,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function is_numeric;
@@ -65,12 +66,14 @@ final readonly class ImportController implements InvocableController
         }
 
         $offset = null;
-        if (isset($_REQUEST['offset']) && is_numeric($_REQUEST['offset'])) {
-            $offset = (int) $_REQUEST['offset'];
+        if ($request->has('offset') && is_numeric($request->getParam('offset'))) {
+            $offset = (int) $request->getParam('offset');
         }
 
-        $timeoutPassed = $_REQUEST['timeout_passed'] ?? null;
-        $localImportFile = $_REQUEST['local_import_file'] ?? null;
+        $timeoutPassed = $request->getParam('timeout_passed');
+        Assert::nullOrString($timeoutPassed);
+        $localImportFile = $request->getParam('local_import_file');
+        Assert::nullOrString($localImportFile);
         $compressions = Import::getCompressions($this->config);
 
         $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);

@@ -79,7 +79,7 @@ final readonly class DatabaseController implements InvocableController
             }
 
             if ($newDatabaseName !== null) {
-                if ($newDatabaseName->getName() === $_REQUEST['db']) {
+                if ($newDatabaseName->getName() === $request->getParam('db')) {
                     Current::$message = Message::error(
                         __('Cannot copy database to the same name. Change the name and try again.'),
                     );
