@@ -463,11 +463,13 @@ class Menu
 
         $isSuperUser = $this->dbi->isSuperUser();
         $isCreateOrGrantUser = $this->dbi->isGrantUser() || $this->dbi->isCreateUser();
-        if (SessionCache::has('binary_logs')) {
-            $binaryLogs = SessionCache::get('binary_logs');
-        } else {
-            $binaryLogs = $this->dbi->fetchResult('SHOW BINARY LOGS', 'Log_name');
-            SessionCache::set('binary_logs', $binaryLogs);
+        if ($isSuperUser) {
+            if (SessionCache::has('binary_logs')) {
+                $binaryLogs = SessionCache::get('binary_logs');
+            } else {
+                $binaryLogs = $this->dbi->fetchResult('SHOW BINARY LOGS', 'Log_name');
+                SessionCache::set('binary_logs', $binaryLogs);
+            }
         }
 
         $tabs = [];
