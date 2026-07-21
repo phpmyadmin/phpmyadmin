@@ -208,7 +208,7 @@ class ErrorHandler
         $isSilenced = (error_reporting() & $errno) === 0;
 
         $config = Config::getInstance();
-        if ($config->config->environment === 'development' && ! $isSilenced) {
+        if ($config->config->environment === 'development' && ! $isSilenced && $errno !== E_DEPRECATED) {
             throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
         }
 
