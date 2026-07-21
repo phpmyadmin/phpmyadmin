@@ -319,6 +319,26 @@ final class HomeController implements InvocableController
             // This can happen if the user did use getenv() to set blowfish_secret
             $encryptionKeyLength = mb_strlen($this->config->config->blowfish_secret, '8bit');
 
+            // If the key is in hexadecimal and has a length of 64 characters (i.e., 32 bytes), then convert it to binary.
+            if ($encryptionKeyLength === 64 && ctype_xdigit($config->settings['blowfish_secret'])) {
+                // Convert the hexadecimal string to binary and override the original blowfish_secret
+                $binaryKey = hex2bin($config->settings['blowfish_secret']);
+                if ($binaryKey !== false) { // Ensure conversion is successful
+                    $config->settings['blowfish_secret'] = $binaryKey;
+                    $encryptionKeyLength = SODIUM_CRYPTO_SECRETBOX_KEYBYTES; // Update length
+                } else {
+                     // If hex2bin conversion fails, log an error or warning
+                    $this->errors[] = [
+                        'message' => __(
+                            'Invalid blowfish_secret format: Unable to convert hex string to binary.'
+                            . ' Please ensure it is a valid 64-character hexadecimal string.'
+                            . ' Refer to the [doc@cfg_blowfish_secret]documentation[/doc].',
+                        ),
+                        'severity' => 'error',
+                    ];
+                }
+            }
+
             if ($encryptionKeyLength < SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
                 $this->errors[] = [
                     'message' => __(
