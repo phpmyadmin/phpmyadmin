@@ -7,11 +7,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use Com\Tecnick\Pdf\Tcpdf;
 use ErrorException;
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
-use TCPDF;
 
 use function count;
 use function implode;
@@ -94,7 +94,7 @@ class GisGeometryCollection extends GisGeometry
         string $label,
         array $color,
         ScaleData $scaleData,
-        TCPDF $pdf,
+        Tcpdf $pdf,
     ): void {
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $geomCol = mb_substr($spatial, 19, -1);

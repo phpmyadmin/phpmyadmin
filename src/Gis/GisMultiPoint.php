@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use Com\Tecnick\Pdf\Tcpdf;
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
-use TCPDF;
 
 use function count;
 use function implode;
@@ -102,9 +102,9 @@ class GisMultiPoint extends GisGeometry
         string $label,
         array $color,
         ScaleData $scaleData,
-        TCPDF $pdf,
+        Tcpdf $pdf,
     ): void {
-        $line = ['width' => 1.25, 'color' => $color];
+        $style = ['lineWidth' => 1.25, 'lineColor' => sprintf('rgb(%d,%d,%d)', $color[0], $color[1], $color[2])];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($spatial, 11, -1);
@@ -112,7 +112,7 @@ class GisMultiPoint extends GisGeometry
 
         foreach ($pointsArr as $point) {
             // draw a small circle to mark the point
-            $pdf->Circle($point[0], $point[1], 2, 0, 360, 'D', $line);
+            $pdf->page->addContent($pdf->graph->getCircle($point[0], $point[1], 2, style: $style));
         }
 
         if ($label === '' || ! isset($pointsArr[0])) {
@@ -120,9 +120,10 @@ class GisMultiPoint extends GisGeometry
         }
 
         // print label for each point
-        $pdf->setXY($pointsArr[0][0], $pointsArr[0][1]);
-        $pdf->setFontSize(5);
-        $pdf->Cell(0, 0, $label);
+        $font = $pdf->font->getCurrentFont();
+        $labelFont = $pdf->font->insert($pdf->pon, $font['key'], $font['style'], 5);
+        $pdf->page->addContent($labelFont['out']);
+        $pdf->page->addContent($pdf->getTextCell($label, $pointsArr[0][0], $pointsArr[0][1]));
     }
 
     /**

@@ -120,6 +120,7 @@
         "pragmarx/google2fa-qrcode": "^3.0",
         "psalm/plugin-phpunit": "^0.19",
         "symfony/console": "^7.1",
+        "tecnickcom/tc-lib-pdf": "^8.20",
         "tecnickcom/tcpdf": "^6.4.4",
         "vimeo/psalm": "^6.0",
         "web-auth/webauthn-lib": "^4.9"
@@ -145,7 +146,16 @@
             "@php phpstan analyse --generate-baseline",
             "@php psalm --no-cache --threads=max --set-baseline=psalm-baseline.xml"
         ],
-        "twig-lint": "@php bin/console lint:twig --ansi --show-deprecations"
+        "twig-lint": "@php bin/console lint:twig --ansi --show-deprecations",
+        "tc-lib-pdf-fonts": [
+            "[ -d vendor/tecnickcom/tc-lib-pdf-font ] && make -C vendor/tecnickcom/tc-lib-pdf-font deps fonts || true"
+        ],
+        "post-install-cmd": [
+            "@tc-lib-pdf-fonts"
+        ],
+        "post-update-cmd": [
+            "@tc-lib-pdf-fonts"
+        ]
     },
     "config":{
         "sort-packages": true,
