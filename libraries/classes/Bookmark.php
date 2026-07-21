@@ -10,13 +10,12 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 
-use function count;
+use function array_map;
+use function max;
 use function preg_match_all;
 use function preg_replace;
 use function str_replace;
 use function strlen;
-
-use const PREG_SET_ORDER;
 
 /**
  * Handles bookmarking SQL queries
@@ -145,16 +144,29 @@ class Bookmark
     }
 
     /**
-     * Returns the number of variables in a bookmark
+     * Returns the highest variable number referenced in the bookmark.
      *
-     * @return int number of variables
+     * This is not the number of `[VARIABLEn]` occurrences — a query can
+     * reference the same number more than once, or skip a number, and the
+     * count of placeholders would then diverge from the count of distinct
+     * variables actually needed. applyVariables() relies on this to know how
+     * many substitution slots to fill; the bare `[VARIABLE]` form (no
+     * number) counts as variable 1, same as applyVariables() treats it.
+     *
+     * @return int highest variable number referenced, or 0 if none
      */
     public function getVariableCount(): int
     {
-        $matches = [];
-        preg_match_all('/\[VARIABLE[0-9]*\]/', $this->query, $matches, PREG_SET_ORDER);
+        preg_match_all('/\[VARIABLE([0-9]*)\]/', $this->query, $matches);
 
-        return count($matches);
+        $numbers = array_map(
+            static function (string $number): int {
+                return $number === '' ? 1 : (int) $number;
+            },
+            $matches[1]
+        );
+
+        return $numbers === [] ? 0 : max($numbers);
     }
 
     /**
