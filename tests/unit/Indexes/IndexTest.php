@@ -128,6 +128,19 @@ class IndexTest extends AbstractTestCase
         );
     }
 
+    public function testIsVisibleDefaultsToTrue(): void
+    {
+        $index = new Index();
+        self::assertTrue($index->isVisible());
+    }
+
+    public function testIsVisibleReadsFromShowIndexes(): void
+    {
+        // SHOW INDEXES on MySQL 8.0+ returns 'YES' or 'NO' for the Visible column.
+        self::assertFalse((new Index(['Visible' => 'NO']))->isVisible());
+        self::assertTrue((new Index(['Visible' => 'YES']))->isVisible());
+    }
+
     /**
      * Test for get Name & set Name
      */
