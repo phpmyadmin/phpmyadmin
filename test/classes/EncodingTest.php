@@ -204,4 +204,15 @@ class EncodingTest extends AbstractTestCase
 
         self::assertSame(['utf-8', 'ISO-2022-CN', 'ISO2022CN'], Encoding::listEncodings());
     }
+
+    public function testListEncodingsKeepsUppercaseMbCharsets(): void
+    {
+        Encoding::setEngine(Encoding::ENGINE_MB);
+        $GLOBALS['cfg']['AvailableCharsets'] = ['utf-8', 'SJIS', 'SJIS-win'];
+
+        $result = Encoding::listEncodings();
+        self::assertContains('SJIS', $result);
+        self::assertContains('SJIS-win', $result);
+        self::assertContains('utf-8', $result);
+    }
 }
