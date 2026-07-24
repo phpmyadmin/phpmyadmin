@@ -678,6 +678,7 @@ class Config
             'port' => '0',
             'socket' => null,
             'compress' => null,
+            'extension' => $currentServer->extension,
             'ssl' => null,
             'ssl_key' => null,
             'ssl_cert' => null,

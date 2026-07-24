@@ -16,6 +16,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 use function __;
 use function defined;
+use function extension_loaded;
 use function function_exists;
 use function sprintf;
 
@@ -78,8 +79,13 @@ final readonly class PhpExtensionsChecking implements MiddlewareInterface
             Core::warnMissingExtension('ctype', true);
         }
 
-        if (! function_exists('mysqli_connect')) {
-            $moreInfo = sprintf(__('See %sour documentation%s for more information.'), '[doc@faqmysql]', '[/doc]');
+        if (! function_exists('mysqli_connect') && ! extension_loaded('pdo_mysql')) {
+            $moreInfo = sprintf(
+                __('The pdo_mysql extension is also missing. Either one is required.'
+                    . ' See %sour documentation%s for more information.'),
+                '[doc@faqmysql]',
+                '[/doc]',
+            );
             Core::warnMissingExtension('mysqli', true, $moreInfo);
         }
 

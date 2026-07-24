@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
+use PDO;
+use PDOException;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
@@ -17,7 +19,9 @@ use function count;
 use function error_clear_last;
 use function error_get_last;
 use function explode;
+use function extension_loaded;
 use function filter_var;
+use function function_exists;
 use function htmlspecialchars;
 use function is_array;
 use function is_object;
@@ -240,13 +244,32 @@ class Validator
         $socket = $socket === '' ? null : $socket;
         $port = $port === '' ? null : (int) $port;
 
-        mysqli_report(MYSQLI_REPORT_OFF);
+        if (function_exists('mysqli_connect')) {
+            mysqli_report(MYSQLI_REPORT_OFF);
 
-        $conn = @mysqli_connect($host, $user, $pass, '', $port, $socket);
-        if (! $conn) {
-            $error = __('Could not connect to the database server!');
+            $conn = @mysqli_connect($host, $user, $pass, '', $port, $socket);
+            if (! $conn) {
+                $error = __('Could not connect to the database server!');
+            } else {
+                mysqli_close($conn);
+            }
+        } elseif (extension_loaded('pdo_mysql')) {
+            if ($socket !== null && ($host === '' || $host === 'localhost')) {
+                $dsn = 'mysql:unix_socket=' . $socket;
+            } else {
+                $dsn = 'mysql:host=' . $host;
+                if ($port !== null && $port !== 0) {
+                    $dsn .= ';port=' . $port;
+                }
+            }
+
+            try {
+                new PDO($dsn, $user, $pass);
+            } catch (PDOException) {
+                $error = __('Could not connect to the database server!');
+            }
         } else {
-            mysqli_close($conn);
+            $error = __('Could not connect to the database server!');
         }
 
         if ($error !== null) {
