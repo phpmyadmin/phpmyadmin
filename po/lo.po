@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-07-22 21:02+0000\n"
+"PO-Revision-Date: 2026-07-25 10:02+0000\n"
 "Last-Translator: BoneNI <bounkirdni@gmail.com>\n"
 "Language-Team: Lao <https://hosted.weblate.org/projects/phpmyadmin/5-2/lo/>\n"
 "Language: lo\n"
@@ -820,10 +820,9 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"ການເຊື່ອມຕໍ່ມັກຈະຖືກຍົກເລີກເມື່ອບໍ່ສາມາດກວດສອບສິດໄດ້. <a href=\"https://www.percona.com/"
-"blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/\"><a "
-"href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
-"of-aborted_connects/\">ບົດຄວາມນີ້</a> ອາດຈະຊ່ວຍໃຫ້ທ່ານຕິດຕາມຫາສາເຫດໄດ້."
+"ການເຊື່ອມຕໍ່ມັກຈະຖືກຍົກເລີກເມື່ອບໍ່ສາມາດຢືນຢັນສິດເຂົ້າໃຊ້ໄດ້. <a href=\"https://www.percona.com/"
+"blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">ບົດຄວາມນີ້</"
+"a> ອາດຈະຊ່ວຍໃຫ້ເຈົ້າຄົ້ນຫາແຫຼ່ງທີ່ມາໄດ້."
 
 #: libraries/advisory_rules_generic.php:551
 #, possible-php-format
@@ -915,13 +914,14 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"ໂດຍສະເພາະໃນລະບົບທີ່ມີການຂຽນລົງຕາຕະລາງ InnoDB ຫຼາຍ ເຈົ້າຄວນຕັ້ງ {innodb_log_file_size} ເ"
-"ປັນ 25% ຂອງ {innodb_buffer_pool_size}. ແນວໃດກໍຕາມ ຍິ່ງຄ່ານີ້ຫຼາຍເທົ່າໃດ ເວລາໃນການກູ້ຄືນ "
-"(recovery) ກໍຈະຍິ່ງດົນຂຶ້ນເມື່ອຖານຂໍ້ມູນພັງ, ດັ່ງນັ້ນ ຄ່ານີ້ບໍ່ຄວນຕັ້ງໃຫ້ສູງກວ່າ 256 MiB ຫຼາຍເກີນໄປ. ໝາຍເ"
-"ຫດ: ເຈົ້າບໍ່ສາມາດປ່ຽນຄ່າຕົວປ່ຽນນີ້ໄດ້ທັນທີ. ເຈົ້າຕ້ອງປິດເຊີເວີ, ລຶບໄຟລ໌ລັອກຂອງ InnoDB ອອກ, ຕັ້ງຄ່າໃໝ່ໃ"
-"ນ my.cnf, ເລີ່ມເຊີເວີໃໝ່, ແລ້ວກວດສອບ error logs ວ່າທຸກຢ່າງຮຽບຮ້ອຍດີບໍ່. ເບິ່ງເພີ່ມເຕີມໄດ້ທີ່ <a "
-"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">ບົດຄວາມນີ້</a>"
+"ໂດຍສະເພາະໃນລະບົບທີ່ມີການຂຽນຂໍ້ມູນລົງໃນຕາຕະລາງ InnoDB ເປັນຈຳນວນຫຼາຍ, ເຈົ້າຄວນຕັ້ງຄ່າ "
+"{innodb_log_file_size} ໃຫ້ເປັນ 25% ຂອງ {innodb_buffer_pool_size}. ແນວໃດກໍຕາມ, ຍິ່ງ"
+"ຄ່ານີ້ໃຫຍ່ເທົ່າໃດ ເວລາໃນການກູ້ຄືນກໍຈະຍິ່ງດົນຂຶ້ນເທົ່ານັ້ນເມື່ອຖານຂໍ້ມູນຂັດຂ້ອງ, ດັ່ງນັ້ນ ຄ່ານີ້ບໍ່ຄວນຕັ້ງໃຫ້ສູງກວ່າ "
+"256 MiB ຫຼາຍເກີນໄປ. ແຕ່ກະລຸນາຮັບຊາບວ່າ ເຈົ້າບໍ່ສາມາດປ່ຽນຄ່າຂອງຕົວປ່ຽນນີ້ໄດ້ໂດຍງ່າຍ. ເຈົ້າຈຳເປັນຕ້ອງ"
+"ປິດເຊີເວີ, ລຶບໄຟລ໌ລັອກ (log files) ຂອງ InnoDB ອອກ, ກຳນົດຄ່າໃໝ່ໃນ my.cnf, ເປີດເຊີເວີ, ແລ້ວກ"
+"ວດກາເບິ່ງລັອກຂໍ້ຜິດພາດ (error logs) ວ່າທຸກຢ່າງຮຽບຮ້ອຍດີຫຼືບໍ່ ເບິ່ງຕື່ມທີ່<a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">ບົດຄວາມນີ້</a>"
 
 #: libraries/advisory_rules_generic.php:626
 #: libraries/advisory_rules_generic.php:653
@@ -954,14 +954,15 @@ msgid ""
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"ໂດຍທົ່ວໄປແລ້ວພຽງແຕ່ຕັ້ງ {innodb_log_file_size} ເປັນ 25% ຂອງ "
-"{innodb_buffer_pool_size} ກໍພຽງພໍແລ້ວ. ການຕັ້ງຄ່າ {innodb_log_file_size} ທີ່ໃຫຍ່ຫຼາຍຈະເ"
-"ຮັດໃຫ້ການກູ້ຄືນຫຼັງຈາກຖານຂໍ້ມູນພັງນັ້ນຊ້າລົງຫຼາຍ. ເບິ່ງເພີ່ມເຕີມໄດ້ທີ່ <a href=\"https://"
-"www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">ບົດຄວາ"
-"ມນີ້</a>. ເຈົ້າຕ້ອງປິດເຊີເວີ, ລຶບໄຟລ໌ລັອກຂອງ InnoDB ອອກ, ຕັ້ງຄ່າໃໝ່ໃນ my.cnf, ເລີ່ມເຊີເວີໃໝ່, ແລ້ວ"
-"ກວດສອບ error logs ວ່າທຸກຢ່າງຮຽບຮ້ອຍດີບໍ່. ເບິ່ງເພີ່ມເຕີມໄດ້ທີ່ <a href=\"https://"
+"ໂດຍປົກກະຕິແລ້ວ ການຕັ້ງຄ່າ {innodb_log_file_size} ໃຫ້ເປັນ 25% ຂອງຂະໜາດ "
+"{innodb_buffer_pool_size} ແມ່ນພຽງພໍແລ້ວ. ການຕັ້ງຄ່າ {innodb_log_file_size} ທີ່ໃຫຍ່ຫຼາຍ "
+"ຈະເຮັດໃຫ້ເວລາໃນການກູ້ຄືນຂໍ້ມູນຊ້າລົງຢ່າງຫຼວງຫຼາຍ ຫຼັງຈາກທີ່ຖານຂໍ້ມູນຂັດຂ້ອງ. ເບິ່ງຕື່ມທີ່ <a "
+"href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">ບົດຄວາມນີ້</a>. ເຈົ້າຈຳເປັນຕ້ອງປິດເຊີເວີ, ລຶບໄຟລ໌ລັອກ (log files) "
+"ຂອງ InnoDB ອອກ, ກຳນົດຄ່າໃໝ່ໃນ my.cnf, ເປີດເຊີເວີ, ແລ້ວກວດກາເບິ່ງລັອກຂໍ້ຜິດພາດ (error "
+"logs) ວ່າທຸກຢ່າງຮຽບຮ້ອຍດີຫຼືບໍ່. ເບິ່ງຕື່ມທີ່ <a href=\"https://"
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">ບົດຄວາມນີ້</a>"
+"proper-way.html\">ບົດຄວາມໃນບລັອກນີ້</a>"
 
 #: libraries/advisory_rules_generic.php:676
 #, possible-php-format
@@ -990,13 +991,14 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
-"InnoDB buffer pool ມີຜົນກະທົບຢ່າງຫຼາຍຕໍ່ປະສິດທິພາບຂອງຕາຕະລາງ InnoDB. ໃຫ້ກຳນົດຄວາມຈຳທີ່ເຫຼືອທັ"
-"ງໝົດໃຫ້ກັບບັບເຟີນີ້. ສຳລັບເຊີເວີຖານຂໍ້ມູນທີ່ໃຊ້ສະເພາະ InnoDB ເປັນ Storage Engine ແລະ ບໍ່ມີບໍລິການອື່ນ"
-"ໆ (ເຊັ່ນ Web Server) ລັນຢູ່, ເຈົ້າອາດຈະຕັ້ງຄ່ານີ້ໄດ້ສູງເຖິງ 80% ຂອງຄວາມຈຳທີ່ມີຢູ່. ຖ້າບໍ່ແມ່ນແນວນັ້ນ, ເ"
-"ຈົ້າຕ້ອງປະເມີນການໃຊ້ຄວາມຈຳຂອງບໍລິການອື່ນໆ ແລະ ຕາຕະລາງທີ່ບໍ່ແມ່ນ InnoDB ຢ່າງລະມັດລະວັງ ແລະ ຕັ້ງຄ່າ"
-"ຕົວປ່ຽນນີ້ໃຫ້ເໝາະສົມ. ຖ້າຕັ້ງໄວ້ສູງເກີນໄປ, ລະບົບຈະເລີ່ມໃຊ້ Swapping ເຊິ່ງຈະເຮັດໃຫ້ປະສິດທິພາບຫຼຸດລົງຢ່າງ"
-"ຫຼວງຫຼາຍ. ເບິ່ງເພີ່ມເຕີມໄດ້ທີ່ <a href=\"https://www.percona.com/blog/2007/11/03/"
-"choosing-innodb_buffer_pool_size/\">ບົດຄວາມນີ້</a>"
+"InnoDB buffer pool ມີຜົນກະທົບຢ່າງຫຼວງຫຼາຍຕໍ່ປະສິດທິພາບຂອງຕາຕະລາງ InnoDB. ກຳນົດໜ່ວຍຄວາມຈຳທີ່"
+"ຍັງເຫຼືອທັງໝົດໃຫ້ກັບບັບເຟີ (buffer) ນີ້. ສຳລັບເຊີເວີຖານຂໍ້ມູນທີ່ໃຊ້ສະເພາະ InnoDB ເປັນຕົວຈັດເກັບຂໍ້ມູນ "
+"(storage engine) ແລະ ບໍ່ມີບໍລິການອື່ນ (ເຊັ່ນ: ເວັບເຊີເວີ) ແລ່ນຢູ່, ເຈົ້າອາດຈະຕັ້ງຄ່ານີ້ໃຫ້ສູງເຖິງ 80% "
+"ຂອງໜ່ວຍຄວາມຈຳທີ່ມີຢູ່. ຖ້າບໍ່ແມ່ນກໍລະນີນັ້ນ, ເຈົ້າຈຳເປັນຕ້ອງປະເມີນການນຳໃຊ້ໜ່ວຍຄວາມຈຳຂອງບໍລິການອື່ນໆ ແລ"
+"ະ ຕາຕະລາງທີ່ບໍ່ແມ່ນ InnoDB ຢ່າງລະມັດລະວັງ ແລະ ຕັ້ງຄ່າຕົວປ່ຽນນີ້ໃຫ້ເໝາະສົມ. ຖ້າຕັ້ງຄ່າສູງເກີນໄປ, ລະບົບ"
+"ຈະເລີ່ມໃຊ້ swapping ເຊິ່ງຈະເຮັດໃຫ້ປະສິດທິພາບຫຼຸດລົງຢ່າງຫຼວງຫຼາຍ. ເບິ່ງຕື່ມທີ່ <a href=\"https://"
+"www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">ບົດຄວາມນີ້</"
+"a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, possible-php-format
@@ -1012,7 +1014,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:707
 msgid "MyISAM concurrent inserts"
-msgstr "MyISAM concurrent inserts"
+msgstr "ການແຊກຂໍ້ມູນພ້ອມກັນຂອງ MyISAM"
 
 #: libraries/advisory_rules_generic.php:710
 msgid "Enable {concurrent_insert} by setting it to 1"
@@ -1117,10 +1119,12 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
-"ການແຕກແຍກທີ່ຮຸນແຮງອາດຈະເພີ່ມ Qcache_lowmem_prunes ຫຼາຍຂຶ້ນ. ສິ່ງນີ້ອາດຈະເກີດຈາກການ prunes "
-"ຍ້ອນຄວາມຈຳຕ່ຳ ເພາະ {query_cache_size} ນ້ອຍເກີນໄປ. ສຳລັບການແກ້ໄຂຊົ່ວຄາວທ່ານສາມາດ flush "
-"query cache ໄດ້ (ແຕ່ອາດຈະລັອກ query cache ໄວ້ດົນ). ການປັບ "
-"{query_cache_min_res_unit} ໃຫ້ຕ່ຳລົງກໍອາດຈະຊ່ວຍໄດ້."
+"ການແຕກແຍກຂອງຂໍ້ມູນຢ່າງຮຸນແຮງມີທ່າອ່ຽງທີ່ຈະເພີ່ມຄ່າ Qcache_lowmem_prunes (ຕື່ມອີກ). ສິ່ງນີ້ອາດເກີດຈ"
+"າກການຕັດຂໍ້ມູນອອກຈາກແຄສ໌ຄຳສັ່ງ (Query cache) ເລື້ອຍໆ ເນື່ອງຈາກ {query_cache_size} ມີຂະໜາດ"
+"ນ້ອຍເກີນໄປ. ສຳລັບການແກ້ໄຂແບບທັນທີແຕ່ມີຜົນພຽງໄລຍະສັ້ນ ເຈົ້າສາມາດລ້າງແຄສ໌ຄຳສັ່ງ (flush) ໄດ້ (ແຕ່ອາ"
+"ດຈະເຮັດໃຫ້ແຄສ໌ຄຳສັ່ງຖືກລັອກເປັນເວລາດົນ). ການປັບ {query_cache_min_res_unit} ໃຫ້ມີຄ່າຕ່ຳລົງຢ່າງ"
+"ລະມັດລະວັງກໍອາດຈະຊ່ວຍໄດ້ເຊັ່ນກັນ, ຕົວຢ່າງ: ເຈົ້າສາມາດຕັ້ງຄ່າມັນໃຫ້ເປັນຂະໜາດສະເລ່ຍຂອງຄຳສັ່ງໃນແຄສ໌ ໂດ"
+"ຍໃຊ້ສູດນີ້: (query_cache_size - qcache_free_memory) / qcache_queries_in_cache"
 
 #: libraries/advisory_rules_mysql_before80003.php:66
 #, possible-php-format
@@ -1134,7 +1138,7 @@ msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:73
 msgid "Query cache low memory prunes"
-msgstr "Query cache low memory prunes"
+msgstr "ການລຶບລ້າງຄຳສັ່ງໃນແຄຊ໌ຍ້ອນໜ່ວຍຄວາມຈຳຕ່ຳ"
 
 #: libraries/advisory_rules_mysql_before80003.php:77
 msgid ""
@@ -4446,7 +4450,7 @@ msgstr "Microsoft Word 2000"
 #: libraries/classes/Config/Forms/User/ExportForm.php:122
 #: libraries/classes/Config/Forms/User/ImportForm.php:52
 msgid "OpenDocument Spreadsheet"
-msgstr "OpenDocument Spreadsheet"
+msgstr "ສະເປຣດຊີດ OpenDocument"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:126
 msgid "OpenDocument Text"
@@ -4636,11 +4640,8 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
-"may cause random session invalidation (currently session.gc_maxlifetime is "
-"%5$d).\"\n"
-"msgstr \"%1$sອາຍຸຂອງຄຸກກີ້ການເຂົ້າລະບົບ%2$s ທີ່ຫຼາຍກວ່າ %3$ssession.gc_maxlifetime%4$s ອ"
-"າດຈະເຮັດໃຫ້ເຊດຊັນຖືກຍົກເລີກແບບສຸ່ມ (ໃນປັດຈຸບັນ session.gc_maxlifetime ແມ່ນ %5$d)."
+"%1$sອາຍຸການໃຊ້ງານຂອງຄຸກກີ້ການເຂົ້າລະບົບ%2$s ທີ່ຫຼາຍກວ່າ %3$ssession.gc_maxlifetime%4$s ອາ"
+"ດຈະເຮັດໃຫ້ເກີດການໝົດອາຍຸຂອງເຊດຊັນແບບສຸ່ມ (ປະຈຸບັນ session.gc_maxlifetime ແມ່ນ %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, possible-php-format
@@ -5250,8 +5251,8 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"ແຕ່ໃນການເຮັດວຽກຄັ້ງຫຼ້າສຸດບໍ່ມີຂໍ້ມູນໃດຖືກປະມວນຜົນ, ນີ້ອາດໝາຍຄວາມວ່າ phpMyAdmin ຈະບໍ່ສາມາດນຳເຂົ້າໃຫ້"
-"ສຳເລັດໄດ້ ເວັ້ນເສຍແຕ່ວ່າທ່ານຈະເພີ່ມຂີດຈຳກັດເວລາຂອງ PHP."
+"ແນວໃດກໍຕາມ ໃນການເຮັດວຽກຄັ້ງຫຼ້າສຸດບໍ່ມີຂໍ້ມູນໃດຖືກປະມວນຜົນ, ເຊິ່ງໝາຍຄວາມວ່າ phpMyAdmin ຈະບໍ່ສາມາດ"
+"ນຳເຂົ້າຂໍ້ມູນໃຫ້ສຳເລັດໄດ້ ນອກຈາກທ່ານຈະເພີ່ມກຳນົດເວລາຂອງ php."
 
 #: libraries/classes/Controllers/Import/ImportController.php:736
 #: libraries/classes/Controllers/Sql/SqlController.php:162
@@ -5675,8 +5676,9 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
-"ການຕັ້ງຄ່າການຈັດວາງແຜນພູມໃນບຣາວເຊີຂອງທ່ານບໍ່ເຂົ້າກັບເວີຊັນໃໝ່ອີກຕໍ່ໄປ. ເປັນໄປໄດ້ສູງວ່າການຕັ້ງຄ່າປັດຈຸບັນຈ"
-"ະໃຊ້ງານບໍ່ໄດ້. ກະລຸນາຕັ້ງຄ່າໃໝ່ເປັນຄ່າເລີ່ມຕົ້ນໃນເມນູ <i>ການຕັ້ງຄ່າ (Settings)</i>."
+"ການຕັ້ງຄ່າການຈັດວາງແຜນພູມໃນບ່ອນເກັບຂໍ້ມູນພາຍໃນ (local storage) ຂອງບຣາວເຊີຂອງທ່ານ ບໍ່ສາມາດເຂົ້"
+"າກັນໄດ້ກັບເວີຊັນໃໝ່ຂອງກ່ອງໂຕ້ຕອບການຕິດຕາມອີກຕໍ່ໄປ. ມີຄວາມເປັນໄປໄດ້ສູງວ່າການຕັ້ງຄ່າປັດຈຸບັນຂອງທ່ານຈະບໍ່ສ"
+"າມາດໃຊ້ງານໄດ້ອີກ. ກະລຸນາຕັ້ງຄ່າຂອງທ່ານຄືນໃໝ່ໃຫ້ເປັນຄ່າເລີ່ມຕົ້ນໃນເມນູ <i>ການຕັ້ງຄ່າ</i>."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:166
 msgid "Query cache efficiency"
@@ -7845,7 +7847,9 @@ msgstr ""
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
-msgstr "ອັດຕາການອ່ານບໍ່ພົບໃນແຄຊ໌ (Cache miss) ປຽບທຽບກັບການຮ້ອງຂໍທັງໝົດ."
+msgstr ""
+"ອັດຕາການພາດແຄຊ໌ຄີ (Key cache miss) ຄິດໄລ່ຈາກອັດຕາການອ່ານຈິງທຽບກັບການຮ້ອງຂໍການອ່ານ (ຄ່າທີ່ໄດ້ຈ"
+"າກການຄິດໄລ່)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The number of requests to write a key block to the cache."
@@ -7858,7 +7862,7 @@ msgstr "ຈຳນວນການຂຽນ key block ລົງໃນດິສກ�
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:425
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
-msgstr "ເປີເຊັນການຂຽນລົງດິສກ໌ແທ້ໆ ປຽບທຽບກັບການຮ້ອງຂໍຂຽນ (ຄ່າຈາກການຄິດໄລ່)."
+msgstr "ເປີເຊັນການຂຽນຈິງທຽບກັບການຮ້ອງຂໍການຂຽນ (ຄ່າທີ່ໄດ້ຈາກການຄິດໄລ່)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:427
 msgid ""
@@ -7956,13 +7960,17 @@ msgstr "ຈຳນວນການ join ທີ່ໃຊ້ການຄົ້ນຫ
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
-msgstr "ຈຳນວນການ join ທີ່ບໍ່ມີຄີ (key)."
+msgstr ""
+"ຈຳນວນການເຊື່ອມ (join) ໂດຍບໍ່ມີຄີ ທີ່ກວດສອບການໃຊ້ຄີຫຼັງຈາກແຕ່ລະແຖວ. (ຖ້າຄ່ານີ້ບໍ່ແມ່ນ 0, ທ່ານຄວນກວດ"
+"ສອບອິນເດັກ (index) ຂອງຕາຕະລາງໃຫ້ລະອຽດ.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:475
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
-msgstr "ຈຳນວນການ join ທີ່ໃຊ້ຊ່ວງ (ranges) ໃນຕາຕະລາງທຳອິດ."
+msgstr ""
+"ຈຳນວນການເຊື່ອມ (join) ທີ່ໃຊ້ຊ່ວງຂໍ້ມູນໃນຕາຕະລາງທຳອິດ. (ປົກກະຕິແລ້ວບໍ່ເປັນບັນຫາຮ້າຍແຮງ ເຖິງວ່າຈະມີຄ່"
+"າຫຼາຍກໍຕາມ.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:478
 msgid "The number of joins that did a full scan of the first table."
@@ -8045,11 +8053,14 @@ msgid ""
 "big, you may want to increase the thread_cache_size value. (Normally this "
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
-msgstr "ຈຳນວນ thread ທີ່ຖືກສ້າງຂຶ້ນເພື່ອຈັດການການເຊື່ອມຕໍ່."
+msgstr ""
+"ຈຳນວນເທຣດ (threads) ທີ່ຖືກສ້າງຂຶ້ນເພື່ອຈັດການການເຊື່ອມຕໍ່. ຫາກ Threads_created ມີຄ່າສູງ, ເຈົ້າອ"
+"າດຈະຕ້ອງເພີ່ມຄ່າຂອງ thread_cache_size. (ໂດຍປົກກະຕິແລ້ວ ສິ່ງນີ້ຈະບໍ່ໄດ້ຊ່ວຍໃຫ້ປະສິດທິພາບດີຂຶ້ນຢ່າງເຫັ"
+"ນໄດ້ຊັດເຈນ ຫາກເຈົ້າມີການຈັດການເທຣດທີ່ດີແລ້ວ.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:516
 msgid "Thread cache hit rate (calculated value)"
-msgstr "ອັດຕາການພົບຂໍ້ມູນໃນ thread cache (ຄ່າຈາກການຄິດໄລ່)."
+msgstr "ອັດຕາການພົບແຄຊ໌ເທຣດ (ຄ່າທີ່ໄດ້ຈາກການຄິດໄລ່)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:517
 msgid "The number of threads that are not sleeping."
@@ -9257,7 +9268,7 @@ msgstr "ຂໍ້ມູນ (Dump) ໄດ້ຖືກບັນທຶກລົງ�
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:997
 msgid "Exporting a raw query is not supported for this export method."
-msgstr "ການສົ່ງອອກຄຳສັ່ງ SQL ດິບ ບໍ່ຮອງຮັບກັບວິທີການສົ່ງອອກນີ້."
+msgstr "ການສົ່ງອອກຄຳສັ່ງສອບຖາມແບບດິບ ບໍ່ໄດ້ຮັບການຮອງຮັບສຳລັບວິທີການສົ່ງອອກນີ້."
 
 #: libraries/classes/File.php:231
 msgid "File was not an uploaded file."
@@ -9559,7 +9570,7 @@ msgstr "ກຳລັງສະແດງຄຳສັ່ງ SQL"
 #: libraries/classes/InsertEdit.php:1369 libraries/classes/Sql.php:987
 #, possible-php-format
 msgid "Inserted row id: %1$d"
-msgstr "ID ຂອງແຖວທີ່ແຊກເຂົ້າໄປ: %1$d"
+msgstr "ໄອດີຂອງແຖວທີ່ແຊກເຂົ້າໄປ: %1$d"
 
 #: libraries/classes/LanguageManager.php:982
 msgid "Ignoring unsupported language code."
@@ -11199,7 +11210,7 @@ msgstr "Schema ຂອງຖານຂໍ້ມູນ %s"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:163
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:541
 msgid "Relational schema"
-msgstr "Relational schema"
+msgstr "ໂຄງສ້າງແບບສຳພັນ"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:486
 msgid "Table of contents"
@@ -12125,11 +12136,11 @@ msgstr "ຂໍ້ມູນຊົ່ວຄາວ"
 
 #: libraries/classes/Server/Status/Data.php:154
 msgid "Delayed inserts"
-msgstr "Delayed inserts"
+msgstr "ການແຊກຂໍ້ມູນແບບດີເລ"
 
 #: libraries/classes/Server/Status/Data.php:155
 msgid "Key cache"
-msgstr "Key cache"
+msgstr "ແຄຊ໌ຄີ"
 
 #: libraries/classes/Server/Status/Data.php:156
 msgid "Joins"
@@ -12141,7 +12152,7 @@ msgstr "ການຈັດລຽງ"
 
 #: libraries/classes/Server/Status/Data.php:160
 msgid "Transaction coordinator"
-msgstr "Transaction coordinator"
+msgstr "ຜູ້ປະສານງານທຸລະກຳ"
 
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/server/binlog/index.twig:27
@@ -12171,7 +12182,7 @@ msgstr "ສະແດງສະຖານະ Replica"
 
 #: libraries/classes/Server/Status/Data.php:215
 msgid "Flush query cache"
-msgstr "Flush query cache"
+msgstr "ລ້າງແຄຊ໌ຄຳສັ່ງ"
 
 #: libraries/classes/Server/Status/Processes.php:119
 msgid "ID"
@@ -12447,11 +12458,11 @@ msgstr "ສົ່ງອອກເປັນ %s"
 
 #: libraries/classes/Tracking.php:521
 msgid "Data manipulation statement"
-msgstr "ຄຳສັ່ງຈັດການຂໍ້ມູນ (DML)"
+msgstr "ຄຳສັ່ງຈັດການຂໍ້ມູນ"
 
 #: libraries/classes/Tracking.php:557
 msgid "Data definition statement"
-msgstr "ຄຳສັ່ງກຳນົດໂຄງສ້າງຂໍ້ມູນ (DDL)"
+msgstr "ຄຳສັ່ງກຳນົດຂໍ້ມູນ"
 
 #: libraries/classes/Tracking.php:640
 #: templates/database/tracking/tables.twig:126
@@ -12466,11 +12477,11 @@ msgstr "ພາບຖ່າຍເວີຊັນ %s (ໂຄ້ດ SQL)"
 
 #: libraries/classes/Tracking.php:731
 msgid "Tracking data definition successfully deleted"
-msgstr "ລຶບຂໍ້ມູນການກຳນົດໂຄງສ້າງ (DDL) ທີ່ຕິດຕາມຢູ່ສຳເລັດແລ້ວ"
+msgstr "ລຶບການຕິດຕາມການກຳນົດຂໍ້ມູນສຳເລັດແລ້ວ"
 
 #: libraries/classes/Tracking.php:743
 msgid "Tracking data manipulation successfully deleted"
-msgstr "ລຶບຂໍ້ມູນການຈັດການຂໍ້ມູນ (DML) ທີ່ຕິດຕາມຢູ່ສຳເລັດແລ້ວ"
+msgstr "ລຶບການຕິດຕາມການຈັດການຂໍ້ມູນສຳເລັດແລ້ວ"
 
 #: libraries/classes/Tracking.php:800
 msgid ""
@@ -13284,7 +13295,7 @@ msgstr "ການກຳນົດສ່ວນ (PARTITION):"
 #: templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Online transaction"
+msgstr "ທຸລະກຳອອນລາຍ"
 
 #: templates/columns_definitions/column_definitions_form.twig:166
 msgid ""
@@ -13675,11 +13686,11 @@ msgstr "ສ້າງເວີຊັນ %1$s"
 
 #: templates/create_tracking_version.twig:21
 msgid "Track these data definition statements:"
-msgstr "ຕິດຕາມຄຳສັ່ງກຳນົດໂຄງສ້າງຂໍ້ມູນ (DDL) ເຫຼົ່ານີ້:"
+msgstr "ຕິດຕາມຄຳສັ່ງກຳນົດຂໍ້ມູນເຫຼົ່ານີ້:"
 
 #: templates/create_tracking_version.twig:60
 msgid "Track these data manipulation statements:"
-msgstr "ຕິດຕາມຄຳສັ່ງຈັດການຂໍ້ມູນ (DML) ເຫຼົ່ານີ້:"
+msgstr "ຕິດຕາມຄຳສັ່ງຈັດການຂໍ້ມູນເຫຼົ່ານີ້:"
 
 #: templates/create_tracking_version.twig:77
 msgid "Create version"
@@ -14184,7 +14195,7 @@ msgstr "ການສອບຖາມຫຼາຍຕາຕະລາງ"
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
 msgid "Query by example"
-msgstr "ການສອບຖາມຕາມຕົວຢ່າງ (QBE)"
+msgstr "ການສອບຖາມຕາມຕົວຢ່າງ"
 
 #: templates/database/multi_table_query/form.twig:17
 msgid "Query window"
@@ -14925,11 +14936,11 @@ msgstr "ເຊື່ອງການແປງໃນບຣາວເຊີ"
 
 #: templates/display/results/table.twig:182
 msgid "Well Known Text"
-msgstr "Well Known Text"
+msgstr "ຂໍ້ຄວາມມາດຕະຖານ"
 
 #: templates/display/results/table.twig:186
 msgid "Well Known Binary"
-msgstr "Well Known Binary"
+msgstr "ຂໍ້ມູນບານາຣີມາດຕະຖານ"
 
 #: templates/display/results/table.twig:258
 #: templates/sql/no_results_returned.twig:9
@@ -15141,11 +15152,11 @@ msgstr "ການບີບອັດ:"
 
 #: templates/export.twig:437
 msgid "zipped"
-msgstr "zipped"
+msgstr "ບີບອັດແບບ zip"
 
 #: templates/export.twig:443
 msgid "gzipped"
-msgstr "gzipped"
+msgstr "ບີບອັດແບບ gzip"
 
 #: templates/export.twig:461
 msgid "Export databases as separate files"
@@ -15291,7 +15302,7 @@ msgstr "ຄລິກທີ່ແຖບເພື່ອເລື່ອນຂຶ້
 
 #: templates/home/git_info.twig:2
 msgid "Git revision:"
-msgstr "Git revision:"
+msgstr "ລຸ້ນຂອງ Git:"
 
 #: templates/home/git_info.twig:13
 msgid "no branch"
@@ -15478,7 +15489,7 @@ msgstr "%s ຈາກ %s"
 #: templates/import/javascript.twig:14
 #, possible-php-format
 msgid "%s/sec."
-msgstr "%s/ວິນາທີ"
+msgstr "%s/ວິນາທີ."
 
 #: templates/import/javascript.twig:15
 msgid "About %MIN min. %SEC sec. remaining."
@@ -17494,7 +17505,7 @@ msgstr "ຕໍ່ວິນາທີ:"
 
 #: templates/server/status/queries/index.twig:37
 msgid "Statements"
-msgstr "Statements"
+msgstr "ຄຳສັ່ງ"
 
 #. l10n: # = Amount of queries
 #: templates/server/status/queries/index.twig:38
@@ -17534,12 +17545,14 @@ msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
-"ເຊີເວີ MySQL ນີ້ເຮັດວຽກເປັນທັງ <b>Primary</b> ແລະ <b>Replica</b> ໃນຂະບວນການສຳເນົາຂໍ້ມູນ."
+"ເຊີເວີ MySQL ນີ້ເຮັດວຽກເປັນ <b>ເຄື່ອງຫຼັກ</b> ແລະ <b>ເຄື່ອງສຳຮອງ</b> ໃນຂະບວນການ <b>ເຮັດຊຳ້ຂໍ້"
+"ມູນ</b>."
 
 #: templates/server/status/status/index.twig:61
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
-msgstr "ເຊີເວີ MySQL ນີ້ເຮັດວຽກເປັນ <b>Primary</b> ໃນຂະບວນການສຳເນົາຂໍ້ມູນ."
+msgstr ""
+"ເຊີເວີ MySQL ນີ້ເຮັດວຽກເປັນ <b>ເຄື່ອງຫຼັກ</b> ໃນຂະບວນການ <b>ເຮັດຊຳ້ຂໍ້ມູນ</b>."
 
 #: templates/server/status/status/index.twig:63
 msgid ""
