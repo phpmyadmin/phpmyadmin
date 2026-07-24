@@ -1515,7 +1515,10 @@ class Relation
     public function getDefaultPmaTableNames(array $tableNameReplacements): array
     {
         $pma_tables = [];
-        $create_tables_file = (string) file_get_contents(SQL_DIR . 'create_tables.sql');
+        // The sql/ directory may have been removed by the user (per FAQ 1.44),
+        // so don't emit a warning when the file is missing. The empty result
+        // signals to fixPmaTables() that no tables can be created.
+        $create_tables_file = (string) @file_get_contents(SQL_DIR . 'create_tables.sql');
 
         $queries = explode(';', $create_tables_file);
 
@@ -1645,6 +1648,26 @@ class Relation
                 if ($create) {
                     if ($createQueries == null) { // first create
                         $createQueries = $this->getDefaultPmaTableNames($tableNameReplacements);
+                        if ($createQueries === []) {
+                            // The SQL setup files (sql/create_tables.sql) are
+                            // missing — most likely the user removed the sql/
+                            // directory per FAQ 1.44 to save disk space. We
+                            // can't create the configuration storage without
+                            // them, so give the user a clear error rather than
+                            // a TypeError further down.
+                            $sqlDir = SQL_DIR . '';
+                            $GLOBALS['message'] = sprintf(
+                                __(
+                                    'Cannot create the phpMyAdmin configuration storage:'
+                                    . ' the SQL setup files in %s are missing. Please restore'
+                                    . ' the directory from the phpMyAdmin distribution.'
+                                ),
+                                $sqlDir
+                            );
+
+                            return;
+                        }
+
                         if (! $this->dbi->selectDb($db, DatabaseInterface::CONNECT_CONTROL)) {
                             $GLOBALS['message'] = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
 
