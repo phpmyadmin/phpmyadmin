@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-03-01 14:09+0000\n"
-"Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
+"PO-Revision-Date: 2026-07-25 10:01+0000\n"
+"Last-Translator: Rajkumar Ramadoss <lionrajkumar@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/4-9/ta/>"
 "\n"
 "Language: ta\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 2026.8.dev0\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -27,7 +27,8 @@ msgstr "தகா வகை!"
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "இந்த %s கோப்பு அமைப்பில் இல்லை, மேலும் தகவலுக்கு %s செல்லுங்கள்."
+msgstr ""
+"%s கோப்பு இந்த அமைப்பில் கிடைக்கவில்லை, மேலும் தகவல்களுக்கு %s தளத்தைப் பார்வையிடவும்."
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
@@ -304,7 +305,7 @@ msgstr "தரவு"
 #: templates/display/export/select_options.twig:4
 #: templates/database/search/selection_form.twig:32
 msgid "Select all"
-msgstr "அனைத்தையும் தெரிவு செய்க"
+msgstr "அனைத்தையும் தேர்ந்தெடுக்கவும்"
 
 #: db_operations.php:58 tbl_create.php:27
 msgid "The database name is empty!"
@@ -357,7 +358,7 @@ msgstr "அணுகல் மறுக்கப்பட்டது!"
 
 #: db_tracking.php:55 db_tracking.php:80
 msgid "Tracking data deleted successfully."
-msgstr "கண்காணிக்கும் தரவுகள் வெற்றிகரமாக அழிக்கப்பட்டது."
+msgstr "கண்காணிப்புத் தரவு வெற்றிகரமாக நீக்கப்பட்டது."
 
 #: db_tracking.php:64
 #, php-format
@@ -646,7 +647,7 @@ msgstr ""
 #: index.php:202 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
 msgid "phpMyAdmin Demo Server"
-msgstr "PHPMyAdmin செயல்விளக்க சேவையகம்"
+msgstr "phpMyAdmin செயல்விளக்க சேவையகம்"
 
 #: index.php:206 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
@@ -861,8 +862,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
-"$ Cfg ['tempdir'] (%s) அணுக முடியாது. Phpmyadmin வார்ப்புருக்களை கேச் செய்ய "
-"முடியவில்லை, இதன் காரணமாக மெதுவாக இருக்கும்."
+"$cfg['TempDir'] (%s)-ஐ அணுக முடியவில்லை. இதனால் phpMyAdmin-ஆல் வார்ப்புருக்களை "
+"தற்காலிகமாகச் சேமிக்க இயலாது, மேலும் அது மெதுவாகச் செயல்படும்."
 
 #: js/messages.php:42
 msgid "Confirm"
@@ -7140,9 +7141,8 @@ msgid ", @DATABASE@ will become the database name"
 msgstr ", @ தரவுத்தளம் @ தரவுத்தள பெயராக மாறும்"
 
 #: libraries/classes/Display/Export.php:336
-#, fuzzy
 msgid ", @TABLE@ will become the table name"
-msgstr ", @அட்டவணை@ அட்டவணை பெயராக மாறும்"
+msgstr ", @TABLE@ என்பது அட்டவணையின் பெயராக மாறும்"
 
 #: libraries/classes/Display/Export.php:342
 #, php-format
@@ -8606,7 +8606,7 @@ msgstr "மிகுதியான நெடுவரிசை இல்லை"
 
 #: libraries/classes/Normalization.php:324
 msgid "Move repeating groups"
-msgstr "மீண்டும் மீண்டும் குழுக்களை நகர்த்தவும்"
+msgstr "மீண்டும் வரும் குழுக்களை நகர்த்தவும்"
 
 #: libraries/classes/Normalization.php:327
 msgid ""
@@ -8750,17 +8750,16 @@ msgid "Find transitive dependencies"
 msgstr "நிலைபெறா சார்பு பட்டியலை கண்டறிக"
 
 #: libraries/classes/Normalization.php:800
-#, fuzzy
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
-"கீழேயுள்ள ஒவ்வொரு நெடுவரிசைக்கும், தயவுசெய்து கொடுக்கப்பட்ட தொகுப்பில் <b>குறைந்தபட்ச "
-"தொகுப்பு</b> ஐத் தேர்ந்தெடுக்கவும், அதன் மதிப்புகள் ஒன்றாக நெடுவரிசையின் மதிப்பைத் தீர்மானிக்க "
-"போதுமானவை. <br />குறிப்பு: ஒரு நெடுவரிசைக்கு இடைநிலை சார்பு இல்லை, அவ்வாறான நிலையில் "
-"நீங்கள் எதையும் தேர்ந்தெடுக்க வேண்டியதில்லை."
+"கீழே உள்ள ஒவ்வொரு நெடுவரிசைக்கும், கொடுக்கப்பட்ட தொகுப்பிலிருந்து, அவற்றின் மதிப்புகள் "
+"ஒன்றிணைந்து நெடுவரிசையின் மதிப்பைத் தீர்மானிக்கப் போதுமானதாக இருக்கும் நெடுவரிசைகளின் <b>"
+"குறைந்தபட்ச தொகுப்பை</b> தேர்ந்தெடுக்கவும்.<br />குறிப்பு: ஒரு நெடுவரிசைக்கு கடப்புச் "
+"சார்பு எதுவும் இல்லாமல் இருக்கலாம், அப்படியானால் நீங்கள் எதையும் தேர்ந்தெடுக்க வேண்டியதில்லை."
 
 #: libraries/classes/Normalization.php:849
 msgid ""
@@ -8866,9 +8865,8 @@ msgid "(singly)"
 msgstr "(ஒற்றை)"
 
 #: libraries/classes/Operations.php:843
-#, fuzzy
 msgid "Move table to (database<b>.</b>table)"
-msgstr "அட்டவணையை நகர்த்தவும் (தரவுத்தளம் <b>.</b> அட்டவணை)"
+msgstr "அட்டவணையை (database.table) க்கு நகர்த்தவும்"
 
 #: libraries/classes/Operations.php:948
 msgid "Rename table to"
@@ -8892,9 +8890,8 @@ msgid "Change all column collations"
 msgstr "அனைத்து நெடுவரிசை தொகைகளையும் மாற்றவும்"
 
 #: libraries/classes/Operations.php:1269
-#, fuzzy
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "அட்டவணையை நகலெடுக்கவும் (தரவுத்தளம் <b>. </b> அட்டவணை)"
+msgstr "அட்டவணையை (database.table) க்கு நகர்த்தவும்"
 
 #: libraries/classes/Operations.php:1339
 msgid "Switch to copied table"
@@ -9506,45 +9503,40 @@ msgid "Syntax to use when inserting data:"
 msgstr "தரவைச் செருகும்போது பயன்படுத்த தொடரியல்:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:415
-#, fuzzy
 msgid ""
 "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
-"ஒவ்வொரு <code>INSERT</code> அறிக்கை <br /> &nbsp; &nbsp; &nbsp; எடுத்துக்காட்டு: "
-"<code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code> இல் "
-"செருகவும்"
+"ஒவ்வொரு <code>INSERT</code> கூற்றிலும் நெடுவரிசைப் பெயர்களைச் சேர்க்கவும் <br /> "
+"&nbsp; &nbsp; &nbsp; எடுத்துக்காட்டு: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:420
-#, fuzzy
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
-"ஒவ்வொரு <code>INSERT</code> அறிக்கையிலும் பல வரிசைகளைச் செருகவும் <br /> &nbsp; "
+"ஒவ்வொரு <code>INSERT</code> கூற்றிலும் பல வரிசைகளைச் செருகுதல்<br /> &nbsp; "
 "&nbsp; &nbsp; எடுத்துக்காட்டு: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6)"
-", (7,8,9)</code> இல் செருகவும்"
+", (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:425
-#, fuzzy
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 "மேலே உள்ள இரண்டும் <br /> &nbsp; &nbsp; &nbsp; எடுத்துக்காட்டு: <code>INSERT INTO "
-"tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code> இல் "
-"செருகவும்"
+"tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:430
-#, fuzzy
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
-"மேலே உள்ள எதுவும் <br /> &nbsp; &nbsp; &nbsp; எடுத்துக்காட்டு: <code>INSERT INTO "
-"tbl_name VALUES (1,2,3)</code> இல் செருகவும்"
+"மேற்கண்டவற்றில் எதுவும் இல்லை <br /> &nbsp; &nbsp; &nbsp; எடுத்துக்காட்டு: <code>"
+"INSERT INTO tbl_name VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:449
 msgid ""
@@ -12177,9 +12169,9 @@ msgid "Show only active"
 msgstr "செயலில் மட்டும் காட்டு"
 
 #: libraries/classes/Server/Status/Queries.php:40
-#, fuzzy, php-format
+#, php-format
 msgid "Questions since startup: %s"
-msgstr "கேள்விகள் அறிவியல் தொடக்கங்கள்: %s"
+msgstr "துவக்கத்திலிருந்து கேள்விகள்: %s"
 
 #: libraries/classes/Server/Status/Queries.php:51
 msgid "per hour:"
@@ -13230,9 +13222,9 @@ msgid "Theme %s not found!"
 msgstr "கருப்பொருள் %s கிடைக்கவில்லை!"
 
 #: libraries/classes/ThemeManager.php:258
-#, fuzzy, php-format
+#, php-format
 msgid "Theme path not found for theme %s!"
-msgstr "கருப்பொருள் பாதை கருப்பொருள்களுக்கு %s கிடைக்கவில்லை!"
+msgstr "%s என்ற தீமின் பாதையைக் கண்டறிய முடியவில்லை!"
 
 #: libraries/classes/ThemeManager.php:348
 msgid "Theme:"
@@ -15431,8 +15423,9 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"இந்த அறிக்கையில் தானாகவே பிழை பற்றிய தரவு மற்றும் தொடர்புடைய உள்ளமைவு அமைப்புகள் பற்றிய "
-"தகவல்கள் அடங்கும். பிழையை பிழைத்திருத்துவதற்காக இது PHPMYADMIN குழுவுக்கு அனுப்பப்படும்."
+"இந்த அறிக்கை, பிழை குறித்த தரவுகளையும் தொடர்புடைய உள்ளமைவு அமைப்புகள் பற்றிய "
+"தகவல்களையும் தானாகவே உள்ளடக்கியுள்ளது. இது பிழையைச் சரிபார்ப்பதற்காக phpMyAdmin குழுவிற்கு "
+"அனுப்பப்படும்."
 
 #: templates/error/report_form.twig:12
 msgid ""
@@ -16340,7 +16333,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr "நேரம் நேரம் %s மட்டுமே"
+msgstr "செயல்பாட்டு நேரம் வெறும் %s மட்டுமே"
 
 #: libraries/advisory_rules_generic.txt:56
 msgid "Questions below 1,000"
@@ -16662,10 +16655,10 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
-"அதிக அளவு வரிசை வரிசையாக்கத்தில் எந்தத் தவறும் இல்லை என்றாலும், நிறைய வரிசையாக்க "
-"தேவைப்படும் வினவல்கள் குறியீட்டு நெடுவரிசைகளை வரிசையில் வரிசையில் பயன்படுத்துகின்றன "
-"என்பதை உறுதிப்படுத்த நீங்கள் விரும்பலாம், ஏனெனில் இது மிக விரைவான வரிசையாக்கத்தை "
-"ஏற்படுத்தும்."
+"அதிக அளவில் வரிசைகளை வரிசைப்படுத்துவதில் தவறில்லை என்றாலும், அதிக வரிசைப்படுத்தல் "
+"தேவைப்படும் வினவல்களில் ORDER BY பிரிவில் குறியிடப்பட்ட நெடுவரிசைகளைப் பயன்படுத்துவதை "
+"நீங்கள் உறுதிப்படுத்திக் கொள்ளலாம், ஏனெனில் இது மிகவும் வேகமான வரிசைப்படுத்தலுக்கு "
+"வழிவகுக்கும்."
 
 #: libraries/advisory_rules_generic.txt:173
 #, php-format
@@ -17455,9 +17448,9 @@ msgid "Query Cache usage"
 msgstr "வினவல் இடைமாற்றல் பாவனையளவு"
 
 #: libraries/advisory_rules_mysql_before80003.txt:27
-#, fuzzy, php-format
+#, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr "வினவல் தற்காலிக சேமிப்பில் 80%%றுக்கும் குறைவானது பயன்படுத்தப்படுகிறது."
+msgstr "வினவல் தற்காலிக சேமிப்பில் 80%%க்கும் குறைவாக பயன்படுத்தப்படுகிறது."
 
 #: libraries/advisory_rules_mysql_before80003.txt:28
 msgid ""
