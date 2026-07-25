@@ -197,7 +197,8 @@ cleanup_composer_vendors() {
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
         vendor/pragmarx/google2fa-qrcode/tests \
         vendor/slim/psr7/phpunit.xml.dist \
-        vendor/slim/psr7/tests/
+        vendor/slim/psr7/tests/ \
+        vendor/brick/math/codecov.yml
 
     rm \
         vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
