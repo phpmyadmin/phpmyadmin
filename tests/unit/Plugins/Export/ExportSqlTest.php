@@ -734,6 +734,7 @@ final class ExportSqlTest extends AbstractTestCase
 
     public function testGetTableDef(): void
     {
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         $exportSql = $this->getExportSql();
         $exportSql->sqlConstraints = null;
 
@@ -760,18 +761,15 @@ final class ExportSqlTest extends AbstractTestCase
                     FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON UPDATE CASCADE
             ) ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8
             SQL;
-        $isViewQuery = 'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'db\' AND TABLE_NAME = \'table\'';
 
         $dbiDummy = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy->addResult(
-            'SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'',
+            'SHOW TABLE STATUS FROM `db` WHERE `Name` = \'table\'',
             [['table', 'InnoDB', '10', 'Dynamic', '3', '5461', '16384', '0', '0', '0', '1', '2000-01-01 10:00:00', '2000-01-02 12:00:00', '2000-01-02 13:00:00', 'utf8mb4_general_ci', null, '', '', '0', 'N']],
             ['Name', 'Engine', 'Version', 'Row_format', 'Rows', 'Avg_row_length', 'Data_length', 'Max_data_length', 'Index_length', 'Data_free', 'Auto_increment', 'Create_time', 'Update_time', 'Check_time', 'Collation', 'Checksum', 'Create_options', 'Comment', 'Max_index_length', 'Temporary'],
         );
         // phpcs:enable
-        $dbiDummy->addResult($isViewQuery, []);
-        $dbiDummy->addResult($isViewQuery, []);
         $dbiDummy->addResult('USE `db`', true);
         $dbiDummy->addResult(
             'SHOW CREATE TABLE `db`.`table`',
@@ -811,14 +809,59 @@ final class ExportSqlTest extends AbstractTestCase
 
     public function testGetTableDefWithError(): void
     {
+        Config::getInstance()->selectedServer['DisableIS'] = true;
         ExportSql::$noConstraintsComments = false;
 
-        $isViewQuery = 'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'db\' AND TABLE_NAME = \'table\'';
-
         $dbiDummy = $this->createDbiDummy();
-        $dbiDummy->addResult('SHOW TABLE STATUS FROM `db` WHERE Name = \'table\'', []);
-        $dbiDummy->addResult($isViewQuery, []);
-        $dbiDummy->addResult($isViewQuery, []);
+        $dbiDummy->addResult(
+            'SHOW TABLE STATUS FROM `db` WHERE `Name` = \'table\'',
+            [
+                [
+                    'table',
+                    'InnoDB',
+                    '10',
+                    'Dynamic',
+                    '109',
+                    '150',
+                    '16384',
+                    '0',
+                    '0',
+                    '0',
+                    '110',
+                    '2011-12-13 14:15:16',
+                    null,
+                    null,
+                    'utf8mb4_general_ci',
+                    null,
+                    '',
+                    '',
+                    '0',
+                    'N',
+                ],
+            ],
+            [
+                'Name',
+                'Engine',
+                'Version',
+                'Row_format',
+                'Rows',
+                'Avg_row_length',
+                'Data_length',
+                'Max_data_length',
+                'Index_length',
+                'Data_free',
+                'Auto_increment',
+                'Create_time',
+                'Update_time',
+                'Check_time',
+                'Collation',
+                'Checksum',
+                'Create_options',
+                'Comment',
+                'Max_index_length',
+                'Temporary',
+            ],
+        );
         $dbiDummy->addResult('USE `db`', true);
         $dbiDummy->addResult('SHOW CREATE TABLE `db`.`table`', []);
         $dbiDummy->addErrorCode('error occurred');

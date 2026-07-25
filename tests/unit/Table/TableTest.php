@@ -1522,6 +1522,7 @@ class TableTest extends AbstractTestCase
         $targetDb = 'PMA_new';
 
         $getTableMap = [
+            [$sourceDb, $sourceTable, new Table($sourceTable, $sourceDb, $this->mockedDbi)],
             [$targetDb, $targetTable, new Table($targetTable, $targetDb, $this->mockedDbi)],
             ['aa', 'ad', new Table('ad', 'aa', $this->mockedDbi)],
         ];
@@ -1581,7 +1582,7 @@ class TableTest extends AbstractTestCase
                     $resultStub,
                 ],
                 [
-                    'SHOW TABLE STATUS FROM `aa` WHERE Name = \'ad\'',
+                    'SHOW TABLE STATUS FROM `aa` WHERE `Name` = \'ad\'',
                     ConnectionType::User,
                     false,
                     true,

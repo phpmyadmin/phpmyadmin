@@ -180,11 +180,9 @@ class TrackerTest extends AbstractTestCase
             ->with('pma_test', 'pma_tbl')
             ->willReturn($getIndexesResult);
 
-        $showTableStatusQuery = 'SHOW TABLE STATUS FROM `pma_test` WHERE Name = \'pma_tbl\'';
         $useStatement = 'USE `pma_test`';
         $showCreateTableQuery = 'SHOW CREATE TABLE `pma_test`.`pma_tbl`';
-        $dbi->expects(self::exactly(3))->method('tryQuery')->willReturnMap([
-            [$showTableStatusQuery, ConnectionType::User, false, true, $resultStub],
+        $dbi->expects(self::exactly(2))->method('tryQuery')->willReturnMap([
             [$useStatement, ConnectionType::User, false, true, $resultStub],
             [$showCreateTableQuery, ConnectionType::User, false, true, $resultStub],
         ]);

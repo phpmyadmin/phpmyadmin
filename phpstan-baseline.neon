@@ -1621,15 +1621,9 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Binary operation "\." between bool\|float\|int\|string and array\<string\>\|string\|false results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Binary operation "\." between non\-empty\-string and array\<string\>\|string\|false results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
+			count: 2
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -1753,12 +1747,6 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTablesFull\(\) expects array\<mixed\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Parameter \#2 \$tableName of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTable\(\) expects string, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 4
@@ -1772,6 +1760,12 @@ parameters:
 
 		-
 			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Charsets\:\:findCollationByName\(\) expects string, int\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Parameter \#3 \$tableGroup of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTablesFull\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php
@@ -4695,7 +4689,7 @@ parameters:
 		-
 			message: '#^Binary operation "\+" between int\|string\|null and int\|string\|null results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 3
+			count: 2
 			path: src/Dbal/DatabaseInterface.php
 
 		-
@@ -4728,12 +4722,6 @@ parameters:
 		-
 			message: '#^Cannot assign new offset to array\<string\|null\>\|string\|null\.$#'
 			identifier: offsetAssign.dimType
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
 
@@ -4786,12 +4774,6 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Only booleans are allowed in &&, int\|false given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 3
-			path: src/Dbal/DatabaseInterface.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 2
@@ -4822,18 +4804,6 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, Closure\(string\)\: non\-empty\-string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Parameter \#1 \$callback of function array_map expects \(callable\(mixed\)\: mixed\)\|null, Closure\(string, PhpMyAdmin\\Dbal\\ConnectionType\=\)\: non\-empty\-string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
 			message: '#^Parameter \#1 \$mode of static method PhpMyAdmin\\SqlParser\\Context\:\:setMode\(\) expects int\|string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4841,12 +4811,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$path of function basename expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Parameter \#1 \$string of function strtolower expects string, int\|string given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
@@ -16170,7 +16134,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
+			count: 3
 			path: tests/unit/Plugins/Export/ExportSqlTest.php
 
 		-
