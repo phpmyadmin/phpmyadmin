@@ -19,7 +19,7 @@ jobs:
         operating-system: [ubuntu-latest]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Fetch github.base_ref (for diffing)
         if: ${{ github.base_ref != '' }}
@@ -42,7 +42,7 @@ jobs:
           tools: composer:v2, infection
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           dependency-versions: highest
 

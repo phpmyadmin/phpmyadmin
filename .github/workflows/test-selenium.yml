@@ -24,7 +24,7 @@ jobs:
       tests: ${{ steps.tests-list.outputs.tests }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - id: tests-list
         name: Send test names to outputs
         run: |
@@ -78,7 +78,7 @@ jobs:
         include: ${{ fromJSON(needs.generate-matrix.outputs.tests) }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Install gettext
         run: sudo apt-get update && sudo apt-get install -y gettext
@@ -94,10 +94,10 @@ jobs:
           extensions: :opcache, mbstring, iconv, mysqli, zip, gd, bz2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Set up Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: '${{ env.node-version }}'
           cache: 'yarn'
