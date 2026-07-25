@@ -34,14 +34,14 @@ jobs:
           - ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 2
           persist-credentials: false
 
       - name: Checkout base ref code
         if: github.event_name == 'pull_request'
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.base_ref }}
           persist-credentials: false
@@ -60,7 +60,7 @@ jobs:
           tools: composer:v2, infection:0.27.11
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Run Infection for changed files only
         if: github.event_name == 'push' || github.event_name == 'pull_request'

@@ -28,7 +28,7 @@ jobs:
           - { php-version: '82', experimental: false, arch: 's390x', exclude-phpunit-groups: '--exclude-group extension-iconv --exclude-group 32bit-incompatible' }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
@@ -80,7 +80,7 @@ jobs:
             php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -100,7 +100,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           dependency-versions: ${{ matrix.composer-dependency }}
           composer-options: ${{ matrix.composer-options }}
@@ -142,7 +142,7 @@ jobs:
         extension: ["dbase"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -162,7 +162,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Run PHP tests
         run: composer run phpunit -- --testsuite unit
