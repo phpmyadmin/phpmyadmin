@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-03-01 07:09+0000\n"
-"Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
+"PO-Revision-Date: 2026-07-25 10:01+0000\n"
+"Last-Translator: Rajkumar Ramadoss <lionrajkumar@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
 "\n"
 "Language: ta\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.1-dev\n"
+"X-Generator: Weblate 2026.8.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -38,7 +38,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr "நேரம் நேரம் %s மட்டுமே"
+msgstr "செயல்பாட்டு நேரம் வெறும் %s மட்டுமே"
 
 #: libraries/advisory_rules_generic.php:22
 msgid "Questions below 1,000"
@@ -360,10 +360,10 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
-"அதிக அளவு வரிசை வரிசையாக்கத்தில் எந்தத் தவறும் இல்லை என்றாலும், நிறைய வரிசையாக்க "
-"தேவைப்படும் வினவல்கள் குறியீட்டு நெடுவரிசைகளை வரிசையில் வரிசையில் பயன்படுத்துகின்றன "
-"என்பதை உறுதிப்படுத்த நீங்கள் விரும்பலாம், ஏனெனில் இது மிக விரைவான வரிசையாக்கத்தை "
-"ஏற்படுத்தும்."
+"அதிக அளவில் வரிசைகளை வரிசைப்படுத்துவதில் தவறில்லை என்றாலும், அதிக வரிசைப்படுத்தல் "
+"தேவைப்படும் வினவல்களில் ORDER BY பிரிவில் குறியிடப்பட்ட நெடுவரிசைகளைப் பயன்படுத்துவதை "
+"நீங்கள் உறுதிப்படுத்திக் கொள்ளலாம், ஏனெனில் இது மிகவும் வேகமான வரிசைப்படுத்தலுக்கு "
+"வழிவகுக்கும்."
 
 #: libraries/advisory_rules_generic.php:242
 #, php-format
@@ -554,14 +554,14 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
-"{max_heap_table_size} மற்றும் {tmp_table_size fork ஐ அதிகரிப்பது உதவக்கூடும். "
-"இருப்பினும் சில தற்காலிக அட்டவணைகள் எப்போதும் வட்டுக்கு எழுதப்படுகின்றன, இந்த மாறிகளின் "
-"மதிப்பிலிருந்து சுயாதீனமாக. இவற்றை அகற்ற நீங்கள் அந்த நிலைமைகளைத் தவிர்ப்பதற்கு உங்கள் "
-"கேள்விகளை மீண்டும் எழுத வேண்டும் (ஒரு தற்காலிக அட்டவணைக்குள்: ஒரு குமிழ் அல்லது உரை "
-"நெடுவரிசையின் இருப்பு அல்லது 512 பைட்டுகளை விட பெரிய நெடுவரிசையின் இருப்பு) <a "
-"href = "
-"\"https: // dev.mysql.com/doc/refman/8.0/en/internal-temperory-tables.html\""
-">mysql ஆவணங்கள் </a>"
+"{max_heap_table_size} மற்றும் {tmp_table_size} ஆகியவற்றின் மதிப்புகளை அதிகரிப்பது "
+"உதவக்கூடும். இருப்பினும், இந்த மாறிகளின் மதிப்புகளைப் பொருட்படுத்தாமல், சில தற்காலிக "
+"அட்டவணைகள் (temporary tables) எப்போதும் வட்டில் (disk) எழுதப்படுகின்றன. இவற்றைத் "
+"தவிர்க்க, <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-"
+"tables.html\">MySQL ஆவணத்தில்</a> குறிப்பிடப்பட்டுள்ள நிபந்தனைகளை (அதாவது, தற்காலிக "
+"அட்டவணையில் BLOB அல்லது TEXT நெடுவரிசை இருத்தல் அல்லது 512 பைட்டுகளுக்கு மேற்பட்ட "
+"அளவுள்ள நெடுவரிசை இருத்தல் போன்றவை) தவிர்ப்பது போல உங்கள் வினவல்களை (queries) மாற்றி "
+"எழுத வேண்டியிருக்கும்."
 
 #: libraries/advisory_rules_generic.php:354
 #, php-format
@@ -5035,7 +5035,8 @@ msgstr "எந்த தரவுத்தளமும் தேர்ந்த�
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "இந்த %s கோப்பு அமைப்பில் இல்லை, மேலும் தகவலுக்கு %s செல்லுங்கள்."
+msgstr ""
+"%s கோப்பு இந்த அமைப்பில் கிடைக்கவில்லை, மேலும் தகவல்களுக்கு %s தளத்தைப் பார்வையிடவும்."
 
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:138
 #, php-format
@@ -5184,7 +5185,7 @@ msgstr "எந்த மாற்றமும் இல்லை"
 #: libraries/classes/Controllers/Database/TrackingController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:101
 msgid "Tracking data deleted successfully."
-msgstr "கண்காணிக்கும் தரவுகள் வெற்றிகரமாக அழிக்கப்பட்டது."
+msgstr "கண்காணிப்புத் தரவு வெற்றிகரமாக நீக்கப்பட்டது."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:88
 #, php-format
@@ -5350,8 +5351,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
-"$ Cfg ['tempdir'] (%s) அணுக முடியாது. Phpmyadmin வார்ப்புருக்களை கேச் செய்ய "
-"முடியவில்லை, இதன் காரணமாக மெதுவாக இருக்கும்."
+"$cfg['TempDir'] (%s)-ஐ அணுக முடியவில்லை. இதனால் phpMyAdmin-ஆல் வார்ப்புருக்களை "
+"தற்காலிகமாகச் சேமிக்க இயலாது, மேலும் அது மெதுவாகச் செயல்படும்."
 
 #: libraries/classes/Controllers/ImportController.php:109
 msgid "Incomplete params"
@@ -9867,7 +9868,7 @@ msgstr ""
 #: libraries/classes/Footer.php:82 templates/home/index.twig:18
 #: templates/login/form.twig:5
 msgid "phpMyAdmin Demo Server"
-msgstr "PHPMyAdmin செயல்விளக்க சேவையகம்"
+msgstr "phpMyAdmin செயல்விளக்க சேவையகம்"
 
 #: libraries/classes/Footer.php:91
 #, php-format
@@ -10612,7 +10613,7 @@ msgstr "மிகுதியான நெடுவரிசை இல்லை"
 
 #: libraries/classes/Normalization.php:369
 msgid "Move repeating groups"
-msgstr "மீண்டும் மீண்டும் குழுக்களை நகர்த்தவும்"
+msgstr "மீண்டும் வரும் குழுக்களை நகர்த்தவும்"
 
 #: libraries/classes/Normalization.php:372
 msgid ""
@@ -13053,9 +13054,9 @@ msgid "Theme %s not found!"
 msgstr "கருப்பொருள் %s கிடைக்கவில்லை!"
 
 #: libraries/classes/ThemeManager.php:245
-#, fuzzy, php-format
+#, php-format
 msgid "Theme path not found for theme %s!"
-msgstr "கருப்பொருள் பாதை கருப்பொருள்களுக்கு %s கிடைக்கவில்லை!"
+msgstr "%s என்ற தீமின் பாதையைக் கண்டறிய முடியவில்லை!"
 
 #: libraries/classes/ThemeManager.php:334
 msgid "Theme:"
@@ -14361,7 +14362,7 @@ msgstr "குறியீட்டு வரையறுக்கப்பட�
 #: templates/database/search/main.twig:43 templates/server/export/index.twig:12
 #: templates/server/replication/database_multibox.twig:7
 msgid "Select all"
-msgstr "அனைத்தையும் தெரிவுசெய்க"
+msgstr "அனைத்தையும் தேர்ந்தெடுக்கவும்"
 
 #: templates/database/designer/database_tables.twig:37
 msgid "Show/hide columns"
@@ -15354,8 +15355,9 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"இந்த அறிக்கையில் தானாகவே பிழை பற்றிய தரவு மற்றும் தொடர்புடைய உள்ளமைவு அமைப்புகள் பற்றிய "
-"தகவல்கள் அடங்கும். பிழையை பிழைத்திருத்துவதற்காக இது PHPMYADMIN குழுவுக்கு அனுப்பப்படும்."
+"இந்த அறிக்கை, பிழை குறித்த தரவுகளையும் தொடர்புடைய உள்ளமைவு அமைப்புகள் பற்றிய "
+"தகவல்களையும் தானாகவே உள்ளடக்கியுள்ளது. இது பிழையைச் சரிபார்ப்பதற்காக phpMyAdmin குழுவிற்கு "
+"அனுப்பப்படும்."
 
 #: templates/error/report_form.twig:12
 msgid ""
