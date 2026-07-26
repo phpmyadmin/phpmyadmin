@@ -167,7 +167,7 @@ final class Search
             // strings to numbers and numbers to strings as necessary
             // during the comparison
             if (
-                preg_match('@char|binary|blob|text|set|date|time|year|uuid@i', $types)
+                preg_match('@char|binary|blob|text|set|date|time|year|uuid|inet[46]@i', $types)
                 || mb_strpos(' ' . $func_type, 'LIKE')
             ) {
                 $quot = '\'';

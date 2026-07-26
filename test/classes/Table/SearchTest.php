@@ -203,6 +203,21 @@ class SearchTest extends AbstractTestCase
         );
     }
 
+    public function testBuildSqlQueryWithWhereClauseInet(): void
+    {
+        $_POST['zoom_submit'] = true;
+        $_POST['table'] = 'hosts';
+        $_POST['criteriaColumnNames'] = ['ipv4', 'ipv6'];
+        $_POST['criteriaColumnOperators'] = ['=', '='];
+        $_POST['criteriaValues'] = ['1.2.3.4', '2001:db8::1'];
+        $_POST['criteriaColumnTypes'] = ['inet4', 'inet6'];
+
+        self::assertSame(
+            "SELECT * FROM `hosts` WHERE `ipv4` = '1.2.3.4' AND `ipv6` = '2001:db8::1'",
+            $this->search->buildSqlQuery()
+        );
+    }
+
     public function testBuildSqlQueryWithoutConditions(): void
     {
         $_POST['db'] = 'opengis';
