@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-07-19 00:42+0000\n"
+"POT-Creation-Date: 2026-07-26 00:46+0000\n"
 "PO-Revision-Date: 2025-07-14 12:01+0000\n"
 "Last-Translator: \"Ali H.Abdulhadi\" <a.h.alsaady1998@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16032,7 +16032,7 @@ msgstr ""
 msgid "Error: Token mismatch"
 msgstr "خطأ: عدم تطابق الرمز المميز"
 
-#: src/I18n/LanguageManager.php:969
+#: src/I18n/LanguageManager.php:976
 msgid "Ignoring unsupported language code."
 msgstr "تجاهل رمز اللغة غير المدعوم ."
 

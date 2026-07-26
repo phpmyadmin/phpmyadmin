@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-07-19 00:42+0000\n"
+"POT-Creation-Date: 2026-07-26 00:46+0000\n"
 "PO-Revision-Date: 2026-07-25 10:01+0000\n"
 "Last-Translator: Rajkumar Ramadoss <lionrajkumar@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -3157,8 +3157,8 @@ msgid ""
 "team for debugging the error."
 msgstr ""
 "இந்த அறிக்கை, பிழை குறித்த தரவுகளையும் தொடர்புடைய உள்ளமைவு அமைப்புகள் பற்றிய "
-"தகவல்களையும் தானாகவே உள்ளடக்கியுள்ளது. இது பிழையைச் சரிபார்ப்பதற்காக phpMyAdmin குழுவிற்கு "
-"அனுப்பப்படும்."
+"தகவல்களையும் தானாகவே உள்ளடக்கியுள்ளது. இது பிழையைச் சரிபார்ப்பதற்காக phpMyAdmin "
+"குழுவிற்கு அனுப்பப்படும்."
 
 #: resources/templates/error/report_form.twig:9
 msgid ""
@@ -16237,7 +16237,7 @@ msgstr ""
 msgid "Error: Token mismatch"
 msgstr "பிழை: கிள்ளாக்கு பொருந்தாத தன்மை"
 
-#: src/I18n/LanguageManager.php:969
+#: src/I18n/LanguageManager.php:976
 msgid "Ignoring unsupported language code."
 msgstr "ஆதரிக்கப்படாத மொழி குறியீட்டை புறக்கணித்தல்."
 

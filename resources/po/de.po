@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-07-19 00:42+0000\n"
+"POT-Creation-Date: 2026-07-26 00:46+0000\n"
 "PO-Revision-Date: 2025-09-20 04:06+0000\n"
 "Last-Translator: Phil Jope <Phil.Jope@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16615,7 +16615,7 @@ msgstr ""
 msgid "Error: Token mismatch"
 msgstr "Fehler: Token stimmen nicht überein"
 
-#: src/I18n/LanguageManager.php:969
+#: src/I18n/LanguageManager.php:976
 msgid "Ignoring unsupported language code."
 msgstr "Ignoriere nicht unterstützten Sprach-Code."
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-07-19 00:42+0000\n"
+"POT-Creation-Date: 2026-07-26 00:46+0000\n"
 "PO-Revision-Date: 2023-02-17 01:47+0000\n"
 "Last-Translator: Anders Johansson <johansson@aljmedia.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -17259,7 +17259,7 @@ msgstr ""
 msgid "Error: Token mismatch"
 msgstr "Fel: Token matchningsfel"
 
-#: src/I18n/LanguageManager.php:969
+#: src/I18n/LanguageManager.php:976
 msgid "Ignoring unsupported language code."
 msgstr "Ignorera kod från icke-supportrade språk."
 
