@@ -437,6 +437,9 @@ class Types
             case 'JSON':
                 return __('Stores and enables efficient access to data in JSON (JavaScript Object Notation) documents');
 
+            case 'INET4':
+                return __('Intended for storage of IPv4 addresses');
+
             case 'INET6':
                 return __('Intended for storage of IPv6 addresses, as well as IPv4 '
                     . 'addresses assuming conventional mapping of IPv4 addresses '
@@ -503,6 +506,7 @@ class Types
             case 'LONGBLOB':
             case 'ENUM':
             case 'SET':
+            case 'INET4':
             case 'INET6':
                 return 'CHAR';
 
@@ -854,6 +858,11 @@ class Types
         ];
         if ($isMariaDB && $serverVersion >= 100500) {
             $stringTypes[] = '-';
+
+            if ($serverVersion >= 101000) {
+                $stringTypes[] = 'INET4';
+            }
+
             $stringTypes[] = 'INET6';
         }
 
