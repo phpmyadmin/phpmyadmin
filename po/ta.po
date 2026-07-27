@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-07-25 10:01+0000\n"
+"PO-Revision-Date: 2026-07-28 04:01+0000\n"
 "Last-Translator: Rajkumar Ramadoss <lionrajkumar@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/4-9/ta/>"
 "\n"
@@ -10312,7 +10312,8 @@ msgstr "மேம்பட்ட அம்சங்களை அமைப்ப�
 #: libraries/classes/Relation.php:376
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr "<code>%screate_tables.sql </code> உடன் தேவையான அட்டவணைகளை உருவாக்கவும்."
+msgstr ""
+"<code>%screate_tables.sql</code> ஐப் பயன்படுத்தி தேவையான அட்டவணைகளை உருவாக்கவும்."
 
 #: libraries/classes/Relation.php:381
 msgid "Create a pma user and give access to these tables."
@@ -10323,13 +10324,13 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"உள்ளமைவு கோப்பில் மேம்பட்ட அம்சங்களை இயக்கவும் (<code> config.inc.php </code>), "
-"எடுத்துக்காட்டாக <code> config.sample.inc.php </code> இலிருந்து தொடங்குவதன் மூலம்."
+"<code>config.sample.inc.php</code> கோப்பிலிருந்து தொடங்குவதன் மூலம், உள்ளமைவு "
+"கோப்பில் (<code>config.inc.php</code>) மேம்பட்ட அம்சங்களை இயக்கவும்."
 
 #: libraries/classes/Relation.php:389
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
-"புதுப்பிக்கப்பட்ட உள்ளமைவு கோப்பை ஏற்ற PHPMYADMIN க்கு மீண்டும் பதிவு செய்யுங்கள்."
+"புதுப்பிக்கப்பட்ட உள்ளமைவு கோப்பை ஏற்ற phpMyAdmin க்கு மீண்டும் பதிவு செய்யுங்கள்."
 
 #: libraries/classes/Relation.php:1750
 msgid "no description"
@@ -10553,8 +10554,8 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"உங்கள் உள்ளமைவு கோப்பில் (MY.CNF) தனித்துவமான சேவையக-ஐடி இருப்பதை உறுதிப்படுத்திக் "
-"கொள்ளுங்கள். இல்லையென்றால், பின்வரும் வரியை [mysqld] பிரிவில் சேர்க்கவும்:"
+"உங்கள் உள்ளமைவு கோப்பில் (my.cnf) ஒரு தனித்துவமான சர்வர் ஐடி இருப்பதை உறுதிப்படுத்திக் "
+"கொள்ளுங்கள். இல்லையெனில், [mysqld] பிரிவில் பின்வரும் வரியைச் சேர்க்கவும்:"
 
 #: libraries/classes/ReplicationGui.php:420
 #: libraries/classes/ReplicationGui.php:795
@@ -11827,8 +11828,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
-"சேவையக நிலை மாறிகளை கணினி அறிவுறுத்துனர் முறைமையால் பகுப்பாய்வு செய்து\n"
-"சேவையக மாறிகள் தொடர்பான பரிந்துரைகளை வழங்க முடியும்."
+"ஆலோசகர் அமைப்பானது, சேவையக நிலை மாறிகளைப் பகுப்பாய்வு செய்வதன் மூலம், சேவையக மாறிகள் "
+"குறித்த பரிந்துரைகளை வழங்க முடியும்."
 
 #: libraries/classes/Server/Status/Advisor.php:41
 msgid ""
@@ -12013,9 +12014,9 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"உங்கள் உலாவி காண்பிக்கப்படும் அனைத்து விளக்கப்படங்களையும் வழக்கமான இடைவெளியில் புதுப்பிக்கும்"
-". நீங்கள் விளக்கப்படங்களைச் சேர்த்து, 'அமைப்புகள்' கீழ் புதுப்பிப்பு வீதத்தை மாற்றலாம் அல்லது "
-"அந்தந்த ஒவ்வொரு விளக்கப்படத்திலும் COG ஐகானைப் பயன்படுத்தி எந்த விளக்கப்படத்தையும் அகற்றலாம்."
+"உங்கள் உலாவி, காட்டப்படும் அனைத்து வரைபடங்களையும் ஒரு சீரான இடைவெளியில் புதுப்பிக்கும். "
+"'அமைப்புகள்' என்பதன் கீழ் நீங்கள் வரைபடங்களைச் சேர்க்கலாம் மற்றும் புதுப்பிப்பு விகிதத்தை மாற்றலாம், "
+"அல்லது அந்தந்த வரைபடங்களில் உள்ள பற்சக்கரச் சின்னத்தைப் பயன்படுத்தி எந்த வரைபடத்தையும் அகற்றலாம்."
 
 #: libraries/classes/Server/Status/Monitor.php:144
 msgid ""
@@ -14707,7 +14708,7 @@ msgstr "நெடுவரிசை \"%s\" க்கு ஒரு விரு�
 #: templates/display/export/options_quick_export.twig:8
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "கோப்பகத்தில் சேவையகத்தில் சேமிக்கவும் <strong>%s </strong>"
+msgstr "சேவையகத்தில் <strong>%s</strong> கோப்பகத்தில் சேமிக்கவும்"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
@@ -15516,8 +15517,8 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"சுருக்கப்பட்ட கோப்பின் பெயர் <strong> இல் முடிவடைய வேண்டும். [வடிவம்]. [சுருக்க] </"
-"strong>. எடுத்துக்காட்டு: <strong> .sql.zip </strong>"
+"ஒரு சுருக்கப்பட்ட கோப்பின் பெயர் <strong>.[format].[compression]</strong> என்பதில் "
+"முடிவடைய வேண்டும். எடுத்துக்காட்டு: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
