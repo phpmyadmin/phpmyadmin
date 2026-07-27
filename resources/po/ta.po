@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-07-26 00:46+0000\n"
-"PO-Revision-Date: 2026-07-25 10:01+0000\n"
+"PO-Revision-Date: 2026-07-28 04:01+0000\n"
 "Last-Translator: Rajkumar Ramadoss <lionrajkumar@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -3278,7 +3278,7 @@ msgstr "வெளியீடு:"
 #: resources/templates/export.twig:169 resources/templates/export.twig:364
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "கோப்பகத்தில் சேவையகத்தில் சேமிக்கவும் <strong>%s </strong>"
+msgstr "சேவையகத்தில் <strong>%s</strong> கோப்பகத்தில் சேமிக்கவும்"
 
 #: resources/templates/export.twig:176 resources/templates/export.twig:371
 #: src/Config/Descriptions.php:679 src/Config/Descriptions.php:682
@@ -3407,7 +3407,7 @@ msgstr "இடங்களை விட பெரிய அட்டவணைய
 
 #: resources/templates/export.twig:470
 msgid "The size is measured in MiB."
-msgstr "அளவு MIB இல் அளவிடப்படுகிறது."
+msgstr "அளவு MiB இல் அளவிடப்படுகிறது."
 
 #: resources/templates/export.twig:476 resources/templates/import.twig:173
 msgid "Format-specific options:"
@@ -3667,8 +3667,8 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"சுருக்கப்பட்ட கோப்பின் பெயர் <strong> இல் முடிவடைய வேண்டும். [வடிவம்]. [சுருக்க] </"
-"strong>. எடுத்துக்காட்டு: <strong> .sql.zip </strong>"
+"ஒரு சுருக்கப்பட்ட கோப்பின் பெயர் <strong>.[format].[compression]</strong> என்பதில் "
+"முடிவடைய வேண்டும். எடுத்துக்காட்டு: <strong>.sql.zip</strong>"
 
 #: resources/templates/import.twig:37
 msgid "Upload a file"
@@ -4409,7 +4409,8 @@ msgstr "மேம்பட்ட அம்சங்களை அமைப்ப�
 #: resources/templates/relation/check_relations.twig:523
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr "<code>%screate_tables.sql </code> உடன் தேவையான அட்டவணைகளை உருவாக்கவும்."
+msgstr ""
+"<code>%screate_tables.sql</code> ஐப் பயன்படுத்தி தேவையான அட்டவணைகளை உருவாக்கவும்."
 
 #: resources/templates/relation/check_relations.twig:527
 msgid "Create a pma user and give access to these tables."
@@ -4420,12 +4421,13 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"உள்ளமைவு கோப்பில் மேம்பட்ட அம்சங்களை இயக்கவும் (<code> config.inc.php </code>), "
-"எடுத்துக்காட்டாக <code> config.sample.inc.php </code> இலிருந்து தொடங்குவதன் மூலம்."
+"<code>config.sample.inc.php</code> கோப்பிலிருந்து தொடங்குவதன் மூலம், உள்ளமைவு "
+"கோப்பில் (<code>config.inc.php</code>) மேம்பட்ட அம்சங்களை இயக்கவும்."
 
 #: resources/templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr "புதுப்பிக்கப்பட்ட உள்ளமைவு கோப்பை ஏற்ற PHPMYADMIN க்கு மீண்டும் பதிவு செய்யுங்கள்."
+msgstr ""
+"புதுப்பிக்கப்பட்ட உள்ளமைவு கோப்பை ஏற்ற phpMyAdmin க்கு மீண்டும் பதிவு செய்யுங்கள்."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:494
 #: src/Server/Status/Data.php:119 src/Util.php:1386
@@ -4756,8 +4758,9 @@ msgid ""
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"இந்த முறைக்கு '<em> SSL இணைப்பு </em>' அல்லது '<em> மறைகுறியாக்கப்பட்ட இணைப்பு, இது "
-"RSA </em>' ஐப் பயன்படுத்தி கடவுச்சொல்லை குறியாக்குகிறது; சேவையகத்துடன் இணைக்கும்போது."
+"சேவையகத்துடன் (server) இணையும்போது, இந்த முறைக்கு '<em>SSL இணைப்பு</em>' அல்லது "
+"'<em>RSA-வைப் பயன்படுத்தி கடவுச்சொல்லை மறைகுறியாக்கம் செய்யும் மறைகுறியாக்கப்படாத இணைப்பு</"
+"em>' ஆகியவற்றில் ஒன்றைப் பயன்படுத்துவது அவசியமாகும்."
 
 #: resources/templates/server/privileges/choose_user_group.twig:5
 msgid "User group:"
@@ -5385,8 +5388,8 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"உங்கள் உள்ளமைவு கோப்பில் (MY.CNF) தனித்துவமான சேவையக-ஐடி இருப்பதை உறுதிப்படுத்திக் "
-"கொள்ளுங்கள். இல்லையென்றால், பின்வரும் வரியை [mysqld] பிரிவில் சேர்க்கவும்:"
+"உங்கள் உள்ளமைவு கோப்பில் (my.cnf) ஒரு தனித்துவமான சர்வர் ஐடி இருப்பதை உறுதிப்படுத்திக் "
+"கொள்ளுங்கள். இல்லையெனில், [mysqld] பிரிவில் பின்வரும் வரியைச் சேர்க்கவும்:"
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
@@ -5415,7 +5418,7 @@ msgstr "சலுகைகள் இல்லை"
 #: resources/templates/server/replication/primary_add_replica_user.twig:11
 #: resources/templates/server/replication/primary_replication.twig:44
 msgid "Add replica replication user"
-msgstr "பிரதி பிரதி பயனரைச் சேர்க்கவும்"
+msgstr "நகல் பிரதிபலிப்புப் பயனரைச் சேர்க்கவும்"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:21
 #: resources/templates/server/replication/primary_add_replica_user.twig:40
@@ -5483,9 +5486,9 @@ msgid ""
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
-"நீங்கள் MySQL சேவையகத்தை மறுதொடக்கம் செய்தவுடன், GO பொத்தானைக் சொடுக்கு செய்க. பின்னர், "
-"இந்த சேவையகம் <strong> </strong> முதன்மை என கட்டமைக்கப்பட்டுள்ளது என்பதை உங்களுக்குத் "
-"தெரிவிக்கும் ஒரு செய்தியை நீங்கள் காண வேண்டும்."
+"நீங்கள் MySQL சேவையகத்தை மறுதொடக்கம் செய்தவுடன், Go பொத்தானை அழுத்தவும். அதன் பிறகு, இந்த "
+"சேவையகம் <strong>முதன்மை சேவையகமாக உள்ளமைக்கப்பட்டுள்ளது</strong> என்பதைத் தெரிவிக்கும் "
+"ஒரு செய்தியை நீங்கள் காண்பீர்கள்."
 
 #: resources/templates/server/replication/primary_replication.twig:5
 msgid "This server is configured as primary in a replication process."
@@ -5627,8 +5630,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
-"சேவையக நிலை மாறிகளை கணினி அறிவுறுத்துனர் முறைமையால் பகுப்பாய்வு செய்து\n"
-"சேவையக மாறிகள் தொடர்பான பரிந்துரைகளை வழங்க முடியும்."
+"ஆலோசகர் அமைப்பானது, சேவையக நிலை மாறிகளைப் பகுப்பாய்வு செய்வதன் மூலம், சேவையக மாறிகள் "
+"குறித்த பரிந்துரைகளை வழங்க முடியும்."
 
 #: resources/templates/server/status/advisor/index.twig:27
 msgid ""
@@ -5816,10 +5819,9 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"உங்கள் உலாவி காண்பிக்கப்படும் அனைத்து விளக்கப்படங்களையும் வழக்கமான இடைவெளியில் "
-"புதுப்பிக்கும். நீங்கள் விளக்கப்படங்களைச் சேர்த்து, 'அமைப்புகள்' கீழ் புதுப்பிப்பு வீதத்தை "
-"மாற்றலாம் அல்லது அந்தந்த ஒவ்வொரு விளக்கப்படத்திலும் COG ஐகானைப் பயன்படுத்தி எந்த "
-"விளக்கப்படத்தையும் அகற்றலாம்."
+"உங்கள் உலாவி, காட்டப்படும் அனைத்து வரைபடங்களையும் ஒரு சீரான இடைவெளியில் புதுப்பிக்கும். "
+"'அமைப்புகள்' என்பதன் கீழ் நீங்கள் வரைபடங்களைச் சேர்க்கலாம் மற்றும் புதுப்பிப்பு விகிதத்தை மாற்றலாம், "
+"அல்லது அந்தந்த வரைபடங்களில் உள்ள பற்சக்கரச் சின்னத்தைப் பயன்படுத்தி எந்த வரைபடத்தையும் அகற்றலாம்."
 
 #: resources/templates/server/status/monitor/index.twig:104
 msgid ""
@@ -6132,8 +6134,8 @@ msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
-"இந்த MySQL சேவையகம் <b> முதன்மை </b> மற்றும் <b> பிரதி </b> <b> பிரதி </b> "
-"செயல்பாட்டில் செயல்படுகிறது."
+"இந்த MySQL சேவையகம், <b>பிரதிசெய்தல் செயல்பாட்டில்</b> <b>முதன்மை</b> மற்றும் <b>பிரதி</"
+"b> சேவையகமாகச் செயல்படுகிறது."
 
 #: resources/templates/server/status/status/index.twig:61
 msgid ""
