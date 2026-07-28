@@ -211,14 +211,13 @@ class TrackerTest extends AbstractTestCase
             ->with('pma_test', 'pma_tbl')
             ->will($this->returnValue($getIndexesResult));
 
-        $dbi->expects($this->exactly(3))
+        $dbi->expects($this->exactly(2))
             ->method('tryQuery')
             ->withConsecutive(
-                ["SHOW TABLE STATUS FROM `pma_test` WHERE Name = 'pma_tbl'"],
                 ['USE `pma_test`'],
                 ['SHOW CREATE TABLE `pma_test`.`pma_tbl`']
             )
-            ->willReturnOnConsecutiveCalls($resultStub, $resultStub, $resultStub);
+            ->willReturnOnConsecutiveCalls($resultStub, $resultStub);
 
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValue($resultStub));
