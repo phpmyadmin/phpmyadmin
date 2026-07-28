@@ -61,6 +61,11 @@
     margin: 0;
     padding: 0;
     list-style: none;
+
+    /* indent options nested in an optgroup relative to their group label, like a native select does */
+    .searchable-select-option {
+      padding-left: 1.5em;
+    }
   }
 
   .searchable-select-option {
