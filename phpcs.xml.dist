@@ -7,30 +7,87 @@
     <arg name="colors"/>
     <arg name="extensions" value="php"/>
 
-    <file>.</file>
     <!-- Make sniff report relative -->
     <arg name="basepath" value="."/>
 
-    <exclude-pattern>*/build/*</exclude-pattern>
-    <exclude-pattern>*/config.inc.php</exclude-pattern>
-    <exclude-pattern>*/libraries/cache/*</exclude-pattern>
-    <exclude-pattern>*/app/cache/*</exclude-pattern>
-    <exclude-pattern>*/libraries/language_stats.inc.php</exclude-pattern>
-    <exclude-pattern>*/node_modules/*</exclude-pattern>
-    <exclude-pattern>*/test/doctum-config.php</exclude-pattern>
-    <exclude-pattern>*/revision-info.php</exclude-pattern>
-    <exclude-pattern>*/tmp/*</exclude-pattern>
-    <exclude-pattern>*/twig-templates/*</exclude-pattern>
-    <exclude-pattern>*/vendor/*</exclude-pattern>
-    <exclude-pattern>*/.git/*</exclude-pattern>
+    <file>config.sample.inc.php</file>
+    <file>examples</file>
+    <file>index.php</file>
+    <file>js/messages.php</file>
+    <file>libraries</file>
+    <file>scripts</file>
+    <file>setup</file>
+    <file>show_config_errors.php</file>
+    <file>test</file>
+    <file>url.php</file>
+
+    <exclude-pattern>libraries/cache/*</exclude-pattern>
+    <exclude-pattern>libraries/language_stats.inc.php</exclude-pattern>
+    <exclude-pattern>test/doctum-config.php</exclude-pattern>
 
     <rule ref="PhpMyAdmin"/>
 
+    <rule ref="SlevomatCodingStandard.Classes.DisallowStringExpressionPropertyFetch.DisallowedStringExpressionPropertyFetch">
+        <exclude-pattern>libraries/classes/Plugins/Import/ImportOds.php</exclude-pattern>
+        <exclude-pattern>libraries/classes/Plugins/Import/ImportXml.php</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.InvalidFormat">
+        <exclude-pattern>libraries/classes/Plugins/Export/ExportSql.php</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.ControlStructures.EarlyExit.UselessElse">
+        <exclude-pattern>libraries/classes/Controllers/Import/ImportController.php</exclude-pattern>
+        <exclude-pattern>libraries/classes/Controllers/Preferences/ManageController.php</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName">
+        <exclude-pattern>libraries/services.php</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.PHP.RequireNowdoc.RequiredNowdoc">
+        <exclude-pattern>libraries/classes/OpenDocument.php</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation">
+        <exclude-pattern>libraries/classes/Controllers/Server/ShowEngineController.php</exclude-pattern>
+        <exclude-pattern>libraries/classes/Plugins/Export/Helpers/Pdf.php</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Whitespaces.DuplicateSpaces.DuplicateSpaces">
+        <exclude-pattern>libraries/classes/Controllers/HomeController.php</exclude-pattern>
+        <exclude-pattern>test/classes/Stubs/DbiDummy.php</exclude-pattern>
+    </rule>
     <rule ref="Squiz.Classes.ValidClassName.NotCamelCaps">
-        <exclude-pattern>*/libraries/classes/Plugins/Transformations/*</exclude-pattern>
+        <exclude-pattern>libraries/classes/Plugins/Transformations/*</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.PHP.GlobalKeyword">
+        <exclude-pattern>libraries/classes/*</exclude-pattern>
+        <exclude-pattern>test/*</exclude-pattern>
+        <exclude-pattern>index.php</exclude-pattern>
+        <exclude-pattern>js/messages.php</exclude-pattern>
+        <exclude-pattern>setup/index.php</exclude-pattern>
     </rule>
 
     <!-- Rules that should be followed, but are not required -->
+    <rule ref="SlevomatCodingStandard.Classes.ConstantSpacing.IncorrectCountOfBlankLinesAfterConstant">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.ParentCallSpacing.IncorrectLinesCountAfterControlStructure">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.ParentCallSpacing.IncorrectLinesCountBeforeControlStructure">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.PropertySpacing.IncorrectCountOfBlankLinesAfterProperty">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.UselessFunctionDocComment.UselessDocComment">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.ControlStructures.RequireSingleLineCondition.RequiredSingleLineCondition">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Functions.RequireSingleLineCall.RequiredSingleLineCall">
+        <severity>4</severity>
+    </rule>
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators">
         <severity>4</severity>
     </rule>
@@ -47,6 +104,9 @@
         <severity>4</severity>
     </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.UselessAnnotation">
         <severity>4</severity>
     </rule>
     <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps">
