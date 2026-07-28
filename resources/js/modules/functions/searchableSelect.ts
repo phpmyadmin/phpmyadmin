@@ -167,7 +167,23 @@ function filterOptionsList ($wrapper: JQuery, query: string): void {
     const needle = query.trim().toLowerCase();
     let visibleCount = 0;
 
-    $menu.find('.searchable-select-option').each(function () {
+    /* options nested in an optgroup also match when the query matches their group's label */
+    $menu.find('.searchable-select-optgroup').each(function () {
+        const $group = $(this);
+        const groupLabelMatches = needle !== '' &&
+            $group.find('.searchable-select-optgroup-label').text().toLowerCase().indexOf(needle) > -1;
+
+        $group.find('.searchable-select-option').each(function () {
+            const matches = needle === '' || groupLabelMatches || $(this).text().toLowerCase().indexOf(needle) > -1;
+            $(this).toggleClass('d-none', ! matches);
+            if (matches) {
+                visibleCount++;
+            }
+        });
+    });
+
+    /* options that are not nested in any optgroup */
+    $menu.find('.searchable-select-options > .searchable-select-option').each(function () {
         const matches = needle === '' || $(this).text().toLowerCase().indexOf(needle) > -1;
         $(this).toggleClass('d-none', ! matches);
         if (matches) {
