@@ -1,0 +1,90 @@
+/**
+ * Searchable select boxes (select.search)
+ *
+ * The menu is moved to the end of the document body while open and positioned
+ * with `position: fixed` in JS, so it can escape scrollable/overflow ancestors.
+ * That is why its rules below are top-level instead of nested under
+ * `.searchable-select`.
+ */
+.searchable-select {
+  display: inline-block;
+
+  select.searchable-select-native {
+    display: none;
+  }
+
+  .searchable-select-toggle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    background-color: $input-bg;
+
+    .searchable-select-toggle-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+.searchable-select-menu {
+  display: none;
+  z-index: $zindex-modal + 10;
+  min-width: 12em;
+  max-height: 20em;
+  padding: 0.25rem;
+  overflow-y: auto;
+
+  &.show {
+    display: block;
+  }
+
+  .searchable-select-search {
+    margin-bottom: 0.25rem;
+  }
+
+  .searchable-select-options {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .searchable-select-optgroup-label {
+    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $dropdown-header-color;
+  }
+
+  .searchable-select-optgroup-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .searchable-select-option {
+    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    cursor: pointer;
+    border-radius: $border-radius-sm;
+
+    &.highlighted {
+      color: $dropdown-link-hover-color;
+      background-color: $dropdown-link-hover-bg;
+    }
+
+    &.selected {
+      font-weight: $font-weight-bold;
+    }
+
+    &.disabled {
+      color: $dropdown-link-disabled-color;
+      cursor: not-allowed;
+    }
+  }
+
+  .searchable-select-empty {
+    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    color: $dropdown-link-disabled-color;
+  }
+}
