@@ -137,20 +137,16 @@ class TypesTest extends AbstractTestCase
      *
      * @param string       $type   Type of field
      * @param bool         $null   Whether field can be NULL
-     * @param string|array $output Expected output
+     * @param list<string> $output Expected output
      *
      * @dataProvider providerForGetTypeOperators
      */
-    public function testGetTypeOperators(string $type, bool $null, $output): void
+    public function testGetTypeOperators(string $type, bool $null, array $output): void
     {
         self::assertSame($output, $this->object->getTypeOperators($type, $null));
     }
 
-    /**
-     * data provider for testGetTypeOperators
-     *
-     * @return array data for testGetTypeOperators
-     */
+    /** @return array<array-key, <array{string, bool, list<string>}> */
     public static function providerForGetTypeOperators(): array
     {
         return [
@@ -184,13 +180,25 @@ class TypesTest extends AbstractTestCase
                     'IS NULL',
                     'IS NOT NULL',
                 ],
+            ],
+            [
+                'int',
+                false,
                 [
-                    'int',
-                    false,
-                    [
-                        '=',
-                        '!=',
-                    ],
+                    '=',
+                    '>',
+                    '>=',
+                    '<',
+                    '<=',
+                    '!=',
+                    'LIKE',
+                    'LIKE %...%',
+                    'NOT LIKE',
+                    'NOT LIKE %...%',
+                    'IN (...)',
+                    'NOT IN (...)',
+                    'BETWEEN',
+                    'NOT BETWEEN',
                 ],
             ],
             [
