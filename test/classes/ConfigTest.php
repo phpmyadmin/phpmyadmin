@@ -17,14 +17,19 @@ use function file_put_contents;
 use function fileperms;
 use function get_defined_constants;
 use function realpath;
+use function restore_error_handler;
+use function set_error_handler;
 use function stristr;
 use function sys_get_temp_dir;
 use function tempnam;
 use function unlink;
 
 use const DIRECTORY_SEPARATOR;
+use const E_USER_ERROR;
+use const E_USER_WARNING;
 use const PHP_EOL;
 use const PHP_OS;
+use const PHP_VERSION_ID;
 use const TEST_PATH;
 
 /**
@@ -1029,19 +1034,23 @@ class ConfigTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @group with-trigger-error
-     * @requires PHPUnit < 10
-     */
     public function testCheckServersWithInvalidServer(): void
     {
-        $this->expectError();
-        $this->expectErrorMessage('Invalid server index: invalid');
-
         $this->object->settings['Servers'] = ['invalid' => ['host' => '127.0.0.1'], 1 => ['host' => '127.0.0.1']];
-        $this->object->checkServers();
-        $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
 
+        $message = '';
+        set_error_handler(static function (int $errno, string $errstr) use (&$message): bool {
+            $message = $errstr;
+
+            return true;
+        }, PHP_VERSION_ID < 80400 ? E_USER_ERROR : E_USER_WARNING);
+
+        $this->object->checkServers();
+        restore_error_handler();
+
+        self::assertSame('Invalid server index: invalid', $message);
+
+        $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
         self::assertSame($expected, $this->object->settings['Servers'][1]);
     }
 

@@ -70,13 +70,11 @@ jobs:
         php-version: ['7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
         experimental: [false]
         os: [ubuntu-latest]
-        phpunit-options: ['--testsuite unit']
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
           - php-version: '8.6'
             experimental: true
             os: ubuntu-latest
-            phpunit-options: '--configuration test/phpunit-php-nightly.xml'
             composer-options: '--ignore-platform-req=php+'
             php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
@@ -106,7 +104,7 @@ jobs:
           composer-options: ${{ matrix.composer-options }}
 
       - name: Run PHP tests
-        run: composer run phpunit -- ${{ matrix.phpunit-options }}
+        run: composer run phpunit -- --testsuite unit
 
       - name: Send coverage
         uses: codecov/codecov-action@v3
