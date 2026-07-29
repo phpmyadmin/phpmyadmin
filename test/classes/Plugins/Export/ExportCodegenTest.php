@@ -24,6 +24,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Plugins\Export\ExportCodegen
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportCodegen::class)]
 class ExportCodegenTest extends AbstractTestCase
 {
     /** @var ExportCodegen */

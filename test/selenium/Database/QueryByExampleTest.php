@@ -11,6 +11,7 @@ use function trim;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class QueryByExampleTest extends TestBase
 {
     /**

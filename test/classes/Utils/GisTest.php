@@ -14,6 +14,7 @@ use function hex2bin;
 /**
  * @covers \PhpMyAdmin\Utils\Gis
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Utils\Gis::class)]
 class GisTest extends AbstractTestCase
 {
     /**
@@ -24,6 +25,7 @@ class GisTest extends AbstractTestCase
      *
      * @dataProvider providerConvertToWellKnownText
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerConvertToWellKnownText')]
     public function testConvertToWellKnownText(
         string $expectedQuery,
         array $returnData,

@@ -22,6 +22,7 @@ use const JSON_UNESCAPED_SLASHES;
 /**
  * @covers \PhpMyAdmin\ErrorReport
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ErrorReport::class)]
 class ErrorReportTest extends AbstractTestCase
 {
     /** @var ErrorReport $errorReport */
@@ -346,6 +347,7 @@ class ErrorReportTest extends AbstractTestCase
      *
      * @dataProvider urlsToSanitize
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('urlsToSanitize')]
     public function testSanitizeUrl(string $url, array $result): void
     {
         // $this->errorReport->sanitizeUrl

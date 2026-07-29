@@ -13,6 +13,7 @@ use function str_repeat;
 /**
  * @covers \PhpMyAdmin\Sanitize
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Sanitize::class)]
 class SanitizeTest extends AbstractTestCase
 {
     /**
@@ -61,6 +62,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @dataProvider docLinks
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('docLinks')]
     public function testDoc(string $link, string $expected): void
     {
         self::assertSame(
@@ -165,6 +167,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @dataProvider providerTestSanitizeFileName
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerTestSanitizeFileName')]
     public function testSanitizeFilename(string $expected, string $input, bool $replaceDot): void
     {
         self::assertSame($expected, Sanitize::sanitizeFilename($input, $replaceDot));
@@ -197,6 +200,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @dataProvider variables
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('variables')]
     public function testGetJsValue(string $key, $value, string $expected): void
     {
         self::assertSame($expected, Sanitize::getJsValue($key, $value));
@@ -272,6 +276,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @dataProvider escapeDataProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('escapeDataProvider')]
     public function testEscapeJsString(string $target, string $source): void
     {
         self::assertSame($target, Sanitize::escapeJsString($source));
@@ -447,6 +452,7 @@ class SanitizeTest extends AbstractTestCase
      *
      * @dataProvider dataProviderCheckLinks
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderCheckLinks')]
     public function testCheckLink(bool $expected, string $url, bool $http, bool $other): void
     {
         self::assertSame($expected, Sanitize::checkLink($url, $http, $other));

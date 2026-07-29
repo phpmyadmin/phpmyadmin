@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeView
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Nodes\NodeView::class)]
 class NodeViewTest extends AbstractTestCase
 {
     /**

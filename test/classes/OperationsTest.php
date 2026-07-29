@@ -12,6 +12,7 @@ use function array_merge;
 /**
  * @covers \PhpMyAdmin\Operations
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Operations::class)]
 class OperationsTest extends AbstractTestCase
 {
     /** @var Operations */
@@ -29,6 +30,7 @@ class OperationsTest extends AbstractTestCase
     /**
      * @dataProvider providerGetPartitionMaintenanceChoices
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetPartitionMaintenanceChoices')]
     public function testGetPartitionMaintenanceChoices(string $tableName, array $extraChoice): void
     {
         global $db, $table;

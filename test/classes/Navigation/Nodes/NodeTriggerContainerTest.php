@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeTriggerContainer
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Nodes\NodeTriggerContainer::class)]
 class NodeTriggerContainerTest extends AbstractTestCase
 {
     /**

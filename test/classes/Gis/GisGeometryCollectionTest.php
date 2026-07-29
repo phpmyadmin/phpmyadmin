@@ -14,6 +14,7 @@ use function preg_match;
 /**
  * @covers \PhpMyAdmin\Gis\GisGeometryCollection
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Gis\GisGeometryCollection::class)]
 class GisGeometryCollectionTest extends AbstractTestCase
 {
     /** @var GisGeometryCollection */
@@ -47,6 +48,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForScaleRow
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForScaleRow')]
     public function testScaleRow(string $spatial, array $output): void
     {
         self::assertEquals($output, $this->object->scaleRow($spatial));
@@ -82,6 +84,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForGenerateWkt
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForGenerateWkt')]
     public function testGenerateWkt(array $gis_data, int $index, ?string $empty, string $output): void
     {
         self::assertSame($output, $this->object->generateWkt($gis_data, $index, $empty));
@@ -195,6 +198,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForGenerateParams
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForGenerateParams')]
     public function testGenerateParams(string $value, array $output): void
     {
         self::assertSame($output, $this->object->generateParams($value));
@@ -235,6 +239,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
     /**
      * @requires extension gd
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
@@ -261,6 +266,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -306,6 +312,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -360,6 +367,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForPrepareRowAsOl
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,

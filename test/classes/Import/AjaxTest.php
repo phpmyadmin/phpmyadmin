@@ -10,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \PhpMyAdmin\Import\Ajax
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Import\Ajax::class)]
 class AjaxTest extends TestCase
 {
     public function testNopluginCheck(): void

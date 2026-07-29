@@ -11,6 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Server\SysInfo\SysInfo
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Server\SysInfo\SysInfo::class)]
 class SysInfoTest extends AbstractTestCase
 {
     /**
@@ -21,6 +22,7 @@ class SysInfoTest extends AbstractTestCase
      *
      * @dataProvider sysInfoOsProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('sysInfoOsProvider')]
     public function testGetSysInfoOs(string $os, string $expected): void
     {
         self::assertSame($expected, SysInfo::getOs($os));

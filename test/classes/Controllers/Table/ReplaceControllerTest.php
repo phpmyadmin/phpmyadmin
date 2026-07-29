@@ -12,6 +12,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\ReplaceController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\ReplaceController::class)]
 class ReplaceControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

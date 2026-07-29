@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeEventContainer
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Nodes\NodeEventContainer::class)]
 class NodeEventContainerTest extends AbstractTestCase
 {
     /**

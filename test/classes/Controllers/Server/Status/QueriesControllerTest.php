@@ -18,6 +18,7 @@ use function htmlspecialchars;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\QueriesController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\QueriesController::class)]
 class QueriesControllerTest extends AbstractTestCase
 {
     /** @var Data */

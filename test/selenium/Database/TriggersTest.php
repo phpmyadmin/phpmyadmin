@@ -9,6 +9,7 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class TriggersTest extends TestBase
 {
     /**
@@ -59,6 +60,7 @@ class TriggersTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testAddTrigger(): void
     {
         $this->expandMore();
@@ -127,6 +129,7 @@ class TriggersTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testEditTriggers(): void
     {
         $this->expandMore();
@@ -167,6 +170,7 @@ class TriggersTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDropTrigger(): void
     {
         $this->expandMore();

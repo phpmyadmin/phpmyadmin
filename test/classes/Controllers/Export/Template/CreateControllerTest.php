@@ -17,6 +17,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\Export\Template\CreateController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Export\Template\CreateController::class)]
 class CreateControllerTest extends AbstractTestCase
 {
     public function testCreate(): void

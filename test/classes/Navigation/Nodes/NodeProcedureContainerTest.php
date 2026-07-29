@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeProcedureContainer
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Nodes\NodeProcedureContainer::class)]
 class NodeProcedureContainerTest extends AbstractTestCase
 {
     /**

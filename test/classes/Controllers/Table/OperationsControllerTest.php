@@ -13,6 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\OperationsController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\OperationsController::class)]
 class OperationsControllerTest extends AbstractTestCase
 {
     public function testOperationsController(): void

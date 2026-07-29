@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Partitioning\Partition
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Partitioning\Partition::class)]
 class PartitionTest extends AbstractTestCase
 {
     public function testGetPartitionMethodReturnsNull(): void

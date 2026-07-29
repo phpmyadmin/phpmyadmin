@@ -21,6 +21,9 @@ use function json_decode;
  * @covers \PhpMyAdmin\Plugins\TwoFactorPlugin
  * @covers \PhpMyAdmin\WebAuthn\WebAuthnException
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\TwoFactor\WebAuthn::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\TwoFactorPlugin::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\WebAuthn\WebAuthnException::class)]
 class WebAuthnTest extends AbstractTestCase
 {
     public function testIdNameAndDescription(): void

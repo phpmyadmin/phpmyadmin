@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Charsets\Collation
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Charsets\Collation::class)]
 class CollationTest extends AbstractTestCase
 {
     public function testFromServer(): void
@@ -45,6 +46,7 @@ class CollationTest extends AbstractTestCase
      *
      * @dataProvider providerTestBuildDescription
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerTestBuildDescription')]
     public function testBuildDescription(string $collation, string $description): void
     {
         $actual = Collation::fromServer(['Collation' => $collation]);

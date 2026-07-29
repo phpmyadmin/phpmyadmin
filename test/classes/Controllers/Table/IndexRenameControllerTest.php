@@ -17,6 +17,7 @@ use ReflectionProperty;
 use const PHP_VERSION_ID;
 
 /** @covers \PhpMyAdmin\Controllers\Table\IndexRenameController */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\IndexRenameController::class)]
 final class IndexRenameControllerTest extends AbstractTestCase
 {
     public function testPreviewSqlWithOldStatement(): void

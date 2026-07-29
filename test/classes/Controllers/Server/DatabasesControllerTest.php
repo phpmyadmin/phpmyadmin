@@ -18,6 +18,7 @@ use function __;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\DatabasesController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\DatabasesController::class)]
 class DatabasesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

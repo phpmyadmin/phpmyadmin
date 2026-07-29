@@ -25,6 +25,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Plugins\Export\ExportCsv
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportCsv::class)]
 class ExportCsvTest extends AbstractTestCase
 {
     /** @var ExportCsv */

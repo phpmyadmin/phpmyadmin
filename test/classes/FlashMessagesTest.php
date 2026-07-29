@@ -10,6 +10,7 @@ use RuntimeException;
 /**
  * @covers \PhpMyAdmin\FlashMessages
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\FlashMessages::class)]
 class FlashMessagesTest extends AbstractTestCase
 {
     private const STORAGE_KEY = 'flashMessages';

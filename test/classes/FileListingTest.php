@@ -15,6 +15,7 @@ use const TEST_PATH;
 /**
  * @covers \PhpMyAdmin\FileListing
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\FileListing::class)]
 class FileListingTest extends AbstractTestCase
 {
     /** @var FileListing $fileListing */
@@ -83,8 +84,9 @@ class FileListingTest extends AbstractTestCase
     }
 
     /**
-     * @requires extension bz2 1
+     * @requires extension bz2
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('bz2')]
     public function testSupportedDecompressionsFull(): void
     {
         $GLOBALS['cfg']['ZipDump'] = true;

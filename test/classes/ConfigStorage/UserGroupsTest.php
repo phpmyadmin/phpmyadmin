@@ -18,6 +18,7 @@ use PhpMyAdmin\Url;
 /**
  * @covers \PhpMyAdmin\ConfigStorage\UserGroups
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\UserGroups::class)]
 class UserGroupsTest extends AbstractTestCase
 {
     /** @var ConfigurableMenusFeature */
@@ -44,6 +45,7 @@ class UserGroupsTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetHtmlForUserGroupsTableWithNoUserGroups(): void
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC';

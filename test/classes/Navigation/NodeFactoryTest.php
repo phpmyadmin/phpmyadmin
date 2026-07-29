@@ -18,6 +18,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Navigation\NodeFactory
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\NodeFactory::class)]
 class NodeFactoryTest extends AbstractTestCase
 {
     /**

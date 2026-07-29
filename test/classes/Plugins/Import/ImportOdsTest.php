@@ -15,6 +15,8 @@ use function str_repeat;
  * @covers \PhpMyAdmin\Plugins\Import\ImportOds
  * @requires extension zip
  */
+#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportOds::class)]
 class ImportOdsTest extends AbstractTestCase
 {
     /** @var ImportOds */
@@ -63,6 +65,7 @@ class ImportOdsTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -76,6 +79,7 @@ class ImportOdsTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -134,6 +138,9 @@ class ImportOdsTest extends AbstractTestCase
      * @dataProvider dataProviderOdsEmptyRows
      * @requires extension simplexml
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderOdsEmptyRows')]
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportDataset2(bool $odsEmptyRowsMode): void
     {
         //$sql_query_disabled will show the import SQL detail

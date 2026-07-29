@@ -10,6 +10,7 @@ use PhpMyAdmin\Utils\SessionCache;
 /**
  * @covers \PhpMyAdmin\Profiling
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Profiling::class)]
 class ProfilingTest extends AbstractTestCase
 {
     public function testIsSupported(): void

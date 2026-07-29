@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\PluginsController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\PluginsController::class)]
 class PluginsControllerTest extends AbstractTestCase
 {
     /**

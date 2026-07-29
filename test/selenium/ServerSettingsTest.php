@@ -9,6 +9,7 @@ use function sleep;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class ServerSettingsTest extends TestBase
 {
     /**
@@ -57,6 +58,7 @@ class ServerSettingsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testHideDatabase(): void
     {
         $this->createDatabase();
@@ -85,6 +87,7 @@ class ServerSettingsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testSettingsTabsAreDisplayed(): void
     {
         $this->byPartialLinkText('SQL queries')->click();
@@ -106,6 +109,7 @@ class ServerSettingsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testHideLogo(): void
     {
         $this->byPartialLinkText('Navigation panel')->click();

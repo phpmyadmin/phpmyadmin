@@ -16,6 +16,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\Export\Template\LoadController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Export\Template\LoadController::class)]
 class LoadControllerTest extends AbstractTestCase
 {
     public function testLoad(): void

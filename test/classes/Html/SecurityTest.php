@@ -11,6 +11,7 @@ use PhpMyAdmin\Url;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class SecurityTest extends AbstractTestCase
 {
     /** @var Template */

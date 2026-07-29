@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController::class)]
 class TablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

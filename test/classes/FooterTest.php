@@ -16,6 +16,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Footer
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Footer::class)]
 class FooterTest extends AbstractTestCase
 {
     /** @var array store private attributes of PhpMyAdmin\Footer */
@@ -66,6 +67,7 @@ class FooterTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetDebugMessage(): void
     {
         $GLOBALS['cfg']['DBG']['sql'] = true;
@@ -137,6 +139,7 @@ class FooterTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDisplay(): void
     {
         $footer = new Footer();

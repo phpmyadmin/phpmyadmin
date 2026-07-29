@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Engines\Ndbcluster
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\Ndbcluster::class)]
 class NdbclusterTest extends AbstractTestCase
 {
     /** @var Ndbcluster */

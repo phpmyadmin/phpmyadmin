@@ -10,6 +10,7 @@ use PhpMyAdmin\Menu;
 /**
  * @covers \PhpMyAdmin\Menu
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Menu::class)]
 class MenuTest extends AbstractTestCase
 {
     /**

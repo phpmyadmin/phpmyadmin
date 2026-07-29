@@ -17,6 +17,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\Structure\MoveColumnsController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\Structure\MoveColumnsController::class)]
 class MoveColumnsControllerTest extends AbstractTestCase
 {
     /**
@@ -25,6 +26,7 @@ class MoveColumnsControllerTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGenerateAlterTableSql
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGenerateAlterTableSql')]
     public function testGenerateAlterTableSql(string $createStatement, array $columnNames, ?string $expected): void
     {
         $class = new ReflectionClass(MoveColumnsController::class);

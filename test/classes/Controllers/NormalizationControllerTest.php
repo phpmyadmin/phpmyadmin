@@ -12,6 +12,7 @@ use function json_encode;
 /**
  * @covers \PhpMyAdmin\Controllers\NormalizationController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\NormalizationController::class)]
 class NormalizationControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

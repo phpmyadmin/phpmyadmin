@@ -18,6 +18,7 @@ use function substr;
 /**
  * @covers \PhpMyAdmin\Controllers\JavaScriptMessagesController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\JavaScriptMessagesController::class)]
 class JavaScriptMessagesControllerTest extends TestCase
 {
     public function testIndex(): void

@@ -11,6 +11,7 @@ use function str_repeat;
 /**
  * @covers \PhpMyAdmin\Linter
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Linter::class)]
 class LinterTest extends AbstractTestCase
 {
     /**
@@ -75,6 +76,7 @@ class LinterTest extends AbstractTestCase
      *
      * @dataProvider lintProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('lintProvider')]
     public function testLint(array $expected, string $query): void
     {
         self::assertSame($expected, Linter::lint($query));

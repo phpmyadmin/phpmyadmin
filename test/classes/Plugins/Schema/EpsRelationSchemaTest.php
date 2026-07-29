@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema::class)]
 class EpsRelationSchemaTest extends AbstractTestCase
 {
     /** @var EpsRelationSchema */
@@ -57,6 +58,7 @@ class EpsRelationSchemaTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testConstructor(): void
     {
         self::assertSame(33, $this->object->getPageNumber());
@@ -72,6 +74,7 @@ class EpsRelationSchemaTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);

@@ -16,6 +16,7 @@ use function __;
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportLdi
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportLdi::class)]
 class ImportLdiTest extends AbstractTestCase
 {
     /** @var ImportLdi */
@@ -79,6 +80,7 @@ class ImportLdiTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -91,6 +93,7 @@ class ImportLdiTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetPropertiesAutoLdi(): void
     {
         /**
@@ -124,6 +127,7 @@ class ImportLdiTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -159,6 +163,7 @@ class ImportLdiTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportInvalidFile(): void
     {
         global $import_file;
@@ -181,6 +186,7 @@ class ImportLdiTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportLDISetting(): void
     {
         global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,

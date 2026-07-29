@@ -13,6 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Dbal\DbiMysqli
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Dbal\DbiMysqli::class)]
 class DbiMysqliTest extends AbstractTestCase
 {
     /** @var DbiMysqli */

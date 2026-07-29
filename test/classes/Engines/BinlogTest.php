@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Engines\Binlog
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\Binlog::class)]
 class BinlogTest extends AbstractTestCase
 {
     /** @var Binlog */

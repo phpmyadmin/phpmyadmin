@@ -9,6 +9,7 @@ use PhpMyAdmin\ListDatabase;
 /**
  * @covers \PhpMyAdmin\ListDatabase<extended>
  */
+#[\PHPUnit\Framework\Attributes\CoversClass('\PhpMyAdmin\ListDatabase<extended>::class')]
 class ListDatabaseTest extends AbstractTestCase
 {
     /**

@@ -14,6 +14,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\CheckRelationsController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\CheckRelationsController::class)]
 class CheckRelationsControllerTest extends AbstractTestCase
 {
     public function testCheckRelationsController(): void

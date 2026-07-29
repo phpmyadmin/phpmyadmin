@@ -9,6 +9,7 @@ use PhpMyAdmin\Pdf;
 /**
  * @covers \PhpMyAdmin\Pdf
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Pdf::class)]
 class PdfTest extends AbstractTestCase
 {
     /**
@@ -25,6 +26,7 @@ class PdfTest extends AbstractTestCase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testBasic(): void
     {
         $arr = new Pdf();
@@ -36,6 +38,7 @@ class PdfTest extends AbstractTestCase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testAlias(): void
     {
         $arr = new Pdf();
@@ -48,6 +51,7 @@ class PdfTest extends AbstractTestCase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDocument(): void
     {
         $pdf = new Pdf();

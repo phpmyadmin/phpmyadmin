@@ -22,6 +22,7 @@ use const MYSQLI_TYPE_LONG;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\SearchController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\SearchController::class)]
 class SearchControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */

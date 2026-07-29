@@ -10,6 +10,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 /**
  * @covers \PhpMyAdmin\Advisor
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Advisor::class)]
 class AdvisorTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -27,6 +28,7 @@ class AdvisorTest extends AbstractTestCase
      *
      * @dataProvider advisorTimes
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('advisorTimes')]
     public function testAdvisorBytime(float $time, string $expected): void
     {
         $result = Advisor::byTime($time, 2);
@@ -68,6 +70,7 @@ class AdvisorTest extends AbstractTestCase
      *
      * @dataProvider rulesProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('rulesProvider')]
     public function testAddRule(array $rule, array $expected, ?string $error): void
     {
         parent::setLanguage();

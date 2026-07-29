@@ -10,6 +10,7 @@ use PhpMyAdmin\IpAllowDeny;
 /**
  * @covers \PhpMyAdmin\IpAllowDeny
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\IpAllowDeny::class)]
 class IpAllowDenyTest extends AbstractTestCase
 {
     /** @var IpAllowDeny */
@@ -43,6 +44,7 @@ class IpAllowDenyTest extends AbstractTestCase
      *
      * @dataProvider proxyIPs
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('proxyIPs')]
     public function testGetIp(?string $remote, ?string $header, $expected, ?string $proxyip = null): void
     {
         unset($_SERVER['REMOTE_ADDR']);

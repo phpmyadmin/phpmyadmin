@@ -11,6 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Navigation\NavigationTree
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\NavigationTree::class)]
 class NavigationTreeTest extends AbstractTestCase
 {
     /** @var NavigationTree */

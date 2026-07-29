@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Engines\PerformanceSchema
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\PerformanceSchema::class)]
 class PerformanceSchemaTest extends AbstractTestCase
 {
     /** @var PerformanceSchema */

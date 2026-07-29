@@ -23,6 +23,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Plugins\Export\ExportPhparray
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportPhparray::class)]
 class ExportPhparrayTest extends AbstractTestCase
 {
     /** @var ExportPhparray */

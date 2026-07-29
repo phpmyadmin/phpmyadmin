@@ -11,6 +11,7 @@ use function md5;
 /**
  * @covers \PhpMyAdmin\Message
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Message::class)]
 class MessageTest extends AbstractTestCase
 {
     /** @var Message */
@@ -342,6 +343,7 @@ class MessageTest extends AbstractTestCase
      *
      * @dataProvider decodeBBDataProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('decodeBBDataProvider')]
     public function testDecodeBB(string $actual, string $expected): void
     {
         unset($GLOBALS['server']);
@@ -476,6 +478,7 @@ class MessageTest extends AbstractTestCase
      *
      * @dataProvider providerAffectedRows
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerAffectedRows')]
     public function testAffectedRows(int $rows, string $output): void
     {
         $this->object = new Message();
@@ -521,6 +524,7 @@ class MessageTest extends AbstractTestCase
      *
      * @dataProvider providerInsertedRows
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerInsertedRows')]
     public function testInsertedRows(int $rows, string $output): void
     {
         $this->object = new Message();
@@ -566,6 +570,7 @@ class MessageTest extends AbstractTestCase
      *
      * @dataProvider providerDeletedRows
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerDeletedRows')]
     public function testDeletedRows(int $rows, string $output): void
     {
         $this->object = new Message();

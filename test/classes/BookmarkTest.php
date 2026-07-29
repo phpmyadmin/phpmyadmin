@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\TableName;
 /**
  * @covers \PhpMyAdmin\Bookmark
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Bookmark::class)]
 class BookmarkTest extends AbstractTestCase
 {
     /**

@@ -10,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \PhpMyAdmin\IndexColumn
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\IndexColumn::class)]
 class IndexColumnTest extends TestCase
 {
     /** @var IndexColumn */

@@ -19,6 +19,9 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Header
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Header::class)]
+#[\PHPUnit\Framework\Attributes\CoversMethod(\PhpMyAdmin\Core::class, 'getNoCacheHeaders')]
 class HeaderTest extends AbstractTestCase
 {
     /**
@@ -95,6 +98,7 @@ class HeaderTest extends AbstractTestCase
      *
      * @dataProvider getMessageProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getMessageProvider')]
     public function testGetMessage(string $expected, ?string $current, $param, bool $hasSqlQuery): void
     {
         $GLOBALS['server'] = 1;
@@ -169,6 +173,7 @@ class HeaderTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Core::getNoCacheHeaders
      * @dataProvider providerForTestGetHttpHeaders
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGetHttpHeaders')]
     public function testGetHttpHeaders(
         $frameOptions,
         string $cspAllow,

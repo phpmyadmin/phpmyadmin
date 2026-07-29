@@ -12,6 +12,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 /**
  * @covers \PhpMyAdmin\Controllers\Database\Structure\RealRowCountController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Database\Structure\RealRowCountController::class)]
 class RealRowCountControllerTest extends AbstractTestCase
 {
     public function testRealRowCount(): void

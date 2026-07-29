@@ -10,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \PhpMyAdmin\Partitioning\SubPartition
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Partitioning\SubPartition::class)]
 class SubPartitionTest extends TestCase
 {
     public function testSubPartition(): void

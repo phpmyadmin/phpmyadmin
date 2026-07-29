@@ -11,6 +11,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class DbiDummyTest extends AbstractTestCase
 {
     /**
@@ -61,6 +62,7 @@ class DbiDummyTest extends AbstractTestCase
      *
      * @dataProvider schemaData
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('schemaData')]
     public function testSystemSchema(string $schema, bool $expected): void
     {
         self::assertSame($expected, Utilities::isSystemSchema($schema));
@@ -92,6 +94,7 @@ class DbiDummyTest extends AbstractTestCase
      *
      * @dataProvider errorData
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('errorData')]
     public function testFormatError(int $number, string $message, string $expected): void
     {
         $GLOBALS['server'] = 1;

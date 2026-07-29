@@ -28,6 +28,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
      *
      * @dataProvider providerForTestGenerateParams
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGenerateParams')]
     public function testGenerateParams(string $wkt, ?int $index, array $params): void
     {
         if ($index === null) {
@@ -49,6 +50,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
      *
      * @dataProvider providerForTestScaleRow
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestScaleRow')]
     public function testScaleRow(string $spatial, array $min_max): void
     {
         self::assertEquals($min_max, $this->object->scaleRow($spatial));

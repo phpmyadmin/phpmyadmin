@@ -25,6 +25,7 @@ use function json_encode;
 /**
  * @covers \PhpMyAdmin\StorageEngine
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\StorageEngine::class)]
 class StorageEngineTest extends AbstractTestCase
 {
     /** @var StorageEngine|MockObject */
@@ -105,6 +106,7 @@ class StorageEngineTest extends AbstractTestCase
      *
      * @dataProvider providerGetEngine
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEngine')]
     public function testGetEngine(string $expectedClass, string $engineName): void
     {
         $actual = StorageEngine::getEngine($engineName);

@@ -23,6 +23,7 @@ use const TEST_PATH;
 /**
  * @covers \PhpMyAdmin\Routing
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Routing::class)]
 class RoutingTest extends AbstractTestCase
 {
     public function testGetDispatcherWithDevEnv(): void

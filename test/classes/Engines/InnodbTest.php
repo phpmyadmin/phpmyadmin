@@ -13,6 +13,7 @@ use function __;
 /**
  * @covers \PhpMyAdmin\Engines\Innodb
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\Innodb::class)]
 class InnodbTest extends AbstractTestCase
 {
     /** @var Innodb */

@@ -15,6 +15,8 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
  * @covers \PhpMyAdmin\Controllers\Database\TriggersController
  * @covers \PhpMyAdmin\Database\Triggers
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Database\TriggersController::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Triggers::class)]
 final class TriggersControllerTest extends AbstractTestCase
 {
     public function testWithTriggers(): void

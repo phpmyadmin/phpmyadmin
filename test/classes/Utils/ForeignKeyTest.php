@@ -11,6 +11,7 @@ use PhpMyAdmin\Utils\ForeignKey;
 /**
  * @covers \PhpMyAdmin\Utils\ForeignKey
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Utils\ForeignKey::class)]
 class ForeignKeyTest extends AbstractTestCase
 {
     /**
@@ -21,6 +22,7 @@ class ForeignKeyTest extends AbstractTestCase
      *
      * @dataProvider providerIsSupported
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerIsSupported')]
     public function testIsSupported(string $a, bool $e): void
     {
         $GLOBALS['server'] = 1;
@@ -72,6 +74,7 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * @dataProvider providerCheckInit
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerCheckInit')]
     public function testHandleDisableCheckInit(string $checksValue, string $setVariableParam): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -96,6 +99,7 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * @dataProvider providerCheckInit
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerCheckInit')]
     public function testHandleDisableCheckInitVarFalse(string $checksValue, string $setVariableParam): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -131,6 +135,7 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * @dataProvider providerCheckCleanup
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerCheckCleanup')]
     public function testHandleDisableCheckCleanup(bool $checkValue, string $setVariableParam): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

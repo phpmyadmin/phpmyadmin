@@ -17,6 +17,7 @@ use PHPUnit\Framework\MockObject\Stub;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Privileges\AccountUnlockController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Privileges\AccountUnlockController::class)]
 class AccountUnlockControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface&Stub */

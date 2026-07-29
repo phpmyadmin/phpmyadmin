@@ -11,6 +11,7 @@ use function defined;
 /**
  * @covers \PhpMyAdmin\Version
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Version::class)]
 class VersionTest extends AbstractTestCase
 {
     /**

@@ -17,6 +17,9 @@ use function hex2bin;
  * @covers \PhpMyAdmin\WebAuthn\CBORDecoder
  * @covers \PhpMyAdmin\WebAuthn\DataStream
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\WebAuthn\CustomServer::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\WebAuthn\CBORDecoder::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\WebAuthn\DataStream::class)]
 final class CustomServerTest extends TestCase
 {
     public function testGetCredentialCreationOptions(): void

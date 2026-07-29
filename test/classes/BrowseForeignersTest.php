@@ -10,6 +10,7 @@ use PhpMyAdmin\Template;
 /**
  * @covers \PhpMyAdmin\BrowseForeigners
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\BrowseForeigners::class)]
 class BrowseForeignersTest extends AbstractTestCase
 {
     /** @var BrowseForeigners */

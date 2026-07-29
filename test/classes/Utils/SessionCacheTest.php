@@ -10,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \PhpMyAdmin\Utils\SessionCache
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Utils\SessionCache::class)]
 class SessionCacheTest extends TestCase
 {
     public function testGet(): void

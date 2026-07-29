@@ -15,6 +15,7 @@ use function ob_start;
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationConfig
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Auth\AuthenticationConfig::class)]
 class AuthenticationConfigTest extends AbstractTestCase
 {
     /** @var AuthenticationConfig */

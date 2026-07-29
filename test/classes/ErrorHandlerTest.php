@@ -30,6 +30,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\ErrorHandler
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ErrorHandler::class)]
 class ErrorHandlerTest extends AbstractTestCase
 {
     /** @var ErrorHandler */
@@ -73,6 +74,7 @@ class ErrorHandlerTest extends AbstractTestCase
     }
 
     /** @dataProvider providerForTestHandleError */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestHandleError')]
     public function testGetDisplayErrors(
         int $errorNumber,
         string $errorMessage,
@@ -114,6 +116,7 @@ class ErrorHandlerTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testCountErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
@@ -121,6 +124,7 @@ class ErrorHandlerTest extends AbstractTestCase
     }
 
     /** @dataProvider addErrorProvider */
+    #[\PHPUnit\Framework\Attributes\DataProvider('addErrorProvider')]
     public function testAddError(int $errorNumber, string $expected): void
     {
         $errorHandler = new ErrorHandler();
@@ -152,6 +156,7 @@ class ErrorHandlerTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSliceErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
@@ -168,6 +173,7 @@ class ErrorHandlerTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSliceErrorsOtherExample(): void
     {
         for ($i = 0; $i < 10; $i++) {

@@ -22,7 +22,6 @@ use const DIRECTORY_SEPARATOR;
 use const ROOT_PATH;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps, Generic.Files.LineLength.TooLong
-
 /**
  * @covers \PhpMyAdmin\Config\Settings
  * @covers \PhpMyAdmin\Config\Settings\Console
@@ -34,6 +33,15 @@ use const ROOT_PATH;
  * @covers \PhpMyAdmin\Config\Settings\SqlQueryBox
  * @covers \PhpMyAdmin\Config\Settings\Transformations
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\Console::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\Debug::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\Export::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\Import::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\Schema::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\Server::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\SqlQueryBox::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\Transformations::class)]
 class SettingsTest extends TestCase
 {
     /** @var array<string, array|bool|int|string|null> */
@@ -307,6 +315,7 @@ class SettingsTest extends TestCase
      *
      * @dataProvider providerForTestConstructor
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestConstructor')]
     public function testConstructor(array $values): void
     {
         $actualValues = [];

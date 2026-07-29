@@ -30,6 +30,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Plugins\Export\ExportHtmlword
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportHtmlword::class)]
 class ExportHtmlwordTest extends AbstractTestCase
 {
     /** @var ExportHtmlword */

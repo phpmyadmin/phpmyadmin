@@ -28,6 +28,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Plugins\Export\ExportTexytext
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportTexytext::class)]
 class ExportTexytextTest extends AbstractTestCase
 {
     /** @var ExportTexytext */

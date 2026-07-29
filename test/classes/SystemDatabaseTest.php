@@ -12,6 +12,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 /**
  * @covers \PhpMyAdmin\SystemDatabase
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\SystemDatabase::class)]
 class SystemDatabaseTest extends AbstractTestCase
 {
     /**

@@ -14,6 +14,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\ResponseRenderer
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ResponseRenderer::class)]
 class ResponseRendererTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -30,6 +31,8 @@ class ResponseRendererTest extends AbstractTestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      */
+    #[\PHPUnit\Framework\Attributes\RunInSeparateProcess]
+    #[\PHPUnit\Framework\Attributes\PreserveGlobalState(false)]
     public function testSetAjax(): void
     {
         $_REQUEST = [];

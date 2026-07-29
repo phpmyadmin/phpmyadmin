@@ -15,6 +15,7 @@ use function __;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\MonitorController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\MonitorController::class)]
 class MonitorControllerTest extends AbstractTestCase
 {
     /** @var Data */

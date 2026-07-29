@@ -9,6 +9,7 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class StructureTest extends TestBase
 {
     /**
@@ -44,6 +45,7 @@ class StructureTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testTruncateTable(): void
     {
         $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
@@ -70,6 +72,7 @@ class StructureTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDropMultipleTables(): void
     {
         $this->byCssSelector("label[for='tablesForm_checkall']")->click();

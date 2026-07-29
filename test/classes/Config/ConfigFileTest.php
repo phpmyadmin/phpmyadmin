@@ -15,6 +15,7 @@ use function count;
 /**
  * @covers \PhpMyAdmin\Config\ConfigFile
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\ConfigFile::class)]
 class ConfigFileTest extends AbstractTestCase
 {
     /**
@@ -249,6 +250,7 @@ class ConfigFileTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetFlatDefaultConfig(): void
     {
         $flat_default_config = $this->object->getFlatDefaultConfig();

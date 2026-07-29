@@ -12,6 +12,7 @@ use function __;
 /**
  * @covers \PhpMyAdmin\Engines\Bdb
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\Bdb::class)]
 class BdbTest extends AbstractTestCase
 {
     /** @var Bdb */

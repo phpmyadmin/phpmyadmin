@@ -20,6 +20,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\ConfigStorage\Relation
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Relation::class)]
 class RelationTest extends AbstractTestCase
 {
     /** @var Relation */
@@ -2165,6 +2167,7 @@ class RelationTest extends AbstractTestCase
      *
      * @dataProvider providerForTestRenameTable
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestRenameTable')]
     public function testRenameTable(array $params, array $queries): void
     {
         $GLOBALS['server'] = 1;

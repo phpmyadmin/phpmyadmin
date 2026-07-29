@@ -15,6 +15,7 @@ use PhpMyAdmin\Utils\SessionCache;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\Monitor\QueryAnalyzerController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\Monitor\QueryAnalyzerController::class)]
 class QueryAnalyzerControllerTest extends AbstractTestCase
 {
     /** @var Data */

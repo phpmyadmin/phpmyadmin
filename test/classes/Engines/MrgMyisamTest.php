@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Engines\MrgMyisam
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\MrgMyisam::class)]
 class MrgMyisamTest extends AbstractTestCase
 {
     /** @var MrgMyisam */

@@ -15,6 +15,8 @@ use function unlink;
  * @covers \PhpMyAdmin\ZipExtension
  * @requires extension zip
  */
+#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ZipExtension::class)]
 class ZipExtensionTest extends AbstractTestCase
 {
     /** @var ZipExtension */
@@ -35,6 +37,7 @@ class ZipExtensionTest extends AbstractTestCase
      *
      * @dataProvider provideTestGetContents
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideTestGetContents')]
     public function testGetContents(string $file, ?string $specific_entry, $output): void
     {
         self::assertSame($this->zipExtension->getContents($file, $specific_entry), $output);
@@ -84,6 +87,7 @@ class ZipExtensionTest extends AbstractTestCase
      *
      * @dataProvider provideTestFindFile
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideTestFindFile')]
     public function testFindFile(string $file, string $file_regexp, $output): void
     {
         self::assertSame($this->zipExtension->findFile($file, $file_regexp), $output);

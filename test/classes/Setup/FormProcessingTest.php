@@ -14,6 +14,7 @@ use function ob_start;
 /**
  * @covers \PhpMyAdmin\Setup\FormProcessing
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Setup\FormProcessing::class)]
 class FormProcessingTest extends AbstractNetworkTestCase
 {
     /**

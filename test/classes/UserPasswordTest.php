@@ -17,6 +17,7 @@ use function str_repeat;
 /**
  * @covers \PhpMyAdmin\UserPassword
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\UserPassword::class)]
 class UserPasswordTest extends AbstractTestCase
 {
     /** @var UserPassword */
@@ -40,6 +41,7 @@ class UserPasswordTest extends AbstractTestCase
     /**
      * @dataProvider providerSetChangePasswordMsg
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerSetChangePasswordMsg')]
     public function testSetChangePasswordMsg(
         bool $error,
         Message $message,

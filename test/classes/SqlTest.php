@@ -23,6 +23,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Sql
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Sql::class)]
 class SqlTest extends AbstractTestCase
 {
     /** @var Sql */
@@ -561,6 +562,7 @@ class SqlTest extends AbstractTestCase
     /**
      * @dataProvider dataProviderCountQueryResults
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderCountQueryResults')]
     public function testCountQueryResults(
         ?string $sqlQuery,
         array $sessionTmpVal,

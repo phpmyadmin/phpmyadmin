@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\StatusController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\StatusController::class)]
 class StatusControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

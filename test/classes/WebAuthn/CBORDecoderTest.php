@@ -18,6 +18,8 @@ use const INF;
  * @covers \PhpMyAdmin\WebAuthn\CBORDecoder
  * @covers \PhpMyAdmin\WebAuthn\DataStream
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\WebAuthn\CBORDecoder::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\WebAuthn\DataStream::class)]
 class CBORDecoderTest extends TestCase
 {
     /**
@@ -25,6 +27,7 @@ class CBORDecoderTest extends TestCase
      *
      * @dataProvider dataProviderForTestDecode
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderForTestDecode')]
     public function testDecode(string $encoded, $expected): void
     {
         $decoder = new CBORDecoder();
@@ -166,6 +169,7 @@ class CBORDecoderTest extends TestCase
     /**
      * @dataProvider indefiniteLengthValuesProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('indefiniteLengthValuesProvider')]
     public function testDecodeForNotSupportedValues(string $encoded): void
     {
         $decoder = new CBORDecoder();

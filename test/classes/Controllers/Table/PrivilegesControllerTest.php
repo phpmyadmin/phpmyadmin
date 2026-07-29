@@ -17,6 +17,7 @@ use function _pgettext;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\PrivilegesController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\PrivilegesController::class)]
 class PrivilegesControllerTest extends AbstractTestCase
 {
     /**

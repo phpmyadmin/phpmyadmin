@@ -16,6 +16,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\Node
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Nodes\Node::class)]
 class NodeTest extends AbstractTestCase
 {
     /**

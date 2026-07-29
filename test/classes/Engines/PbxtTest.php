@@ -14,6 +14,7 @@ use function sprintf;
 /**
  * @covers \PhpMyAdmin\Engines\Pbxt
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\Pbxt::class)]
 class PbxtTest extends AbstractTestCase
 {
     /** @var Pbxt */
@@ -163,6 +164,7 @@ class PbxtTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestResolveTypeSize
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestResolveTypeSize')]
     public function testResolveTypeSize(string $formatted_size, array $output): void
     {
         self::assertSame($this->object->resolveTypeSize($formatted_size), $output);

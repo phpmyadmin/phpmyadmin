@@ -20,6 +20,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationSignon
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Auth\AuthenticationSignon::class)]
 class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationSignon */

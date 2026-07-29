@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class ExportTest extends TestBase
 {
     /**
@@ -35,6 +36,8 @@ class ExportTest extends TestBase
      * @dataProvider exportDataProvider
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('exportDataProvider')]
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testServerExport(string $plugin, array $expected): void
     {
         $text = $this->doExport('server', $plugin);
@@ -53,6 +56,8 @@ class ExportTest extends TestBase
      * @dataProvider exportDataProvider
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('exportDataProvider')]
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDbExport(string $plugin, array $expected): void
     {
         $this->navigateDatabase($this->databaseName);
@@ -73,6 +78,8 @@ class ExportTest extends TestBase
      * @dataProvider exportDataProvider
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('exportDataProvider')]
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testTableExport(string $plugin, array $expected): void
     {
         $this->dbQuery('INSERT INTO `' . $this->databaseName . '`.`test_table` (val) VALUES (3);');

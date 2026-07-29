@@ -16,6 +16,7 @@ use const MYSQLI_TYPE_STRING;
 /**
  * @covers \PhpMyAdmin\FieldMetadata
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\FieldMetadata::class)]
 class FieldMetadataTest extends AbstractTestCase
 {
     public function testEmptyConstruct(): void

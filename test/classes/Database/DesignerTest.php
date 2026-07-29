@@ -18,6 +18,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Database\Designer
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Designer::class)]
 class DesignerTest extends AbstractTestCase
 {
     /** @var Designer */

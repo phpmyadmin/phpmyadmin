@@ -36,6 +36,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\InsertEdit
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\InsertEdit::class)]
 class InsertEditTest extends AbstractTestCase
 {
     /** @var InsertEdit */
@@ -387,6 +389,7 @@ class InsertEditTest extends AbstractTestCase
      *
      * @dataProvider dataProviderConfigValueInsertRows
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderConfigValueInsertRows')]
     public function testLoadFirstRow($configValue, array $rowsValue): void
     {
         $GLOBALS['cfg']['InsertRows'] = $configValue;
@@ -1532,6 +1535,7 @@ class InsertEditTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetSpecialCharsAndBackupFieldForInsertingMode
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGetSpecialCharsAndBackupFieldForInsertingMode')]
     public function testGetSpecialCharsAndBackupFieldForInsertingMode(
         array $column,
         array $expected

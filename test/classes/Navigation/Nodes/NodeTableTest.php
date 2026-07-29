@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeTable
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Nodes\NodeTable::class)]
 class NodeTableTest extends AbstractTestCase
 {
     /**
@@ -54,6 +55,7 @@ class NodeTableTest extends AbstractTestCase
      *
      * @dataProvider providerForTestIcon
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestIcon')]
     public function testIcon(string $target, string $imageName, string $imageTitle): void
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;

@@ -12,6 +12,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\EnginesController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\EnginesController::class)]
 class EnginesControllerTest extends AbstractTestCase
 {
     /**

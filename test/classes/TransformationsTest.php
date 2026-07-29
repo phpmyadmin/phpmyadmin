@@ -11,6 +11,7 @@ use PhpMyAdmin\Transformations;
 /**
  * @covers \PhpMyAdmin\Transformations
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Transformations::class)]
 class TransformationsTest extends AbstractTestCase
 {
     /** @var Transformations */
@@ -49,6 +50,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider getOptionsData
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getOptionsData')]
     public function testGetOptions(string $input, array $expected): void
     {
         self::assertSame($expected, $this->transformations->getOptions($input));
@@ -258,6 +260,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider fixupData
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('fixupData')]
     public function testFixup(string $value, string $expected): void
     {
         self::assertSame($expected, $this->transformations->fixUpMime($value));
@@ -297,6 +300,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider providerGetDescription
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetDescription')]
     public function testGetDescription(string $file, string $expectedDescription): void
     {
         self::assertSame($expectedDescription, $this->transformations->getDescription($file));
@@ -328,6 +332,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider providerGetName
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetName')]
     public function testGetName(string $file, string $expectedName): void
     {
         self::assertSame($expectedName, $this->transformations->getName($file));

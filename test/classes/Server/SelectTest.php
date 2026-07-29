@@ -13,6 +13,7 @@ use function __;
 /**
  * @covers \PhpMyAdmin\Server\Select
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Server\Select::class)]
 class SelectTest extends AbstractTestCase
 {
     /**
@@ -64,6 +65,7 @@ class SelectTest extends AbstractTestCase
      *
      * @dataProvider renderDataProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('renderDataProvider')]
     public function testRender(bool $not_only_options, bool $omit_fieldset): void
     {
         if ($not_only_options) {

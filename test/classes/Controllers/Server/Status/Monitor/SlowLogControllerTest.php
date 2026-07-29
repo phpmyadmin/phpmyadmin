@@ -14,6 +14,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\Monitor\SlowLogController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\Monitor\SlowLogController::class)]
 class SlowLogControllerTest extends AbstractTestCase
 {
     /** @var Data */

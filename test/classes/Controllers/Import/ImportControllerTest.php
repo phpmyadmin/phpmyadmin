@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Controllers\Import\ImportController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Import\ImportController::class)]
 class ImportControllerTest extends AbstractTestCase
 {
     public function testIndexParametrized(): void

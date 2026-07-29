@@ -47,6 +47,7 @@ const FIELD_TYPE_UNKNOWN = -1;
 /**
  * @covers \PhpMyAdmin\Util
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Util::class)]
 class UtilTest extends AbstractTestCase
 {
     /**
@@ -67,6 +68,10 @@ class UtilTest extends AbstractTestCase
      * @requires extension mbstring
      * @requires extension sodium
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('mysqli')]
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('curl')]
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('mbstring')]
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('sodium')]
     public function testListPHPExtensions(): void
     {
         self::assertSame([
@@ -268,6 +273,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerGetUniqueConditionForGroupFlag
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetUniqueConditionForGroupFlag')]
     public function testGetUniqueConditionForGroupFlag(array $meta, array $row, array $expected): void
     {
         $fieldsCount = count($meta);
@@ -410,6 +416,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider charsetQueryData
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('charsetQueryData')]
     public function testGenerateCharsetQueryPart(string $collation, string $expected): void
     {
         self::assertSame($expected, Util::getCharsetQueryPart($collation));
@@ -515,6 +522,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerConvertBitDefaultValue
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerConvertBitDefaultValue')]
     public function testConvertBitDefaultValue(?string $bit, string $val): void
     {
         self::assertSame($val, Util::convertBitDefaultValue($bit));
@@ -614,6 +622,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerUnEscapeMysqlWildcards
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerUnEscapeMysqlWildcards')]
     public function testEscapeMysqlWildcards(string $a, string $b): void
     {
         self::assertSame($a, Util::escapeMysqlWildcards($b));
@@ -627,6 +636,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerUnEscapeMysqlWildcards
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerUnEscapeMysqlWildcards')]
     public function testUnescapeMysqlWildcards(string $a, string $b): void
     {
         self::assertSame($b, Util::unescapeMysqlWildcards($a));
@@ -640,6 +650,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerExpandUserString
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerExpandUserString')]
     public function testExpandUserString(string $in, string $out): void
     {
         parent::setGlobalConfig();
@@ -703,6 +714,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerExtractColumnSpec
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerExtractColumnSpec')]
     public function testExtractColumnSpec(string $in, array $out): void
     {
         $GLOBALS['cfg']['LimitChars'] = 1000;
@@ -876,6 +888,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerParseEnumSetValues
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerParseEnumSetValues')]
     public function testParseEnumSetValues(string $in, bool $escapeHTML, array $out): void
     {
         self::assertSame($out, Util::parseEnumSetValues($in, $escapeHTML));
@@ -994,6 +1007,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerExtractValueFromFormattedSize
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerExtractValueFromFormattedSize')]
     public function testExtractValueFromFormattedSize($size, $expected): void
     {
         self::assertSame($expected, Util::extractValueFromFormattedSize($size));
@@ -1036,6 +1050,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerFormatByteDown
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerFormatByteDown')]
     public function testFormatByteDown($a, int $b, int $c, array $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
@@ -1245,6 +1260,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerFormatNumber
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerFormatNumber')]
     public function testFormatNumber($a, int $b, int $c, string $d): void
     {
         $this->assertFormatNumber($a, $b, $c, $d);
@@ -1416,6 +1432,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerGetFormattedMaximumUploadSize
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetFormattedMaximumUploadSize')]
     public function testGetFormattedMaximumUploadSize($size, string $unit, string $res): void
     {
         self::assertSame('(' . __('Max: ') . $res . $unit . ')', Util::getFormattedMaximumUploadSize($size));
@@ -1492,6 +1509,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerGetTitleForTarget
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetTitleForTarget')]
     public function testGetTitleForTarget(string $target, string $result): void
     {
         self::assertSame($result, Util::getTitleForTarget($target));
@@ -1543,6 +1561,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerLocalisedDate
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerLocalisedDate')]
     public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
     {
         // A test case for #15830 could be added for using the php setlocale on a Windows CI
@@ -1678,6 +1697,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerTimespanFormat
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerTimespanFormat')]
     public function testTimespanFormat(int $a, string $e): void
     {
         $GLOBALS['timespanfmt'] = '%s days, %s hours, %s minutes and %s seconds';
@@ -1717,6 +1737,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerPrintableBitValue
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerPrintableBitValue')]
     public function testPrintableBitValue(int $a, int $b, string $e): void
     {
         self::assertSame($e, Util::printableBitValue($a, $b));
@@ -1751,6 +1772,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerUnQuote
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerUnQuote')]
     public function testUnQuote(string $param, string $expected): void
     {
         self::assertSame($expected, Util::unQuote($param));
@@ -1791,6 +1813,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerUnQuoteSelectedChar
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerUnQuoteSelectedChar')]
     public function testUnQuoteSelectedChar(string $param, string $expected): void
     {
         self::assertSame($expected, Util::unQuote($param, '"'));
@@ -1826,6 +1849,7 @@ class UtilTest extends AbstractTestCase
     /**
      * @dataProvider providerForTestBackquote
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestBackquote')]
     public function testBackquote(?string $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
     {
         self::assertSame($expectedNoneOutput, Util::backquote($entry));
@@ -1901,6 +1925,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerUserDir
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerUserDir')]
     public function testUserDir(string $a, string $e): void
     {
         $GLOBALS['cfg']['Server']['user'] = 'root';
@@ -1926,6 +1951,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerDuplicateFirstNewline
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerDuplicateFirstNewline')]
     public function testDuplicateFirstNewline(string $a, string $e): void
     {
         self::assertSame($e, Util::duplicateFirstNewline($a));
@@ -1980,6 +2006,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerIsInteger
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerIsInteger')]
     public function testIsInteger(bool $expected, $input): void
     {
         $isInteger = Util::isInteger($input);
@@ -2025,6 +2052,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerForwardedHeaders
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForwardedHeaders')]
     public function testGetProtoFromForwardedHeader(string $header, string $proto): void
     {
         $protocolDetected = Util::getProtoFromForwardedHeader($header);
@@ -2513,6 +2541,7 @@ class UtilTest extends AbstractTestCase
     /**
      * @dataProvider dataProviderScriptNames
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderScriptNames')]
     public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
     {
         self::assertSame($finalLink, Util::getScriptNameForOption($target, $location));
@@ -2527,6 +2556,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider provideForTestIsUUIDSupported
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideForTestIsUUIDSupported')]
     public function testIsUUIDSupported(bool $isMariaDB, int $version, bool $expected): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2588,6 +2618,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider provideForTestIsUUIDv4Supported
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideForTestIsUUIDv4Supported')]
     public function testIsUUIDv4Supported(bool $isMariaDB, int $version, bool $expected): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2649,6 +2680,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider provideForTestIsUUIDv7Supported
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideForTestIsUUIDv7Supported')]
     public function testIsUUIDv7Supported(bool $isMariaDB, int $version, bool $expected): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

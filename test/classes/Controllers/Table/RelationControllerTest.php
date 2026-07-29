@@ -18,6 +18,7 @@ use stdClass;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\RelationController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\RelationController::class)]
 class RelationControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */

@@ -42,6 +42,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Plugins\Export\ExportSql
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportSql::class)]
 class ExportSqlTest extends AbstractTestCase
 {
     /** @var ExportSql */
@@ -82,6 +84,7 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetPropertiesWithHideSql(): void
     {
         // test with hide structure and hide sql as true
@@ -103,6 +106,7 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetProperties(): void
     {
         // test with hide structure and hide sql as false
@@ -712,6 +716,7 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetTableDef(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -974,6 +979,7 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testExportStructure(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -1091,6 +1097,7 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testExportData(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -1206,6 +1213,7 @@ class ExportSqlTest extends AbstractTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testExportDataWithUpdate(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

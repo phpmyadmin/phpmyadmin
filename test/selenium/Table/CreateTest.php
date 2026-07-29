@@ -11,6 +11,7 @@ use function sleep;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class CreateTest extends TestBase
 {
     protected function setUp(): void
@@ -24,6 +25,7 @@ class CreateTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testCreateTable(): void
     {
         $this->waitAjax();

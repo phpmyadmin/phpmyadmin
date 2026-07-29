@@ -16,6 +16,7 @@ use stdClass;
 /**
  * @covers \PhpMyAdmin\Table
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Table::class)]
 class TableTest extends AbstractTestCase
 {
     /**
@@ -350,6 +351,7 @@ class TableTest extends AbstractTestCase
      *
      * @dataProvider dataValidateName
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataValidateName')]
     public function testValidateName(string $name, bool $result, bool $is_backquoted = false): void
     {
         self::assertSame($result, Table::isValidName($name, $is_backquoted));

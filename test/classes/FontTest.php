@@ -9,6 +9,7 @@ use PhpMyAdmin\Font;
 /**
  * @covers \PhpMyAdmin\Font
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Font::class)]
 class FontTest extends AbstractTestCase
 {
     /** @var Font */

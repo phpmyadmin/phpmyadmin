@@ -17,6 +17,7 @@ use function time;
 /**
  * @covers \PhpMyAdmin\UserPreferences
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\UserPreferences::class)]
 class UserPreferencesTest extends AbstractNetworkTestCase
 {
     /** @var UserPreferences */

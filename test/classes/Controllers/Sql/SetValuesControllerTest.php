@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Controllers\Sql\SetValuesController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Sql\SetValuesController::class)]
 class SetValuesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

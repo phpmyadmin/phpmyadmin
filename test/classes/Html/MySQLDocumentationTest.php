@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Html\MySQLDocumentation
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Html\MySQLDocumentation::class)]
 class MySQLDocumentationTest extends AbstractTestCase
 {
     public function testShowDocumentation(): void

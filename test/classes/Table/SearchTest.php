@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Table\Search
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Table\Search::class)]
 class SearchTest extends AbstractTestCase
 {
     /** @var Search */

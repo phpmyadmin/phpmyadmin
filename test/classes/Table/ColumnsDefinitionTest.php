@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Table\ColumnsDefinition
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Table\ColumnsDefinition::class)]
 class ColumnsDefinitionTest extends AbstractTestCase
 {
     /**
@@ -22,6 +23,7 @@ class ColumnsDefinitionTest extends AbstractTestCase
      *
      * @dataProvider providerColumnMetaDefault
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerColumnMetaDefault')]
     public function testDecorateColumnMetaDefault(array $columnMeta, array $expected): void
     {
         $result = ColumnsDefinition::decorateColumnMetaDefault($columnMeta);

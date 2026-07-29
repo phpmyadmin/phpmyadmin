@@ -21,6 +21,7 @@ use const PHP_INT_SIZE;
 /**
  * @covers \PhpMyAdmin\Encoding
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Encoding::class)]
 class EncodingTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -40,6 +41,7 @@ class EncodingTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testNoConversion(): void
     {
         self::assertSame('test', Encoding::convertString('UTF-8', 'UTF-8', 'test'));
@@ -55,6 +57,7 @@ class EncodingTest extends AbstractTestCase
     /**
      * @requires extension recode
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('recode')]
     public function testRecode(): void
     {
         Encoding::setEngine(Encoding::ENGINE_RECODE);
@@ -73,6 +76,8 @@ class EncodingTest extends AbstractTestCase
      * @group extension-iconv
      * @requires extension iconv
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('iconv')]
+    #[\PHPUnit\Framework\Attributes\Group('extension-iconv')]
     public function testIconv(): void
     {
         // Set PHP native locale

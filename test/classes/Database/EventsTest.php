@@ -13,6 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Database\Events
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Events::class)]
 class EventsTest extends AbstractTestCase
 {
     /** @var Events */
@@ -49,6 +50,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetDataFromRequest
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetDataFromRequest')]
     public function testGetDataFromRequestEmpty(array $in, array $out): void
     {
         unset($_POST);
@@ -148,6 +150,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormAdd
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEditorFormAdd')]
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(false);
@@ -200,6 +203,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormEdit
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEditorFormEdit')]
     public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(false);
@@ -252,6 +256,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormAjax
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEditorFormAjax')]
     public function testGetEditorFormAjax(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
@@ -299,6 +304,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetQueryFromRequest
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(array $request, string $query, int $num_err): void
     {
         global $errors;

@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\Export\Template\UpdateController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Export\Template\UpdateController::class)]
 class UpdateControllerTest extends AbstractTestCase
 {
     public function testUpdate(): void

@@ -36,6 +36,9 @@ use const PHP_VERSION_ID;
  * @requires extension zip
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportOds::class)]
 class ExportOdsTest extends AbstractTestCase
 {
     /** @var ExportOds */

@@ -10,11 +10,13 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \PhpMyAdmin\Partitioning\TablePartitionDefinition
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Partitioning\TablePartitionDefinition::class)]
 class TablePartitionDefinitionTest extends TestCase
 {
     /**
      * @dataProvider providerGetDetails
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetDetails')]
     public function testGetDetails(
         string $partitionBy,
         bool $canHaveSubpartitions,
@@ -242,6 +244,7 @@ class TablePartitionDefinitionTest extends TestCase
     /**
      * @dataProvider providerGetDetailsWithMaxPartitions
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetDetailsWithMaxPartitions')]
     public function testGetDetailsWithMaxPartitions(int $partitionCount, string $partitionCountFromPost): void
     {
         $_POST = ['partition_count' => $partitionCountFromPost];

@@ -10,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \PhpMyAdmin\Table\Maintenance\Message
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Table\Maintenance\Message::class)]
 class MessageTest extends TestCase
 {
     /**
@@ -17,6 +18,7 @@ class MessageTest extends TestCase
      *
      * @dataProvider providerForTestFromArray
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestFromArray')]
     public function testFromArray(array $row, string $table, string $operation, string $type, string $text): void
     {
         $message = Message::fromArray($row);

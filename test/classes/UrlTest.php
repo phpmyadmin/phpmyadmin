@@ -18,6 +18,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Url
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Url::class)]
 class UrlTest extends AbstractTestCase
 {
     /** @var string|false|null */
@@ -245,6 +246,7 @@ class UrlTest extends AbstractTestCase
      *
      * @dataProvider getArgSeparatorProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getArgSeparatorProvider')]
     public function testGetArgSeparator(string $expected, $iniValue, ?string $cacheValue): void
     {
         $property = new ReflectionProperty(Url::class, 'inputArgSeparator');

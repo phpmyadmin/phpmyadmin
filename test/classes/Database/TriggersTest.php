@@ -12,6 +12,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Database\Triggers
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Triggers::class)]
 class TriggersTest extends AbstractTestCase
 {
     /** @var Triggers */
@@ -47,6 +48,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetDataFromRequestEmpty
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetDataFromRequestEmpty')]
     public function testGetDataFromRequestEmpty(array $in, array $out): void
     {
         unset($_POST);
@@ -120,6 +122,8 @@ class TriggersTest extends AbstractTestCase
      * @dataProvider providerGetEditorFormAdd
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEditorFormAdd')]
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -163,6 +167,8 @@ class TriggersTest extends AbstractTestCase
      * @dataProvider providerGetEditorFormEdit
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEditorFormEdit')]
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -205,6 +211,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormAjax
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEditorFormAjax')]
     public function testGetEditorFormAjax(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -250,6 +257,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetQueryFromRequest
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(
         string $definer,
         string $name,

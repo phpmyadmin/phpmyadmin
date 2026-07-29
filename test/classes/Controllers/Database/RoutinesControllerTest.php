@@ -16,6 +16,8 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
  * @covers \PhpMyAdmin\Controllers\Database\RoutinesController
  * @covers \PhpMyAdmin\Database\Routines
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Database\RoutinesController::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Routines::class)]
 final class RoutinesControllerTest extends AbstractTestCase
 {
     public function testWithRoutines(): void

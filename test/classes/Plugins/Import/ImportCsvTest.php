@@ -15,6 +15,7 @@ use function basename;
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportCsv
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportCsv::class)]
 class ImportCsvTest extends AbstractTestCase
 {
     /** @var ImportCsv */
@@ -76,6 +77,7 @@ class ImportCsvTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -88,6 +90,7 @@ class ImportCsvTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -115,6 +118,7 @@ class ImportCsvTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoPartialImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -148,6 +152,7 @@ class ImportCsvTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetPropertiesForTable(): void
     {
         $GLOBALS['plugin_param'] = 'table';
@@ -162,6 +167,7 @@ class ImportCsvTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportNotAnalysis(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -190,6 +196,7 @@ class ImportCsvTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportNormal(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -229,6 +236,7 @@ class ImportCsvTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportSkipHeaders(): void
     {
         //$sql_query_disabled will show the import SQL detail

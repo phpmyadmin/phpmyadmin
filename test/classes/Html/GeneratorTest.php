@@ -21,6 +21,7 @@ use function urlencode;
 /**
  * @covers \PhpMyAdmin\Html\Generator
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Html\Generator::class)]
 class GeneratorTest extends AbstractTestCase
 {
     /**
@@ -37,6 +38,7 @@ class GeneratorTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetDbLinkEmpty(): void
     {
         $GLOBALS['db'] = null;
@@ -48,6 +50,7 @@ class GeneratorTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetDbLinkNull(): void
     {
         global $cfg;
@@ -183,6 +186,7 @@ class GeneratorTest extends AbstractTestCase
      *
      * @dataProvider linksOrButtons
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('linksOrButtons')]
     public function testLinkOrButton(array $params, int $limit, string $match): void
     {
         parent::setGlobalConfig();
@@ -431,6 +435,7 @@ class GeneratorTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetDefaultFunctionForField
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGetDefaultFunctionForField')]
     public function testGetDefaultFunctionForField(
         array $field,
         bool $insertMode,

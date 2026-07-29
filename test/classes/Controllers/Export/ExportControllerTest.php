@@ -24,6 +24,7 @@ use const MYSQLI_TYPE_STRING;
 /**
  * @covers \PhpMyAdmin\Controllers\Export\ExportController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Export\ExportController::class)]
 class ExportControllerTest extends AbstractTestCase
 {
     public function testExportController(): void

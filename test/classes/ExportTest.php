@@ -11,6 +11,8 @@ use PhpMyAdmin\Plugins\Export\ExportPhparray;
  * @covers \PhpMyAdmin\Export
  * @group large
  */
+#[\PHPUnit\Framework\Attributes\Group('large')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Export::class)]
 class ExportTest extends AbstractTestCase
 {
     /** @var Export */

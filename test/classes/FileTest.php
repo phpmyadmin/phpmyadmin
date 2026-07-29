@@ -12,6 +12,7 @@ use function file_get_contents;
 /**
  * @covers \PhpMyAdmin\File
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\File::class)]
 class FileTest extends AbstractTestCase
 {
     /**
@@ -31,6 +32,7 @@ class FileTest extends AbstractTestCase
      *
      * @dataProvider compressedFiles
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('compressedFiles')]
     public function testMIME(string $file, string $mime): void
     {
         $arr = new File($file);
@@ -44,6 +46,7 @@ class FileTest extends AbstractTestCase
      *
      * @dataProvider compressedFiles
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('compressedFiles')]
     public function testBinaryContent(string $file, string $mime): void
     {
         $data = '0x' . bin2hex((string) file_get_contents($file));
@@ -60,6 +63,9 @@ class FileTest extends AbstractTestCase
      * @requires extension bz2
      * @requires extension zip
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('compressedFiles')]
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('bz2')]
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
     public function testReadCompressed(string $file, string $mime): void
     {
         $file = new File($file);

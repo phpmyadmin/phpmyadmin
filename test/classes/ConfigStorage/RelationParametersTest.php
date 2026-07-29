@@ -30,6 +30,25 @@ use PHPUnit\Framework\TestCase;
  * @covers \PhpMyAdmin\ConfigStorage\Features\UiPreferencesFeature
  * @covers \PhpMyAdmin\ConfigStorage\Features\UserPreferencesFeature
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\RelationParameters::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\BookmarkFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\BrowserTransformationFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\CentralColumnsFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\ColumnCommentsFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\DatabaseDesignerSettingsFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\DisplayFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\ExportTemplatesFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\FavoriteTablesFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\PdfFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\RecentlyUsedTablesFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\RelationFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\SavedQueryByExampleSearchesFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\SqlHistoryFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\TrackingFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\UiPreferencesFeature::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Features\UserPreferencesFeature::class)]
 class RelationParametersTest extends TestCase
 {
     public function testFeaturesWithTwoTables(): void
@@ -246,6 +265,7 @@ class RelationParametersTest extends TestCase
      *
      * @dataProvider providerForTestToArray
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestToArray')]
     public function testToArray(array $params, array $expected): void
     {
         self::assertSame($expected, RelationParameters::fromArray($params)->toArray());

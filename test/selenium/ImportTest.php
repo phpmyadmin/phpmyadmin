@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class ImportTest extends TestBase
 {
     /**
@@ -14,6 +15,7 @@ class ImportTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testServerImport(): void
     {
         $this->doImport('server');
@@ -34,6 +36,7 @@ class ImportTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDbImport(): void
     {
         $this->dbQuery('CREATE DATABASE IF NOT EXISTS `' . $this->databaseName . '`');
@@ -56,6 +59,7 @@ class ImportTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testTableImport(): void
     {
         // setup the db

@@ -27,6 +27,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Plugins\Export\ExportMediawiki
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportMediawiki::class)]
 class ExportMediawikiTest extends AbstractTestCase
 {
     /** @var ExportMediawiki */

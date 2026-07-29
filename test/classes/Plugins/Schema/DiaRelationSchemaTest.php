@@ -11,6 +11,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  * @covers \PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema
  * @requires extension xmlwriter
  */
+#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema::class)]
 class DiaRelationSchemaTest extends AbstractTestCase
 {
     /** @var DiaRelationSchema */
@@ -57,6 +59,7 @@ class DiaRelationSchemaTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetProperty(): void
     {
         self::assertSame(33, $this->object->getPageNumber());

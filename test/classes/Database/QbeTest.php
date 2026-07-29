@@ -13,6 +13,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Database\Qbe
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Qbe::class)]
 class QbeTest extends AbstractTestCase
 {
     /** @var Qbe */

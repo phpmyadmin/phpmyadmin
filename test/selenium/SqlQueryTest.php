@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class SqlQueryTest extends TestBase
 {
     /**

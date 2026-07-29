@@ -15,6 +15,7 @@ use function sprintf;
 /**
  * @covers \PhpMyAdmin\Command\WriteGitRevisionCommand
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Command\WriteGitRevisionCommand::class)]
 class WriteGitRevisionCommandTest extends AbstractTestCase
 {
     /** @var WriteGitRevisionCommand */

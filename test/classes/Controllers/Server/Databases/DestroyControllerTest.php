@@ -18,6 +18,7 @@ use function __;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Databases\DestroyController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Databases\DestroyController::class)]
 class DestroyControllerTest extends AbstractTestCase
 {
     public function testDropDatabases(): void

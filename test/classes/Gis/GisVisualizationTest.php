@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Gis\GisVisualization
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Gis\GisVisualization::class)]
 class GisVisualizationTest extends AbstractTestCase
 {
     /**

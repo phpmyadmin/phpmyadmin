@@ -11,6 +11,7 @@ use const PHP_VERSION;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class EnvironmentTest extends AbstractTestCase
 {
     /**

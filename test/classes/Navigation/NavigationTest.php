@@ -15,6 +15,7 @@ use PhpMyAdmin\Url;
 /**
  * @covers \PhpMyAdmin\Navigation\Navigation
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Navigation::class)]
 class NavigationTest extends AbstractTestCase
 {
     /** @var Navigation */

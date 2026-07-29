@@ -18,6 +18,7 @@ use function htmlspecialchars;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController::class)]
 class RefreshControllerTest extends AbstractTestCase
 {
     /** @var Data */

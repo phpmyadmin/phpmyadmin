@@ -17,6 +17,8 @@ use function unlink;
  * @covers \PhpMyAdmin\OpenDocument
  * @requires extension zip
  */
+#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\OpenDocument::class)]
 class OpenDocumentTest extends AbstractTestCase
 {
     public function testCreateDocument(): void

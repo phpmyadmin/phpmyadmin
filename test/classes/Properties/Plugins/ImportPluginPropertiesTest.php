@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Properties\Plugins\ImportPluginProperties
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Properties\Plugins\ImportPluginProperties::class)]
 class ImportPluginPropertiesTest extends AbstractTestCase
 {
     /** @var ImportPluginProperties */

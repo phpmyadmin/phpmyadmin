@@ -12,6 +12,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\CollationsController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\CollationsController::class)]
 class CollationsControllerTest extends AbstractTestCase
 {
     /**

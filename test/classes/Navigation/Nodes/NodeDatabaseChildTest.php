@@ -14,6 +14,7 @@ use PHPUnit\Framework\MockObject\MockObject;
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild::class)]
 class NodeDatabaseChildTest extends AbstractTestCase
 {
     /**

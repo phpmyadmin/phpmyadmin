@@ -12,6 +12,7 @@ use function count;
 /**
  * @covers \PhpMyAdmin\VersionInformation
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\VersionInformation::class)]
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */
@@ -57,6 +58,8 @@ class VersionInformationTest extends AbstractTestCase
      * @group large
      * @group network
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
+    #[\PHPUnit\Framework\Attributes\Group('network')]
     public function testGetLatestVersion(): void
     {
         $this->setProxySettings();
@@ -77,6 +80,7 @@ class VersionInformationTest extends AbstractTestCase
      *
      * @dataProvider dataVersions
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataVersions')]
     public function testVersionToInt(string $version, int $numeric): void
     {
         $versionInformation = new VersionInformation();
@@ -257,6 +261,7 @@ class VersionInformationTest extends AbstractTestCase
      *
      * @dataProvider dataProviderVersionConditions
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderVersionConditions')]
     public function testGetLatestCompatibleVersionWithNewPHPVersion(
         array $versions,
         array $conditions,

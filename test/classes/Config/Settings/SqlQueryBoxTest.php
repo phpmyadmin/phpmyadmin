@@ -13,6 +13,7 @@ use function array_merge;
 /**
  * @covers \PhpMyAdmin\Config\Settings\SqlQueryBox
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\SqlQueryBox::class)]
 class SqlQueryBoxTest extends TestCase
 {
     /** @var array<string, bool> */
@@ -24,6 +25,7 @@ class SqlQueryBoxTest extends TestCase
      *
      * @dataProvider providerForTestConstructor
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestConstructor')]
     public function testConstructor(array $values): void
     {
         $actualValues = [];

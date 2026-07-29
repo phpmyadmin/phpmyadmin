@@ -36,6 +36,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Server\Privileges
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Server\Privileges::class)]
 class PrivilegesTest extends AbstractTestCase
 {
     /** @var Privileges $serverPrivileges */
@@ -638,6 +639,7 @@ class PrivilegesTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetHtmlToDisplayPrivilegesTable(): void
     {
         $GLOBALS['hostname'] = 'hostname';
@@ -968,6 +970,7 @@ class PrivilegesTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetHtmlForAddUser(): void
     {
         $dbi_old = $GLOBALS['dbi'];

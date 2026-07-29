@@ -32,6 +32,7 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationCookie
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Auth\AuthenticationCookie::class)]
 class AuthenticationCookieTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationCookie */
@@ -68,6 +69,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testAuthErrorAJAX(): void
     {
         $mockResponse = $this->mockResponse();
@@ -173,6 +175,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testAuthError(): void
     {
         $_REQUEST = [];
@@ -236,6 +239,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testAuthCaptcha(): void
     {
         $mockResponse = $this->mockResponse();
@@ -305,6 +309,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testAuthCaptchaCheckbox(): void
     {
         $mockResponse = $this->mockResponse();
@@ -743,6 +748,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * @dataProvider dataProviderPasswordLength
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderPasswordLength')]
     public function testAuthFailsTooLongPass(string $password, bool $trueFalse, ?string $connError): void
     {
         $_POST['pma_username'] = str_shuffle('123456987rootfoobar');
@@ -994,6 +1000,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      *
      * @dataProvider checkRulesProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('checkRulesProvider')]
     public function testCheckRules(
         string $user,
         string $pass,

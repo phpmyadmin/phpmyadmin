@@ -26,6 +26,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Plugins\Export\ExportXml
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportXml::class)]
 class ExportXmlTest extends AbstractTestCase
 {
     /** @var ExportXml */
@@ -62,6 +64,7 @@ class ExportXmlTest extends AbstractTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportXml::class, 'setProperties');
@@ -150,6 +153,7 @@ class ExportXmlTest extends AbstractTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testExportHeader(): void
     {
         $GLOBALS['xml_export_functions'] = 1;

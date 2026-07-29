@@ -26,6 +26,7 @@ use function str_repeat;
 /**
  * @covers \PhpMyAdmin\Core
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Core::class)]
 class CoreTest extends AbstractNetworkTestCase
 {
     /**
@@ -258,6 +259,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerTestGotoNowhere
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerTestGotoNowhere')]
     public function testGotoNowhere(?string $page, array $allowList, bool $include, bool $expected): void
     {
         self::assertSame($expected, Core::checkPageValidity($page, $allowList, $include));
@@ -368,6 +370,8 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerTestGetRealSize
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerTestGetRealSize')]
+    #[\PHPUnit\Framework\Attributes\Group('32bit-incompatible')]
     public function testGetRealSize(string $size, int $expected): void
     {
         self::assertSame($expected, Core::getRealSize($size));
@@ -450,6 +454,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerTestLinkURL
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerTestLinkURL')]
     public function testLinkURL(string $link, string $url): void
     {
         self::assertSame(Core::linkURL($link), $url);
@@ -565,6 +570,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider provideTestIsAllowedDomain
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideTestIsAllowedDomain')]
     public function testIsAllowedDomain(string $url, $expected): void
     {
         $_SERVER['SERVER_NAME'] = 'server.local';
@@ -622,6 +628,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider provideTestSafeUnserialize
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideTestSafeUnserialize')]
     public function testSafeUnserialize(string $data, $expected): void
     {
         self::assertSame($expected, Core::safeUnserialize($data));
@@ -691,6 +698,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider provideTestSanitizeMySQLHost
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('provideTestSanitizeMySQLHost')]
     public function testSanitizeMySQLHost(string $host, string $expected): void
     {
         self::assertSame($expected, Core::sanitizeMySQLHost($host));
@@ -897,6 +905,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam')]
     public function testPopulateRequestWithEncryptedQueryParamsWithInvalidParam(
         array $encrypted,
         array $decrypted

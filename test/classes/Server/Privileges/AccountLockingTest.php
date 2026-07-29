@@ -12,6 +12,7 @@ use Throwable;
 /**
  * @covers \PhpMyAdmin\Server\Privileges\AccountLocking
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Server\Privileges\AccountLocking::class)]
 class AccountLockingTest extends TestCase
 {
     public function testLockWithValidAccount(): void

@@ -11,6 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabase
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Nodes\NodeDatabase::class)]
 class NodeDatabaseTest extends AbstractTestCase
 {
     /**

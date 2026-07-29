@@ -13,6 +13,7 @@ use function str_repeat;
 /**
  * @covers \PhpMyAdmin\Dbal\TableName
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Dbal\TableName::class)]
 class TableNameTest extends TestCase
 {
     public function testEmptyName(): void
@@ -51,6 +52,7 @@ class TableNameTest extends TestCase
      *
      * @dataProvider providerForTestInvalidMixedNames
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestInvalidMixedNames')]
     public function testInvalidMixedNames($name, string $exceptionMessage): void
     {
         $this->expectException(InvalidArgumentException::class);

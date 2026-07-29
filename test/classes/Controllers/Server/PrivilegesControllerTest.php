@@ -11,6 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 
 /** @covers \PhpMyAdmin\Controllers\Server\PrivilegesController */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\PrivilegesController::class)]
 final class PrivilegesControllerTest extends AbstractTestCase
 {
     public function testUpdatePrivilegesForMultipleDatabases(): void

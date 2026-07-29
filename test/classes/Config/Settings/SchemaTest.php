@@ -13,6 +13,7 @@ use function array_merge;
 /**
  * @covers \PhpMyAdmin\Config\Settings\Schema
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\Schema::class)]
 class SchemaTest extends TestCase
 {
     /** @var array<string, bool|string> */
@@ -45,6 +46,7 @@ class SchemaTest extends TestCase
      *
      * @dataProvider providerForTestConstructor
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestConstructor')]
     public function testConstructor(array $values): void
     {
         $actualValues = [];

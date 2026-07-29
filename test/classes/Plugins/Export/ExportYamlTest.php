@@ -23,6 +23,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Plugins\Export\ExportYaml
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportYaml::class)]
 class ExportYamlTest extends AbstractTestCase
 {
     /** @var ExportYaml */

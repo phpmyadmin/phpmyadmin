@@ -18,6 +18,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\Structure\SaveController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\Structure\SaveController::class)]
 class SaveControllerTest extends AbstractTestCase
 {
     public function testSaveController(): void

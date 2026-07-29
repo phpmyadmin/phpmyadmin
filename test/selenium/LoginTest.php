@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class LoginTest extends TestBase
 {
     /**
@@ -34,6 +35,7 @@ class LoginTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testSuccessfulLogin(): void
     {
         $this->login();
@@ -47,6 +49,7 @@ class LoginTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testLoginWithWrongPassword(): void
     {
         $this->login('Admin', 'Admin');

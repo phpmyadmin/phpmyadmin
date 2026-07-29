@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Charsets\Charset
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Charsets\Charset::class)]
 class CharsetTest extends AbstractTestCase
 {
     public function testFromServer(): void

@@ -26,6 +26,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\IndexesController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\IndexesController::class)]
 class IndexesControllerTest extends AbstractTestCase
 {
     /**

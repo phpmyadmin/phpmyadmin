@@ -15,6 +15,7 @@ use function sprintf;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Databases\CreateController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Databases\CreateController::class)]
 final class CreateControllerTest extends AbstractTestCase
 {
     public function testCreateDatabase(): void

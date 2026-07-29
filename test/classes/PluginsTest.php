@@ -11,6 +11,7 @@ use function extension_loaded;
 /**
  * @covers \PhpMyAdmin\Plugins
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins::class)]
 class PluginsTest extends AbstractTestCase
 {
     public function testGetExport(): void
@@ -52,6 +53,7 @@ class PluginsTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetDefault
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGetDefault')]
     public function testGetDefault(
         string $expected,
         $actualConfig,

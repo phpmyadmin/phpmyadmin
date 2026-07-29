@@ -15,6 +15,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\Export\Template\DeleteController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Export\Template\DeleteController::class)]
 class DeleteControllerTest extends AbstractTestCase
 {
     public function testDelete(): void

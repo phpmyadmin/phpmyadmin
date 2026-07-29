@@ -12,6 +12,7 @@ use function __;
 /**
  * @covers \PhpMyAdmin\Engines\Myisam
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\Myisam::class)]
 class MyisamTest extends AbstractTestCase
 {
     /** @var Myisam */

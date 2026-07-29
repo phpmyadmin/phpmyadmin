@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Setup\Index
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Setup\Index::class)]
 class IndexTest extends AbstractTestCase
 {
     /**

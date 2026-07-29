@@ -21,6 +21,7 @@ use function count;
 /**
  * @covers \PhpMyAdmin\Controllers\Import\SimulateDmlController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Import\SimulateDmlController::class)]
 class SimulateDmlControllerTest extends AbstractTestCase
 {
     /**
@@ -35,6 +36,7 @@ class SimulateDmlControllerTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetMatchedRows
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGetMatchedRows')]
     public function testGetMatchedRows(string $sqlQuery, array $expectedPerQuery): void
     {
         $GLOBALS['db'] = 'PMA';

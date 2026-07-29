@@ -12,6 +12,7 @@ use function sprintf;
 /**
  * @covers \PhpMyAdmin\Controllers\NavigationController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\NavigationController::class)]
 class NavigationControllerTest extends AbstractTestCase
 {
     public function testIndex(): void

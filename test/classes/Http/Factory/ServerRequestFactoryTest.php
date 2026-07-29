@@ -24,6 +24,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Http\Factory\ServerRequestFactory
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Http\Factory\ServerRequestFactory::class)]
 class ServerRequestFactoryTest extends AbstractTestCase
 {
     private const IMPLEMENTATION_CLASSES = [
@@ -79,6 +80,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
      *
      * @dataProvider dataProviderPsr7Implementations
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderPsr7Implementations')]
     public function testPsr7ImplementationGet(string $className, string $humanName): void
     {
         $this->runOrSkip($className, $humanName);
@@ -162,6 +164,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
      *
      * @dataProvider dataProviderPsr7Implementations
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderPsr7Implementations')]
     public function testPsr7ImplementationCreateServerRequestFactory(string $className, string $humanName): void
     {
         $this->runOrSkip($className, $humanName);
@@ -178,6 +181,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
      *
      * @dataProvider providerCreateUriFromGlobals
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerCreateUriFromGlobals')]
     public function testCreateUriFromGlobals(string $expected, array $server): void
     {
         $createUriFromGlobals = (new ReflectionMethod(ServerRequestFactory::class, 'createUriFromGlobals'));

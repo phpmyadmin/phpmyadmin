@@ -15,6 +15,7 @@ use function sprintf;
 /**
  * @covers \PhpMyAdmin\Command\SetVersionCommand
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Command\SetVersionCommand::class)]
 class SetVersionCommandTest extends AbstractTestCase
 {
     /** @var SetVersionCommand */
@@ -57,6 +58,7 @@ class SetVersionCommandTest extends AbstractTestCase
     /**
      * @dataProvider dataProviderBadVersions
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderBadVersions')]
     public function testGetGeneratedClassInvalidVersion(string $version): void
     {
         if (! class_exists(Command::class)) {
@@ -173,6 +175,7 @@ class SetVersionCommandTest extends AbstractTestCase
     /**
      * @dataProvider dataProviderGoodVersions
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderGoodVersions')]
     public function testGetGeneratedClassValidVersion(string $version, string $content): void
     {
         if (! class_exists(Command::class)) {

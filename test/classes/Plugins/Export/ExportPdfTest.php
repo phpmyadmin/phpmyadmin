@@ -24,6 +24,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Plugins\Export\ExportPdf
  * @group medium
  */
+#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportPdf::class)]
 class ExportPdfTest extends AbstractTestCase
 {
     /** @var ExportPdf */

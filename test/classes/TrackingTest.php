@@ -19,6 +19,7 @@ use function sprintf;
 /**
  * @covers \PhpMyAdmin\Tracking
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Tracking::class)]
 class TrackingTest extends AbstractTestCase
 {
     /** @var Tracking $tracking */

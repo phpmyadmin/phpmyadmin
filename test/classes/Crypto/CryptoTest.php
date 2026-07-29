@@ -13,6 +13,7 @@ use function str_repeat;
 /**
  * @covers \PhpMyAdmin\Crypto\Crypto
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Crypto\Crypto::class)]
 class CryptoTest extends AbstractTestCase
 {
     public function testWithValidKeyFromConfig(): void

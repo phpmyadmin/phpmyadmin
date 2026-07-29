@@ -28,6 +28,7 @@ use const E_WARNING;
 /**
  * @covers \PhpMyAdmin\Error
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Error::class)]
 class ErrorTest extends AbstractTestCase
 {
     /** @var Error */
@@ -88,6 +89,7 @@ class ErrorTest extends AbstractTestCase
      *
      * @dataProvider filePathProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('filePathProvider')]
     public function testSetFile(string $file, string $expected): void
     {
         $this->object->setFile($file);
@@ -146,6 +148,7 @@ class ErrorTest extends AbstractTestCase
     }
 
     /** @dataProvider errorLevelProvider */
+    #[\PHPUnit\Framework\Attributes\DataProvider('errorLevelProvider')]
     public function testGetLevel(int $errorNumber, string $expected): void
     {
         self::assertSame($expected, (new Error($errorNumber, 'Error', 'error.txt', 15))->getLevel());
@@ -173,6 +176,7 @@ class ErrorTest extends AbstractTestCase
     }
 
     /** @dataProvider errorTypeProvider */
+    #[\PHPUnit\Framework\Attributes\DataProvider('errorTypeProvider')]
     public function testGetType(int $errorNumber, string $expected): void
     {
         self::assertSame($expected, (new Error($errorNumber, 'Error', 'error.txt', 15))->getType());

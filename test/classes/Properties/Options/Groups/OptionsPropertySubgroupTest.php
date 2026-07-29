@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup::class)]
 class OptionsPropertySubgroupTest extends AbstractTestCase
 {
     /** @var OptionsPropertySubgroup */

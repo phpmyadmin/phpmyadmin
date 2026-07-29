@@ -11,6 +11,7 @@ use PHPUnit\Framework\MockObject\Stub;
 /**
  * @covers \PhpMyAdmin\Types
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Types::class)]
 class TypesByDatabaseVersionTest extends AbstractTestCase
 {
     /** @var DatabaseInterface&Stub */
@@ -53,6 +54,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestGetFunctionsClass')]
     public function testGetFunctionsClass(
         string $database,
         int $dbVersion,
@@ -278,6 +280,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetFunctions
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestGetFunctions')]
     public function testGetFunctions(string $database, int $dbVersion, array $includes, array $excludes): void
     {
         $this->createObject($database, $dbVersion);
@@ -354,6 +357,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetAllFunctions
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestGetAllFunctions')]
     public function testGetAllFunctions(string $database, int $dbVersion, array $includes, array $excludes): void
     {
         $this->createObject($database, $dbVersion);
@@ -640,6 +644,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetColumns
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestGetColumns')]
     public function testGetColumns(string $database, int $dbVersion, array $expected): void
     {
         $this->createObject($database, $dbVersion);

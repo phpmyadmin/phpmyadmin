@@ -11,10 +11,10 @@ use function array_keys;
 use function array_merge;
 
 // phpcs:disable Generic.Files.LineLength.TooLong
-
 /**
  * @covers \PhpMyAdmin\Config\Settings\Server
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\Server::class)]
 class ServerTest extends TestCase
 {
     /** @var array<string, array|bool|int|string|null> */
@@ -86,6 +86,7 @@ class ServerTest extends TestCase
      *
      * @dataProvider providerForTestConstructor
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestConstructor')]
     public function testConstructor(array $values): void
     {
         $actualValues = [];

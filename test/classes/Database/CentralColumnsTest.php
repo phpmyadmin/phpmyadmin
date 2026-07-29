@@ -15,6 +15,7 @@ use function array_slice;
 /**
  * @covers \PhpMyAdmin\Database\CentralColumns
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\CentralColumns::class)]
 class CentralColumnsTest extends AbstractTestCase
 {
     /** @var CentralColumns */

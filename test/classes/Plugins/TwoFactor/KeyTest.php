@@ -11,6 +11,7 @@ use PhpMyAdmin\TwoFactor;
 /**
  * @covers \PhpMyAdmin\Plugins\TwoFactor\Key
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\TwoFactor\Key::class)]
 class KeyTest extends AbstractTestCase
 {
     public function testGetRegistrations(): void

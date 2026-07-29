@@ -16,6 +16,8 @@ use function extension_loaded;
  * @covers \PhpMyAdmin\Plugins\Import\ImportShp
  * @requires extension zip
  */
+#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportShp::class)]
 class ImportShpTest extends AbstractTestCase
 {
     /** @var ImportShp */
@@ -86,6 +88,7 @@ class ImportShpTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -101,6 +104,8 @@ class ImportShpTest extends AbstractTestCase
      * @group medium
      * @group 32bit-incompatible
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
+    #[\PHPUnit\Framework\Attributes\Group('32bit-incompatible')]
     public function testImportOsm(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -133,6 +138,8 @@ class ImportShpTest extends AbstractTestCase
      * @group medium
      * @group 32bit-incompatible
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
+    #[\PHPUnit\Framework\Attributes\Group('32bit-incompatible')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail

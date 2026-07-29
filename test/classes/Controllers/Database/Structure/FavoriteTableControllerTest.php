@@ -19,6 +19,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController::class)]
 class FavoriteTableControllerTest extends AbstractTestCase
 {
     public function testSynchronizeFavoriteTables(): void

@@ -14,6 +14,7 @@ use PhpMyAdmin\Utils\SessionCache;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\BinlogController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\BinlogController::class)]
 class BinlogControllerTest extends AbstractTestCase
 {
     /**

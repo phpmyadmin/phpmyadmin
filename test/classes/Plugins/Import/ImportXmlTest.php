@@ -16,6 +16,9 @@ use function __;
  * @requires extension xml
  * @requires extension xmlwriter
  */
+#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xml')]
+#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportXml::class)]
 class ImportXmlTest extends AbstractTestCase
 {
     /** @var ImportXml */
@@ -60,6 +63,7 @@ class ImportXmlTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -76,6 +80,8 @@ class ImportXmlTest extends AbstractTestCase
      * @group medium
      * @requires extension simplexml
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImport(): void
     {
         //$import_notice will show the import detail result
@@ -125,6 +131,8 @@ SQL;
      * @group medium
      * @requires extension simplexml
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportDatasetGIS(): void
     {
         global $import_notice, $sql_query;
@@ -187,6 +195,8 @@ SQL;
      * @group medium
      * @requires extension simplexml
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportNumericStringValues(): void
     {
         global $sql_query;
@@ -232,6 +242,8 @@ SQL;
      * @group medium
      * @requires extension simplexml
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportDatasetNoDatabase(): void
     {
         global $import_notice, $sql_query;

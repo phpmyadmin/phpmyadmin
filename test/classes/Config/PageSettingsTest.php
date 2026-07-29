@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Config\PageSettings
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\PageSettings::class)]
 class PageSettingsTest extends AbstractTestCase
 {
     /**

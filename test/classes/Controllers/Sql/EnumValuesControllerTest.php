@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Controllers\Sql\EnumValuesController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Sql\EnumValuesController::class)]
 class EnumValuesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

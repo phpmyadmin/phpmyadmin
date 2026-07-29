@@ -15,6 +15,7 @@ use const TEST_PATH;
 /**
  * @covers \PhpMyAdmin\Theme
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Theme::class)]
 class ThemeTest extends AbstractTestCase
 {
     /** @var Theme */
@@ -58,6 +59,7 @@ class ThemeTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testCheckImgPathNotExisted(): void
     {
         $this->object->setPath('path/to/nowhere');
@@ -161,6 +163,7 @@ class ThemeTest extends AbstractTestCase
      *
      * @depends testLoadInfo
      */
+    #[\PHPUnit\Framework\Attributes\Depends('testLoadInfo')]
     public function testGetSetCheckVersion(): void
     {
         self::assertSame('0.0.0.0', $this->object->getVersion(), 'Version 0.0.0.0 by default');
@@ -214,6 +217,7 @@ class ThemeTest extends AbstractTestCase
      *
      * @dataProvider providerForGetImgPath
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForGetImgPath')]
     public function testGetImgPath(?string $file, ?string $fallback, string $output): void
     {
         self::assertSame($this->object->getImgPath($file, $fallback), $output);

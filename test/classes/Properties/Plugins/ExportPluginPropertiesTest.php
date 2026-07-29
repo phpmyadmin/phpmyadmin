@@ -9,6 +9,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 /**
  * @covers \PhpMyAdmin\Properties\Plugins\ExportPluginProperties
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Properties\Plugins\ExportPluginProperties::class)]
 class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 {
     /** @var ExportPluginProperties */

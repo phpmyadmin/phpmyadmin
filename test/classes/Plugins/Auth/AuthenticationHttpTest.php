@@ -18,6 +18,7 @@ use function ob_start;
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Auth\AuthenticationHttp::class)]
 class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationHttp */
@@ -185,6 +186,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      *
      * @dataProvider readCredentialsProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('readCredentialsProvider')]
     public function testAuthCheck(
         string $user,
         string $pass,
@@ -339,6 +341,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
     /**
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testAuthFails(): void
     {
         $_REQUEST = [];

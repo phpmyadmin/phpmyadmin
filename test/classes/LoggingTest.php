@@ -9,6 +9,7 @@ use PhpMyAdmin\Logging;
 /**
  * @covers \PhpMyAdmin\Logging
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Logging::class)]
 class LoggingTest extends AbstractTestCase
 {
     public function testGetLogMessage(): void

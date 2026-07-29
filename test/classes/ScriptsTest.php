@@ -15,6 +15,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Scripts
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Scripts::class)]
 class ScriptsTest extends AbstractTestCase
 {
     /** @var Scripts */

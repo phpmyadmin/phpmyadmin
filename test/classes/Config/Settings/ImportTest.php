@@ -13,6 +13,7 @@ use function array_merge;
 /**
  * @covers \PhpMyAdmin\Config\Settings\Import
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\Import::class)]
 class ImportTest extends TestCase
 {
     /** @var array<string, bool|int|string> */
@@ -52,6 +53,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider providerForTestConstructor
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestConstructor')]
     public function testConstructor(array $values): void
     {
         $actualValues = [];

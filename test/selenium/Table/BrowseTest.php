@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class BrowseTest extends TestBase
 {
     /**
@@ -42,6 +43,7 @@ class BrowseTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testSortRecords(): void
     {
         // case 1
@@ -91,6 +93,7 @@ class BrowseTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testChangeRecords(): void
     {
         $ele = $this->byCssSelector('table.table_results tbody tr:nth-child(2) td:nth-child(2)');
@@ -132,6 +135,7 @@ class BrowseTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testChangeRecordsByDoubleClick(): void
     {
         $element = $this->byCssSelector('table.table_results tbody tr:nth-child(1) td:nth-child(6)');
@@ -161,6 +165,7 @@ class BrowseTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testCopyRecords(): void
     {
         $ele = $this->byCssSelector('table.table_results tbody tr:nth-child(3) td:nth-child(3)');
@@ -194,6 +199,7 @@ class BrowseTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testSearchRecords(): void
     {
         $this->expandMore();
@@ -226,6 +232,7 @@ class BrowseTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDeleteRecords(): void
     {
         $this->byId('id_rows_to_delete1_left')->click();

@@ -9,6 +9,7 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class InsertTest extends TestBase
 {
     /**
@@ -36,6 +37,7 @@ class InsertTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testAddData(): void
     {
         if ($this->isSafari()) {

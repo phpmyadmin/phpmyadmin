@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\ExportRelationSchema
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\ExportRelationSchema::class)]
 class ExportRelationSchemaTest extends AbstractTestCase
 {
     /** @var ExportRelationSchema */
@@ -41,6 +42,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);
@@ -52,6 +54,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetShowColor(): void
     {
         $this->object->setShowColor(true);
@@ -65,6 +68,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetOrientation(): void
     {
         $this->object->setOrientation('P');
@@ -78,6 +82,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetTableDimension(): void
     {
         $this->object->setTableDimension(true);
@@ -91,6 +96,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetPaper(): void
     {
         $this->object->setPaper('A5');
@@ -104,6 +110,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetAllTablesSameWidth(): void
     {
         $this->object->setAllTablesSameWidth(true);
@@ -117,6 +124,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetShowKeys(): void
     {
         $this->object->setShowKeys(true);

@@ -18,6 +18,7 @@ use function htmlspecialchars;
 /**
  * @covers \PhpMyAdmin\SqlQueryForm
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\SqlQueryForm::class)]
 class SqlQueryFormTest extends AbstractTestCase
 {
     /** @var SqlQueryForm */

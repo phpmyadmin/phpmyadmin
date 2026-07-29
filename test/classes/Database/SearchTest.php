@@ -12,6 +12,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Database\Search
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Search::class)]
 class SearchTest extends AbstractTestCase
 {
     /** @var Search */
@@ -68,6 +69,7 @@ class SearchTest extends AbstractTestCase
      *
      * @dataProvider searchTypes
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('searchTypes')]
     public function testGetWhereClause(string $type, string $expected): void
     {
         $_POST['criteriaSearchType'] = $type;

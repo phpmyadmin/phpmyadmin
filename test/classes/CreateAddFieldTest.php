@@ -11,6 +11,7 @@ use function json_encode;
 /**
  * @covers \PhpMyAdmin\CreateAddField
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\CreateAddField::class)]
 class CreateAddFieldTest extends AbstractTestCase
 {
     /** @var CreateAddField */
@@ -33,6 +34,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @dataProvider providerGetPartitionsDefinition
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetPartitionsDefinition')]
     public function testGetPartitionsDefinition(string $expected, array $request): void
     {
         $_POST = $request;
@@ -234,6 +236,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @dataProvider providerGetTableCreationQuery
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetTableCreationQuery')]
     public function testGetTableCreationQuery(string $expected, string $db, string $table, array $request): void
     {
         $_POST = $request;
@@ -307,6 +310,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @dataProvider providerGetNumberOfFieldsFromRequest
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetNumberOfFieldsFromRequest')]
     public function testGetNumberOfFieldsFromRequest(int $expected, array $request): void
     {
         $_POST = $request;
@@ -521,6 +525,7 @@ class CreateAddFieldTest extends AbstractTestCase
     /**
      * @dataProvider providerGetColumnCreationQueryRequest
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetColumnCreationQueryRequest')]
     public function testGetColumnCreationQuery(string $expected, array $request): void
     {
         $_POST = $request;

@@ -9,6 +9,7 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class OperationsTest extends TestBase
 {
     private function getToDBOperations(): void
@@ -26,6 +27,7 @@ class OperationsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDbComment(): void
     {
         $this->skipIfNotPMADB();
@@ -45,6 +47,7 @@ class OperationsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testRenameDB(): void
     {
         $this->getToDBOperations();
@@ -89,6 +92,7 @@ class OperationsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testCopyDb(): void
     {
         $this->getToDBOperations();

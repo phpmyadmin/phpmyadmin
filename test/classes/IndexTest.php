@@ -9,6 +9,7 @@ use PhpMyAdmin\Index;
 /**
  * @covers \PhpMyAdmin\Index
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Index::class)]
 class IndexTest extends AbstractTestCase
 {
     /** @var array */

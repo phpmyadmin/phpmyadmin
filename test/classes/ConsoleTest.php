@@ -12,6 +12,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Console
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Console::class)]
 class ConsoleTest extends AbstractTestCase
 {
     public function testGetScripts(): void

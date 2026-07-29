@@ -12,6 +12,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\GisDataEditorController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\GisDataEditorController::class)]
 class GisDataEditorControllerTest extends AbstractTestCase
 {
     /** @var GisDataEditorController|null */
@@ -37,6 +38,8 @@ class GisDataEditorControllerTest extends AbstractTestCase
      * @group gis
      * @dataProvider providerForTestValidateGisData
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestValidateGisData')]
+    #[\PHPUnit\Framework\Attributes\Group('gis')]
     public function testValidateGisData(array $gis_data, string $type, ?string $value, array $expected): void
     {
         /** @var mixed[] $gisData */

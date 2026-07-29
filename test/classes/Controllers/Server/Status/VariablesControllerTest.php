@@ -13,6 +13,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\VariablesController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\VariablesController::class)]
 class VariablesControllerTest extends AbstractTestCase
 {
     /** @var Data */

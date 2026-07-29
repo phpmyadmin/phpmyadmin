@@ -9,6 +9,7 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class OperationsTest extends TestBase
 {
     /**
@@ -50,6 +51,7 @@ class OperationsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testChangeTableOrder(): void
     {
         $this->selectByLabel(
@@ -81,6 +83,7 @@ class OperationsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testMoveTable(): void
     {
         $this->byCssSelector("form#moveTableForm input[name='new_name']")
@@ -112,6 +115,7 @@ class OperationsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testRenameTable(): void
     {
         $this->byCssSelector("form#tableOptionsForm input[name='new_name']")
@@ -145,6 +149,7 @@ class OperationsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testCopyTable(): void
     {
         $this->scrollIntoView('copyTable');
@@ -176,6 +181,7 @@ class OperationsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testTruncateTable(): void
     {
         $this->scrollToBottom();
@@ -203,6 +209,7 @@ class OperationsTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDropTable(): void
     {
         $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);

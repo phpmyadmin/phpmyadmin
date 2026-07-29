@@ -13,6 +13,7 @@ use function __;
 /**
  * @covers \PhpMyAdmin\Server\Plugins
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Server\Plugins::class)]
 class PluginsTest extends AbstractTestCase
 {
     /** @var Plugins */

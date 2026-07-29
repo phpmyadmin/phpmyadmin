@@ -14,6 +14,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\Monitor\LogVarsController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\Monitor\LogVarsController::class)]
 class LogVarsControllerTest extends AbstractTestCase
 {
     /** @var Data */

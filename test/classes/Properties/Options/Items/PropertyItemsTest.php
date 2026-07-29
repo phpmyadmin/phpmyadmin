@@ -16,6 +16,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class PropertyItemsTest extends AbstractTestCase
 {
     public function testBoolText(): void

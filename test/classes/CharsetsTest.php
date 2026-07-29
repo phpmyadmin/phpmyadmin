@@ -9,6 +9,7 @@ use PhpMyAdmin\Charsets;
 /**
  * @covers \PhpMyAdmin\Charsets
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Charsets::class)]
 class CharsetsTest extends AbstractTestCase
 {
     protected function setUp(): void

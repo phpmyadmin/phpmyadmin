@@ -17,6 +17,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Tracker
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Tracker::class)]
 class TrackerTest extends AbstractTestCase
 {
     /**
@@ -94,6 +95,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @dataProvider getTableNameData
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getTableNameData')]
     public function testGetTableName(string $string, string $expected): void
     {
         self::assertSame($expected, $this->callFunction(null, Tracker::class, 'getTableName', [$string]));
@@ -447,6 +449,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @dataProvider getTrackedDataProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getTrackedDataProvider')]
     public function testGetTrackedData(array $fetchArrayReturn, array $expectedArray): void
     {
         $resultStub = $this->createMock(DummyResult::class);
@@ -593,6 +596,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @dataProvider parseQueryData
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('parseQueryData')]
     public function testParseQuery(
         string $query,
         string $type,

@@ -17,6 +17,7 @@ use function class_exists;
 /**
  * @covers \PhpMyAdmin\WebAuthn\WebauthnLibServer
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\WebAuthn\WebauthnLibServer::class)]
 final class WebauthnLibServerTest extends TestCase
 {
     protected function setUp(): void
@@ -93,6 +94,7 @@ final class WebauthnLibServerTest extends TestCase
      *
      * @requires extension bcmath
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('bcmath')]
     public function testParseAndValidateAssertionResponse(): void
     {
         $twoFactor = self::createStub(TwoFactor::class);

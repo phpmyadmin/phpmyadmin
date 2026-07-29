@@ -11,6 +11,7 @@ use function chr;
 /**
  * @covers \PhpMyAdmin\Mime
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Mime::class)]
 class MimeTest extends AbstractTestCase
 {
     /**
@@ -21,6 +22,7 @@ class MimeTest extends AbstractTestCase
      *
      * @dataProvider providerForTestDetect
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestDetect')]
     public function testDetect(string $test, string $output): void
     {
         self::assertSame(Mime::detect($test), $output);

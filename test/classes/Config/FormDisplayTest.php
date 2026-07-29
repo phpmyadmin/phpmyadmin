@@ -20,6 +20,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Config\FormDisplay
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\FormDisplay::class)]
 class FormDisplayTest extends AbstractTestCase
 {
     /** @var FormDisplay */
@@ -52,6 +53,7 @@ class FormDisplayTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testRegisterForm(): void
     {
         $reflection = new ReflectionClass(FormDisplay::class);
@@ -100,6 +102,7 @@ class FormDisplayTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testProcess(): void
     {
         self::assertFalse($this->object->process(true, true));

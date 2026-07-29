@@ -16,6 +16,8 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
  * @covers \PhpMyAdmin\Controllers\Database\EventsController
  * @covers \PhpMyAdmin\Database\Events
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Database\EventsController::class)]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Events::class)]
 final class EventsControllerTest extends AbstractTestCase
 {
     public function testWithEvents(): void

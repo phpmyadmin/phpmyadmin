@@ -11,6 +11,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  * @covers \PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema
  * @requires extension xmlwriter
  */
+#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema::class)]
 class SvgRelationSchemaTest extends AbstractTestCase
 {
     /** @var SvgRelationSchema */
@@ -61,6 +63,7 @@ class SvgRelationSchemaTest extends AbstractTestCase
      *
      * @group medium
      */
+    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testConstructor(): void
     {
         self::assertSame(33, $this->object->getPageNumber());

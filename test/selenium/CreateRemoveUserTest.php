@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Selenium;
 /**
  * @coversNothing
  */
+#[\PHPUnit\Framework\Attributes\CoversNothing]
 class CreateRemoveUserTest extends TestBase
 {
     /**
@@ -46,6 +47,7 @@ class CreateRemoveUserTest extends TestBase
      *
      * @group large
      */
+    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testCreateRemoveUser(): void
     {
         $this->waitForElement('partialLinkText', 'User accounts')->click();

@@ -10,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \PhpMyAdmin\InternalRelations
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\InternalRelations::class)]
 class InternalRelationsTest extends TestCase
 {
     public function testGetInformationSchema(): void

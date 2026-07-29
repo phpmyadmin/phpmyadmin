@@ -17,6 +17,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\Structure\ChangeController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\Structure\ChangeController::class)]
 class ChangeControllerTest extends AbstractTestCase
 {
     public function testChangeController(): void

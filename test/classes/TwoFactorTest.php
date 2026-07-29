@@ -19,6 +19,7 @@ use const JSON_UNESCAPED_SLASHES;
 /**
  * @covers \PhpMyAdmin\TwoFactor
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\TwoFactor::class)]
 class TwoFactorTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -249,6 +250,9 @@ class TwoFactorTest extends AbstractTestCase
      * @requires extension xmlwriter
      * @requires extension iconv
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('iconv')]
+    #[\PHPUnit\Framework\Attributes\Group('extension-iconv')]
     public function testApplication(): void
     {
         parent::setLanguage();

@@ -17,6 +17,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Gis\GisFactory
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Gis\GisFactory::class)]
 class GisFactoryTest extends AbstractTestCase
 {
     /**
@@ -28,6 +29,7 @@ class GisFactoryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestFactory
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestFactory')]
     public function testFactory(string $type, string $geom): void
     {
         self::assertInstanceOf($geom, GisFactory::factory($type));

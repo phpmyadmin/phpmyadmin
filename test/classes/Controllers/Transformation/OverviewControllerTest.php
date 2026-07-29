@@ -15,6 +15,7 @@ use function __;
 /**
  * @covers \PhpMyAdmin\Controllers\Transformation\OverviewController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Transformation\OverviewController::class)]
 class OverviewControllerTest extends AbstractTestCase
 {
     /**

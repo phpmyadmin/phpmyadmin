@@ -13,6 +13,7 @@ use function preg_match;
 /**
  * @covers \PhpMyAdmin\Gis\GisLineString
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Gis\GisLineString::class)]
 class GisLineStringTest extends GisGeomTestCase
 {
     /** @var    GisLineString */
@@ -166,6 +167,7 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * @requires extension gd
      */
+    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
@@ -192,6 +194,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -237,6 +240,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -285,6 +289,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsOl
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,

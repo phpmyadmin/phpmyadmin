@@ -11,6 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Config\FormDisplayTemplate
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\FormDisplayTemplate::class)]
 class FormDisplayTemplateTest extends AbstractTestCase
 {
     /** @var FormDisplayTemplate */

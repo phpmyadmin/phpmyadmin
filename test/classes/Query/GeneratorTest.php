@@ -10,6 +10,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Query\Generator
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Query\Generator::class)]
 class GeneratorTest extends AbstractTestCase
 {
     public function testGetColumnsSql(): void

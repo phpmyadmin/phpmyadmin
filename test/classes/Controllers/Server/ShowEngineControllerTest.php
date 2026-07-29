@@ -18,6 +18,7 @@ use function htmlspecialchars;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\ShowEngineController
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\ShowEngineController::class)]
 class ShowEngineControllerTest extends AbstractTestCase
 {
     public function testShowEngine(): void

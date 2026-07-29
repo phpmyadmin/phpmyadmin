@@ -17,6 +17,7 @@ use function sprintf;
 /**
  * @covers \PhpMyAdmin\Database\Designer\Common
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Designer\Common::class)]
 class CommonTest extends AbstractTestCase
 {
     /** @var Common */
