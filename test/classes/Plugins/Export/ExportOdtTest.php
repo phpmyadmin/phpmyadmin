@@ -22,6 +22,7 @@ use stdClass;
 
 use function __;
 use function array_shift;
+use function bin2hex;
 
 use const MYSQLI_BLOB_FLAG;
 use const MYSQLI_NUM_FLAG;
@@ -215,17 +216,14 @@ class ExportOdtTest extends AbstractTestCase
         self::assertStringContainsString('office:version', $GLOBALS['odt_buffer']);
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testExportFooter(): void
     {
         $GLOBALS['odt_buffer'] = 'header';
 
-        $this->expectOutputRegex('/^504b.*636f6e74656e742e786d6c/');
-        $this->setOutputCallback('bin2hex');
-
         self::assertTrue($this->object->exportFooter());
+
+        $output = $this->getActualOutputForAssertion();
+        self::assertMatchesRegularExpressionCompat('/^504b.*636f6e74656e742e786d6c/', bin2hex($output));
 
         self::assertStringContainsString('header', $GLOBALS['odt_buffer']);
 

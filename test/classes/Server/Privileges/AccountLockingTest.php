@@ -14,18 +14,12 @@ use Throwable;
  */
 class AccountLockingTest extends TestCase
 {
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testLockWithValidAccount(): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
         $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
-        $dbi->expects($this->exactly(2))
-            ->method('escapeString')
-            ->withConsecutive([$this->equalTo('test.user')], [$this->equalTo('test.host')])
-            ->willReturnOnConsecutiveCalls('test.user', 'test.host');
+        $dbi->expects(self::exactly(2))->method('escapeString')->willReturnArgument(0);
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;'))
@@ -36,18 +30,12 @@ class AccountLockingTest extends TestCase
         $accountLocking->lock('test.user', 'test.host');
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testLockWithInvalidAccount(): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
         $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
-        $dbi->expects($this->exactly(2))
-            ->method('escapeString')
-            ->withConsecutive([$this->equalTo('test.user')], [$this->equalTo('test.host')])
-            ->willReturnOnConsecutiveCalls('test.user', 'test.host');
+        $dbi->expects(self::exactly(2))->method('escapeString')->willReturnArgument(0);
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;'))
@@ -79,18 +67,12 @@ class AccountLockingTest extends TestCase
         $accountLocking->lock('test.user', 'test.host');
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testUnlockWithValidAccount(): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
         $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
-        $dbi->expects($this->exactly(2))
-            ->method('escapeString')
-            ->withConsecutive([$this->equalTo('test.user')], [$this->equalTo('test.host')])
-            ->willReturnOnConsecutiveCalls('test.user', 'test.host');
+        $dbi->expects(self::exactly(2))->method('escapeString')->willReturnArgument(0);
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;'))
@@ -101,18 +83,12 @@ class AccountLockingTest extends TestCase
         $accountLocking->unlock('test.user', 'test.host');
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testUnlockWithInvalidAccount(): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
         $dbi->expects($this->once())->method('getVersion')->willReturn(100402);
-        $dbi->expects($this->exactly(2))
-            ->method('escapeString')
-            ->withConsecutive([$this->equalTo('test.user')], [$this->equalTo('test.host')])
-            ->willReturnOnConsecutiveCalls('test.user', 'test.host');
+        $dbi->expects(self::exactly(2))->method('escapeString')->willReturnArgument(0);
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;'))

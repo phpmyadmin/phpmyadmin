@@ -1665,9 +1665,6 @@ class PrivilegesTest extends AbstractTestCase
         self::assertStringContainsString(__('Password:'), $html);
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testGetUserPrivileges(): void
     {
         $mysqliResultStub = $this->createMock(mysqli_result::class);
@@ -1680,13 +1677,14 @@ class PrivilegesTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())->method('isMariaDB')->willReturn(true);
-        $dbi->expects($this->exactly(2))
-            ->method('prepare')
-            ->withConsecutive(
-                [$this->equalTo('SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;')],
-                [$this->equalTo('SELECT * FROM `mysql`.`global_priv` WHERE `User` = ? AND `Host` = ?;')]
-            )
-            ->willReturn($mysqliStmtStub);
+
+        $userQuery = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
+        $globalPrivQuery = 'SELECT * FROM `mysql`.`global_priv` WHERE `User` = ? AND `Host` = ?;';
+        $dbi->expects(self::exactly(2))->method('prepare')->willReturnMap([
+            [$userQuery, DatabaseInterface::CONNECT_USER, $mysqliStmtStub],
+            [$globalPrivQuery, DatabaseInterface::CONNECT_USER, $mysqliStmtStub],
+        ]);
+
         $mysqliResultStub->expects($this->exactly(2))
             ->method('fetch_assoc')
             ->willReturnOnConsecutiveCalls(

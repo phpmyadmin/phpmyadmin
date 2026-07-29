@@ -59,97 +59,40 @@ class ErrorHandlerTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Data provider for testHandleError
-     *
-     * @return array data for testHandleError
-     */
+    /** @return array<array{int, string, string, int, string, string}> */
     public static function providerForTestHandleError(): array
     {
         return [
-            [
-                E_RECOVERABLE_ERROR,
-                'Compile Error',
-                'error.txt',
-                12,
-                'Compile Error',
-                '',
-            ],
-            [
-                E_USER_NOTICE,
-                'User notice',
-                'error.txt',
-                12,
-                'User notice',
-                'User notice',
-            ],
+            [E_RECOVERABLE_ERROR, 'Compile Error', 'error.txt', 12, 'never', ''],
+            [E_RECOVERABLE_ERROR, 'Compile Error', 'error.txt', 12, 'always', 'Compile Error'],
+            [E_RECOVERABLE_ERROR, 'Compile Error', 'error.txt', 12, 'ask', 'Compile Error'],
+            [E_USER_NOTICE, 'User notice', 'error.txt', 12, 'never', 'User notice'],
+            [E_USER_NOTICE, 'User notice', 'error.txt', 12, 'always', 'User notice'],
+            [E_USER_NOTICE, 'User notice', 'error.txt', 12, 'ask', 'User notice'],
         ];
     }
 
-    /**
-     * Test for getDispErrors when PHP errors are not shown
-     *
-     * @param int    $errno       error number
-     * @param string $errstr      error string
-     * @param string $errfile     error file
-     * @param int    $errline     error line
-     * @param string $output_show expected output if showing of errors is
-     *                            enabled
-     * @param string $output_hide expected output if showing of errors is
-     *                            disabled and 'sendErrorReports' is set to 'never'
-     *
-     * @dataProvider providerForTestHandleError
-     */
-    public function testGetDispErrorsForDisplayFalse(
-        int $errno,
-        string $errstr,
-        string $errfile,
-        int $errline,
-        string $output_show,
-        string $output_hide
+    /** @dataProvider providerForTestHandleError */
+    public function testGetDisplayErrors(
+        int $errorNumber,
+        string $errorMessage,
+        string $errorFile,
+        int $errorLine,
+        string $reportErrorConfig,
+        string $expected
     ): void {
-        // TODO: Add other test cases for all combination of 'sendErrorReports'
-        $GLOBALS['cfg']['SendErrorReports'] = 'never';
+        $GLOBALS['cfg']['environment'] = 'production';
+        $GLOBALS['cfg']['SendErrorReports'] = $reportErrorConfig;
 
-        $this->object->handleError($errno, $errstr, $errfile, $errline);
+        $error = new Error($errorNumber, $errorMessage, $errorFile, $errorLine);
+        $_SESSION['errors'] = [$error->getHash() => $error];
 
-        $output = $this->object->getDispErrors();
-
-        if ($output_hide === '') {
-            self::assertSame('', $output);
+        $handler = new ErrorHandler();
+        if ($expected === '') {
+            self::assertSame('', $handler->getDispErrors());
         } else {
-            self::assertNotEmpty($output_show);// Useless check
-            self::assertStringContainsString($output_hide, $output);
+            self::assertStringContainsString($expected, $handler->getDispErrors());
         }
-    }
-
-    /**
-     * Test for getDispErrors when PHP errors are shown
-     *
-     * @param int    $errno       error number
-     * @param string $errstr      error string
-     * @param string $errfile     error file
-     * @param int    $errline     error line
-     * @param string $output_show expected output if showing of errors is
-     *                            enabled
-     * @param string $output_hide expected output if showing of errors is
-     *                            disabled
-     *
-     * @dataProvider providerForTestHandleError
-     * @requires PHPUnit < 10
-     */
-    public function testGetDispErrorsForDisplayTrue(
-        int $errno,
-        string $errstr,
-        string $errfile,
-        int $errline,
-        string $output_show,
-        string $output_hide
-    ): void {
-        $this->object->handleError($errno, $errstr, $errfile, $errline);
-
-        self::assertIsString($output_hide);// Useless check
-        self::assertStringContainsString($output_show, $this->object->getDispErrors());
     }
 
     /**

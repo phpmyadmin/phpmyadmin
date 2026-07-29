@@ -711,7 +711,6 @@ class ExportSqlTest extends AbstractTestCase
 
     /**
      * @group medium
-     * @requires PHPUnit < 10
      */
     public function testGetTableDef(): void
     {
@@ -762,14 +761,14 @@ class ExportSqlTest extends AbstractTestCase
             ->method('fetchAssoc')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->exactly(3))
-            ->method('tryQuery')
-            ->withConsecutive(
-                ["SHOW TABLE STATUS FROM `db` WHERE Name = 'table'"],
-                ['USE `db`'],
-                ['SHOW CREATE TABLE `db`.`table`']
-            )
-            ->willReturnOnConsecutiveCalls($resultStub, $resultStub, $resultStub);
+        $showTableStatusQuery = "SHOW TABLE STATUS FROM `db` WHERE Name = 'table'";
+        $useStatement = 'USE `db`';
+        $showCreateTableQuery = 'SHOW CREATE TABLE `db`.`table`';
+        $dbi->expects(self::exactly(3))->method('tryQuery')->willReturnMap([
+            [$showTableStatusQuery, DatabaseInterface::CONNECT_USER, 0, true, $resultStub],
+            [$useStatement, DatabaseInterface::CONNECT_USER, 0, true, $resultStub],
+            [$showCreateTableQuery, DatabaseInterface::CONNECT_USER, 0, true, $resultStub],
+        ]);
 
         $row = [
             '',
@@ -836,9 +835,6 @@ class ExportSqlTest extends AbstractTestCase
         self::assertStringContainsString('DROP FOREIGN KEY', $GLOBALS['sql_drop_foreign_keys']);
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testGetTableDefWithError(): void
     {
         $GLOBALS['sql_compatibility'] = '';
@@ -889,14 +885,14 @@ class ExportSqlTest extends AbstractTestCase
             ->method('fetchAssoc')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->exactly(3))
-            ->method('tryQuery')
-            ->withConsecutive(
-                ["SHOW TABLE STATUS FROM `db` WHERE Name = 'table'"],
-                ['USE `db`'],
-                ['SHOW CREATE TABLE `db`.`table`']
-            )
-            ->willReturnOnConsecutiveCalls($resultStub, $resultStub, $resultStub);
+        $showTableStatusQuery = "SHOW TABLE STATUS FROM `db` WHERE Name = 'table'";
+        $useStatement = 'USE `db`';
+        $showCreateTableQuery = 'SHOW CREATE TABLE `db`.`table`';
+        $dbi->expects(self::exactly(3))->method('tryQuery')->willReturnMap([
+            [$showTableStatusQuery, DatabaseInterface::CONNECT_USER, 0, true, $resultStub],
+            [$useStatement, DatabaseInterface::CONNECT_USER, 0, true, $resultStub],
+            [$showCreateTableQuery, DatabaseInterface::CONNECT_USER, 0, true, $resultStub],
+        ]);
 
         $dbi->expects($this->once())
             ->method('getError')

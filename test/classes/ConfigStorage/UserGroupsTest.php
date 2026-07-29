@@ -87,8 +87,6 @@ class UserGroupsTest extends AbstractTestCase
 
     /**
      * Tests UserGroups::delete() function
-     *
-     * @requires PHPUnit < 10
      */
     public function testDeleteUserGroup(): void
     {
@@ -98,9 +96,13 @@ class UserGroupsTest extends AbstractTestCase
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $dbi->expects($this->exactly(2))
-            ->method('queryAsControlUser')
-            ->withConsecutive([$this->equalTo($userDelQuery)], [$this->equalTo($userGrpDelQuery)]);
+
+        $resultStub = self::createStub(DummyResult::class);
+        $dbi->expects(self::exactly(2))->method('queryAsControlUser')->willReturnMap([
+            [$userDelQuery, $resultStub],
+            [$userGrpDelQuery, $resultStub],
+        ]);
+
         $dbi->expects($this->any())
             ->method('escapeString')
             ->will($this->returnArgument(0));

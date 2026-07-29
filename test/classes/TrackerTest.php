@@ -163,8 +163,6 @@ class TrackerTest extends AbstractTestCase
 
     /**
      * Test for Tracker::createVersion()
-     *
-     * @requires PHPUnit < 10
      */
     public function testCreateVersion(): void
     {
@@ -211,14 +209,14 @@ class TrackerTest extends AbstractTestCase
             ->with('pma_test', 'pma_tbl')
             ->will($this->returnValue($getIndexesResult));
 
-        $dbi->expects($this->exactly(3))
-            ->method('tryQuery')
-            ->withConsecutive(
-                ["SHOW TABLE STATUS FROM `pma_test` WHERE Name = 'pma_tbl'"],
-                ['USE `pma_test`'],
-                ['SHOW CREATE TABLE `pma_test`.`pma_tbl`']
-            )
-            ->willReturnOnConsecutiveCalls($resultStub, $resultStub, $resultStub);
+        $showTableStatusQuery = "SHOW TABLE STATUS FROM `pma_test` WHERE Name = 'pma_tbl'";
+        $useStatement = 'USE `pma_test`';
+        $showCreateTableQuery = 'SHOW CREATE TABLE `pma_test`.`pma_tbl`';
+        $dbi->expects(self::exactly(3))->method('tryQuery')->willReturnMap([
+            [$showTableStatusQuery, DatabaseInterface::CONNECT_USER, 0, true, $resultStub],
+            [$useStatement, DatabaseInterface::CONNECT_USER, 0, true, $resultStub],
+            [$showCreateTableQuery, DatabaseInterface::CONNECT_USER, 0, true, $resultStub],
+        ]);
 
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValue($resultStub));

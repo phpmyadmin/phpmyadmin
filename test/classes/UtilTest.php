@@ -2192,9 +2192,6 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testCurrentUserHasNotUserPrivilegeButDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2205,20 +2202,24 @@ class UtilTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
             ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(2))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, 'EVENT');
+
+        $dbi->expects(self::exactly(2))->method('fetchValue')->willReturnMap([
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                'EVENT',
+            ],
+        ]);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2226,9 +2227,6 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2239,20 +2237,24 @@ class UtilTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
             ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(2))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, false);
+
+        $dbi->expects(self::exactly(2))->method('fetchValue')->willReturnMap([
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+        ]);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2260,9 +2262,6 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeButTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2273,25 +2272,32 @@ class UtilTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
             ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(3))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, false, 'EVENT');
+
+        $dbi->expects(self::exactly(3))->method('fetchValue')->willReturnMap([
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                'EVENT',
+            ],
+        ]);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2299,9 +2305,6 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeAndNotTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2312,25 +2315,32 @@ class UtilTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
             ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(3))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, false, false);
+
+        $dbi->expects(self::exactly(3))->method('fetchValue')->willReturnMap([
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+        ]);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;

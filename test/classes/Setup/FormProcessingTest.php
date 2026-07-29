@@ -32,8 +32,6 @@ class FormProcessingTest extends AbstractNetworkTestCase
 
     /**
      * Test for process_formset()
-     *
-     * @requires PHPUnit < 10
      */
     public function testProcessFormSet(): void
     {

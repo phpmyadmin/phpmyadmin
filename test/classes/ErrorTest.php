@@ -126,15 +126,10 @@ class ErrorTest extends AbstractTestCase
         self::assertSame(1, preg_match('/^([a-z0-9]*)$/', $this->object->getHash()));
     }
 
-    /**
-     * Test for getBacktraceDisplay
-     *
-     * @requires PHPUnit < 10
-     */
     public function testGetBacktraceDisplay(): void
     {
         self::assertStringContainsString(
-            'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br>',
+            '->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br>',
             $this->object->getBacktraceDisplay()
         );
     }

@@ -481,7 +481,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array<array{string,string|int,int,int,string}>
      */
-    public function provTestDetectSize(): array
+    public static function provTestDetectSize(): array
     {
         return [
             [
