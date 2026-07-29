@@ -8,11 +8,27 @@ import $ from 'jquery';
 function enhanceSearchableSelects (): void {
     $('select.search').each(function () {
         const select = this as HTMLSelectElement;
-        if (select.multiple || $(select).closest('.searchable-select').length > 0) {
+        if (select.multiple) {
             return;
         }
 
         const $select = $(select);
+        const $existingWrapper = $select.closest('.searchable-select');
+        if ($existingWrapper.length > 0) {
+            if ($existingWrapper.data('searchableSelectMenu')) {
+                return;
+            }
+
+            /*
+             * Markup cloned (e.g. "duplicate row") from an already-enhanced select carries over the
+             * toggle/menu elements but not their jQuery .data() link (that isn't copied by cloning),
+             * which crashes buildOptionsList(). Strip the stale copy and rebuild it from scratch.
+             */
+            $existingWrapper.find('.searchable-select-toggle, .searchable-select-menu').remove();
+            $select.removeClass('searchable-select-native');
+            $existingWrapper.replaceWith($select);
+        }
+
         $select.addClass('searchable-select-native');
         $select.wrap('<div class="searchable-select"></div>');
         const $wrapper = $select.parent();
@@ -101,7 +117,16 @@ function closeOtherMenus ($except: JQuery): void {
  * flipping above the toggle when there is not enough room below.
  */
 function positionMenu ($wrapper: JQuery, $menu: JQuery): void {
-    document.body.appendChild($menu.get(0) as HTMLElement);
+    /*
+     * Bootstrap's modal focus trap only allows focus within the modal element itself, so a menu
+     * detached all the way to <body> would have its search input immediately un-focusable/unusable
+     * while a modal is open. Detaching inside the open modal instead keeps it within the trap.
+     * `.modal` has no transform of its own, so `position: fixed` below still positions against the
+     * viewport (and still escapes the modal's own overflow) either way.
+     */
+    const $modal = $wrapper.closest('.modal');
+    const container = $modal.length > 0 ? $modal.get(0) as HTMLElement : document.body;
+    container.appendChild($menu.get(0) as HTMLElement);
     $menu.addClass('show').css({ position: 'fixed', visibility: 'hidden', top: '0px', left: '0px', width: '' });
 
     const toggleEl = $wrapper.find('.searchable-select-toggle').get(0) as HTMLElement;
@@ -347,6 +372,15 @@ const documentClickHandler = getDocumentClickHandler();
 const resizeHandler = getResizeHandler();
 const scrollHandler = getScrollHandler();
 
+/*
+ * select.search elements can appear at any time through means this module has no hook into: a
+ * modal built at runtime, a table row duplicated client-side, an AJAX-loaded fragment, etc.
+ * Rather than chasing every insertion point, observe the whole document and (re-)enhance
+ * whenever nodes are added; enhanceSearchableSelects() is cheap and a no-op for anything already
+ * wired up correctly.
+ */
+let mutationObserver: MutationObserver | null = null;
+
 export function onloadSearchableSelects (): void {
     enhanceSearchableSelects();
     $(document).on('click', '.searchable-select-toggle', toggleClickHandler);
@@ -358,6 +392,8 @@ export function onloadSearchableSelects (): void {
     /* scroll does not bubble, so this must be bound on the capture phase to catch scrollable ancestors */
     document.addEventListener('scroll', scrollHandler, true);
     window.addEventListener('resize', resizeHandler);
+    mutationObserver = new MutationObserver(enhanceSearchableSelects);
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
 }
 
 export function teardownSearchableSelects (): void {
@@ -369,4 +405,6 @@ export function teardownSearchableSelects (): void {
     $(document).off('click', documentClickHandler);
     document.removeEventListener('scroll', scrollHandler, true);
     window.removeEventListener('resize', resizeHandler);
+    mutationObserver?.disconnect();
+    mutationObserver = null;
 }
