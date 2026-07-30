@@ -31,8 +31,10 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationCookie
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Auth\AuthenticationCookie::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class AuthenticationCookieTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationCookie */
@@ -66,10 +68,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         unset($this->object);
     }
 
-    /**
-     * @group medium
-     */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testAuthErrorAJAX(): void
     {
         $mockResponse = $this->mockResponse();
@@ -172,10 +170,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['errorHandler'] = $mockErrorHandler;
     }
 
-    /**
-     * @group medium
-     */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testAuthError(): void
     {
         $_REQUEST = [];
@@ -236,10 +230,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         self::assertStringContainsString('<input type="hidden" name="table" value="testTable">', $result);
     }
 
-    /**
-     * @group medium
-     */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testAuthCaptcha(): void
     {
         $mockResponse = $this->mockResponse();
@@ -306,10 +296,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         . ' data-callback="Functions_recaptchaCallback" value="Log in" type="submit" id="input_go">', $result);
     }
 
-    /**
-     * @group medium
-     */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testAuthCaptchaCheckbox(): void
     {
         $mockResponse = $this->mockResponse();

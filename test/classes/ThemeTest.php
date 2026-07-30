@@ -14,8 +14,10 @@ use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Theme
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Theme::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class ThemeTest extends AbstractTestCase
 {
     /** @var Theme */
@@ -56,10 +58,7 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::loadInfo
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testCheckImgPathNotExisted(): void
     {
         $this->object->setPath('path/to/nowhere');

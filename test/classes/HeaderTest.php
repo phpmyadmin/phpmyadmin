@@ -17,9 +17,9 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Header
- * @group medium
+ * @medium
  */
-#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\Medium]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Header::class)]
 #[\PHPUnit\Framework\Attributes\CoversMethod(\PhpMyAdmin\Core::class, 'getNoCacheHeaders')]
 class HeaderTest extends AbstractTestCase

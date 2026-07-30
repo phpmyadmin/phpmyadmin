@@ -17,8 +17,10 @@ use PhpMyAdmin\Url;
 
 /**
  * @covers \PhpMyAdmin\ConfigStorage\UserGroups
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\UserGroups::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class UserGroupsTest extends AbstractTestCase
 {
     /** @var ConfigurableMenusFeature */
@@ -42,10 +44,7 @@ class UserGroupsTest extends AbstractTestCase
 
     /**
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are no user groups
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetHtmlForUserGroupsTableWithNoUserGroups(): void
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC';

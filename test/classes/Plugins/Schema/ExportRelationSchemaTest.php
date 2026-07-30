@@ -9,8 +9,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\ExportRelationSchema
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\ExportRelationSchema::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class ExportRelationSchemaTest extends AbstractTestCase
 {
     /** @var ExportRelationSchema */
@@ -39,10 +41,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setPageNumber
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);
@@ -51,10 +50,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setShowColor
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetShowColor(): void
     {
         $this->object->setShowColor(true);
@@ -65,10 +61,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setOrientation
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetOrientation(): void
     {
         $this->object->setOrientation('P');
@@ -79,10 +72,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setTableDimension
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetTableDimension(): void
     {
         $this->object->setTableDimension(true);
@@ -93,10 +83,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setPaper
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetPaper(): void
     {
         $this->object->setPaper('A5');
@@ -107,10 +94,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setAllTablesSameWidth
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetAllTablesSameWidth(): void
     {
         $this->object->setAllTablesSameWidth(true);
@@ -121,10 +105,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setShowKeys
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetShowKeys(): void
     {
         $this->object->setShowKeys(true);

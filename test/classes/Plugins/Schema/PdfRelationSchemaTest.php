@@ -9,8 +9,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema::class)]
+#[\PHPUnit\Framework\Attributes\Large]
 class PdfRelationSchemaTest extends AbstractTestCase
 {
     /** @var PdfRelationSchema */
@@ -58,10 +60,7 @@ class PdfRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for construct
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testConstructor(): void
     {
         self::assertSame(33, $this->object->getPageNumber());

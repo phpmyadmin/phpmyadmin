@@ -11,8 +11,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportSql
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportSql::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class ImportSqlTest extends AbstractTestCase
 {
     /** @var ImportSql */
@@ -54,10 +56,7 @@ class ImportSqlTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail

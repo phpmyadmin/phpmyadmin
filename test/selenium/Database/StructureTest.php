@@ -8,8 +8,10 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class StructureTest extends TestBase
 {
     /**
@@ -42,10 +44,7 @@ class StructureTest extends TestBase
 
     /**
      * Test for truncating a table
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testTruncateTable(): void
     {
         $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
@@ -69,10 +68,7 @@ class StructureTest extends TestBase
 
     /**
      * Tests for dropping multiple tables
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDropMultipleTables(): void
     {
         $this->byCssSelector("label[for='tablesForm_checkall']")->click();

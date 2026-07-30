@@ -34,8 +34,10 @@ use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Config
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config::class)]
+#[\PHPUnit\Framework\Attributes\Large]
 class ConfigTest extends AbstractTestCase
 {
     /** @var Config */
@@ -161,10 +163,7 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * Test for CheckSystem
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testCheckSystem(): void
     {
         $this->object->checkSystem();
@@ -406,10 +405,7 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * Tests loading of default values
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testLoadDefaults(): void
     {
         $this->object->defaultServer = [];

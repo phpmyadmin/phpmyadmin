@@ -14,8 +14,10 @@ use function basename;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportCsv
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportCsv::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class ImportCsvTest extends AbstractTestCase
 {
     /** @var ImportCsv */
@@ -74,10 +76,7 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -87,10 +86,7 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -115,10 +111,7 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for partial import/setting table and database names in doImport
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoPartialImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -149,10 +142,7 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for getProperties for Table param
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetPropertiesForTable(): void
     {
         $GLOBALS['plugin_param'] = 'table';
@@ -164,10 +154,7 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for doImport for _getAnalyze = false, should be OK as well
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportNotAnalysis(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -193,10 +180,7 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for doImport in the most basic and normal way
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportNormal(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -233,10 +217,7 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for doImport skipping headers
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportSkipHeaders(): void
     {
         //$sql_query_disabled will show the import SQL detail

@@ -12,8 +12,10 @@ use function strtotime;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class EventsTest extends TestBase
 {
     /**
@@ -73,10 +75,7 @@ class EventsTest extends TestBase
 
     /**
      * Create an event
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testAddEvent(): void
     {
         $this->waitForElement('partialLinkText', 'Events')->click();
@@ -158,10 +157,8 @@ class EventsTest extends TestBase
      * Test for editing events
      *
      * @depends testAddEvent
-     * @group large
      */
     #[\PHPUnit\Framework\Attributes\Depends('testAddEvent')]
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testEditEvents(): void
     {
         $this->eventSQL();
@@ -198,10 +195,8 @@ class EventsTest extends TestBase
      * Test for dropping event
      *
      * @depends testAddEvent
-     * @group large
      */
     #[\PHPUnit\Framework\Attributes\Depends('testAddEvent')]
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDropEvent(): void
     {
         $this->eventSQL();

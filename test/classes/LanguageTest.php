@@ -15,9 +15,11 @@ use function strtolower;
 /**
  * @covers \PhpMyAdmin\Language
  * @covers \PhpMyAdmin\LanguageManager
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Language::class)]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\LanguageManager::class)]
+#[\PHPUnit\Framework\Attributes\Large]
 class LanguageTest extends AbstractTestCase
 {
     /** @var LanguageManager */
@@ -234,11 +236,9 @@ class LanguageTest extends AbstractTestCase
      *
      * @param string $locale locale name
      *
-     * @group large
      * @dataProvider listLocales
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('listLocales')]
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testGettext(string $locale): void
     {
         $GLOBALS['config']->set('FilterLanguages', '');

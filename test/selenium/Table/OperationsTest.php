@@ -8,8 +8,10 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class OperationsTest extends TestBase
 {
     /**
@@ -48,10 +50,7 @@ class OperationsTest extends TestBase
 
     /**
      * Test for changing a table order
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testChangeTableOrder(): void
     {
         $this->selectByLabel(
@@ -80,10 +79,7 @@ class OperationsTest extends TestBase
 
     /**
      * Test for moving a table
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testMoveTable(): void
     {
         $this->byCssSelector("form#moveTableForm input[name='new_name']")
@@ -112,10 +108,7 @@ class OperationsTest extends TestBase
 
     /**
      * Test for renaming a table
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testRenameTable(): void
     {
         $this->byCssSelector("form#tableOptionsForm input[name='new_name']")
@@ -146,10 +139,7 @@ class OperationsTest extends TestBase
 
     /**
      * Test for copying a table
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testCopyTable(): void
     {
         $this->scrollIntoView('copyTable');
@@ -178,10 +168,7 @@ class OperationsTest extends TestBase
 
     /**
      * Test for truncating a table
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testTruncateTable(): void
     {
         $this->scrollToBottom();
@@ -206,10 +193,7 @@ class OperationsTest extends TestBase
 
     /**
      * Test for dropping a table
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDropTable(): void
     {
         $dropLink = $this->waitUntilElementIsVisible('partialLinkText', 'Delete the table (DROP)', 30);

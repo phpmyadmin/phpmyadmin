@@ -29,8 +29,10 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\ErrorHandler
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ErrorHandler::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class ErrorHandlerTest extends AbstractTestCase
 {
     /** @var ErrorHandler */
@@ -113,10 +115,7 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for countErrors
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testCountErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
@@ -153,10 +152,7 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for sliceErrors
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSliceErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
@@ -170,10 +166,7 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for sliceErrors with 10 elements as an example
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSliceErrorsOtherExample(): void
     {
         for ($i = 0; $i < 10; $i++) {

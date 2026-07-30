@@ -9,8 +9,10 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class BrowseTest extends TestBase
 {
     /**
@@ -40,10 +42,7 @@ class BrowseTest extends TestBase
 
     /**
      * Test sorting of records in browse table
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testSortRecords(): void
     {
         // case 1
@@ -90,10 +89,7 @@ class BrowseTest extends TestBase
 
     /**
      * Test Edit Record
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testChangeRecords(): void
     {
         $ele = $this->byCssSelector('table.table_results tbody tr:nth-child(2) td:nth-child(2)');
@@ -132,10 +128,7 @@ class BrowseTest extends TestBase
 
     /**
      * Test edit record by double click
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testChangeRecordsByDoubleClick(): void
     {
         $element = $this->byCssSelector('table.table_results tbody tr:nth-child(1) td:nth-child(6)');
@@ -162,10 +155,7 @@ class BrowseTest extends TestBase
 
     /**
      * Test copy and insert record
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testCopyRecords(): void
     {
         $ele = $this->byCssSelector('table.table_results tbody tr:nth-child(3) td:nth-child(3)');
@@ -196,10 +186,7 @@ class BrowseTest extends TestBase
 
     /**
      * Test search table
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testSearchRecords(): void
     {
         $this->expandMore();
@@ -229,10 +216,7 @@ class BrowseTest extends TestBase
 
     /**
      * Test delete multiple records
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDeleteRecords(): void
     {
         $this->byId('id_rows_to_delete1_left')->click();

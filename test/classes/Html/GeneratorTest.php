@@ -20,8 +20,10 @@ use function urlencode;
 
 /**
  * @covers \PhpMyAdmin\Html\Generator
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Html\Generator::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class GeneratorTest extends AbstractTestCase
 {
     /**
@@ -35,10 +37,7 @@ class GeneratorTest extends AbstractTestCase
 
     /**
      * Test for getDbLink
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetDbLinkEmpty(): void
     {
         $GLOBALS['db'] = null;
@@ -47,10 +46,7 @@ class GeneratorTest extends AbstractTestCase
 
     /**
      * Test for getDbLink
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetDbLinkNull(): void
     {
         global $cfg;

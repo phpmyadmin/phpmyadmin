@@ -55,6 +55,7 @@ use const MYSQLI_TYPE_TINY;
  * @covers \PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4
  * @covers \PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend
  * @covers \PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\TransformationsPlugin::class)]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload::class)]
@@ -75,6 +76,7 @@ use const MYSQLI_TYPE_TINY;
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4::class)]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend::class)]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class TransformationPluginsTest extends AbstractTestCase
 {
     /**
@@ -745,10 +747,8 @@ class TransformationPluginsTest extends AbstractTestCase
      * @param array  $args     the array of arguments
      *
      * @dataProvider multiDataProvider
-     * @group medium
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('multiDataProvider')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetMulti($object, string $method, $expected, array $args = []): void
     {
         if (! method_exists($object, $method)) {
@@ -1299,10 +1299,8 @@ class TransformationPluginsTest extends AbstractTestCase
      * @param string     $error       the expected output of getError
      *
      * @dataProvider transformationDataProvider
-     * @group medium
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('transformationDataProvider')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testTransformation(
         $object,
         array $applyArgs,

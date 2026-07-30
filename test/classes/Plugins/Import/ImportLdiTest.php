@@ -15,8 +15,10 @@ use function __;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportLdi
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportLdi::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class ImportLdiTest extends AbstractTestCase
 {
     /** @var ImportLdi */
@@ -77,10 +79,7 @@ class ImportLdiTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -90,10 +89,7 @@ class ImportLdiTest extends AbstractTestCase
 
     /**
      * Test for getProperties for ldi_local_option = auto
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetPropertiesAutoLdi(): void
     {
         /**
@@ -124,10 +120,7 @@ class ImportLdiTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -160,10 +153,7 @@ class ImportLdiTest extends AbstractTestCase
 
     /**
      * Test for doImport : invalid import file
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportInvalidFile(): void
     {
         global $import_file;
@@ -183,10 +173,7 @@ class ImportLdiTest extends AbstractTestCase
 
     /**
      * Test for doImport with LDI setting
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportLDISetting(): void
     {
         global $ldi_local_option, $ldi_replace, $ldi_ignore, $ldi_terminated,

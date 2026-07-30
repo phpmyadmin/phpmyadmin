@@ -27,9 +27,9 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportLatex
- * @group medium
+ * @medium
  */
-#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\Medium]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportLatex::class)]
 class ExportLatexTest extends AbstractTestCase
 {

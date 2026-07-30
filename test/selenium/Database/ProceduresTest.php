@@ -11,8 +11,10 @@ use function str_replace;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class ProceduresTest extends TestBase
 {
     /**
@@ -107,10 +109,7 @@ class ProceduresTest extends TestBase
 
     /**
      * Create a procedure
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testAddProcedure(): void
     {
         $this->waitForElement('partialLinkText', 'Routines')->click();
@@ -175,10 +174,7 @@ class ProceduresTest extends TestBase
 
     /**
      * Test for editing procedure
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testEditProcedure(): void
     {
         $this->procedureSQL();
@@ -204,10 +200,7 @@ class ProceduresTest extends TestBase
 
     /**
      * Test for dropping procedure
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDropProcedure(): void
     {
         $this->procedureSQL();

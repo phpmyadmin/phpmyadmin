@@ -8,8 +8,10 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class InsertTest extends TestBase
 {
     /**
@@ -34,10 +36,7 @@ class InsertTest extends TestBase
 
     /**
      * Insert data into table
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testAddData(): void
     {
         if ($this->isSafari()) {

@@ -6,8 +6,10 @@ namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class NormalizationTest extends TestBase
 {
     /**
@@ -38,10 +40,7 @@ class NormalizationTest extends TestBase
 
     /**
      * Test for normalization to 1NF
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testNormalizationTo1NF(): void
     {
         self::assertTrue($this->isElementPresent('cssSelector', 'fieldset'));

@@ -6,8 +6,10 @@ namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class XssTest extends TestBase
 {
     /**
@@ -19,10 +21,7 @@ class XssTest extends TestBase
 
     /**
      * Tests the SQL query tab with a null query
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testQueryTabWithNullValue(): void
     {
         if ($this->isSafari()) {

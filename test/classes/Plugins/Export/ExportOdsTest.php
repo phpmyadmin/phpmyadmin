@@ -34,10 +34,10 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportOds
  * @requires extension zip
- * @group medium
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
-#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\Medium]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportOds::class)]
 class ExportOdsTest extends AbstractTestCase
 {

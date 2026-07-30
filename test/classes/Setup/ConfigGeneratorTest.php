@@ -20,16 +20,15 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 /**
  * @covers \PhpMyAdmin\Setup\ConfigGenerator
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Setup\ConfigGenerator::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class ConfigGeneratorTest extends AbstractTestCase
 {
     /**
      * Test for ConfigGenerator::getConfigFile
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetConfigFile(): void
     {
         unset($_SESSION['eol']);

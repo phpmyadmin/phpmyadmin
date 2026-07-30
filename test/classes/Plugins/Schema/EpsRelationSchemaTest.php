@@ -9,8 +9,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class EpsRelationSchemaTest extends AbstractTestCase
 {
     /** @var EpsRelationSchema */
@@ -55,10 +57,7 @@ class EpsRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for construct
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testConstructor(): void
     {
         self::assertSame(33, $this->object->getPageNumber());
@@ -71,10 +70,7 @@ class EpsRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setPageNumber
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);

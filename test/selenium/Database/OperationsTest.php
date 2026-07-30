@@ -8,8 +8,10 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class OperationsTest extends TestBase
 {
     private function getToDBOperations(): void
@@ -24,10 +26,7 @@ class OperationsTest extends TestBase
 
     /**
      * Test for adding database comment
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDbComment(): void
     {
         $this->skipIfNotPMADB();
@@ -44,10 +43,7 @@ class OperationsTest extends TestBase
 
     /**
      * Test for renaming database
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testRenameDB(): void
     {
         $this->getToDBOperations();
@@ -89,10 +85,7 @@ class OperationsTest extends TestBase
 
     /**
      * Test for copying database
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testCopyDb(): void
     {
         $this->getToDBOperations();

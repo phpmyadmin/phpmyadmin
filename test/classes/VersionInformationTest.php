@@ -11,8 +11,10 @@ use function count;
 
 /**
  * @covers \PhpMyAdmin\VersionInformation
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\VersionInformation::class)]
+#[\PHPUnit\Framework\Attributes\Large]
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */
@@ -55,10 +57,8 @@ class VersionInformationTest extends AbstractTestCase
     /**
      * Test version checking
      *
-     * @group large
      * @group network
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     #[\PHPUnit\Framework\Attributes\Group('network')]
     public function testGetLatestVersion(): void
     {

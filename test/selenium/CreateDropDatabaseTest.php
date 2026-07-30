@@ -6,8 +6,10 @@ namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class CreateDropDatabaseTest extends TestBase
 {
     /**
@@ -22,10 +24,7 @@ class CreateDropDatabaseTest extends TestBase
 
     /**
      * Creates a database and drops it
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testCreateDropDatabase(): void
     {
         $this->dbQuery('DROP DATABASE IF EXISTS `' . $this->databaseName . '`;');

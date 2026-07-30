@@ -8,8 +8,10 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class TriggersTest extends TestBase
 {
     /**
@@ -57,10 +59,7 @@ class TriggersTest extends TestBase
 
     /**
      * Create a Trigger
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testAddTrigger(): void
     {
         $this->expandMore();
@@ -126,10 +125,7 @@ class TriggersTest extends TestBase
 
     /**
      * Test for editing Triggers
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testEditTriggers(): void
     {
         $this->expandMore();
@@ -167,10 +163,7 @@ class TriggersTest extends TestBase
 
     /**
      * Test for dropping Trigger
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDropTrigger(): void
     {
         $this->expandMore();

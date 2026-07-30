@@ -16,8 +16,10 @@ use const CURLOPT_CAPATH;
 
 /**
  * @covers \PhpMyAdmin\Utils\HttpRequest
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Utils\HttpRequest::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class HttpRequestTest extends AbstractTestCase
 {
     /** @var HttpRequest */
@@ -59,14 +61,12 @@ class HttpRequestTest extends AbstractTestCase
      * @param bool             $return_only_status return only status
      * @param bool|string|null $expected           expected result
      *
-     * @group medium
      * @dataProvider httpRequests
      * @group network
      * @requires extension curl
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('httpRequests')]
     #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('curl')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     #[\PHPUnit\Framework\Attributes\Group('network')]
     public function testCurl(string $url, string $method, bool $return_only_status, $expected): void
     {
@@ -87,14 +87,12 @@ class HttpRequestTest extends AbstractTestCase
      * @param bool   $return_only_status return only status
      * @param bool   $expected           expected result
      *
-     * @group medium
      * @dataProvider httpRequests
      * @group network
      * @requires extension curl
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('httpRequests')]
     #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('curl')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     #[\PHPUnit\Framework\Attributes\Group('network')]
     public function testCurlCAPath(string $url, string $method, bool $return_only_status, $expected): void
     {
@@ -118,14 +116,12 @@ class HttpRequestTest extends AbstractTestCase
      * @param bool             $return_only_status return only status
      * @param bool|string|null $expected           expected result
      *
-     * @group medium
      * @dataProvider httpRequests
      * @group network
      * @requires extension curl
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('httpRequests')]
     #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('curl')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     #[\PHPUnit\Framework\Attributes\Group('network')]
     public function testCurlCAInfo(string $url, string $method, bool $return_only_status, $expected): void
     {
@@ -149,12 +145,10 @@ class HttpRequestTest extends AbstractTestCase
      * @param bool             $return_only_status return only status
      * @param bool|string|null $expected           expected result
      *
-     * @group medium
      * @dataProvider httpRequests
      * @group network
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('httpRequests')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     #[\PHPUnit\Framework\Attributes\Group('network')]
     public function testFopen(string $url, string $method, bool $return_only_status, $expected): void
     {
@@ -179,14 +173,12 @@ class HttpRequestTest extends AbstractTestCase
      * @param bool             $return_only_status return only status
      * @param bool|string|null $expected           expected result
      *
-     * @group medium
      * @dataProvider httpRequests
      * @group network
      * @requires extension curl
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('httpRequests')]
     #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('curl')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     #[\PHPUnit\Framework\Attributes\Group('network')]
     public function testCreate(string $url, string $method, bool $return_only_status, $expected): void
     {

@@ -8,8 +8,10 @@ use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class StructureTest extends TestBase
 {
     /**
@@ -38,10 +40,7 @@ class StructureTest extends TestBase
 
     /**
      * Test for adding a new column
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testAddColumn(): void
     {
         $this->waitForElement('cssSelector', "#addColumns > input[value='Go']")->click();
@@ -65,10 +64,7 @@ class StructureTest extends TestBase
 
     /**
      * Test for changing a column
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testChangeColumn(): void
     {
         $this->byCssSelector('#tablestructure tbody tr:nth-child(2) td:nth-child(11)')->click();
@@ -91,10 +87,7 @@ class StructureTest extends TestBase
 
     /**
      * Test for dropping columns
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testDropColumns(): void
     {
         $this->waitForElement('cssSelector', 'label[for=checkbox_row_2]')->click();

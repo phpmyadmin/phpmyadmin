@@ -11,8 +11,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 
 /**
  * @covers \PhpMyAdmin\Database\Triggers
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Triggers::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class TriggersTest extends AbstractTestCase
 {
     /** @var Triggers */
@@ -120,10 +122,8 @@ class TriggersTest extends AbstractTestCase
      * @param array $data Data for trigger
      *
      * @dataProvider providerGetEditorFormAdd
-     * @group medium
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEditorFormAdd')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -165,10 +165,8 @@ class TriggersTest extends AbstractTestCase
      * @param array $data Data for trigger
      *
      * @dataProvider providerGetEditorFormEdit
-     * @group medium
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEditorFormEdit')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;

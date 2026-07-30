@@ -13,8 +13,10 @@ use function __;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportMediawiki
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportMediawiki::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class ImportMediawikiTest extends AbstractTestCase
 {
     /** @var ImportMediawiki */
@@ -55,10 +57,7 @@ class ImportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -71,10 +70,7 @@ class ImportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImport(): void
     {
         //$import_notice will show the import detail result
@@ -119,10 +115,7 @@ class ImportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportWithEmptyTable(): void
     {
         //$import_notice will show the import detail result

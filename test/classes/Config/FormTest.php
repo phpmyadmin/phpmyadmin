@@ -17,8 +17,10 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Config\Form
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Form::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class FormTest extends AbstractTestCase
 {
     /** @var Form */
@@ -55,10 +57,7 @@ class FormTest extends AbstractTestCase
 
     /**
      * Test for Form::__constructor
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testContructor(): void
     {
         self::assertSame(1, $this->object->index);

@@ -10,9 +10,11 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema
  * @requires extension xmlwriter
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class SvgRelationSchemaTest extends AbstractTestCase
 {
     /** @var SvgRelationSchema */
@@ -60,10 +62,7 @@ class SvgRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for construct
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testConstructor(): void
     {
         self::assertSame(33, $this->object->getPageNumber());

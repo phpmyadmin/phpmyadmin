@@ -9,9 +9,9 @@ use PhpMyAdmin\Plugins\Export\ExportPhparray;
 
 /**
  * @covers \PhpMyAdmin\Export
- * @group large
+ * @large
  */
-#[\PHPUnit\Framework\Attributes\Group('large')]
+#[\PHPUnit\Framework\Attributes\Large]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Export::class)]
 class ExportTest extends AbstractTestCase
 {

@@ -20,8 +20,10 @@ use const PHP_INT_SIZE;
 
 /**
  * @covers \PhpMyAdmin\Encoding
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Encoding::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class EncodingTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -38,10 +40,7 @@ class EncodingTest extends AbstractTestCase
 
     /**
      * Test for Encoding::convertString
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testNoConversion(): void
     {
         self::assertSame('test', Encoding::convertString('UTF-8', 'UTF-8', 'test'));

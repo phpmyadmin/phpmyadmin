@@ -15,10 +15,12 @@ use function __;
  * @covers \PhpMyAdmin\Plugins\Import\ImportXml
  * @requires extension xml
  * @requires extension xmlwriter
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xml')]
 #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportXml::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class ImportXmlTest extends AbstractTestCase
 {
     /** @var ImportXml */
@@ -60,10 +62,7 @@ class ImportXmlTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -77,11 +76,9 @@ class ImportXmlTest extends AbstractTestCase
     /**
      * Test for doImport
      *
-     * @group medium
      * @requires extension simplexml
      */
     #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImport(): void
     {
         //$import_notice will show the import detail result
@@ -128,11 +125,9 @@ SQL;
     /**
      * Test for doImport using the GIS dataset
      *
-     * @group medium
      * @requires extension simplexml
      */
     #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportDatasetGIS(): void
     {
         global $import_notice, $sql_query;
@@ -192,11 +187,9 @@ SQL;
     /**
      * Test for doImport with numeric-looking string values
      *
-     * @group medium
      * @requires extension simplexml
      */
     #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportNumericStringValues(): void
     {
         global $sql_query;
@@ -239,11 +232,9 @@ SQL;
     /**
      * Test for doImport using no database dataset
      *
-     * @group medium
      * @requires extension simplexml
      */
     #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportDatasetNoDatabase(): void
     {
         global $import_notice, $sql_query;

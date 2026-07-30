@@ -34,9 +34,9 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\InsertEdit
- * @group medium
+ * @medium
  */
-#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\Medium]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\InsertEdit::class)]
 class InsertEditTest extends AbstractTestCase
 {

@@ -8,8 +8,10 @@ use function sleep;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class ServerSettingsTest extends TestBase
 {
     /**
@@ -55,10 +57,7 @@ class ServerSettingsTest extends TestBase
 
     /**
      * Tests whether hiding a database works or not
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testHideDatabase(): void
     {
         $this->createDatabase();
@@ -84,10 +83,7 @@ class ServerSettingsTest extends TestBase
 
     /**
      * Tests whether the various settings tabs are displayed when clicked
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testSettingsTabsAreDisplayed(): void
     {
         $this->byPartialLinkText('SQL queries')->click();
@@ -106,10 +102,7 @@ class ServerSettingsTest extends TestBase
 
     /**
      * Tests if hiding the logo works or not
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testHideLogo(): void
     {
         $this->byPartialLinkText('Navigation panel')->click();

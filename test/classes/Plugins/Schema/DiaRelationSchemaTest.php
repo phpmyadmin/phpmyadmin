@@ -10,9 +10,11 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema
  * @requires extension xmlwriter
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class DiaRelationSchemaTest extends AbstractTestCase
 {
     /** @var DiaRelationSchema */
@@ -56,10 +58,7 @@ class DiaRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for construct, the Property is set correctly
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testSetProperty(): void
     {
         self::assertSame(33, $this->object->getPageNumber());

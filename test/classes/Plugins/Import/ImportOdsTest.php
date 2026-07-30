@@ -14,9 +14,11 @@ use function str_repeat;
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportOds
  * @requires extension zip
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportOds::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class ImportOdsTest extends AbstractTestCase
 {
     /** @var ImportOds */
@@ -62,10 +64,7 @@ class ImportOdsTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
@@ -76,10 +75,7 @@ class ImportOdsTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -134,13 +130,11 @@ class ImportOdsTest extends AbstractTestCase
     /**
      * Test for doImport using second dataset
      *
-     * @group medium
      * @dataProvider dataProviderOdsEmptyRows
      * @requires extension simplexml
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderOdsEmptyRows')]
     #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testDoImportDataset2(bool $odsEmptyRowsMode): void
     {
         //$sql_query_disabled will show the import SQL detail

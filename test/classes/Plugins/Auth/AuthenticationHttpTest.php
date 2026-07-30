@@ -17,8 +17,10 @@ use function ob_start;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp
+ * @medium
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Auth\AuthenticationHttp::class)]
+#[\PHPUnit\Framework\Attributes\Medium]
 class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationHttp */
@@ -338,10 +340,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         self::assertSame(3, $GLOBALS['server']);
     }
 
-    /**
-     * @group medium
-     */
-    #[\PHPUnit\Framework\Attributes\Group('medium')]
     public function testAuthFails(): void
     {
         $_REQUEST = [];

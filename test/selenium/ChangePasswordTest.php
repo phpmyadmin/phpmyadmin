@@ -11,8 +11,10 @@ use function trim;
 
 /**
  * @coversNothing
+ * @large
  */
 #[\PHPUnit\Framework\Attributes\CoversNothing]
+#[\PHPUnit\Framework\Attributes\Large]
 class ChangePasswordTest extends TestBase
 {
     /**
@@ -31,10 +33,7 @@ class ChangePasswordTest extends TestBase
 
     /**
      * Tests the changing of the password
-     *
-     * @group large
      */
-    #[\PHPUnit\Framework\Attributes\Group('large')]
     public function testChangePassword(): void
     {
         $e = $this->waitForElement('id', 'change_password_anchor');

@@ -18,9 +18,9 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\ConfigStorage\Relation
- * @group medium
+ * @medium
  */
-#[\PHPUnit\Framework\Attributes\Group('medium')]
+#[\PHPUnit\Framework\Attributes\Medium]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Relation::class)]
 class RelationTest extends AbstractTestCase
 {
