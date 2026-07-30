@@ -198,8 +198,7 @@ class ExportXmlTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getTable')
             ->willReturn(new Table('table', 'd<"b', $dbi));
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -269,9 +268,7 @@ class ExportXmlTest extends AbstractTestCase
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls($result_1, $result_2, ['table'], $result_3, []);
 
-        $dbi->expects($this->any())
-            ->method('getTable')
-            ->willReturn(new Table('table', 'd<"b', $dbi));
+        $dbi->method('getTable')->willReturn(new Table('table', 'd<"b', $dbi));
 
         $GLOBALS['dbi'] = $dbi;
 

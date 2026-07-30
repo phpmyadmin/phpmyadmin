@@ -2555,13 +2555,9 @@ class UtilTest extends AbstractTestCase
     {
         $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects($this->any())
-            ->method('isMariaDB')
-            ->willReturn($isMariaDB);
+        $dbi->method('isMariaDB')->willReturn($isMariaDB);
 
-        $dbi->expects($this->any())
-            ->method('getVersion')
-            ->willReturn($version);
+        $dbi->method('getVersion')->willReturn($version);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2615,13 +2611,9 @@ class UtilTest extends AbstractTestCase
     {
         $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects($this->any())
-            ->method('isMariaDB')
-            ->willReturn($isMariaDB);
+        $dbi->method('isMariaDB')->willReturn($isMariaDB);
 
-        $dbi->expects($this->any())
-            ->method('getVersion')
-            ->willReturn($version);
+        $dbi->method('getVersion')->willReturn($version);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2675,13 +2667,9 @@ class UtilTest extends AbstractTestCase
     {
         $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects($this->any())
-            ->method('isMariaDB')
-            ->willReturn($isMariaDB);
+        $dbi->method('isMariaDB')->willReturn($isMariaDB);
 
-        $dbi->expects($this->any())
-            ->method('getVersion')
-            ->willReturn($version);
+        $dbi->method('getVersion')->willReturn($version);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;

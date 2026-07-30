@@ -51,19 +51,14 @@ class NormalizationTest extends AbstractTestCase
         $dbi->types = new Types($dbi);
         $GLOBALS['dbi'] = $dbi;
         // set expectations
-        $dbi->expects($this->any())
-            ->method('selectDb')
-            ->willReturn(true);
-        $dbi->expects($this->any())
-            ->method('getColumns')
+        $dbi->method('selectDb')->willReturn(true);
+        $dbi->method('getColumns')
             ->willReturn([
                 'id' => ['Type' => 'integer'],
                 'col1' => ['Type' => 'varchar(100)'],
                 'col2' => ['Type' => 'DATETIME'],
             ]);
-        $dbi->expects($this->any())
-            ->method('getColumnNames')
-            ->willReturn(['id', 'col1', 'col2']);
+        $dbi->method('getColumnNames')->willReturn(['id', 'col1', 'col2']);
         $map = [
             [
                 'PMA_db',
@@ -98,15 +93,9 @@ class NormalizationTest extends AbstractTestCase
                 ],
             ],
         ];
-        $dbi->expects($this->any())
-            ->method('getTableIndexes')
-            ->willReturnMap($map);
-        $dbi->expects($this->any())
-            ->method('tryQuery')
-            ->willReturn(true);
-        $dbi->expects($this->any())
-            ->method('fetchResult')
-            ->willReturn([0]);
+        $dbi->method('getTableIndexes')->willReturnMap($map);
+        $dbi->method('tryQuery')->willReturn(true);
+        $dbi->method('fetchResult')->willReturn([0]);
 
         $this->normalization = new Normalization($dbi, new Relation($dbi), new Transformations(), new Template());
     }

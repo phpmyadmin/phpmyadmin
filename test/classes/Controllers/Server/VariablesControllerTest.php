@@ -76,8 +76,7 @@ class VariablesControllerTest extends AbstractTestCase
             ],
         ];
 
-        $dbi->expects($this->any())->method('fetchResult')
-            ->willReturnMap($fetchResult);
+        $dbi->method('fetchResult')->willReturnMap($fetchResult);
 
         $GLOBALS['dbi'] = $dbi;
     }

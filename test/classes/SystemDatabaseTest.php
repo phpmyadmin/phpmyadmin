@@ -36,9 +36,7 @@ class SystemDatabaseTest extends AbstractTestCase
 
         $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects($this->any())
-            ->method('tryQuery')
-            ->willReturn($this->createStub(DummyResult::class));
+        $dbi->method('tryQuery')->willReturn($this->createStub(DummyResult::class));
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
@@ -76,8 +74,7 @@ class SystemDatabaseTest extends AbstractTestCase
     {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $resultStub->expects($this->any())
-            ->method('fetchAssoc')
+        $resultStub->method('fetchAssoc')
             ->willReturn([
                 'table_name' => 'table_name',
                 'column_name' => 'column_name',

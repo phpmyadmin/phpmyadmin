@@ -86,8 +86,7 @@ class ImportXmlTest extends AbstractTestCase
 
         //Mock DBI
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
@@ -131,8 +130,7 @@ SQL;
         global $import_notice, $sql_query;
 
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_GIS_For_Testing.xml';
@@ -191,8 +189,7 @@ SQL;
         global $sql_query;
 
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_Numeric_String_For_Testing.xml';
@@ -234,8 +231,7 @@ SQL;
         global $import_notice, $sql_query;
 
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_No_Database_For_Testing.xml';

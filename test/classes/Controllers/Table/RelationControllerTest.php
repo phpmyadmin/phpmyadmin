@@ -81,13 +81,10 @@ class RelationControllerTest extends AbstractTestCase
         ];
         $tableMock = $this->createMock(Table::class);
         // Test the situation when the table is a view
-        $tableMock->expects($this->any())->method('isView')
-            ->willReturn(true);
-        $tableMock->expects($this->any())->method('getColumns')
-            ->willReturn($viewColumns);
+        $tableMock->method('isView')->willReturn(true);
+        $tableMock->method('getColumns')->willReturn($viewColumns);
 
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->willReturn($tableMock);
+        $GLOBALS['dbi']->method('getTable')->willReturn($tableMock);
 
         $ctrl = new RelationController(
             $this->response,
@@ -114,13 +111,10 @@ class RelationControllerTest extends AbstractTestCase
         $indexedColumns = ['primaryTableCol'];
         $tableMock = $this->createMock(Table::class);
         // Test the situation when the table is a view
-        $tableMock->expects($this->any())->method('isView')
-            ->willReturn(false);
-        $tableMock->expects($this->any())->method('getIndexedColumns')
-            ->willReturn($indexedColumns);
+        $tableMock->method('isView')->willReturn(false);
+        $tableMock->method('getIndexedColumns')->willReturn($indexedColumns);
 
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->willReturn($tableMock);
+        $GLOBALS['dbi']->method('getTable')->willReturn($tableMock);
 
         $ctrl = new RelationController(
             $this->response,
@@ -149,8 +143,7 @@ class RelationControllerTest extends AbstractTestCase
             ->method('query')
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->any())
-            ->method('getIterator')
+        $resultStub->method('getIterator')
             ->willReturnCallback(static function (): Generator {
                 yield from [
                     [
@@ -188,9 +181,7 @@ class RelationControllerTest extends AbstractTestCase
             ->method('query')
             ->willReturn($resultStub);
 
-        $resultStub->expects($this->any())
-            ->method('fetchAllColumn')
-            ->willReturn(['table']);
+        $resultStub->method('fetchAllColumn')->willReturn(['table']);
 
         $ctrl = new RelationController(
             $this->response,

@@ -59,8 +59,7 @@ class IndexesTest extends AbstractTestCase
             ],
         ];
 
-        $dbi->expects($this->any())->method('getTableIndexes')
-            ->willReturn($indexs);
+        $dbi->method('getTableIndexes')->willReturn($indexs);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -72,11 +71,9 @@ class IndexesTest extends AbstractTestCase
         $sql_query = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
 
         $table = $this->createMock(Table::class);
-        $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
-            ->willReturn($sql_query);
+        $table->method('getSqlQueryForIndexCreateOrEdit')->willReturn($sql_query);
 
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->willReturn($table);
+        $GLOBALS['dbi']->method('getTable')->willReturn($table);
 
         $response = new ResponseStub();
         $index = new Index();

@@ -26,8 +26,7 @@ class ThemeManagerTest extends AbstractTestCase
         $GLOBALS['server'] = 99;
 
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
     }
 
     /**

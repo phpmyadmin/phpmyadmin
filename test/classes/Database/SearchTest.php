@@ -33,17 +33,14 @@ class SearchTest extends AbstractTestCase
         //mock DBI
         $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects($this->any())
-            ->method('getColumns')
+        $dbi->method('getColumns')
             ->with('pma', 'table1')
             ->willReturn([
                 ['Field' => 'column1'],
                 ['Field' => 'column2'],
             ]);
 
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object = new Search($dbi, 'pma_test', new Template());

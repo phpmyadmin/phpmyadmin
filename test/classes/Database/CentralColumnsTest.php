@@ -119,27 +119,17 @@ class CentralColumnsTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
 
         // set some common expectations
-        $dbi->expects($this->any())
-            ->method('selectDb')
-            ->willReturn(true);
-        $dbi->expects($this->any())
-            ->method('getColumns')
+        $dbi->method('selectDb')->willReturn(true);
+        $dbi->method('getColumns')
             ->willReturn([
                 'id' => ['Type' => 'integer', 'Null' => 'NO'],
                 'col1' => ['Type' => 'varchar(100)', 'Null' => 'YES'],
                 'col2' => ['Type' => 'DATETIME', 'Null' => 'NO'],
             ]);
-        $dbi->expects($this->any())
-            ->method('getColumnNames')
-            ->willReturn(['id', 'col1', 'col2']);
-        $dbi->expects($this->any())
-            ->method('tryQuery')
-            ->willReturn(true);
-        $dbi->expects($this->any())
-            ->method('getTables')
-            ->willReturn(['PMA_table', 'PMA_table1', 'PMA_table2']);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('getColumnNames')->willReturn(['id', 'col1', 'col2']);
+        $dbi->method('tryQuery')->willReturn(true);
+        $dbi->method('getTables')->willReturn(['PMA_table', 'PMA_table1', 'PMA_table2']);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $this->centralColumns = new CentralColumns($dbi);
     }
@@ -211,12 +201,8 @@ class CentralColumnsTest extends AbstractTestCase
      */
     public function testMakeConsistentWithList(): void
     {
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('fetchResult')
-            ->willReturn($this->columnData);
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('fetchValue')
-            ->willReturn('PMA_table=CREATE table `PMA_table` (id integer)');
+        $GLOBALS['dbi']->method('fetchResult')->willReturn($this->columnData);
+        $GLOBALS['dbi']->method('fetchValue')->willReturn('PMA_table=CREATE table `PMA_table` (id integer)');
         self::assertTrue($this->centralColumns->makeConsistentWithList(
             'phpmyadmin',
             ['PMA_table']
@@ -353,8 +339,7 @@ class CentralColumnsTest extends AbstractTestCase
      */
     public function testGetHtmlForEditingPage(): void
     {
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('fetchResult')
+        $GLOBALS['dbi']->method('fetchResult')
             ->with(
                 'SELECT * FROM `pma_central_columns` '
                 . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",

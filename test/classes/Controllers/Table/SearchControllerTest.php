@@ -69,8 +69,7 @@ class SearchControllerTest extends AbstractTestCase
                 'Collation' => 'Collation2',
             ],
         ];
-        $dbi->expects($this->any())->method('getColumns')
-            ->willReturn($columns);
+        $dbi->method('getColumns')->willReturn($columns);
 
         $show_create_table = "CREATE TABLE `pma_bookmark` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -83,10 +82,8 @@ class SearchControllerTest extends AbstractTestCase
         ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin "
         . "COMMENT='Bookmarks'";
 
-        $dbi->expects($this->any())->method('fetchValue')
-            ->willReturn($show_create_table);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('fetchValue')->willReturn($show_create_table);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $relation->dbi = $dbi;
@@ -102,8 +99,7 @@ class SearchControllerTest extends AbstractTestCase
     {
         $expected = 'SELECT MIN(`column`) AS `min`, MAX(`column`) AS `max` FROM `PMA`.`PMA_BookMark`';
 
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('fetchSingleRow')
+        $GLOBALS['dbi']->method('fetchSingleRow')
             ->with($expected)
             ->willReturn([$expected]);
 

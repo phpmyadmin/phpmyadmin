@@ -95,9 +95,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ->method('fetchSingleRow')
             ->with($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL)
             ->willReturn(['ts' => '123', 'config_data' => json_encode([1, 2])]);
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -170,9 +168,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ->with($query2, DatabaseInterface::CONNECT_CONTROL)
             ->willReturn(true);
 
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -203,9 +199,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ->method('getError')
             ->with(DatabaseInterface::CONNECT_CONTROL)
             ->willReturn('err1');
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 

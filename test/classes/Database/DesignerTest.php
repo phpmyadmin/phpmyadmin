@@ -88,9 +88,7 @@ class DesignerTest extends AbstractTestCase
                 []
             );
 
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
     }

@@ -88,8 +88,7 @@ class RelationTest extends AbstractTestCase
                 'Comment' => 'Comment1',
             ],
         ];
-        $dbi->expects($this->any())->method('getColumns')
-            ->willReturn($getColumnsResult);
+        $dbi->method('getColumns')->willReturn($getColumnsResult);
 
         $GLOBALS['dbi'] = $dbi;
         $this->relation->dbi = $GLOBALS['dbi'];
@@ -113,14 +112,9 @@ class RelationTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
 
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())
-            ->method('tryQueryAsControlUser')
-            ->willReturn($resultStub);
-        $resultStub->expects($this->any())
-            ->method('numRows')
-            ->willReturn(0);
-        $dbi->expects($this->any())
-            ->method('getError')->willReturnOnConsecutiveCalls('Error', '');
+        $dbi->method('tryQueryAsControlUser')->willReturn($resultStub);
+        $resultStub->method('numRows')->willReturn(0);
+        $dbi->method('getError')->willReturnOnConsecutiveCalls('Error', '');
         $GLOBALS['dbi'] = $dbi;
         $this->relation->dbi = $GLOBALS['dbi'];
 

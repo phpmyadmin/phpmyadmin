@@ -100,9 +100,7 @@ class UserGroupsTest extends AbstractTestCase
             [$userGrpDelQuery, $resultStub],
         ]);
 
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -138,9 +136,7 @@ class UserGroupsTest extends AbstractTestCase
                     ],
                 ];
             });
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 

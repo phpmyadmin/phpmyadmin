@@ -99,14 +99,11 @@ class ImportLdiTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi->expects($this->any())->method('tryQuery')
-            ->willReturn($resultStub);
+        $dbi->method('tryQuery')->willReturn($resultStub);
 
-        $resultStub->expects($this->any())->method('numRows')
-            ->willReturn(10);
+        $resultStub->method('numRows')->willReturn(10);
 
-        $resultStub->expects($this->any())->method('fetchValue')
-            ->willReturn('ON');
+        $resultStub->method('fetchValue')->willReturn('ON');
 
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $this->object = new ImportLdi();
@@ -130,8 +127,7 @@ class ImportLdiTest extends AbstractTestCase
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
@@ -186,8 +182,7 @@ class ImportLdiTest extends AbstractTestCase
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $ldi_local_option = true;

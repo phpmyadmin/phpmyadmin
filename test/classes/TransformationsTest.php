@@ -223,9 +223,7 @@ class TransformationsTest extends AbstractTestCase
     {
         // Mock dbi
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())
-            ->method('tryQuery')
-            ->willReturn(true);
+        $dbi->method('tryQuery')->willReturn(true);
         $GLOBALS['dbi'] = $dbi;
 
         // Case 1 : no configuration storage

@@ -45,8 +45,7 @@ class TrackerTest extends AbstractTestCase
         ])->toArray();
 
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
     }
 
     /**
@@ -216,13 +215,10 @@ class TrackerTest extends AbstractTestCase
             [$showCreateTableQuery, DatabaseInterface::CONNECT_USER, 0, true, $resultStub],
         ]);
 
-        $dbi->expects($this->any())->method('query')
-            ->willReturn($resultStub);
+        $dbi->method('query')->willReturn($resultStub);
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
-        $dbi->expects($this->any())->method('getCompatibilities')
-            ->willReturn([]);
+        $dbi->method('escapeString')->willReturnArgument(0);
+        $dbi->method('getCompatibilities')->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
         self::assertTrue(Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true));
@@ -246,8 +242,7 @@ class TrackerTest extends AbstractTestCase
             ->method('queryAsControlUser')
             ->with($sql_query)
             ->willReturn($resultStub);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         self::assertTrue(Tracker::deleteTracking('testdb', 'testtable'));
@@ -277,8 +272,7 @@ class TrackerTest extends AbstractTestCase
             ->with($this->matches($expectedMainQuery))
             ->willReturn($resultStub);
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         self::assertTrue(Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES'));
@@ -316,8 +310,7 @@ class TrackerTest extends AbstractTestCase
             ->with($sql_query)
             ->willReturn($resultStub);
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -378,8 +371,7 @@ class TrackerTest extends AbstractTestCase
         $dbi->expects($this->atLeast(2))->method('queryAsControlUser')
             ->willReturnMap([[$sql_query_1, $resultStub1], [$sql_query_2, $resultStub2]]);
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -439,8 +431,7 @@ class TrackerTest extends AbstractTestCase
             ->method('fetchAssoc')
             ->willReturn($fetchArrayReturn);
 
-        $dbi->expects($this->any())
-            ->method('escapeString')
+        $dbi->method('escapeString')
             ->willReturnMap([["pma'db", "pma\'db"], ["pma'table", "pma\'table"], ['1.0', '1.0']]);
 
         $GLOBALS['dbi'] = $dbi;

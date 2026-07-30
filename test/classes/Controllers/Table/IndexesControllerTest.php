@@ -72,8 +72,7 @@ class IndexesControllerTest extends AbstractTestCase
             ],
         ];
 
-        $dbi->expects($this->any())->method('getTableIndexes')
-            ->willReturn($indexs);
+        $dbi->method('getTableIndexes')->willReturn($indexs);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -86,15 +85,11 @@ class IndexesControllerTest extends AbstractTestCase
     public function testDisplayFormAction(): void
     {
         $table = $this->createMock(Table::class);
-        $table->expects($this->any())->method('getStatusInfo')
-            ->willReturn('');
-        $table->expects($this->any())->method('isView')
-            ->willReturn(false);
-        $table->expects($this->any())->method('getNameAndTypeOfTheColumns')
-            ->willReturn(['field_name' => 'field_type']);
+        $table->method('getStatusInfo')->willReturn('');
+        $table->method('isView')->willReturn(false);
+        $table->method('getNameAndTypeOfTheColumns')->willReturn(['field_name' => 'field_type']);
 
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->willReturn($table);
+        $GLOBALS['dbi']->method('getTable')->willReturn($table);
 
         $response = new ResponseStub();
         $index = new Index();

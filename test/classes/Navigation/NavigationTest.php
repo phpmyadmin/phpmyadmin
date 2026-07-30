@@ -70,8 +70,7 @@ class NavigationTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object = new Navigation(new Template(), new Relation($dbi), $dbi);
@@ -91,8 +90,7 @@ class NavigationTest extends AbstractTestCase
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
 
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
         $this->object = new Navigation(new Template(), new Relation($dbi), $dbi);
         $this->object->unhideNavigationItem('itemName', 'itemType', 'db');

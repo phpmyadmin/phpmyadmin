@@ -51,8 +51,7 @@ class CommonTest extends AbstractTestCase
         $pg = 1;
 
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('fetchResult')
@@ -86,8 +85,7 @@ class CommonTest extends AbstractTestCase
         $pageName = 'pageName';
 
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('fetchResult')
@@ -121,8 +119,7 @@ class CommonTest extends AbstractTestCase
 
         $dbi->expects($this->exactly(2))
             ->method('queryAsControlUser')->willReturn($resultStub);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
@@ -153,8 +150,7 @@ class CommonTest extends AbstractTestCase
                 DatabaseInterface::CONNECT_CONTROL
             )
             ->willReturn([$default_pg]);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
@@ -183,8 +179,7 @@ class CommonTest extends AbstractTestCase
                 DatabaseInterface::CONNECT_CONTROL
             )
             ->willReturn([]);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
@@ -214,8 +209,7 @@ class CommonTest extends AbstractTestCase
                 DatabaseInterface::CONNECT_CONTROL
             )
             ->willReturn([$default_pg]);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
@@ -240,8 +234,7 @@ class CommonTest extends AbstractTestCase
                 [],
                 [[$first_pg]]
             );
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));

@@ -64,14 +64,11 @@ class StructureControllerTest extends AbstractTestCase
 
         $table = $this->createMock(Table::class);
         // Expect the table will have 6 rows
-        $table->expects($this->any())->method('getRealRowCountTable')
-            ->willReturn(6);
-        $table->expects($this->any())->method('countRecords')
-            ->willReturn(6);
+        $table->method('getRealRowCountTable')->willReturn(6);
+        $table->method('countRecords')->willReturn(6);
 
         $dbi = $this->createMock(DatabaseInterface::class);
-        $dbi->expects($this->any())->method('getTable')
-            ->willReturn($table);
+        $dbi->method('getTable')->willReturn($table);
 
         $GLOBALS['dbi'] = $dbi;
 

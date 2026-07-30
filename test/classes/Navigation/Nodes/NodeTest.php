@@ -309,8 +309,7 @@ class NodeTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with($expectedSql);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
         $node->getData('', $pos);
     }
@@ -341,8 +340,7 @@ class NodeTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with($expectedSql);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $node->getData('', $pos);
@@ -386,8 +384,7 @@ class NodeTest extends AbstractTestCase
                 . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"
                 . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )"
             );
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $node->getData('', $pos, 'db');
@@ -464,8 +461,7 @@ class NodeTest extends AbstractTestCase
             ->method('tryQuery')
             ->with('SHOW DATABASES WHERE TRUE ')
             ->willReturn($resultStub);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence();
@@ -476,8 +472,7 @@ class NodeTest extends AbstractTestCase
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ")
             ->willReturn($resultStub);
-        $dbi->expects($this->any())->method('escapeString')
-            ->willReturnArgument(0);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence('', 'dbname');

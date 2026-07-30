@@ -39,14 +39,11 @@ class QbeTest extends AbstractTestCase
             . 'KEY `value` (`value`)'
             . ') ENGINE=InnoDB DEFAULT CHARSET=latin1';
 
-        $dbi->expects($this->any())
-            ->method('fetchValue')
+        $dbi->method('fetchValue')
             ->with('SHOW CREATE TABLE `pma_test`.`table1`', 1)
             ->willReturn($create_table);
 
-        $dbi->expects($this->any())
-            ->method('getTableIndexes')
-            ->willReturn([]);
+        $dbi->method('getTableIndexes')->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->dbi = $dbi;

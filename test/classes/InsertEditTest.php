@@ -2781,9 +2781,7 @@ class InsertEditTest extends AbstractTestCase
             ->with('db', 'table', true)
             ->willReturn([['Comment' => 'b', 'Field' => 'd']]);
 
-        $dbi->expects($this->any())
-            ->method('getTable')
-            ->willReturn(new Table('table', 'db'));
+        $dbi->method('getTable')->willReturn(new Table('table', 'db'));
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -2832,9 +2830,7 @@ class InsertEditTest extends AbstractTestCase
         ];
 
         $resultStub = $this->createMock(DummyResult::class);
-        $resultStub->expects($this->any())
-            ->method('getFieldsMeta')
-            ->willReturn([new FieldMetadata(0, 0, (object) ['length' => -1])]);
+        $resultStub->method('getFieldsMeta')->willReturn([new FieldMetadata(0, 0, (object) ['length' => -1])]);
 
         // Test w/ input transformation
         $actual = $this->callFunction(
@@ -2989,9 +2985,7 @@ class InsertEditTest extends AbstractTestCase
         ];
 
         $resultStub = $this->createMock(DummyResult::class);
-        $resultStub->expects($this->any())
-            ->method('getFieldsMeta')
-            ->willReturn([new FieldMetadata(0, 0, (object) ['length' => -1])]);
+        $resultStub->method('getFieldsMeta')->willReturn([new FieldMetadata(0, 0, (object) ['length' => -1])]);
 
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],
@@ -3065,8 +3059,7 @@ class InsertEditTest extends AbstractTestCase
         ];
 
         $resultStub = $this->createMock(DummyResult::class);
-        $resultStub->expects($this->any())
-            ->method('getFieldsMeta')
+        $resultStub->method('getFieldsMeta')
             ->willReturn([
                 new FieldMetadata(0, 0, (object) ['length' => -1]),
                 new FieldMetadata(0, 0, (object) ['length' => -1]),

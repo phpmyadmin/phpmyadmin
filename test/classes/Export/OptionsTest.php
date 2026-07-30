@@ -37,9 +37,7 @@ class OptionsTest extends AbstractTestCase
 
         $pmaconfig = $this->createMock(Config::class);
 
-        $pmaconfig->expects($this->any())
-            ->method('getUserValue')
-            ->willReturn('user value for test');
+        $pmaconfig->method('getUserValue')->willReturn('user value for test');
 
         $GLOBALS['config'] = $pmaconfig;
 
@@ -72,10 +70,8 @@ class OptionsTest extends AbstractTestCase
         ];
         $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects($this->any())->method('getColumnsFull')
-            ->willReturn($columns_info);
-        $dbi->expects($this->any())->method('getCompatibilities')
-            ->willReturn([]);
+        $dbi->method('getColumnsFull')->willReturn($columns_info);
+        $dbi->method('getCompatibilities')->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
 
