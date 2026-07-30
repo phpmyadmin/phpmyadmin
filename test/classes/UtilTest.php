@@ -48,6 +48,7 @@ const FIELD_TYPE_UNKNOWN = -1;
  * @covers \PhpMyAdmin\Util
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Util::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class UtilTest extends AbstractTestCase
 {
     /**

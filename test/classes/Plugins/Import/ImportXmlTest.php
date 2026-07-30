@@ -21,6 +21,7 @@ use function __;
 #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportXml::class)]
 #[\PHPUnit\Framework\Attributes\Medium]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class ImportXmlTest extends AbstractTestCase
 {
     /** @var ImportXml */

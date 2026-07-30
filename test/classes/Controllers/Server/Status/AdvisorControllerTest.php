@@ -16,6 +16,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
  * @covers \PhpMyAdmin\Controllers\Server\Status\AdvisorController
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\AdvisorController::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class AdvisorControllerTest extends AbstractTestCase
 {
     /** @var ResponseRenderer */

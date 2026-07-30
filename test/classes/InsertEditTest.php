@@ -38,6 +38,7 @@ use const PHP_VERSION_ID;
  */
 #[\PHPUnit\Framework\Attributes\Medium]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\InsertEdit::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class InsertEditTest extends AbstractTestCase
 {
     /** @var InsertEdit */

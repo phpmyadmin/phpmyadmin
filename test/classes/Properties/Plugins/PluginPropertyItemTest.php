@@ -11,6 +11,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  * @covers \PhpMyAdmin\Properties\Plugins\PluginPropertyItem
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Properties\Plugins\PluginPropertyItem::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class PluginPropertyItemTest extends AbstractTestCase
 {
     /** @var PluginPropertyItem */

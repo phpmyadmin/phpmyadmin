@@ -44,6 +44,7 @@ use const PHP_VERSION_ID;
  */
 #[\PHPUnit\Framework\Attributes\Medium]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportSql::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class ExportSqlTest extends AbstractTestCase
 {
     /** @var ExportSql */

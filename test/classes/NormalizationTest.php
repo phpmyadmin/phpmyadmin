@@ -22,6 +22,7 @@ use function json_encode;
  * @covers \PhpMyAdmin\Normalization
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Normalization::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class NormalizationTest extends AbstractTestCase
 {
     /** @var Normalization */

@@ -17,6 +17,7 @@ use stdClass;
  * @covers \PhpMyAdmin\Table
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Table::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class TableTest extends AbstractTestCase
 {
     /**

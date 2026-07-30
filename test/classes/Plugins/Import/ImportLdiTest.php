@@ -19,6 +19,7 @@ use function __;
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportLdi::class)]
 #[\PHPUnit\Framework\Attributes\Medium]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class ImportLdiTest extends AbstractTestCase
 {
     /** @var ImportLdi */

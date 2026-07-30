@@ -12,6 +12,7 @@ use PhpMyAdmin\Transformations;
  * @covers \PhpMyAdmin\Transformations
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Transformations::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class TransformationsTest extends AbstractTestCase
 {
     /** @var Transformations */

@@ -17,6 +17,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
  * @covers \PhpMyAdmin\Table\Indexes
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Table\Indexes::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class IndexesTest extends AbstractTestCase
 {
     protected function setUp(): void

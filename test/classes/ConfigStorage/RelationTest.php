@@ -22,6 +22,7 @@ use const PHP_VERSION_ID;
  */
 #[\PHPUnit\Framework\Attributes\Medium]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Relation::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class RelationTest extends AbstractTestCase
 {
     /** @var Relation */

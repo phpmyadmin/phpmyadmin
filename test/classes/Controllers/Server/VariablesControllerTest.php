@@ -27,6 +27,7 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Controllers\Server\VariablesController
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\VariablesController::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class VariablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

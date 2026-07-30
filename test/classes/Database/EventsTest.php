@@ -14,6 +14,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  * @covers \PhpMyAdmin\Database\Events
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Events::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class EventsTest extends AbstractTestCase
 {
     /** @var Events */

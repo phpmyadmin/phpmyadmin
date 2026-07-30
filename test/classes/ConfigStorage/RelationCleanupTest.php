@@ -16,6 +16,7 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @covers \PhpMyAdmin\ConfigStorage\RelationCleanup
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\RelationCleanup::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class RelationCleanupTest extends AbstractTestCase
 {
     /** @var RelationCleanup */

@@ -11,6 +11,7 @@ use PhpMyAdmin\ThemeManager;
  * @covers \PhpMyAdmin\ThemeManager
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ThemeManager::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class ThemeManagerTest extends AbstractTestCase
 {
     /**

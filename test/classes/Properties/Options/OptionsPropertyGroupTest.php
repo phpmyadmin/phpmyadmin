@@ -15,6 +15,7 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Properties\Options\OptionsPropertyGroup
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Properties\Options\OptionsPropertyGroup::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class OptionsPropertyGroupTest extends AbstractTestCase
 {
     /** @var OptionsPropertyGroup|MockObject */

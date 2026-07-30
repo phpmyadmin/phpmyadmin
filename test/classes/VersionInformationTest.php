@@ -15,6 +15,7 @@ use function count;
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\VersionInformation::class)]
 #[\PHPUnit\Framework\Attributes\Large]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */

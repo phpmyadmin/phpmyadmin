@@ -20,6 +20,7 @@ use function extension_loaded;
 #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportShp::class)]
 #[\PHPUnit\Framework\Attributes\Medium]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class ImportShpTest extends AbstractTestCase
 {
     /** @var ImportShp */

@@ -18,6 +18,7 @@ use PhpMyAdmin\Util;
  * @covers \PhpMyAdmin\Export\Options
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Export\Options::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class OptionsTest extends AbstractTestCase
 {
     /** @var Options */

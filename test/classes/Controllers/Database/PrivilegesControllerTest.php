@@ -18,6 +18,7 @@ use function _pgettext;
  * @covers \PhpMyAdmin\Controllers\Database\PrivilegesController
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Database\PrivilegesController::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class PrivilegesControllerTest extends AbstractTestCase
 {
     /**

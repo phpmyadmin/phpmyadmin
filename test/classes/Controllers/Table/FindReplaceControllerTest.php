@@ -15,6 +15,7 @@ use PhpMyAdmin\Types;
  * @covers \PhpMyAdmin\Controllers\Table\FindReplaceController
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\FindReplaceController::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class FindReplaceControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

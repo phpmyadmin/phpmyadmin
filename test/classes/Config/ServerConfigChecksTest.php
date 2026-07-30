@@ -21,6 +21,7 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
  * @covers \PhpMyAdmin\Config\ServerConfigChecks
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\ServerConfigChecks::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class ServerConfigChecksTest extends AbstractTestCase
 {
     /** @var string */

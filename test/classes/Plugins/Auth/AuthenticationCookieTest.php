@@ -35,6 +35,7 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Auth\AuthenticationCookie::class)]
 #[\PHPUnit\Framework\Attributes\Medium]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class AuthenticationCookieTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationCookie */

@@ -18,6 +18,7 @@ use function basename;
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportCsv::class)]
 #[\PHPUnit\Framework\Attributes\Medium]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class ImportCsvTest extends AbstractTestCase
 {
     /** @var ImportCsv */

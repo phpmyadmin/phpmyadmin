@@ -39,6 +39,7 @@ use const PHP_VERSION_ID;
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Server\Privileges::class)]
 #[\PHPUnit\Framework\Attributes\Medium]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class PrivilegesTest extends AbstractTestCase
 {
     /** @var Privileges $serverPrivileges */

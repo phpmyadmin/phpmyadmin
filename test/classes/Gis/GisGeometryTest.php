@@ -12,6 +12,7 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @covers \PhpMyAdmin\Gis\GisGeometry
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Gis\GisGeometry::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class GisGeometryTest extends AbstractTestCase
 {
     /** @var GisGeometry|MockObject */

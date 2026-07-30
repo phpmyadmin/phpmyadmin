@@ -12,6 +12,7 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @covers \PhpMyAdmin\Properties\Options\OptionsPropertyItem
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Properties\Options\OptionsPropertyItem::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class OptionsPropertyItemTest extends AbstractTestCase
 {
     /** @var OptionsPropertyItem|MockObject */

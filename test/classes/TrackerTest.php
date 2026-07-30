@@ -18,6 +18,7 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Tracker
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Tracker::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class TrackerTest extends AbstractTestCase
 {
     /**

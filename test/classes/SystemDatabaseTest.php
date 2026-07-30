@@ -13,6 +13,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
  * @covers \PhpMyAdmin\SystemDatabase
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\SystemDatabase::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class SystemDatabaseTest extends AbstractTestCase
 {
     /**

@@ -25,6 +25,7 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Controllers\Database\StructureController
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Database\StructureController::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class StructureControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */

@@ -15,6 +15,7 @@ use PhpMyAdmin\Types;
  * @covers \PhpMyAdmin\Database\Routines
  */
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Routines::class)]
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class RoutinesTest extends AbstractTestCase
 {
     /** @var Routines */
