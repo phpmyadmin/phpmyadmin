@@ -167,7 +167,7 @@ class ErrorTest extends AbstractTestCase
         yield 'E_USER_ERROR error' => [E_USER_ERROR, 'error'];
         yield 'E_USER_WARNING error' => [E_USER_WARNING, 'error'];
         yield 'E_USER_NOTICE notice' => [E_USER_NOTICE, 'notice'];
-        yield 'E_STRICT notice' => [@E_STRICT, 'notice'];
+        yield 'E_STRICT notice' => [2048, 'notice'];
         yield 'E_DEPRECATED notice' => [E_DEPRECATED, 'notice'];
         yield 'E_USER_DEPRECATED notice' => [E_USER_DEPRECATED, 'notice'];
         yield 'E_RECOVERABLE_ERROR error' => [E_RECOVERABLE_ERROR, 'error'];
@@ -195,7 +195,7 @@ class ErrorTest extends AbstractTestCase
         yield 'E_USER_ERROR error' => [E_USER_ERROR, 'User Error'];
         yield 'E_USER_WARNING warning' => [E_USER_WARNING, 'User Warning'];
         yield 'E_USER_NOTICE notice' => [E_USER_NOTICE, 'User Notice'];
-        yield 'E_STRICT notice' => [@E_STRICT, 'Runtime Notice'];
+        yield 'E_STRICT notice' => [2048, 'Runtime Notice'];
         yield 'E_DEPRECATED notice' => [E_DEPRECATED, 'Deprecation Notice'];
         yield 'E_USER_DEPRECATED notice' => [E_USER_DEPRECATED, 'Deprecation Notice'];
         yield 'E_RECOVERABLE_ERROR error' => [E_RECOVERABLE_ERROR, 'Catchable Fatal Error'];

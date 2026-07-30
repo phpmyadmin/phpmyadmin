@@ -138,7 +138,7 @@ class ErrorHandlerTest extends AbstractTestCase
     /** @return iterable<string, array{int, string}> */
     public static function addErrorProvider(): iterable
     {
-        yield 'E_STRICT' => [@E_STRICT, '[em]Error[/em]'];
+        yield 'E_STRICT' => [2048, '[em]Error[/em]'];
         yield 'E_NOTICE' => [E_NOTICE, '[em]Error[/em]'];
         yield 'E_WARNING' => [E_WARNING, '[em]Error[/em]'];
         yield 'E_CORE_WARNING' => [E_CORE_WARNING, '[em]Error[/em]'];
