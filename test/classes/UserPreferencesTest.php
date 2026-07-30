@@ -86,9 +86,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             'userconfigwork' => true,
         ])->toArray();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts '
             . 'FROM `pma\'db`.`testconf` WHERE `username` = \'user\'';
@@ -96,17 +94,10 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $dbi->expects($this->once())
             ->method('fetchSingleRow')
             ->with($query, DatabaseInterface::FETCH_ASSOC, DatabaseInterface::CONNECT_CONTROL)
-            ->will(
-                $this->returnValue(
-                    [
-                        'ts' => '123',
-                        'config_data' => json_encode([1, 2]),
-                    ]
-                )
-            );
+            ->willReturn(['ts' => '123', 'config_data' => json_encode([1, 2])]);
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -167,23 +158,21 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $query2 = 'UPDATE `pmadb`.`testconf` SET `timevalue` = NOW(), `config_data` = \''
             . json_encode([1]) . '\' WHERE `username` = \'user\'';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with($query1, 0, DatabaseInterface::CONNECT_CONTROL)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($query2, DatabaseInterface::CONNECT_CONTROL)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -198,27 +187,25 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $query2 = 'INSERT INTO `pmadb`.`testconf` (`username`, `timevalue`,`config_data`) '
             . 'VALUES (\'user\', NOW(), \'' . json_encode([1]) . '\')';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with($query1, 0, DatabaseInterface::CONNECT_CONTROL)
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with($query2, DatabaseInterface::CONNECT_CONTROL)
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $dbi->expects($this->once())
             ->method('getError')
             ->with(DatabaseInterface::CONNECT_CONTROL)
-            ->will($this->returnValue('err1'));
+            ->willReturn('err1');
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 

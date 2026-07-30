@@ -59,9 +59,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['table'] = 'phpmyadmintest';
 
         //Mock DBI
-        $this->dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->dbi = $this->createMock(DatabaseInterface::class);
         $GLOBALS['dbi'] = $this->dbi;
 
         $this->object = new ImportLdi();
@@ -102,13 +100,13 @@ class ImportLdiTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->any())->method('numRows')
-            ->will($this->returnValue(10));
+            ->willReturn(10);
 
         $resultStub->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue('ON'));
+            ->willReturn('ON');
 
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $this->object = new ImportLdi();
@@ -133,7 +131,7 @@ class ImportLdiTest extends AbstractTestCase
          */
         $dbi = $this->dbi;
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
@@ -189,7 +187,7 @@ class ImportLdiTest extends AbstractTestCase
          */
         $dbi = $this->dbi;
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $ldi_local_option = true;

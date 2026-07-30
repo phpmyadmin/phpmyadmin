@@ -173,9 +173,7 @@ class ExportXmlTest extends AbstractTestCase
                 '"tbl"',
             ],
         ];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->exactly(3))
             ->method('fetchResult')
@@ -184,16 +182,7 @@ class ExportXmlTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getTriggers')
             ->with('d<"b', 'table')
-            ->will(
-                $this->returnValue(
-                    [
-                        [
-                            'create' => 'crt',
-                            'name' => 'trname',
-                        ],
-                    ]
-                )
-            );
+            ->willReturn([['create' => 'crt', 'name' => 'trname']]);
 
         $dbi->expects($this->exactly(2))
             ->method('getProceduresOrFunctions')
@@ -208,9 +197,9 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'd<"b', $dbi)));
+            ->willReturn(new Table('table', 'd<"b', $dbi));
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -253,9 +242,7 @@ class ExportXmlTest extends AbstractTestCase
         unset($GLOBALS['xml_export_procedures']);
         $GLOBALS['output_charset_conversion'] = 0;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $result_1 = [
             [
@@ -284,7 +271,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'd<"b', $dbi)));
+            ->willReturn(new Table('table', 'd<"b', $dbi));
 
         $GLOBALS['dbi'] = $dbi;
 

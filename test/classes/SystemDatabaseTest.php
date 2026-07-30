@@ -34,15 +34,11 @@ class SystemDatabaseTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
 
-        $resultStub = $this->createMock(DummyResult::class);
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($this->createStub(DummyResult::class));
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
@@ -82,18 +78,14 @@ class SystemDatabaseTest extends AbstractTestCase
 
         $resultStub->expects($this->any())
             ->method('fetchAssoc')
-            ->will(
-                $this->returnValue(
-                    [
-                        'table_name' => 'table_name',
-                        'column_name' => 'column_name',
-                        'comment' => 'comment',
-                        'mimetype' => 'mimetype',
-                        'transformation' => 'transformation',
-                        'transformation_options' => 'transformation_options',
-                    ]
-                )
-            );
+            ->willReturn([
+                'table_name' => 'table_name',
+                'column_name' => 'column_name',
+                'comment' => 'comment',
+                'mimetype' => 'mimetype',
+                'transformation' => 'transformation',
+                'transformation_options' => 'transformation_options',
+            ]);
 
         $db = 'PMA_db';
         $column_map = [

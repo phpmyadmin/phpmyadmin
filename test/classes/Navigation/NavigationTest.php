@@ -66,14 +66,12 @@ class NavigationTest extends AbstractTestCase
         $expectedQuery = 'INSERT INTO `pmadb`.`navigationhiding`'
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . " VALUES ('user','itemName','itemType','db','')";
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object = new Navigation(new Template(), new Relation($dbi), $dbi);
@@ -88,15 +86,13 @@ class NavigationTest extends AbstractTestCase
         $expectedQuery = 'DELETE FROM `pmadb`.`navigationhiding`'
             . " WHERE `username`='user' AND `item_name`='itemName'"
             . " AND `item_type`='itemType' AND `db_name`='db'";
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
 
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
         $this->object = new Navigation(new Template(), new Relation($dbi), $dbi);
         $this->object->unhideNavigationItem('itemName', 'itemType', 'db');

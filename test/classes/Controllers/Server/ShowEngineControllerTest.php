@@ -37,7 +37,7 @@ class ShowEngineControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $response = new ResponseRenderer();
-        $request = $this->createMock(ServerRequest::class);
+        $request = $this->createStub(ServerRequest::class);
         $this->dummyDbi->addSelectDb('mysql');
 
         (new ShowEngineController($response, new Template(), $dbi))($request, [

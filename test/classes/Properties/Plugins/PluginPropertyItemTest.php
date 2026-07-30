@@ -22,7 +22,7 @@ class PluginPropertyItemTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->stub = $this->getMockForAbstractClass(PluginPropertyItem::class);
+        $this->stub = $this->getMockBuilder(PluginPropertyItem::class)->onlyMethods(['getItemType'])->getMock();
     }
 
     /**

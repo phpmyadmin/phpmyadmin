@@ -24,7 +24,16 @@ class GisGeometryTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->object = $this->getMockForAbstractClass(GisGeometry::class);
+        $this->object = $this->getMockBuilder(GisGeometry::class)
+            ->onlyMethods([
+                'prepareRowAsSvg',
+                'prepareRowAsPng',
+                'prepareRowAsPdf',
+                'prepareRowAsOl',
+                'scaleRow',
+                'generateWkt',
+            ])
+            ->getMock();
     }
 
     /**

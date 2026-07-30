@@ -74,9 +74,7 @@ class RelationTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 0;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $getColumnsResult = [
             [
@@ -91,7 +89,7 @@ class RelationTest extends AbstractTestCase
             ],
         ];
         $dbi->expects($this->any())->method('getColumns')
-            ->will($this->returnValue($getColumnsResult));
+            ->willReturn($getColumnsResult);
 
         $GLOBALS['dbi'] = $dbi;
         $this->relation->dbi = $GLOBALS['dbi'];
@@ -114,18 +112,15 @@ class RelationTest extends AbstractTestCase
     {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())
             ->method('tryQueryAsControlUser')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->any())
             ->method('numRows')
-            ->will($this->returnValue(0));
+            ->willReturn(0);
         $dbi->expects($this->any())
-            ->method('getError')
-            ->will($this->onConsecutiveCalls('Error', ''));
+            ->method('getError')->willReturnOnConsecutiveCalls('Error', '');
         $GLOBALS['dbi'] = $dbi;
         $this->relation->dbi = $GLOBALS['dbi'];
 

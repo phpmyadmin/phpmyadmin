@@ -81,27 +81,16 @@ class PrivilegesTest extends AbstractTestCase
             'tracking' => 'tracking',
         ])->toArray();
 
-        $pmaconfig = $this->getMockBuilder(Config::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $pmaconfig = $this->createMock(Config::class);
 
         $GLOBALS['config'] = $pmaconfig;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())
             ->method('fetchResult')
-            ->will(
-                $this->returnValue(
-                    [
-                        'grant user1 select',
-                        'grant user2 delete',
-                    ]
-                )
-            );
+            ->willReturn(['grant user1 select', 'grant user2 delete']);
 
         $fetchSingleRow = [
             'password' => 'pma_password',
@@ -110,26 +99,24 @@ class PrivilegesTest extends AbstractTestCase
             '@@old_passwords' => 0,
         ];
         $dbi->expects($this->any())->method('fetchSingleRow')
-            ->will($this->returnValue($fetchSingleRow));
+            ->willReturn($fetchSingleRow);
 
         $fetchValue = ['key1' => 'value1'];
         $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($fetchValue));
-
-        $resultStub = $this->createMock(DummyResult::class);
+            ->willReturn($fetchValue);
 
         $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($this->createStub(DummyResult::class));
 
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnCallback(static function (string $arg0): string {
+            ->willReturnCallback(static function (string $arg0): string {
                 return str_replace(['\\', "'"], ['\\\\', "\\'"], $arg0);
-            }));
+            });
 
         $dbi->expects($this->any())->method('isCreateUser')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
         $dbi->expects($this->any())->method('isGrantUser')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $GLOBALS['dbi'] = $dbi;
         $this->serverPrivileges->dbi = $dbi;
@@ -394,7 +381,7 @@ class PrivilegesTest extends AbstractTestCase
     {
         // Case 1 : Test with Newer version
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
-            ->will($this->returnValue(50706));
+            ->willReturn(50706);
         $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $dbname = 'pma_dbname';
@@ -426,7 +413,7 @@ class PrivilegesTest extends AbstractTestCase
     public function testAddUserOld(): void
     {
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
-            ->will($this->returnValue(50506));
+            ->willReturn(50506);
         $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $dbname = 'pma_dbname';
@@ -558,15 +545,13 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['max_user_connections'] = 40;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())->method('getVersion')
-            ->will($this->returnValue(8003));
+            ->willReturn(8003);
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $this->serverPrivileges->dbi = $dbi;
 
@@ -606,15 +591,13 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['max_user_connections'] = 40;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())->method('getVersion')
-            ->will($this->returnValue(80011));
+            ->willReturn(80011);
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $this->serverPrivileges->dbi = $dbi;
 
@@ -709,7 +692,7 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetSqlQueriesForDisplayAndAddUserMySql8011(): void
     {
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
-            ->will($this->returnValue(80011));
+            ->willReturn(80011);
         $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $username = 'PMA_username';
@@ -742,7 +725,7 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetSqlQueriesForDisplayAndAddUserMySql8016(): void
     {
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
-            ->will($this->returnValue(80016));
+            ->willReturn(80016);
         $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $username = 'PMA_username';
@@ -771,7 +754,7 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetSqlQueriesForDisplayAndAddUserMySql8044EscapePw(): void
     {
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
-            ->will($this->returnValue(80044));
+            ->willReturn(80044);
         $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $username = 'PMA_username';
@@ -800,7 +783,7 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetSqlQueriesForDisplayAndAddUser(): void
     {
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
-            ->will($this->returnValue(50706));
+            ->willReturn(50706);
         $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $username = 'PMA_username';
@@ -905,9 +888,7 @@ class PrivilegesTest extends AbstractTestCase
         $GLOBALS['username'] = 'pma_username';
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $fields_info = [
             [
                 'COLUMN_NAME' => 'Host',
@@ -919,10 +900,10 @@ class PrivilegesTest extends AbstractTestCase
             ],
         ];
         $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValue($fields_info));
+            ->willReturn($fields_info);
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->serverPrivileges->dbi = $dbi;
@@ -970,9 +951,7 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetHtmlForAddUser(): void
     {
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $fields_info = [
             [
                 'COLUMN_NAME' => 'Host',
@@ -984,12 +963,12 @@ class PrivilegesTest extends AbstractTestCase
             ],
         ];
         $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValue($fields_info));
+            ->willReturn($fields_info);
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
         $dbi->expects($this->any())->method('isGrantUser')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $GLOBALS['dbi'] = $dbi;
         $this->serverPrivileges->dbi = $dbi;
@@ -1182,16 +1161,14 @@ class PrivilegesTest extends AbstractTestCase
         $username = 'pma_username';
 
         $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $expected_userGroup = 'pma_usergroup';
 
         $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($expected_userGroup));
+            ->willReturn($expected_userGroup);
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->serverPrivileges->dbi = $dbi;
@@ -1209,7 +1186,7 @@ class PrivilegesTest extends AbstractTestCase
      */
     public function testGetUsersOverview(): void
     {
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
         $db_rights = [];
         $text_dir = 'text_dir';
 
@@ -1489,17 +1466,14 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetHtmlForInitials(): void
     {
         // Setup for the test
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->atLeastOnce())
-            ->method('fetchRow')
-            ->will($this->onConsecutiveCalls(['-'], ['"'], ['%'], ['\\'], [''], []));
+            ->method('fetchRow')->willReturnOnConsecutiveCalls(['-'], ['"'], ['%'], ['\\'], [''], []);
         $this->serverPrivileges->dbi = $dbi;
 
         $actual = $this->serverPrivileges->getHtmlForInitials();
@@ -1544,29 +1518,18 @@ class PrivilegesTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())
             ->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $dbi->expects($this->any())
             ->method('fetchResult')
-            ->will($this->returnValue(['db', 'columns_priv']));
+            ->willReturn(['db', 'columns_priv']);
         $resultStub->expects($this->any())
-            ->method('fetchAssoc')
-            ->will(
-                $this->onConsecutiveCalls(
-                    [
-                        'User' => 'pmauser',
-                        'Host' => 'local',
-                    ],
-                    []
-                )
-            );
+            ->method('fetchAssoc')->willReturnOnConsecutiveCalls(['User' => 'pmauser', 'Host' => 'local'], []);
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $_GET['initial'] = 'A';
         $GLOBALS['dbi'] = $dbi;
@@ -1592,21 +1555,18 @@ class PrivilegesTest extends AbstractTestCase
      */
     public function testDeleteUser(): void
     {
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())
-            ->method('tryQuery')
-            ->will($this->onConsecutiveCalls($resultStub, $resultStub, false));
+            ->method('tryQuery')->willReturnOnConsecutiveCalls($resultStub, $resultStub, false);
         $dbi->expects($this->any())
             ->method('getError')
-            ->will($this->returnValue('Some error occurred!'));
+            ->willReturn('Some error occurred!');
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->serverPrivileges->dbi = $dbi;

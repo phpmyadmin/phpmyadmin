@@ -31,21 +31,19 @@ class SearchTest extends AbstractTestCase
         $GLOBALS['_POST'] = [];
 
         //mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())
             ->method('getColumns')
             ->with('pma', 'table1')
-            ->will($this->returnValue([
+            ->willReturn([
                 ['Field' => 'column1'],
                 ['Field' => 'column2'],
-            ]));
+            ]);
 
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object = new Search($dbi, 'pma_test', new Template());

@@ -102,16 +102,14 @@ class ExportSqlTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         // test with hide structure and hide sql as false
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('getCompatibilities')
-            ->will($this->returnValue(['v1', 'v2']));
+            ->willReturn(['v1', 'v2']);
 
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['plugin_param']['export_type'] = 'server';
@@ -324,9 +322,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['asfile'] = 'yes';
         $GLOBALS['output_charset_conversion'] = 'utf-8';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('query')
@@ -356,9 +352,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['charset'] = 'utf-8';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('tryQuery')
@@ -367,7 +361,7 @@ class ExportSqlTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with('SELECT @@session.time_zone')
-            ->will($this->returnValue('old_tz'));
+            ->willReturn('old_tz');
 
         $dbi->expects($this->once())
             ->method('query')
@@ -405,16 +399,14 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_create_view'] = true;
         $GLOBALS['crlf'] = "\n";
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('getDbCollation')
             ->with('db')
-            ->will($this->returnValue('utf8_general_ci'));
+            ->willReturn('utf8_general_ci');
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -438,16 +430,14 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
         unset($GLOBALS['sql_backquotes']);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('getDbCollation')
             ->with('db')
-            ->will($this->returnValue('testcollation'));
+            ->willReturn('testcollation');
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -475,11 +465,9 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_structure_or_data'] = 'data';
         $GLOBALS['crlf'] = "\n";
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -526,39 +514,21 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'db\';')
-            ->will($this->returnValue(['f1', 'f2']));
+            ->willReturn(['f1', 'f2']);
 
         $dbi->expects($this->exactly(2))
             ->method('getDefinition')
-            ->will(
-                $this->returnValueMap(
-                    [
-                        [
-                            'db',
-                            'EVENT',
-                            'f1',
-                            DatabaseInterface::CONNECT_USER,
-                            'f1event',
-                        ],
-                        [
-                            'db',
-                            'EVENT',
-                            'f2',
-                            DatabaseInterface::CONNECT_USER,
-                            'f2event',
-                        ],
-                    ]
-                )
-            );
+            ->willReturnMap([
+                ['db', 'EVENT', 'f1', DatabaseInterface::CONNECT_USER, 'f1event'],
+                ['db', 'EVENT', 'f2', DatabaseInterface::CONNECT_USER, 'f2event'],
+            ]);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -584,11 +554,9 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -604,20 +572,14 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $dbi->expects($this->once())
             ->method('getColumnsFull')
             ->with('db', 'view')
-            ->will(
-                $this->returnValue(
-                    ['cname' => ['Type' => 'int']]
-                )
-            );
+            ->willReturn(['cname' => ['Type' => 'int']]);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -633,29 +595,23 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $dbi->expects($this->any())
             ->method('getColumns')
             ->with('db', 'view')
-            ->will(
-                $this->returnValue(
-                    [
-                        'cname' => [
-                            'Type' => 'char',
-                            'Collation' => 'utf-8',
-                            'Null' => 'NO',
-                            'Default' => 'a',
-                            'Comment' => 'cmt',
-                            'Field' => 'fname',
-                        ],
-                    ]
-                )
-            );
+            ->willReturn([
+                'cname' => [
+                    'Type' => 'char',
+                    'Collation' => 'utf-8',
+                    'Null' => 'NO',
+                    'Default' => 'a',
+                    'Comment' => 'cmt',
+                    'Field' => 'fname',
+                ],
+            ]);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -674,28 +630,22 @@ class ExportSqlTest extends AbstractTestCase
         // case 2
         unset($GLOBALS['sql_compatibility']);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $dbi->expects($this->any())
             ->method('getColumns')
             ->with('db', 'view')
-            ->will(
-                $this->returnValue(
-                    [
-                        'cname' => [
-                            'Type' => 'char',
-                            'Collation' => 'utf-8',
-                            'Null' => 'YES',
-                            'Comment' => 'cmt',
-                            'Field' => 'fname',
-                        ],
-                    ]
-                )
-            );
+            ->willReturn([
+                'cname' => [
+                    'Type' => 'char',
+                    'Collation' => 'utf-8',
+                    'Null' => 'YES',
+                    'Comment' => 'cmt',
+                    'Field' => 'fname',
+                ],
+            ]);
         $GLOBALS['dbi'] = $dbi;
 
         $result = $method->invoke($this->object, 'db', 'view', "\n", false);
@@ -724,24 +674,22 @@ class ExportSqlTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())
             ->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $dbi->expects($this->never())
             ->method('fetchSingleRow');
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue(1));
+            ->willReturn(1);
 
         $dbi->expects($this->any())
             ->method('fetchValue')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $tmpres = [
             'Auto_increment' => 1,
@@ -752,7 +700,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue($tmpres));
+            ->willReturn($tmpres);
 
         $showTableStatusQuery = "SHOW TABLE STATUS FROM `db` WHERE Name = 'table'";
         $useStatement = 'USE `db`';
@@ -788,13 +736,13 @@ class ExportSqlTest extends AbstractTestCase
 
         $resultStub->expects($this->exactly(1))
             ->method('fetchRow')
-            ->will($this->returnValue($row));
+            ->willReturn($row);
 
         $dbi->expects($this->exactly(2))
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'db', $dbi)));
+            ->willReturn(new Table('table', 'db', $dbi));
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -848,24 +796,22 @@ class ExportSqlTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())
             ->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $dbi->expects($this->never())
             ->method('fetchSingleRow');
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue(2));
+            ->willReturn(2);
 
         $dbi->expects($this->any())
             ->method('fetchValue')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $tmpres = [
             'Auto_increment' => 1,
@@ -876,7 +822,7 @@ class ExportSqlTest extends AbstractTestCase
 
         $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue($tmpres));
+            ->willReturn($tmpres);
 
         $showTableStatusQuery = "SHOW TABLE STATUS FROM `db` WHERE Name = 'table'";
         $useStatement = 'USE `db`';
@@ -889,14 +835,14 @@ class ExportSqlTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue('error occurred'));
+            ->willReturn('error occurred');
 
         $dbi->expects($this->exactly(2))
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'db', $dbi)));
+            ->willReturn(new Table('table', 'db', $dbi));
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -920,12 +866,10 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
@@ -1080,9 +1024,7 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $flags = [];
         $a = new stdClass();
@@ -1118,16 +1060,16 @@ class ExportSqlTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->willReturn($flags);
 
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SELECT a FROM b WHERE 1', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numFields')
-            ->will($this->returnValue(5));
+            ->willReturn(5);
 
         $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
@@ -1142,21 +1084,19 @@ class ExportSqlTest extends AbstractTestCase
                 []
             );
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
-        $_table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $_table = $this->createMock(Table::class);
         $_table->expects($this->once())
             ->method('isMerge')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
         $_table->expects($this->once())
             ->method('isView')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue($_table));
+            ->willReturn($_table);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -1192,9 +1132,7 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportDataWithUpdate(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $flags = [];
         $a = new stdClass();
@@ -1218,16 +1156,16 @@ class ExportSqlTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->willReturn($flags);
 
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SELECT a FROM b WHERE 1', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numFields')
-            ->will($this->returnValue(2));
+            ->willReturn(2);
 
         $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
@@ -1239,21 +1177,19 @@ class ExportSqlTest extends AbstractTestCase
                 []
             );
 
-        $_table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $_table = $this->createMock(Table::class);
         $_table->expects($this->once())
             ->method('isMerge')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
         $_table->expects($this->once())
             ->method('isView')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue($_table));
+            ->willReturn($_table);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['sql_compatibility'] = 'MSSQL';
@@ -1279,25 +1215,21 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportDataWithIsView(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $_table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $_table = $this->createMock(Table::class);
         $_table->expects($this->once())
             ->method('isMerge')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
         $_table->expects($this->once())
             ->method('isView')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue($_table));
+            ->willReturn($_table);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
@@ -1324,29 +1256,25 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportDataWithError(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue('err'));
+            ->willReturn('err');
 
-        $_table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $_table = $this->createMock(Table::class);
         $_table->expects($this->once())
             ->method('isMerge')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
         $_table->expects($this->once())
             ->method('isView')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $dbi->expects($this->any())
             ->method('getTable')
-            ->will($this->returnValue($_table));
+            ->willReturn($_table);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;

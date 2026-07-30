@@ -77,9 +77,7 @@ class ImportMediawikiTest extends AbstractTestCase
         global $import_notice;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
@@ -122,9 +120,7 @@ class ImportMediawikiTest extends AbstractTestCase
         global $import_notice;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File('test/test_data/__slashes.mediawiki');

@@ -262,7 +262,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $mock->expects($this->once())
             ->method('fetchSingleRow')
-            ->will($this->returnValue(null));
+            ->willReturn(null);
 
         $mock->expects($this->never())->method('setVersion');
 
@@ -291,7 +291,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $mock->expects($this->once())
             ->method('fetchSingleRow')
-            ->will($this->returnValue($versionQueryResult));
+            ->willReturn($versionQueryResult);
 
         $mock->expects($this->once())->method('setVersion')->with($versionQueryResult);
 
@@ -327,7 +327,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $mock->expects($this->once())
             ->method('fetchSingleRow')
-            ->will($this->returnValue($version));
+            ->willReturn($version);
 
         $mock->postConnect();
 

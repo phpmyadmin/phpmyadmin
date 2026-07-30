@@ -130,9 +130,7 @@ class ExportPdfTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $pdf = $this->getMockBuilder(Pdf::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $pdf = $this->createMock(Pdf::class);
 
         $pdf->expects($this->once())
             ->method('Open');
@@ -152,9 +150,7 @@ class ExportPdfTest extends AbstractTestCase
 
     public function testExportFooter(): void
     {
-        $pdf = $this->getMockBuilder(Pdf::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $pdf = $this->createMock(Pdf::class);
 
         $pdf->expects($this->once())
             ->method('getPDFData');
@@ -186,9 +182,7 @@ class ExportPdfTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $pdf = $this->getMockBuilder(Pdf::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $pdf = $this->createMock(Pdf::class);
 
         $pdf->expects($this->once())
             ->method('mysqlReport')

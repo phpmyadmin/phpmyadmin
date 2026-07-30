@@ -104,12 +104,12 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->exactly($set_title))
             ->method('getFooter')
             ->with()
-            ->will($this->returnValue($mockFooter));
+            ->willReturn($mockFooter);
 
         $mockResponse->expects($this->exactly($set_title))
             ->method('getHeader')
             ->with()
-            ->will($this->returnValue($mockHeader));
+            ->willReturn($mockHeader);
 
         if (! empty($_REQUEST['old_usr'])) {
             $this->object->logOut();
@@ -345,13 +345,10 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $_REQUEST = [];
         ResponseRenderer::getInstance()->setAjax(false);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->exactly(3))
-            ->method('getError')
-            ->will($this->onConsecutiveCalls('error 123', 'error 321', ''));
+            ->method('getError')->willReturnOnConsecutiveCalls('error 123', 'error 321', '');
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['errno'] = 31;

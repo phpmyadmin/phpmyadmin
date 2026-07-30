@@ -896,9 +896,7 @@ class ResultsTest extends AbstractTestCase
         ];
         $this->object->properties['fields_meta'] = $fields_meta;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         // MIME transformations
         $dbi->expects($this->exactly(1))

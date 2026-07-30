@@ -53,7 +53,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
         $formDisplay->expects($this->once())
             ->method('process')
             ->with(false)
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $formDisplay->expects($this->once())
             ->method('getDisplay');
@@ -69,12 +69,12 @@ class FormProcessingTest extends AbstractNetworkTestCase
         $formDisplay->expects($this->once())
             ->method('process')
             ->with(false)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $formDisplay->expects($this->once())
             ->method('hasErrors')
             ->with()
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         ob_start();
         FormProcessing::process($formDisplay);
@@ -99,12 +99,12 @@ class FormProcessingTest extends AbstractNetworkTestCase
         $formDisplay->expects($this->once())
             ->method('process')
             ->with(false)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $formDisplay->expects($this->once())
             ->method('hasErrors')
             ->with()
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         FormProcessing::process($formDisplay);
     }

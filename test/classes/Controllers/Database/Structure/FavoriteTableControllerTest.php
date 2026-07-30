@@ -28,12 +28,9 @@ class FavoriteTableControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $favoriteInstance = $this->getMockBuilder(RecentFavoriteTable::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $favoriteInstance = $this->createMock(RecentFavoriteTable::class);
         $favoriteInstance->expects($this->exactly(2))
-            ->method('getTables')
-            ->will($this->onConsecutiveCalls([[]], [['db' => 'db', 'table' => 'table']]));
+            ->method('getTables')->willReturnOnConsecutiveCalls([[]], [['db' => 'db', 'table' => 'table']]);
 
         $class = new ReflectionClass(FavoriteTableController::class);
         $method = $class->getMethod('synchronizeFavoriteTables');

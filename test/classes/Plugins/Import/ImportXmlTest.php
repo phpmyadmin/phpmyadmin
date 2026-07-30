@@ -85,11 +85,9 @@ class ImportXmlTest extends AbstractTestCase
         global $sql_query;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
@@ -132,11 +130,9 @@ SQL;
     {
         global $import_notice, $sql_query;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_GIS_For_Testing.xml';
@@ -194,11 +190,9 @@ SQL;
     {
         global $sql_query;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_Numeric_String_For_Testing.xml';
@@ -239,11 +233,9 @@ SQL;
     {
         global $import_notice, $sql_query;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_No_Database_For_Testing.xml';

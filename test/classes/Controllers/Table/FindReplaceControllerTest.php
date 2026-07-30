@@ -30,9 +30,7 @@ class FindReplaceControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
 
         $columns = [
@@ -50,7 +48,7 @@ class FindReplaceControllerTest extends AbstractTestCase
             ],
         ];
         $dbi->expects($this->any())->method('getColumns')
-            ->will($this->returnValue($columns));
+            ->willReturn($columns);
 
         $show_create_table = "CREATE TABLE `table` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -64,9 +62,9 @@ class FindReplaceControllerTest extends AbstractTestCase
             . "COMMENT='table'";
 
         $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($show_create_table));
+            ->willReturn($show_create_table);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
     }

@@ -43,9 +43,7 @@ class VariablesControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
         $serverSessionVariables = [
@@ -79,7 +77,7 @@ class VariablesControllerTest extends AbstractTestCase
         ];
 
         $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValueMap($fetchResult));
+            ->willReturnMap($fetchResult);
 
         $GLOBALS['dbi'] = $dbi;
     }
@@ -88,7 +86,7 @@ class VariablesControllerTest extends AbstractTestCase
     {
         $response = new ResponseStub();
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
         /** @var MockObject&DatabaseInterface $dbi */
         $dbi = $GLOBALS['dbi'];
@@ -132,7 +130,7 @@ class VariablesControllerTest extends AbstractTestCase
             $nameForValueByte,
             '3',
         ];
-        $voidProviderMock = $this->getMockBuilder(ServerVariablesVoidProvider::class)->getMock();
+        $voidProviderMock = $this->createMock(ServerVariablesVoidProvider::class);
 
         $voidProviderMock
             ->expects($this->exactly(2))

@@ -35,22 +35,20 @@ class GisTest extends AbstractTestCase
     ): void {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($SRIDOption ? $this->once() : $this->exactly(2))
             ->method('getVersion')
-            ->will($this->returnValue($mysqlVersion));
+            ->willReturn($mysqlVersion);
 
         $dbi->expects($SRIDOption ? $this->once() : $this->exactly(2))
             ->method('tryQuery')
             ->with($expectedQuery)
-            ->will($this->returnValue($resultStub));// Omit the real object
+            ->willReturn($resultStub);// Omit the real object
 
         $resultStub->expects($SRIDOption ? $this->once() : $this->exactly(2))
             ->method('fetchRow')
-            ->will($this->returnValue($returnData));
+            ->willReturn($returnData);
 
         $GLOBALS['dbi'] = $dbi;
 

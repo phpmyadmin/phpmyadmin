@@ -57,7 +57,7 @@ class MysqliResultTest extends AbstractTestCase
         $mysqliResult = $this->createMock(mysqli_result::class);
         $mysqliResult->expects($this->once())
             ->method('data_seek')
-            ->with($this->equalTo($offset))
+            ->with($offset)
             ->willReturn(true);
 
         $result = new MysqliResult($mysqliResult);

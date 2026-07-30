@@ -1139,33 +1139,15 @@ class RoutinesTest extends AbstractTestCase
         $errors = [];
 
         $old_dbi = $GLOBALS['dbi'] ?? null;
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will(
-                $this->returnValueMap(
-                    [
-                        [
-                            'foo',
-                            DatabaseInterface::CONNECT_USER,
-                            'foo',
-                        ],
-                        [
-                            "foo's bar",
-                            DatabaseInterface::CONNECT_USER,
-                            "foo\'s bar",
-                        ],
-                        [
-                            '',
-                            DatabaseInterface::CONNECT_USER,
-                            '',
-                        ],
-                    ]
-                )
-            );
+            ->willReturnMap([
+                ['foo', DatabaseInterface::CONNECT_USER, 'foo'],
+                ["foo's bar", DatabaseInterface::CONNECT_USER, "foo\'s bar"],
+                ['', DatabaseInterface::CONNECT_USER, ''],
+            ]);
         $GLOBALS['dbi'] = $dbi;
 
         $routines = new Routines(

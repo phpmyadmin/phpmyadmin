@@ -62,20 +62,16 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $table = $this->createMock(Table::class);
         // Expect the table will have 6 rows
         $table->expects($this->any())->method('getRealRowCountTable')
-            ->will($this->returnValue(6));
+            ->willReturn(6);
         $table->expects($this->any())->method('countRecords')
-            ->will($this->returnValue(6));
+            ->willReturn(6);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())->method('getTable')
-            ->will($this->returnValue($table));
+            ->willReturn($table);
 
         $GLOBALS['dbi'] = $dbi;
 

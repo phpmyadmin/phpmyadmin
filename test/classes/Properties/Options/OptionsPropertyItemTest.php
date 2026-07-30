@@ -23,7 +23,7 @@ class OptionsPropertyItemTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->stub = $this->getMockForAbstractClass(OptionsPropertyItem::class);
+        $this->stub = $this->getMockBuilder(OptionsPropertyItem::class)->onlyMethods(['getItemType'])->getMock();
     }
 
     /**

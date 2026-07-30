@@ -23,7 +23,7 @@ class AccountLockingTest extends TestCase
         $dbi->expects(self::exactly(2))->method('escapeString')->willReturnArgument(0);
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;'))
+            ->with('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;')
             ->willReturn(true);
         $dbi->expects($this->never())->method('getError');
 
@@ -39,7 +39,7 @@ class AccountLockingTest extends TestCase
         $dbi->expects(self::exactly(2))->method('escapeString')->willReturnArgument(0);
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;'))
+            ->with('ALTER USER \'test.user\'@\'test.host\' ACCOUNT LOCK;')
             ->willReturn(false);
         $dbi->expects($this->once())->method('getError')->willReturn('Invalid account.');
 
@@ -76,7 +76,7 @@ class AccountLockingTest extends TestCase
         $dbi->expects(self::exactly(2))->method('escapeString')->willReturnArgument(0);
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;'))
+            ->with('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;')
             ->willReturn(true);
         $dbi->expects($this->never())->method('getError');
 
@@ -92,7 +92,7 @@ class AccountLockingTest extends TestCase
         $dbi->expects(self::exactly(2))->method('escapeString')->willReturnArgument(0);
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with($this->equalTo('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;'))
+            ->with('ALTER USER \'test.user\'@\'test.host\' ACCOUNT UNLOCK;')
             ->willReturn(false);
         $dbi->expects($this->once())->method('getError')->willReturn('Invalid account.');
 

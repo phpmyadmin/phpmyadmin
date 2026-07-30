@@ -72,9 +72,7 @@ class AuthenticationConfigTest extends AbstractTestCase
         $GLOBALS['errorHandler'] = new ErrorHandler();
         $GLOBALS['cfg']['Servers'] = [1];
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
 
         ob_start();

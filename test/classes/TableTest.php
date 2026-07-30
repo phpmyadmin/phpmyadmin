@@ -218,26 +218,22 @@ class TableTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValueMap($fetchResult));
+            ->willReturnMap($fetchResult);
 
         $dbi->expects($this->any())->method('fetchValue')
-            ->will(
-                $this->returnValue(
-                    'CREATE TABLE `PMA`.`PMA_BookMark_2` (
+            ->willReturn(
+                'CREATE TABLE `PMA`.`PMA_BookMark_2` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,
                     `username` text NOT NULL
                     )'
-                )
             );
 
         $cache = new Cache();
         $dbi->expects($this->any())->method('getCache')
-            ->will($this->returnValue($cache));
+            ->willReturn($cache);
 
         $databases = [];
         $database_name = 'PMA';
@@ -249,7 +245,7 @@ class TableTest extends AbstractTestCase
         $databases[$database_name]['SCHEMA_LENGTH'] = 10;
 
         $dbi->expects($this->any())->method('getTablesFull')
-            ->will($this->returnValue($databases));
+            ->willReturn($databases);
 
         $triggers = [
             [
@@ -267,26 +263,26 @@ class TableTest extends AbstractTestCase
         ];
 
         $dbi->expects($this->any())->method('getTriggers')
-            ->will($this->returnValue($triggers));
+            ->willReturn($triggers);
 
         $dbi->expects($this->any())->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $dbi->expects($this->any())->method('insertId')
-            ->will($this->returnValue(10));
+            ->willReturn(10);
 
         $resultStub->expects($this->any())->method('fetchAssoc')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $value = ['Auto_increment' => 'Auto_increment'];
         $dbi->expects($this->any())->method('fetchSingleRow')
-            ->will($this->returnValue($value));
+            ->willReturn($value);
 
         $resultStub->expects($this->any())->method('fetchRow')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
     }
@@ -1305,21 +1301,19 @@ class TableTest extends AbstractTestCase
      */
     public function testGetColumnsMeta(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SELECT * FROM `db`.`table` LIMIT 1')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue(['aNonValidExampleToRefactor']));
+            ->willReturn(['aNonValidExampleToRefactor']);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -1457,12 +1451,10 @@ class TableTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->any())
             ->method('numRows')
             ->willReturnOnConsecutiveCalls(0, 10, 200);
@@ -1511,11 +1503,11 @@ class TableTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
         $resultStub->expects($this->any())
             ->method('numRows')
-            ->will($this->returnValue(20));
+            ->willReturn(20);
 
         $dbi = clone $GLOBALS['dbi'];
         $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $table = 'PMA_BookMark';
         $db = 'PMA';
@@ -1581,7 +1573,7 @@ class TableTest extends AbstractTestCase
         ];
 
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->will($this->returnValueMap($getTableMap));
+            ->willReturnMap($getTableMap);
 
         $return = Table::moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move, $mode, true);
 
@@ -1610,7 +1602,7 @@ class TableTest extends AbstractTestCase
         // Renaming DB with a view bug
         $resultStub = $this->createMock(DummyResult::class);
         $GLOBALS['dbi']->expects($this->any())->method('tryQuery')
-            ->will($this->returnValueMap([
+            ->willReturnMap([
                 [
                     'SHOW CREATE TABLE `aa`.`ad`',
                     256,
@@ -1618,16 +1610,16 @@ class TableTest extends AbstractTestCase
                     true,
                     $resultStub,
                 ],
-            ]));
+            ]);
         $resultStub->expects($this->any())
             ->method('fetchRow')
-            ->will($this->returnValue([
+            ->willReturn([
                 'ad',
                 'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`' .
                     ' SQL SECURITY DEFINER VIEW `ad` AS select `aa`.`bb`.`ac` AS `ac` from `bb`',
                 'utf8mb4',
                 'utf8mb4_unicode_ci',
-            ]));
+            ]);
 
         $GLOBALS['sql_query'] = '';
         $return = Table::moveCopy(

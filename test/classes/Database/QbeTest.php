@@ -30,9 +30,7 @@ class QbeTest extends AbstractTestCase
         $GLOBALS['db'] = 'pma_test';
         $this->object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
         //mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $create_table = 'CREATE TABLE `table1` ('
             . '`id` int(11) NOT NULL,'
@@ -44,11 +42,11 @@ class QbeTest extends AbstractTestCase
         $dbi->expects($this->any())
             ->method('fetchValue')
             ->with('SHOW CREATE TABLE `pma_test`.`table1`', 1)
-            ->will($this->returnValue($create_table));
+            ->willReturn($create_table);
 
         $dbi->expects($this->any())
             ->method('getTableIndexes')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->dbi = $dbi;

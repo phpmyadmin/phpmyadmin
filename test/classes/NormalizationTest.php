@@ -47,29 +47,23 @@ class NormalizationTest extends AbstractTestCase
         //$_SESSION
 
         //mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
         $GLOBALS['dbi'] = $dbi;
         // set expectations
         $dbi->expects($this->any())
             ->method('selectDb')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
         $dbi->expects($this->any())
             ->method('getColumns')
-            ->will(
-                $this->returnValue(
-                    [
-                        'id' => ['Type' => 'integer'],
-                        'col1' => ['Type' => 'varchar(100)'],
-                        'col2' => ['Type' => 'DATETIME'],
-                    ]
-                )
-            );
+            ->willReturn([
+                'id' => ['Type' => 'integer'],
+                'col1' => ['Type' => 'varchar(100)'],
+                'col2' => ['Type' => 'DATETIME'],
+            ]);
         $dbi->expects($this->any())
             ->method('getColumnNames')
-            ->will($this->returnValue(['id', 'col1', 'col2']));
+            ->willReturn(['id', 'col1', 'col2']);
         $map = [
             [
                 'PMA_db',
@@ -106,13 +100,13 @@ class NormalizationTest extends AbstractTestCase
         ];
         $dbi->expects($this->any())
             ->method('getTableIndexes')
-            ->will($this->returnValueMap($map));
+            ->willReturnMap($map);
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
         $dbi->expects($this->any())
             ->method('fetchResult')
-            ->will($this->returnValue([0]));
+            ->willReturn([0]);
 
         $this->normalization = new Normalization($dbi, new Relation($dbi), new Transformations(), new Template());
     }

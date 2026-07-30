@@ -52,9 +52,7 @@ class SearchControllerTest extends AbstractTestCase
         $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
 
         $columns = [
@@ -72,7 +70,7 @@ class SearchControllerTest extends AbstractTestCase
             ],
         ];
         $dbi->expects($this->any())->method('getColumns')
-            ->will($this->returnValue($columns));
+            ->willReturn($columns);
 
         $show_create_table = "CREATE TABLE `pma_bookmark` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -86,9 +84,9 @@ class SearchControllerTest extends AbstractTestCase
         . "COMMENT='Bookmarks'";
 
         $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($show_create_table));
+            ->willReturn($show_create_table);
         $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $relation->dbi = $dbi;
@@ -107,7 +105,7 @@ class SearchControllerTest extends AbstractTestCase
         $GLOBALS['dbi']->expects($this->any())
             ->method('fetchSingleRow')
             ->with($expected)
-            ->will($this->returnValue([$expected]));
+            ->willReturn([$expected]);
 
         $ctrl = new SearchController(
             $this->response,

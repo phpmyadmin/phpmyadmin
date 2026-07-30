@@ -64,7 +64,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
         $mockResponse->expects($this->any())
             ->method('headersSent')
             ->with()
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         if (count($param) > 0) {
             if (is_array($param[0])) {
@@ -81,7 +81,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
 
                 $matcher = self::exactly(count($param));
                 $mockResponse->expects($matcher)->method('header')
-                    ->willReturnCallback(static function (...$parameters) use ($matcher, $param) {
+                    ->willReturnCallback(static function (...$parameters) use ($matcher, $param): void {
                         $numberOfInvocations = method_exists($matcher, 'numberOfInvocations')
                             ? $matcher->numberOfInvocations() : $matcher->getInvocationCount();
                         self::assertSame($param[$numberOfInvocations - 1], $parameters);

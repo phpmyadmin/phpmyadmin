@@ -75,10 +75,10 @@ class WebAuthnTest extends AbstractTestCase
         ];
         $server = $this->createMock(Server::class);
         $server->expects($this->once())->method('getCredentialRequestOptions')->with(
-            $this->equalTo('test_user'),
+            'test_user',
             $this->anything(),
-            $this->equalTo('test.localhost'),
-            $this->equalTo([['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']])
+            'test.localhost',
+            [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']]
         )->willReturn($expectedRequestOptions);
 
         $webAuthn = new WebAuthn($twoFactor);
@@ -126,11 +126,8 @@ class WebAuthnTest extends AbstractTestCase
             'attestation' => 'none',
         ];
         $server = $this->createMock(Server::class);
-        $server->expects($this->once())->method('getCredentialCreationOptions')->with(
-            $this->equalTo('test_user'),
-            $this->anything(),
-            $this->equalTo('test.localhost')
-        )->willReturn($expectedCreationOptions);
+        $server->expects($this->once())->method('getCredentialCreationOptions')
+            ->with('test_user', $this->anything(), 'test.localhost')->willReturn($expectedCreationOptions);
 
         $webAuthn = new WebAuthn($twoFactor);
         $webAuthn->setServer($server);
@@ -203,11 +200,8 @@ class WebAuthnTest extends AbstractTestCase
         // base64url of publicKeyCredentialId1
         $credential = ['publicKeyCredentialId' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ', 'userHandle' => 'userHandle'];
         $server = $this->createMock(Server::class);
-        $server->expects($this->once())->method('parseAndValidateAttestationResponse')->with(
-            $this->equalTo('{}'),
-            $this->equalTo('{}'),
-            $this->equalTo($request)
-        )->willReturn($credential);
+        $server->expects($this->once())->method('parseAndValidateAttestationResponse')
+            ->with('{}', '{}', $request)->willReturn($credential);
 
         $webAuthn = new WebAuthn($twoFactor);
         $webAuthn->setServer($server);
@@ -286,10 +280,10 @@ class WebAuthnTest extends AbstractTestCase
 
         $server = $this->createMock(Server::class);
         $server->expects($this->once())->method('parseAndValidateAssertionResponse')->with(
-            $this->equalTo('{}'),
-            $this->equalTo([['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']]),
-            $this->equalTo('challenge'),
-            $this->equalTo($request)
+            '{}',
+            [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']],
+            'challenge',
+            $request
         );
 
         $webAuthn = new WebAuthn($twoFactor);

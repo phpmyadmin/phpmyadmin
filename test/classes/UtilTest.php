@@ -2163,12 +2163,10 @@ class UtilTest extends AbstractTestCase
 
     public function testCurrentUserHasPrivilegeSkipGrantTables(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['', '']));
+            ->willReturn(['', '']);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2178,19 +2176,17 @@ class UtilTest extends AbstractTestCase
 
     public function testCurrentUserHasUserPrivilege(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
+            ->willReturn(['groot_%', '%']);
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with(
                 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
                 . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
             )
-            ->will($this->returnValue('EVENT'));
+            ->willReturn('EVENT');
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2200,19 +2196,17 @@ class UtilTest extends AbstractTestCase
 
     public function testCurrentUserHasNotUserPrivilege(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
+            ->willReturn(['groot_%', '%']);
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with(
                 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
                 . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
             )
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2229,7 +2223,7 @@ class UtilTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
+            ->willReturn(['groot_%', '%']);
 
         $dbi->expects(self::exactly(2))->method('fetchValue')->willReturnMap([
             [
@@ -2264,7 +2258,7 @@ class UtilTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
+            ->willReturn(['groot_%', '%']);
 
         $dbi->expects(self::exactly(2))->method('fetchValue')->willReturnMap([
             [
@@ -2299,7 +2293,7 @@ class UtilTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
+            ->willReturn(['groot_%', '%']);
 
         $dbi->expects(self::exactly(3))->method('fetchValue')->willReturnMap([
             [
@@ -2342,7 +2336,7 @@ class UtilTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
+            ->willReturn(['groot_%', '%']);
 
         $dbi->expects(self::exactly(3))->method('fetchValue')->willReturnMap([
             [
@@ -2559,17 +2553,15 @@ class UtilTest extends AbstractTestCase
     #[\PHPUnit\Framework\Attributes\DataProvider('provideForTestIsUUIDSupported')]
     public function testIsUUIDSupported(bool $isMariaDB, int $version, bool $expected): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())
             ->method('isMariaDB')
-            ->will($this->returnValue($isMariaDB));
+            ->willReturn($isMariaDB);
 
         $dbi->expects($this->any())
             ->method('getVersion')
-            ->will($this->returnValue($version));
+            ->willReturn($version);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2621,17 +2613,15 @@ class UtilTest extends AbstractTestCase
     #[\PHPUnit\Framework\Attributes\DataProvider('provideForTestIsUUIDv4Supported')]
     public function testIsUUIDv4Supported(bool $isMariaDB, int $version, bool $expected): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())
             ->method('isMariaDB')
-            ->will($this->returnValue($isMariaDB));
+            ->willReturn($isMariaDB);
 
         $dbi->expects($this->any())
             ->method('getVersion')
-            ->will($this->returnValue($version));
+            ->willReturn($version);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2683,17 +2673,15 @@ class UtilTest extends AbstractTestCase
     #[\PHPUnit\Framework\Attributes\DataProvider('provideForTestIsUUIDv7Supported')]
     public function testIsUUIDv7Supported(bool $isMariaDB, int $version, bool $expected): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->any())
             ->method('isMariaDB')
-            ->will($this->returnValue($isMariaDB));
+            ->willReturn($isMariaDB);
 
         $dbi->expects($this->any())
             ->method('getVersion')
-            ->will($this->returnValue($version));
+            ->willReturn($version);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;

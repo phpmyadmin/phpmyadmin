@@ -94,7 +94,7 @@ class CharsetsTest extends AbstractTestCase
         $this->dbi->setVersion(['@@version' => '10.10.0-MariaDB']);
         $collations = Charsets::getCollations($this->dbi, false);
         self::assertCount(4, $collations);
-        self::assertContainsOnly('array', $collations);
+        self::assertContainsOnlyArrayCompat($collations);
         foreach ($collations as $collation) {
             self::assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
         }

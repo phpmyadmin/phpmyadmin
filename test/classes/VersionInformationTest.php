@@ -542,7 +542,7 @@ class VersionInformationTest extends AbstractTestCase
 
         $mockVersionInfo->expects($this->any())
             ->method('getPHPVersion')
-            ->will($this->returnValue('5.2.4'));
+            ->willReturn('5.2.4');
 
         self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<=5.3'));
         self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<5.3'));

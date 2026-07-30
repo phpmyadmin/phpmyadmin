@@ -222,12 +222,10 @@ class TransformationsTest extends AbstractTestCase
     public function testClear(): void
     {
         // Mock dbi
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())
             ->method('tryQuery')
-            ->will($this->returnValue(true));
+            ->willReturn(true);
         $GLOBALS['dbi'] = $dbi;
 
         // Case 1 : no configuration storage

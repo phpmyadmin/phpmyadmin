@@ -18,9 +18,6 @@ use PHPUnit\Framework\MockObject\MockObject;
 #[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\RelationCleanup::class)]
 class RelationCleanupTest extends AbstractTestCase
 {
-    /** @var Relation|MockObject */
-    private $relation;
-
     /** @var RelationCleanup */
     private $relationCleanup;
 
@@ -35,7 +32,7 @@ class RelationCleanupTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['server'] = 1;
 
-        $this->relation = $this->getMockBuilder(Relation::class)
+        $relation = $this->getMockBuilder(Relation::class)
             ->disableOriginalConstructor()
             ->onlyMethods([])
             ->getMock();
@@ -43,7 +40,7 @@ class RelationCleanupTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->onlyMethods(['queryAsControlUser'])
             ->getMock();
-        $this->relationCleanup = new RelationCleanup($this->dbi, $this->relation);
+        $this->relationCleanup = new RelationCleanup($this->dbi, $relation);
     }
 
     /**

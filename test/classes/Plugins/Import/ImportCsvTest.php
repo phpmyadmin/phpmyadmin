@@ -58,9 +58,7 @@ class ImportCsvTest extends AbstractTestCase
         //$_SESSION
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
     }
 

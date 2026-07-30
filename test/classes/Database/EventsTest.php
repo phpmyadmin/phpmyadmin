@@ -314,12 +314,10 @@ class EventsTest extends AbstractTestCase
         unset($_POST);
         $_POST = $request;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->any())
             ->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         self::assertSame($query, $this->events->getQueryFromRequest());

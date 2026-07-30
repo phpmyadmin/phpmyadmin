@@ -43,7 +43,7 @@ class DbiMysqliTest extends AbstractTestCase
         $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects($this->once())
             ->method('select_db')
-            ->with($this->equalTo($databaseName))
+            ->with($databaseName)
             ->willReturn(true);
 
         self::assertTrue($this->object->selectDb($databaseName, $mysqli));
@@ -58,7 +58,7 @@ class DbiMysqliTest extends AbstractTestCase
         $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects($this->once())
             ->method('multi_query')
-            ->with($this->equalTo($query))
+            ->with($query)
             ->willReturn(true);
 
         self::assertTrue($this->object->realMultiQuery($mysqli, $query));
@@ -70,11 +70,11 @@ class DbiMysqliTest extends AbstractTestCase
     public function testrealQuery(): void
     {
         $query = 'test';
-        $mysqliResult = $this->createMock(mysqli_result::class);
+        $mysqliResult = $this->createStub(mysqli_result::class);
         $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects($this->once())
             ->method('query')
-            ->with($this->equalTo($query))
+            ->with($query)
             ->willReturn($mysqliResult);
 
         self::assertInstanceOf(MysqliResult::class, $this->object->realQuery($query, $mysqli, 0));
@@ -112,7 +112,7 @@ class DbiMysqliTest extends AbstractTestCase
     public function testStoreResult(): void
     {
         $mysqli = $this->createMock(mysqli::class);
-        $mysqliResult = $this->createMock(mysqli_result::class);
+        $mysqliResult = $this->createStub(mysqli_result::class);
         $mysqli->expects($this->once())
             ->method('store_result')
             ->willReturn($mysqliResult);
