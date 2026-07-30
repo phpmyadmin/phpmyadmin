@@ -150,7 +150,7 @@ class TypesTest extends AbstractTestCase
         self::assertSame($output, $this->object->getTypeOperators($type, $null));
     }
 
-    /** @return array<array-key, <array{string, bool, list<string>}> */
+    /** @return array<array-key, array{string, bool, list<string>}> */
     public static function providerForGetTypeOperators(): array
     {
         return [
