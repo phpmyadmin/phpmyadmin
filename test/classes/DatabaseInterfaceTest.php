@@ -12,6 +12,8 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Utils\SessionCache;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use stdClass;
 
 use function array_keys;
@@ -19,7 +21,7 @@ use function array_keys;
 /**
  * @covers \PhpMyAdmin\DatabaseInterface
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\DatabaseInterface::class)]
+#[CoversClass(DatabaseInterface::class)]
 class DatabaseInterfaceTest extends AbstractTestCase
 {
     /**
@@ -54,7 +56,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @dataProvider currentUserData
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('currentUserData')]
+    #[DataProvider('currentUserData')]
     public function testGetCurrentUser($value, string $string, array $expected, bool $needsSecondCall): void
     {
         SessionCache::remove('mysql_cur_user');
@@ -118,7 +120,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @dataProvider currentRolesData
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('currentRolesData')]
+    #[DataProvider('currentRolesData')]
     public function testGetCurrentRoles(
         string $version,
         bool $isRoleSupported,
@@ -310,7 +312,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @dataProvider provideDatabaseVersionData
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('provideDatabaseVersionData')]
+    #[DataProvider('provideDatabaseVersionData')]
     public function testPostConnectShouldSetVersion(
         array $version,
         int $versionInt,
@@ -377,7 +379,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @dataProvider errorData
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('errorData')]
+    #[DataProvider('errorData')]
     public function testFormatError(int $error_number, string $error_message, string $match): void
     {
         self::assertStringContainsString($match, Utilities::formatError($error_number, $error_message));
@@ -427,7 +429,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @dataProvider isAmazonRdsData
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('isAmazonRdsData')]
+    #[DataProvider('isAmazonRdsData')]
     public function testIsAmazonRdsData(array $value, bool $expected): void
     {
         SessionCache::remove('is_amazon_rds');
@@ -476,7 +478,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @dataProvider versionData
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('versionData')]
+    #[DataProvider('versionData')]
     public function testVersion(string $version, int $expected, int $major, bool $upgrade): void
     {
         $ver_int = Utilities::versionToInt($version);
@@ -887,7 +889,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      *
      * @dataProvider provideDatabaseVersionData
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('provideDatabaseVersionData')]
+    #[DataProvider('provideDatabaseVersionData')]
     public function testSetVersion(
         array $version,
         int $versionInt,

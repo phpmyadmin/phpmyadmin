@@ -11,6 +11,8 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function htmlspecialchars;
 
@@ -24,8 +26,8 @@ use const MYSQLI_TYPE_STRING;
 /**
  * @covers \PhpMyAdmin\Controllers\Export\ExportController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Export\ExportController::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(ExportController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class ExportControllerTest extends AbstractTestCase
 {
     public function testExportController(): void

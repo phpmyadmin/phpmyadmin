@@ -8,6 +8,9 @@ use CodeLts\U2F\U2FServer\RegistrationRequest;
 use CodeLts\U2F\U2FServer\SignRequest;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\TwoFactor;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function count;
 use function in_array;
@@ -19,7 +22,7 @@ use const JSON_UNESCAPED_SLASHES;
 /**
  * @covers \PhpMyAdmin\TwoFactor
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\TwoFactor::class)]
+#[CoversClass(TwoFactor::class)]
 class TwoFactorTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -250,9 +253,9 @@ class TwoFactorTest extends AbstractTestCase
      * @requires extension xmlwriter
      * @requires extension iconv
      */
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('iconv')]
-    #[\PHPUnit\Framework\Attributes\Group('extension-iconv')]
+    #[RequiresPhpExtension('xmlwriter')]
+    #[RequiresPhpExtension('iconv')]
+    #[Group('extension-iconv')]
     public function testApplication(): void
     {
         parent::setLanguage();

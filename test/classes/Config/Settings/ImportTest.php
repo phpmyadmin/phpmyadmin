@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\Import;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function array_keys;
@@ -13,7 +15,7 @@ use function array_merge;
 /**
  * @covers \PhpMyAdmin\Config\Settings\Import
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Settings\Import::class)]
+#[CoversClass(Import::class)]
 class ImportTest extends TestCase
 {
     /** @var array<string, bool|int|string> */
@@ -53,7 +55,7 @@ class ImportTest extends TestCase
      *
      * @dataProvider providerForTestConstructor
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestConstructor')]
+    #[DataProvider('providerForTestConstructor')]
     public function testConstructor(array $values): void
     {
         $actualValues = [];

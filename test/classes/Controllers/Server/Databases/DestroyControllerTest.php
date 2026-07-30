@@ -12,13 +12,14 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Databases\DestroyController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Databases\DestroyController::class)]
+#[CoversClass(DestroyController::class)]
 class DestroyControllerTest extends AbstractTestCase
 {
     public function testDropDatabases(): void

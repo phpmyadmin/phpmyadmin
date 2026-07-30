@@ -5,13 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Pdf;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Large;
 
 /**
  * @covers \PhpMyAdmin\Pdf
  * @large
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Pdf::class)]
-#[\PHPUnit\Framework\Attributes\Large]
+#[CoversClass(Pdf::class)]
+#[Large]
 class PdfTest extends AbstractTestCase
 {
     /**

@@ -8,13 +8,16 @@ use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 
 /**
  * @covers \PhpMyAdmin\Database\Triggers
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Triggers::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(Triggers::class)]
+#[Medium]
 class TriggersTest extends AbstractTestCase
 {
     /** @var Triggers */
@@ -50,7 +53,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetDataFromRequestEmpty
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetDataFromRequestEmpty')]
+    #[DataProvider('providerGetDataFromRequestEmpty')]
     public function testGetDataFromRequestEmpty(array $in, array $out): void
     {
         unset($_POST);
@@ -123,7 +126,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormAdd
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEditorFormAdd')]
+    #[DataProvider('providerGetEditorFormAdd')]
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -166,7 +169,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormEdit
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEditorFormEdit')]
+    #[DataProvider('providerGetEditorFormEdit')]
     public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -209,7 +212,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormAjax
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEditorFormAjax')]
+    #[DataProvider('providerGetEditorFormAjax')]
     public function testGetEditorFormAjax(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -255,7 +258,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetQueryFromRequest
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetQueryFromRequest')]
+    #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(
         string $definer,
         string $name,

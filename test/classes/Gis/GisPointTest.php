@@ -6,12 +6,15 @@ namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Image\ImageWrapper;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use TCPDF;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisPoint
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Gis\GisPoint::class)]
+#[CoversClass(GisPoint::class)]
 class GisPointTest extends GisGeomTestCase
 {
     /** @var    GisPoint */
@@ -100,7 +103,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @dataProvider providerForTestGetShape
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGetShape')]
+    #[DataProvider('providerForTestGetShape')]
     public function testGetShape(array $row_data, string $shape): void
     {
         self::assertSame($this->object->getShape($row_data), $shape);
@@ -184,7 +187,7 @@ class GisPointTest extends GisGeomTestCase
     /**
      * @requires extension gd
      */
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('gd')]
+    #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
@@ -211,7 +214,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsPdf')]
+    #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -257,7 +260,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsSvg')]
+    #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -308,7 +311,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsOl
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsOl')]
+    #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,

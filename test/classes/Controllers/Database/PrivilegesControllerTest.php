@@ -10,6 +10,8 @@ use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 use function _pgettext;
@@ -17,8 +19,8 @@ use function _pgettext;
 /**
  * @covers \PhpMyAdmin\Controllers\Database\PrivilegesController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Database\PrivilegesController::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(PrivilegesController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class PrivilegesControllerTest extends AbstractTestCase
 {
     /**

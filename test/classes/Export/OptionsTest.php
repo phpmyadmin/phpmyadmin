@@ -13,12 +13,14 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Export\Options
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Export\Options::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(Options::class)]
+#[AllowMockObjectsWithoutExpectations]
 class OptionsTest extends AbstractTestCase
 {
     /** @var Options */

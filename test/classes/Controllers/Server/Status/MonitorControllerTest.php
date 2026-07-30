@@ -9,13 +9,14 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\MonitorController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\MonitorController::class)]
+#[CoversClass(MonitorController::class)]
 class MonitorControllerTest extends AbstractTestCase
 {
     /** @var Data */

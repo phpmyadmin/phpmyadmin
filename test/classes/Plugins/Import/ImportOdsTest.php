@@ -7,6 +7,10 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
 use function str_repeat;
@@ -16,9 +20,9 @@ use function str_repeat;
  * @requires extension zip
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportOds::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[RequiresPhpExtension('zip')]
+#[CoversClass(ImportOds::class)]
+#[Medium]
 class ImportOdsTest extends AbstractTestCase
 {
     /** @var ImportOds */
@@ -133,8 +137,8 @@ class ImportOdsTest extends AbstractTestCase
      * @dataProvider dataProviderOdsEmptyRows
      * @requires extension simplexml
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderOdsEmptyRows')]
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
+    #[DataProvider('dataProviderOdsEmptyRows')]
+    #[RequiresPhpExtension('simplexml')]
     public function testDoImportDataset2(bool $odsEmptyRowsMode): void
     {
         //$sql_query_disabled will show the import SQL detail

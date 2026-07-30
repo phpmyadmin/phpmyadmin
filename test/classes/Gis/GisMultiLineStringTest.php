@@ -6,12 +6,15 @@ namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiLineString;
 use PhpMyAdmin\Image\ImageWrapper;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use TCPDF;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisMultiLineString
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Gis\GisMultiLineString::class)]
+#[CoversClass(GisMultiLineString::class)]
 class GisMultiLineStringTest extends GisGeomTestCase
 {
     /** @var    GisMultiLineString */
@@ -247,7 +250,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * @requires extension gd
      */
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('gd')]
+    #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
@@ -274,7 +277,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsPdf')]
+    #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -320,7 +323,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsSvg')]
+    #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -371,7 +374,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsOl
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsOl')]
+    #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,

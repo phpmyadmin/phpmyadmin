@@ -8,6 +8,11 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
 use function extension_loaded;
@@ -17,10 +22,10 @@ use function extension_loaded;
  * @requires extension zip
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportShp::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[RequiresPhpExtension('zip')]
+#[CoversClass(ImportShp::class)]
+#[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class ImportShpTest extends AbstractTestCase
 {
     /** @var ImportShp */
@@ -101,7 +106,7 @@ class ImportShpTest extends AbstractTestCase
      *
      * @group 32bit-incompatible
      */
-    #[\PHPUnit\Framework\Attributes\Group('32bit-incompatible')]
+    #[Group('32bit-incompatible')]
     public function testImportOsm(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -133,7 +138,7 @@ class ImportShpTest extends AbstractTestCase
      *
      * @group 32bit-incompatible
      */
-    #[\PHPUnit\Framework\Attributes\Group('32bit-incompatible')]
+    #[Group('32bit-incompatible')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail

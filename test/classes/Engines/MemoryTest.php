@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Memory;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Engines\Memory
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\Memory::class)]
+#[CoversClass(Memory::class)]
 class MemoryTest extends AbstractTestCase
 {
     /** @var Memory */

@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ListDatabase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\ListDatabase<extended>
  */
-#[\PHPUnit\Framework\Attributes\CoversClass('\PhpMyAdmin\ListDatabase<extended>::class')]
+#[CoversClass('\PhpMyAdmin\ListDatabase<extended>::class')]
 class ListDatabaseTest extends AbstractTestCase
 {
     /**

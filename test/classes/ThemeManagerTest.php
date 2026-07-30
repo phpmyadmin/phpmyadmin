@@ -6,12 +6,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ThemeManager;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\ThemeManager
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ThemeManager::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(ThemeManager::class)]
+#[AllowMockObjectsWithoutExpectations]
 class ThemeManagerTest extends AbstractTestCase
 {
     /**

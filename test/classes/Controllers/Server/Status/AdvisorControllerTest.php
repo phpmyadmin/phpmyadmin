@@ -10,13 +10,15 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\AdvisorController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\AdvisorController::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(AdvisorController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class AdvisorControllerTest extends AbstractTestCase
 {
     /** @var ResponseRenderer */

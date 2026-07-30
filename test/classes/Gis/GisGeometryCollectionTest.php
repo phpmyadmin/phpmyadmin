@@ -7,12 +7,15 @@ namespace PhpMyAdmin\Tests\Gis;
 use PhpMyAdmin\Gis\GisGeometryCollection;
 use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use TCPDF;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisGeometryCollection
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Gis\GisGeometryCollection::class)]
+#[CoversClass(GisGeometryCollection::class)]
 class GisGeometryCollectionTest extends AbstractTestCase
 {
     /** @var GisGeometryCollection */
@@ -46,7 +49,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForScaleRow
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForScaleRow')]
+    #[DataProvider('providerForScaleRow')]
     public function testScaleRow(string $spatial, array $output): void
     {
         self::assertEquals($output, $this->object->scaleRow($spatial));
@@ -82,7 +85,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForGenerateWkt
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForGenerateWkt')]
+    #[DataProvider('providerForGenerateWkt')]
     public function testGenerateWkt(array $gis_data, int $index, ?string $empty, string $output): void
     {
         self::assertSame($output, $this->object->generateWkt($gis_data, $index, $empty));
@@ -196,7 +199,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForGenerateParams
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForGenerateParams')]
+    #[DataProvider('providerForGenerateParams')]
     public function testGenerateParams(string $value, array $output): void
     {
         self::assertSame($output, $this->object->generateParams($value));
@@ -237,7 +240,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
     /**
      * @requires extension gd
      */
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('gd')]
+    #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
@@ -264,7 +267,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsPdf')]
+    #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -310,7 +313,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsSvg')]
+    #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -365,7 +368,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForPrepareRowAsOl
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsOl')]
+    #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,

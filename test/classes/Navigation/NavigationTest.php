@@ -11,11 +11,12 @@ use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Navigation\Navigation
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Navigation::class)]
+#[CoversClass(Navigation::class)]
 class NavigationTest extends AbstractTestCase
 {
     /** @var Navigation */

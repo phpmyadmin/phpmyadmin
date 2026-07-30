@@ -6,13 +6,15 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\ExportRelationSchema
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\ExportRelationSchema::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(ExportRelationSchema::class)]
+#[Medium]
 class ExportRelationSchemaTest extends AbstractTestCase
 {
     /** @var ExportRelationSchema */

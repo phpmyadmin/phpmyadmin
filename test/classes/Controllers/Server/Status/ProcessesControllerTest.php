@@ -10,11 +10,12 @@ use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\ProcessesController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\ProcessesController::class)]
+#[CoversClass(ProcessesController::class)]
 class ProcessesControllerTest extends AbstractTestCase
 {
     /** @var Data */

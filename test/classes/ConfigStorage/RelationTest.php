@@ -10,6 +10,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionClass;
 
 use function implode;
@@ -20,9 +24,9 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\ConfigStorage\Relation
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\Medium]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\Relation::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[Medium]
+#[CoversClass(Relation::class)]
+#[AllowMockObjectsWithoutExpectations]
 class RelationTest extends AbstractTestCase
 {
     /** @var Relation */
@@ -2157,7 +2161,7 @@ class RelationTest extends AbstractTestCase
      *
      * @dataProvider providerForTestRenameTable
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestRenameTable')]
+    #[DataProvider('providerForTestRenameTable')]
     public function testRenameTable(array $params, array $queries): void
     {
         $GLOBALS['server'] = 1;

@@ -8,6 +8,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
 use function basename;
@@ -16,9 +19,9 @@ use function basename;
  * @covers \PhpMyAdmin\Plugins\Import\ImportCsv
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportCsv::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(ImportCsv::class)]
+#[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class ImportCsvTest extends AbstractTestCase
 {
     /** @var ImportCsv */

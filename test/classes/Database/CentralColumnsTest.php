@@ -9,14 +9,16 @@ use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function array_slice;
 
 /**
  * @covers \PhpMyAdmin\Database\CentralColumns
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\CentralColumns::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(CentralColumns::class)]
+#[AllowMockObjectsWithoutExpectations]
 class CentralColumnsTest extends AbstractTestCase
 {
     /** @var CentralColumns */

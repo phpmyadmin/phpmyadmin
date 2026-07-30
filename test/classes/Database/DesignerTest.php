@@ -11,6 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
 use const PHP_VERSION_ID;
@@ -18,7 +19,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Database\Designer
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Designer::class)]
+#[CoversClass(Designer::class)]
 class DesignerTest extends AbstractTestCase
 {
     /** @var Designer */

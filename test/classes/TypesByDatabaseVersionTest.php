@@ -6,12 +6,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\Stub;
 
 /**
  * @covers \PhpMyAdmin\Types
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Types::class)]
+#[CoversClass(Types::class)]
 class TypesByDatabaseVersionTest extends AbstractTestCase
 {
     /** @var DatabaseInterface&Stub */
@@ -54,7 +56,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestGetFunctionsClass')]
+    #[DataProvider('providerFortTestGetFunctionsClass')]
     public function testGetFunctionsClass(
         string $database,
         int $dbVersion,
@@ -280,7 +282,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetFunctions
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestGetFunctions')]
+    #[DataProvider('providerFortTestGetFunctions')]
     public function testGetFunctions(string $database, int $dbVersion, array $includes, array $excludes): void
     {
         $this->createObject($database, $dbVersion);
@@ -357,7 +359,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetAllFunctions
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestGetAllFunctions')]
+    #[DataProvider('providerFortTestGetAllFunctions')]
     public function testGetAllFunctions(string $database, int $dbVersion, array $includes, array $excludes): void
     {
         $this->createObject($database, $dbVersion);
@@ -644,7 +646,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetColumns
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestGetColumns')]
+    #[DataProvider('providerFortTestGetColumns')]
     public function testGetColumns(string $database, int $dbVersion, array $expected): void
     {
         $this->createObject($database, $dbVersion);

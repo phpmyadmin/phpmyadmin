@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests\Charsets;
 
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Charsets\Charset
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Charsets\Charset::class)]
+#[CoversClass(Charset::class)]
 class CharsetTest extends AbstractTestCase
 {
     public function testFromServer(): void

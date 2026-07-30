@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use stdClass;
 
 use function array_keys;
@@ -16,8 +18,8 @@ use function count;
  * @covers \PhpMyAdmin\Config\ConfigFile
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\ConfigFile::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(ConfigFile::class)]
+#[Medium]
 class ConfigFileTest extends AbstractTestCase
 {
     /**

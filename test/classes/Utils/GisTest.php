@@ -8,13 +8,15 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Utils\Gis;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function hex2bin;
 
 /**
  * @covers \PhpMyAdmin\Utils\Gis
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Utils\Gis::class)]
+#[CoversClass(Gis::class)]
 class GisTest extends AbstractTestCase
 {
     /**
@@ -25,7 +27,7 @@ class GisTest extends AbstractTestCase
      *
      * @dataProvider providerConvertToWellKnownText
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerConvertToWellKnownText')]
+    #[DataProvider('providerConvertToWellKnownText')]
     public function testConvertToWellKnownText(
         string $expectedQuery,
         array $returnData,

@@ -14,13 +14,15 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 /**
  * @covers \PhpMyAdmin\ConfigStorage\UserGroups
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ConfigStorage\UserGroups::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(UserGroups::class)]
+#[Medium]
 class UserGroupsTest extends AbstractTestCase
 {
     /** @var ConfigurableMenusFeature */

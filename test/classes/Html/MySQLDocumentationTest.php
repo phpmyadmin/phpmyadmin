@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests\Html;
 
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Html\MySQLDocumentation
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Html\MySQLDocumentation::class)]
+#[CoversClass(MySQLDocumentation::class)]
 class MySQLDocumentationTest extends AbstractTestCase
 {
     public function testShowDocumentation(): void

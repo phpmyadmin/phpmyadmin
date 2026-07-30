@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\FlashMessages;
+use PHPUnit\Framework\Attributes\CoversClass;
 use RuntimeException;
 
 /**
  * @covers \PhpMyAdmin\FlashMessages
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\FlashMessages::class)]
+#[CoversClass(FlashMessages::class)]
 class FlashMessagesTest extends AbstractTestCase
 {
     private const STORAGE_KEY = 'flashMessages';

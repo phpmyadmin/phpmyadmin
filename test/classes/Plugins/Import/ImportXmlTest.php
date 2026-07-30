@@ -8,6 +8,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportXml;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
 
@@ -17,11 +21,11 @@ use function __;
  * @requires extension xmlwriter
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xml')]
-#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportXml::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[RequiresPhpExtension('xml')]
+#[RequiresPhpExtension('xmlwriter')]
+#[CoversClass(ImportXml::class)]
+#[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class ImportXmlTest extends AbstractTestCase
 {
     /** @var ImportXml */
@@ -79,7 +83,7 @@ class ImportXmlTest extends AbstractTestCase
      *
      * @requires extension simplexml
      */
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
+    #[RequiresPhpExtension('simplexml')]
     public function testDoImport(): void
     {
         //$import_notice will show the import detail result
@@ -125,7 +129,7 @@ SQL;
      *
      * @requires extension simplexml
      */
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
+    #[RequiresPhpExtension('simplexml')]
     public function testDoImportDatasetGIS(): void
     {
         global $import_notice, $sql_query;
@@ -184,7 +188,7 @@ SQL;
      *
      * @requires extension simplexml
      */
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
+    #[RequiresPhpExtension('simplexml')]
     public function testDoImportNumericStringValues(): void
     {
         global $sql_query;
@@ -226,7 +230,7 @@ SQL;
      *
      * @requires extension simplexml
      */
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('simplexml')]
+    #[RequiresPhpExtension('simplexml')]
     public function testDoImportDatasetNoDatabase(): void
     {
         global $import_notice, $sql_query;

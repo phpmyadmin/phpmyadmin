@@ -11,6 +11,8 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -24,8 +26,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Plugins\Export\ExportCodegen
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\Medium]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportCodegen::class)]
+#[Medium]
+#[CoversClass(ExportCodegen::class)]
 class ExportCodegenTest extends AbstractTestCase
 {
     /** @var ExportCodegen */

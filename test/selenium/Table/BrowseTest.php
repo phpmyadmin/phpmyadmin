@@ -6,13 +6,15 @@ namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use Facebook\WebDriver\WebDriverKeys;
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
 
 /**
  * @coversNothing
  * @large
  */
-#[\PHPUnit\Framework\Attributes\CoversNothing]
-#[\PHPUnit\Framework\Attributes\Large]
+#[CoversNothing]
+#[Large]
 class BrowseTest extends TestBase
 {
     /**

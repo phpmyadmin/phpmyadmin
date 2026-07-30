@@ -8,6 +8,8 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportMediawiki;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
 
@@ -15,8 +17,8 @@ use function __;
  * @covers \PhpMyAdmin\Plugins\Import\ImportMediawiki
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportMediawiki::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(ImportMediawiki::class)]
+#[Medium]
 class ImportMediawikiTest extends AbstractTestCase
 {
     /** @var ImportMediawiki */

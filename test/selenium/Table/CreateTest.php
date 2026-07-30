@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
 
 use function sleep;
 
@@ -12,8 +14,8 @@ use function sleep;
  * @coversNothing
  * @large
  */
-#[\PHPUnit\Framework\Attributes\CoversNothing]
-#[\PHPUnit\Framework\Attributes\Large]
+#[CoversNothing]
+#[Large]
 class CreateTest extends TestBase
 {
     protected function setUp(): void

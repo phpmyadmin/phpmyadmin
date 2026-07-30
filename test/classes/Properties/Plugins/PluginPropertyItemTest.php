@@ -6,12 +6,14 @@ namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Properties\Plugins\PluginPropertyItem
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Properties\Plugins\PluginPropertyItem::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(PluginPropertyItem::class)]
+#[AllowMockObjectsWithoutExpectations]
 class PluginPropertyItemTest extends AbstractTestCase
 {
     /** @var PluginPropertyItem */

@@ -10,6 +10,8 @@ use PhpMyAdmin\ErrorReport;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function htmlspecialchars;
 use function json_encode;
@@ -22,7 +24,7 @@ use const JSON_UNESCAPED_SLASHES;
 /**
  * @covers \PhpMyAdmin\ErrorReport
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ErrorReport::class)]
+#[CoversClass(ErrorReport::class)]
 class ErrorReportTest extends AbstractTestCase
 {
     /** @var ErrorReport $errorReport */
@@ -347,7 +349,7 @@ class ErrorReportTest extends AbstractTestCase
      *
      * @dataProvider urlsToSanitize
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('urlsToSanitize')]
+    #[DataProvider('urlsToSanitize')]
     public function testSanitizeUrl(string $url, array $result): void
     {
         // $this->errorReport->sanitizeUrl

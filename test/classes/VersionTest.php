@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function defined;
 
 /**
  * @covers \PhpMyAdmin\Version
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Version::class)]
+#[CoversClass(Version::class)]
 class VersionTest extends AbstractTestCase
 {
     /**

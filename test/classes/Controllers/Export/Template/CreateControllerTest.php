@@ -13,11 +13,12 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Export\Template\CreateController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Export\Template\CreateController::class)]
+#[CoversClass(CreateController::class)]
 class CreateControllerTest extends AbstractTestCase
 {
     public function testCreate(): void

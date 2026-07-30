@@ -13,6 +13,10 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 use stdClass;
 
@@ -36,9 +40,9 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\InsertEdit
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\Medium]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\InsertEdit::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[Medium]
+#[CoversClass(InsertEdit::class)]
+#[AllowMockObjectsWithoutExpectations]
 class InsertEditTest extends AbstractTestCase
 {
     /** @var InsertEdit */
@@ -382,7 +386,7 @@ class InsertEditTest extends AbstractTestCase
      *
      * @dataProvider dataProviderConfigValueInsertRows
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderConfigValueInsertRows')]
+    #[DataProvider('dataProviderConfigValueInsertRows')]
     public function testLoadFirstRow($configValue, array $rowsValue): void
     {
         $GLOBALS['cfg']['InsertRows'] = $configValue;
@@ -1524,7 +1528,7 @@ class InsertEditTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetSpecialCharsAndBackupFieldForInsertingMode
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGetSpecialCharsAndBackupFieldForInsertingMode')]
+    #[DataProvider('providerForTestGetSpecialCharsAndBackupFieldForInsertingMode')]
     public function testGetSpecialCharsAndBackupFieldForInsertingMode(
         array $column,
         array $expected

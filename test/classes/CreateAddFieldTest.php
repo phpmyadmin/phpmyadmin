@@ -5,13 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\CreateAddField;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function json_encode;
 
 /**
  * @covers \PhpMyAdmin\CreateAddField
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\CreateAddField::class)]
+#[CoversClass(CreateAddField::class)]
 class CreateAddFieldTest extends AbstractTestCase
 {
     /** @var CreateAddField */
@@ -34,7 +36,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @dataProvider providerGetPartitionsDefinition
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetPartitionsDefinition')]
+    #[DataProvider('providerGetPartitionsDefinition')]
     public function testGetPartitionsDefinition(string $expected, array $request): void
     {
         $_POST = $request;
@@ -236,7 +238,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @dataProvider providerGetTableCreationQuery
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetTableCreationQuery')]
+    #[DataProvider('providerGetTableCreationQuery')]
     public function testGetTableCreationQuery(string $expected, string $db, string $table, array $request): void
     {
         $_POST = $request;
@@ -310,7 +312,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @dataProvider providerGetNumberOfFieldsFromRequest
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetNumberOfFieldsFromRequest')]
+    #[DataProvider('providerGetNumberOfFieldsFromRequest')]
     public function testGetNumberOfFieldsFromRequest(int $expected, array $request): void
     {
         $_POST = $request;
@@ -525,7 +527,7 @@ class CreateAddFieldTest extends AbstractTestCase
     /**
      * @dataProvider providerGetColumnCreationQueryRequest
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetColumnCreationQueryRequest')]
+    #[DataProvider('providerGetColumnCreationQueryRequest')]
     public function testGetColumnCreationQuery(string $expected, array $request): void
     {
         $_POST = $request;

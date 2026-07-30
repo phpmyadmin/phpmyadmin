@@ -7,13 +7,14 @@ namespace PhpMyAdmin\Tests\Server;
 use PhpMyAdmin\Server\Plugin;
 use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 
 /**
  * @covers \PhpMyAdmin\Server\Plugins
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Server\Plugins::class)]
+#[CoversClass(Plugins::class)]
 class PluginsTest extends AbstractTestCase
 {
     /** @var Plugins */

@@ -8,12 +8,14 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\SystemDatabase
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\SystemDatabase::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(SystemDatabase::class)]
+#[AllowMockObjectsWithoutExpectations]
 class SystemDatabaseTest extends AbstractTestCase
 {
     /**

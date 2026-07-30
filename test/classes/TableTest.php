@@ -11,13 +11,16 @@ use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use stdClass;
 
 /**
  * @covers \PhpMyAdmin\Table
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Table::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(Table::class)]
+#[AllowMockObjectsWithoutExpectations]
 class TableTest extends AbstractTestCase
 {
     /**
@@ -338,7 +341,7 @@ class TableTest extends AbstractTestCase
      *
      * @dataProvider dataValidateName
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataValidateName')]
+    #[DataProvider('dataValidateName')]
     public function testValidateName(string $name, bool $result, bool $is_backquoted = false): void
     {
         self::assertSame($result, Table::isValidName($name, $is_backquoted));

@@ -6,13 +6,15 @@ namespace PhpMyAdmin\Tests\Properties;
 
 use PhpMyAdmin\Properties\PropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @covers \PhpMyAdmin\Properties\PropertyItem
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Properties\PropertyItem::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(PropertyItem::class)]
+#[AllowMockObjectsWithoutExpectations]
 class PropertyItemTest extends AbstractTestCase
 {
     /** @var PropertyItem|MockObject */

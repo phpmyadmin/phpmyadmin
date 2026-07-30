@@ -6,11 +6,13 @@ namespace PhpMyAdmin\Tests\Plugins\TwoFactor;
 
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactor\WebAuthn;
+use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\WebAuthn\Server;
 use PhpMyAdmin\WebAuthn\WebAuthnException;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Psr\Http\Message\UriInterface;
 
 use function array_column;
@@ -21,9 +23,9 @@ use function json_decode;
  * @covers \PhpMyAdmin\Plugins\TwoFactorPlugin
  * @covers \PhpMyAdmin\WebAuthn\WebAuthnException
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\TwoFactor\WebAuthn::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\TwoFactorPlugin::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\WebAuthn\WebAuthnException::class)]
+#[CoversClass(WebAuthn::class)]
+#[CoversClass(TwoFactorPlugin::class)]
+#[CoversClass(WebAuthnException::class)]
 class WebAuthnTest extends AbstractTestCase
 {
     public function testIdNameAndDescription(): void

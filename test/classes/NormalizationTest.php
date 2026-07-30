@@ -12,6 +12,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
 use function __;
@@ -21,8 +23,8 @@ use function json_encode;
 /**
  * @covers \PhpMyAdmin\Normalization
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Normalization::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(Normalization::class)]
+#[AllowMockObjectsWithoutExpectations]
 class NormalizationTest extends AbstractTestCase
 {
     /** @var Normalization */

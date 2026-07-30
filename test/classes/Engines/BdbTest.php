@@ -6,13 +6,14 @@ namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Bdb;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 
 /**
  * @covers \PhpMyAdmin\Engines\Bdb
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\Bdb::class)]
+#[CoversClass(Bdb::class)]
 class BdbTest extends AbstractTestCase
 {
     /** @var Bdb */

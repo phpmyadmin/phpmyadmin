@@ -10,6 +10,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function json_encode;
 use function time;
@@ -17,7 +18,7 @@ use function time;
 /**
  * @covers \PhpMyAdmin\UserPreferences
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\UserPreferences::class)]
+#[CoversClass(UserPreferences::class)]
 class UserPreferencesTest extends AbstractNetworkTestCase
 {
     /** @var UserPreferences */

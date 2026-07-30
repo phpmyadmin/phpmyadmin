@@ -7,11 +7,13 @@ namespace PhpMyAdmin\Tests\Dbal;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @coversNothing
  */
-#[\PHPUnit\Framework\Attributes\CoversNothing]
+#[CoversNothing]
 class DbiDummyTest extends AbstractTestCase
 {
     /**
@@ -62,7 +64,7 @@ class DbiDummyTest extends AbstractTestCase
      *
      * @dataProvider schemaData
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('schemaData')]
+    #[DataProvider('schemaData')]
     public function testSystemSchema(string $schema, bool $expected): void
     {
         self::assertSame($expected, Utilities::isSystemSchema($schema));
@@ -94,7 +96,7 @@ class DbiDummyTest extends AbstractTestCase
      *
      * @dataProvider errorData
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('errorData')]
+    #[DataProvider('errorData')]
     public function testFormatError(int $number, string $message, string $expected): void
     {
         $GLOBALS['server'] = 1;

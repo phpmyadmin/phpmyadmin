@@ -11,13 +11,15 @@ use PhpMyAdmin\Server\Plugins;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPassword;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function str_repeat;
 
 /**
  * @covers \PhpMyAdmin\UserPassword
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\UserPassword::class)]
+#[CoversClass(UserPassword::class)]
 class UserPasswordTest extends AbstractTestCase
 {
     /** @var UserPassword */
@@ -41,7 +43,7 @@ class UserPasswordTest extends AbstractTestCase
     /**
      * @dataProvider providerSetChangePasswordMsg
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerSetChangePasswordMsg')]
+    #[DataProvider('providerSetChangePasswordMsg')]
     public function testSetChangePasswordMsg(
         bool $error,
         Message $message,

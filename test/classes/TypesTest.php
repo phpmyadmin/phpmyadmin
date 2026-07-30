@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Types
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Types::class)]
+#[CoversClass(Types::class)]
 class TypesTest extends AbstractTestCase
 {
     /** @var Types */
@@ -142,7 +144,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerForGetTypeOperators
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForGetTypeOperators')]
+    #[DataProvider('providerForGetTypeOperators')]
     public function testGetTypeOperators(string $type, bool $null, array $output): void
     {
         self::assertSame($output, $this->object->getTypeOperators($type, $null));
@@ -246,7 +248,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetTypeOperatorsHtml
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGetTypeOperatorsHtml')]
+    #[DataProvider('providerForTestGetTypeOperatorsHtml')]
     public function testGetTypeOperatorsHtml(
         string $type,
         bool $null,
@@ -280,7 +282,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetTypeDescription
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGetTypeDescription')]
+    #[DataProvider('providerForTestGetTypeDescription')]
     public function testGetTypeDescription(string $type): void
     {
         self::assertNotEquals('', $this->object->getTypeDescription($type));
@@ -354,7 +356,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestGetFunctionsClass')]
+    #[DataProvider('providerFortTestGetFunctionsClass')]
     public function testGetFunctionsClass(string $class, array $output): void
     {
         self::assertSame($output, $this->object->getFunctionsClass($class));
@@ -795,7 +797,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetTypeClass
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestGetTypeClass')]
+    #[DataProvider('providerFortTestGetTypeClass')]
     public function testGetTypeClass(string $type, string $output): void
     {
         self::assertSame($output, $this->object->getTypeClass($type));

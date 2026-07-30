@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function array_keys;
 use function in_array;
@@ -14,7 +16,7 @@ use function in_array;
 /**
  * @covers \PhpMyAdmin\Config\Descriptions
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\Descriptions::class)]
+#[CoversClass(Descriptions::class)]
 class DescriptionTest extends AbstractTestCase
 {
     /**
@@ -33,7 +35,7 @@ class DescriptionTest extends AbstractTestCase
      *
      * @dataProvider getValues
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('getValues')]
+    #[DataProvider('getValues')]
     public function testGet(string $item, string $type, string $expected): void
     {
         self::assertSame($expected, Descriptions::get($item, $type));

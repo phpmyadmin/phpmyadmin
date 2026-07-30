@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests\WebAuthn;
 use PhpMyAdmin\WebAuthn\CBORDecoder;
 use PhpMyAdmin\WebAuthn\DataStream;
 use PhpMyAdmin\WebAuthn\WebAuthnException;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function base64_decode;
@@ -18,8 +20,8 @@ use const INF;
  * @covers \PhpMyAdmin\WebAuthn\CBORDecoder
  * @covers \PhpMyAdmin\WebAuthn\DataStream
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\WebAuthn\CBORDecoder::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\WebAuthn\DataStream::class)]
+#[CoversClass(CBORDecoder::class)]
+#[CoversClass(DataStream::class)]
 class CBORDecoderTest extends TestCase
 {
     /**
@@ -27,7 +29,7 @@ class CBORDecoderTest extends TestCase
      *
      * @dataProvider dataProviderForTestDecode
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderForTestDecode')]
+    #[DataProvider('dataProviderForTestDecode')]
     public function testDecode(string $encoded, $expected): void
     {
         $decoder = new CBORDecoder();
@@ -169,7 +171,7 @@ class CBORDecoderTest extends TestCase
     /**
      * @dataProvider indefiniteLengthValuesProvider
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('indefiniteLengthValuesProvider')]
+    #[DataProvider('indefiniteLengthValuesProvider')]
     public function testDecodeForNotSupportedValues(string $encoded): void
     {
         $decoder = new CBORDecoder();

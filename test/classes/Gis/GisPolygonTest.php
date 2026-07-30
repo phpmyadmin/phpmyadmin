@@ -6,12 +6,15 @@ namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Image\ImageWrapper;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use TCPDF;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisPolygon
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Gis\GisPolygon::class)]
+#[CoversClass(GisPolygon::class)]
 class GisPolygonTest extends GisGeomTestCase
 {
     /** @var    GisPolygon */
@@ -195,7 +198,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @dataProvider providerForTestArea
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestArea')]
+    #[DataProvider('providerForTestArea')]
     public function testArea(array $ring, float $area): void
     {
         self::assertSame($this->object->area($ring), $area);
@@ -278,7 +281,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @dataProvider providerForTestIsPointInsidePolygon
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestIsPointInsidePolygon')]
+    #[DataProvider('providerForTestIsPointInsidePolygon')]
     public function testIsPointInsidePolygon(array $point, array $polygon, bool $isInside): void
     {
         self::assertSame($this->object->isPointInsidePolygon($point, $polygon), $isInside);
@@ -357,7 +360,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @dataProvider providerForTestGetPointOnSurface
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGetPointOnSurface')]
+    #[DataProvider('providerForTestGetPointOnSurface')]
     public function testGetPointOnSurface(array $ring): void
     {
         $point = $this->object->getPointOnSurface($ring);
@@ -418,7 +421,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * @requires extension gd
      */
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('gd')]
+    #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
@@ -445,7 +448,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsPdf')]
+    #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -491,7 +494,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsSvg')]
+    #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -541,7 +544,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsOl
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForPrepareRowAsOl')]
+    #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,
@@ -604,7 +607,7 @@ class GisPolygonTest extends GisGeomTestCase
      *
      * @dataProvider providerForIsOuterRing
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForIsOuterRing')]
+    #[DataProvider('providerForIsOuterRing')]
     public function testIsOuterRing(array $ring): void
     {
         self::assertTrue($this->object->isOuterRing($ring));

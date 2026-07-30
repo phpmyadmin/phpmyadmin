@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Cache;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use stdClass;
 
 /**
  * @covers \PhpMyAdmin\Cache
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Cache::class)]
+#[CoversClass(Cache::class)]
 class CacheTest extends AbstractTestCase
 {
     public function setUp(): void
@@ -44,7 +46,7 @@ class CacheTest extends AbstractTestCase
      *
      * @dataProvider dataProviderCacheKeyValues
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderCacheKeyValues')]
+    #[DataProvider('dataProviderCacheKeyValues')]
     public function testCacheHas(string $cacheKey, $valueToCache): void
     {
         self::assertFalse(Cache::has($cacheKey));
@@ -59,7 +61,7 @@ class CacheTest extends AbstractTestCase
      *
      * @dataProvider dataProviderCacheKeyValues
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderCacheKeyValues')]
+    #[DataProvider('dataProviderCacheKeyValues')]
     public function testCachePurge(string $cacheKey, $valueToCache): void
     {
         self::assertFalse(Cache::has($cacheKey));
@@ -74,7 +76,7 @@ class CacheTest extends AbstractTestCase
      *
      * @dataProvider dataProviderCacheKeyValues
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderCacheKeyValues')]
+    #[DataProvider('dataProviderCacheKeyValues')]
     public function testCacheSet(string $cacheKey, $valueToCache): void
     {
         self::assertFalse(Cache::has($cacheKey));
@@ -87,7 +89,7 @@ class CacheTest extends AbstractTestCase
      *
      * @dataProvider dataProviderCacheKeyValues
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderCacheKeyValues')]
+    #[DataProvider('dataProviderCacheKeyValues')]
     public function testCacheGet(string $cacheKey, $valueToCache): void
     {
         self::assertFalse(Cache::has($cacheKey));
@@ -101,7 +103,7 @@ class CacheTest extends AbstractTestCase
      *
      * @dataProvider dataProviderCacheKeyValues
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderCacheKeyValues')]
+    #[DataProvider('dataProviderCacheKeyValues')]
     public function testCacheGetDefaultValue(string $cacheKey, $valueToCache): void
     {
         self::assertFalse(Cache::has($cacheKey));
@@ -121,7 +123,7 @@ class CacheTest extends AbstractTestCase
      *
      * @dataProvider dataProviderCacheKeyValues
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderCacheKeyValues')]
+    #[DataProvider('dataProviderCacheKeyValues')]
     public function testCacheRemove(string $cacheKey, $valueToCache): void
     {
         self::assertFalse(Cache::has($cacheKey));

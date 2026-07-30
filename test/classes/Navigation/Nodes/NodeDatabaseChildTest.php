@@ -9,12 +9,13 @@ use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild::class)]
+#[CoversClass(NodeDatabaseChild::class)]
 class NodeDatabaseChildTest extends AbstractTestCase
 {
     /**

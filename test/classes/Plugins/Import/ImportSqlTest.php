@@ -8,13 +8,15 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportSql
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportSql::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(ImportSql::class)]
+#[Medium]
 class ImportSqlTest extends AbstractTestCase
 {
     /** @var ImportSql */

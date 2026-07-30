@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Charsets;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Charsets
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Charsets::class)]
+#[CoversClass(Charsets::class)]
 class CharsetsTest extends AbstractTestCase
 {
     protected function setUp(): void

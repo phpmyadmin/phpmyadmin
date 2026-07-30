@@ -6,15 +6,18 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema
  * @requires extension xmlwriter
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\Dia\DiaRelationSchema::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[RequiresPhpExtension('xmlwriter')]
+#[CoversClass(DiaRelationSchema::class)]
+#[Medium]
 class DiaRelationSchemaTest extends AbstractTestCase
 {
     /** @var DiaRelationSchema */

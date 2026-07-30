@@ -13,13 +13,15 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\RelationController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\RelationController::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(RelationController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class RelationControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */

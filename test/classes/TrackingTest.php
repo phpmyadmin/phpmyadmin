@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 use function _pgettext;
@@ -19,7 +20,7 @@ use function sprintf;
 /**
  * @covers \PhpMyAdmin\Tracking
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Tracking::class)]
+#[CoversClass(Tracking::class)]
 class TrackingTest extends AbstractTestCase
 {
     /** @var Tracking $tracking */

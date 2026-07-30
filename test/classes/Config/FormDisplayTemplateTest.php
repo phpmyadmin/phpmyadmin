@@ -7,11 +7,12 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Config\FormDisplayTemplate
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\FormDisplayTemplate::class)]
+#[CoversClass(FormDisplayTemplate::class)]
 class FormDisplayTemplateTest extends AbstractTestCase
 {
     /** @var FormDisplayTemplate */

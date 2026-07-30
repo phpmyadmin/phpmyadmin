@@ -14,6 +14,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function hash;
 
@@ -22,8 +24,8 @@ use const MYSQLI_TYPE_LONG;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\SearchController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\SearchController::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(SearchController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class SearchControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */

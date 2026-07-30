@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisVisualization
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Gis\GisVisualization::class)]
+#[CoversClass(GisVisualization::class)]
 class GisVisualizationTest extends AbstractTestCase
 {
     /**

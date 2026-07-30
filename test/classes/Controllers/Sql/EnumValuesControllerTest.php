@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\Sql\EnumValuesController;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Sql\EnumValuesController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Sql\EnumValuesController::class)]
+#[CoversClass(EnumValuesController::class)]
 class EnumValuesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

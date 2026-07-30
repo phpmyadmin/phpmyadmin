@@ -5,6 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\VersionInformation;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 use stdClass;
 
 use function count;
@@ -13,9 +18,9 @@ use function count;
  * @covers \PhpMyAdmin\VersionInformation
  * @large
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\VersionInformation::class)]
-#[\PHPUnit\Framework\Attributes\Large]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(VersionInformation::class)]
+#[Large]
+#[AllowMockObjectsWithoutExpectations]
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */
@@ -60,7 +65,7 @@ class VersionInformationTest extends AbstractTestCase
      *
      * @group network
      */
-    #[\PHPUnit\Framework\Attributes\Group('network')]
+    #[Group('network')]
     public function testGetLatestVersion(): void
     {
         $this->setProxySettings();
@@ -81,7 +86,7 @@ class VersionInformationTest extends AbstractTestCase
      *
      * @dataProvider dataVersions
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataVersions')]
+    #[DataProvider('dataVersions')]
     public function testVersionToInt(string $version, int $numeric): void
     {
         $versionInformation = new VersionInformation();
@@ -262,7 +267,7 @@ class VersionInformationTest extends AbstractTestCase
      *
      * @dataProvider dataProviderVersionConditions
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderVersionConditions')]
+    #[DataProvider('dataProviderVersionConditions')]
     public function testGetLatestCompatibleVersionWithNewPHPVersion(
         array $versions,
         array $conditions,

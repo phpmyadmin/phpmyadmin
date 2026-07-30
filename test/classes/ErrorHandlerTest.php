@@ -9,6 +9,9 @@ use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
 use function array_keys;
@@ -19,7 +22,6 @@ use const E_CORE_WARNING;
 use const E_ERROR;
 use const E_NOTICE;
 use const E_RECOVERABLE_ERROR;
-use const E_STRICT;
 use const E_USER_DEPRECATED;
 use const E_USER_ERROR;
 use const E_USER_NOTICE;
@@ -31,8 +33,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\ErrorHandler
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ErrorHandler::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(ErrorHandler::class)]
+#[Medium]
 class ErrorHandlerTest extends AbstractTestCase
 {
     /** @var ErrorHandler */
@@ -76,7 +78,7 @@ class ErrorHandlerTest extends AbstractTestCase
     }
 
     /** @dataProvider providerForTestHandleError */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestHandleError')]
+    #[DataProvider('providerForTestHandleError')]
     public function testGetDisplayErrors(
         int $errorNumber,
         string $errorMessage,
@@ -123,7 +125,7 @@ class ErrorHandlerTest extends AbstractTestCase
     }
 
     /** @dataProvider addErrorProvider */
-    #[\PHPUnit\Framework\Attributes\DataProvider('addErrorProvider')]
+    #[DataProvider('addErrorProvider')]
     public function testAddError(int $errorNumber, string $expected): void
     {
         $errorHandler = new ErrorHandler();

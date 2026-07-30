@@ -6,6 +6,11 @@ namespace PhpMyAdmin\Tests\Utils;
 
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\HttpRequest;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function curl_version;
 use function ini_get;
@@ -18,8 +23,8 @@ use const CURLOPT_CAPATH;
  * @covers \PhpMyAdmin\Utils\HttpRequest
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Utils\HttpRequest::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(HttpRequest::class)]
+#[Medium]
 class HttpRequestTest extends AbstractTestCase
 {
     /** @var HttpRequest */
@@ -65,9 +70,9 @@ class HttpRequestTest extends AbstractTestCase
      * @group network
      * @requires extension curl
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('httpRequests')]
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('curl')]
-    #[\PHPUnit\Framework\Attributes\Group('network')]
+    #[DataProvider('httpRequests')]
+    #[RequiresPhpExtension('curl')]
+    #[Group('network')]
     public function testCurl(string $url, string $method, bool $return_only_status, $expected): void
     {
         $result = $this->callFunction(
@@ -91,9 +96,9 @@ class HttpRequestTest extends AbstractTestCase
      * @group network
      * @requires extension curl
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('httpRequests')]
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('curl')]
-    #[\PHPUnit\Framework\Attributes\Group('network')]
+    #[DataProvider('httpRequests')]
+    #[RequiresPhpExtension('curl')]
+    #[Group('network')]
     public function testCurlCAPath(string $url, string $method, bool $return_only_status, $expected): void
     {
         $this->checkCurlSslFlagsSupport();
@@ -120,9 +125,9 @@ class HttpRequestTest extends AbstractTestCase
      * @group network
      * @requires extension curl
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('httpRequests')]
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('curl')]
-    #[\PHPUnit\Framework\Attributes\Group('network')]
+    #[DataProvider('httpRequests')]
+    #[RequiresPhpExtension('curl')]
+    #[Group('network')]
     public function testCurlCAInfo(string $url, string $method, bool $return_only_status, $expected): void
     {
         $this->checkCurlSslFlagsSupport();
@@ -148,8 +153,8 @@ class HttpRequestTest extends AbstractTestCase
      * @dataProvider httpRequests
      * @group network
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('httpRequests')]
-    #[\PHPUnit\Framework\Attributes\Group('network')]
+    #[DataProvider('httpRequests')]
+    #[Group('network')]
     public function testFopen(string $url, string $method, bool $return_only_status, $expected): void
     {
         if (! ini_get('allow_url_fopen')) {
@@ -177,9 +182,9 @@ class HttpRequestTest extends AbstractTestCase
      * @group network
      * @requires extension curl
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('httpRequests')]
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('curl')]
-    #[\PHPUnit\Framework\Attributes\Group('network')]
+    #[DataProvider('httpRequests')]
+    #[RequiresPhpExtension('curl')]
+    #[Group('network')]
     public function testCreate(string $url, string $method, bool $return_only_status, $expected): void
     {
         if (! ini_get('allow_url_fopen')) {

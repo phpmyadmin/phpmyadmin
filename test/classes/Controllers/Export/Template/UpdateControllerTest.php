@@ -11,11 +11,12 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Export\Template\UpdateController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Export\Template\UpdateController::class)]
+#[CoversClass(UpdateController::class)]
 class UpdateControllerTest extends AbstractTestCase
 {
     public function testUpdate(): void

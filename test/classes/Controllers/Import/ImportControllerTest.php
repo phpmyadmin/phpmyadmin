@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests\Controllers\Import;
 
 use PhpMyAdmin\Controllers\Import\ImportController;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Import\ImportController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Import\ImportController::class)]
+#[CoversClass(ImportController::class)]
 class ImportControllerTest extends AbstractTestCase
 {
     public function testIndexParametrized(): void

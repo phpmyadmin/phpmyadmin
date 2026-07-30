@@ -11,13 +11,14 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function sprintf;
 
 /**
  * @covers \PhpMyAdmin\Database\Designer\Common
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Designer\Common::class)]
+#[CoversClass(Common::class)]
 class CommonTest extends AbstractTestCase
 {
     /** @var Common */

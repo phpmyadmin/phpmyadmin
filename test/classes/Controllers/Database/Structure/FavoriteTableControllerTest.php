@@ -10,6 +10,7 @@ use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
 use function json_encode;
@@ -19,7 +20,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Database\Structure\FavoriteTableController::class)]
+#[CoversClass(FavoriteTableController::class)]
 class FavoriteTableControllerTest extends AbstractTestCase
 {
     public function testSynchronizeFavoriteTables(): void

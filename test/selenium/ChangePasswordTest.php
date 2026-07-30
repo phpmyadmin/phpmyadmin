@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit\Framework\AssertionFailedError;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
 
 use function array_push;
 use function trim;
@@ -13,8 +15,8 @@ use function trim;
  * @coversNothing
  * @large
  */
-#[\PHPUnit\Framework\Attributes\CoversNothing]
-#[\PHPUnit\Framework\Attributes\Large]
+#[CoversNothing]
+#[Large]
 class ChangePasswordTest extends TestBase
 {
     /**

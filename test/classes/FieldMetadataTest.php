@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\FieldMetadata;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
 use const MYSQLI_BLOB_FLAG;
@@ -16,7 +17,7 @@ use const MYSQLI_TYPE_STRING;
 /**
  * @covers \PhpMyAdmin\FieldMetadata
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\FieldMetadata::class)]
+#[CoversClass(FieldMetadata::class)]
 class FieldMetadataTest extends AbstractTestCase
 {
     public function testEmptyConstruct(): void

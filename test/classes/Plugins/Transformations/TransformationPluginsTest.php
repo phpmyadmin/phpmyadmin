@@ -23,7 +23,11 @@ use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring;
+use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 
 use function date_default_timezone_set;
@@ -57,26 +61,26 @@ use const MYSQLI_TYPE_TINY;
  * @covers \PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\TransformationsPlugin::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_FileUpload::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_Iptolong::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_RegexValidation::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Hex::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Inline::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Link::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Dateformat::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Formatted::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Imagelink::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Text_Plain_Link::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(TransformationsPlugin::class)]
+#[CoversClass(Image_JPEG_Upload::class)]
+#[CoversClass(Text_Plain_FileUpload::class)]
+#[CoversClass(Text_Plain_Iptolong::class)]
+#[CoversClass(Text_Plain_RegexValidation::class)]
+#[CoversClass(Application_Octetstream_Download::class)]
+#[CoversClass(Application_Octetstream_Hex::class)]
+#[CoversClass(Image_JPEG_Inline::class)]
+#[CoversClass(Image_JPEG_Link::class)]
+#[CoversClass(Image_PNG_Inline::class)]
+#[CoversClass(Text_Plain_Dateformat::class)]
+#[CoversClass(Text_Plain_External::class)]
+#[CoversClass(Text_Plain_Formatted::class)]
+#[CoversClass(Text_Plain_Imagelink::class)]
+#[CoversClass(Text_Plain_Sql::class)]
+#[CoversClass(Text_Plain_Link::class)]
+#[CoversClass(Text_Plain_Longtoipv4::class)]
+#[CoversClass(Text_Plain_PreApPend::class)]
+#[CoversClass(Text_Plain_Substring::class)]
+#[Medium]
 class TransformationPluginsTest extends AbstractTestCase
 {
     /**
@@ -748,7 +752,7 @@ class TransformationPluginsTest extends AbstractTestCase
      *
      * @dataProvider multiDataProvider
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('multiDataProvider')]
+    #[DataProvider('multiDataProvider')]
     public function testGetMulti($object, string $method, $expected, array $args = []): void
     {
         if (! method_exists($object, $method)) {
@@ -1300,7 +1304,7 @@ class TransformationPluginsTest extends AbstractTestCase
      *
      * @dataProvider transformationDataProvider
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('transformationDataProvider')]
+    #[DataProvider('transformationDataProvider')]
     public function testTransformation(
         $object,
         array $applyArgs,

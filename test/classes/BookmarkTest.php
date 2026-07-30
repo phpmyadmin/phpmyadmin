@@ -8,11 +8,12 @@ use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\Dbal\DatabaseName;
 use PhpMyAdmin\Dbal\TableName;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Bookmark
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Bookmark::class)]
+#[CoversClass(Bookmark::class)]
 class BookmarkTest extends AbstractTestCase
 {
     /**

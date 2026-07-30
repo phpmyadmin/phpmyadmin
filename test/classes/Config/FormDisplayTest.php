@@ -8,6 +8,8 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -21,8 +23,8 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Config\FormDisplay
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\FormDisplay::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(FormDisplay::class)]
+#[Medium]
 class FormDisplayTest extends AbstractTestCase
 {
     /** @var FormDisplay */

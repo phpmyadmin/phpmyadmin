@@ -10,6 +10,9 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionMethod;
 
 use const PHP_VERSION_ID;
@@ -17,8 +20,8 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Tracker
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Tracker::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(Tracker::class)]
+#[AllowMockObjectsWithoutExpectations]
 class TrackerTest extends AbstractTestCase
 {
     /**
@@ -93,7 +96,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @dataProvider getTableNameData
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('getTableNameData')]
+    #[DataProvider('getTableNameData')]
     public function testGetTableName(string $string, string $expected): void
     {
         self::assertSame($expected, $this->callFunction(null, Tracker::class, 'getTableName', [$string]));
@@ -417,7 +420,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @dataProvider getTrackedDataProvider
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('getTrackedDataProvider')]
+    #[DataProvider('getTrackedDataProvider')]
     public function testGetTrackedData(array $fetchArrayReturn, array $expectedArray): void
     {
         $resultStub = $this->createMock(DummyResult::class);
@@ -544,7 +547,7 @@ class TrackerTest extends AbstractTestCase
      *
      * @dataProvider parseQueryData
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('parseQueryData')]
+    #[DataProvider('parseQueryData')]
     public function testParseQuery(
         string $query,
         string $type,

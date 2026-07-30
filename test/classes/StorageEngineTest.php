@@ -18,13 +18,15 @@ use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Engines\PerformanceSchema;
 use PhpMyAdmin\StorageEngine;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function json_encode;
 
 /**
  * @covers \PhpMyAdmin\StorageEngine
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\StorageEngine::class)]
+#[CoversClass(StorageEngine::class)]
 class StorageEngineTest extends AbstractTestCase
 {
     /** @var StorageEngine */
@@ -102,7 +104,7 @@ class StorageEngineTest extends AbstractTestCase
      *
      * @dataProvider providerGetEngine
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerGetEngine')]
+    #[DataProvider('providerGetEngine')]
     public function testGetEngine(string $expectedClass, string $engineName): void
     {
         $actual = StorageEngine::getEngine($engineName);

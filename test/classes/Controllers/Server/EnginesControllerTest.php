@@ -8,11 +8,12 @@ use PhpMyAdmin\Controllers\Server\EnginesController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\EnginesController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\EnginesController::class)]
+#[CoversClass(EnginesController::class)]
 class EnginesControllerTest extends AbstractTestCase
 {
     /**

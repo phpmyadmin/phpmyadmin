@@ -8,11 +8,12 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\ReplaceController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\ReplaceController::class)]
+#[CoversClass(ReplaceController::class)]
 class ReplaceControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

@@ -8,6 +8,8 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionClass;
 
 use function explode;
@@ -22,8 +24,8 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
  * @covers \PhpMyAdmin\Setup\ConfigGenerator
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Setup\ConfigGenerator::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(ConfigGenerator::class)]
+#[Medium]
 class ConfigGeneratorTest extends AbstractTestCase
 {
     /**

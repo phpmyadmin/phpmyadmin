@@ -8,13 +8,15 @@ use PhpMyAdmin\Replication;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\ReplicationInfo;
 use PhpMyAdmin\Template;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 /**
  * @covers \PhpMyAdmin\ReplicationGui
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\ReplicationGui::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(ReplicationGui::class)]
+#[Medium]
 class ReplicationGuiTest extends AbstractTestCase
 {
     /**

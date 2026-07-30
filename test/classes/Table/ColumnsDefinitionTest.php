@@ -6,11 +6,13 @@ namespace PhpMyAdmin\Tests\Table;
 
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Table\ColumnsDefinition
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Table\ColumnsDefinition::class)]
+#[CoversClass(ColumnsDefinition::class)]
 class ColumnsDefinitionTest extends AbstractTestCase
 {
     /**
@@ -23,7 +25,7 @@ class ColumnsDefinitionTest extends AbstractTestCase
      *
      * @dataProvider providerColumnMetaDefault
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerColumnMetaDefault')]
+    #[DataProvider('providerColumnMetaDefault')]
     public function testDecorateColumnMetaDefault(array $columnMeta, array $expected): void
     {
         $result = ColumnsDefinition::decorateColumnMetaDefault($columnMeta);

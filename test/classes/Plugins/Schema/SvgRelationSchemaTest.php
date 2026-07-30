@@ -6,15 +6,18 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema
  * @requires extension xmlwriter
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('xmlwriter')]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[RequiresPhpExtension('xmlwriter')]
+#[CoversClass(SvgRelationSchema::class)]
+#[Medium]
 class SvgRelationSchemaTest extends AbstractTestCase
 {
     /** @var SvgRelationSchema */

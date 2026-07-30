@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Config\PageSettings
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\PageSettings::class)]
+#[CoversClass(PageSettings::class)]
 class PageSettingsTest extends AbstractTestCase
 {
     /**

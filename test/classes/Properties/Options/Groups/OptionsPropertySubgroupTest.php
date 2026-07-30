@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests\Properties\Options\Groups;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup::class)]
+#[CoversClass(OptionsPropertySubgroup::class)]
 class OptionsPropertySubgroupTest extends AbstractTestCase
 {
     /** @var OptionsPropertySubgroup */

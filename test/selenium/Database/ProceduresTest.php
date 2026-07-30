@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
 
 use function sleep;
 use function str_replace;
@@ -13,8 +15,8 @@ use function str_replace;
  * @coversNothing
  * @large
  */
-#[\PHPUnit\Framework\Attributes\CoversNothing]
-#[\PHPUnit\Framework\Attributes\Large]
+#[CoversNothing]
+#[Large]
 class ProceduresTest extends TestBase
 {
     /**

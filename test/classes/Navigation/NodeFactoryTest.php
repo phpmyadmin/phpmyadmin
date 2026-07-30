@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Navigation;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function restore_error_handler;
 use function set_error_handler;
@@ -18,7 +19,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Navigation\NodeFactory
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\NodeFactory::class)]
+#[CoversClass(NodeFactory::class)]
 class NodeFactoryTest extends AbstractTestCase
 {
     /**

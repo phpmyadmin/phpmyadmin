@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionException;
 use ReflectionProperty;
 
@@ -20,8 +23,8 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 /**
  * @covers \PhpMyAdmin\Config\ServerConfigChecks
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config\ServerConfigChecks::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(ServerConfigChecks::class)]
+#[AllowMockObjectsWithoutExpectations]
 class ServerConfigChecksTest extends AbstractTestCase
 {
     /** @var string */
@@ -147,8 +150,8 @@ class ServerConfigChecksTest extends AbstractTestCase
      * @requires extension zip
      * @requires extension bz2
      */
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('bz2')]
+    #[RequiresPhpExtension('zip')]
+    #[RequiresPhpExtension('bz2')]
     public function testBlowfishWithInvalidSecret(): void
     {
         $_SESSION[$this->sessionID] = [];
@@ -184,8 +187,8 @@ class ServerConfigChecksTest extends AbstractTestCase
      * @requires extension zip
      * @requires extension bz2
      */
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
-    #[\PHPUnit\Framework\Attributes\RequiresPhpExtension('bz2')]
+    #[RequiresPhpExtension('zip')]
+    #[RequiresPhpExtension('bz2')]
     public function testBlowfishWithValidSecret(): void
     {
         $_SESSION[$this->sessionID] = [];

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use const DIRECTORY_SEPARATOR;
 use const E_COMPILE_ERROR;
@@ -16,7 +18,6 @@ use const E_ERROR;
 use const E_NOTICE;
 use const E_PARSE;
 use const E_RECOVERABLE_ERROR;
-use const E_STRICT;
 use const E_USER_DEPRECATED;
 use const E_USER_ERROR;
 use const E_USER_NOTICE;
@@ -26,7 +27,7 @@ use const E_WARNING;
 /**
  * @covers \PhpMyAdmin\Error
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Error::class)]
+#[CoversClass(Error::class)]
 class ErrorTest extends AbstractTestCase
 {
     /** @var Error */
@@ -87,7 +88,7 @@ class ErrorTest extends AbstractTestCase
      *
      * @dataProvider filePathProvider
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('filePathProvider')]
+    #[DataProvider('filePathProvider')]
     public function testSetFile(string $file, string $expected): void
     {
         $this->object->setFile($file);
@@ -146,7 +147,7 @@ class ErrorTest extends AbstractTestCase
     }
 
     /** @dataProvider errorLevelProvider */
-    #[\PHPUnit\Framework\Attributes\DataProvider('errorLevelProvider')]
+    #[DataProvider('errorLevelProvider')]
     public function testGetLevel(int $errorNumber, string $expected): void
     {
         self::assertSame($expected, (new Error($errorNumber, 'Error', 'error.txt', 15))->getLevel());
@@ -174,7 +175,7 @@ class ErrorTest extends AbstractTestCase
     }
 
     /** @dataProvider errorTypeProvider */
-    #[\PHPUnit\Framework\Attributes\DataProvider('errorTypeProvider')]
+    #[DataProvider('errorTypeProvider')]
     public function testGetType(int $errorNumber, string $expected): void
     {
         self::assertSame($expected, (new Error($errorNumber, 'Error', 'error.txt', 15))->getType());

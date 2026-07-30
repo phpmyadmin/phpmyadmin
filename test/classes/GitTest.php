@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Git;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
 
 use function file_put_contents;
 use function mkdir;
@@ -21,8 +23,8 @@ use const PHP_EOL;
  * @covers \PhpMyAdmin\Git
  * @group git-revision
  */
-#[\PHPUnit\Framework\Attributes\Group('git-revision')]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Git::class)]
+#[Group('git-revision')]
+#[CoversClass(Git::class)]
 class GitTest extends AbstractTestCase
 {
     /** @var Git */
@@ -90,7 +92,7 @@ class GitTest extends AbstractTestCase
      *
      * @group git-revision
      */
-    #[\PHPUnit\Framework\Attributes\Group('git-revision')]
+    #[Group('git-revision')]
     public function testIsGitRevisionLocalGitDir(): void
     {
         self::assertFalse($this->object->isGitRevision());
@@ -124,7 +126,7 @@ class GitTest extends AbstractTestCase
      *
      * @group git-revision
      */
-    #[\PHPUnit\Framework\Attributes\Group('git-revision')]
+    #[Group('git-revision')]
     public function testIsGitRevisionExternalGitDir(): void
     {
         file_put_contents($this->testDir . '.git', 'gitdir: ' . $this->testDir . '.customgitdir');
@@ -195,7 +197,7 @@ PHP;
      *
      * @group git-revision
      */
-    #[\PHPUnit\Framework\Attributes\Group('git-revision')]
+    #[Group('git-revision')]
     public function testIsGitRevisionRevisionInfo(): void
     {
         $gitLocation = '';
@@ -225,7 +227,7 @@ PHP;
      *
      * @group git-revision
      */
-    #[\PHPUnit\Framework\Attributes\Group('git-revision')]
+    #[Group('git-revision')]
     public function testCheckGitRevisionPacksFolder(): void
     {
         mkdir($this->testDir . '.git');
@@ -307,7 +309,7 @@ PHP;
      *
      * @group git-revision
      */
-    #[\PHPUnit\Framework\Attributes\Group('git-revision')]
+    #[Group('git-revision')]
     public function testCheckGitRevisionRefFile(): void
     {
         mkdir($this->testDir . '.git');
@@ -346,7 +348,7 @@ PHP;
      *
      * @group git-revision
      */
-    #[\PHPUnit\Framework\Attributes\Group('git-revision')]
+    #[Group('git-revision')]
     public function testCheckGitRevisionPacksFile(): void
     {
         mkdir($this->testDir . '.git');
@@ -437,7 +439,7 @@ PHP;
      *
      * @group git-revision
      */
-    #[\PHPUnit\Framework\Attributes\Group('git-revision')]
+    #[Group('git-revision')]
     public function testCheckGitRevisionRevisionInfo(): void
     {
         file_put_contents(
@@ -497,7 +499,7 @@ PHP;
      *
      * @group git-revision
      */
-    #[\PHPUnit\Framework\Attributes\Group('git-revision')]
+    #[Group('git-revision')]
     public function testGetGitRevisionInfo(): void
     {
         self::assertNull($this->object->getGitRevisionInfo());

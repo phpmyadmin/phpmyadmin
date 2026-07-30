@@ -9,6 +9,7 @@ use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
 use const PHP_VERSION_ID;
@@ -16,7 +17,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\Node
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Navigation\Nodes\Node::class)]
+#[CoversClass(Node::class)]
 class NodeTest extends AbstractTestCase
 {
     /**

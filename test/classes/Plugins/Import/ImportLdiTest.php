@@ -9,6 +9,9 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\MockObject\MockObject;
 
 use function __;
@@ -17,9 +20,9 @@ use function __;
  * @covers \PhpMyAdmin\Plugins\Import\ImportLdi
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Import\ImportLdi::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(ImportLdi::class)]
+#[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class ImportLdiTest extends AbstractTestCase
 {
     /** @var ImportLdi */

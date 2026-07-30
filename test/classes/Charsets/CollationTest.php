@@ -6,11 +6,13 @@ namespace PhpMyAdmin\Tests\Charsets;
 
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Charsets\Collation
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Charsets\Collation::class)]
+#[CoversClass(Collation::class)]
 class CollationTest extends AbstractTestCase
 {
     public function testFromServer(): void
@@ -46,7 +48,7 @@ class CollationTest extends AbstractTestCase
      *
      * @dataProvider providerTestBuildDescription
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerTestBuildDescription')]
+    #[DataProvider('providerTestBuildDescription')]
     public function testBuildDescription(string $collation, string $description): void
     {
         $actual = Collation::fromServer(['Collation' => $collation]);

@@ -12,12 +12,14 @@ use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Table\Indexes
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Table\Indexes::class)]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(Indexes::class)]
+#[AllowMockObjectsWithoutExpectations]
 class IndexesTest extends AbstractTestCase
 {
     protected function setUp(): void

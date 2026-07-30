@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests\Engines;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function __;
 use function sprintf;
@@ -14,7 +16,7 @@ use function sprintf;
 /**
  * @covers \PhpMyAdmin\Engines\Pbxt
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\Pbxt::class)]
+#[CoversClass(Pbxt::class)]
 class PbxtTest extends AbstractTestCase
 {
     /** @var Pbxt */
@@ -164,7 +166,7 @@ class PbxtTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestResolveTypeSize
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerFortTestResolveTypeSize')]
+    #[DataProvider('providerFortTestResolveTypeSize')]
     public function testResolveTypeSize(string $formatted_size, array $output): void
     {
         self::assertSame($this->object->resolveTypeSize($formatted_size), $output);

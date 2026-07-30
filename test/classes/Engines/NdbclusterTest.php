@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Engines\Ndbcluster
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Engines\Ndbcluster::class)]
+#[CoversClass(Ndbcluster::class)]
 class NdbclusterTest extends AbstractTestCase
 {
     /** @var Ndbcluster */

@@ -10,6 +10,9 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function base64_encode;
 use function ob_get_clean;
@@ -19,8 +22,8 @@ use function ob_start;
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Auth\AuthenticationHttp::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
+#[CoversClass(AuthenticationHttp::class)]
+#[Medium]
 class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationHttp */
@@ -188,7 +191,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      *
      * @dataProvider readCredentialsProvider
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('readCredentialsProvider')]
+    #[DataProvider('readCredentialsProvider')]
     public function testAuthCheck(
         string $user,
         string $pass,

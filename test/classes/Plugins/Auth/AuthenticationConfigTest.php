@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function ob_get_clean;
 use function ob_start;
@@ -15,7 +16,7 @@ use function ob_start;
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationConfig
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Auth\AuthenticationConfig::class)]
+#[CoversClass(AuthenticationConfig::class)]
 class AuthenticationConfigTest extends AbstractTestCase
 {
     /** @var AuthenticationConfig */

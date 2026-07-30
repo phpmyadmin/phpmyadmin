@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Utils;
 
 use PhpMyAdmin\Utils\SessionCache;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \PhpMyAdmin\Utils\SessionCache
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Utils\SessionCache::class)]
+#[CoversClass(SessionCache::class)]
 class SessionCacheTest extends TestCase
 {
     public function testGet(): void

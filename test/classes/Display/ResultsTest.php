@@ -19,6 +19,8 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use stdClass;
 
 use function count;
@@ -42,7 +44,7 @@ use const MYSQLI_TYPE_TIMESTAMP;
 /**
  * @covers \PhpMyAdmin\Display\Results
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Display\Results::class)]
+#[CoversClass(DisplayResults::class)]
 class ResultsTest extends AbstractTestCase
 {
     /** @var DisplayResults */
@@ -106,7 +108,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetTableNavigationButton
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerForTestGetTableNavigationButton')]
+    #[DataProvider('providerForTestGetTableNavigationButton')]
     public function testGetTableNavigationButton(
         string $caption,
         string $title,
@@ -266,7 +268,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestGetSpecialLinkUrl
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderForTestGetSpecialLinkUrl')]
+    #[DataProvider('dataProviderForTestGetSpecialLinkUrl')]
     public function testGetSpecialLinkUrl(
         string $db,
         string $table,
@@ -382,7 +384,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderForTestGetRowInfoForSpecialLinks')]
+    #[DataProvider('dataProviderForTestGetRowInfoForSpecialLinks')]
     public function testGetRowInfoForSpecialLinks(
         array $fields_meta,
         int $fields_count,
@@ -433,7 +435,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestSetHighlightedColumnGlobalField
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderForTestSetHighlightedColumnGlobalField')]
+    #[DataProvider('dataProviderForTestSetHighlightedColumnGlobalField')]
     public function testSetHighlightedColumnGlobalField(array $analyzed_sql, array $output): void
     {
         $this->callFunction(
@@ -507,7 +509,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestGetPartialText
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderForTestGetPartialText')]
+    #[DataProvider('dataProviderForTestGetPartialText')]
     public function testGetPartialText(string $pftext, int $limitChars, string $str, array $output): void
     {
         $_SESSION['tmpval']['pftext'] = $pftext;
@@ -622,7 +624,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestHandleNonPrintableContents
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderForTestHandleNonPrintableContents')]
+    #[DataProvider('dataProviderForTestHandleNonPrintableContents')]
     public function testHandleNonPrintableContents(
         bool $display_binary,
         bool $display_blob,
@@ -815,7 +817,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderForTestGetDataCellForNonNumericColumns')]
+    #[DataProvider('dataProviderForTestGetDataCellForNonNumericColumns')]
     public function testGetDataCellForNonNumericColumns(
         string $protectBinary,
         ?string $column,
@@ -1017,7 +1019,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * @dataProvider dataProviderGetSortOrderHiddenInputs
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderGetSortOrderHiddenInputs')]
+    #[DataProvider('dataProviderGetSortOrderHiddenInputs')]
     public function testGetSortOrderHiddenInputs(
         string $sqlAdd,
         string $sqlRemove,
@@ -1130,7 +1132,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * @dataProvider providerSetConfigParamsForDisplayTable
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerSetConfigParamsForDisplayTable')]
+    #[DataProvider('providerSetConfigParamsForDisplayTable')]
     public function testSetConfigParamsForDisplayTable(
         array $session,
         array $get,
@@ -1729,7 +1731,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * @dataProvider dataProviderSortOrder
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderSortOrder')]
+    #[DataProvider('dataProviderSortOrder')]
     public function testGetSingleAndMultiSortUrls(
         string $orderSetting,
         string $querySortDirection,

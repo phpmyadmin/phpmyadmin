@@ -9,11 +9,12 @@ use PhpMyAdmin\Database\Qbe;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Database\Qbe
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Database\Qbe::class)]
+#[CoversClass(Qbe::class)]
 class QbeTest extends AbstractTestCase
 {
     /** @var Qbe */

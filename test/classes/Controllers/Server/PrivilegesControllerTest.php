@@ -9,9 +9,10 @@ use PhpMyAdmin\Controllers\Server\PrivilegesController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /** @covers \PhpMyAdmin\Controllers\Server\PrivilegesController */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\PrivilegesController::class)]
+#[CoversClass(PrivilegesController::class)]
 final class PrivilegesControllerTest extends AbstractTestCase
 {
     public function testUpdatePrivilegesForMultipleDatabases(): void

@@ -7,11 +7,13 @@ namespace PhpMyAdmin\Tests\Utils;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\ForeignKey;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Utils\ForeignKey
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Utils\ForeignKey::class)]
+#[CoversClass(ForeignKey::class)]
 class ForeignKeyTest extends AbstractTestCase
 {
     /**
@@ -22,7 +24,7 @@ class ForeignKeyTest extends AbstractTestCase
      *
      * @dataProvider providerIsSupported
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerIsSupported')]
+    #[DataProvider('providerIsSupported')]
     public function testIsSupported(string $a, bool $e): void
     {
         $GLOBALS['server'] = 1;
@@ -74,7 +76,7 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * @dataProvider providerCheckInit
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerCheckInit')]
+    #[DataProvider('providerCheckInit')]
     public function testHandleDisableCheckInit(string $checksValue, string $setVariableParam): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
@@ -97,7 +99,7 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * @dataProvider providerCheckInit
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerCheckInit')]
+    #[DataProvider('providerCheckInit')]
     public function testHandleDisableCheckInitVarFalse(string $checksValue, string $setVariableParam): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
@@ -131,7 +133,7 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * @dataProvider providerCheckCleanup
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('providerCheckCleanup')]
+    #[DataProvider('providerCheckCleanup')]
     public function testHandleDisableCheckCleanup(bool $checkValue, string $setVariableParam): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);

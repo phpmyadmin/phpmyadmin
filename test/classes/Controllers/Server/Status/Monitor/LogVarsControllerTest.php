@@ -10,11 +10,12 @@ use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\Monitor\LogVarsController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Server\Status\Monitor\LogVarsController::class)]
+#[CoversClass(LogVarsController::class)]
 class LogVarsControllerTest extends AbstractTestCase
 {
     /** @var Data */

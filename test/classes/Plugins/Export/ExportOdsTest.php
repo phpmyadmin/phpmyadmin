@@ -15,6 +15,9 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
@@ -36,9 +39,9 @@ use const PHP_VERSION_ID;
  * @requires extension zip
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\RequiresPhpExtension('zip')]
-#[\PHPUnit\Framework\Attributes\Medium]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Plugins\Export\ExportOds::class)]
+#[RequiresPhpExtension('zip')]
+#[Medium]
+#[CoversClass(ExportOds::class)]
 class ExportOdsTest extends AbstractTestCase
 {
     /** @var ExportOds */

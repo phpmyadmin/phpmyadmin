@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Setup;
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function ob_get_clean;
 use function ob_start;
@@ -14,7 +15,7 @@ use function ob_start;
 /**
  * @covers \PhpMyAdmin\Setup\FormProcessing
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Setup\FormProcessing::class)]
+#[CoversClass(FormProcessing::class)]
 class FormProcessingTest extends AbstractNetworkTestCase
 {
     /**

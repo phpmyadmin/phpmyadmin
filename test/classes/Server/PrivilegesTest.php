@@ -21,6 +21,9 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use stdClass;
 
@@ -37,9 +40,9 @@ use const PHP_VERSION_ID;
  * @covers \PhpMyAdmin\Server\Privileges
  * @medium
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Server\Privileges::class)]
-#[\PHPUnit\Framework\Attributes\Medium]
-#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
+#[CoversClass(Privileges::class)]
+#[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class PrivilegesTest extends AbstractTestCase
 {
     /** @var Privileges $serverPrivileges */

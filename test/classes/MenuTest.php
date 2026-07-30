@@ -6,11 +6,12 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Menu;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Menu
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Menu::class)]
+#[CoversClass(Menu::class)]
 class MenuTest extends AbstractTestCase
 {
     /**

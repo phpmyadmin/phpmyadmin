@@ -7,11 +7,12 @@ namespace PhpMyAdmin\Tests\Html;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversNothing;
 
 /**
  * @coversNothing
  */
-#[\PHPUnit\Framework\Attributes\CoversNothing]
+#[CoversNothing]
 class SecurityTest extends AbstractTestCase
 {
     /** @var Template */

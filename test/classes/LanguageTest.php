@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Large;
 
 use function _ngettext;
 use function count;
@@ -17,9 +21,9 @@ use function strtolower;
  * @covers \PhpMyAdmin\LanguageManager
  * @large
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Language::class)]
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\LanguageManager::class)]
-#[\PHPUnit\Framework\Attributes\Large]
+#[CoversClass(Language::class)]
+#[CoversClass(LanguageManager::class)]
+#[Large]
 class LanguageTest extends AbstractTestCase
 {
     /** @var LanguageManager */
@@ -159,7 +163,7 @@ class LanguageTest extends AbstractTestCase
      *
      * @dataProvider selectDataProvider
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('selectDataProvider')]
+    #[DataProvider('selectDataProvider')]
     public function testSelect(
         string $lang,
         string $post,
@@ -238,7 +242,7 @@ class LanguageTest extends AbstractTestCase
      *
      * @dataProvider listLocales
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('listLocales')]
+    #[DataProvider('listLocales')]
     public function testGettext(string $locale): void
     {
         $GLOBALS['config']->set('FilterLanguages', '');

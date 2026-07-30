@@ -7,6 +7,12 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\DatabaseInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 use function array_merge;
 use function array_replace_recursive;
@@ -36,8 +42,8 @@ use const TEST_PATH;
  * @covers \PhpMyAdmin\Config
  * @large
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Config::class)]
-#[\PHPUnit\Framework\Attributes\Large]
+#[CoversClass(Config::class)]
+#[Large]
 class ConfigTest extends AbstractTestCase
 {
     /** @var Config */
@@ -200,7 +206,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider userAgentProvider
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('userAgentProvider')]
+    #[DataProvider('userAgentProvider')]
     public function testCheckClient(string $agent, string $os, ?string $browser = null, ?string $version = null): void
     {
         $_SERVER['HTTP_USER_AGENT'] = $agent;
@@ -348,7 +354,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider serverNames
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('serverNames')]
+    #[DataProvider('serverNames')]
     public function testCheckWebServer(string $server, int $iis): void
     {
         $_SERVER['SERVER_SOFTWARE'] = $server;
@@ -485,7 +491,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider httpsParams
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('httpsParams')]
+    #[DataProvider('httpsParams')]
     public function testIsHttps(
         string $scheme,
         string $https,
@@ -742,7 +748,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider rootUris
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('rootUris')]
+    #[DataProvider('rootUris')]
     public function testGetRootPath(string $request, string $absolute, string $expected): void
     {
         $GLOBALS['PMA_PHP_SELF'] = $request;
@@ -849,7 +855,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider configPaths
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('configPaths')]
+    #[DataProvider('configPaths')]
     public function testLoad(string $source, bool $result): void
     {
         if ($result) {
@@ -884,7 +890,7 @@ class ConfigTest extends AbstractTestCase
      * @todo Test actually preferences loading
      * @doesNotPerformAssertions
      */
-    #[\PHPUnit\Framework\Attributes\DoesNotPerformAssertions]
+    #[DoesNotPerformAssertions]
     public function testLoadUserPreferences(): void
     {
         $this->object->loadUserPreferences();
@@ -966,7 +972,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @group file-system
      */
-    #[\PHPUnit\Framework\Attributes\Group('file-system')]
+    #[Group('file-system')]
     public function testGetTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
@@ -985,8 +991,8 @@ class ConfigTest extends AbstractTestCase
      * @group file-system
      * @depends testGetTempDir
      */
-    #[\PHPUnit\Framework\Attributes\Depends('testGetTempDir')]
-    #[\PHPUnit\Framework\Attributes\Group('file-system')]
+    #[Depends('testGetTempDir')]
+    #[Group('file-system')]
     public function testGetUploadTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
@@ -1007,7 +1013,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider serverSettingsProvider
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('serverSettingsProvider')]
+    #[DataProvider('serverSettingsProvider')]
     public function testCheckServers(array $settings, array $expected): void
     {
         $this->object->settings['Servers'] = $settings;
@@ -1073,8 +1079,8 @@ class ConfigTest extends AbstractTestCase
      * @dataProvider selectServerProvider
      * @depends testCheckServers
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('selectServerProvider')]
-    #[\PHPUnit\Framework\Attributes\Depends('testCheckServers')]
+    #[DataProvider('selectServerProvider')]
+    #[Depends('testCheckServers')]
     public function testSelectServer(array $settings, string $request, int $expected): void
     {
         $this->object->settings['Servers'] = $settings;
@@ -1149,7 +1155,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider connectionParams
      */
-    #[\PHPUnit\Framework\Attributes\DataProvider('connectionParams')]
+    #[DataProvider('connectionParams')]
     public function testGetConnectionParams(array $server_cfg, int $mode, ?array $server, array $expected): void
     {
         $GLOBALS['cfg']['Server'] = $server_cfg;

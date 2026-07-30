@@ -9,11 +9,12 @@ use PhpMyAdmin\Controllers\Table\OperationsController;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\OperationsController
  */
-#[\PHPUnit\Framework\Attributes\CoversClass(\PhpMyAdmin\Controllers\Table\OperationsController::class)]
+#[CoversClass(OperationsController::class)]
 class OperationsControllerTest extends AbstractTestCase
 {
     public function testOperationsController(): void
