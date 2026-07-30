@@ -6,8 +6,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
 
-use function preg_match;
-
 use const DIRECTORY_SEPARATOR;
 use const E_COMPILE_ERROR;
 use const E_COMPILE_WARNING;
@@ -125,7 +123,7 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetHash(): void
     {
-        self::assertSame(1, preg_match('/^([a-z0-9]*)$/', $this->object->getHash()));
+        self::assertMatchesRegularExpressionCompat('/^([a-z0-9]*)$/', $this->object->getHash());
     }
 
     public function testGetBacktraceDisplay(): void

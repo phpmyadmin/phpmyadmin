@@ -9,8 +9,6 @@ use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use TCPDF;
 
-use function preg_match;
-
 /**
  * @covers \PhpMyAdmin\Gis\GisGeometryCollection
  */
@@ -321,7 +319,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        self::assertSame(1, preg_match($output, $string));
+        self::assertMatchesRegularExpressionCompat($output, $string);
 
         self::assertMatchesRegularExpressionCompat(
             $output,
