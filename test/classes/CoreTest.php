@@ -334,22 +334,22 @@ class CoreTest extends AbstractNetworkTestCase
         Core::fatalError('FatalError!');
     }
 
-    /**
-     * Test for Core::fatalError
-     */
     public function testFatalErrorMessageWithArgs(): void
     {
         $_REQUEST = [];
         ResponseRenderer::getInstance()->setAjax(false);
 
         $message = 'Fatal error #%d in file %s.';
-        $params = [
-            1,
-            'error_file.php',
-        ];
+        $params = [1, 'error_file.php'];
 
         $this->expectOutputRegex('/Fatal error #1 in file error_file.php./');
         Core::fatalError($message, $params);
+    }
+
+    public function testFatalErrorMessageWithSingleArg(): void
+    {
+        $_REQUEST = [];
+        ResponseRenderer::getInstance()->setAjax(false);
 
         $message = 'Fatal error in file %s.';
         $params = 'error_file.php';
