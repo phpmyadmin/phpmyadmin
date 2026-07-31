@@ -6,10 +6,15 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Large;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\Pdf\PdfRelationSchema
+ * @large
  */
+#[CoversClass(PdfRelationSchema::class)]
+#[Large]
 class PdfRelationSchemaTest extends AbstractTestCase
 {
     /** @var PdfRelationSchema */
@@ -57,8 +62,6 @@ class PdfRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for construct
-     *
-     * @group large
      */
     public function testConstructor(): void
     {

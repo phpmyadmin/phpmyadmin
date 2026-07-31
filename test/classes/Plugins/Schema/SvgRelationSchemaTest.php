@@ -6,11 +6,18 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\Svg\SvgRelationSchema
  * @requires extension xmlwriter
+ * @medium
  */
+#[RequiresPhpExtension('xmlwriter')]
+#[CoversClass(SvgRelationSchema::class)]
+#[Medium]
 class SvgRelationSchemaTest extends AbstractTestCase
 {
     /** @var SvgRelationSchema */
@@ -58,8 +65,6 @@ class SvgRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for construct
-     *
-     * @group medium
      */
     public function testConstructor(): void
     {

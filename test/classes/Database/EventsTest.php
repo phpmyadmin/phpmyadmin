@@ -9,10 +9,15 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Database\Events
  */
+#[CoversClass(Events::class)]
+#[AllowMockObjectsWithoutExpectations]
 class EventsTest extends AbstractTestCase
 {
     /** @var Events */
@@ -49,6 +54,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetDataFromRequest
      */
+    #[DataProvider('providerGetDataFromRequest')]
     public function testGetDataFromRequestEmpty(array $in, array $out): void
     {
         unset($_POST);
@@ -148,6 +154,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormAdd
      */
+    #[DataProvider('providerGetEditorFormAdd')]
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(false);
@@ -200,6 +207,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormEdit
      */
+    #[DataProvider('providerGetEditorFormEdit')]
     public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(false);
@@ -252,6 +260,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormAjax
      */
+    #[DataProvider('providerGetEditorFormAjax')]
     public function testGetEditorFormAjax(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
@@ -299,6 +308,7 @@ class EventsTest extends AbstractTestCase
      *
      * @dataProvider providerGetQueryFromRequest
      */
+    #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(array $request, string $query, int $num_err): void
     {
         global $errors;
@@ -308,12 +318,8 @@ class EventsTest extends AbstractTestCase
         unset($_POST);
         $_POST = $request;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         self::assertSame($query, $this->events->getQueryFromRequest());

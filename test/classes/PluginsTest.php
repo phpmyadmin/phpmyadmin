@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Plugins;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function extension_loaded;
 
 /**
  * @covers \PhpMyAdmin\Plugins
  */
+#[CoversClass(Plugins::class)]
 class PluginsTest extends AbstractTestCase
 {
     public function testGetExport(): void
@@ -52,6 +55,7 @@ class PluginsTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetDefault
      */
+    #[DataProvider('providerForTestGetDefault')]
     public function testGetDefault(
         string $expected,
         $actualConfig,

@@ -16,6 +16,8 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 use ReflectionException;
 
@@ -24,6 +26,8 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Controllers\Database\StructureController
  */
+#[CoversClass(StructureController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class StructureControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
@@ -61,20 +65,13 @@ class StructureControllerTest extends AbstractTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $table = $this->createMock(Table::class);
         // Expect the table will have 6 rows
-        $table->expects($this->any())->method('getRealRowCountTable')
-            ->will($this->returnValue(6));
-        $table->expects($this->any())->method('countRecords')
-            ->will($this->returnValue(6));
+        $table->method('getRealRowCountTable')->willReturn(6);
+        $table->method('countRecords')->willReturn(6);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())->method('getTable')
-            ->will($this->returnValue($table));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('getTable')->willReturn($table);
 
         $GLOBALS['dbi'] = $dbi;
 

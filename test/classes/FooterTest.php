@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests;
 use ArrayIterator;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
 use function json_encode;
@@ -15,7 +17,10 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Footer
+ * @medium
  */
+#[CoversClass(Footer::class)]
+#[Medium]
 class FooterTest extends AbstractTestCase
 {
     /** @var array store private attributes of PhpMyAdmin\Footer */
@@ -63,8 +68,6 @@ class FooterTest extends AbstractTestCase
 
     /**
      * Test for getDebugMessage
-     *
-     * @group medium
      */
     public function testGetDebugMessage(): void
     {
@@ -134,8 +137,6 @@ class FooterTest extends AbstractTestCase
 
     /**
      * Test for displaying footer
-     *
-     * @group medium
      */
     public function testDisplay(): void
     {

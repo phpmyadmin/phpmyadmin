@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests\Controllers\Database\MultiTableQuery;
 
 use PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController
  */
+#[CoversClass(TablesController::class)]
 class TablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

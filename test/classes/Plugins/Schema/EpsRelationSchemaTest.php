@@ -6,10 +6,15 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\Eps\EpsRelationSchema
+ * @medium
  */
+#[CoversClass(EpsRelationSchema::class)]
+#[Medium]
 class EpsRelationSchemaTest extends AbstractTestCase
 {
     /** @var EpsRelationSchema */
@@ -54,8 +59,6 @@ class EpsRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for construct
-     *
-     * @group medium
      */
     public function testConstructor(): void
     {
@@ -69,8 +72,6 @@ class EpsRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setPageNumber
-     *
-     * @group medium
      */
     public function testSetPageNumber(): void
     {

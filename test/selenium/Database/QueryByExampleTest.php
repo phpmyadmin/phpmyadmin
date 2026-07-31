@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use PHPUnit\Framework\Attributes\CoversNothing;
 
 use function trim;
 
 /**
  * @coversNothing
  */
+#[CoversNothing]
 class QueryByExampleTest extends TestBase
 {
     /**

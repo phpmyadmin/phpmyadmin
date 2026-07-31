@@ -11,6 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
 use function __;
@@ -18,6 +19,7 @@ use function __;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\DatabasesController
  */
+#[CoversClass(DatabasesController::class)]
 class DatabasesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

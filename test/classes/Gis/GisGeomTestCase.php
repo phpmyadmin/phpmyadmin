@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Tests\Gis;
 use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * Abstract parent class for all Gis<Geom_type> test classes
@@ -28,6 +29,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
      *
      * @dataProvider providerForTestGenerateParams
      */
+    #[DataProvider('providerForTestGenerateParams')]
     public function testGenerateParams(string $wkt, ?int $index, array $params): void
     {
         if ($index === null) {
@@ -49,6 +51,7 @@ abstract class GisGeomTestCase extends AbstractTestCase
      *
      * @dataProvider providerForTestScaleRow
      */
+    #[DataProvider('providerForTestScaleRow')]
     public function testScaleRow(string $spatial, array $min_max): void
     {
         self::assertEquals($min_max, $this->object->scaleRow($spatial));

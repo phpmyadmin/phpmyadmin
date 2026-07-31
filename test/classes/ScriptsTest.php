@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
 use function rawurlencode;
@@ -15,6 +16,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Scripts
  */
+#[CoversClass(Scripts::class)]
 class ScriptsTest extends AbstractTestCase
 {
     /** @var Scripts */

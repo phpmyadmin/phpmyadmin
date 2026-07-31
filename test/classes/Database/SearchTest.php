@@ -8,10 +8,13 @@ use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Database\Search
  */
+#[CoversClass(Search::class)]
 class SearchTest extends AbstractTestCase
 {
     /** @var Search */
@@ -30,21 +33,16 @@ class SearchTest extends AbstractTestCase
         $GLOBALS['_POST'] = [];
 
         //mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects($this->any())
-            ->method('getColumns')
+        $dbi->method('getColumns')
             ->with('pma', 'table1')
-            ->will($this->returnValue([
+            ->willReturn([
                 ['Field' => 'column1'],
                 ['Field' => 'column2'],
-            ]));
+            ]);
 
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object = new Search($dbi, 'pma_test', new Template());
@@ -68,6 +66,7 @@ class SearchTest extends AbstractTestCase
      *
      * @dataProvider searchTypes
      */
+    #[DataProvider('searchTypes')]
     public function testGetWhereClause(string $type, string $expected): void
     {
         $_POST['criteriaSearchType'] = $type;

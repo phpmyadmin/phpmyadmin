@@ -6,11 +6,15 @@ namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Image\ImageWrapper;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use TCPDF;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisPoint
  */
+#[CoversClass(GisPoint::class)]
 class GisPointTest extends GisGeomTestCase
 {
     /** @var    GisPoint */
@@ -99,6 +103,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @dataProvider providerForTestGetShape
      */
+    #[DataProvider('providerForTestGetShape')]
     public function testGetShape(array $row_data, string $shape): void
     {
         self::assertSame($this->object->getShape($row_data), $shape);
@@ -182,6 +187,7 @@ class GisPointTest extends GisGeomTestCase
     /**
      * @requires extension gd
      */
+    #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
@@ -208,6 +214,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
+    #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -253,6 +260,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
+    #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -303,6 +311,7 @@ class GisPointTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsOl
      */
+    #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,

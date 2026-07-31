@@ -6,12 +6,15 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Operations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function array_merge;
 
 /**
  * @covers \PhpMyAdmin\Operations
  */
+#[CoversClass(Operations::class)]
 class OperationsTest extends AbstractTestCase
 {
     /** @var Operations */
@@ -29,6 +32,7 @@ class OperationsTest extends AbstractTestCase
     /**
      * @dataProvider providerGetPartitionMaintenanceChoices
      */
+    #[DataProvider('providerGetPartitionMaintenanceChoices')]
     public function testGetPartitionMaintenanceChoices(string $tableName, array $extraChoice): void
     {
         global $db, $table;

@@ -13,6 +13,8 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -24,8 +26,10 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportXml
- * @group medium
+ * @medium
  */
+#[Medium]
+#[CoversClass(ExportXml::class)]
 class ExportXmlTest extends AbstractTestCase
 {
     /** @var ExportXml */
@@ -59,9 +63,6 @@ class ExportXmlTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * @group medium
-     */
     public function testSetProperties(): void
     {
         $method = new ReflectionMethod(ExportXml::class, 'setProperties');
@@ -147,9 +148,6 @@ class ExportXmlTest extends AbstractTestCase
         self::assertInstanceOf(BoolPropertyItem::class, $property);
     }
 
-    /**
-     * @group medium
-     */
     public function testExportHeader(): void
     {
         $GLOBALS['xml_export_functions'] = 1;
@@ -177,9 +175,7 @@ class ExportXmlTest extends AbstractTestCase
                 '"tbl"',
             ],
         ];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->exactly(3))
             ->method('fetchResult')
@@ -188,16 +184,7 @@ class ExportXmlTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getTriggers')
             ->with('d<"b', 'table')
-            ->will(
-                $this->returnValue(
-                    [
-                        [
-                            'create' => 'crt',
-                            'name' => 'trname',
-                        ],
-                    ]
-                )
-            );
+            ->willReturn([['create' => 'crt', 'name' => 'trname']]);
 
         $dbi->expects($this->exactly(2))
             ->method('getProceduresOrFunctions')
@@ -212,9 +199,8 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'd<"b', $dbi)));
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturn(new Table('table', 'd<"b', $dbi));
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -257,9 +243,7 @@ class ExportXmlTest extends AbstractTestCase
         unset($GLOBALS['xml_export_procedures']);
         $GLOBALS['output_charset_conversion'] = 0;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $result_1 = [
             [
@@ -286,9 +270,7 @@ class ExportXmlTest extends AbstractTestCase
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls($result_1, $result_2, ['table'], $result_3, []);
 
-        $dbi->expects($this->any())
-            ->method('getTable')
-            ->will($this->returnValue(new Table('table', 'd<"b', $dbi)));
+        $dbi->method('getTable')->willReturn(new Table('table', 'd<"b', $dbi));
 
         $GLOBALS['dbi'] = $dbi;
 

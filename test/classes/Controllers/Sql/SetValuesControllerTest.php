@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests\Controllers\Sql;
 
 use PhpMyAdmin\Controllers\Sql\SetValuesController;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Sql\SetValuesController
  */
+#[CoversClass(SetValuesController::class)]
 class SetValuesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

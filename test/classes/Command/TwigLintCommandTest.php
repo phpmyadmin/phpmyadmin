@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Command;
 
 use PhpMyAdmin\Command\TwigLintCommand;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\Console\Command\Command;
 use Twig\Error\SyntaxError;
 
@@ -21,6 +22,7 @@ use const TEST_PATH;
 /**
  * @covers \PhpMyAdmin\Command\TwigLintCommand
  */
+#[CoversClass(TwigLintCommand::class)]
 class TwigLintCommandTest extends AbstractTestCase
 {
     /** @var TwigLintCommand */

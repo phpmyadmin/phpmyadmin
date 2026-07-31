@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
+
 /**
  * @coversNothing
+ * @large
  */
+#[CoversNothing]
+#[Large]
 class ImportTest extends TestBase
 {
     /**
      * Test for server level import
-     *
-     * @group large
      */
     public function testServerImport(): void
     {
@@ -31,8 +35,6 @@ class ImportTest extends TestBase
 
     /**
      * Test for db level import
-     *
-     * @group large
      */
     public function testDbImport(): void
     {
@@ -53,8 +55,6 @@ class ImportTest extends TestBase
 
     /**
      * Test for table level import
-     *
-     * @group large
      */
     public function testTableImport(): void
     {

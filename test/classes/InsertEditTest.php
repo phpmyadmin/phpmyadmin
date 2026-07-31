@@ -13,6 +13,10 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 use stdClass;
 
@@ -34,8 +38,11 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\InsertEdit
- * @group medium
+ * @medium
  */
+#[Medium]
+#[CoversClass(InsertEdit::class)]
+#[AllowMockObjectsWithoutExpectations]
 class InsertEditTest extends AbstractTestCase
 {
     /** @var InsertEdit */
@@ -218,9 +225,7 @@ class InsertEditTest extends AbstractTestCase
         $resultStub1 = $this->createMock(DummyResult::class);
         $resultStub2 = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->exactly(2))
             ->method('query')
@@ -228,18 +233,14 @@ class InsertEditTest extends AbstractTestCase
 
         $resultStub1->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue(['assoc1']));
+            ->willReturn(['assoc1']);
 
         $resultStub2->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue(['assoc2']));
+            ->willReturn(['assoc2']);
 
         $dbi->expects($this->exactly(2))
-            ->method('getFieldsMeta')
-            ->willReturnOnConsecutiveCalls(
-                [],
-                []
-            );
+            ->method('getFieldsMeta')->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -281,16 +282,14 @@ class InsertEditTest extends AbstractTestCase
         $temp->table = 'table';
         $meta_arr = [new FieldMetadata(MYSQLI_TYPE_DECIMAL, MYSQLI_PRI_KEY_FLAG, $temp)];
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($meta_arr));
+            ->willReturn($meta_arr);
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -387,22 +386,21 @@ class InsertEditTest extends AbstractTestCase
      *
      * @dataProvider dataProviderConfigValueInsertRows
      */
+    #[DataProvider('dataProviderConfigValueInsertRows')]
     public function testLoadFirstRow($configValue, array $rowsValue): void
     {
         $GLOBALS['cfg']['InsertRows'] = $configValue;
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('query')
             ->with(
                 'SELECT * FROM `db`.`table` LIMIT 1;'
             )
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -1432,9 +1430,7 @@ class InsertEditTest extends AbstractTestCase
         ], $result);
 
         // Case 3 (bit)
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -1532,6 +1528,7 @@ class InsertEditTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetSpecialCharsAndBackupFieldForInsertingMode
      */
+    #[DataProvider('providerForTestGetSpecialCharsAndBackupFieldForInsertingMode')]
     public function testGetSpecialCharsAndBackupFieldForInsertingMode(
         array $column,
         array $expected
@@ -1727,23 +1724,21 @@ class InsertEditTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT * FROM `db`.`table` WHERE `a` > 2 LIMIT 1;')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('fetchRow')
-            ->will($this->returnValue($row));
+            ->willReturn($row);
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($meta_arr));
+            ->willReturn($meta_arr);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['db'] = 'db';
@@ -1872,13 +1867,11 @@ class InsertEditTest extends AbstractTestCase
             Warning::fromArray(['Level' => 'Warning', 'Code' => '1002', 'Message' => 'Message 2']),
         ];
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('getWarnings')
-            ->will($this->returnValue($warnings));
+            ->willReturn($warnings);
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -1905,25 +1898,23 @@ class InsertEditTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with(
                 'SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1 LIMIT 1'
             )
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue('2'));
+            ->willReturn('2');
 
         $resultStub->expects($this->once())
             ->method('fetchValue')
             ->with(0)
-            ->will($this->returnValue('2'));
+            ->willReturn('2');
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -2640,9 +2631,7 @@ class InsertEditTest extends AbstractTestCase
         $_POST['where_clause'] = [];
         $_POST['where_clause'][0] = 1;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $resultStub = $this->createMock(DummyResult::class);
 
@@ -2655,12 +2644,10 @@ class InsertEditTest extends AbstractTestCase
         $meta2 = new FieldMetadata(MYSQLI_TYPE_TINY, 0, (object) []);
         $meta3 = new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) []);
         $dbi->expects($this->exactly(3))
-            ->method('getFieldsMeta')
-            ->will($this->onConsecutiveCalls([$meta1], [$meta2], [$meta3]));
+            ->method('getFieldsMeta')->willReturnOnConsecutiveCalls([$meta1], [$meta2], [$meta3]);
 
         $resultStub->expects($this->exactly(3))
-            ->method('fetchValue')
-            ->will($this->onConsecutiveCalls(false, '123', '2013-08-28 06:34:14'));
+            ->method('fetchValue')->willReturnOnConsecutiveCalls(false, '123', '2013-08-28 06:34:14');
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -2685,9 +2672,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetTableColumns(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('selectDb')
@@ -2696,10 +2681,10 @@ class InsertEditTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table')
-            ->will($this->returnValue([
+            ->willReturn([
                 ['a' => 'b', 'c' => 'd'],
                 ['e' => 'f', 'g' => 'h'],
-            ]));
+            ]);
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -2717,15 +2702,13 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testDetermineInsertOrEdit(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
         $dbi->expects($this->exactly(2))
             ->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $GLOBALS['dbi'] = $dbi;
         $_POST['where_clause'] = '1';
@@ -2796,31 +2779,14 @@ class InsertEditTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['ShowPropertyComments'] = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('db', 'table', true)
-            ->will(
-                $this->returnValue(
-                    [
-                        [
-                            'Comment' => 'b',
-                            'Field' => 'd',
-                        ],
-                    ]
-                )
-            );
+            ->willReturn([['Comment' => 'b', 'Field' => 'd']]);
 
-        $dbi->expects($this->any())
-            ->method('getTable')
-            ->will(
-                $this->returnValue(
-                    new Table('table', 'db')
-                )
-            );
+        $dbi->method('getTable')->willReturn(new Table('table', 'db'));
 
         $GLOBALS['dbi'] = $dbi;
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -2869,9 +2835,7 @@ class InsertEditTest extends AbstractTestCase
         ];
 
         $resultStub = $this->createMock(DummyResult::class);
-        $resultStub->expects($this->any())
-            ->method('getFieldsMeta')
-            ->will($this->returnValue([new FieldMetadata(0, 0, (object) ['length' => -1])]));
+        $resultStub->method('getFieldsMeta')->willReturn([new FieldMetadata(0, 0, (object) ['length' => -1])]);
 
         // Test w/ input transformation
         $actual = $this->callFunction(
@@ -3026,9 +2990,7 @@ class InsertEditTest extends AbstractTestCase
         ];
 
         $resultStub = $this->createMock(DummyResult::class);
-        $resultStub->expects($this->any())
-            ->method('getFieldsMeta')
-            ->will($this->returnValue([new FieldMetadata(0, 0, (object) ['length' => -1])]));
+        $resultStub->method('getFieldsMeta')->willReturn([new FieldMetadata(0, 0, (object) ['length' => -1])]);
 
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],
@@ -3102,13 +3064,12 @@ class InsertEditTest extends AbstractTestCase
         ];
 
         $resultStub = $this->createMock(DummyResult::class);
-        $resultStub->expects($this->any())
-            ->method('getFieldsMeta')
-            ->will($this->returnValue([
+        $resultStub->method('getFieldsMeta')
+            ->willReturn([
                 new FieldMetadata(0, 0, (object) ['length' => -1]),
                 new FieldMetadata(0, 0, (object) ['length' => -1]),
                 new FieldMetadata(0, 0, (object) ['length' => -1]),
-            ]));
+            ]);
 
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],

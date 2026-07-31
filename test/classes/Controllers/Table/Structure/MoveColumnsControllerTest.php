@@ -8,6 +8,8 @@ use PhpMyAdmin\Controllers\Table\Structure\MoveColumnsController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionClass;
 
 use function preg_replace;
@@ -17,6 +19,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\Structure\MoveColumnsController
  */
+#[CoversClass(MoveColumnsController::class)]
 class MoveColumnsControllerTest extends AbstractTestCase
 {
     /**
@@ -25,6 +28,7 @@ class MoveColumnsControllerTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGenerateAlterTableSql
      */
+    #[DataProvider('providerForTestGenerateAlterTableSql')]
     public function testGenerateAlterTableSql(string $createStatement, array $columnNames, ?string $expected): void
     {
         $class = new ReflectionClass(MoveColumnsController::class);

@@ -8,10 +8,12 @@ use PhpMyAdmin\Controllers\Database\Structure\RealRowCountController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Database\Structure\RealRowCountController
  */
+#[CoversClass(RealRowCountController::class)]
 class RealRowCountControllerTest extends AbstractTestCase
 {
     public function testRealRowCount(): void

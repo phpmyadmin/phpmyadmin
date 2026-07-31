@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ZipExtension;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ZipArchive;
 
 use function file_put_contents;
@@ -15,6 +18,8 @@ use function unlink;
  * @covers \PhpMyAdmin\ZipExtension
  * @requires extension zip
  */
+#[RequiresPhpExtension('zip')]
+#[CoversClass(ZipExtension::class)]
 class ZipExtensionTest extends AbstractTestCase
 {
     /** @var ZipExtension */
@@ -35,6 +40,7 @@ class ZipExtensionTest extends AbstractTestCase
      *
      * @dataProvider provideTestGetContents
      */
+    #[DataProvider('provideTestGetContents')]
     public function testGetContents(string $file, ?string $specific_entry, $output): void
     {
         self::assertSame($this->zipExtension->getContents($file, $specific_entry), $output);
@@ -84,6 +90,7 @@ class ZipExtensionTest extends AbstractTestCase
      *
      * @dataProvider provideTestFindFile
      */
+    #[DataProvider('provideTestFindFile')]
     public function testFindFile(string $file, string $file_regexp, $output): void
     {
         self::assertSame($this->zipExtension->findFile($file, $file_regexp), $output);

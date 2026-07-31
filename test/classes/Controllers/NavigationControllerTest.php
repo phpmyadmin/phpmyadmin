@@ -6,12 +6,14 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\NavigationController;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function sprintf;
 
 /**
  * @covers \PhpMyAdmin\Controllers\NavigationController
  */
+#[CoversClass(NavigationController::class)]
 class NavigationControllerTest extends AbstractTestCase
 {
     public function testIndex(): void

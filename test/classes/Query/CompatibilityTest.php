@@ -7,16 +7,20 @@ namespace PhpMyAdmin\Tests\Query;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Query\Compatibility;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \PhpMyAdmin\Query\Compatibility
  */
+#[CoversClass(Compatibility::class)]
 class CompatibilityTest extends TestCase
 {
     /**
      * @dataProvider providerForTestHasAccountLocking
      */
+    #[DataProvider('providerForTestHasAccountLocking')]
     public function testHasAccountLocking(bool $expected, bool $isMariaDb, int $version): void
     {
         self::assertSame($expected, Compatibility::hasAccountLocking($isMariaDb, $version));
@@ -41,6 +45,7 @@ class CompatibilityTest extends TestCase
     /**
      * @dataProvider providerForTestIsUUIDSupported
      */
+    #[DataProvider('providerForTestIsUUIDSupported')]
     public function testIsUUIDSupported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);
@@ -54,6 +59,7 @@ class CompatibilityTest extends TestCase
     /**
      * @dataProvider providerForTestIsUUIDv4Supported
      */
+    #[DataProvider('providerForTestIsUUIDv4Supported')]
     public function testIsUUIDv4Supported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);
@@ -67,6 +73,7 @@ class CompatibilityTest extends TestCase
     /**
      * @dataProvider providerForTestIsUUIDv7Supported
      */
+    #[DataProvider('providerForTestIsUUIDv7Supported')]
     public function testIsUUIDv7Supported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);
@@ -94,6 +101,7 @@ class CompatibilityTest extends TestCase
     /**
      * @dataProvider providerForTestIsVectorSupported
      */
+    #[DataProvider('providerForTestIsVectorSupported')]
     public function testIsVectorSupported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);
@@ -119,6 +127,7 @@ class CompatibilityTest extends TestCase
     /**
      * @dataProvider providerForTestIsXmlTypeSupported
      */
+    #[DataProvider('providerForTestIsXmlTypeSupported')]
     public function testIsXmlTypeSupported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);
@@ -174,6 +183,7 @@ class CompatibilityTest extends TestCase
     /**
      * @dataProvider providerForTestIsJsonSupported
      */
+    #[DataProvider('providerForTestIsJsonSupported')]
     public function testIsJsonSupported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);
@@ -199,6 +209,7 @@ class CompatibilityTest extends TestCase
     }
 
     /** @dataProvider showBinLogStatusProvider */
+    #[DataProvider('showBinLogStatusProvider')]
     public function testGetShowBinLogStatusStmt(string $serverName, int $version, string $expected): void
     {
         $dbal = self::createStub(DbalInterface::class);

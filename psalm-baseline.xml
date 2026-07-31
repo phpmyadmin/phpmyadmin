@@ -14313,9 +14313,22 @@
     </RedundantCast>
   </file>
   <file src="test/classes/AbstractNetworkTestCase.php">
-    <MixedAssignment occurrences="1">
+    <InternalMethod occurrences="1">
+      <code>getInvocationCount</code>
+    </InternalMethod>
+    <MissingClosureParamType occurrences="1">
+      <code>$parameters</code>
+    </MissingClosureParamType>
+    <MixedArrayOffset occurrences="1">
+      <code>$param[$numberOfInvocations - 1]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="2">
       <code>$http_response_code_param</code>
+      <code>$numberOfInvocations</code>
     </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$numberOfInvocations</code>
+    </MixedOperand>
   </file>
   <file src="test/classes/AbstractTestCase.php">
     <PossiblyUndefinedArrayOffset occurrences="5">
@@ -14560,6 +14573,9 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
+    <UnusedClosureParam occurrences="1">
+      <code>$errno</code>
+    </UnusedClosureParam>
   </file>
   <file src="test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php">
     <MixedArgument occurrences="1">
@@ -14707,30 +14723,27 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Controllers/Table/IndexesControllerTest.php">
-    <MixedMethodCall occurrences="2">
-      <code>method</code>
-      <code>will</code>
+    <MixedMethodCall occurrences="1">
+      <code>willReturn</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="1">
-      <code>expects</code>
+      <code>method</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/Controllers/Table/RelationControllerTest.php">
-    <MixedMethodCall occurrences="8">
+    <MixedMethodCall occurrences="6">
       <code>method</code>
       <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="4">
       <code>expects</code>
       <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
+      <code>method</code>
+      <code>method</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/Controllers/Table/ReplaceControllerTest.php">
@@ -14739,13 +14752,12 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Controllers/Table/SearchControllerTest.php">
-    <MixedMethodCall occurrences="3">
-      <code>method</code>
-      <code>will</code>
+    <MixedMethodCall occurrences="2">
+      <code>willReturn</code>
       <code>with</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="1">
-      <code>expects</code>
+      <code>method</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/CoreTest.php">
@@ -14836,7 +14848,7 @@
     <MixedAssignment occurrences="1">
       <code>$list_detail_cols</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="27">
+    <MixedMethodCall occurrences="24">
       <code>method</code>
       <code>method</code>
       <code>method</code>
@@ -14844,18 +14856,15 @@
       <code>method</code>
       <code>method</code>
       <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
       <code>willReturnOnConsecutiveCalls</code>
       <code>with</code>
       <code>with</code>
@@ -14876,9 +14885,9 @@
       <code>expects</code>
       <code>expects</code>
       <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/Database/EventsTest.php">
@@ -15033,12 +15042,6 @@
     <InvalidScalarArgument occurrences="1">
       <code>$_SESSION</code>
     </InvalidScalarArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <RedundantCondition occurrences="1">
-      <code>assertIsString</code>
-    </RedundantCondition>
   </file>
   <file src="test/classes/ErrorReportTest.php">
     <PossiblyInvalidArgument occurrences="1">
@@ -15388,6 +15391,12 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
+  <file src="test/classes/Navigation/NodeFactoryTest.php">
+    <UnusedClosureParam occurrences="2">
+      <code>$errno</code>
+      <code>$errno</code>
+    </UnusedClosureParam>
+  </file>
   <file src="test/classes/Navigation/Nodes/NodeColumnContainerTest.php">
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertIsArray</code>
@@ -15407,7 +15416,7 @@
     </MixedAssignment>
     <MixedMethodCall occurrences="2">
       <code>method</code>
-      <code>will</code>
+      <code>willReturn</code>
     </MixedMethodCall>
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;object</code>
@@ -15660,9 +15669,6 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Plugins/Export/ExportOdsTest.php">
-    <InternalMethod occurrences="1">
-      <code>setOutputCallback</code>
-    </InternalMethod>
     <MixedAssignment occurrences="2">
       <code>$property</code>
       <code>$property</code>
@@ -15672,9 +15678,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Plugins/Export/ExportOdtTest.php">
-    <InternalMethod occurrences="1">
-      <code>setOutputCallback</code>
-    </InternalMethod>
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['foo_columns']</code>
     </InvalidArrayOffset>
@@ -15925,7 +15928,7 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$this-&gt;serverPrivileges-&gt;extractPrivInfo(null, true)</code>
     </MixedArgumentTypeCoercion>
-    <MixedMethodCall occurrences="21">
+    <MixedMethodCall occurrences="15">
       <code>getMessage</code>
       <code>getMessage</code>
       <code>getMessage</code>
@@ -15935,29 +15938,23 @@
       <code>getMessage</code>
       <code>getMessage</code>
       <code>getMessage</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
     </MixedMethodCall>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertNull</code>
     </RedundantConditionGivenDocblockType>
     <UndefinedMethod occurrences="6">
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
     </UndefinedMethod>
     <UnusedVariable occurrences="4">
       <code>$password</code>
@@ -16014,31 +16011,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <NoInterfaceProperties occurrences="3">
-      <code>$this-&gt;object-&gt;support</code>
-      <code>$this-&gt;object-&gt;support</code>
-      <code>$this-&gt;object-&gt;support</code>
-    </NoInterfaceProperties>
-    <PossiblyUndefinedMethod occurrences="18">
-      <code>getArray</code>
-      <code>getComment</code>
-      <code>getInfoPages</code>
-      <code>getMysqlHelpPage</code>
-      <code>getPage</code>
-      <code>getStorageEngines</code>
-      <code>getSupportInformationMessage</code>
-      <code>getSupportInformationMessage</code>
-      <code>getSupportInformationMessage</code>
-      <code>getSupportInformationMessage</code>
-      <code>getTitle</code>
-      <code>getVariables</code>
-      <code>getVariablesLikePattern</code>
-      <code>isValid</code>
-      <code>isValid</code>
-      <code>isValid</code>
-      <code>isValid</code>
-      <code>resolveTypeSize</code>
-    </PossiblyUndefinedMethod>
   </file>
   <file src="test/classes/Stubs/DbiDummy.php">
     <MixedArgument occurrences="3">
@@ -16094,12 +16066,11 @@
     <MixedArgument occurrences="1">
       <code>$jsonArray['sql_data']</code>
     </MixedArgument>
-    <MixedMethodCall occurrences="2">
-      <code>method</code>
-      <code>will</code>
+    <MixedMethodCall occurrences="1">
+      <code>willReturn</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="1">
-      <code>expects</code>
+      <code>method</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/TableTest.php">
@@ -16117,18 +16088,15 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <MixedMethodCall occurrences="6">
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
+    <MixedMethodCall occurrences="3">
+      <code>willReturn</code>
+      <code>willReturnMap</code>
+      <code>willReturnMap</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="3">
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/TemplateTest.php">
@@ -16191,8 +16159,7 @@
     </MixedArgument>
   </file>
   <file src="test/classes/TypesTest.php">
-    <MixedInferredReturnType occurrences="5">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="4">
       <code>array</code>
       <code>array</code>
       <code>array</code>
@@ -16331,9 +16298,6 @@
     <MixedArrayAccess occurrences="1">
       <code>$_SESSION['cache']['version_check']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$returnValues[]</code>
-    </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>

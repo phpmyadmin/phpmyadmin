@@ -40501,28 +40501,13 @@ parameters:
 			path: show_config_errors.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 1
-			path: test/classes/AbstractNetworkTestCase.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
+			message: "#^Call to function method_exists\\(\\) with PHPUnit\\\\Framework\\\\MockObject\\\\Rule\\\\InvokedCount and 'numberOfInvocations' will always evaluate to false\\.$#"
 			count: 1
 			path: test/classes/AbstractNetworkTestCase.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 2
-			path: test/classes/AbstractNetworkTestCase.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 1
-			path: test/classes/AbstractNetworkTestCase.php
-
-		-
-			message: "#^Parameter \\#2 \\$parameters of function call_user_func_array expects array\\<int, mixed\\>, array given\\.$#"
-			count: 1
 			path: test/classes/AbstractNetworkTestCase.php
 
 		-
@@ -40806,11 +40791,6 @@ parameters:
 			path: test/classes/Command/WriteGitRevisionCommandTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Command/WriteGitRevisionCommandTest.php
-
-		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\) with false will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/CommonTest.php
@@ -40922,11 +40902,6 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Config/FormDisplayTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Config/FormDisplayTest.php
 
@@ -41166,16 +41141,6 @@ parameters:
 			path: test/classes/Config/SettingsTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:equalTo\\(\\)\\.$#"
-			count: 32
-			path: test/classes/ConfigStorage/RelationCleanupTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 4
-			path: test/classes/ConfigStorage/RelationCleanupTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:never\\(\\)\\.$#"
 			count: 4
 			path: test/classes/ConfigStorage/RelationCleanupTest.php
@@ -41321,21 +41286,6 @@ parameters:
 			path: test/classes/ConfigStorage/RelationTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 4
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:onConsecutiveCalls\\(\\)\\.$#"
-			count: 1
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 3
-			path: test/classes/ConfigStorage/RelationTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\ConfigStorage\\\\Relation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/ConfigStorage/RelationTest.php
@@ -41346,37 +41296,12 @@ parameters:
 			path: test/classes/ConfigStorage/RelationTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:equalTo\\(\\)\\.$#"
-			count: 2
-			path: test/classes/ConfigStorage/UserGroupsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 2
-			path: test/classes/ConfigStorage/UserGroupsTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 2
-			path: test/classes/ConfigStorage/UserGroupsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
-			count: 3
-			path: test/classes/ConfigStorage/UserGroupsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 2
-			path: test/classes/ConfigStorage/UserGroupsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnCallback\\(\\)\\.$#"
 			count: 1
 			path: test/classes/ConfigStorage/UserGroupsTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 3
 			path: test/classes/ConfigStorage/UserGroupsTest.php
 
@@ -41541,11 +41466,6 @@ parameters:
 			path: test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:onConsecutiveCalls\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php
@@ -41618,16 +41538,6 @@ parameters:
 		-
 			message: "#^Cannot use array destructuring on mixed\\.$#"
 			count: 8
-			path: test/classes/Controllers/Database/StructureControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 3
-			path: test/classes/Controllers/Database/StructureControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 3
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
 		-
@@ -41901,17 +41811,7 @@ parameters:
 			path: test/classes/Controllers/Server/PluginsControllerTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:onConsecutiveCalls\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/PluginsControllerTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/PluginsControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/PluginsControllerTest.php
 
@@ -42261,22 +42161,12 @@ parameters:
 			path: test/classes/Controllers/Server/VariablesControllerTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/VariablesControllerTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/VariablesControllerTest.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Controllers/Server/VariablesControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValueMap\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Controllers/Server/VariablesControllerTest.php
 
@@ -42313,21 +42203,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/FindReplaceControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 3
-			path: test/classes/Controllers/Table/FindReplaceControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/FindReplaceControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 2
 			path: test/classes/Controllers/Table/FindReplaceControllerTest.php
 
 		-
@@ -42381,28 +42256,13 @@ parameters:
 			path: test/classes/Controllers/Table/IndexesControllerTest.php
 
 		-
-			message: "#^Cannot call method expects\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/IndexesControllerTest.php
-
-		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/IndexesControllerTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/IndexesControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 5
-			path: test/classes/Controllers/Table/IndexesControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 5
 			path: test/classes/Controllers/Table/IndexesControllerTest.php
 
 		-
@@ -42472,7 +42332,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method expects\\(\\) on mixed\\.$#"
-			count: 4
+			count: 2
 			path: test/classes/Controllers/Table/RelationControllerTest.php
 
 		-
@@ -42481,28 +42341,13 @@ parameters:
 			path: test/classes/Controllers/Table/RelationControllerTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 4
-			path: test/classes/Controllers/Table/RelationControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 8
 			path: test/classes/Controllers/Table/RelationControllerTest.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
 			count: 2
-			path: test/classes/Controllers/Table/RelationControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnCallback\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/RelationControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 9
 			path: test/classes/Controllers/Table/RelationControllerTest.php
 
 		-
@@ -42576,11 +42421,6 @@ parameters:
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-
-			message: "#^Cannot call method expects\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/SearchControllerTest.php
-
-		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/SearchControllerTest.php
@@ -42596,28 +42436,13 @@ parameters:
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-
 			message: "#^Cannot call method with\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 4
-			path: test/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Controllers/Table/SearchControllerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 3
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-
@@ -42867,7 +42692,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method expects\\(\\) on mixed\\.$#"
-			count: 10
+			count: 7
 			path: test/classes/Database/CentralColumnsTest.php
 
 		-
@@ -42876,7 +42701,7 @@ parameters:
 			path: test/classes/Database/CentralColumnsTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 9
 			path: test/classes/Database/CentralColumnsTest.php
 
@@ -42891,11 +42716,6 @@ parameters:
 			path: test/classes/Database/CentralColumnsTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 9
-			path: test/classes/Database/CentralColumnsTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Database/CentralColumnsTest.php
@@ -42903,16 +42723,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 6
-			path: test/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Database/CentralColumnsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 14
 			path: test/classes/Database/CentralColumnsTest.php
 
 		-
@@ -42936,11 +42746,6 @@ parameters:
 			path: test/classes/Database/Designer/CommonTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 7
-			path: test/classes/Database/Designer/CommonTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
 			count: 2
 			path: test/classes/Database/Designer/CommonTest.php
@@ -42948,16 +42753,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 5
-			path: test/classes/Database/Designer/CommonTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 7
-			path: test/classes/Database/Designer/CommonTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 4
 			path: test/classes/Database/Designer/CommonTest.php
 
 		-
@@ -42991,27 +42786,12 @@ parameters:
 			path: test/classes/Database/DesignerTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Database/DesignerTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Database/DesignerTest.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Database/DesignerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Database/DesignerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Database/DesignerTest.php
 
@@ -43032,16 +42812,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Database/EventsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Database/EventsTest.php
 
@@ -43106,16 +42876,6 @@ parameters:
 			path: test/classes/Database/EventsTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Database/QbeTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Database/QbeTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\ConfigStorage\\\\Relation constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Database/QbeTest.php
@@ -43153,16 +42913,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'ShowFunctionFields' on mixed\\.$#"
 			count: 2
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValueMap\\(\\)\\.$#"
-			count: 1
 			path: test/classes/Database/RoutinesTest.php
 
 		-
@@ -43274,21 +43024,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\Database\\\\Routines constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/Database/RoutinesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Database/SearchTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Database/SearchTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Database/SearchTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Database\\\\SearchTest\\:\\:searchTypes\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -43436,11 +43171,6 @@ parameters:
 			path: test/classes/DatabaseInterfaceTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 3
-			path: test/classes/DatabaseInterfaceTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\DatabaseInterfaceTest\\:\\:currentUserData\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/DatabaseInterfaceTest.php
@@ -43516,19 +43246,9 @@ parameters:
 			path: test/classes/Dbal/DbiDummyTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:equalTo\\(\\)\\.$#"
-			count: 3
-			path: test/classes/Dbal/DbiMysqliTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 7
 			path: test/classes/Dbal/DbiMysqliTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:equalTo\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Dbal/MysqliResultTest.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
@@ -43906,28 +43626,18 @@ parameters:
 			path: test/classes/ErrorHandlerTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with string will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/ErrorHandlerTest.php
-
-		-
 			message: "#^Cannot access offset 'SendErrorReports' on mixed\\.$#"
 			count: 2
 			path: test/classes/ErrorHandlerTest.php
 
 		-
 			message: "#^Cannot access offset 'environment' on mixed\\.$#"
-			count: 1
+			count: 2
 			path: test/classes/ErrorHandlerTest.php
 
 		-
 			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
 			count: 4
-			path: test/classes/ErrorHandlerTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\ErrorHandlerTest\\:\\:providerForTestHandleError\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
 			path: test/classes/ErrorHandlerTest.php
 
 		-
@@ -44083,16 +43793,6 @@ parameters:
 		-
 			message: "#^Cannot call method getCache\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Export/OptionsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 3
-			path: test/classes/Export/OptionsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 3
 			path: test/classes/Export/OptionsTest.php
 
 		-
@@ -45356,28 +45056,13 @@ parameters:
 			path: test/classes/InsertEditTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 4
-			path: test/classes/InsertEditTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
 			count: 6
 			path: test/classes/InsertEditTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:onConsecutiveCalls\\(\\)\\.$#"
-			count: 2
-			path: test/classes/InsertEditTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 14
-			path: test/classes/InsertEditTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 18
 			path: test/classes/InsertEditTest.php
 
 		-
@@ -45566,17 +45251,7 @@ parameters:
 			path: test/classes/Navigation/NavigationTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Navigation/NavigationTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Navigation/NavigationTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
 			count: 2
 			path: test/classes/Navigation/NavigationTest.php
 
@@ -45652,11 +45327,6 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Navigation/Nodes/NodeDatabaseChildTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Navigation/Nodes/NodeDatabaseChildTest.php
 
@@ -45816,11 +45486,6 @@ parameters:
 			path: test/classes/Navigation/Nodes/NodeTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 5
-			path: test/classes/Navigation/Nodes/NodeTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Navigation/Nodes/NodeTest.php
@@ -45828,16 +45493,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 8
-			path: test/classes/Navigation/Nodes/NodeTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 5
-			path: test/classes/Navigation/Nodes/NodeTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 3
 			path: test/classes/Navigation/Nodes/NodeTest.php
 
 		-
@@ -45927,21 +45582,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'ShowHint' on mixed\\.$#"
-			count: 1
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 6
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 5
-			path: test/classes/NormalizationTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValueMap\\(\\)\\.$#"
 			count: 1
 			path: test/classes/NormalizationTest.php
 
@@ -46141,11 +45781,6 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 16
-			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Plugins\\\\Auth\\\\AuthenticationCookieTest\\:\\:checkRulesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Plugins/Auth/AuthenticationCookieTest.php
@@ -46213,16 +45848,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
 			count: 8
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:onConsecutiveCalls\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 2
 			path: test/classes/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
@@ -46306,11 +45931,6 @@ parameters:
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
-
-		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
@@ -46318,11 +45938,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
 			count: 1
-			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 3
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
 
 		-
@@ -46338,16 +45953,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 16
-			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 3
-			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 17
 			path: test/classes/Plugins/Export/ExportHtmlwordTest.php
 
 		-
@@ -46401,17 +46006,7 @@ parameters:
 			path: test/classes/Plugins/Export/ExportLatexTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 12
-			path: test/classes/Plugins/Export/ExportLatexTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportMediawikiTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Plugins/Export/ExportMediawikiTest.php
 
@@ -46423,11 +46018,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 10
-			path: test/classes/Plugins/Export/ExportOdsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 11
 			path: test/classes/Plugins/Export/ExportOdsTest.php
 
 		-
@@ -46458,11 +46048,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 19
-			path: test/classes/Plugins/Export/ExportOdtTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 21
 			path: test/classes/Plugins/Export/ExportOdtTest.php
 
 		-
@@ -46511,13 +46096,8 @@ parameters:
 			path: test/classes/Plugins/Export/ExportSqlTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 26
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 9
+			count: 7
 			path: test/classes/Plugins/Export/ExportSqlTest.php
 
 		-
@@ -46528,21 +46108,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 29
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 16
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 39
-			path: test/classes/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValueMap\\(\\)\\.$#"
-			count: 1
 			path: test/classes/Plugins/Export/ExportSqlTest.php
 
 		-
@@ -46581,11 +46146,6 @@ parameters:
 			path: test/classes/Plugins/Export/ExportTexytextTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 5
-			path: test/classes/Plugins/Export/ExportTexytextTest.php
-
-		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 2
 			path: test/classes/Plugins/Export/ExportXmlTest.php
@@ -46611,11 +46171,6 @@ parameters:
 			path: test/classes/Plugins/Export/ExportXmlTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Plugins/Export/ExportXmlTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
 			count: 4
 			path: test/classes/Plugins/Export/ExportXmlTest.php
@@ -46623,16 +46178,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 2
-			path: test/classes/Plugins/Export/ExportXmlTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Plugins/Export/ExportXmlTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 3
 			path: test/classes/Plugins/Export/ExportXmlTest.php
 
 		-
@@ -46741,21 +46286,6 @@ parameters:
 			path: test/classes/Plugins/Import/ImportLdiTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 5
-			path: test/classes/Plugins/Import/ImportLdiTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Plugins/Import/ImportLdiTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 3
-			path: test/classes/Plugins/Import/ImportLdiTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 2
 			path: test/classes/Plugins/Import/ImportLdiTest.php
@@ -46856,16 +46386,6 @@ parameters:
 			path: test/classes/Plugins/Import/ImportXmlTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 4
-			path: test/classes/Plugins/Import/ImportXmlTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 4
-			path: test/classes/Plugins/Import/ImportXmlTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\File constructor expects bool\\|string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Plugins/Import/ImportXmlTest.php
@@ -46943,11 +46463,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:anything\\(\\)\\.$#"
 			count: 2
-			path: test/classes/Plugins/TwoFactor/WebAuthnTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:equalTo\\(\\)\\.$#"
-			count: 12
 			path: test/classes/Plugins/TwoFactor/WebAuthnTest.php
 
 		-
@@ -47166,16 +46681,6 @@ parameters:
 			path: test/classes/Server/PluginsTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:equalTo\\(\\)\\.$#"
-			count: 12
-			path: test/classes/Server/Privileges/AccountLockingTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 4
-			path: test/classes/Server/Privileges/AccountLockingTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:never\\(\\)\\.$#"
 			count: 8
 			path: test/classes/Server/Privileges/AccountLockingTest.php
@@ -47216,11 +46721,6 @@ parameters:
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
-			message: "#^Cannot call method expects\\(\\) on mixed\\.$#"
-			count: 6
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
 			message: "#^Cannot call method getMessage\\(\\) on mixed\\.$#"
 			count: 9
 			path: test/classes/Server/PrivilegesTest.php
@@ -47231,18 +46731,8 @@ parameters:
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 6
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:equalTo\\(\\)\\.$#"
-			count: 2
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 31
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
@@ -47252,32 +46742,12 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 5
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:onConsecutiveCalls\\(\\)\\.$#"
-			count: 3
+			count: 4
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 2
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 7
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnCallback\\(\\)\\.$#"
-			count: 1
-			path: test/classes/Server/PrivilegesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 22
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
@@ -47438,11 +46908,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 6
-			path: test/classes/Setup/FormProcessingTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 5
 			path: test/classes/Setup/FormProcessingTest.php
 
 		-
@@ -47831,16 +47296,6 @@ parameters:
 			path: test/classes/SystemDatabaseTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 2
-			path: test/classes/SystemDatabaseTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 2
-			path: test/classes/SystemDatabaseTest.php
-
-		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
 			count: 1
 			path: test/classes/Table/IndexesTest.php
@@ -47856,28 +47311,13 @@ parameters:
 			path: test/classes/Table/IndexesTest.php
 
 		-
-			message: "#^Cannot call method expects\\(\\) on mixed\\.$#"
-			count: 1
-			path: test/classes/Table/IndexesTest.php
-
-		-
 			message: "#^Cannot call method method\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Table/IndexesTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
 			count: 1
-			path: test/classes/Table/IndexesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 3
-			path: test/classes/Table/IndexesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 3
 			path: test/classes/Table/IndexesTest.php
 
 		-
@@ -47971,11 +47411,6 @@ parameters:
 			path: test/classes/TableTest.php
 
 		-
-			message: "#^Cannot call method expects\\(\\) on mixed\\.$#"
-			count: 3
-			path: test/classes/TableTest.php
-
-		-
 			message: "#^Cannot call method getCache\\(\\) on mixed\\.$#"
 			count: 2
 			path: test/classes/TableTest.php
@@ -47986,8 +47421,13 @@ parameters:
 			path: test/classes/TableTest.php
 
 		-
-			message: "#^Cannot call method will\\(\\) on mixed\\.$#"
-			count: 3
+			message: "#^Cannot call method willReturn\\(\\) on mixed\\.$#"
+			count: 1
+			path: test/classes/TableTest.php
+
+		-
+			message: "#^Cannot call method willReturnMap\\(\\) on mixed\\.$#"
+			count: 2
 			path: test/classes/TableTest.php
 
 		-
@@ -47996,28 +47436,8 @@ parameters:
 			path: test/classes/TableTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 19
-			path: test/classes/TableTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 2
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 1
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 15
-			path: test/classes/TableTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValueMap\\(\\)\\.$#"
-			count: 3
 			path: test/classes/TableTest.php
 
 		-
@@ -48106,16 +47526,6 @@ parameters:
 			path: test/classes/ThemeManagerTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 1
-			path: test/classes/ThemeManagerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 1
-			path: test/classes/ThemeManagerTest.php
-
-		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'PhpMyAdmin\\\\\\\\Theme' and PhpMyAdmin\\\\Theme will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/ThemeTest.php
@@ -48171,33 +47581,18 @@ parameters:
 			path: test/classes/TrackerTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 9
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:atLeast\\(\\)\\.$#"
+			count: 1
 			path: test/classes/TrackerTest.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 4
+			count: 3
 			path: test/classes/TrackerTest.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 4
-			path: test/classes/TrackerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 6
-			path: test/classes/TrackerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 9
-			path: test/classes/TrackerTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValueMap\\(\\)\\.$#"
-			count: 2
 			path: test/classes/TrackerTest.php
 
 		-
@@ -48337,16 +47732,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: test/classes/TransformationsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 1
-			path: test/classes/TransformationsTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
 			count: 1
 			path: test/classes/TransformationsTest.php
 
@@ -48551,11 +47936,6 @@ parameters:
 			path: test/classes/TypesByDatabaseVersionTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:providerForGetTypeOperators\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/TypesTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:providerForTestGetTypeDescription\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/TypesTest.php
@@ -48577,11 +47957,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:testGetFunctionsClass\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: test/classes/TypesTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Tests\\\\TypesTest\\:\\:testGetTypeOperators\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/TypesTest.php
 
@@ -48681,22 +48056,7 @@ parameters:
 			path: test/classes/UserPreferencesTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 3
-			path: test/classes/UserPreferencesTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
-			count: 6
-			path: test/classes/UserPreferencesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnArgument\\(\\)\\.$#"
-			count: 3
-			path: test/classes/UserPreferencesTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
 			count: 6
 			path: test/classes/UserPreferencesTest.php
 
@@ -48756,23 +48116,8 @@ parameters:
 			path: test/classes/UtilTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 6
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 4
-			path: test/classes/UtilTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 9
-			path: test/classes/UtilTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 15
 			path: test/classes/UtilTest.php
 
 		-
@@ -48911,11 +48256,6 @@ parameters:
 			path: test/classes/Utils/ForeignKeyTest.php
 
 		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
-			count: 5
-			path: test/classes/Utils/ForeignKeyTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Utils\\\\ForeignKeyTest\\:\\:providerCheckCleanup\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Utils/ForeignKeyTest.php
@@ -48957,11 +48297,6 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
-			count: 3
-			path: test/classes/Utils/GisTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
 			count: 3
 			path: test/classes/Utils/GisTest.php
 
@@ -49047,26 +48382,6 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'version_check' on mixed\\.$#"
-			count: 1
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:any\\(\\)\\.$#"
-			count: 1
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:atLeast\\(\\)\\.$#"
-			count: 2
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 2
-			path: test/classes/VersionInformationTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:returnValue\\(\\)\\.$#"
 			count: 1
 			path: test/classes/VersionInformationTest.php
 

@@ -11,6 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
 use const PHP_VERSION_ID;
@@ -18,6 +19,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Database\Designer
  */
+#[CoversClass(Designer::class)]
 class DesignerTest extends AbstractTestCase
 {
     /** @var Designer */
@@ -63,9 +65,7 @@ class DesignerTest extends AbstractTestCase
     {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
@@ -73,7 +73,7 @@ class DesignerTest extends AbstractTestCase
                 'SELECT `page_nr`, `page_descr` FROM `pmadb`.`pdf_pages`'
                 . " WHERE db_name = '" . $db . "' ORDER BY `page_descr`"
             )
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->exactly(3))
             ->method('fetchAssoc')
@@ -89,9 +89,7 @@ class DesignerTest extends AbstractTestCase
                 []
             );
 
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
     }

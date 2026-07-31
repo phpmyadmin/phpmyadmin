@@ -7,6 +7,10 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Console;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
 use function gmdate;
@@ -17,8 +21,11 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Header
- * @group medium
+ * @medium
  */
+#[Medium]
+#[CoversClass(Header::class)]
+#[CoversMethod(Core::class, 'getNoCacheHeaders')]
 class HeaderTest extends AbstractTestCase
 {
     /**
@@ -95,6 +102,7 @@ class HeaderTest extends AbstractTestCase
      *
      * @dataProvider getMessageProvider
      */
+    #[DataProvider('getMessageProvider')]
     public function testGetMessage(string $expected, ?string $current, $param, bool $hasSqlQuery): void
     {
         $GLOBALS['server'] = 1;
@@ -169,6 +177,7 @@ class HeaderTest extends AbstractTestCase
      * @covers \PhpMyAdmin\Core::getNoCacheHeaders
      * @dataProvider providerForTestGetHttpHeaders
      */
+    #[DataProvider('providerForTestGetHttpHeaders')]
     public function testGetHttpHeaders(
         $frameOptions,
         string $cspAllow,

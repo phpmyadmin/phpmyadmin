@@ -13,10 +13,14 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Export\Options
  */
+#[CoversClass(Options::class)]
+#[AllowMockObjectsWithoutExpectations]
 class OptionsTest extends AbstractTestCase
 {
     /** @var Options */
@@ -34,13 +38,9 @@ class OptionsTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'PMA';
 
-        $pmaconfig = $this->getMockBuilder(Config::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $pmaconfig = $this->createMock(Config::class);
 
-        $pmaconfig->expects($this->any())
-            ->method('getUserValue')
-            ->will($this->returnValue('user value for test'));
+        $pmaconfig->method('getUserValue')->willReturn('user value for test');
 
         $GLOBALS['config'] = $pmaconfig;
 
@@ -71,14 +71,10 @@ class OptionsTest extends AbstractTestCase
             'test_column1' => ['COLUMN_NAME' => 'test_column1'],
             'test_column2' => ['COLUMN_NAME' => 'test_column2'],
         ];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects($this->any())->method('getColumnsFull')
-            ->will($this->returnValue($columns_info));
-        $dbi->expects($this->any())->method('getCompatibilities')
-            ->will($this->returnValue([]));
+        $dbi->method('getColumnsFull')->willReturn($columns_info);
+        $dbi->method('getCompatibilities')->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
 

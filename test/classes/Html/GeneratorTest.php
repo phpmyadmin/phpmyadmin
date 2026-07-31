@@ -11,6 +11,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
 use function _pgettext;
@@ -20,7 +23,10 @@ use function urlencode;
 
 /**
  * @covers \PhpMyAdmin\Html\Generator
+ * @medium
  */
+#[CoversClass(Generator::class)]
+#[Medium]
 class GeneratorTest extends AbstractTestCase
 {
     /**
@@ -34,8 +40,6 @@ class GeneratorTest extends AbstractTestCase
 
     /**
      * Test for getDbLink
-     *
-     * @group medium
      */
     public function testGetDbLinkEmpty(): void
     {
@@ -45,8 +49,6 @@ class GeneratorTest extends AbstractTestCase
 
     /**
      * Test for getDbLink
-     *
-     * @group medium
      */
     public function testGetDbLinkNull(): void
     {
@@ -183,6 +185,7 @@ class GeneratorTest extends AbstractTestCase
      *
      * @dataProvider linksOrButtons
      */
+    #[DataProvider('linksOrButtons')]
     public function testLinkOrButton(array $params, int $limit, string $match): void
     {
         parent::setGlobalConfig();
@@ -431,6 +434,7 @@ class GeneratorTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetDefaultFunctionForField
      */
+    #[DataProvider('providerForTestGetDefaultFunctionForField')]
     public function testGetDefaultFunctionForField(
         array $field,
         bool $insertMode,

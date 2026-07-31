@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Types
  */
+#[CoversClass(Types::class)]
 class TypesTest extends AbstractTestCase
 {
     /** @var Types */
@@ -137,20 +140,17 @@ class TypesTest extends AbstractTestCase
      *
      * @param string       $type   Type of field
      * @param bool         $null   Whether field can be NULL
-     * @param string|array $output Expected output
+     * @param list<string> $output Expected output
      *
      * @dataProvider providerForGetTypeOperators
      */
-    public function testGetTypeOperators(string $type, bool $null, $output): void
+    #[DataProvider('providerForGetTypeOperators')]
+    public function testGetTypeOperators(string $type, bool $null, array $output): void
     {
         self::assertSame($output, $this->object->getTypeOperators($type, $null));
     }
 
-    /**
-     * data provider for testGetTypeOperators
-     *
-     * @return array data for testGetTypeOperators
-     */
+    /** @return array<array-key, array{string, bool, list<string>}> */
     public static function providerForGetTypeOperators(): array
     {
         return [
@@ -184,13 +184,25 @@ class TypesTest extends AbstractTestCase
                     'IS NULL',
                     'IS NOT NULL',
                 ],
+            ],
+            [
+                'int',
+                false,
                 [
-                    'int',
-                    false,
-                    [
-                        '=',
-                        '!=',
-                    ],
+                    '=',
+                    '>',
+                    '>=',
+                    '<',
+                    '<=',
+                    '!=',
+                    'LIKE',
+                    'LIKE %...%',
+                    'NOT LIKE',
+                    'NOT LIKE %...%',
+                    'IN (...)',
+                    'NOT IN (...)',
+                    'BETWEEN',
+                    'NOT BETWEEN',
                 ],
             ],
             [
@@ -236,6 +248,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetTypeOperatorsHtml
      */
+    #[DataProvider('providerForTestGetTypeOperatorsHtml')]
     public function testGetTypeOperatorsHtml(
         string $type,
         bool $null,
@@ -269,6 +282,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetTypeDescription
      */
+    #[DataProvider('providerForTestGetTypeDescription')]
     public function testGetTypeDescription(string $type): void
     {
         self::assertNotEquals('', $this->object->getTypeDescription($type));
@@ -342,6 +356,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
+    #[DataProvider('providerFortTestGetFunctionsClass')]
     public function testGetFunctionsClass(string $class, array $output): void
     {
         self::assertSame($output, $this->object->getFunctionsClass($class));
@@ -782,6 +797,7 @@ class TypesTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetTypeClass
      */
+    #[DataProvider('providerFortTestGetTypeClass')]
     public function testGetTypeClass(string $type, string $output): void
     {
         self::assertSame($output, $this->object->getTypeClass($type));

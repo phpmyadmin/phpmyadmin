@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Import;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function time;
 
@@ -13,6 +15,7 @@ use const PHP_INT_MAX;
 /**
  * @covers \PhpMyAdmin\Import
  */
+#[CoversClass(Import::class)]
 class ImportTest extends AbstractTestCase
 {
     /** @var Import $import */
@@ -121,6 +124,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provGetColumnAlphaName
      */
+    #[DataProvider('provGetColumnAlphaName')]
     public function testGetColumnAlphaName(string $expected, int $num): void
     {
         self::assertSame($expected, $this->import->getColumnAlphaName($num));
@@ -169,6 +173,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provGetColumnNumberFromName
      */
+    #[DataProvider('provGetColumnNumberFromName')]
     public function testGetColumnNumberFromName(int $expected, string $name): void
     {
         self::assertSame($expected, $this->import->getColumnNumberFromName($name));
@@ -217,6 +222,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provGetDecimalPrecision
      */
+    #[DataProvider('provGetDecimalPrecision')]
     public function testGetDecimalPrecision(int $expected, string $size): void
     {
         self::assertSame($expected, $this->import->getDecimalPrecision($size));
@@ -257,6 +263,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provGetDecimalScale
      */
+    #[DataProvider('provGetDecimalScale')]
     public function testGetDecimalScale(int $expected, string $size): void
     {
         self::assertSame($expected, $this->import->getDecimalScale($size));
@@ -297,6 +304,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provGetDecimalSize
      */
+    #[DataProvider('provGetDecimalSize')]
     public function testGetDecimalSize(array $expected, string $cell): void
     {
         self::assertSame($expected, $this->import->getDecimalSize($cell));
@@ -356,6 +364,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provDetectType
      */
+    #[DataProvider('provDetectType')]
     public function testDetectType(int $expected, ?int $type, ?string $cell): void
     {
         self::assertSame($expected, $this->import->detectType($type, $cell));
@@ -465,6 +474,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider provTestDetectSize
      */
+    #[DataProvider('provTestDetectSize')]
     public function testDetectSize(
         string $expected,
         $lastCumulativeSize,
@@ -481,7 +491,7 @@ class ImportTest extends AbstractTestCase
      *
      * @return array<array{string,string|int,int,int,string}>
      */
-    public function provTestDetectSize(): array
+    public static function provTestDetectSize(): array
     {
         return [
             [
@@ -557,6 +567,7 @@ class ImportTest extends AbstractTestCase
      *
      * @dataProvider providerContentWithByteOrderMarks
      */
+    #[DataProvider('providerContentWithByteOrderMarks')]
     public function testSkipByteOrderMarksFromContents(string $input, string $cleanContents): void
     {
         self::assertSame($cleanContents, $this->import->skipByteOrderMarksFromContents($input));

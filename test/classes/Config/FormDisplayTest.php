@@ -8,6 +8,8 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -19,7 +21,10 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Config\FormDisplay
+ * @medium
  */
+#[CoversClass(FormDisplay::class)]
+#[Medium]
 class FormDisplayTest extends AbstractTestCase
 {
     /** @var FormDisplay */
@@ -49,8 +54,6 @@ class FormDisplayTest extends AbstractTestCase
 
     /**
      * Test for FormDisplay::registerForm
-     *
-     * @group medium
      */
     public function testRegisterForm(): void
     {
@@ -97,8 +100,6 @@ class FormDisplayTest extends AbstractTestCase
 
     /**
      * Test for FormDisplay::process
-     *
-     * @group medium
      */
     public function testProcess(): void
     {
@@ -119,7 +120,7 @@ class FormDisplayTest extends AbstractTestCase
         $this->object->expects($this->once())
             ->method('save')
             ->with([0, 1, 2], false)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         self::assertTrue($this->object->process(false, false));
 

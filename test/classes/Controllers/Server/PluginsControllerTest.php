@@ -11,10 +11,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\PluginsController
  */
+#[CoversClass(PluginsController::class)]
 class PluginsControllerTest extends AbstractTestCase
 {
     /**
@@ -54,15 +56,12 @@ class PluginsControllerTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->exactly(2))
-            ->method('fetchAssoc')
-            ->will($this->onConsecutiveCalls($row, []));
+            ->method('fetchAssoc')->willReturnOnConsecutiveCalls($row, []);
 
         $response = new ResponseRenderer();
 

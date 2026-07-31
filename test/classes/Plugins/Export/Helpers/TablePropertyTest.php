@@ -6,10 +6,13 @@ namespace PhpMyAdmin\Tests\Plugins\Export\Helpers;
 
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\Helpers\TableProperty
  */
+#[CoversClass(TableProperty::class)]
 class TablePropertyTest extends AbstractTestCase
 {
     /** @var TableProperty */
@@ -74,6 +77,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @dataProvider isNotNullProvider
      */
+    #[DataProvider('isNotNullProvider')]
     public function testIsNotNull(string $nullable, string $expected): void
     {
         $this->object->nullable = $nullable;
@@ -110,6 +114,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @dataProvider isUniqueProvider
      */
+    #[DataProvider('isUniqueProvider')]
     public function testIsUnique(string $key, string $expected): void
     {
         $this->object->key = $key;
@@ -154,6 +159,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @dataProvider getDotNetPrimitiveTypeProvider
      */
+    #[DataProvider('getDotNetPrimitiveTypeProvider')]
     public function testGetDotNetPrimitiveType(string $type, string $expected): void
     {
         $this->object->type = $type;
@@ -222,6 +228,7 @@ class TablePropertyTest extends AbstractTestCase
      *
      * @dataProvider getDotNetObjectTypeProvider
      */
+    #[DataProvider('getDotNetObjectTypeProvider')]
     public function testGetDotNetObjectType(string $type, string $expected): void
     {
         $this->object->type = $type;

@@ -8,6 +8,11 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
 use function extension_loaded;
@@ -15,7 +20,12 @@ use function extension_loaded;
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportShp
  * @requires extension zip
+ * @medium
  */
+#[RequiresPhpExtension('zip')]
+#[CoversClass(ImportShp::class)]
+#[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class ImportShpTest extends AbstractTestCase
 {
     /** @var ImportShp */
@@ -38,9 +48,7 @@ class ImportShpTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
 
         $this->object = new ImportShp();
@@ -83,8 +91,6 @@ class ImportShpTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
     public function testGetProperties(): void
     {
@@ -98,9 +104,9 @@ class ImportShpTest extends AbstractTestCase
     /**
      * Test for doImport with complex data
      *
-     * @group medium
      * @group 32bit-incompatible
      */
+    #[Group('32bit-incompatible')]
     public function testImportOsm(): void
     {
         //$sql_query_disabled will show the import SQL detail
@@ -130,9 +136,9 @@ class ImportShpTest extends AbstractTestCase
     /**
      * Test for doImport
      *
-     * @group medium
      * @group 32bit-incompatible
      */
+    #[Group('32bit-incompatible')]
     public function testDoImport(): void
     {
         //$sql_query_disabled will show the import SQL detail

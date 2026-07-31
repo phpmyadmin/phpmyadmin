@@ -6,11 +6,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Twig\Extensions\Node\TransNode;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Twig\Error\LoaderError;
 
 /**
  * @covers \PhpMyAdmin\Template
  */
+#[CoversClass(Template::class)]
 class TemplateTest extends AbstractTestCase
 {
     /** @var Template */
@@ -52,6 +55,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @dataProvider providerTestSet
      */
+    #[DataProvider('providerTestSet')]
     public function testSet(string $data): void
     {
         $result = $this->template->render($data, [
@@ -83,6 +87,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @dataProvider providerTestDynamicRender
      */
+    #[DataProvider('providerTestDynamicRender')]
     public function testDynamicRender(string $templateFile, string $key, string $value): void
     {
         self::assertSame($value, $this->template->render($templateFile, [$key => $value]));
@@ -121,6 +126,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @dataProvider providerTestRender
      */
+    #[DataProvider('providerTestRender')]
     public function testRender(string $templateFile, string $expectedResult): void
     {
         self::assertSame($expectedResult, $this->template->render($templateFile));
@@ -150,6 +156,7 @@ class TemplateTest extends AbstractTestCase
      *
      * @dataProvider providerTestRenderGettext
      */
+    #[DataProvider('providerTestRenderGettext')]
     public function testRenderGettext(string $templateFile, array $renderParams, string $expectedResult): void
     {
         self::assertSame($expectedResult, $this->template->render($templateFile, $renderParams));

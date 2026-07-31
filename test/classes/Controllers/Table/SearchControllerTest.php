@@ -14,6 +14,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function hash;
 
@@ -22,6 +24,8 @@ use const MYSQLI_TYPE_LONG;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\SearchController
  */
+#[CoversClass(SearchController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class SearchControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
@@ -51,9 +55,7 @@ class SearchControllerTest extends AbstractTestCase
         $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
 
         $columns = [
@@ -70,8 +72,7 @@ class SearchControllerTest extends AbstractTestCase
                 'Collation' => 'Collation2',
             ],
         ];
-        $dbi->expects($this->any())->method('getColumns')
-            ->will($this->returnValue($columns));
+        $dbi->method('getColumns')->willReturn($columns);
 
         $show_create_table = "CREATE TABLE `pma_bookmark` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -84,10 +85,8 @@ class SearchControllerTest extends AbstractTestCase
         ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin "
         . "COMMENT='Bookmarks'";
 
-        $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($show_create_table));
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->method('fetchValue')->willReturn($show_create_table);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $relation->dbi = $dbi;
@@ -103,10 +102,9 @@ class SearchControllerTest extends AbstractTestCase
     {
         $expected = 'SELECT MIN(`column`) AS `min`, MAX(`column`) AS `max` FROM `PMA`.`PMA_BookMark`';
 
-        $GLOBALS['dbi']->expects($this->any())
-            ->method('fetchSingleRow')
+        $GLOBALS['dbi']->method('fetchSingleRow')
             ->with($expected)
-            ->will($this->returnValue([$expected]));
+            ->willReturn([$expected]);
 
         $ctrl = new SearchController(
             $this->response,

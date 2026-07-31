@@ -10,6 +10,8 @@ use Nyholm\Psr7\Factory\Psr17Factory as NyholmPsr17Factory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Psr\Http\Message\ServerRequestFactoryInterface;
 use Psr\Http\Message\UriInterface;
 use ReflectionMethod;
@@ -24,6 +26,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Http\Factory\ServerRequestFactory
  */
+#[CoversClass(ServerRequestFactory::class)]
 class ServerRequestFactoryTest extends AbstractTestCase
 {
     private const IMPLEMENTATION_CLASSES = [
@@ -79,6 +82,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
      *
      * @dataProvider dataProviderPsr7Implementations
      */
+    #[DataProvider('dataProviderPsr7Implementations')]
     public function testPsr7ImplementationGet(string $className, string $humanName): void
     {
         $this->runOrSkip($className, $humanName);
@@ -162,6 +166,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
      *
      * @dataProvider dataProviderPsr7Implementations
      */
+    #[DataProvider('dataProviderPsr7Implementations')]
     public function testPsr7ImplementationCreateServerRequestFactory(string $className, string $humanName): void
     {
         $this->runOrSkip($className, $humanName);
@@ -178,6 +183,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
      *
      * @dataProvider providerCreateUriFromGlobals
      */
+    #[DataProvider('providerCreateUriFromGlobals')]
     public function testCreateUriFromGlobals(string $expected, array $server): void
     {
         $createUriFromGlobals = (new ReflectionMethod(ServerRequestFactory::class, 'createUriFromGlobals'));

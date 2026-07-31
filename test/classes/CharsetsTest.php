@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Charsets;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Charsets
  */
+#[CoversClass(Charsets::class)]
 class CharsetsTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -93,7 +95,7 @@ class CharsetsTest extends AbstractTestCase
         $this->dbi->setVersion(['@@version' => '10.10.0-MariaDB']);
         $collations = Charsets::getCollations($this->dbi, false);
         self::assertCount(4, $collations);
-        self::assertContainsOnly('array', $collations);
+        self::assertContainsOnlyArrayCompat($collations);
         foreach ($collations as $collation) {
             self::assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
         }

@@ -8,10 +8,15 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportSql
+ * @medium
  */
+#[CoversClass(ImportSql::class)]
+#[Medium]
 class ImportSqlTest extends AbstractTestCase
 {
     /** @var ImportSql */
@@ -53,8 +58,6 @@ class ImportSqlTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
     public function testDoImport(): void
     {
@@ -63,9 +66,7 @@ class ImportSqlTest extends AbstractTestCase
         $sql_query_disabled = false;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);

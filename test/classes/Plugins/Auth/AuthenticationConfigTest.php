@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function ob_get_clean;
 use function ob_start;
@@ -15,6 +16,7 @@ use function ob_start;
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationConfig
  */
+#[CoversClass(AuthenticationConfig::class)]
 class AuthenticationConfigTest extends AbstractTestCase
 {
     /** @var AuthenticationConfig */
@@ -71,9 +73,7 @@ class AuthenticationConfigTest extends AbstractTestCase
         $GLOBALS['errorHandler'] = new ErrorHandler();
         $GLOBALS['cfg']['Servers'] = [1];
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
 
         ob_start();

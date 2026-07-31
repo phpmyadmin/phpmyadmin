@@ -16,6 +16,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Utils\HttpRequest;
+use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
@@ -143,6 +144,28 @@ abstract class AbstractTestCase extends TestCase
         } else {
             /** @psalm-suppress DeprecatedMethod */
             self::assertRegExp($pattern, $string, $message);
+        }
+    }
+
+    /**
+     * Asserts that a haystack contains only values of type array.
+     *
+     * Compatibility with PHPUnit < 11.5.0.
+     *
+     * @see https://github.com/sebastianbergmann/phpunit/issues/6055
+     *
+     * @param iterable<mixed> $haystack
+     *
+     * @throws ExpectationFailedException
+     *
+     * @phpstan-assert iterable<array<mixed>> $haystack
+     */
+    public static function assertContainsOnlyArrayCompat(iterable $haystack, string $message = ''): void
+    {
+        if (method_exists(parent::class, 'assertContainsOnlyArray')) {
+            parent::assertContainsOnlyArray($haystack, $message);
+        } else {
+            parent::assertContainsOnly('array', $haystack, true, $message);
         }
     }
 

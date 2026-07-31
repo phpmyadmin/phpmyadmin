@@ -5,16 +5,18 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function array_keys;
 use function array_merge;
 
 // phpcs:disable Generic.Files.LineLength.TooLong
-
 /**
  * @covers \PhpMyAdmin\Config\Settings\Transformations
  */
+#[CoversClass(Transformations::class)]
 class TransformationsTest extends TestCase
 {
     /** @var array<string, array<int|string, array|int|string|null>> */
@@ -36,6 +38,7 @@ class TransformationsTest extends TestCase
      *
      * @dataProvider providerForTestConstructor
      */
+    #[DataProvider('providerForTestConstructor')]
     public function testConstructor(array $values): void
     {
         $actualValues = [];

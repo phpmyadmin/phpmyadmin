@@ -13,11 +13,15 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\RelationController
  */
+#[CoversClass(RelationController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class RelationControllerTest extends AbstractTestCase
 {
     /** @var ResponseStub */
@@ -57,9 +61,7 @@ class RelationControllerTest extends AbstractTestCase
             }
         };
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -80,17 +82,12 @@ class RelationControllerTest extends AbstractTestCase
             'viewCol2',
             'viewCol3',
         ];
-        $tableMock = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $tableMock = $this->createMock(Table::class);
         // Test the situation when the table is a view
-        $tableMock->expects($this->any())->method('isView')
-            ->will($this->returnValue(true));
-        $tableMock->expects($this->any())->method('getColumns')
-            ->will($this->returnValue($viewColumns));
+        $tableMock->method('isView')->willReturn(true);
+        $tableMock->method('getColumns')->willReturn($viewColumns);
 
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->will($this->returnValue($tableMock));
+        $GLOBALS['dbi']->method('getTable')->willReturn($tableMock);
 
         $ctrl = new RelationController(
             $this->response,
@@ -115,17 +112,12 @@ class RelationControllerTest extends AbstractTestCase
     public function testGetDropdownValueForTableActionNotView(): void
     {
         $indexedColumns = ['primaryTableCol'];
-        $tableMock = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $tableMock = $this->createMock(Table::class);
         // Test the situation when the table is a view
-        $tableMock->expects($this->any())->method('isView')
-            ->will($this->returnValue(false));
-        $tableMock->expects($this->any())->method('getIndexedColumns')
-            ->will($this->returnValue($indexedColumns));
+        $tableMock->method('isView')->willReturn(false);
+        $tableMock->method('getIndexedColumns')->willReturn($indexedColumns);
 
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->will($this->returnValue($tableMock));
+        $GLOBALS['dbi']->method('getTable')->willReturn($tableMock);
 
         $ctrl = new RelationController(
             $this->response,
@@ -152,18 +144,17 @@ class RelationControllerTest extends AbstractTestCase
 
         $GLOBALS['dbi']->expects($this->exactly(1))
             ->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
-        $resultStub->expects($this->any())
-            ->method('getIterator')
-            ->will($this->returnCallback(static function (): Generator {
+        $resultStub->method('getIterator')
+            ->willReturnCallback(static function (): Generator {
                 yield from [
                     [
                         'Engine' => 'InnoDB',
                         'Name' => 'table',
                     ],
                 ];
-            }));
+            });
 
         $ctrl = new RelationController(
             $this->response,
@@ -191,11 +182,9 @@ class RelationControllerTest extends AbstractTestCase
 
         $GLOBALS['dbi']->expects($this->exactly(1))
             ->method('query')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
-        $resultStub->expects($this->any())
-            ->method('fetchAllColumn')
-            ->will($this->returnValue(['table']));
+        $resultStub->method('fetchAllColumn')->willReturn(['table']);
 
         $ctrl = new RelationController(
             $this->response,

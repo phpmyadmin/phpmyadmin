@@ -12,6 +12,8 @@ use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionMethod;
 use stdClass;
 
@@ -23,6 +25,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Sql
  */
+#[CoversClass(Sql::class)]
 class SqlTest extends AbstractTestCase
 {
     /** @var Sql */
@@ -561,6 +564,7 @@ class SqlTest extends AbstractTestCase
     /**
      * @dataProvider dataProviderCountQueryResults
      */
+    #[DataProvider('dataProviderCountQueryResults')]
     public function testCountQueryResults(
         ?string $sqlQuery,
         array $sessionTmpVal,

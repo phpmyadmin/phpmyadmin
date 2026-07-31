@@ -6,11 +6,15 @@ namespace PhpMyAdmin\Tests\Properties\Options;
 
 use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @covers \PhpMyAdmin\Properties\Options\OptionsPropertyItem
  */
+#[CoversClass(OptionsPropertyItem::class)]
+#[AllowMockObjectsWithoutExpectations]
 class OptionsPropertyItemTest extends AbstractTestCase
 {
     /** @var OptionsPropertyItem|MockObject */
@@ -22,7 +26,7 @@ class OptionsPropertyItemTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->stub = $this->getMockForAbstractClass(OptionsPropertyItem::class);
+        $this->stub = $this->getMockBuilder(OptionsPropertyItem::class)->onlyMethods(['getItemType'])->getMock();
     }
 
     /**

@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
 
 /**
  * @coversNothing
+ * @large
  */
+#[CoversNothing]
+#[Large]
 class StructureTest extends TestBase
 {
     /**
@@ -37,8 +42,6 @@ class StructureTest extends TestBase
 
     /**
      * Test for adding a new column
-     *
-     * @group large
      */
     public function testAddColumn(): void
     {
@@ -63,8 +66,6 @@ class StructureTest extends TestBase
 
     /**
      * Test for changing a column
-     *
-     * @group large
      */
     public function testChangeColumn(): void
     {
@@ -88,8 +89,6 @@ class StructureTest extends TestBase
 
     /**
      * Test for dropping columns
-     *
-     * @group large
      */
     public function testDropColumns(): void
     {

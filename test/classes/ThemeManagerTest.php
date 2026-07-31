@@ -6,10 +6,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ThemeManager;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\ThemeManager
  */
+#[CoversClass(ThemeManager::class)]
+#[AllowMockObjectsWithoutExpectations]
 class ThemeManagerTest extends AbstractTestCase
 {
     /**
@@ -24,11 +28,8 @@ class ThemeManagerTest extends AbstractTestCase
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('escapeString')->willReturnArgument(0);
     }
 
     /**

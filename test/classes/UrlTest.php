@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionProperty;
 
 use function ini_get;
@@ -18,6 +20,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Url
  */
+#[CoversClass(Url::class)]
 class UrlTest extends AbstractTestCase
 {
     /** @var string|false|null */
@@ -245,6 +248,7 @@ class UrlTest extends AbstractTestCase
      *
      * @dataProvider getArgSeparatorProvider
      */
+    #[DataProvider('getArgSeparatorProvider')]
     public function testGetArgSeparator(string $expected, $iniValue, ?string $cacheValue): void
     {
         $property = new ReflectionProperty(Url::class, 'inputArgSeparator');

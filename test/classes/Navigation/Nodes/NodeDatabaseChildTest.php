@@ -9,11 +9,13 @@ use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeDatabaseChild
  */
+#[CoversClass(NodeDatabaseChild::class)]
 class NodeDatabaseChildTest extends AbstractTestCase
 {
     /**
@@ -40,10 +42,10 @@ class NodeDatabaseChildTest extends AbstractTestCase
             'navwork' => true,
             'navigationhiding' => 'navigationhiding',
         ])->toArray();
-        $this->object = $this->getMockForAbstractClass(
-            NodeDatabaseChild::class,
-            ['child']
-        );
+        $this->object = $this->getMockBuilder(NodeDatabaseChild::class)
+            ->setConstructorArgs(['child'])
+            ->onlyMethods(['getItemType'])
+            ->getMock();
     }
 
     /**
@@ -64,7 +66,7 @@ class NodeDatabaseChildTest extends AbstractTestCase
         $parent->addChild($this->object);
         $this->object->expects($this->once())
             ->method('getItemType')
-            ->will($this->returnValue('itemType'));
+            ->willReturn('itemType');
         $html = $this->object->getHtmlForControlButtons();
 
         self::assertStringStartsWith('<span class="navItemControls">', $html);

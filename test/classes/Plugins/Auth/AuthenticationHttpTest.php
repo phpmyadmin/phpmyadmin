@@ -10,6 +10,9 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function base64_encode;
 use function ob_get_clean;
@@ -17,7 +20,10 @@ use function ob_start;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationHttp
+ * @medium
  */
+#[CoversClass(AuthenticationHttp::class)]
+#[Medium]
 class AuthenticationHttpTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationHttp */
@@ -101,12 +107,12 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->exactly($set_title))
             ->method('getFooter')
             ->with()
-            ->will($this->returnValue($mockFooter));
+            ->willReturn($mockFooter);
 
         $mockResponse->expects($this->exactly($set_title))
             ->method('getHeader')
             ->with()
-            ->will($this->returnValue($mockHeader));
+            ->willReturn($mockHeader);
 
         if (! empty($_REQUEST['old_usr'])) {
             $this->object->logOut();
@@ -115,9 +121,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         }
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testAuthLogoutUrl(): void
     {
         $_REQUEST['old_usr'] = '1';
@@ -131,9 +134,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testAuthVerbose(): void
     {
         $_REQUEST['old_usr'] = '';
@@ -149,9 +149,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testAuthHost(): void
     {
         $GLOBALS['cfg']['Server']['verbose'] = '';
@@ -167,9 +164,6 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testAuthRealm(): void
     {
         $GLOBALS['cfg']['Server']['host'] = '';
@@ -197,6 +191,7 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
      *
      * @dataProvider readCredentialsProvider
      */
+    #[DataProvider('readCredentialsProvider')]
     public function testAuthCheck(
         string $user,
         string $pass,
@@ -348,21 +343,15 @@ class AuthenticationHttpTest extends AbstractNetworkTestCase
         self::assertSame(3, $GLOBALS['server']);
     }
 
-    /**
-     * @group medium
-     */
     public function testAuthFails(): void
     {
         $_REQUEST = [];
         ResponseRenderer::getInstance()->setAjax(false);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->exactly(3))
-            ->method('getError')
-            ->will($this->onConsecutiveCalls('error 123', 'error 321', ''));
+            ->method('getError')->willReturnOnConsecutiveCalls('error 123', 'error 321', '');
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['errno'] = 31;

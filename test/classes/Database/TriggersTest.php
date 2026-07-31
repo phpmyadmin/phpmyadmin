@@ -8,10 +8,16 @@ use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 
 /**
  * @covers \PhpMyAdmin\Database\Triggers
+ * @medium
  */
+#[CoversClass(Triggers::class)]
+#[Medium]
 class TriggersTest extends AbstractTestCase
 {
     /** @var Triggers */
@@ -47,6 +53,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetDataFromRequestEmpty
      */
+    #[DataProvider('providerGetDataFromRequestEmpty')]
     public function testGetDataFromRequestEmpty(array $in, array $out): void
     {
         unset($_POST);
@@ -118,8 +125,8 @@ class TriggersTest extends AbstractTestCase
      * @param array $data Data for trigger
      *
      * @dataProvider providerGetEditorFormAdd
-     * @group medium
      */
+    #[DataProvider('providerGetEditorFormAdd')]
     public function testGetEditorFormAdd(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -161,8 +168,8 @@ class TriggersTest extends AbstractTestCase
      * @param array $data Data for trigger
      *
      * @dataProvider providerGetEditorFormEdit
-     * @group medium
      */
+    #[DataProvider('providerGetEditorFormEdit')]
     public function testGetEditorFormEdit(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -205,6 +212,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetEditorFormAjax
      */
+    #[DataProvider('providerGetEditorFormAjax')]
     public function testGetEditorFormAjax(array $data, string $matcher): void
     {
         $GLOBALS['server'] = 1;
@@ -250,6 +258,7 @@ class TriggersTest extends AbstractTestCase
      *
      * @dataProvider providerGetQueryFromRequest
      */
+    #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(
         string $definer,
         string $name,

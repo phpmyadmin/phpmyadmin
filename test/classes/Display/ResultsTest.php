@@ -19,6 +19,8 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use stdClass;
 
 use function count;
@@ -42,6 +44,7 @@ use const MYSQLI_TYPE_TIMESTAMP;
 /**
  * @covers \PhpMyAdmin\Display\Results
  */
+#[CoversClass(DisplayResults::class)]
 class ResultsTest extends AbstractTestCase
 {
     /** @var DisplayResults */
@@ -105,6 +108,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetTableNavigationButton
      */
+    #[DataProvider('providerForTestGetTableNavigationButton')]
     public function testGetTableNavigationButton(
         string $caption,
         string $title,
@@ -264,6 +268,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestGetSpecialLinkUrl
      */
+    #[DataProvider('dataProviderForTestGetSpecialLinkUrl')]
     public function testGetSpecialLinkUrl(
         string $db,
         string $table,
@@ -379,6 +384,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
+    #[DataProvider('dataProviderForTestGetRowInfoForSpecialLinks')]
     public function testGetRowInfoForSpecialLinks(
         array $fields_meta,
         int $fields_count,
@@ -429,6 +435,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestSetHighlightedColumnGlobalField
      */
+    #[DataProvider('dataProviderForTestSetHighlightedColumnGlobalField')]
     public function testSetHighlightedColumnGlobalField(array $analyzed_sql, array $output): void
     {
         $this->callFunction(
@@ -502,6 +509,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestGetPartialText
      */
+    #[DataProvider('dataProviderForTestGetPartialText')]
     public function testGetPartialText(string $pftext, int $limitChars, string $str, array $output): void
     {
         $_SESSION['tmpval']['pftext'] = $pftext;
@@ -616,6 +624,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestHandleNonPrintableContents
      */
+    #[DataProvider('dataProviderForTestHandleNonPrintableContents')]
     public function testHandleNonPrintableContents(
         bool $display_binary,
         bool $display_blob,
@@ -808,6 +817,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
      */
+    #[DataProvider('dataProviderForTestGetDataCellForNonNumericColumns')]
     public function testGetDataCellForNonNumericColumns(
         string $protectBinary,
         ?string $column,
@@ -888,9 +898,7 @@ class ResultsTest extends AbstractTestCase
         ];
         $this->object->properties['fields_meta'] = $fields_meta;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         // MIME transformations
         $dbi->expects($this->exactly(1))
@@ -1011,6 +1019,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * @dataProvider dataProviderGetSortOrderHiddenInputs
      */
+    #[DataProvider('dataProviderGetSortOrderHiddenInputs')]
     public function testGetSortOrderHiddenInputs(
         string $sqlAdd,
         string $sqlRemove,
@@ -1123,6 +1132,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * @dataProvider providerSetConfigParamsForDisplayTable
      */
+    #[DataProvider('providerSetConfigParamsForDisplayTable')]
     public function testSetConfigParamsForDisplayTable(
         array $session,
         array $get,
@@ -1721,6 +1731,7 @@ class ResultsTest extends AbstractTestCase
     /**
      * @dataProvider dataProviderSortOrder
      */
+    #[DataProvider('dataProviderSortOrder')]
     public function testGetSingleAndMultiSortUrls(
         string $orderSetting,
         string $querySortDirection,

@@ -6,12 +6,14 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\NormalizationController;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function json_encode;
 
 /**
  * @covers \PhpMyAdmin\Controllers\NormalizationController
  */
+#[CoversClass(NormalizationController::class)]
 class NormalizationControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

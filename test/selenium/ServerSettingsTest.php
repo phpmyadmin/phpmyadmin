@@ -4,11 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
+
 use function sleep;
 
 /**
  * @coversNothing
+ * @large
  */
+#[CoversNothing]
+#[Large]
 class ServerSettingsTest extends TestBase
 {
     /**
@@ -54,8 +60,6 @@ class ServerSettingsTest extends TestBase
 
     /**
      * Tests whether hiding a database works or not
-     *
-     * @group large
      */
     public function testHideDatabase(): void
     {
@@ -82,8 +86,6 @@ class ServerSettingsTest extends TestBase
 
     /**
      * Tests whether the various settings tabs are displayed when clicked
-     *
-     * @group large
      */
     public function testSettingsTabsAreDisplayed(): void
     {
@@ -103,8 +105,6 @@ class ServerSettingsTest extends TestBase
 
     /**
      * Tests if hiding the logo works or not
-     *
-     * @group large
      */
     public function testHideLogo(): void
     {

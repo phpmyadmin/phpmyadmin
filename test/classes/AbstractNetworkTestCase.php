@@ -14,11 +14,11 @@ use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
 
 use function array_slice;
-use function call_user_func_array;
 use function count;
 use function end;
 use function is_array;
 use function is_int;
+use function method_exists;
 
 use const PHP_VERSION_ID;
 
@@ -61,10 +61,7 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
             ])
             ->getMock();
 
-        $mockResponse->expects($this->any())
-            ->method('headersSent')
-            ->with()
-            ->will($this->returnValue(false));
+        $mockResponse->method('headersSent')->with()->willReturn(false);
 
         if (count($param) > 0) {
             if (is_array($param[0])) {
@@ -79,10 +76,13 @@ abstract class AbstractNetworkTestCase extends AbstractTestCase
                     }
                 }
 
-                $header_method = $mockResponse->expects($this->exactly(count($param)))
-                    ->method('header');
-
-                call_user_func_array([$header_method, 'withConsecutive'], $param);
+                $matcher = self::exactly(count($param));
+                $mockResponse->expects($matcher)->method('header')
+                    ->willReturnCallback(static function (...$parameters) use ($matcher, $param): void {
+                        $numberOfInvocations = method_exists($matcher, 'numberOfInvocations')
+                            ? $matcher->numberOfInvocations() : $matcher->getInvocationCount();
+                        self::assertSame($param[$numberOfInvocations - 1], $parameters);
+                    });
             } else {
                 $mockResponse->expects($this->once())
                     ->method('header')

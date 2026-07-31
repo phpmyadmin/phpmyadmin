@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Language;
 use PhpMyAdmin\LanguageManager;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Large;
 
 use function _ngettext;
 use function count;
@@ -15,7 +19,11 @@ use function strtolower;
 /**
  * @covers \PhpMyAdmin\Language
  * @covers \PhpMyAdmin\LanguageManager
+ * @large
  */
+#[CoversClass(Language::class)]
+#[CoversClass(LanguageManager::class)]
+#[Large]
 class LanguageTest extends AbstractTestCase
 {
     /** @var LanguageManager */
@@ -38,12 +46,16 @@ class LanguageTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
-        // Ensure we have English locale after tests
-        $lang = $this->manager->getLanguage('en');
+        /**
+         * @phpstan-ignore-next-line
+         * @psalm-suppress RedundantPropertyInitializationCheck
+         */
+        $lang = isset($this->manager) ? $this->manager->getLanguage('en') : false;
         if ($lang === false) {
             return;
         }
 
+        // Ensure we have English locale after tests
         $lang->activate();
     }
 
@@ -155,6 +167,7 @@ class LanguageTest extends AbstractTestCase
      *
      * @dataProvider selectDataProvider
      */
+    #[DataProvider('selectDataProvider')]
     public function testSelect(
         string $lang,
         string $post,
@@ -231,9 +244,9 @@ class LanguageTest extends AbstractTestCase
      *
      * @param string $locale locale name
      *
-     * @group large
      * @dataProvider listLocales
      */
+    #[DataProvider('listLocales')]
     public function testGettext(string $locale): void
     {
         $GLOBALS['config']->set('FilterLanguages', '');

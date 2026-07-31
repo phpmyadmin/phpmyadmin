@@ -14,10 +14,15 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 /**
  * @covers \PhpMyAdmin\ConfigStorage\UserGroups
+ * @medium
  */
+#[CoversClass(UserGroups::class)]
+#[Medium]
 class UserGroupsTest extends AbstractTestCase
 {
     /** @var ConfigurableMenusFeature */
@@ -41,8 +46,6 @@ class UserGroupsTest extends AbstractTestCase
 
     /**
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are no user groups
-     *
-     * @group medium
      */
     public function testGetHtmlForUserGroupsTableWithNoUserGroups(): void
     {
@@ -50,16 +53,14 @@ class UserGroupsTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue(0));
+            ->willReturn(0);
         $GLOBALS['dbi'] = $dbi;
 
         $html = UserGroups::getHtmlForUserGroupsTable($this->configurableMenusFeature);
@@ -87,23 +88,21 @@ class UserGroupsTest extends AbstractTestCase
 
     /**
      * Tests UserGroups::delete() function
-     *
-     * @requires PHPUnit < 10
      */
     public function testDeleteUserGroup(): void
     {
         $userDelQuery = 'DELETE FROM `pmadb`.`users` WHERE `usergroup`=\'ug\'';
         $userGrpDelQuery = 'DELETE FROM `pmadb`.`usergroups` WHERE `usergroup`=\'ug\'';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->exactly(2))
-            ->method('queryAsControlUser')
-            ->withConsecutive([$this->equalTo($userDelQuery)], [$this->equalTo($userGrpDelQuery)]);
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi = $this->createMock(DatabaseInterface::class);
+
+        $resultStub = self::createStub(DummyResult::class);
+        $dbi->expects(self::exactly(2))->method('queryAsControlUser')->willReturnMap([
+            [$userDelQuery, $resultStub],
+            [$userGrpDelQuery, $resultStub],
+        ]);
+
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -123,16 +122,14 @@ class UserGroupsTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
 
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` WHERE `usergroup`=\'user<br>group\'';
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->exactly(1))
             ->method('getIterator')
-            ->will($this->returnCallback(static function (): Generator {
+            ->willReturnCallback(static function (): Generator {
                 yield from [
                     [
                         'usergroup' => 'user<br>group',
@@ -140,10 +137,8 @@ class UserGroupsTest extends AbstractTestCase
                         'allowed' => 'Y',
                     ],
                 ];
-            }));
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will($this->returnArgument(0));
+            });
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
 

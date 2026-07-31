@@ -5,16 +5,20 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Controllers\Database\TriggersController;
+use PhpMyAdmin\Database\Triggers;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Database\TriggersController
  * @covers \PhpMyAdmin\Database\Triggers
  */
+#[CoversClass(TriggersController::class)]
+#[CoversClass(Triggers::class)]
 final class TriggersControllerTest extends AbstractTestCase
 {
     public function testWithTriggers(): void

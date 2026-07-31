@@ -6,10 +6,15 @@ namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use Facebook\WebDriver\WebDriverKeys;
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
 
 /**
  * @coversNothing
+ * @large
  */
+#[CoversNothing]
+#[Large]
 class BrowseTest extends TestBase
 {
     /**
@@ -39,8 +44,6 @@ class BrowseTest extends TestBase
 
     /**
      * Test sorting of records in browse table
-     *
-     * @group large
      */
     public function testSortRecords(): void
     {
@@ -88,8 +91,6 @@ class BrowseTest extends TestBase
 
     /**
      * Test Edit Record
-     *
-     * @group large
      */
     public function testChangeRecords(): void
     {
@@ -129,8 +130,6 @@ class BrowseTest extends TestBase
 
     /**
      * Test edit record by double click
-     *
-     * @group large
      */
     public function testChangeRecordsByDoubleClick(): void
     {
@@ -158,8 +157,6 @@ class BrowseTest extends TestBase
 
     /**
      * Test copy and insert record
-     *
-     * @group large
      */
     public function testCopyRecords(): void
     {
@@ -191,8 +188,6 @@ class BrowseTest extends TestBase
 
     /**
      * Test search table
-     *
-     * @group large
      */
     public function testSearchRecords(): void
     {
@@ -223,8 +218,6 @@ class BrowseTest extends TestBase
 
     /**
      * Test delete multiple records
-     *
-     * @group large
      */
     public function testDeleteRecords(): void
     {

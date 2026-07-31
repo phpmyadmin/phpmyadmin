@@ -8,6 +8,8 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function ob_get_clean;
 use function ob_start;
@@ -20,6 +22,8 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationSignon
  */
+#[CoversClass(AuthenticationSignon::class)]
+#[AllowMockObjectsWithoutExpectations]
 class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationSignon */
@@ -266,13 +270,11 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $this->object->expects($this->exactly(1))
             ->method('showLoginForm');
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue('error<123>'));
+            ->willReturn('error<123>');
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -295,13 +297,11 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $this->object->expects($this->exactly(1))
             ->method('showLoginForm');
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue(''));
+            ->willReturn('');
 
         $GLOBALS['dbi'] = $dbi;
 

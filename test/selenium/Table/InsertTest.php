@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
 
 /**
  * @coversNothing
+ * @large
  */
+#[CoversNothing]
+#[Large]
 class InsertTest extends TestBase
 {
     /**
@@ -33,8 +38,6 @@ class InsertTest extends TestBase
 
     /**
      * Insert data into table
-     *
-     * @group large
      */
     public function testAddData(): void
     {

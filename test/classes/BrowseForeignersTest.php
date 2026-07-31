@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Template;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\BrowseForeigners
  */
+#[CoversClass(BrowseForeigners::class)]
 class BrowseForeignersTest extends AbstractTestCase
 {
     /** @var BrowseForeigners */

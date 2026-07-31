@@ -9,12 +9,14 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Transformation\OverviewController
  */
+#[CoversClass(OverviewController::class)]
 class OverviewControllerTest extends AbstractTestCase
 {
     /**

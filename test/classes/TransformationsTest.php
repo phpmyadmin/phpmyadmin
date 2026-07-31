@@ -7,10 +7,15 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Transformations
  */
+#[CoversClass(Transformations::class)]
+#[AllowMockObjectsWithoutExpectations]
 class TransformationsTest extends AbstractTestCase
 {
     /** @var Transformations */
@@ -49,6 +54,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider getOptionsData
      */
+    #[DataProvider('getOptionsData')]
     public function testGetOptions(string $input, array $expected): void
     {
         self::assertSame($expected, $this->transformations->getOptions($input));
@@ -220,12 +226,8 @@ class TransformationsTest extends AbstractTestCase
     public function testClear(): void
     {
         // Mock dbi
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())
-            ->method('tryQuery')
-            ->will($this->returnValue(true));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('tryQuery')->willReturn(true);
         $GLOBALS['dbi'] = $dbi;
 
         // Case 1 : no configuration storage
@@ -258,6 +260,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider fixupData
      */
+    #[DataProvider('fixupData')]
     public function testFixup(string $value, string $expected): void
     {
         self::assertSame($expected, $this->transformations->fixUpMime($value));
@@ -297,6 +300,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider providerGetDescription
      */
+    #[DataProvider('providerGetDescription')]
     public function testGetDescription(string $file, string $expectedDescription): void
     {
         self::assertSame($expectedDescription, $this->transformations->getDescription($file));
@@ -328,6 +332,7 @@ class TransformationsTest extends AbstractTestCase
      *
      * @dataProvider providerGetName
      */
+    #[DataProvider('providerGetName')]
     public function testGetName(string $file, string $expectedName): void
     {
         self::assertSame($expectedName, $this->transformations->getName($file));

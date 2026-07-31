@@ -7,10 +7,13 @@ namespace PhpMyAdmin\Tests\Utils;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\ForeignKey;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Utils\ForeignKey
  */
+#[CoversClass(ForeignKey::class)]
 class ForeignKeyTest extends AbstractTestCase
 {
     /**
@@ -21,6 +24,7 @@ class ForeignKeyTest extends AbstractTestCase
      *
      * @dataProvider providerIsSupported
      */
+    #[DataProvider('providerIsSupported')]
     public function testIsSupported(string $a, bool $e): void
     {
         $GLOBALS['server'] = 1;
@@ -72,23 +76,22 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * @dataProvider providerCheckInit
      */
+    #[DataProvider('providerCheckInit')]
     public function testHandleDisableCheckInit(string $checksValue, string $setVariableParam): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
 
         $_REQUEST['fk_checks'] = $checksValue;
 
         $dbi->expects($this->once())
             ->method('getVariable')
-            ->will($this->returnValue('ON'));
+            ->willReturn('ON');
 
         $dbi->expects($this->once())
             ->method('setVariable')
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         self::assertTrue(ForeignKey::handleDisableCheckInit());
     }
@@ -96,23 +99,22 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * @dataProvider providerCheckInit
      */
+    #[DataProvider('providerCheckInit')]
     public function testHandleDisableCheckInitVarFalse(string $checksValue, string $setVariableParam): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
 
         $_REQUEST['fk_checks'] = $checksValue;
 
         $dbi->expects($this->once())
             ->method('getVariable')
-            ->will($this->returnValue('OFF'));
+            ->willReturn('OFF');
 
         $dbi->expects($this->once())
             ->method('setVariable')
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         self::assertFalse(ForeignKey::handleDisableCheckInit());
     }
@@ -131,17 +133,16 @@ class ForeignKeyTest extends AbstractTestCase
     /**
      * @dataProvider providerCheckCleanup
      */
+    #[DataProvider('providerCheckCleanup')]
     public function testHandleDisableCheckCleanup(bool $checkValue, string $setVariableParam): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
 
         $dbi->expects($this->once())
             ->method('setVariable')
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         ForeignKey::handleDisableCheckCleanup($checkValue);
     }

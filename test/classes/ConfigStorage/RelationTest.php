@@ -10,6 +10,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionClass;
 
 use function implode;
@@ -18,8 +22,11 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\ConfigStorage\Relation
- * @group medium
+ * @medium
  */
+#[Medium]
+#[CoversClass(Relation::class)]
+#[AllowMockObjectsWithoutExpectations]
 class RelationTest extends AbstractTestCase
 {
     /** @var Relation */
@@ -72,9 +79,7 @@ class RelationTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['ServerDefault'] = 0;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $getColumnsResult = [
             [
@@ -88,8 +93,7 @@ class RelationTest extends AbstractTestCase
                 'Comment' => 'Comment1',
             ],
         ];
-        $dbi->expects($this->any())->method('getColumns')
-            ->will($this->returnValue($getColumnsResult));
+        $dbi->method('getColumns')->willReturn($getColumnsResult);
 
         $GLOBALS['dbi'] = $dbi;
         $this->relation->dbi = $GLOBALS['dbi'];
@@ -112,18 +116,10 @@ class RelationTest extends AbstractTestCase
     {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())
-            ->method('tryQueryAsControlUser')
-            ->will($this->returnValue($resultStub));
-        $resultStub->expects($this->any())
-            ->method('numRows')
-            ->will($this->returnValue(0));
-        $dbi->expects($this->any())
-            ->method('getError')
-            ->will($this->onConsecutiveCalls('Error', ''));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('tryQueryAsControlUser')->willReturn($resultStub);
+        $resultStub->method('numRows')->willReturn(0);
+        $dbi->method('getError')->willReturnOnConsecutiveCalls('Error', '');
         $GLOBALS['dbi'] = $dbi;
         $this->relation->dbi = $GLOBALS['dbi'];
 
@@ -2165,6 +2161,7 @@ class RelationTest extends AbstractTestCase
      *
      * @dataProvider providerForTestRenameTable
      */
+    #[DataProvider('providerForTestRenameTable')]
     public function testRenameTable(array $params, array $queries): void
     {
         $GLOBALS['server'] = 1;

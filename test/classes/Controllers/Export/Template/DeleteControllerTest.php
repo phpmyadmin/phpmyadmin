@@ -11,10 +11,12 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Export\Template\DeleteController
  */
+#[CoversClass(DeleteController::class)]
 class DeleteControllerTest extends AbstractTestCase
 {
     public function testDelete(): void

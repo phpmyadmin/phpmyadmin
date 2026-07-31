@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\JavaScriptMessagesController;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 use function __;
@@ -18,6 +19,7 @@ use function substr;
 /**
  * @covers \PhpMyAdmin\Controllers\JavaScriptMessagesController
  */
+#[CoversClass(JavaScriptMessagesController::class)]
 class JavaScriptMessagesControllerTest extends TestCase
 {
     public function testIndex(): void

@@ -11,11 +11,14 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Database\EventsController
  * @covers \PhpMyAdmin\Database\Events
  */
+#[CoversClass(EventsController::class)]
+#[CoversClass(Events::class)]
 final class EventsControllerTest extends AbstractTestCase
 {
     public function testWithEvents(): void

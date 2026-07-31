@@ -12,6 +12,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
 use function __;
@@ -21,6 +23,8 @@ use function json_encode;
 /**
  * @covers \PhpMyAdmin\Normalization
  */
+#[CoversClass(Normalization::class)]
+#[AllowMockObjectsWithoutExpectations]
 class NormalizationTest extends AbstractTestCase
 {
     /** @var Normalization */
@@ -46,29 +50,18 @@ class NormalizationTest extends AbstractTestCase
         //$_SESSION
 
         //mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
         $GLOBALS['dbi'] = $dbi;
         // set expectations
-        $dbi->expects($this->any())
-            ->method('selectDb')
-            ->will($this->returnValue(true));
-        $dbi->expects($this->any())
-            ->method('getColumns')
-            ->will(
-                $this->returnValue(
-                    [
-                        'id' => ['Type' => 'integer'],
-                        'col1' => ['Type' => 'varchar(100)'],
-                        'col2' => ['Type' => 'DATETIME'],
-                    ]
-                )
-            );
-        $dbi->expects($this->any())
-            ->method('getColumnNames')
-            ->will($this->returnValue(['id', 'col1', 'col2']));
+        $dbi->method('selectDb')->willReturn(true);
+        $dbi->method('getColumns')
+            ->willReturn([
+                'id' => ['Type' => 'integer'],
+                'col1' => ['Type' => 'varchar(100)'],
+                'col2' => ['Type' => 'DATETIME'],
+            ]);
+        $dbi->method('getColumnNames')->willReturn(['id', 'col1', 'col2']);
         $map = [
             [
                 'PMA_db',
@@ -103,15 +96,9 @@ class NormalizationTest extends AbstractTestCase
                 ],
             ],
         ];
-        $dbi->expects($this->any())
-            ->method('getTableIndexes')
-            ->will($this->returnValueMap($map));
-        $dbi->expects($this->any())
-            ->method('tryQuery')
-            ->will($this->returnValue(true));
-        $dbi->expects($this->any())
-            ->method('fetchResult')
-            ->will($this->returnValue([0]));
+        $dbi->method('getTableIndexes')->willReturnMap($map);
+        $dbi->method('tryQuery')->willReturn(true);
+        $dbi->method('fetchResult')->willReturn([0]);
 
         $this->normalization = new Normalization($dbi, new Relation($dbi), new Transformations(), new Template());
     }

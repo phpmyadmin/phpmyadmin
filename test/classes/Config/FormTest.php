@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Form;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionClass;
 use ReflectionProperty;
 
@@ -17,7 +19,10 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Config\Form
+ * @medium
  */
+#[CoversClass(Form::class)]
+#[Medium]
 class FormTest extends AbstractTestCase
 {
     /** @var Form */
@@ -54,8 +59,6 @@ class FormTest extends AbstractTestCase
 
     /**
      * Test for Form::__constructor
-     *
-     * @group medium
      */
     public function testContructor(): void
     {

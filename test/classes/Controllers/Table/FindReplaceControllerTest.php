@@ -10,10 +10,14 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Table\FindReplaceController
  */
+#[CoversClass(FindReplaceController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class FindReplaceControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -29,9 +33,7 @@ class FindReplaceControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
 
         $columns = [
@@ -48,8 +50,7 @@ class FindReplaceControllerTest extends AbstractTestCase
                 'Collation' => 'Collation2',
             ],
         ];
-        $dbi->expects($this->any())->method('getColumns')
-            ->will($this->returnValue($columns));
+        $dbi->method('getColumns')->willReturn($columns);
 
         $show_create_table = "CREATE TABLE `table` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -62,10 +63,8 @@ class FindReplaceControllerTest extends AbstractTestCase
         ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin "
             . "COMMENT='table'";
 
-        $dbi->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue($show_create_table));
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->method('fetchValue')->willReturn($show_create_table);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
     }

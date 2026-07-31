@@ -10,6 +10,7 @@ use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std as RouteParserStd;
 use PhpMyAdmin\Controllers\HomeController;
 use PhpMyAdmin\Routing;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function file_exists;
 use function file_put_contents;
@@ -23,6 +24,7 @@ use const TEST_PATH;
 /**
  * @covers \PhpMyAdmin\Routing
  */
+#[CoversClass(Routing::class)]
 class RoutingTest extends AbstractTestCase
 {
     public function testGetDispatcherWithDevEnv(): void

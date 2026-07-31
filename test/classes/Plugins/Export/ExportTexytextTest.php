@@ -15,6 +15,8 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -26,8 +28,10 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportTexytext
- * @group medium
+ * @medium
  */
+#[Medium]
+#[CoversClass(ExportTexytext::class)]
 class ExportTexytextTest extends AbstractTestCase
 {
     /** @var ExportTexytext */
@@ -206,9 +210,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         // case 1
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $keys = [
             [
@@ -224,7 +226,7 @@ class ExportTexytextTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getTableIndexes')
             ->with('db', 'table')
-            ->will($this->returnValue($keys));
+            ->willReturn($keys);
 
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
@@ -246,11 +248,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('fetchValue')
-            ->will(
-                $this->returnValue(
-                    'SELECT a FROM b'
-                )
-            );
+            ->willReturn('SELECT a FROM b');
 
         $columns = [
             'Field' => 'fname',
@@ -260,7 +258,7 @@ class ExportTexytextTest extends AbstractTestCase
         $dbi->expects($this->exactly(2))
             ->method('getColumns')
             ->with('db', 'table')
-            ->will($this->returnValue([$columns]));
+            ->willReturn([$columns]);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
@@ -268,7 +266,7 @@ class ExportTexytextTest extends AbstractTestCase
         $this->object->expects($this->exactly(1))
             ->method('formatOneColumnDefinition')
             ->with(['Field' => 'fname', 'Comment' => 'comm'], ['cname'])
-            ->will($this->returnValue(1));
+            ->willReturn(1);
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
@@ -287,9 +285,7 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testGetTriggers(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $triggers = [
             [
@@ -303,7 +299,7 @@ class ExportTexytextTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getTriggers')
             ->with('database', 'ta<ble')
-            ->will($this->returnValue($triggers));
+            ->willReturn($triggers);
 
         $GLOBALS['dbi'] = $dbi;
 

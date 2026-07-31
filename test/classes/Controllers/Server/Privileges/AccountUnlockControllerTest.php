@@ -12,11 +12,13 @@ use PhpMyAdmin\Server\Privileges\AccountLocking;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\Stub;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Privileges\AccountUnlockController
  */
+#[CoversClass(AccountUnlockController::class)]
 class AccountUnlockControllerTest extends AbstractTestCase
 {
     /** @var DatabaseInterface&Stub */

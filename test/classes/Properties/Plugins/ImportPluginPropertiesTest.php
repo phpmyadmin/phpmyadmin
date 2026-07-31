@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Properties\Plugins\ImportPluginProperties
  */
+#[CoversClass(ImportPluginProperties::class)]
 class ImportPluginPropertiesTest extends AbstractTestCase
 {
     /** @var ImportPluginProperties */

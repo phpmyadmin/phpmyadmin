@@ -11,6 +11,7 @@ use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 use function htmlspecialchars;
@@ -18,6 +19,7 @@ use function htmlspecialchars;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\ShowEngineController
  */
+#[CoversClass(ShowEngineController::class)]
 class ShowEngineControllerTest extends AbstractTestCase
 {
     public function testShowEngine(): void
@@ -36,7 +38,7 @@ class ShowEngineControllerTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $response = new ResponseRenderer();
-        $request = $this->createMock(ServerRequest::class);
+        $request = $this->createStub(ServerRequest::class);
         $this->dummyDbi->addSelectDb('mysql');
 
         (new ShowEngineController($response, new Template(), $dbi))($request, [

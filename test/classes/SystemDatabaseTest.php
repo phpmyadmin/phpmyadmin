@@ -8,10 +8,14 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\SystemDatabase
  */
+#[CoversClass(SystemDatabase::class)]
+#[AllowMockObjectsWithoutExpectations]
 class SystemDatabaseTest extends AbstractTestCase
 {
     /**
@@ -33,15 +37,9 @@ class SystemDatabaseTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $dbi->expects($this->any())
-            ->method('tryQuery')
-            ->will($this->returnValue($resultStub));
+        $dbi->method('tryQuery')->willReturn($this->createStub(DummyResult::class));
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
@@ -79,20 +77,15 @@ class SystemDatabaseTest extends AbstractTestCase
     {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $resultStub->expects($this->any())
-            ->method('fetchAssoc')
-            ->will(
-                $this->returnValue(
-                    [
-                        'table_name' => 'table_name',
-                        'column_name' => 'column_name',
-                        'comment' => 'comment',
-                        'mimetype' => 'mimetype',
-                        'transformation' => 'transformation',
-                        'transformation_options' => 'transformation_options',
-                    ]
-                )
-            );
+        $resultStub->method('fetchAssoc')
+            ->willReturn([
+                'table_name' => 'table_name',
+                'column_name' => 'column_name',
+                'comment' => 'comment',
+                'mimetype' => 'mimetype',
+                'transformation' => 'transformation',
+                'transformation_options' => 'transformation_options',
+            ]);
 
         $db = 'PMA_db';
         $column_map = [

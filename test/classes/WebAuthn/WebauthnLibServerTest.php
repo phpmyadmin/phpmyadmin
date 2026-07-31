@@ -7,6 +7,8 @@ namespace PhpMyAdmin\Tests\WebAuthn;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\WebAuthn\WebauthnLibServer;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
 use Webauthn\Server as WebauthnServer;
@@ -17,6 +19,7 @@ use function class_exists;
 /**
  * @covers \PhpMyAdmin\WebAuthn\WebauthnLibServer
  */
+#[CoversClass(WebauthnLibServer::class)]
 final class WebauthnLibServerTest extends TestCase
 {
     protected function setUp(): void
@@ -93,6 +96,7 @@ final class WebauthnLibServerTest extends TestCase
      *
      * @requires extension bcmath
      */
+    #[RequiresPhpExtension('bcmath')]
     public function testParseAndValidateAssertionResponse(): void
     {
         $twoFactor = self::createStub(TwoFactor::class);
