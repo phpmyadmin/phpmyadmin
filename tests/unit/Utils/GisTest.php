@@ -36,9 +36,7 @@ class GisTest extends AbstractTestCase
         bool $SRIDOption,
         int $mysqlVersion,
     ): void {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($SRIDOption ? self::once() : self::exactly(2))
             ->method('getVersion')

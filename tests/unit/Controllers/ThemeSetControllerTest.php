@@ -33,11 +33,11 @@ class ThemeSetControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['set_theme' => 'theme_name', 'themeColorMode' => '']);
 
-        $themeManager = self::createMock(ThemeManager::class);
+        $themeManager = $this->createMock(ThemeManager::class);
         $themeManager->expects(self::once())->method('setActiveTheme')->with(self::equalTo('theme_name'));
         $themeManager->expects(self::once())->method('setThemeCookie');
 
-        $userPreferences = self::createMock(UserPreferences::class);
+        $userPreferences = $this->createMock(UserPreferences::class);
         $userPreferences->expects(self::once())->method('load')
             ->willReturn(['config_data' => ['ThemeDefault' => 'pmahomme']]);
         $userPreferences->expects(self::once())->method('save')
@@ -55,11 +55,11 @@ class ThemeSetControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['set_theme' => $themeName]);
 
-        $themeManager = self::createMock(ThemeManager::class);
+        $themeManager = $this->createMock(ThemeManager::class);
         $themeManager->expects(self::never())->method('setActiveTheme');
         $themeManager->expects(self::never())->method('setThemeCookie');
 
-        $userPreferences = self::createMock(UserPreferences::class);
+        $userPreferences = $this->createMock(UserPreferences::class);
         $userPreferences->expects(self::never())->method('load');
         $userPreferences->expects(self::never())->method('save');
 

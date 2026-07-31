@@ -14,6 +14,7 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
@@ -35,6 +36,7 @@ use const LC_ALL;
 use const LOCALE_PATH;
 
 #[CoversClass(Util::class)]
+#[AllowMockObjectsWithoutExpectations]
 class UtilTest extends AbstractTestCase
 {
     /**
@@ -1373,17 +1375,11 @@ SQL;
     #[DataProvider('provideForTestIsUUIDSupported')]
     public function testIsUUIDSupported(bool $isMariaDB, int $version, bool $expected): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects(self::any())
-            ->method('isMariaDB')
-            ->willReturn($isMariaDB);
+        $dbi->method('isMariaDB')->willReturn($isMariaDB);
 
-        $dbi->expects(self::any())
-            ->method('getVersion')
-            ->willReturn($version);
+        $dbi->method('getVersion')->willReturn($version);
 
         DatabaseInterface::$instance = $dbi;
         self::assertSame(Util::isUUIDSupported(), $expected);

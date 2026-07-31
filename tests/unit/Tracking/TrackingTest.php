@@ -572,11 +572,9 @@ final class TrackingTest extends AbstractTestCase
      */
     public function testDeleteTracking(): void
     {
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $sqlQuery = "/*NOTRACK*/\n"
             . 'DELETE FROM `pmadb`.`tracking`'
@@ -587,7 +585,7 @@ final class TrackingTest extends AbstractTestCase
             ->method('queryAsControlUser')
             ->with($sqlQuery)
             ->willReturn($resultStub);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $tracking = new Tracking(
@@ -640,11 +638,9 @@ final class TrackingTest extends AbstractTestCase
     #[DataProvider('getTrackedDataProvider')]
     public function testGetTrackedData(array $fetchArrayReturn, TrackedData $expected): void
     {
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('queryAsControlUser')

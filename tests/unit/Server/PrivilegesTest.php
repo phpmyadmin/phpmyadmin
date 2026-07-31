@@ -24,6 +24,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -38,6 +39,7 @@ use function preg_quote;
 
 #[CoversClass(Privileges::class)]
 #[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class PrivilegesTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -520,14 +522,10 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['max_user_connections'] = 40;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects(self::any())->method('getVersion')
-            ->willReturn(8003);
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('getVersion')->willReturn(8003);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
@@ -563,14 +561,10 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['max_user_connections'] = 40;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects(self::any())->method('getVersion')
-            ->willReturn(80011);
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('getVersion')->willReturn(80011);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
@@ -941,17 +935,13 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges->username = 'pma_username';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $fieldsInfo = [
             ['COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80],
             ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
         ];
-        $dbi->expects(self::any())->method('fetchResult')
-            ->willReturn($fieldsInfo);
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('fetchResult')->willReturn($fieldsInfo);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
@@ -1006,20 +996,15 @@ class PrivilegesTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $serverPrivileges = $this->getPrivileges($dbi);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $fieldsInfo = [
             ['COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80],
             ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
         ];
-        $dbi->expects(self::any())->method('fetchResult')
-            ->willReturn($fieldsInfo);
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('fetchResult')->willReturn($fieldsInfo);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $dbi->expects(self::any())->method('isGrantUser')
-            ->willReturn(true);
+        $dbi->method('isGrantUser')->willReturn(true);
 
         $serverPrivileges->dbi = $dbi;
 
@@ -1780,20 +1765,11 @@ class PrivilegesTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())
-            ->method('query')
-            ->willReturn($resultStub);
-        $dbi->expects(self::any())
-            ->method('fetchResult')
-            ->willReturn(['db', 'columns_priv']);
-        $resultStub->expects(self::any())
-            ->method('fetchAssoc')
-            ->willReturn(['User' => 'pmauser', 'Host' => 'local'], []);
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('query')->willReturn($resultStub);
+        $dbi->method('fetchResult')->willReturn(['db', 'columns_priv']);
+        $resultStub->method('fetchAssoc')->willReturn(['User' => 'pmauser', 'Host' => 'local'], []);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
@@ -1821,17 +1797,10 @@ class PrivilegesTest extends AbstractTestCase
         $resultStub = self::createStub(DummyResult::class);
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())
-            ->method('tryQuery')
-            ->willReturn($resultStub, $resultStub, false);
-        $dbi->expects(self::any())
-            ->method('getError')
-            ->willReturn('Some error occurred!');
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('tryQuery')->willReturn($resultStub, $resultStub, false);
+        $dbi->method('getError')->willReturn('Some error occurred!');
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;

@@ -65,11 +65,7 @@ final class ImportShpTest extends AbstractTestCase
         $importHandle = new File($filename);
         $importHandle->setDecompressContent(true);
         $importHandle->open();
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $importCsv = $this->getImportShp($dbi);
+        $importCsv = $this->getImportShp($this->createStub(DatabaseInterface::class));
 
         Current::$message = null;
         Import::$hasError = false;

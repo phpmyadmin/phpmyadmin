@@ -15,12 +15,14 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Triggers\Triggers;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionClass;
 
 #[CoversClass(IndexController::class)]
 #[CoversClass(Triggers::class)]
+#[AllowMockObjectsWithoutExpectations]
 final class IndexControllerTest extends AbstractTestCase
 {
     public function testWithTriggers(): void
@@ -350,9 +352,7 @@ final class IndexControllerTest extends AbstractTestCase
         );
 
         $request = $this->createMock(ServerRequest::class);
-        $request->expects(self::any())
-            ->method('getParsedBodyParam')
-            ->willReturn('foo');
+        $request->method('getParsedBodyParam')->willReturn('foo');
 
         $output = $method->invoke($indexController, $request);
         self::assertSame($out, $output);

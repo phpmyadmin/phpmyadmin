@@ -18,6 +18,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionMethod;
@@ -28,6 +29,7 @@ use function htmlspecialchars;
 use function str_replace;
 
 #[CoversClass(VariablesController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class VariablesControllerTest extends AbstractTestCase
 {
     private DatabaseInterface&MockObject $mockedDbi;
@@ -42,9 +44,7 @@ class VariablesControllerTest extends AbstractTestCase
         Current::$table = 'table';
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $this->mockedDbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->mockedDbi = $this->createMock(DatabaseInterface::class);
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
         $serverSessionVariables = [
@@ -62,8 +62,7 @@ class VariablesControllerTest extends AbstractTestCase
             ['SHOW GLOBAL VARIABLES;', 0, 1, ConnectionType::User, $serverGlobalVariables],
         ];
 
-        $this->mockedDbi->expects(self::any())->method('fetchResult')
-            ->willReturnMap($fetchResult);
+        $this->mockedDbi->method('fetchResult')->willReturnMap($fetchResult);
     }
 
     public function testIndex(): void
@@ -128,7 +127,7 @@ class VariablesControllerTest extends AbstractTestCase
 
         //name is_numeric and the value type is byte
         $args = [$nameForValueByte, '3'];
-        $voidProviderMock = $this->getMockBuilder(ServerVariablesVoidProvider::class)->getMock();
+        $voidProviderMock = $this->createMock(ServerVariablesVoidProvider::class);
 
         $voidProviderMock
             ->expects(self::exactly(2))

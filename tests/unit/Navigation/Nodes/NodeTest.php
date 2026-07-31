@@ -352,9 +352,9 @@ final class NodeTest extends AbstractTestCase
         $expectedSql .= "CONCAT(SCHEMA_NAME, '_')) ";
         $expectedSql .= 'ORDER BY SCHEMA_NAME ASC';
 
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('fetchSingleColumn')->with($expectedSql);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $node = new Node($dbi, $config, 'node');
@@ -376,7 +376,7 @@ final class NodeTest extends AbstractTestCase
         $expectedSql .= 'ORDER BY `SCHEMA_NAME` ';
         $expectedSql .= 'LIMIT 10, 20';
 
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('fetchSingleColumn')->with($expectedSql);
 
         $node = new Node($dbi, $config, 'node');
@@ -392,9 +392,9 @@ final class NodeTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = true;
         $config->set('FirstLevelNavigationItems', 2);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' ")
@@ -410,9 +410,9 @@ final class NodeTest extends AbstractTestCase
                 . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"
                 . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )",
             );
-        $dbi->expects(self::any())->method('escapeMysqlWildcards')
+        $dbi->method('escapeMysqlWildcards')
             ->willReturnArgument(0);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $node = new Node($dbi, $config, 'node');
@@ -429,9 +429,9 @@ final class NodeTest extends AbstractTestCase
         $config->set('NavigationTreeEnableGrouping', false);
         $config->set('FirstLevelNavigationItems', 2);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' ")
@@ -466,7 +466,7 @@ final class NodeTest extends AbstractTestCase
         $query .= 'WHERE TRUE ';
         $query .= ') t ';
 
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('fetchValue')->with($query);
 
         $node = new Node($dbi, $config, 'node');
@@ -486,7 +486,7 @@ final class NodeTest extends AbstractTestCase
         $query .= 'FROM INFORMATION_SCHEMA.SCHEMATA ';
         $query .= 'WHERE TRUE ';
 
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('fetchValue')->with($query);
 
         $node = new Node($dbi, $config, 'node');
@@ -502,10 +502,10 @@ final class NodeTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
         // test with no search clause
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('tryQuery')
             ->with('SHOW DATABASES WHERE TRUE ')
@@ -515,14 +515,14 @@ final class NodeTest extends AbstractTestCase
         self::assertSame(0, $node->getPresence(new UserPrivileges()));
 
         // test with a search clause
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ")
             ->willReturn($resultStub);
-        $dbi->expects(self::any())->method('escapeMysqlWildcards')
+        $dbi->method('escapeMysqlWildcards')
             ->willReturnArgument(0);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $node = new Node($dbi, $config, 'node');

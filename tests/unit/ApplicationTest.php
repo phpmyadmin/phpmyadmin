@@ -27,7 +27,7 @@ final class ApplicationTest extends AbstractTestCase
     #[BackupStaticProperties(true)]
     public function testRunWithConfigError(): void
     {
-        $config = self::createMock(Config::class);
+        $config = $this->createMock(Config::class);
         $config->expects(self::once())->method('loadFromFile')
             ->willThrowException(new ConfigException('Failed to load phpMyAdmin configuration.'));
         $config->config = new Config\Settings([]);

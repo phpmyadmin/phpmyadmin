@@ -26,6 +26,7 @@ use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\ZipExtension;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionProperty;
@@ -44,6 +45,7 @@ use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
 
 #[CoversClass(ExportController::class)]
+#[AllowMockObjectsWithoutExpectations]
 final class ExportControllerTest extends AbstractTestCase
 {
     public function testExportController(): void

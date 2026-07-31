@@ -35,7 +35,7 @@ final class RecentTableHandlingTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
         $response = ResponseFactory::create()->createResponse();
-        $handler = self::createMock(RequestHandlerInterface::class);
+        $handler = $this->createMock(RequestHandlerInterface::class);
         $handler->method('handle')->with($request)->willReturn($response);
 
         $reflectionProperty = new ReflectionProperty(RecentFavoriteTables::class, 'instances');

@@ -17,7 +17,7 @@ class RelationCleanupTest extends AbstractTestCase
 {
     public function testColumnWithoutRelations(): void
     {
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::never())->method('queryAsControlUser');
 
         (new RelationCleanup($dbi, new Relation($dbi)))->column('database', 'table', 'column');
@@ -37,8 +37,8 @@ class RelationCleanupTest extends AbstractTestCase
             RelationParameters::COLUMN_INFO => 'column_info',
         ]));
 
-        $dbi = self::createMock(DatabaseInterface::class);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $result = self::createStub(ResultInterface::class);
         $dbi->expects(self::exactly(4))->method('queryAsControlUser')->willReturnMap([
@@ -69,7 +69,7 @@ class RelationCleanupTest extends AbstractTestCase
 
     public function testTableWithoutRelations(): void
     {
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::never())->method('queryAsControlUser');
 
         (new RelationCleanup($dbi, new Relation($dbi)))->table('database', 'table');
@@ -96,8 +96,8 @@ class RelationCleanupTest extends AbstractTestCase
             RelationParameters::NAVIGATION_HIDING => 'navigationhiding',
         ]));
 
-        $dbi = self::createMock(DatabaseInterface::class);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $result = self::createStub(ResultInterface::class);
         $dbi->expects(self::exactly(7))->method('queryAsControlUser')->willReturnMap([
@@ -119,7 +119,7 @@ class RelationCleanupTest extends AbstractTestCase
 
     public function testDatabaseWithoutRelations(): void
     {
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::never())->method('queryAsControlUser');
 
         (new RelationCleanup($dbi, new Relation($dbi)))->database('database');
@@ -152,8 +152,8 @@ class RelationCleanupTest extends AbstractTestCase
             RelationParameters::CENTRAL_COLUMNS => 'central_columns',
         ]));
 
-        $dbi = self::createMock(DatabaseInterface::class);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $result = self::createStub(ResultInterface::class);
         $dbi->expects(self::exactly(11))->method('queryAsControlUser')->willReturnMap([
@@ -175,7 +175,7 @@ class RelationCleanupTest extends AbstractTestCase
 
     public function testUserWithoutRelations(): void
     {
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::never())->method('queryAsControlUser');
 
         (new RelationCleanup($dbi, new Relation($dbi)))->user('user');
@@ -210,8 +210,8 @@ class RelationCleanupTest extends AbstractTestCase
             RelationParameters::DESIGNER_SETTINGS => 'designer_settings',
         ]));
 
-        $dbi = self::createMock(DatabaseInterface::class);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $result = self::createStub(ResultInterface::class);
         $dbi->expects(self::exactly(10))->method('queryAsControlUser')->willReturnMap([

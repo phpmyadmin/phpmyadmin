@@ -11,6 +11,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\SystemColumn;
 use PhpMyAdmin\SystemDatabase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
@@ -18,6 +19,7 @@ use const MYSQLI_TYPE_STRING;
 
 #[CoversClass(SystemDatabase::class)]
 #[CoversClass(SystemColumn::class)]
+#[AllowMockObjectsWithoutExpectations]
 class SystemDatabaseTest extends AbstractTestCase
 {
     /**
@@ -37,18 +39,11 @@ class SystemDatabaseTest extends AbstractTestCase
          */
         Config::getInstance()->selectedServer['pmadb'] = '';
 
-        $resultStub = self::createMock(DummyResult::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi->method('tryQuery')->willReturn($this->createStub(DummyResult::class));
 
-        $dbi->expects(self::any())
-            ->method('tryQuery')
-            ->willReturn($resultStub);
-
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $relationParameters = RelationParameters::fromArray([
@@ -85,18 +80,16 @@ class SystemDatabaseTest extends AbstractTestCase
      */
     public function testPMAGetNewTransformationDataSql(): void
     {
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $resultStub->expects(self::any())
-            ->method('fetchAssoc')
-            ->willReturn([
-                'table_name' => 'table_name',
-                'column_name' => 'column_name',
-                'comment' => 'comment',
-                'mimetype' => 'mimetype',
-                'transformation' => 'transformation',
-                'transformation_options' => 'transformation_options',
-            ]);
+        $resultStub->method('fetchAssoc')->willReturn([
+            'table_name' => 'table_name',
+            'column_name' => 'column_name',
+            'comment' => 'comment',
+            'mimetype' => 'mimetype',
+            'transformation' => 'transformation',
+            'transformation_options' => 'transformation_options',
+        ]);
 
         $db = 'PMA_db';
         $columnMap = [new SystemColumn('table_name', 'column_name', null)];

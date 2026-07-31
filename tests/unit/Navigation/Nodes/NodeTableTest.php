@@ -72,7 +72,7 @@ class NodeTableTest extends AbstractTestCase
     {
         $config = Config::getInstance();
 
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('fetchResultSimple')
             ->willReturnOnConsecutiveCalls(
@@ -103,8 +103,8 @@ class NodeTableTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = true;
         $config->set('MaxNavigationItems', 2);
 
-        $dbi = self::createMock(DatabaseInterface::class);
-        $resultStub = self::createMock(DummyResult::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $resultStub = $this->createMock(DummyResult::class);
         $dbi->expects(self::once())
             ->method('tryQuery')
             ->with('SHOW COLUMNS FROM `node` FROM `DB`')
@@ -135,7 +135,7 @@ class NodeTableTest extends AbstractTestCase
     {
         $config = Config::getInstance();
 
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('fetchSingleColumn')
             ->willReturnOnConsecutiveCalls(
@@ -166,8 +166,8 @@ class NodeTableTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = true;
         $config->set('MaxNavigationItems', 2);
 
-        $dbi = self::createMock(DatabaseInterface::class);
-        $resultStub = self::createMock(DummyResult::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $resultStub = $this->createMock(DummyResult::class);
         $dbi->expects(self::once())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $dbi->expects(self::once())
@@ -202,8 +202,8 @@ class NodeTableTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = true;
         $config->set('MaxNavigationItems', 2);
 
-        $dbi = self::createMock(DatabaseInterface::class);
-        $resultStub = self::createMock(DummyResult::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $resultStub = $this->createMock(DummyResult::class);
         $dbi->expects(self::once())
             ->method('tryQuery')
             ->with('SHOW INDEXES FROM `node` FROM `DB`')

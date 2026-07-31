@@ -228,9 +228,7 @@ final class ExportTexytextTest extends AbstractTestCase
     public function testGetTableDef(): void
     {
         // case 1
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $keys = [['Non_unique' => 0, 'Column_name' => 'cname'], ['Non_unique' => 1, 'Column_name' => 'cname2']];
 

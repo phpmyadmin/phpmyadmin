@@ -157,9 +157,7 @@ class TrackerTest extends AbstractTestCase
 
         $resultStub = self::createStub(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         /**
          * set up mock objects
@@ -189,12 +187,10 @@ class TrackerTest extends AbstractTestCase
             [$showCreateTableQuery, ConnectionType::User, false, true, $resultStub],
         ]);
 
-        $dbi->expects(self::any())->method('query')
-            ->willReturn($resultStub);
+        $dbi->method('query')->willReturn($resultStub);
 
-        $dbi->expects(self::any())->method('getCompatibilities')
-            ->willReturn([]);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('getCompatibilities')->willReturn([]);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -213,9 +209,7 @@ class TrackerTest extends AbstractTestCase
 
         $resultStub = self::createStub(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $expectedMainQuery = '/*NOTRACK*/' . "\n" . 'INSERT INTO `pmadb`.`tracking` (db_name, table_name, version,'
             . ' date_created, date_updated, schema_snapshot, schema_sql, data_sql, tracking)'
@@ -228,7 +222,7 @@ class TrackerTest extends AbstractTestCase
             ->with(self::matches($expectedMainQuery))
             ->willReturn($resultStub);
 
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -252,9 +246,7 @@ class TrackerTest extends AbstractTestCase
         string|int $newState = '1',
         string|null $type = null,
     ): void {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $resultStub = self::createStub(DummyResult::class);
 
@@ -268,7 +260,7 @@ class TrackerTest extends AbstractTestCase
             ->with($sqlQuery)
             ->willReturn($resultStub);
 
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;

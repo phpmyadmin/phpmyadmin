@@ -13,10 +13,12 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 #[CoversClass(AdvisorController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class AdvisorControllerTest extends AbstractTestCase
 {
     private ResponseRenderer $response;
@@ -89,7 +91,7 @@ class AdvisorControllerTest extends AbstractTestCase
             ],
         ];
 
-        $advisor = self::createMock(Advisor::class);
+        $advisor = $this->createMock(Advisor::class);
         $advisor->method('run')->willReturn($advisorData);
 
         $controller = new AdvisorController($this->response, $this->template, $this->data, $advisor);

@@ -81,9 +81,7 @@ final class ImportCsvTest extends AbstractTestCase
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $importCsv = $this->getImportCsv($dbi);
 
@@ -120,9 +118,7 @@ final class ImportCsvTest extends AbstractTestCase
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $importCsv = $this->getImportCsv($dbi);
 
@@ -179,9 +175,7 @@ final class ImportCsvTest extends AbstractTestCase
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $importCsv = $this->getImportCsv($dbi);
 

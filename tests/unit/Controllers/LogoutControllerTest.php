@@ -23,7 +23,7 @@ final class LogoutControllerTest extends AbstractTestCase
 
         $expectedResponse = ResponseFactory::create()->createResponse();
 
-        $authPlugin = self::createMock(AuthenticationPlugin::class);
+        $authPlugin = $this->createMock(AuthenticationPlugin::class);
         $authPlugin->expects(self::once())->method('logOut')->willReturn($expectedResponse);
 
         $factory = self::createStub(AuthenticationPluginFactory::class);

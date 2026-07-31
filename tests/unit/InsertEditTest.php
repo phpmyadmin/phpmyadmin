@@ -151,12 +151,10 @@ class InsertEditTest extends AbstractTestCase
     {
         $clauses = ['a=1', 'b="fo\o"'];
 
-        $resultStub1 = self::createMock(DummyResult::class);
-        $resultStub2 = self::createMock(DummyResult::class);
+        $resultStub1 = $this->createMock(DummyResult::class);
+        $resultStub2 = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
             ->method('query')
@@ -207,11 +205,9 @@ class InsertEditTest extends AbstractTestCase
             'orgname' => 'orgname',
         ]);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -241,11 +237,9 @@ class InsertEditTest extends AbstractTestCase
 
     public function testLoadFirstRow(): void
     {
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('query')
@@ -883,9 +877,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Case 3 (bit)
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         DatabaseInterface::$instance = $dbi;
         $config = Config::getInstance();
@@ -1058,11 +1050,9 @@ class InsertEditTest extends AbstractTestCase
 
         $row = ['1' => 1];
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('query')
@@ -1216,9 +1206,7 @@ class InsertEditTest extends AbstractTestCase
             Warning::fromArray(['Level' => 'Warning', 'Code' => '1002', 'Message' => 'Message 2']),
         ];
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getWarnings')
@@ -1254,11 +1242,9 @@ class InsertEditTest extends AbstractTestCase
         $map['f']['foreign_field'] = 'f';
         $map = new Foreigners($map);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('tryQuery')
@@ -2049,11 +2035,9 @@ class InsertEditTest extends AbstractTestCase
         $_POST['where_clause'] = [];
         $_POST['where_clause'][0] = 1;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::exactly(3))
             ->method('tryQuery')
@@ -2104,9 +2088,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetTableColumns(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('selectDb')
@@ -2151,11 +2133,9 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testDetermineInsertOrEdit(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
         $dbi->expects(self::exactly(2))
             ->method('query')
@@ -2207,18 +2187,14 @@ class InsertEditTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->set('ShowPropertyComments', false);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getColumns')
             ->with('db', 'table')
             ->willReturn([new Column('d', 'd', null, false, '', null, '', '', 'b')]);
 
-        $dbi->expects(self::any())
-            ->method('getTable')
-            ->willReturn(new Table('table', 'db', $dbi));
+        $dbi->method('getTable')->willReturn(new Table('table', 'db', $dbi));
 
         DatabaseInterface::$instance = $dbi;
         $relation = new Relation($dbi);

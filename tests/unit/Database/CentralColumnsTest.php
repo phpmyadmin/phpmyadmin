@@ -16,6 +16,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
@@ -28,6 +29,7 @@ use function array_slice;
 #[CoversClass(CentralColumns::class)]
 #[PreserveGlobalState(false)]
 #[RunTestsInSeparateProcesses]
+#[AllowMockObjectsWithoutExpectations]
 class CentralColumnsTest extends AbstractTestCase
 {
     private CentralColumns $centralColumns;
@@ -120,34 +122,22 @@ class CentralColumnsTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         // mock DBI
-        $this->dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->dbi = $this->createMock(DatabaseInterface::class);
         $this->dbi->types = new Types($this->dbi);
         DatabaseInterface::$instance = $this->dbi;
 
         // set some common expectations
-        $this->dbi->expects(self::any())
-            ->method('selectDb')
-            ->willReturn(true);
-        $this->dbi->expects(self::any())
-            ->method('getColumns')
-            ->willReturn([
-                'id' => new Column('id', 'integer', null, false, '', null, '', '', ''),
-                'col1' => new Column('col1', 'varchar(100)', null, true, '', null, '', '', ''),
-                'col2' => new Column('col2', 'DATETIME', null, false, '', null, '', '', ''),
-            ]);
-        $this->dbi->expects(self::any())
-            ->method('getColumnNames')
-            ->willReturn(['id', 'col1', 'col2']);
-        $this->dbi->expects(self::any())
-            ->method('tryQuery')
-            ->willReturn(self::createStub(DummyResult::class));
-        $this->dbi->expects(self::any())
-            ->method('getTables')
-            ->willReturn(['PMA_table', 'PMA_table1', 'PMA_table2']);
-        $this->dbi->expects(self::any())->method('quoteString')
-        ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
+        $this->dbi->method('selectDb')->willReturn(true);
+        $this->dbi->method('getColumns')->willReturn([
+            'id' => new Column('id', 'integer', null, false, '', null, '', '', ''),
+            'col1' => new Column('col1', 'varchar(100)', null, true, '', null, '', '', ''),
+            'col2' => new Column('col2', 'DATETIME', null, false, '', null, '', '', ''),
+        ]);
+        $this->dbi->method('getColumnNames')->willReturn(['id', 'col1', 'col2']);
+        $this->dbi->method('tryQuery')->willReturn(self::createStub(DummyResult::class));
+        $this->dbi->method('getTables')->willReturn(['PMA_table', 'PMA_table1', 'PMA_table2']);
+        $this->dbi->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $this->centralColumns = new CentralColumns($this->dbi);
     }
@@ -223,12 +213,8 @@ class CentralColumnsTest extends AbstractTestCase
      */
     public function testMakeConsistentWithList(): void
     {
-        $this->dbi->expects(self::any())
-            ->method('fetchResult')
-            ->willReturn(self::COLUMN_DATA);
-        $this->dbi->expects(self::any())
-            ->method('fetchValue')
-            ->willReturn('PMA_table=CREATE table `PMA_table` (id integer)');
+        $this->dbi->method('fetchResult')->willReturn(self::COLUMN_DATA);
+        $this->dbi->method('fetchValue')->willReturn('PMA_table=CREATE table `PMA_table` (id integer)');
         self::assertTrue(
             $this->centralColumns->makeConsistentWithList(
                 'phpmyadmin',
@@ -297,8 +283,7 @@ class CentralColumnsTest extends AbstractTestCase
      */
     public function testGetHtmlForEditingPage(): void
     {
-        $this->dbi->expects(self::any())
-            ->method('fetchResultSimple')
+        $this->dbi->method('fetchResultSimple')
             ->with(
                 'SELECT * FROM `phpmyadmin`.`pma_central_columns` '
                 . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",

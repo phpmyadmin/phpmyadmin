@@ -309,9 +309,7 @@ final class ExportOdtTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $fields = [
             FieldHelper::fromArray(['type' => -1]),
@@ -323,7 +321,7 @@ final class ExportOdtTest extends AbstractTestCase
             FieldHelper::fromArray(['type' => MYSQLI_TYPE_DECIMAL, 'flags' => MYSQLI_NUM_FLAG]),
             FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING]),
         ];
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -369,9 +367,7 @@ final class ExportOdtTest extends AbstractTestCase
 
     public function testExportDataWithFieldNames(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $fields = [
             FieldHelper::fromArray([
@@ -386,7 +382,7 @@ final class ExportOdtTest extends AbstractTestCase
             ]),
         ];
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -426,13 +422,11 @@ final class ExportOdtTest extends AbstractTestCase
         );
 
         // with no row count
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $flags = [];
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -509,11 +503,9 @@ final class ExportOdtTest extends AbstractTestCase
 
     public function testGetTableDef(): void
     {
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
             ->method('fetchResult')
@@ -581,11 +573,9 @@ final class ExportOdtTest extends AbstractTestCase
 
         // case 2
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
             ->method('fetchResult')
@@ -846,9 +836,7 @@ final class ExportOdtTest extends AbstractTestCase
 
     public function testExportTableCallsExportStructureMethod(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['odt_structure_or_data' => 'structure']);

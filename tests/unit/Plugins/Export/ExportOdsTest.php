@@ -189,9 +189,7 @@ final class ExportOdsTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $fields = [
             FieldHelper::fromArray(['type' => -1]),
@@ -207,7 +205,7 @@ final class ExportOdsTest extends AbstractTestCase
             FieldHelper::fromArray(['type' => MYSQLI_TYPE_DECIMAL]),
             FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING]),
         ];
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -261,9 +259,7 @@ final class ExportOdsTest extends AbstractTestCase
 
     public function testExportDataWithFieldNames(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $fields = [
             FieldHelper::fromArray([
@@ -278,7 +274,7 @@ final class ExportOdsTest extends AbstractTestCase
             ]),
         ];
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -316,13 +312,11 @@ final class ExportOdsTest extends AbstractTestCase
         );
 
         // with no row count
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $flags = [];
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')

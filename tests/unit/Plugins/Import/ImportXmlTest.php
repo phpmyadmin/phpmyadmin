@@ -13,6 +13,7 @@ use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportXml;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
@@ -23,6 +24,7 @@ use function __;
 #[RequiresPhpExtension('xml')]
 #[RequiresPhpExtension('xmlwriter')]
 #[Medium]
+#[AllowMockObjectsWithoutExpectations]
 final class ImportXmlTest extends AbstractTestCase
 {
     /**
@@ -81,11 +83,8 @@ final class ImportXmlTest extends AbstractTestCase
     #[RequiresPhpExtension('simplexml')]
     public function testDoImport(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $importHandle = new File(ImportSettings::$importFile);
@@ -130,11 +129,8 @@ final class ImportXmlTest extends AbstractTestCase
     #[RequiresPhpExtension('simplexml')]
     public function testDoImportDatasetGIS(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         ImportSettings::$importFile = 'tests/test_data/phpmyadmin_importXML_GIS_For_Testing.xml';
@@ -183,11 +179,8 @@ final class ImportXmlTest extends AbstractTestCase
     #[RequiresPhpExtension('simplexml')]
     public function testDoImportNumericStringValues(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         ImportSettings::$importFile = 'tests/test_data/phpmyadmin_importXML_Numeric_String_For_Testing.xml';
@@ -228,11 +221,8 @@ final class ImportXmlTest extends AbstractTestCase
     {
         ImportSettings::$importFile = 'tests/test_data/phpmyadmin_importXML_No_Database_For_Testing.xml';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $importHandle = new File(ImportSettings::$importFile);

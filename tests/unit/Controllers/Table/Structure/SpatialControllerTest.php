@@ -33,7 +33,7 @@ class SpatialControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field']]]);
-        $controllerStub = self::createMock(StructureController::class);
+        $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects(self::once())->method('__invoke')->with($request)
             ->willReturn(ResponseFactory::create()->createResponse());
 
@@ -62,7 +62,7 @@ class SpatialControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field1', 'test_field2']]]);
-        $controllerStub = self::createMock(StructureController::class);
+        $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects(self::once())->method('__invoke')->with($request)
             ->willReturn(ResponseFactory::create()->createResponse());
 
@@ -88,7 +88,7 @@ class SpatialControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], null]]);
-        $controllerStub = self::createMock(StructureController::class);
+        $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects(self::never())->method('__invoke');
         $response = new ResponseRenderer();
 
@@ -119,7 +119,7 @@ class SpatialControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([['selected_fld', [], ['test_field']]]);
-        $controllerStub = self::createMock(StructureController::class);
+        $controllerStub = $this->createMock(StructureController::class);
         $controllerStub->expects(self::once())->method('__invoke')->with($request)
             ->willReturn(ResponseFactory::create()->createResponse());
 

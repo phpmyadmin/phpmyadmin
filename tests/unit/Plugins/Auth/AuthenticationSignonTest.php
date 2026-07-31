@@ -13,6 +13,7 @@ use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use function session_get_cookie_params;
@@ -22,6 +23,7 @@ use function session_name;
 use const PHP_VERSION_ID;
 
 #[CoversClass(AuthenticationSignon::class)]
+#[AllowMockObjectsWithoutExpectations]
 class AuthenticationSignonTest extends AbstractTestCase
 {
     protected AuthenticationSignon $object;
@@ -299,9 +301,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getError')
@@ -332,9 +332,7 @@ class AuthenticationSignonTest extends AbstractTestCase
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getError')

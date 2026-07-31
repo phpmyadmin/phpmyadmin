@@ -13897,6 +13897,12 @@ parameters:
 			path: tests/unit/Config/PageSettingsTest.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Config/ServerConfigChecksTest.php
+
+		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''notice'' and array\{blowfish_secret\: ''aaaaaaaaaaaaaaaaaaa…'', Servers\: array\{1\: array\{host\: ''localhost'', auth_type\: ''cookie''\}\}\} will always evaluate to false\.$#'
 			identifier: staticMethod.impossibleType
 			count: 1
@@ -14131,6 +14137,12 @@ parameters:
 			path: tests/unit/Config/UserPreferencesTest.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/ConfigStorage/RelationTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -14239,6 +14251,12 @@ parameters:
 			path: tests/unit/Controllers/Database/EventsControllerTest.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Controllers/Database/PrivilegesControllerTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -14273,6 +14291,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Controllers/Database/Structure/RealRowCountControllerTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Controllers/Database/StructureControllerTest.php
 
 		-
 			message: '''
@@ -14345,6 +14369,12 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: tests/unit/Controllers/Database/StructureControllerTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Controllers/Export/ExportControllerTest.php
 
 		-
 			message: '''
@@ -14518,6 +14548,12 @@ parameters:
 			path: tests/unit/Controllers/Server/Databases/DestroyControllerTest.php
 
 		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Controllers/Server/Databases/DestroyControllerTest.php
+
+		-
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
@@ -14594,6 +14630,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Controllers/Server/ShowEngineControllerTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Controllers/Server/Status/AdvisorControllerTest.php
 
 		-
 			message: '''
@@ -14863,6 +14905,12 @@ parameters:
 			path: tests/unit/Controllers/Server/Status/VariablesControllerTest.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Controllers/Server/VariablesControllerTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -14968,6 +15016,12 @@ parameters:
 			path: tests/unit/Controllers/Table/IndexRenameControllerTest.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Controllers/Table/IndexesControllerTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -14975,6 +15029,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 2
 			path: tests/unit/Controllers/Table/IndexesControllerTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Controllers/Table/PrivilegesControllerTest.php
 
 		-
 			message: '''
@@ -14993,6 +15053,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Controllers/Table/PrivilegesControllerTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Controllers/Table/RelationControllerTest.php
 
 		-
 			message: '''
@@ -15080,6 +15146,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 2
 			path: tests/unit/Controllers/ThemeSetControllerTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Controllers/Triggers/IndexControllerTest.php
 
 		-
 			message: '''
@@ -15178,6 +15250,12 @@ parameters:
 			path: tests/unit/Crypto/CryptoTest.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Database/CentralColumnsTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -15218,6 +15296,18 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Database/EventsTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Database/EventsTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Database/RoutinesTest.php
 
 		-
 			message: '''
@@ -15290,6 +15380,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Dbal/DbiDummyTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 2
+			path: tests/unit/Dbal/DbiMysqliTest.php
 
 		-
 			message: '''
@@ -15412,6 +15508,12 @@ parameters:
 			path: tests/unit/Export/ExportTest.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Export/OptionsTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -15467,6 +15569,12 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: tests/unit/Gis/Ds/PolygonTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Gis/GisGeometryTest.php
 
 		-
 			message: '#^Cannot access offset ''data_length'' on mixed\.$#'
@@ -15706,6 +15814,12 @@ parameters:
 			path: tests/unit/InsertEditTest.php
 
 		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 4
+			path: tests/unit/InsertEditTest.php
+
+		-
 			message: '#^Method PhpMyAdmin\\Tests\\InsertEditTest\:\:parseString\(\) should return string but returns mixed\.$#'
 			identifier: return.type
 			count: 1
@@ -15775,6 +15889,12 @@ parameters:
 			path: tests/unit/Navigation/Nodes/NodeTest.php
 
 		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Navigation/Nodes/NodeTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -15782,6 +15902,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 4
 			path: tests/unit/Navigation/Nodes/ObjectFetcherTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/NormalizationTest.php
 
 		-
 			message: '''
@@ -15994,6 +16120,12 @@ parameters:
 			path: tests/unit/Plugins/Auth/AuthenticationConfigTest.php
 
 		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Plugins/Auth/AuthenticationConfigTest.php
+
+		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{user\: ''username'', password\: ''password''\}\.$#'
 			identifier: assign.propertyType
 			count: 1
@@ -16084,6 +16216,12 @@ parameters:
 			path: tests/unit/Plugins/Auth/AuthenticationHttpTest.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -16132,6 +16270,12 @@ parameters:
 			path: tests/unit/Plugins/Export/ExportHtmlwordTest.php
 
 		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Plugins/Export/ExportHtmlwordTest.php
+
+		-
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -16142,6 +16286,12 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: tests/unit/Plugins/Export/ExportHtmlwordTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Plugins/Export/ExportLatexTest.php
 
 		-
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|false given\.$#'
@@ -16156,6 +16306,12 @@ parameters:
 			path: tests/unit/Plugins/Export/ExportLatexTest.php
 
 		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Plugins/Export/ExportMediawikiTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -16163,6 +16319,18 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Plugins/Export/ExportOdtTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Plugins/Export/ExportOdtTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Plugins/Export/ExportSqlTest.php
 
 		-
 			message: '''
@@ -16196,6 +16364,36 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 2
 			path: tests/unit/Plugins/Export/ExportXmlTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 3
+			path: tests/unit/Plugins/Import/ImportCsvTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Plugins/Import/ImportLdiTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 2
+			path: tests/unit/Plugins/Import/ImportMediawikiTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Plugins/Import/ImportShpTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Plugins/Import/ImportXmlTest.php
 
 		-
 			message: '''
@@ -16279,6 +16477,18 @@ parameters:
 			path: tests/unit/PluginsTest.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Properties/Options/OptionsPropertyGroupTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Properties/Options/OptionsPropertyOneItemTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -16340,6 +16550,12 @@ parameters:
 			identifier: property.uninitialized
 			count: 1
 			path: tests/unit/Server/PluginsTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Server/PrivilegesTest.php
 
 		-
 			message: '''
@@ -16492,11 +16708,23 @@ parameters:
 			path: tests/unit/Stubs/ResponseRenderer.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/SystemDatabaseTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
+			count: 1
+			path: tests/unit/SystemDatabaseTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: tests/unit/SystemDatabaseTest.php
 
@@ -16510,6 +16738,18 @@ parameters:
 			path: tests/unit/Table/ColumnsDefinitionTest.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Table/IndexesTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Table/IndexesTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -16517,6 +16757,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Table/SearchTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/Table/TableTest.php
 
 		-
 			message: '''
@@ -16589,6 +16835,18 @@ parameters:
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
 			path: tests/unit/Tracking/TrackingTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Tracking/TrackingTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/TransformationsTest.php
 
 		-
 			message: '''
@@ -16676,6 +16934,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 4
 			path: tests/unit/UrlTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/UtilTest.php
 
 		-
 			message: '''
@@ -16799,6 +17063,12 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: tests/unit/Utils/SessionCacheTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/unit/VersionInformationTest.php
 
 		-
 			message: '''

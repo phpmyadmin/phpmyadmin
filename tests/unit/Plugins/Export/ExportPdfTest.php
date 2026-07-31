@@ -145,9 +145,7 @@ final class ExportPdfTest extends AbstractTestCase
 
     public function testExportFooter(): void
     {
-        $pdf = $this->getMockBuilder(Pdf::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $pdf = $this->createMock(Pdf::class);
 
         $pdf->expects(self::once())
             ->method('getPDFData')
@@ -186,9 +184,7 @@ final class ExportPdfTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
 
-        $pdf = $this->getMockBuilder(Pdf::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $pdf = $this->createMock(Pdf::class);
 
         $pdf->expects(self::once())
             ->method('mysqlReport')

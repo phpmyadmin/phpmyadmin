@@ -49,11 +49,9 @@ class UserGroupsTest extends AbstractTestCase
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC';
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery)
@@ -98,12 +96,12 @@ class UserGroupsTest extends AbstractTestCase
         $userGrpDelQuery = 'DELETE FROM `pmadb`.`usergroups` WHERE `usergroup`=\'ug\'';
 
         $result = self::createStub(ResultInterface::class);
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::exactly(2))->method('queryAsControlUser')->willReturnMap([
             [$userDelQuery, $result],
             [$userGrpDelQuery, $result],
         ]);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         UserGroups::delete($dbi, $this->configurableMenusFeature, 'ug');
@@ -119,12 +117,10 @@ class UserGroupsTest extends AbstractTestCase
         self::assertStringContainsString('<input type="hidden" name="addUserGroupSubmit" value="1"', $html);
         self::assertStringContainsString('<input class="form-control" type="text" name="userGroup"', $html);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` WHERE `usergroup`=\'user<br>group\'';
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery)
@@ -134,7 +130,7 @@ class UserGroupsTest extends AbstractTestCase
             ->willReturnCallback(static function (): Generator {
                 yield ['usergroup' => 'user<br>group', 'tab' => 'server_sql', 'allowed' => 'Y'];
             });
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;

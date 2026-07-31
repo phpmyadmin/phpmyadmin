@@ -22,6 +22,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -31,6 +32,7 @@ use ReflectionProperty;
 use const MYSQLI_TYPE_STRING;
 
 #[CoversClass(Table::class)]
+#[AllowMockObjectsWithoutExpectations]
 class TableTest extends AbstractTestCase
 {
     private DatabaseInterface&MockObject $mockedDbi;
@@ -243,39 +245,31 @@ class TableTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $databaseList = self::createStub(ListDatabase::class);
         $databaseList->method('exists')->willReturn(true);
-        $dbi->expects(self::any())->method('getDatabaseList')->willReturn($databaseList);
+        $dbi->method('getDatabaseList')->willReturn($databaseList);
 
-        $dbi->expects(self::any())->method('fetchResult')
-            ->willReturnMap($fetchResult);
+        $dbi->method('fetchResult')->willReturnMap($fetchResult);
 
-        $dbi->expects(self::any())->method('fetchResultSimple')
-            ->willReturnMap($fetchResultSimple);
+        $dbi->method('fetchResultSimple')->willReturnMap($fetchResultSimple);
 
-        $dbi->expects(self::any())->method('fetchResultMultidimensional')
-            ->willReturnMap($fetchResultMultidimensional);
+        $dbi->method('fetchResultMultidimensional')->willReturnMap($fetchResultMultidimensional);
 
-        $dbi->expects(self::any())->method('fetchValue')
-            ->willReturnMap($fetchValue);
+        $dbi->method('fetchValue')->willReturnMap($fetchValue);
 
         $cache = new Cache();
-        $dbi->expects(self::any())->method('getCache')
-            ->willReturn($cache);
+        $dbi->method('getCache')->willReturn($cache);
 
-        $dbi->expects(self::any())->method('getColumnNames')
-            ->willReturnMap([
-                [
-                    'PMA',
-                    'PMA_BookMark',
-                    ConnectionType::User,
-                    ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
-                ],
-            ]);
+        $dbi->method('getColumnNames')->willReturnMap([
+            [
+                'PMA',
+                'PMA_BookMark',
+                ConnectionType::User,
+                ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
+            ],
+        ]);
 
         $databases = [];
         $databaseName = 'PMA';
@@ -286,26 +280,20 @@ class TableTest extends AbstractTestCase
         $databases[$databaseName]['SCHEMA_INDEX_LENGTH'] = 10;
         $databases[$databaseName]['SCHEMA_LENGTH'] = 10;
 
-        $dbi->expects(self::any())->method('getTablesFull')
-            ->willReturn($databases);
+        $dbi->method('getTablesFull')->willReturn($databases);
 
-        $dbi->expects(self::any())->method('query')
-            ->willReturn($resultStub);
+        $dbi->method('query')->willReturn($resultStub);
 
-        $dbi->expects(self::any())->method('insertId')
-            ->willReturn(10);
+        $dbi->method('insertId')->willReturn(10);
 
-        $resultStub->expects(self::any())->method('fetchAssoc')
-            ->willReturn([]);
+        $resultStub->method('fetchAssoc')->willReturn([]);
 
         $value = ['Auto_increment' => 'Auto_increment'];
-        $dbi->expects(self::any())->method('fetchSingleRow')
-            ->willReturn($value);
+        $dbi->method('fetchSingleRow')->willReturn($value);
 
-        $resultStub->expects(self::any())->method('fetchRow')
-            ->willReturn([]);
+        $resultStub->method('fetchRow')->willReturn([]);
 
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -1247,7 +1235,7 @@ class TableTest extends AbstractTestCase
         $table = 'PMA_BookMark';
         $db = 'PMA';
 
-        $this->mockedDbi->expects(self::any())->method('tryQuery')->willReturn(self::createStub(DummyResult::class));
+        $this->mockedDbi->method('tryQuery')->willReturn(self::createStub(DummyResult::class));
 
         $table = new Table($table, $db, $this->mockedDbi);
 
@@ -1327,9 +1315,7 @@ class TableTest extends AbstractTestCase
      */
     public function testGetColumnsMeta(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $resultStub = self::createStub(DummyResult::class);
 
@@ -1415,28 +1401,18 @@ class TableTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())
-            ->method('tryQuery')
-            ->willReturn($resultStub);
-        $resultStub->expects(self::any())
-            ->method('numRows')
-            ->willReturn(0, 10, 200);
-        $dbi->expects(self::any())
-            ->method('fetchResult')
-            ->willReturn(
-                ['`one_ind`', '`sec_ind`'],
-                [], // No Uniques found
-            );
-        $dbi->expects(self::any())
-            ->method('fetchResultMultidimensional')
-            ->willReturn(
-                [['`one_pk`']],
-                [], // No Indexed found
-                [], // No Uniques found
-            );
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('tryQuery')->willReturn($resultStub);
+        $resultStub->method('numRows')->willReturn(0, 10, 200);
+        $dbi->method('fetchResult')->willReturn(
+            ['`one_ind`', '`sec_ind`'],
+            [], // No Uniques found
+        );
+        $dbi->method('fetchResultMultidimensional')->willReturn(
+            [['`one_pk`']],
+            [], // No Indexed found
+            [], // No Uniques found
+        );
 
         DatabaseInterface::$instance = $dbi;
 
@@ -1465,13 +1441,10 @@ class TableTest extends AbstractTestCase
     public function testCountRecords(): void
     {
         $resultStub = $this->createMock(DummyResult::class);
-        $resultStub->expects(self::any())
-            ->method('numRows')
-            ->willReturn(20);
+        $resultStub->method('numRows')->willReturn(20);
 
         $dbi = clone $this->mockedDbi;
-        $dbi->expects(self::any())->method('tryQuery')
-            ->willReturn($resultStub);
+        $dbi->method('tryQuery')->willReturn($resultStub);
 
         $table = 'PMA_BookMark';
         $db = 'PMA';
@@ -1526,8 +1499,7 @@ class TableTest extends AbstractTestCase
             ['aa', 'ad', new Table('ad', 'aa', $this->mockedDbi)],
         ];
 
-        $this->mockedDbi->expects(self::any())->method('getTable')
-            ->willReturnMap($getTableMap);
+        $this->mockedDbi->method('getTable')->willReturnMap($getTableMap);
 
         $object = new TableMover($this->mockedDbi, new Relation($this->mockedDbi));
 
@@ -1571,47 +1543,44 @@ class TableTest extends AbstractTestCase
 
         // Renaming DB with a view bug
         $resultStub = $this->createMock(DummyResult::class);
-        $this->mockedDbi->expects(self::any())->method('tryQuery')
-            ->willReturnMap([
-                [
-                    'SHOW CREATE TABLE `aa`.`ad`',
-                    ConnectionType::User,
-                    false,
-                    true,
-                    $resultStub,
-                ],
-                [
-                    'SHOW TABLE STATUS FROM `aa` WHERE Name = \'ad\'',
-                    ConnectionType::User,
-                    false,
-                    true,
-                    $resultStub,
-                ],
-                ['USE `aa`', ConnectionType::User, false, true, $resultStub],
-                [
-                    'RENAME TABLE `PMA`.`PMA_BookMark` TO `PMA`.`PMA_.BookMark`;',
-                    ConnectionType::User,
-                    false,
-                    true,
-                    false,
-                ],
-                [
-                    'RENAME TABLE `aa`.`ad` TO `bb`.`ad`;',
-                    ConnectionType::User,
-                    false,
-                    true,
-                    false,
-                ],
-            ]);
-        $resultStub->expects(self::any())
-            ->method('fetchRow')
-            ->willReturn([
-                'ad',
-                'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`' .
-                ' SQL SECURITY DEFINER VIEW `ad` AS select `aa`.`bb`.`ac` AS `ac` from `bb`',
-                'utf8mb4',
-                'utf8mb4_unicode_ci',
-            ]);
+        $this->mockedDbi->method('tryQuery')->willReturnMap([
+            [
+                'SHOW CREATE TABLE `aa`.`ad`',
+                ConnectionType::User,
+                false,
+                true,
+                $resultStub,
+            ],
+            [
+                'SHOW TABLE STATUS FROM `aa` WHERE Name = \'ad\'',
+                ConnectionType::User,
+                false,
+                true,
+                $resultStub,
+            ],
+            ['USE `aa`', ConnectionType::User, false, true, $resultStub],
+            [
+                'RENAME TABLE `PMA`.`PMA_BookMark` TO `PMA`.`PMA_.BookMark`;',
+                ConnectionType::User,
+                false,
+                true,
+                false,
+            ],
+            [
+                'RENAME TABLE `aa`.`ad` TO `bb`.`ad`;',
+                ConnectionType::User,
+                false,
+                true,
+                false,
+            ],
+        ]);
+        $resultStub->method('fetchRow')->willReturn([
+            'ad',
+            'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`'
+                . ' SQL SECURITY DEFINER VIEW `ad` AS select `aa`.`bb`.`ac` AS `ac` from `bb`',
+            'utf8mb4',
+            'utf8mb4_unicode_ci',
+        ]);
 
         Current::$sqlQuery = '';
         $return = $object->moveCopy('aa', 'ad', 'bb', 'ad', MoveScope::Move, MoveMode::WholeDatabase, true);

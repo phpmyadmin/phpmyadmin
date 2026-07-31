@@ -103,9 +103,7 @@ class UserPreferencesTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $query = 'SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts '
             . 'FROM `pma\'db`.`testconf` WHERE `username` = \'user\'';
@@ -114,8 +112,7 @@ class UserPreferencesTest extends AbstractTestCase
             ->method('fetchSingleRow')
             ->with($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser)
             ->willReturn(['ts' => '123', 'config_data' => json_encode([1, 2])]);
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $userPreferences = new UserPreferences(
@@ -188,9 +185,7 @@ class UserPreferencesTest extends AbstractTestCase
         $query2 = 'UPDATE `pmadb`.`testconf` SET `timevalue` = NOW(), `config_data` = \''
             . json_encode([1]) . '\' WHERE `username` = \'user\'';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('fetchValue')
@@ -202,8 +197,7 @@ class UserPreferencesTest extends AbstractTestCase
             ->with($query2, ConnectionType::ControlUser)
             ->willReturn(self::createStub(DummyResult::class));
 
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $userPreferences = new UserPreferences(
@@ -224,9 +218,7 @@ class UserPreferencesTest extends AbstractTestCase
         $query2 = 'INSERT INTO `pmadb`.`testconf` (`username`, `timevalue`,`config_data`) '
             . 'VALUES (\'user\', NOW(), \'' . json_encode([1]) . '\')';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('fetchValue')
@@ -242,8 +234,7 @@ class UserPreferencesTest extends AbstractTestCase
             ->method('getError')
             ->with(ConnectionType::ControlUser)
             ->willReturn('err1');
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $userPreferences = new UserPreferences(

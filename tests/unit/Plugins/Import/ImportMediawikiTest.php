@@ -78,9 +78,7 @@ final class ImportMediawikiTest extends AbstractTestCase
      */
     public function testDoImport(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $importHandle = new File(ImportSettings::$importFile);
         $importHandle->open();
@@ -117,9 +115,7 @@ final class ImportMediawikiTest extends AbstractTestCase
 
     public function testDoImportWithEmptyTable(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $importHandle = new File('tests/test_data/__slashes.mediawiki');
         $importHandle->open();

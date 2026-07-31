@@ -21,7 +21,7 @@ final class QueueRequestHandlerTest extends TestCase
     public function testQueue(): void
     {
         $responseFactory = ResponseFactory::create();
-        $container = self::createMock(ContainerInterface::class);
+        $container = $this->createMock(ContainerInterface::class);
         $container->expects(self::exactly(3))->method('get')->willReturnMap([
             [EarlyReturn::class, new EarlyReturn($responseFactory)],
             [First::class, new First()],
@@ -46,7 +46,7 @@ final class QueueRequestHandlerTest extends TestCase
     public function testQueueWithEarlyReturn(): void
     {
         $responseFactory = ResponseFactory::create();
-        $container = self::createMock(ContainerInterface::class);
+        $container = $this->createMock(ContainerInterface::class);
         $container->expects(self::exactly(2))->method('get')->willReturnMap([
             [EarlyReturn::class, new EarlyReturn($responseFactory)],
             [First::class, new First()],

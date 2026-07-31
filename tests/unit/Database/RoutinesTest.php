@@ -13,10 +13,12 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 #[CoversClass(Routines::class)]
+#[AllowMockObjectsWithoutExpectations]
 class RoutinesTest extends AbstractTestCase
 {
     private Routines $routines;
@@ -232,16 +234,12 @@ class RoutinesTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $oldDbi = DatabaseInterface::getInstance();
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
-        $dbi->expects(self::any())
-            ->method('quoteString')
-            ->willReturnMap([
-                ['foo', ConnectionType::User, "'foo'"],
-                ["foo's bar", ConnectionType::User, "'foo\'s bar'"],
-            ]);
+        $dbi->method('quoteString')->willReturnMap([
+            ['foo', ConnectionType::User, "'foo'"],
+            ["foo's bar", ConnectionType::User, "'foo\'s bar'"],
+        ]);
         DatabaseInterface::$instance = $dbi;
 
         $routines = new Routines($dbi, $config);

@@ -657,9 +657,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getError')
@@ -694,9 +692,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->method('showLoginForm')
             ->willThrowException(new ExitException());
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getError')

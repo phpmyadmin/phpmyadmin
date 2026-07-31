@@ -8763,6 +8763,9 @@
     <MixedAssignment>
       <code><![CDATA[$this->sessionID]]></code>
     </MixedAssignment>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Config/SettingsTest.php">
     <PossiblyUnusedMethod>
@@ -8943,6 +8946,9 @@
       <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
     </TypeDoesNotContainType>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/ConfigTest.php">
     <PossiblyInvalidArgument>
@@ -9007,6 +9013,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Controllers/Database/RoutinesControllerTest.php">
     <DeprecatedMethod>
@@ -9085,12 +9094,18 @@
       <code><![CDATA[[$currentTable, , , , , , $sumSize]]]></code>
       <code><![CDATA[[$currentTable]]]></code>
     </MixedAssignment>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Controllers/Export/ExportControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Controllers/Export/Template/CreateControllerTest.php">
     <DeprecatedMethod>
@@ -9232,6 +9247,9 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php">
     <DeprecatedMethod>
@@ -9344,6 +9362,9 @@
       <code><![CDATA[[$formattedValue, $isHtmlFormatted]]]></code>
       <code><![CDATA[[$formattedValue, $isHtmlFormatted]]]></code>
     </MixedAssignment>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Controllers/Sql/EnumValuesControllerTest.php">
     <DeprecatedMethod>
@@ -9405,12 +9426,18 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Controllers/Table/PrivilegesControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Controllers/Table/RelationControllerTest.php">
     <DeprecatedMethod>
@@ -9420,6 +9447,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Controllers/Table/ReplaceControllerTest.php">
     <DeprecatedMethod>
@@ -9478,6 +9508,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/CoreTest.php">
     <DeprecatedMethod>
@@ -9557,6 +9590,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Database/DesignerTest.php">
     <DeprecatedMethod>
@@ -9584,6 +9620,9 @@
       <code><![CDATA[$_REQUEST[$key]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Database/SearchTest.php">
     <DeprecatedMethod>
@@ -9723,6 +9762,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/FileListingTest.php">
     <DeprecatedMethod>
@@ -9774,6 +9816,9 @@
       <code><![CDATA[$extent]]></code>
       <code><![CDATA[$points]]></code>
     </MixedAssignment>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Gis/GisPolygonTest.php">
     <MixedArrayAccess>
@@ -10015,6 +10060,9 @@
     <DocblockTypeContradiction>
       <code><![CDATA[assertSame]]></code>
     </DocblockTypeContradiction>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/PdfTest.php">
     <MixedArgument>
@@ -10148,6 +10196,9 @@
     <RedundantCondition>
       <code><![CDATA[assertSame]]></code>
     </RedundantCondition>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Plugins/AuthenticationPluginFactoryTest.php">
     <DeprecatedMethod>
@@ -10198,6 +10249,9 @@
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
     </MixedAssignment>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Plugins/Export/ExportTexytextTest.php">
     <DeprecatedMethod>
@@ -10214,11 +10268,19 @@
     <TypeDoesNotContainType>
       <code><![CDATA[assertTrue]]></code>
     </TypeDoesNotContainType>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Plugins/Import/ImportShpTest.php">
     <RedundantCondition>
       <code><![CDATA[assertFalse]]></code>
     </RedundantCondition>
+  </file>
+  <file src="tests/unit/Plugins/Import/ImportXmlTest.php">
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Plugins/Schema/DiaRelationSchemaTest.php">
     <DeprecatedMethod>
@@ -10262,6 +10324,16 @@
       <code><![CDATA[Config::getInstance()->settings]]></code>
     </PropertyTypeCoercion>
   </file>
+  <file src="tests/unit/Properties/Options/OptionsPropertyGroupTest.php">
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
+  </file>
+  <file src="tests/unit/Properties/Options/OptionsPropertyOneItemTest.php">
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
+  </file>
   <file src="tests/unit/Replication/ReplicationGuiTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -10301,6 +10373,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Server/SelectTest.php">
     <DeprecatedMethod>
@@ -10396,11 +10471,19 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Table/ColumnsDefinitionTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+  </file>
+  <file src="tests/unit/Table/IndexesTest.php">
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Table/SearchTest.php">
     <DeprecatedMethod>
@@ -10416,6 +10499,9 @@
       <code><![CDATA[$isDefineProperty]]></code>
       <code><![CDATA[$sql]]></code>
     </MixedAssignment>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Tracking/TrackerTest.php">
     <DeprecatedMethod>
@@ -10461,6 +10547,9 @@
       <code><![CDATA[testGetOptions]]></code>
       <code><![CDATA[testGetOptions]]></code>
     </PossiblyInvalidArgument>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Triggers/TriggersTest.php">
     <DeprecatedMethod>
@@ -10542,6 +10631,9 @@
       <code><![CDATA[testBackquote]]></code>
       <code><![CDATA[testBackquote]]></code>
     </PossiblyInvalidArgument>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Utils/ForeignKeyTest.php">
     <DeprecatedMethod>
@@ -10636,5 +10728,8 @@
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache']['version_check']]]></code>
     </MixedArrayAccess>
+    <UndefinedAttributeClass>
+      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
+    </UndefinedAttributeClass>
   </file>
 </files>

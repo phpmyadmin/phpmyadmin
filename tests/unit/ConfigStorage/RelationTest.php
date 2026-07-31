@@ -16,6 +16,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -25,6 +26,7 @@ use function implode;
 
 #[CoversClass(Relation::class)]
 #[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class RelationTest extends AbstractTestCase
 {
     /**
@@ -132,16 +134,13 @@ class RelationTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $getColumnsResult = [
             new Column('field1', 'int(11)', null, false, '', null, '', '', 'Comment1'),
             new Column('field2', 'text', null, false, '', null, '', '', 'Comment1'),
         ];
-        $dbi->expects(self::any())->method('getColumns')
-            ->willReturn($getColumnsResult);
+        $dbi->method('getColumns')->willReturn($getColumnsResult);
 
         $relation = new Relation($dbi);
 
@@ -166,20 +165,12 @@ class RelationTest extends AbstractTestCase
      */
     public function testPMATryUpgradeTransformations(): void
     {
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())
-            ->method('tryQueryAsControlUser')
-            ->willReturn($resultStub);
-        $resultStub->expects(self::any())
-            ->method('numRows')
-            ->willReturn(0);
-        $dbi->expects(self::any())
-            ->method('getError')
-            ->willReturn('Error', '');
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('tryQueryAsControlUser')->willReturn($resultStub);
+        $resultStub->method('numRows')->willReturn(0);
+        $dbi->method('getError')->willReturn('Error', '');
         DatabaseInterface::$instance = $dbi;
 
         $relation = new Relation($dbi);

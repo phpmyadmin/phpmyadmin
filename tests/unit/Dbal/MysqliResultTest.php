@@ -22,7 +22,7 @@ class MysqliResultTest extends AbstractTestCase
     public function testFetchAssoc(): void
     {
         $expected = [['foo' => 'bar'], null];
-        $mysqliResult = self::createMock(mysqli_result::class);
+        $mysqliResult = $this->createMock(mysqli_result::class);
         $mysqliResult->expects(self::exactly(2))
             ->method('fetch_assoc')
             ->willReturn(...$expected);
@@ -39,7 +39,7 @@ class MysqliResultTest extends AbstractTestCase
     public function testFetchRow(): void
     {
         $expected = [['bar'], null];
-        $mysqliResult = self::createMock(mysqli_result::class);
+        $mysqliResult = $this->createMock(mysqli_result::class);
         $mysqliResult->expects(self::exactly(2))
             ->method('fetch_row')
             ->willReturn(...$expected);
@@ -56,7 +56,7 @@ class MysqliResultTest extends AbstractTestCase
     public function testDataSeek(): void
     {
         $offset = 1;
-        $mysqliResult = self::createMock(mysqli_result::class);
+        $mysqliResult = $this->createMock(mysqli_result::class);
         $mysqliResult->expects(self::once())
             ->method('data_seek')
             ->with(self::equalTo($offset))
@@ -72,7 +72,7 @@ class MysqliResultTest extends AbstractTestCase
      */
     public function testFetchAllColumn(): void
     {
-        $mysqliResult = self::createMock(mysqli_result::class);
+        $mysqliResult = $this->createMock(mysqli_result::class);
         $mysqliResult->expects(self::exactly(3))
             ->method('fetch_all')
             ->willReturnMap([

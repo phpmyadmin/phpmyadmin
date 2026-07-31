@@ -16,6 +16,7 @@ use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 
@@ -23,6 +24,7 @@ use function __;
 
 #[CoversClass(ImportLdi::class)]
 #[Medium]
+#[AllowMockObjectsWithoutExpectations]
 final class ImportLdiTest extends AbstractTestCase
 {
     /**
@@ -75,18 +77,15 @@ final class ImportLdiTest extends AbstractTestCase
      */
     public function testGetPropertiesAutoLdi(): void
     {
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi->expects(self::any())->method('tryQuery')
-            ->willReturn($resultStub);
+        $dbi->method('tryQuery')->willReturn($resultStub);
 
-        $resultStub->expects(self::any())->method('numRows')
-            ->willReturn(10);
+        $resultStub->method('numRows')->willReturn(10);
 
-        $resultStub->expects(self::any())->method('fetchValue')
-            ->willReturn('ON');
+        $resultStub->method('fetchValue')->willReturn('ON');
 
         $config = new Config();
         $config->settings['Import']['ldi_local_option'] = 'auto';
@@ -109,8 +108,8 @@ final class ImportLdiTest extends AbstractTestCase
     public function testDoImport(): void
     {
         ImportSettings::$sqlQueryDisabled = false; //will show the import SQL detail
-        $dbi = self::createMock(DatabaseInterface::class);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $importHandle = new File(ImportSettings::$importFile);
@@ -157,8 +156,8 @@ final class ImportLdiTest extends AbstractTestCase
     public function testDoImportLDISetting(): void
     {
         ImportSettings::$sqlQueryDisabled = false; //will show the import SQL detail
-        $dbi = self::createMock(DatabaseInterface::class);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')

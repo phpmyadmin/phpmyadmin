@@ -620,9 +620,7 @@ class ResultsTest extends AbstractTestCase
             ]),
         ]);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         // MIME transformations
         $dbi->expects(self::exactly(1))

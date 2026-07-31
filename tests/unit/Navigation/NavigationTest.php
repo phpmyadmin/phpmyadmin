@@ -56,13 +56,11 @@ class NavigationTest extends AbstractTestCase
         $expectedQuery = 'INSERT INTO `pmadb`.`navigationhiding`'
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . " VALUES ('user','itemName','itemType','db','')";
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -79,14 +77,12 @@ class NavigationTest extends AbstractTestCase
         $expectedQuery = 'DELETE FROM `pmadb`.`navigationhiding`'
             . " WHERE `username`='user' AND `item_name`='itemName'"
             . " AND `item_type`='itemType' AND `db_name`='db'";
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
 
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
         $config = Config::getInstance();

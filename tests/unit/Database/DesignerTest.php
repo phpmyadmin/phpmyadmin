@@ -49,9 +49,7 @@ class DesignerTest extends AbstractTestCase
     {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
@@ -68,7 +66,7 @@ class DesignerTest extends AbstractTestCase
                 '2' => 'page2',
             ]);
 
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;

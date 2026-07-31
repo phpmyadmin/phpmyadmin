@@ -18,12 +18,14 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Tracking\TrackingChecker;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
 
 #[CoversClass(StructureController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class StructureControllerTest extends AbstractTestCase
 {
     private ResponseStub $response;
@@ -46,20 +48,13 @@ class StructureControllerTest extends AbstractTestCase
         Current::$table = 'table';
         Current::$database = 'db';
 
-        $table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $table = $this->createMock(Table::class);
         // Expect the table will have 6 rows
-        $table->expects(self::any())->method('getRealRowCountTable')
-            ->willReturn(6);
-        $table->expects(self::any())->method('countRecords')
-            ->willReturn(6);
+        $table->method('getRealRowCountTable')->willReturn(6);
+        $table->method('countRecords')->willReturn(6);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())->method('getTable')
-            ->willReturn($table);
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('getTable')->willReturn($table);
 
         DatabaseInterface::$instance = $dbi;
 

@@ -33,20 +33,16 @@ class SearchTest extends AbstractTestCase
         $_POST = [];
 
         //mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects(self::any())
-            ->method('getColumns')
+        $dbi->method('getColumns')
             ->with('pma', 'table1')
             ->willReturn([
                 new Column('column1', '', null, false, '', null, '', '', ''),
                 new Column('column2', '', null, false, '', null, '', '', ''),
             ]);
 
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;

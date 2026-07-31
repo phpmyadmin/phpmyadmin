@@ -84,9 +84,7 @@ class AuthenticationConfigTest extends AbstractTestCase
     {
         Config::getInstance()->settings['Servers'] = [1];
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
         DatabaseInterface::$instance = $dbi;
 
         $response = $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());

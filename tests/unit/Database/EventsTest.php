@@ -146,9 +146,7 @@ class EventsTest extends AbstractTestCase
         unset($_POST);
         $_POST = $request;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
         DatabaseInterface::$instance = $dbi;
 
         self::assertSame($query, $this->events->getQueryFromRequest());

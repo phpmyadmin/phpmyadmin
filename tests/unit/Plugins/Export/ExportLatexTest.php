@@ -515,11 +515,9 @@ final class ExportLatexTest extends AbstractTestCase
 
         // case 1
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getTableIndexes')
@@ -601,11 +599,9 @@ final class ExportLatexTest extends AbstractTestCase
 
         // case 2
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
             ->method('fetchResult')
@@ -663,9 +659,7 @@ final class ExportLatexTest extends AbstractTestCase
 
         // case 3
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getTableIndexes')
@@ -744,9 +738,7 @@ final class ExportLatexTest extends AbstractTestCase
 
     public function testExportTableCallsExportStructureMethod(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['latex_structure_or_data' => 'structure']);

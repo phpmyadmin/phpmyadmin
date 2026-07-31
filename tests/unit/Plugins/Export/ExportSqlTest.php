@@ -33,6 +33,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
@@ -51,6 +52,7 @@ use const MYSQLI_UNIQUE_KEY_FLAG;
 
 #[CoversClass(ExportSql::class)]
 #[Medium]
+#[AllowMockObjectsWithoutExpectations]
 final class ExportSqlTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -83,9 +85,7 @@ final class ExportSqlTest extends AbstractTestCase
     public function testSetProperties(): void
     {
         // test with hide structure and hide sql as false
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
             ->method('getCompatibilities')
@@ -369,9 +369,7 @@ final class ExportSqlTest extends AbstractTestCase
         ExportSql::$oldTimezone = 'GMT';
         OutputHandler::$asFile = true;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('query')
@@ -394,9 +392,7 @@ final class ExportSqlTest extends AbstractTestCase
         OutputHandler::$asFile = true;
         Current::$charset = 'utf-8';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('tryQuery')
@@ -448,9 +444,7 @@ final class ExportSqlTest extends AbstractTestCase
 
     public function testExportDBCreate(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getDbCollation')
@@ -483,9 +477,7 @@ final class ExportSqlTest extends AbstractTestCase
         self::assertStringContainsString('USE `db`;', $result);
 
         // case2: no backquotes
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getDbCollation')
@@ -521,10 +513,8 @@ final class ExportSqlTest extends AbstractTestCase
                 'sql_structure_or_data' => 'data',
             ]);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $exportSql = $this->getExportSql($dbi);
@@ -573,9 +563,7 @@ final class ExportSqlTest extends AbstractTestCase
 
     public function testExportEvents(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('fetchSingleColumn')
@@ -588,7 +576,7 @@ final class ExportSqlTest extends AbstractTestCase
                 ['SHOW CREATE EVENT `db`.`f1`', 'Create Event', ConnectionType::User, 'f1event'],
                 ['SHOW CREATE EVENT `db`.`f2`', 'Create Event', ConnectionType::User, 'f2event'],
             ]);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
@@ -626,9 +614,7 @@ final class ExportSqlTest extends AbstractTestCase
 
     public function testGetTableDefStandIn(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getColumns')
@@ -653,14 +639,11 @@ final class ExportSqlTest extends AbstractTestCase
 
     public function testGetTableDefForView(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $dbi->expects(self::any())
-            ->method('getColumns')
+        $dbi->method('getColumns')
             ->with('db', 'view')
             ->willReturn([
                 new Column(
@@ -693,14 +676,11 @@ final class ExportSqlTest extends AbstractTestCase
         );
 
         // case 2
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $dbi->expects(self::any())
-            ->method('getColumns')
+        $dbi->method('getColumns')
             ->with('db', 'view')
             ->willReturn([
                 new Column(
@@ -852,9 +832,7 @@ final class ExportSqlTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
             ->method('fetchResult')
@@ -974,9 +952,7 @@ final class ExportSqlTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $fields = [
             FieldHelper::fromArray([
@@ -1010,7 +986,7 @@ final class ExportSqlTest extends AbstractTestCase
             ]),
         ];
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -1029,12 +1005,10 @@ final class ExportSqlTest extends AbstractTestCase
         $resultStub->expects(self::exactly(2))
             ->method('fetchRow')
             ->willReturn([null, 'test', '10', '6', "\x00\x0a\x0d\x1a"], []);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $tableObj = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $tableObj = $this->createMock(Table::class);
         $tableObj->expects(self::once())
             ->method('isMerge')
             ->willReturn(false);
@@ -1042,9 +1016,7 @@ final class ExportSqlTest extends AbstractTestCase
             ->method('isView')
             ->willReturn(false);
 
-        $dbi->expects(self::any())
-            ->method('getTable')
-            ->willReturn($tableObj);
+        $dbi->method('getTable')->willReturn($tableObj);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody([
@@ -1083,9 +1055,7 @@ final class ExportSqlTest extends AbstractTestCase
 
     public function testExportDataWithUpdate(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $fields = [
             FieldHelper::fromArray([
@@ -1108,7 +1078,7 @@ final class ExportSqlTest extends AbstractTestCase
             ]),
         ];
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -1128,9 +1098,7 @@ final class ExportSqlTest extends AbstractTestCase
             ->method('fetchRow')
             ->willReturn([null, null], []);
 
-        $tableObj = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $tableObj = $this->createMock(Table::class);
         $tableObj->expects(self::once())
             ->method('isMerge')
             ->willReturn(false);
@@ -1138,9 +1106,7 @@ final class ExportSqlTest extends AbstractTestCase
             ->method('isView')
             ->willReturn(false);
 
-        $dbi->expects(self::any())
-            ->method('getTable')
-            ->willReturn($tableObj);
+        $dbi->method('getTable')->willReturn($tableObj);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody([
@@ -1168,13 +1134,9 @@ final class ExportSqlTest extends AbstractTestCase
 
     public function testExportDataWithIsView(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $tableObj = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $tableObj = $this->createMock(Table::class);
         $tableObj->expects(self::once())
             ->method('isMerge')
             ->willReturn(false);
@@ -1182,9 +1144,7 @@ final class ExportSqlTest extends AbstractTestCase
             ->method('isView')
             ->willReturn(true);
 
-        $dbi->expects(self::any())
-            ->method('getTable')
-            ->willReturn($tableObj);
+        $dbi->method('getTable')->willReturn($tableObj);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['sql_backquotes' => 'true', 'sql_include_comments' => 'On']);
@@ -1205,17 +1165,13 @@ final class ExportSqlTest extends AbstractTestCase
 
     public function testExportDataWithError(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getError')
             ->willReturn('err');
 
-        $tableObj = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $tableObj = $this->createMock(Table::class);
         $tableObj->expects(self::once())
             ->method('isMerge')
             ->willReturn(false);
@@ -1223,9 +1179,7 @@ final class ExportSqlTest extends AbstractTestCase
             ->method('isView')
             ->willReturn(false);
 
-        $dbi->expects(self::any())
-            ->method('getTable')
-            ->willReturn($tableObj);
+        $dbi->method('getTable')->willReturn($tableObj);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['sql_include_comments' => 'On']);

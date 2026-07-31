@@ -23,9 +23,11 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Options::class)]
+#[AllowMockObjectsWithoutExpectations]
 class OptionsTest extends AbstractTestCase
 {
     private Options $export;
@@ -68,12 +70,9 @@ class OptionsTest extends AbstractTestCase
         $numTablesStr = '10';
         $unlimNumRowsStr = 'unlim_num_rows_str';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects(self::any())->method('getCompatibilities')
-            ->willReturn([]);
+        $dbi->method('getCompatibilities')->willReturn([]);
 
         DatabaseInterface::$instance = $dbi;
 
