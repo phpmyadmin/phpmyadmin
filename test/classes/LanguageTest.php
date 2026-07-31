@@ -46,12 +46,16 @@ class LanguageTest extends AbstractTestCase
     protected function tearDown(): void
     {
         parent::tearDown();
-        // Ensure we have English locale after tests
-        $lang = $this->manager->getLanguage('en');
+        /**
+         * @phpstan-ignore-next-line
+         * @psalm-suppress RedundantPropertyInitializationCheck
+         */
+        $lang = isset($this->manager) ? $this->manager->getLanguage('en') : false;
         if ($lang === false) {
             return;
         }
 
+        // Ensure we have English locale after tests
         $lang->activate();
     }
 
