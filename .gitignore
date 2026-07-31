@@ -61,9 +61,6 @@ phpcs.xml
 .phpcs-cache
 
 # PHPUnit
-.phpunit.result.cache
-phpunit.xml
-/tests/bootstrap.php
 /tests/gis/*-actual.json
 /tests/gis/*-actual.pdf
 /tests/gis/*-actual.png

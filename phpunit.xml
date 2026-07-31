@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd"
-  bootstrap="tests/bootstrap-dist.php"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd"
+  bootstrap="tests/bootstrap.php"
   cacheDirectory="build/.phpunit.cache"
   executionOrder="random"
   defaultTestSuite="unit"
@@ -11,15 +11,13 @@
   displayDetailsOnTestsThatTriggerWarnings="true"
   displayDetailsOnTestsThatTriggerNotices="true"
   displayDetailsOnTestsThatTriggerErrors="true"
-  displayDetailsOnTestsThatTriggerDeprecations="false"
   displayDetailsOnIncompleteTests="true"
   requireCoverageMetadata="true"
   beStrictAboutOutputDuringTests="true"
-  colors="true"
->
+  colors="true">
   <source>
     <include>
-      <directory suffix=".php">src</directory>
+      <directory>src</directory>
     </include>
   </source>
   <coverage>
@@ -33,10 +31,10 @@
   </php>
   <testsuites>
     <testsuite name="unit">
-      <directory suffix="Test.php">tests/unit</directory>
+      <directory>tests/unit</directory>
     </testsuite>
     <testsuite name="end-to-end">
-      <directory suffix="Test.php">tests/end-to-end</directory>
+      <directory>tests/end-to-end</directory>
     </testsuite>
   </testsuites>
   <logging>

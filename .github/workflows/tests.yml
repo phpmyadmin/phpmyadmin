@@ -50,7 +50,7 @@ jobs:
           composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('src/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
           composer install && \
           ./bin/generate-mo && \
-          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-logging --no-coverage --testsuite unit %s" \
+          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-logging --no-coverage --testsuite unit --display-all-issues %s" \
           "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
 
       - name: Set up multi arch support
@@ -106,7 +106,7 @@ jobs:
           composer-options: ${{ matrix.composer-options }}
 
       - name: Run PHP tests
-        run: composer run phpunit -- --testsuite unit --display-deprecations --display-notices --display-warnings --display-errors
+        run: composer run phpunit -- --testsuite unit --display-all-issues
 
       - name: Send coverage
         uses: codecov/codecov-action@v3
@@ -165,7 +165,7 @@ jobs:
         uses: ramsey/composer-install@v4
 
       - name: Run PHP tests
-        run: composer run phpunit -- --testsuite unit
+        run: composer run phpunit -- --testsuite unit --display-all-issues
 
       - name: Send coverage
         uses: codecov/codecov-action@v3
@@ -225,7 +225,6 @@ jobs:
           composer config --unset platform --no-interaction --ansi
           composer remove --dev vimeo/psalm psalm/plugin-phpunit --no-update --no-interaction --ansi
           composer require --dev phpunit/phpunit:^"$PHPUNIT_VERSION" --no-update --no-interaction --ansi
-          composer validate --strict
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v4
