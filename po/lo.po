@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-07-25 10:02+0000\n"
+"PO-Revision-Date: 2026-08-01 23:18+0000\n"
 "Last-Translator: BoneNI <bounkirdni@gmail.com>\n"
 "Language-Team: Lao <https://hosted.weblate.org/projects/phpmyadmin/4-9/lo/>\n"
 "Language: lo\n"
@@ -16536,9 +16536,9 @@ msgstr "ມີການເຊື່ອມຕໍ່ຈຳນວນຫຼາຍເ
 #: libraries/advisory_rules_generic.txt:335 libraries/advisory_rules_generic.txt:342
 msgid "Connections are usually aborted when they cannot be authorized. <a href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"ການເຊື່ອມຕໍ່ມັກຈະຖືກຍົກເລີກເມື່ອບໍ່ສາມາດຢືນຢັນສິດເຂົ້າໃຊ້ໄດ້. <a href=\"https://www.percona.com/"
-"blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">ບົດຄວາມນີ້</"
-"a> ອາດຈະຊ່ວຍໃຫ້ເຈົ້າຄົ້ນຫາແຫຼ່ງທີ່ມາໄດ້."
+"ການເຊື່ອມຕໍ່ໂດຍປົກກະຕິຈະຖືກຍົກເລີກ ເມື່ອບໍ່ສາມາດຢືນຢັນສິດໄດ້.<a href=\"https://"
+"www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">ບົດຄວາມນີ້</a> ອາດຊ່ວຍທ່ານຕິດຕາມຫາຕົ້ນຕໍຂອງບັນຫາໄດ້."
 
 #: libraries/advisory_rules_generic.txt:336
 #, php-format
