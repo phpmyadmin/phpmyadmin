@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-07-26 00:46+0000\n"
-"PO-Revision-Date: 2026-07-25 10:01+0000\n"
+"PO-Revision-Date: 2026-08-01 23:19+0000\n"
 "Last-Translator: BoneNI <bounkirdni@gmail.com>\n"
-"Language-Team: Lao <https://hosted.weblate.org/projects/phpmyadmin/master/lo/"
-">\n"
+"Language-Team: Lao <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"lo/>\n"
 "Language: lo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3453,7 +3453,7 @@ msgstr "ຢືນຢັນການປ່ຽນແປງເມື່ອ %s ໂ�
 #: resources/templates/home/git_info.twig:32
 #, php-format
 msgid "authored on %s by %s"
-msgstr "ຂຽນໂດຍ %2$s ເມື່ອ %1$s"
+msgstr "ຂຽນເມື່ອ %s ໂດຍ %s"
 
 #: resources/templates/home/index.twig:22 resources/templates/login/form.twig:8
 #, php-format
@@ -6073,7 +6073,8 @@ msgstr "ເຊີເວີ MySQL ນີ້ເຮັດວຽກເປັນ <b>�
 #: resources/templates/server/status/status/index.twig:63
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
-msgstr "ເຊີເວີ MySQL ນີ້ເຮັດວຽກເປັນ <b>Replica</b> ໃນຂະບວນການສຳເນົາຂໍ້ມູນ."
+msgstr ""
+"ເຊີເວີ MySQL ນີ້ ເຮັດໜ້າທີ່ເປັນ <b>ຕົວສຳເນົາ</b> ໃນຂະບວນການ <b>ການເຮັດສຳເນົາ</b>."
 
 #: resources/templates/server/status/status/index.twig:69
 msgid "Replication status"
@@ -8175,9 +8176,9 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"ການເຊື່ອມຕໍ່ມັກຈະຖືກຍົກເລີກເມື່ອບໍ່ສາມາດຢືນຢັນສິດເຂົ້າໃຊ້ໄດ້. <a href=\"https://www.percona.com/"
-"blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">ບົດຄວາມນີ້</"
-"a> ອາດຈະຊ່ວຍໃຫ້ເຈົ້າຄົ້ນຫາແຫຼ່ງທີ່ມາໄດ້."
+"ການເຊື່ອມຕໍ່ໂດຍປົກກະຕິຈະຖືກຍົກເລີກ ເມື່ອບໍ່ສາມາດຢືນຢັນສິດໄດ້.<a href=\"https://"
+"www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">ບົດຄວາມນີ້</a> ອາດຊ່ວຍທ່ານຕິດຕາມຫາຕົ້ນຕໍຂອງບັນຫາໄດ້."
 
 #: src/Advisory/Rules.php:584
 #, php-format
@@ -8265,14 +8266,14 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"ໂດຍສະເພາະໃນລະບົບທີ່ມີການຂຽນຂໍ້ມູນລົງໃນຕາຕະລາງ InnoDB ເປັນຈຳນວນຫຼາຍ, ເຈົ້າຄວນຕັ້ງຄ່າ "
-"{innodb_log_file_size} ໃຫ້ເປັນ 25% ຂອງ {innodb_buffer_pool_size}. ແນວໃດກໍຕາມ, "
-"ຍິ່ງຄ່ານີ້ໃຫຍ່ເທົ່າໃດ ເວລາໃນການກູ້ຄືນກໍຈະຍິ່ງດົນຂຶ້ນເທົ່ານັ້ນເມື່ອຖານຂໍ້ມູນຂັດຂ້ອງ, ດັ່ງນັ້ນ "
-"ຄ່ານີ້ບໍ່ຄວນຕັ້ງໃຫ້ສູງກວ່າ 256 MiB ຫຼາຍເກີນໄປ. ແຕ່ກະລຸນາຮັບຊາບວ່າ "
-"ເຈົ້າບໍ່ສາມາດປ່ຽນຄ່າຂອງຕົວປ່ຽນນີ້ໄດ້ໂດຍງ່າຍ. ເຈົ້າຈຳເປັນຕ້ອງປິດເຊີເວີ, ລຶບໄຟລ໌ລັອກ (log files) ຂອງ "
-"InnoDB ອອກ, ກຳນົດຄ່າໃໝ່ໃນ my.cnf, ເປີດເຊີເວີ, ແລ້ວກວດກາເບິ່ງລັອກຂໍ້ຜິດພາດ (error logs) "
-"ວ່າທຸກຢ່າງຮຽບຮ້ອຍດີຫຼືບໍ່ ເບິ່ງຕື່ມທີ່<a href=\"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">ບົດຄວາມນີ້</a>"
+"ໂດຍສະເພາະໃນລະບົບທີ່ມີການຂຽນລົງໃນຕາຕະລາງ InnoDB ຫຼາຍ, ທ່ານຄວນຕັ້ງຄ່າ "
+"{innodb_log_file_size} ໃຫ້ເປັນ 25% ຂອງ {innodb_buffer_pool_size}. ແຕ່ຢ່າງໃດກໍຕາມ ຍິ່"
+"ງຄ່ານີ້ໃຫຍ່ເທົ່າໃດ, ເວລາໃນການກູ້ຄືນກໍຈະຍິ່ງດົນຂຶ້ນເທົ່ານັ້ນ ເມື່ອຖານຂໍ້ມູນຂັດຂ້ອງ, ດັ່ງນັ້ນ ຄ່ານີ້ບໍ່ຄວນຕັ້ງໃຫ້ສູງກວ່"
+"າ 256 MiB ຫຼາຍປານໃດ. ແຕ່ກະລຸນາໝາຍເຫດໄວ້ວ່າ ທ່ານບໍ່ສາມາດປ່ຽນຄ່າຂອງຕົວປ່ຽນນີ້ໄດ້ໂດຍກົງ. ທ່ານຈຳເປັ"
+"ນຕ້ອງປິດເຊີເວີ, ລຶບໄຟລ໌ລັອກຂອງ InnoDB ອອກ, ຕັ້ງຄ່າໃໝ່ໃນ my.cnf, ເປີດເຊີເວີຄືນໃໝ່, ແລ້ວກວດເບິ່ງລັອ"
+"ກຂໍ້ຜິດພາດວ່າທຸກຢ່າງປົກກະຕິດີຫຼືບໍ່. ເບິ່ງຕື່ມທີ່<a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">ບົດຄວາມນີ້</a>"
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
 #, php-format
