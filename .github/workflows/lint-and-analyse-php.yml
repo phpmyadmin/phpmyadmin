@@ -119,4 +119,9 @@ jobs:
       - name: Analyse files with Psalm
         # Allow the previous check to fail but not abort
         if: always()
-        run: composer psalm -- --shepherd
+        run: |
+          if [ ${{ github.repository }} == 'phpmyadmin/phpmyadmin' ]; then
+            composer psalm -- --shepherd
+          else
+            composer psalm
+          fi
