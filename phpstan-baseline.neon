@@ -15337,6 +15337,12 @@ parameters:
 			path: tests/unit/Database/SearchTest.php
 
 		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Database/SearchTest.php
+
+		-
 			message: '#^@readonly property PhpMyAdmin\\Config\\Settings\\Debug\:\:\$sql is assigned outside of its declaring class\.$#'
 			identifier: property.readOnlyByPhpDocAssignOutOfClass
 			count: 2
