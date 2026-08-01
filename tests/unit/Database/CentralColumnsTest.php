@@ -283,7 +283,8 @@ class CentralColumnsTest extends AbstractTestCase
      */
     public function testGetHtmlForEditingPage(): void
     {
-        $this->dbi->method('fetchResultSimple')
+        $this->dbi->expects(self::once())
+            ->method('fetchResultSimple')
             ->with(
                 'SELECT * FROM `phpmyadmin`.`pma_central_columns` '
                 . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",
