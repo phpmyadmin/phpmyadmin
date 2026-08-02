@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-07-26 00:46+0000\n"
+"POT-Creation-Date: 2026-08-02 00:43+0000\n"
 "PO-Revision-Date: 2026-07-28 04:01+0000\n"
 "Last-Translator: Rajkumar Ramadoss <lionrajkumar@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4426,8 +4426,7 @@ msgstr ""
 
 #: resources/templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
-"புதுப்பிக்கப்பட்ட உள்ளமைவு கோப்பை ஏற்ற phpMyAdmin க்கு மீண்டும் பதிவு செய்யுங்கள்."
+msgstr "புதுப்பிக்கப்பட்ட உள்ளமைவு கோப்பை ஏற்ற phpMyAdmin க்கு மீண்டும் பதிவு செய்யுங்கள்."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:494
 #: src/Server/Status/Data.php:119 src/Util.php:1386
@@ -4759,8 +4758,8 @@ msgid ""
 "while connecting to the server."
 msgstr ""
 "சேவையகத்துடன் (server) இணையும்போது, இந்த முறைக்கு '<em>SSL இணைப்பு</em>' அல்லது "
-"'<em>RSA-வைப் பயன்படுத்தி கடவுச்சொல்லை மறைகுறியாக்கம் செய்யும் மறைகுறியாக்கப்படாத இணைப்பு</"
-"em>' ஆகியவற்றில் ஒன்றைப் பயன்படுத்துவது அவசியமாகும்."
+"'<em>RSA-வைப் பயன்படுத்தி கடவுச்சொல்லை மறைகுறியாக்கம் செய்யும் மறைகுறியாக்கப்படாத "
+"இணைப்பு</em>' ஆகியவற்றில் ஒன்றைப் பயன்படுத்துவது அவசியமாகும்."
 
 #: resources/templates/server/privileges/choose_user_group.twig:5
 msgid "User group:"
@@ -5820,8 +5819,9 @@ msgid ""
 "chart using the cog icon on each respective chart."
 msgstr ""
 "உங்கள் உலாவி, காட்டப்படும் அனைத்து வரைபடங்களையும் ஒரு சீரான இடைவெளியில் புதுப்பிக்கும். "
-"'அமைப்புகள்' என்பதன் கீழ் நீங்கள் வரைபடங்களைச் சேர்க்கலாம் மற்றும் புதுப்பிப்பு விகிதத்தை மாற்றலாம், "
-"அல்லது அந்தந்த வரைபடங்களில் உள்ள பற்சக்கரச் சின்னத்தைப் பயன்படுத்தி எந்த வரைபடத்தையும் அகற்றலாம்."
+"'அமைப்புகள்' என்பதன் கீழ் நீங்கள் வரைபடங்களைச் சேர்க்கலாம் மற்றும் புதுப்பிப்பு விகிதத்தை "
+"மாற்றலாம், அல்லது அந்தந்த வரைபடங்களில் உள்ள பற்சக்கரச் சின்னத்தைப் பயன்படுத்தி எந்த "
+"வரைபடத்தையும் அகற்றலாம்."
 
 #: resources/templates/server/status/monitor/index.twig:104
 msgid ""
@@ -6134,8 +6134,8 @@ msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
-"இந்த MySQL சேவையகம், <b>பிரதிசெய்தல் செயல்பாட்டில்</b> <b>முதன்மை</b> மற்றும் <b>பிரதி</"
-"b> சேவையகமாகச் செயல்படுகிறது."
+"இந்த MySQL சேவையகம், <b>பிரதிசெய்தல் செயல்பாட்டில்</b> <b>முதன்மை</b> மற்றும் "
+"<b>பிரதி</b> சேவையகமாகச் செயல்படுகிறது."
 
 #: resources/templates/server/status/status/index.twig:61
 msgid ""
