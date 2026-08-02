@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-08-02 00:43+0000\n"
-"PO-Revision-Date: 2026-07-11 09:01+0000\n"
+"PO-Revision-Date: 2026-08-04 00:01+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/vi/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.7.1.dev0\n"
+"X-Generator: Weblate 2026.8.1.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -9772,7 +9772,8 @@ msgstr ""
 #: src/Config/Descriptions.php:301
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
-"Có nên tự động mở rộng cơ sở dữ liệu đơn lẻ trong cây điều hướng hay không."
+"Liệu có nên tự động mở rộng cơ sở dữ liệu đơn lẻ trong cây điều hướng hay "
+"không."
 
 #: src/Config/Descriptions.php:303
 msgid "Set to 0 to collapse navigation panel."
@@ -11706,10 +11707,10 @@ msgid "Enable Zero Configuration mode"
 msgstr "Bật chế độ Không cần cấu hình"
 
 #: src/Config/Descriptions.php:958
-#, fuzzy
-#| msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
-msgstr "Thực thi truy vấn bằng Enter và chèn thêm dòng mới bằng Shift + Enter"
+msgstr ""
+"Thực hiện truy vấn bằng phím Enter và chèn dòng mới bằng tổ hợp phím "
+"Shift+Enter"
 
 #: src/Config/Descriptions.php:960
 #, fuzzy
