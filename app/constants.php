@@ -44,6 +44,7 @@ define('VERSION_SUFFIX', (string) $vendorConfig['versionSuffix']);
  * @see https://github.com/phpmyadmin/phpmyadmin/issues/16709
  */
 define('K_PATH_IMAGES', ROOT_PATH);
+define('K_PATH_FONTS', realpath(__DIR__ . '/../vendor/tecnickcom/tc-lib-pdf-font/target/fonts'));
 // phpcs:enable
 
 unset($vendorConfig);

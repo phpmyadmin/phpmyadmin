@@ -7,11 +7,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use Com\Tecnick\Pdf\Tcpdf;
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\Polygon;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
-use TCPDF;
 
 use function array_merge;
 use function array_slice;
@@ -122,12 +122,13 @@ class GisMultiPolygon extends GisGeometry
         string $label,
         array $color,
         ScaleData $scaleData,
-        TCPDF $pdf,
+        Tcpdf $pdf,
     ): void {
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon = mb_substr($spatial, 15, -3);
         // Separate each polygon
         $wktPolygons = explode(')),((', $multipolygon);
+        $style = ['fillColor' => sprintf('rgb(%d,%d,%d)', $color[0], $color[1], $color[2])];
 
         foreach ($wktPolygons as $wktPolygon) {
             $wktRings = explode('),(', $wktPolygon);
@@ -139,7 +140,7 @@ class GisMultiPolygon extends GisGeometry
             }
 
             // draw polygon
-            $pdf->Polygon($pointsArr, 'F*', [], $color);
+            $pdf->page->addContent($pdf->graph->getBasicPolygon($pointsArr, 'F*', $style));
             // mark label point if applicable
             if (isset($labelPoint)) {
                 continue;
@@ -153,9 +154,11 @@ class GisMultiPolygon extends GisGeometry
         }
 
         // print label if applicable
-        $pdf->setXY($labelPoint[0], $labelPoint[1]);
-        $pdf->setFontSize(5);
-        $pdf->Cell(0, 0, $label);
+        $font = $pdf->font->getCurrentFont();
+        $labelFont = $pdf->font->insert($pdf->pon, $font['key'], $font['style'], 5);
+        $pdf->page->addContent($labelFont['out']);
+        $pdf->page->addContent($pdf->color->getPdfColor('black'));
+        $pdf->page->addContent($pdf->getTextCell($label, $labelPoint[0], $labelPoint[1]));
     }
 
     /**

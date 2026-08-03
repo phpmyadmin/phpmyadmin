@@ -4,9 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Gis;
 
+use Com\Tecnick\Pdf\Tcpdf;
 use Generator;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\GisGeometryCollection;
+use PhpMyAdmin\Gis\GisLineString;
+use PhpMyAdmin\Gis\GisMultiLineString;
+use PhpMyAdmin\Gis\GisMultiPoint;
+use PhpMyAdmin\Gis\GisMultiPolygon;
+use PhpMyAdmin\Gis\GisPoint;
+use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Gis\GisVisualizationSettings;
 use PhpMyAdmin\Image\ImageWrapper;
@@ -17,8 +25,6 @@ use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
-use TCPDF;
-use TCPDF_STATIC;
 use Throwable;
 
 use function array_map;
@@ -41,24 +47,20 @@ use const PHP_INT_MAX;
 use const PNG_ALL_FILTERS;
 
 #[CoversClass(GisVisualization::class)]
-class GisVisualizationTest extends AbstractTestCase
+#[CoversClass(GisGeometryCollection::class)]
+#[CoversClass(GisLineString::class)]
+#[CoversClass(GisMultiLineString::class)]
+#[CoversClass(GisMultiPoint::class)]
+#[CoversClass(GisMultiPolygon::class)]
+#[CoversClass(GisPoint::class)]
+#[CoversClass(GisPolygon::class)]
+#[CoversClass(GisVisualizationSettings::class)]
+final class GisVisualizationTest extends AbstractTestCase
 {
-    private static string $testDataDir = '';
+    private static string $testDataDir = __DIR__ . '/../../test_data/gis';
 
     /** @psalm-suppress PropertyNotSetInConstructor */
     private DatabaseInterface $dbi;
-
-    public static function setUpBeforeClass(): void
-    {
-        self::$testDataDir = __DIR__ . '/../../test_data/gis';
-        (new ReflectionProperty(TCPDF_STATIC::class, 'tcpdf_version'))->setValue(null, '6.6.2');
-    }
-
-    public static function tearDownAfterClass(): void
-    {
-        $property = new ReflectionProperty(TCPDF_STATIC::class, 'tcpdf_version');
-        $property->setValue(null, $property->getDefaultValue());
-    }
 
     protected function setUp(): void
     {
@@ -392,15 +394,18 @@ class GisVisualizationTest extends AbstractTestCase
             new GisVisualizationSettings(width: 560, height: 420, spatialColumn: 'wkt', labelColumn: 'label'),
         );
         $vis = new ReflectionClass($visualization);
-        /** @var TCPDF $pdf */
-        $pdf = $vis->getMethod('createEmptyPdf')->invoke($visualization, 'A4');
-        $pdf->setDocCreationTimestamp(1700000000);
-        $pdf->setDocModificationTimestamp(1700000000);
-        $pdf->setCompression(false);
-        (new ReflectionProperty($pdf, 'file_id'))->setValue($pdf, md5($name));
+
+        $pdf = new Tcpdf('pt', compress: false);
+        $fontRegular = $pdf->font->insert($pdf->pon, 'helvetica', '', 14);
+        $pdf->addPage(['format' => 'A4', 'orientation' => 'P', 'time' => 1700000000]);
+        $pdf->page->addContent($fontRegular['out']);
+        (new ReflectionProperty($pdf, 'version'))->setValue($pdf, '8.20.0');
+        (new ReflectionProperty($pdf, 'doctime'))->setValue($pdf, 1700000000);
+        (new ReflectionProperty($pdf, 'docmodtime'))->setValue($pdf, 1700000000);
+        (new ReflectionProperty($pdf, 'fileid'))->setValue($pdf, md5($name));
 
         $vis->getMethod('prepareDataSet')->invoke($visualization, $data, 'pdf', $pdf);
-        $pdfBlob = $pdf->Output(dest: 'S');
+        $pdfBlob = $pdf->getOutPDFString();
 
         $this->assertSameOrSaveNewVersion($name, 'pdf', $pdfBlob);
     }

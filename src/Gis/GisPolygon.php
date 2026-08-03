@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use Com\Tecnick\Pdf\Tcpdf;
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
-use TCPDF;
 
 use function array_merge;
 use function array_slice;
@@ -101,7 +101,7 @@ class GisPolygon extends GisGeometry
         string $label,
         array $color,
         ScaleData $scaleData,
-        TCPDF $pdf,
+        Tcpdf $pdf,
     ): void {
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
@@ -115,16 +115,20 @@ class GisPolygon extends GisGeometry
             $pointsArr = array_merge($pointsArr, $ring);
         }
 
+        $style = ['fillColor' => sprintf('rgb(%d,%d,%d)', $color[0], $color[1], $color[2])];
+
         // draw polygon
-        $pdf->Polygon($pointsArr, 'F*', [], $color);
+        $pdf->page->addContent($pdf->graph->getBasicPolygon($pointsArr, 'F*', $style));
         if ($label === '') {
             return;
         }
 
         // print label if applicable
-        $pdf->setXY($pointsArr[2], $pointsArr[3]);
-        $pdf->setFontSize(5);
-        $pdf->Cell(0, 0, $label);
+        $font = $pdf->font->getCurrentFont();
+        $labelFont = $pdf->font->insert($pdf->pon, $font['key'], $font['style'], 5);
+        $pdf->page->addContent($labelFont['out']);
+        $pdf->page->addContent($pdf->color->getPdfColor('black'));
+        $pdf->page->addContent($pdf->getTextCell($label, $pointsArr[2], $pointsArr[3]));
     }
 
     /**

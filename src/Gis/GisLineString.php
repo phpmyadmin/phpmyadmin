@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
+use Com\Tecnick\Pdf\Tcpdf;
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
-use TCPDF;
 
 use function count;
 use function implode;
@@ -104,23 +104,24 @@ class GisLineString extends GisGeometry
         string $label,
         array $color,
         ScaleData $scaleData,
-        TCPDF $pdf,
+        Tcpdf $pdf,
     ): void {
-        $lineStyle = ['all' => ['width' => 1.5, 'color' => $color]];
+        $lineStyle = ['lineWidth' => 1.5, 'lineColor' => sprintf('rgb(%d,%d,%d)', $color[0], $color[1], $color[2])];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linestring = mb_substr($spatial, 11, -1);
         $pointsArr = $this->extractPoints1dLinear($linestring, $scaleData);
-        $pdf->PolyLine($pointsArr, 'S', $lineStyle);
+        $pdf->page->addContent($pdf->graph->getPolygon($pointsArr, 'S', ['all' => $lineStyle]));
 
         if ($label === '') {
             return;
         }
 
         // print label
-        $pdf->setXY($pointsArr[2], $pointsArr[3]);
-        $pdf->setFontSize(5);
-        $pdf->Cell(0, 0, $label);
+        $font = $pdf->font->getCurrentFont();
+        $labelFont = $pdf->font->insert($pdf->pon, $font['key'], $font['style'], 5);
+        $pdf->page->addContent($labelFont['out']);
+        $pdf->page->addContent($pdf->getTextCell($label, $pointsArr[2], $pointsArr[3]));
     }
 
     /**
