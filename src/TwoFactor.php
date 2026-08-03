@@ -17,18 +17,17 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
+use PhpMyAdmin\Plugins\TwoFactor\Simple;
+use PhpMyAdmin\Plugins\TwoFactor\WebAuthn;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PragmaRX\Google2FAQRCode\Google2FA;
 use XMLWriter;
 
-use function array_merge;
 use function class_exists;
 use function extension_loaded;
-use function in_array;
 use function is_array;
 use function is_bool;
 use function is_string;
-use function ucfirst;
 
 /**
  * Two factor authentication wrapper class
@@ -44,9 +43,6 @@ class TwoFactor
     private bool $writable;
 
     private TwoFactorPlugin $backend;
-
-    /** @var string[] */
-    private array $available;
 
     private UserPreferences $userPreferences;
 
@@ -67,7 +63,6 @@ class TwoFactor
             $config,
             new Clock(),
         );
-        $this->available = $this->getAvailableBackends();
         $this->config = $this->readConfig();
         $this->writable = $this->config['type'] === 'db';
         $this->backend = $this->getBackendForCurrentUser();
@@ -109,10 +104,10 @@ class TwoFactor
         return $this->backend;
     }
 
-    /** @return string[] */
+    /** @return array<string, class-string<TwoFactorPlugin>> */
     public function getAvailable(): array
     {
-        return $this->available;
+        return $this->getAvailableBackends();
     }
 
     public function showSubmit(): bool
@@ -120,17 +115,13 @@ class TwoFactor
         return $this->backend::$showSubmit;
     }
 
-    /**
-     * Returns list of available backends
-     *
-     * @return string[]
-     */
-    public function getAvailableBackends(): array
+    /** @return array<string, class-string<TwoFactorPlugin>> */
+    private function getAvailableBackends(): array
     {
-        $result = [];
+        $result = ['' => TwoFactorPlugin::class];
         $config = Config::getInstance();
         if ($config->config->debug->simple2fa) {
-            $result[] = 'simple';
+            $result['simple'] = Simple::class;
         }
 
         if (
@@ -138,13 +129,13 @@ class TwoFactor
             && class_exists(ImageRenderer::class)
             && (class_exists(XMLWriter::class) || extension_loaded('imagick'))
         ) {
-            $result[] = 'application';
+            $result['application'] = Application::class;
         }
 
-        $result[] = 'WebAuthn';
+        $result['WebAuthn'] = WebAuthn::class;
 
         if (class_exists(U2FServer::class)) {
-            $result[] = 'key';
+            $result['key'] = Key::class;
         }
 
         return $result;
@@ -182,15 +173,7 @@ class TwoFactor
      */
     public function getBackendClass(string $name): string
     {
-        $result = TwoFactorPlugin::class;
-        if (in_array($name, $this->available, true)) {
-            /** @psalm-var class-string<TwoFactorPlugin> $result */
-            $result = 'PhpMyAdmin\\Plugins\\TwoFactor\\' . ucfirst($name);
-        } elseif ($name !== '') {
-            $result = Invalid::class;
-        }
-
-        return $result;
+        return $this->getAvailableBackends()[$name] ?? Invalid::class;
     }
 
     /**
@@ -268,11 +251,11 @@ class TwoFactor
             $cls = $this->getBackendClass($name);
             $this->backend = new $cls($this);
         } else {
-            if (! in_array($name, $this->available, true)) {
+            $cls = $this->getBackendClass($name);
+            if ($cls === Invalid::class) {
                 return false;
             }
 
-            $cls = $this->getBackendClass($name);
             $this->backend = new $cls($this);
             if (! $this->backend->configure($request)) {
                 return false;
@@ -294,10 +277,8 @@ class TwoFactor
      */
     public function getAllBackends(): array
     {
-        $all = array_merge([''], $this->available);
         $backends = [];
-        foreach ($all as $name) {
-            $cls = $this->getBackendClass($name);
+        foreach ($this->getAvailableBackends() as $cls) {
             $backends[] = ['id' => $cls::$id, 'name' => $cls::getName(), 'description' => $cls::getDescription()];
         }
 

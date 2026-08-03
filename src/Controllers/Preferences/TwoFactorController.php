@@ -66,7 +66,7 @@ final readonly class TwoFactorController implements InvocableController
         $backend = $twoFactor->getBackend();
         $this->response->render('preferences/two_factor/main', [
             'enabled' => $twoFactor->isWritable(),
-            'num_backends' => count($twoFactor->getAvailable()),
+            'has_backends' => count($twoFactor->getAvailable()) > 1,
             'backend_id' => $backend::$id,
             'backend_name' => $backend::getName(),
             'backend_description' => $backend::getDescription(),

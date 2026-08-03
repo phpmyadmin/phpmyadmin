@@ -6,13 +6,13 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
+use PhpMyAdmin\Plugins\Auth\AuthenticationConfig;
+use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
+use PhpMyAdmin\Plugins\Auth\AuthenticationHttp;
+use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\ResponseRenderer;
 
 use function __;
-use function class_exists;
-use function is_subclass_of;
-use function strtolower;
-use function ucfirst;
 
 class AuthenticationPluginFactory
 {
@@ -30,12 +30,15 @@ class AuthenticationPluginFactory
         }
 
         $authType = Config::getInstance()->selectedServer['auth_type'];
-        $class = 'PhpMyAdmin\\Plugins\\Auth\\Authentication' . ucfirst(strtolower($authType));
-        if (! class_exists($class) || ! is_subclass_of($class, AuthenticationPlugin::class)) {
-            throw new AuthenticationPluginException(
+        $class = match ($authType) {
+            'config' => AuthenticationConfig::class,
+            'cookie' => AuthenticationCookie::class,
+            'http' => AuthenticationHttp::class,
+            'signon' => AuthenticationSignon::class,
+            default => throw new AuthenticationPluginException(
                 __('Invalid authentication method set in configuration:') . ' ' . $authType,
-            );
-        }
+            ),
+        };
 
         $this->plugin = new $class($this->responseRenderer);
 
