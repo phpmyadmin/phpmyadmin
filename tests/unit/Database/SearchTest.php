@@ -32,11 +32,9 @@ class SearchTest extends AbstractTestCase
         Current::$database = 'pma';
         $_POST = [];
 
-        //mock DBI
-        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $dbi->method('getColumns')
-            ->with('pma', 'table1')
             ->willReturn([
                 new Column('column1', '', null, false, '', null, '', '', ''),
                 new Column('column2', '', null, false, '', null, '', '', ''),

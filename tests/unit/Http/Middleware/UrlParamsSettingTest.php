@@ -27,7 +27,7 @@ final class UrlParamsSettingTest extends AbstractTestCase
 
         $response = self::createStub(ResponseInterface::class);
         $handler = $this->createMock(RequestHandlerInterface::class);
-        $handler->method('handle')->with($request)->willReturn($response);
+        $handler->expects(self::once())->method('handle')->with($request)->willReturn($response);
 
         $urlParamsSetting = new UrlParamsSetting(self::createStub(Config::class));
         self::assertSame($response, $urlParamsSetting->process($request, $handler));

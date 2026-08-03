@@ -643,7 +643,8 @@ final class ExportSqlTest extends AbstractTestCase
         $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $dbi->method('getColumns')
+        $dbi->expects(self::once())
+            ->method('getColumns')
             ->with('db', 'view')
             ->willReturn([
                 new Column(
@@ -680,7 +681,8 @@ final class ExportSqlTest extends AbstractTestCase
         $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
-        $dbi->method('getColumns')
+        $dbi->expects(self::once())
+            ->method('getColumns')
             ->with('db', 'view')
             ->willReturn([
                 new Column(
