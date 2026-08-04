@@ -496,58 +496,38 @@ final class ColumnsDefinition
     /**
      * Set default type and default value according to the column metadata
      *
-     * @param array $columnMeta Column Metadata
-     * @phpstan-param array<string, string|null> $columnMeta
+     * @param array<string, string|null> $columnMeta Column Metadata
      *
-     * @return non-empty-array<array-key, mixed>
+     * @return non-empty-array<string, string>
      */
     public static function decorateColumnMetaDefault(array $columnMeta): array
     {
-        $metaDefault = [
-            'DefaultType' => 'USER_DEFINED',
-            'DefaultValue' => '',
-        ];
+        $meta = [];
+        $default = $columnMeta['Default'];
+        if ($default === null) {
+            $meta['DefaultType'] = $columnMeta['Null'] === 'YES' ? 'NULL' : 'NONE';
+            $meta['DefaultValue'] = '';
+        } elseif ($default === 'CURRENT_TIMESTAMP' || $default === 'current_timestamp()') {
+            $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
+            $meta['DefaultValue'] = '';
+        } elseif ($default === 'UUID' || $default === 'uuid()') {
+            $meta['DefaultType'] = 'UUID';
+            $meta['DefaultValue'] = '';
+        } elseif ($default === 'UUID_v4' || $default === 'uuid_v4()') {
+            $meta['DefaultType'] = 'UUID_v4';
+            $meta['DefaultValue'] = '';
+        } elseif ($default === 'UUID_v7' || $default === 'uuid_v7()') {
+            $meta['DefaultType'] = 'UUID_v7';
+            $meta['DefaultValue'] = '';
+        } else {
+            $meta['DefaultType'] = 'USER_DEFINED';
+            $meta['DefaultValue'] = $default;
 
-        switch ($columnMeta['Default']) {
-            case null:
-                if ($columnMeta['Null'] === 'YES') {
-                    $metaDefault['DefaultType'] = 'NULL';
-                } else {
-                    $metaDefault['DefaultType'] = 'NONE';
-                }
-
-                break;
-            case 'CURRENT_TIMESTAMP':
-            case 'current_timestamp()':
-                $metaDefault['DefaultType'] = 'CURRENT_TIMESTAMP';
-
-                break;
-            case 'UUID':
-            case 'uuid()':
-                $metaDefault['DefaultType'] = 'UUID';
-
-                break;
-            case 'UUID_v4':
-            case 'uuid_v4()':
-                $metaDefault['DefaultType'] = 'UUID_v4';
-
-                break;
-            case 'UUID_v7':
-            case 'uuid_v7()':
-                $metaDefault['DefaultType'] = 'UUID_v7';
-
-                break;
-            default:
-                $metaDefault['DefaultValue'] = $columnMeta['Default'];
-
-                if (substr((string) $columnMeta['Type'], -4) === 'text') {
-                    $textDefault = substr($columnMeta['Default'], 1, -1);
-                    $metaDefault['Default'] = stripcslashes($textDefault);
-                }
-
-                break;
+            if (substr((string) $columnMeta['Type'], -4) === 'text') {
+                $meta['Default'] = stripcslashes(substr($default, 1, -1));
+            }
         }
 
-        return $metaDefault;
+        return $meta;
     }
 }
