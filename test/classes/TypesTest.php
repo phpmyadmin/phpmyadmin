@@ -344,6 +344,7 @@ class TypesTest extends AbstractTestCase
             ['MULTIPOLYGON'],
             ['GEOMETRYCOLLECTION'],
             ['JSON'],
+            ['INET4'],
             ['INET6'],
             ['UUID'],
             ['XMLTYPE'],
