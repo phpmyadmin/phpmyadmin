@@ -16,6 +16,7 @@ use PhpMyAdmin\Query\Utilities;
 
 use function __;
 use function defined;
+use function extension_loaded;
 use function mysqli_connect_errno;
 use function mysqli_get_client_info;
 use function mysqli_report;
@@ -41,6 +42,10 @@ class DbiMysqli implements DbiExtension
 {
     public function connect(Server $server): Connection
     {
+        if (! extension_loaded('mysqli')) {
+            throw new ConnectionException(__('The mysqli extension is missing.'));
+        }
+
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
         $mysqli = new mysqli();
@@ -296,6 +301,7 @@ class DbiMysqli implements DbiExtension
     {
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
+        assert($query !== '', 'Query cannot be empty');
         $result = $mysqli->execute_query($query, $params);
 
         if ($result === false) {
