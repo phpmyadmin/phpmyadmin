@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-07-08 12:01+0000\n"
+"PO-Revision-Date: 2026-08-07 13:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.7.1.dev0\n"
+"X-Generator: Weblate 2026.8.1.dev0\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -674,7 +674,7 @@ msgstr "Mainīt paroli"
 
 #: index.php:262 libraries/classes/Config/Descriptions.php:1488
 msgid "Server connection collation"
-msgstr "Servera savienojuma kodējums/salīdzinājums"
+msgstr "Servera savienojuma salīdzināšanas/kārtošanas rakstzīmju kodējums"
 
 #: index.php:285
 msgid "Appearance settings"
@@ -977,6 +977,7 @@ msgid "Do you really want to RESET SLAVE?"
 msgstr "Vai Jūs tiešām gribat izpildīt \"%s\"?"
 
 #: js/messages.php:89
+#, fuzzy
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -984,6 +985,11 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"Šī darbība mēģinās pārvērst Jūsu datus uz jauno sakārtojuma sistēmu. Retos "
+"gadījumos, parasti, kad simbols neeksistē jaunajā sistēmā, šis process var "
+"likt datiem tikt attēlotiem nepareizi jaunajā sistēmā; šajā gadījumā mēs "
+"iesakām atgriezties uz veco sakārtojuma sistēmu un atsaukties uz padomiem, "
+"kas ir atrodami "
 
 #: js/messages.php:95
 msgid "Garbled Data"
@@ -1373,7 +1379,7 @@ msgstr ""
 
 #: js/messages.php:226
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log un slow_query_log parametri iespējoti."
 
 #: js/messages.php:227
 msgid "general_log is enabled."
@@ -1385,7 +1391,7 @@ msgstr ""
 
 #: js/messages.php:229
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log un general_log parametri atspējoti."
 
 #: js/messages.php:230
 msgid "log_output is not set to TABLE."
@@ -3259,6 +3265,7 @@ msgstr "Garums/Vērtības*"
 #: templates/table/structure/table_structure_header.twig:7
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/table/tracking/structure_snapshot_columns.twig:8
+#, fuzzy
 msgid "Collation"
 msgstr "Komplektēšana"
 
@@ -3274,23 +3281,17 @@ msgid "A_I"
 msgstr ""
 
 #: libraries/classes/CentralColumns.php:793
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a table"
-msgstr "Izvēlieties tabulas"
+msgstr "Atlasiet tabulu"
 
 #: libraries/classes/CentralColumns.php:845
 #: templates/table/structure/add_column.twig:4
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Add column"
-msgstr "Pievienot %s lauku(s)"
+msgstr "Pievienot kolonnu"
 
 #: libraries/classes/CentralColumns.php:1304
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Add new column"
-msgstr "Pievienot %s lauku(s)"
+msgstr "Pievienot jaunu kolonnu"
 
 #: libraries/classes/CentralColumns.php:1429
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
@@ -3303,125 +3304,93 @@ msgstr "Atribūti"
 #: libraries/classes/Charsets.php:248
 #: templates/database/structure/table_header.twig:44
 msgid "Charset"
-msgstr "Rakstzīmju kopa"
+msgstr "Rakstzīmju kodējums"
 
 #: libraries/classes/Charsets.php:339
 msgid "Unknown"
 msgstr "Nezināms"
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binārais"
 
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:604
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
-msgstr "Unikods"
+msgstr "Unikoda"
 
 #: libraries/classes/Charsets.php:375 libraries/classes/Charsets.php:551
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Rietumeiropas"
 
 #: libraries/classes/Charsets.php:382
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Centrāleiropas"
 
 #: libraries/classes/Charsets.php:387 libraries/classes/Charsets.php:558
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Krievu"
 
 #: libraries/classes/Charsets.php:392
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
-msgstr "Vienkāršota ķīniešu"
+msgstr "Ķīniešu (vienkāršotais)"
 
 #: libraries/classes/Charsets.php:395
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
-msgstr "Tradicionāla ķīniešu"
+msgstr "Ķīniešu (tradicionālais)"
 
 #: libraries/classes/Charsets.php:398 libraries/classes/Charsets.php:474
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Ķīniešu"
 
 #: libraries/classes/Charsets.php:406 libraries/classes/Charsets.php:522
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japāņu"
 
 #: libraries/classes/Charsets.php:411
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "Baltijas"
+msgstr "Baltu"
 
 #: libraries/classes/Charsets.php:416
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armēņu"
 
 #: libraries/classes/Charsets.php:419
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr "Kirilisks"
+msgstr "Kirilicas"
 
 #: libraries/classes/Charsets.php:422
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arābu"
 
 #: libraries/classes/Charsets.php:425 libraries/classes/Charsets.php:537
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korejiešu"
 
 #: libraries/classes/Charsets.php:428
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
-msgstr "Ebreju"
+msgstr "Ivrita"
 
 #: libraries/classes/Charsets.php:431
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gruzīnu"
 
 #: libraries/classes/Charsets.php:434
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Grieķu"
@@ -3429,88 +3398,64 @@ msgstr "Grieķu"
 #: libraries/classes/Charsets.php:437
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Čehu-slovāku"
+msgstr "Čehoslovāku"
 
 #: libraries/classes/Charsets.php:440 libraries/classes/Charsets.php:596
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukraiņu"
 
 #: libraries/classes/Charsets.php:443 libraries/classes/Charsets.php:592
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turku"
 
 #: libraries/classes/Charsets.php:446 libraries/classes/Charsets.php:584
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Zviedru"
 
 #: libraries/classes/Charsets.php:449 libraries/classes/Charsets.php:588
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
-msgstr "Taizemiešu"
+msgstr "Taju"
 
 #: libraries/classes/Charsets.php:452
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "nazināma"
+msgstr "Nezināms"
 
 #: libraries/classes/Charsets.php:468
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgāru"
 
 #: libraries/classes/Charsets.php:479
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Horvātu"
 
 #: libraries/classes/Charsets.php:483
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Čehu"
 
 #: libraries/classes/Charsets.php:487
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dāņu"
 
 #: libraries/classes/Charsets.php:491
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Angļu"
 
 #: libraries/classes/Charsets.php:495
-#, fuzzy
-#| msgid "Operator"
 msgctxt "Collation"
 msgid "Esperanto"
-msgstr "Operators"
+msgstr "Esperanto"
 
 #: libraries/classes/Charsets.php:499
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Igauņu"
@@ -3526,15 +3471,11 @@ msgid "German (phone book order)"
 msgstr "Vācu (tālruņu grāmatas secība)"
 
 #: libraries/classes/Charsets.php:514
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Ungāru"
 
 #: libraries/classes/Charsets.php:518
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandiešu"
@@ -3542,18 +3483,14 @@ msgstr "Islandiešu"
 #: libraries/classes/Charsets.php:525
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Klasiskais latīņu"
 
 #: libraries/classes/Charsets.php:529
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Latviešu"
 
 #: libraries/classes/Charsets.php:533
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Lietuviešu"
@@ -3561,25 +3498,19 @@ msgstr "Lietuviešu"
 #: libraries/classes/Charsets.php:541
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Birmiešu"
 
 #: libraries/classes/Charsets.php:544
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persiešu"
 
 #: libraries/classes/Charsets.php:548
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Poļu"
 
 #: libraries/classes/Charsets.php:555
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumāņu"
@@ -3587,18 +3518,14 @@ msgstr "Rumāņu"
 #: libraries/classes/Charsets.php:562
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr ""
+msgstr "Singāļu"
 
 #: libraries/classes/Charsets.php:566
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovāku"
 
 #: libraries/classes/Charsets.php:570
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovēņu"
@@ -3606,19 +3533,17 @@ msgstr "Slovēņu"
 #: libraries/classes/Charsets.php:573 libraries/classes/Charsets.php:634
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Spāņu (mūsdienu)"
+msgstr "Spāņu (mūsdienas)"
 
 #: libraries/classes/Charsets.php:580 libraries/classes/Charsets.php:631
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr "Spāņu (tradicionāla)"
+msgstr "Spāņu (tradicionālais)"
 
 #: libraries/classes/Charsets.php:600
-#, fuzzy
-#| msgid "User name"
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr "Lietotājvārds"
+msgstr "Vjetnamiešu"
 
 #: libraries/classes/Charsets.php:667
 msgctxt "Collation variant"
@@ -3641,11 +3566,9 @@ msgid "accent-sensitive"
 msgstr "diakritiskjutīgs"
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "reģistrjūtīgs"
+msgstr "kanjutīgs"
 
 #: libraries/classes/Charsets.php:683
 #, fuzzy
@@ -11195,10 +11118,8 @@ msgid "event"
 msgstr "Nosūtīts"
 
 #: libraries/classes/Rte/Words.php:73
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
+msgstr "Jums nav nepieciešamo privilēģiju, lai izveidotu notikumu."
 
 #: libraries/classes/Rte/Words.php:75
 #, php-format
@@ -13190,9 +13111,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: libraries/classes/Template.php:127
-#, fuzzy, php-format
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Kļūda, strādājot ar veidnes kešatmiņu: %s"
+msgstr "Kļūda, mijiedarbojoties ar veidnes kešatmiņu: %s"
 
 #: libraries/classes/Theme.php:186
 #, php-format
@@ -16509,10 +16430,8 @@ msgid "Choose column to display:"
 msgstr "Atlasiet kolonnu, kuru rādīt:"
 
 #: url.php:41
-#, fuzzy
-#| msgid "Change"
 msgid "Taking you to the target site."
-msgstr "Labot"
+msgstr "Novirza uz mērķa vietni."
 
 #: user_password.php:37
 msgid "You don't have sufficient privileges to be here right now!"
@@ -16585,6 +16504,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:67
 #: libraries/advisory_rules_generic.txt:74
+#, fuzzy
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -16593,7 +16513,7 @@ msgstr ""
 "uzskaitītos vaicājumus"
 
 #: libraries/advisory_rules_generic.txt:68
-#, php-format
+#, fuzzy, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "Lēno vaicājumu rādītājam jābūt zem 5%%, jūsu vērtība ir %s%%."
 
@@ -16609,7 +16529,7 @@ msgstr ""
 "Salīdzinot ar servera darbības laiku, ir augsts lēnu vaicājumu īpatsvars."
 
 #: libraries/advisory_rules_generic.txt:75
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
@@ -16618,11 +16538,11 @@ msgstr ""
 "stundā."
 
 #: libraries/advisory_rules_generic.txt:77
-#, fuzzy
 msgid "Long query time"
-msgstr "SQL vaicājums"
+msgstr "Ilgo vaicājumu izpildes laiks"
 
 #: libraries/advisory_rules_generic.txt:80
+#, fuzzy
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -16645,18 +16565,16 @@ msgstr "long_query_time pašlaik ir iestatīts uz %ds."
 
 #: libraries/advisory_rules_generic.txt:84
 #: libraries/advisory_rules_generic.txt:91
-#, fuzzy
 msgid "Slow query logging"
-msgstr "SQL vaicājums"
+msgstr "Lēno vaicājumu reģistrēšana"
 
 #: libraries/advisory_rules_generic.txt:87
 #: libraries/advisory_rules_generic.txt:94
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The slow query log is disabled."
-msgstr "Serveris neatbild"
+msgstr "Lēno vaicājumu reģistrēšana atspējota."
 
 #: libraries/advisory_rules_generic.txt:88
+#, fuzzy
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -16669,6 +16587,7 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries ir iestatīts uz 'OFF'"
 
 #: libraries/advisory_rules_generic.txt:95
+#, fuzzy
 msgid ""
 "Enable slow query logging by setting {slow_query_log} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -16678,7 +16597,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:96
 msgid "slow_query_log is set to 'OFF'"
-msgstr "slow_query_log ir iestatīts uz 'OFF'"
+msgstr "slow_query_log parametrs iestatīts uz 'OFF'"
 
 #: libraries/advisory_rules_generic.txt:100
 msgid "Release Series"
