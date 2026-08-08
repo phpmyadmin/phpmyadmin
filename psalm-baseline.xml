@@ -13451,6 +13451,10 @@
       <code>$submit_attribute</code>
       <code>$type</code>
     </MixedAssignment>
+    <PossiblyFalseArgument occurrences="2">
+      <code>$columnMeta['Default']</code>
+      <code>$columnMeta['Type']</code>
+    </PossiblyFalseArgument>
     <PossiblyInvalidCast occurrences="1">
       <code>$_POST['after_field']</code>
     </PossiblyInvalidCast>
