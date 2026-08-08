@@ -74,30 +74,34 @@ AJAX.registerOnload('import.js', function () {
     $(document).on('submit', '#import_file_form', function () {
         const radioLocalImport = $('#localFileTab');
         const radioImport = $('#uploadFileTab');
-        const fileMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strImportDialogMessage + '</div>';
-        const wrongTblNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + window.Messages.strTableNameDialogMessage + '</div>';
-        const wrongDBNameMsg = '<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + window.Messages.strDBNameDialogMessage + '</div>';
+        const fileMsg = '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strImportDialogMessage;
+        const wrongTblNameMsg = '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + window.Messages.strTableNameDialogMessage;
+        const wrongDBNameMsg = '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + window.Messages.strDBNameDialogMessage;
 
         if (radioLocalImport.length !== 0) {
             // remote upload.
 
             if (radioImport.hasClass('active') && $('#input_import_file').val() === '') {
                 $('#input_import_file').trigger('focus');
-                ajaxShowMessage(fileMsg, false);
+                ajaxShowMessage(fileMsg, false, 'error');
 
                 return false;
             }
 
             if (radioLocalImport.hasClass('active')) {
                 if ($('#select_local_import_file').length === 0) {
-                    ajaxShowMessage('<div class="alert alert-danger" role="alert"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strNoImportFile + ' </div>', false);
+                    ajaxShowMessage(
+                        '<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + window.Messages.strNoImportFile,
+                        false,
+                        'error',
+                    );
 
                     return false;
                 }
 
                 if ($('#select_local_import_file').val() === '') {
                     $('#select_local_import_file').trigger('focus');
-                    ajaxShowMessage(fileMsg, false);
+                    ajaxShowMessage(fileMsg, false, 'error');
 
                     return false;
                 }
@@ -106,7 +110,7 @@ AJAX.registerOnload('import.js', function () {
             // local upload.
             if ($('#input_import_file').val() === '') {
                 $('#input_import_file').trigger('focus');
-                ajaxShowMessage(fileMsg, false);
+                ajaxShowMessage(fileMsg, false, 'error');
 
                 return false;
             }
@@ -114,7 +118,7 @@ AJAX.registerOnload('import.js', function () {
             if ($('#text_csv_new_tbl_name').length > 0) {
                 const newTblName = ($('#text_csv_new_tbl_name').val() as string);
                 if (newTblName.length > 0 && newTblName.trim().length === 0) {
-                    ajaxShowMessage(wrongTblNameMsg, false);
+                    ajaxShowMessage(wrongTblNameMsg, false, 'error');
 
                     return false;
                 }
@@ -123,7 +127,7 @@ AJAX.registerOnload('import.js', function () {
             if ($('#text_csv_new_db_name').length > 0) {
                 const newDBName = ($('#text_csv_new_db_name').val() as string);
                 if (newDBName.length > 0 && newDBName.trim().length === 0) {
-                    ajaxShowMessage(wrongDBNameMsg, false);
+                    ajaxShowMessage(wrongDBNameMsg, false, 'error');
 
                     return false;
                 }

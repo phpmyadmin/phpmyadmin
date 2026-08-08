@@ -134,8 +134,8 @@ function setConfigValue (key: string, value: boolean|number|string): void {
         },
     ).fail(function (data) {
         if (typeof data !== 'undefined' && data.responseJSON) {
-            const message = '<div class="alert alert-danger" role="alert">' + escapeHtml(data.responseJSON.error) + '</div>';
-            ajaxShowMessage(message, false);
+            const message = escapeHtml(data.responseJSON.error);
+            ajaxShowMessage(message, false, 'error');
         }
     });
 }

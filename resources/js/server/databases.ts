@@ -33,10 +33,9 @@ const DropDatabases = {
 
         if (! selectedDbs.length) {
             ajaxShowMessage(
-                $('<div class="alert alert-warning" role="alert"></div>').text(
-                    window.Messages.strNoDatabasesSelected
-                ),
-                2000
+                window.Messages.strNoDatabasesSelected,
+                2000,
+                'warning',
             );
 
             return;
