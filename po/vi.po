@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-08-04 00:01+0000\n"
+"PO-Revision-Date: 2026-08-09 13:51+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/5-"
 "2/vi/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.8.1.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -12093,18 +12093,14 @@ msgstr "Cho phép khóa các bảng cho tuyến trình hiện tại."
 #: libraries/classes/Server/Privileges.php:440
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
-msgstr "Cần thiết cho bản sao phụ."
+msgstr "Cần thiết cho các bản sao trong quá trình nhân bản."
 
 #: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
-#, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr "Cho phép người dùng hỏi máy chính/phụ ở đâu."
+msgstr "Cho phép người dùng hỏi vị trí của các bản sao / bản chính."
 
 #: libraries/classes/Server/Privileges.php:455
 #: templates/server/privileges/privileges_table.twig:524
@@ -16819,6 +16815,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Cho phép người dùng cấp cho người dùng khác hoặc thu hồi quyền mà người dùng "
+"đó đang nắm giữ đối với thủ tục này."
 
 #: templates/server/privileges/edit_routine_privileges.twig:76
 #: templates/server/privileges/edit_routine_privileges.twig:79
@@ -16880,15 +16878,11 @@ msgstr "Nội bộ"
 
 #: templates/server/privileges/login_information_fields.twig:30
 #: templates/server/replication/primary_add_replica_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
 msgstr "Máy chủ này"
 
 #: templates/server/privileges/login_information_fields.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:39
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "Dùng bảng máy chủ"
 
@@ -16916,10 +16910,8 @@ msgstr "Không thể thay đổi mật khâủ"
 
 #: templates/server/privileges/login_information_fields.twig:49
 #: templates/server/replication/primary_add_replica_user.twig:53
-#, fuzzy
-#| msgid "No Password"
 msgid "No password"
-msgstr "Không Mật khẩu"
+msgstr "Không mật khẩu"
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/primary_add_replica_user.twig:65
@@ -16927,14 +16919,10 @@ msgid "Re-type"
 msgstr "Gõ lại"
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
-msgstr "Phần bổ sung xác thực"
+msgstr "Plugin xác thực"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
 msgstr "Phương thức băm mật khẩu"
 
@@ -17159,10 +17147,8 @@ msgstr "Cấu hình máy phụ"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
-#, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Change or reconfigure primary server"
-msgstr "Thay đổi hoặc cấu hình lại máy phục vụ chính"
+msgstr "Thay đổi hoặc cấu hình lại máy chủ chính"
 
 #: templates/server/replication/change_primary.twig:9
 msgid ""
@@ -17191,10 +17177,8 @@ msgstr "Không có quyền"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
-#, fuzzy
-#| msgid "Add slave replication user"
 msgid "Add replica replication user"
-msgstr "Thêm người dùng máy bản sao phụ"
+msgstr "Thêm người dùng sao chép bản sao"
 
 #: templates/server/replication/primary_add_replica_user.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:40
@@ -17207,10 +17191,8 @@ msgid "Generate password:"
 msgstr "Tạo mật khẩu:"
 
 #: templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
-msgstr "Cấu hình máy chủ"
+msgstr "Cấu hình chính"
 
 #: templates/server/replication/primary_configuration.twig:4
 msgid ""
@@ -17252,74 +17234,56 @@ msgid ""
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
+"Sau khi khởi động lại máy chủ MySQL, vui lòng nhấp vào nút Đi tiếp. Sau đó, "
+"bạn sẽ thấy một thông báo cho biết máy chủ này <strong>đã</strong> được cấu "
+"hình làm máy chủ chính."
 
 #: templates/server/replication/primary_replication.twig:5
-#, fuzzy
-#| msgid "This server is configured as master in a replication process."
 msgid "This server is configured as primary in a replication process."
-msgstr "Máy phục vụ này được cấu hình là máy chính trong tiến trình bản sao."
+msgstr "Máy chủ này được cấu hình làm máy chủ chính trong quá trình sao chép."
 
 #: templates/server/replication/primary_replication.twig:16
-#, fuzzy
-#| msgid "Show connected slaves"
 msgid "Show connected replicas"
-msgstr "Hiển thị các máy phụ đã kết nối"
+msgstr "Hiển thị các bản sao được kết nối"
 
 #: templates/server/replication/primary_replication.twig:38
-#, fuzzy
-#| msgid ""
-#| "Only slaves started with the --report-host=host_name option are visible "
-#| "in this list."
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Chỉ máy phụ thuộc khởi chạy với tùy chọn --report-host=tên_máy là hiện diện "
-"trong danh sách này."
+"Chỉ những bản sao được khởi tạo với tùy chọn --report-host=host_name mới "
+"hiển thị trong danh sách này."
 
 #: templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Primary connection:"
-msgstr "Kết nối với máy chủ:"
+msgstr "Kết nối chính:"
 
 #: templates/server/replication/replica_configuration.twig:25
-#, fuzzy
-#| msgid "Slave SQL Thread not running!"
 msgid "Replica SQL Thread not running!"
-msgstr "Tuyến trình SQL phụ thuộc không chạy!"
+msgstr "Luồng SQL sao chép không hoạt động!"
 
 #: templates/server/replication/replica_configuration.twig:28
-#, fuzzy
-#| msgid "Slave IO Thread not running!"
 msgid "Replica IO Thread not running!"
-msgstr "Tuyến trình IO phụ thuộc không chạy!"
+msgstr "Luồng I/O sao chép không chạy!"
 
 #: templates/server/replication/replica_configuration.twig:31
-#, fuzzy
-#| msgid ""
-#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
-"Máy phục vụ được cấu hình là một máy phụ trong tiến trình bản sao. Bạn có "
-"muốn:"
+"Máy chủ được cấu hình như một bản sao trong quá trình sao chép dữ liệu. Bạn "
+"có muốn:"
 
 #: templates/server/replication/replica_configuration.twig:34
 msgid "See replica status table"
 msgstr "Xem bảng trạng thái bản sao"
 
 #: templates/server/replication/replica_configuration.twig:38
-#, fuzzy
-#| msgid "Control slave:"
 msgid "Control replica:"
-msgstr "Điều khiển máy phụ:"
+msgstr "Điều khiển bản sao:"
 
 #: templates/server/replication/replica_configuration.twig:48
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
-msgstr "Không tìm thấy"
+msgstr "Đặt lại bản sao"
 
 #: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -17342,11 +17306,10 @@ msgid "Error management:"
 msgstr "Quản lý lỗi:"
 
 #: templates/server/replication/replica_configuration.twig:77
-#, fuzzy
-#| msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr ""
-"Bỏ qua các lỗi có thể dẫn đến sự bất đồng bộ giữa máy chính và máy phụ!"
+"Việc bỏ qua các lỗi có thể dẫn đến tình trạng phần chính và phần sao lưu "
+"không đồng bộ!"
 
 #: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
