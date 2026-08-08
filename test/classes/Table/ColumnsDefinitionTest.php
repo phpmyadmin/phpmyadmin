@@ -62,6 +62,17 @@ class ColumnsDefinitionTest extends AbstractTestCase
                     'DefaultValue' => '',
                 ],
             ],
+            'when Default is empty string' => [
+                [
+                    'Type' => 'varchar(20)',
+                    'Null' => 'NO',
+                    'Default' => '',
+                ],
+                [
+                    'DefaultType' => 'USER_DEFINED',
+                    'DefaultValue' => '',
+                ],
+            ],
             'when Default is CURRENT_TIMESTAMP' => [
                 ['Default' => 'CURRENT_TIMESTAMP'],
                 [
