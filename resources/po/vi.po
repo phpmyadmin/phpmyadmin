@@ -4815,6 +4815,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Cho phép người dùng cấp cho người dùng khác hoặc thu hồi quyền mà người dùng "
+"đó đang nắm giữ đối với thủ tục này."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:78
 #: resources/templates/server/privileges/edit_routine_privileges.twig:81
@@ -4876,15 +4878,11 @@ msgstr "Nội bộ"
 
 #: resources/templates/server/privileges/login_information_fields.twig:31
 #: resources/templates/server/replication/primary_add_replica_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
 msgstr "Máy chủ này"
 
 #: resources/templates/server/privileges/login_information_fields.twig:33
 #: resources/templates/server/replication/primary_add_replica_user.twig:39
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "Use host table"
 msgstr "Dùng bảng máy chủ"
 
@@ -4912,10 +4910,8 @@ msgstr "Không thể thay đổi mật khâủ"
 
 #: resources/templates/server/privileges/login_information_fields.twig:50
 #: resources/templates/server/replication/primary_add_replica_user.twig:53
-#, fuzzy
-#| msgid "No Password"
 msgid "No password"
-msgstr "Không Mật khẩu"
+msgstr "Không mật khẩu"
 
 #: resources/templates/server/privileges/login_information_fields.twig:63
 #: resources/templates/server/replication/primary_add_replica_user.twig:65
@@ -4923,14 +4919,10 @@ msgid "Re-type"
 msgstr "Gõ lại"
 
 #: resources/templates/server/privileges/login_information_fields.twig:69
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication plugin"
-msgstr "Phần bổ sung xác thực"
+msgstr "Plugin xác thực"
 
 #: resources/templates/server/privileges/login_information_fields.twig:71
-#, fuzzy
-#| msgid "Password Hashing Method"
 msgid "Password hashing method"
 msgstr "Phương thức băm mật khẩu"
 
@@ -5234,18 +5226,14 @@ msgstr "Không được dùng cho phiên bản MySQL này."
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
 #: src/Server/Privileges.php:348
-#, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr "Cho phép người dùng hỏi máy chính/phụ ở đâu."
+msgstr "Cho phép người dùng hỏi vị trí của các bản sao / bản chính."
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
 #: src/Server/Privileges.php:344
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
-msgstr "Cần thiết cho bản sao phụ."
+msgstr "Cần thiết cho các bản sao trong quá trình nhân bản."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
@@ -5396,18 +5384,16 @@ msgid "Drop the databases that have the same names as the users."
 msgstr "Xóa cơ sở dữ liệu mà có cùng tên như người dùng."
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Thay đổi hoặc cấu hình lại máy phục vụ chính"
+msgstr "Cấu hình bản sao - Thay đổi hoặc cấu hình lại máy chủ chính"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"Hãy chắc là bạn có mã-số-máy-chủ không trùng lặp trong tập tin cấu hình (my."
-"cnf) của bạn. Nếu không hãy thêm dòng sau đây vào phần [mysqld]:"
+"Hãy chắc là bạn có mã-số-máy-chủ không trùng lặp trong tập tin cấu hình "
+"(my.cnf) của bạn. Nếu không hãy thêm dòng sau đây vào phần [mysqld]:"
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
@@ -5435,10 +5421,8 @@ msgstr "Không có quyền"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:11
 #: resources/templates/server/replication/primary_replication.twig:44
-#, fuzzy
-#| msgid "Add slave replication user"
 msgid "Add replica replication user"
-msgstr "Thêm người dùng máy bản sao phụ"
+msgstr "Thêm người dùng sao chép bản sao"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:21
 #: resources/templates/server/replication/primary_add_replica_user.twig:40
@@ -5463,10 +5447,8 @@ msgid "Generate"
 msgstr "Tạo"
 
 #: resources/templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid "Server configuration"
 msgid "Primary configuration"
-msgstr "Cấu hình máy chủ"
+msgstr "Cấu hình chính"
 
 #: resources/templates/server/replication/primary_configuration.twig:6
 msgid ""
@@ -5508,12 +5490,13 @@ msgid ""
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
+"Sau khi khởi động lại máy chủ MySQL, vui lòng nhấp vào nút Đi tiếp. Sau đó, "
+"bạn sẽ thấy một thông báo cho biết máy chủ này <strong>đã</strong> được cấu "
+"hình làm máy chủ chính."
 
 #: resources/templates/server/replication/primary_replication.twig:5
-#, fuzzy
-#| msgid "This server is configured as master in a replication process."
 msgid "This server is configured as primary in a replication process."
-msgstr "Máy phục vụ này được cấu hình là máy chính trong tiến trình bản sao."
+msgstr "Máy chủ này được cấu hình làm máy chủ chính trong quá trình sao chép."
 
 #: resources/templates/server/replication/primary_replication.twig:9
 #: src/Server/Status/Data.php:163
@@ -5521,66 +5504,47 @@ msgid "Show primary status"
 msgstr "Hiển thị trạng thái chính"
 
 #: resources/templates/server/replication/primary_replication.twig:16
-#, fuzzy
-#| msgid "Show connected slaves"
 msgid "Show connected replicas"
-msgstr "Hiển thị các máy phụ đã kết nối"
+msgstr "Hiển thị các bản sao được kết nối"
 
 #: resources/templates/server/replication/primary_replication.twig:38
-#, fuzzy
-#| msgid ""
-#| "Only slaves started with the --report-host=host_name option are visible "
-#| "in this list."
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Chỉ máy phụ thuộc khởi chạy với tùy chọn --report-host=tên_máy là hiện diện "
-"trong danh sách này."
+"Chỉ những bản sao được khởi tạo với tùy chọn --report-host=host_name mới "
+"hiển thị trong danh sách này."
 
 #: resources/templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Primary connection:"
-msgstr "Kết nối với máy chủ:"
+msgstr "Kết nối chính:"
 
 #: resources/templates/server/replication/replica_configuration.twig:25
-#, fuzzy
-#| msgid "Slave SQL Thread not running!"
 msgid "Replica SQL Thread not running!"
-msgstr "Tuyến trình SQL phụ thuộc không chạy!"
+msgstr "Luồng SQL sao chép không hoạt động!"
 
 #: resources/templates/server/replication/replica_configuration.twig:28
-#, fuzzy
-#| msgid "Slave IO Thread not running!"
 msgid "Replica IO Thread not running!"
-msgstr "Tuyến trình IO phụ thuộc không chạy!"
+msgstr "Luồng I/O sao chép không chạy!"
 
 #: resources/templates/server/replication/replica_configuration.twig:31
-#, fuzzy
-#| msgid ""
-#| "Server is configured as slave in a replication process. Would you like to:"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
-"Máy phục vụ được cấu hình là một máy phụ trong tiến trình bản sao. Bạn có "
-"muốn:"
+"Máy chủ được cấu hình như một bản sao trong quá trình sao chép dữ liệu. Bạn "
+"có muốn:"
 
 #: resources/templates/server/replication/replica_configuration.twig:34
 msgid "See replica status table"
 msgstr "Xem bảng trạng thái bản sao"
 
 #: resources/templates/server/replication/replica_configuration.twig:38
-#, fuzzy
-#| msgid "Control slave:"
 msgid "Control replica:"
-msgstr "Điều khiển máy phụ:"
+msgstr "Điều khiển bản sao:"
 
 #: resources/templates/server/replication/replica_configuration.twig:48
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
-msgstr "Không tìm thấy"
+msgstr "Đặt lại bản sao"
 
 #: resources/templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -5603,11 +5567,10 @@ msgid "Error management:"
 msgstr "Quản lý lỗi:"
 
 #: resources/templates/server/replication/replica_configuration.twig:77
-#, fuzzy
-#| msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr ""
-"Bỏ qua các lỗi có thể dẫn đến sự bất đồng bộ giữa máy chính và máy phụ!"
+"Việc bỏ qua các lỗi có thể dẫn đến tình trạng phần chính và phần sao lưu "
+"không đồng bộ!"
 
 #: resources/templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
@@ -5619,10 +5582,8 @@ msgid "Skip next %s errors."
 msgstr "Bỏ qua %s lỗi kế."
 
 #: resources/templates/server/replication/replica_configuration.twig:97
-#, fuzzy
-#| msgid "Change or reconfigure master server"
 msgid "Change or reconfigure primary server"
-msgstr "Thay đổi hoặc cấu hình lại máy phục vụ chính"
+msgstr "Thay đổi hoặc cấu hình lại máy chủ chính"
 
 #: resources/templates/server/replication/replica_configuration.twig:103
 #, php-format
@@ -5757,13 +5718,11 @@ msgstr "Cố vấn"
 
 #: resources/templates/server/status/monitor/index.twig:4
 #, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
 msgstr "Bộ nhớ hệ thống"
 
 #: resources/templates/server/status/monitor/index.twig:7
 #, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Bắt đầu theo dõi"
 
@@ -5791,8 +5750,6 @@ msgstr "Tốc độ làm tươi"
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
 #, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d giây"
@@ -5822,7 +5779,6 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:58
 #, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
 msgstr "Nhập vào cấu hình theo dõi"
 
@@ -5837,7 +5793,6 @@ msgstr "Đặt lại thành mặc định"
 
 #: resources/templates/server/status/monitor/index.twig:87
 #, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
 msgstr "Chỉ lệnh theo dõi"
 
@@ -6002,7 +5957,6 @@ msgstr "Hủy yêu cầu"
 
 #: resources/templates/server/status/monitor/index.twig:294
 #, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
 msgstr "Phân tích và tải nhật ký. Thao tác này có thể mất một chút thời gian."
 
@@ -6028,7 +5982,6 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:336
 #, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
 msgstr "Nhảy đến bảng Nhật ký"
 
@@ -6061,11 +6014,6 @@ msgstr "Cấu hình theo dõi nội bộ chưa hoàn thiện!"
 
 #: resources/templates/server/status/monitor/index.twig:370
 #, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6140,7 +6088,6 @@ msgstr "#"
 #: resources/templates/server/status/status/index.twig:18
 #: resources/templates/server/status/status/index.twig:38
 #, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
 msgstr "mỗi giờ"
 
@@ -6178,9 +6125,6 @@ msgstr "Kết nối"
 
 #: resources/templates/server/status/status/index.twig:59
 #, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> and <b>slave</b> in "
-#| "<b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
@@ -6190,8 +6134,6 @@ msgstr ""
 
 #: resources/templates/server/status/status/index.twig:61
 #, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
@@ -6200,8 +6142,6 @@ msgstr ""
 
 #: resources/templates/server/status/status/index.twig:63
 #, fuzzy
-#| msgid ""
-#| "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
@@ -6270,7 +6210,6 @@ msgstr "Máy chủ cơ sở dữ liệu"
 
 #: resources/templates/server/user_groups/user_groups.twig:50
 #, fuzzy
-#| msgid "Edit user group"
 msgid "Delete user group"
 msgstr "Sửa nhóm người dùng"
 
@@ -6343,7 +6282,6 @@ msgstr "Hiện mẫu đơn"
 
 #: resources/templates/setup/home/index.twig:23
 #, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
 msgstr "Hiện các mục tin ẩn"
 
@@ -6578,7 +6516,6 @@ msgstr "Dùng giá trị này"
 
 #: resources/templates/table/chart/tbl_chart.twig:10
 #, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
 msgstr "Kiểu biểu đồ"
 
@@ -6876,7 +6813,6 @@ msgstr ""
 
 #: resources/templates/table/maintenance/checksum.twig:13
 #, fuzzy
-#| msgid "Check"
 msgid "Checksum"
 msgstr "Kiểm tra"
 
@@ -6911,7 +6847,6 @@ msgstr "Bước ba của thường hóa (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
 #, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
 msgstr "Tùy chọn về bảng"
 
@@ -6921,7 +6856,6 @@ msgstr "Làm bảng xếp theo"
 
 #: resources/templates/table/operations/index.twig:21
 #, fuzzy
-#| msgid "(singly)"
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
 msgstr "(đơn)"
@@ -7484,7 +7418,6 @@ msgstr "Bẫy"
 
 #: resources/templates/triggers/list.twig:29
 #, fuzzy
-#| msgid "Create version"
 msgid "Create new trigger"
 msgstr "Phiên bản tạo"
 
@@ -7494,13 +7427,11 @@ msgstr "Ở đây không có bẫy nào để trình bày."
 
 #: resources/templates/triggers/list.twig:81
 #, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
 msgstr "Tên bẫy"
 
 #: resources/templates/triggers/list.twig:101
 #, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
 msgstr "Xuất của bẫy %s"
 
@@ -7817,9 +7748,9 @@ msgstr "Phương thức đệm tối ưu."
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Bạn đang dùng bộ đệm truy vấn MySQL với cơ sở dữ liệu lưu lượng truy cập khá "
 "cao. Có thể cân nhắc sử dụng <a href=\"https://dev.mysql.com/doc/refman/5.6/"
@@ -8470,8 +8401,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Đặc biệt trên hệ thống có nhiều thao tác ghi vào bảng InnoDB, bạn nên đặt "
 "{innodb_log_file_size} là 25% của {innodb_buffer_pool_size}. Tuy nhiên, giá "
@@ -8557,8 +8488,8 @@ msgstr ""
 "dụng của mình. Nếu không phải như vậy, bạn cần đánh giá cẩn thận mức tiêu "
 "thụ bộ nhớ của các dịch vụ khác và các Bảng không phải InnoDB rồi đặt biến "
 "này cho phù hợp. Nếu nó được đặt quá cao, hệ thống của bạn sẽ bắt đầu hoán "
-"đổi, điều này làm giảm hiệu suất đáng kể. Xem thêm <a href=\"https://www."
-"percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">bài viết "
+"đổi, điều này làm giảm hiệu suất đáng kể. Xem thêm <a href=\"https://"
+"www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">bài viết "
 "này</a>"
 
 #: src/Advisory/Rules.php:738
@@ -8589,8 +8520,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Việc đặt {concurrent_insert} thành 1 giúp giảm thiểu sự xung đột giữa người "
-"đọc và người ghi đối với một bảng nhất định. Xem thêm <a href=\"https://dev."
-"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">Tài liệu MySQL</a>"
+"đọc và người ghi đối với một bảng nhất định. Xem thêm <a href=\"https://"
+"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">Tài liệu MySQL</a>"
 
 #: src/Advisory/Rules.php:757
 msgid "concurrent_insert is set to 0"
@@ -8915,14 +8846,12 @@ msgstr "Tiếng Ban-tích"
 
 #: src/Charsets/Collation.php:310
 #, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Tiếng Ác-mê-ni"
 
 #: src/Charsets/Collation.php:313
 #, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Chữ Ki-rin"
@@ -8944,7 +8873,6 @@ msgstr "Tiếng Do Thái"
 
 #: src/Charsets/Collation.php:325
 #, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Tiếng Gi-oa-gi-a"
@@ -8956,7 +8884,6 @@ msgstr "Tiếng Hy Lạp"
 
 #: src/Charsets/Collation.php:331
 #, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Cộng hòa Xlô-vác"
@@ -8993,7 +8920,6 @@ msgstr "Tiếng Bun-ga-ri"
 
 #: src/Charsets/Collation.php:381
 #, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Tiếng Croát-chi-a"
@@ -9020,7 +8946,6 @@ msgstr "Quốc tế ngữ"
 
 #: src/Charsets/Collation.php:401
 #, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Tiếng E-x-tô-ni"
@@ -9032,7 +8957,6 @@ msgstr "Tiếng Hung Ga Ri"
 
 #: src/Charsets/Collation.php:420
 #, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Tiếng Ai-xơ-len"
@@ -9044,14 +8968,12 @@ msgstr "Tiếng Latin cổ điển"
 
 #: src/Charsets/Collation.php:431
 #, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Tiếng Lát-vi-a"
 
 #: src/Charsets/Collation.php:435
 #, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Tiếng Lát-vi"
@@ -9064,7 +8986,6 @@ msgstr "Tiếng Miến Điện"
 
 #: src/Charsets/Collation.php:446
 #, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Tiếng Ba Tư"
@@ -9076,28 +8997,24 @@ msgstr "Tiếng Ba Lan"
 
 #: src/Charsets/Collation.php:457
 #, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Tiếng Ru-ma-ni"
 
 #: src/Charsets/Collation.php:464
 #, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Sinhalese"
 
 #: src/Charsets/Collation.php:468
 #, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Tiếng Xlô-vác"
 
 #: src/Charsets/Collation.php:472
 #, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Tiếng Xlô-ven"
@@ -9160,7 +9077,6 @@ msgstr "Đóng"
 #: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
-#| msgid "Monday"
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Thứ hai"
@@ -9168,7 +9084,6 @@ msgstr "Thứ hai"
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
-#| msgid "Tuesday"
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Thứ ba"
@@ -9176,7 +9091,6 @@ msgstr "Thứ ba"
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
-#| msgid "Wednesday"
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Thứ tư"
@@ -9184,7 +9098,6 @@ msgstr "Thứ tư"
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:729
 #, fuzzy
-#| msgid "Thursday"
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Thứ năm"
@@ -9192,7 +9105,6 @@ msgstr "Thứ năm"
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:730
 #, fuzzy
-#| msgid "Friday"
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Thứ sáu"
@@ -9200,7 +9112,6 @@ msgstr "Thứ sáu"
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:731
 #, fuzzy
-#| msgid "Saturday"
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Thứ bảy"
@@ -9208,7 +9119,6 @@ msgstr "Thứ bảy"
 #: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
-#| msgid "Sunday"
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Chủ nhật"
@@ -9913,13 +9823,13 @@ msgstr ""
 
 #: src/Config/Descriptions.php:355
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Thông tin thêm trên [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]theo dõi lỗi phpMyAdmin[/a] và [a@https://bugs.mysql."
-"com/19588]Lỗi MySQL[/a]"
+"Thông tin thêm trên [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]theo dõi lỗi phpMyAdmin[/a] và [a@https://bugs.mysql.com/19588]Lỗi "
+"MySQL[/a]"
 
 #: src/Config/Descriptions.php:359
 msgid ""
@@ -10199,15 +10109,12 @@ msgstr ""
 
 #: src/Config/Descriptions.php:482
 #, fuzzy
-#| msgid ""
-#| "Shows link to [a@https://www.php.net/manual/function.phpinfo.php]phpinfo()"
-#| "[/a] output."
 msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Hiển thị liên kết đến [a@https://www.php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]."
+"Hiển thị liên kết đến [a@https://www.php.net/manual/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: src/Config/Descriptions.php:484
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -10220,7 +10127,6 @@ msgstr "Hiển thị hay ẩn các cột trình bày ghi chú cho mọi bảng."
 
 #: src/Config/Descriptions.php:486
 #, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "Hiển thị hay ẩn các cột trình bày ghi chú cho mọi bảng."
 
@@ -10241,7 +10147,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:490
 #, fuzzy
-#| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
 "Cho phép hiển thị thống kê về cơ sở dữ liệu và bảng (ví dụ mức dùng đĩa)."
@@ -10297,11 +10202,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:515
 #, fuzzy
-#| msgid ""
-#| "The url of the proxy to be used when retrieving the information about the "
-#| "latest version of phpMyAdmin or when submitting error reports. You need "
-#| "this if the server where phpMyAdmin is installed does not have direct "
-#| "access to the internet. The format is: \"hostname:portnumber\"."
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
@@ -10333,9 +10233,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:531
 #, fuzzy
-#| msgid ""
-#| "Enable Zero Configuration mode which lets you setup phpMyAdmin "
-#| "configuration storage tables automatically."
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
@@ -10654,7 +10551,6 @@ msgstr "Ẩn các thao tác với cấu trúc bảng"
 
 #: src/Config/Descriptions.php:621
 #, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
 msgstr "Kiểu sắp xếp mặc định"
 
@@ -10823,13 +10719,11 @@ msgstr "Xuất ra như là các tập tin khác"
 
 #: src/Config/Descriptions.php:683
 #, fuzzy
-#| msgid "Remember file name template"
 msgid "Remember filename template"
 msgstr "Nhớ mẫu tên tập tin"
 
 #: src/Config/Descriptions.php:684
 #, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
 msgstr "Xóa bỏ các cột khỏi danh sách trung tâm"
 
@@ -10875,7 +10769,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:707 src/Plugins/Export/ExportSql.php:372
 #, fuzzy, php-format
-#| msgid "%s value"
 msgid "%s view"
 msgstr "%s giá trị"
 
@@ -11249,7 +11142,6 @@ msgstr "Hiển thị sự kiện trong cây"
 
 #: src/Config/Descriptions.php:832
 #, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
 msgstr "Đang chép cơ sở dữ liệu"
 
@@ -11563,7 +11455,6 @@ msgstr "Hiện thị dấu thời gian kiểm tra lần cuối"
 
 #: src/Config/Descriptions.php:915
 #, fuzzy
-#| msgid "Show table comments"
 msgid "Show table charset"
 msgstr "Hiển thị các chú thích của bảng"
 
@@ -11646,7 +11537,6 @@ msgstr "Kiểm tra phiên bản"
 
 #: src/Config/Descriptions.php:941
 #, fuzzy
-#| msgid "Proxy url"
 msgid "Proxy URL"
 msgstr "URL của máy ủy nhiệm"
 
@@ -11680,13 +11570,11 @@ msgstr ""
 
 #: src/Config/Descriptions.php:949
 #, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Public key for reCAPTCHA"
 msgstr "Khóa công cho reCaptcha"
 
 #: src/Config/Descriptions.php:950
 #, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Private key for reCAPTCHA"
 msgstr "Khóa công cho reCaptcha"
 
@@ -11714,13 +11602,11 @@ msgstr ""
 
 #: src/Config/Descriptions.php:960
 #, fuzzy
-#| msgid "Console"
 msgid "Console height"
 msgstr "Bảng điều khiển"
 
 #: src/Config/Descriptions.php:961
 #, fuzzy
-#| msgid "Console"
 msgid "Console mode"
 msgstr "Bảng điều khiển"
 
@@ -12076,7 +11962,6 @@ msgstr "Thành công"
 
 #: src/Controllers/Console/UpdateConfigController.php:53
 #, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
 msgstr "Bảng %1$s đã thay đổi thành công."
 
@@ -12084,7 +11969,6 @@ msgstr "Bảng %1$s đã thay đổi thành công."
 #: src/Controllers/Console/UpdateConfigController.php:114
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:32
 #, fuzzy
-#| msgid "Unexpected character."
 msgid "Unexpected parameter value."
 msgstr "Gặp ký tự không cần."
 
@@ -12288,7 +12172,6 @@ msgstr "Bạn không có quyền quản trị người dùng!"
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
 #, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Chưa có bảng nào được chọn."
 
@@ -12375,6 +12258,7 @@ msgid "Database Log"
 msgstr "Nhật ký Cơ sở dữ liệu"
 
 #: src/Controllers/ErrorReportController.php:96
+#: src/Controllers/ErrorReportController.php:95
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12383,10 +12267,12 @@ msgstr ""
 "cài đặt cấu hình của bạn."
 
 #: src/Controllers/ErrorReportController.php:100
+#: src/Controllers/ErrorReportController.php:99
 msgid "Thank you for submitting this report."
 msgstr "Cám ơn bạn đã gửi báo cáo."
 
 #: src/Controllers/ErrorReportController.php:104
+#: src/Controllers/ErrorReportController.php:103
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12395,12 +12281,14 @@ msgstr ""
 "có lỗi trong quá trình gửi."
 
 #: src/Controllers/ErrorReportController.php:107
+#: src/Controllers/ErrorReportController.php:106
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Nếu bạn có kinh nghiệm phát hiện vấn đề nào đó không hoạt động tốt, xin hãy "
 "gửi báo cáo lỗi cho chúng tôi một cách thủ công."
 
 #: src/Controllers/ErrorReportController.php:110
+#: src/Controllers/ErrorReportController.php:109
 msgid "You may want to refresh the page."
 msgstr "Bạn có lẽ nên làm tươi trang này lại."
 
@@ -12439,15 +12327,17 @@ msgstr ""
 
 #: src/Controllers/HomeController.php:267
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"Tham số PHP [a@https://www.php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] của bạn thấp hơn "
-"giá trị cookie được đặt cấu hình trong phpMyAdmin, bởi vì điều này nên việc "
-"đăng nhập của bạn có thể hết hạn sớm hơn so với thời hạn cấu hình trong "
+"Tham số PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] của bạn thấp hơn giá trị "
+"cookie được đặt cấu hình trong phpMyAdmin, bởi vì điều này nên việc đăng "
+"nhập của bạn có thể hết hạn sớm hơn so với thời hạn cấu hình trong "
 "phpMyAdmin."
 
 #: src/Controllers/HomeController.php:287
@@ -12555,7 +12445,6 @@ msgstr ""
 
 #: src/Controllers/Import/ImportController.php:190
 #, fuzzy
-#| msgid "Remove last parameter"
 msgid "Incorrect format parameter"
 msgstr "Bỏ rãnh cuối"
 
@@ -12636,8 +12525,6 @@ msgstr "Bạn chuẩn bị PHÁ HỦY toàn bộ cơ sở dữ liệu!"
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 #, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "Tên này giống tên ban đầu mà, đâu có đổi tên được đâu. Hãy đổi tên khác đi "
@@ -12653,7 +12540,6 @@ msgstr "Bạn chuẩn bị CẮT CỤT DỮ LIỆU toàn bộ bảng!"
 
 #: src/Controllers/JavaScriptMessagesController.php:62
 #, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
 msgstr "Bạn chuẩn bị PHÁ HỦY toàn bộ bảng!"
 
@@ -12737,7 +12623,6 @@ msgstr "Bạn có thực sự muốn xóa bỏ phân vùng không?"
 
 #: src/Controllers/JavaScriptMessagesController.php:86
 #, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr "Bạn có thực sự muốn thực thi \"%s\"?"
 
@@ -12820,7 +12705,6 @@ msgstr "Sửa chỉ mục"
 #. l10n: Rename a table Index
 #: src/Controllers/JavaScriptMessagesController.php:123
 #, fuzzy
-#| msgid "Rename view to"
 msgid "Rename index"
 msgstr "Việc đổi tên %s thành %s bị lỗi"
 
@@ -13032,7 +12916,6 @@ msgstr "Vui lòng thêm ít nhất là một biến vào sê-ri!"
 #. l10n: SQL Query on modal to show exported query
 #: src/Controllers/JavaScriptMessagesController.php:221
 #, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "Truy vấn SQL"
 
@@ -13368,7 +13251,6 @@ msgstr ""
 #: src/Controllers/JavaScriptMessagesController.php:365
 #: src/Navigation/Nodes/NodeTrigger.php:27
 #, fuzzy
-#| msgid "Triggers"
 msgid "Trigger"
 msgstr "Bẫy"
 
@@ -13405,7 +13287,6 @@ msgstr "Hiện hộp truy vấn"
 
 #: src/Controllers/JavaScriptMessagesController.php:381
 #, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
 msgstr "Gửi truy vấn"
 
@@ -13553,13 +13434,11 @@ msgstr "Không có phụ thuộc nào được chọn!"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 #, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
 msgstr "Dùng giá trị này"
 
 #: src/Controllers/JavaScriptMessagesController.php:429
 #, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
 msgstr "Giá trị phiên"
 
@@ -13781,7 +13660,6 @@ msgstr "Tên cột"
 
 #: src/Controllers/JavaScriptMessagesController.php:540
 #, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "Nhấn vào Esc để hủy sửa chữa."
 
@@ -13821,7 +13699,6 @@ msgstr "Bấm đúp chuột để sao chép tên cột."
 
 #: src/Controllers/JavaScriptMessagesController.php:554
 #, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr "Bấm vào mũi tên chỉ xuống<br> để bật/tắt tính khả kiến của cột."
 
@@ -14061,7 +13938,6 @@ msgstr "Mạnh"
 #. l10n: error code 5 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:668
 #, fuzzy
-#| msgid "Timed out waiting for security key activation."
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Đã hết thời gian chờ đợi kích hoạt khóa bảo mật."
@@ -14087,7 +13963,6 @@ msgstr ""
 #. l10n: error code 4 (from U2F API) on register
 #: src/Controllers/JavaScriptMessagesController.php:676
 #, fuzzy
-#| msgid "Failed security key activation (%s)."
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "Kích hoạt khóa bảo mật thất bại (%s)."
@@ -14113,7 +13988,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:691
 #, fuzzy, php-format
-#| msgid "Table %s already exists!"
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -14132,168 +14006,144 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:701
 #, fuzzy
-#| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Tháng giêng"
 
 #: src/Controllers/JavaScriptMessagesController.php:702
 #, fuzzy
-#| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Tháng hai"
 
 #: src/Controllers/JavaScriptMessagesController.php:703
 #, fuzzy
-#| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Tháng ba"
 
 #: src/Controllers/JavaScriptMessagesController.php:704
 #, fuzzy
-#| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Tháng tư"
 
 #: src/Controllers/JavaScriptMessagesController.php:705
 #, fuzzy
-#| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Tháng năm"
 
 #: src/Controllers/JavaScriptMessagesController.php:706
 #, fuzzy
-#| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Tháng sáu"
 
 #: src/Controllers/JavaScriptMessagesController.php:707
 #, fuzzy
-#| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Tháng bảy"
 
 #: src/Controllers/JavaScriptMessagesController.php:708
 #, fuzzy
-#| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "Tháng tám"
 
 #: src/Controllers/JavaScriptMessagesController.php:709
 #, fuzzy
-#| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "Tháng chín"
 
 #: src/Controllers/JavaScriptMessagesController.php:710
 #, fuzzy
-#| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Tháng mười"
 
 #: src/Controllers/JavaScriptMessagesController.php:711
 #, fuzzy
-#| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "Tháng mười một"
 
 #: src/Controllers/JavaScriptMessagesController.php:712
 #, fuzzy
-#| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Tháng mười hai"
 
 #: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:502
 #, fuzzy
-#| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Th1"
 
 #: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:503
 #, fuzzy
-#| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Th2"
 
 #: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:504
 #, fuzzy
-#| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Th3"
 
 #: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:505
 #, fuzzy
-#| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Th4"
 
 #: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:506
 #, fuzzy
-#| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Tháng năm"
 
 #: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:507
 #, fuzzy
-#| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Th6"
 
 #: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:508
 #, fuzzy
-#| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Th7"
 
 #: src/Controllers/JavaScriptMessagesController.php:720 src/Util.php:509
 #, fuzzy
-#| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Th8"
 
 #: src/Controllers/JavaScriptMessagesController.php:721 src/Util.php:510
 #, fuzzy
-#| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Th9"
 
 #: src/Controllers/JavaScriptMessagesController.php:722 src/Util.php:511
 #, fuzzy
-#| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Th10"
 
 #: src/Controllers/JavaScriptMessagesController.php:723 src/Util.php:512
 #, fuzzy
-#| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Th10"
 
 #: src/Controllers/JavaScriptMessagesController.php:724 src/Util.php:513
 #, fuzzy
-#| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Th12"
@@ -14305,42 +14155,36 @@ msgstr "Cn"
 
 #: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:517
 #, fuzzy
-#| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "T2"
 
 #: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:518
 #, fuzzy
-#| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "T3"
 
 #: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:519
 #, fuzzy
-#| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "T4"
 
 #: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:520
 #, fuzzy
-#| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "T5"
 
 #: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:521
 #, fuzzy
-#| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "T6"
 
 #: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:522
 #, fuzzy
-#| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "T7"
@@ -14352,49 +14196,42 @@ msgstr "Cn"
 
 #: src/Controllers/JavaScriptMessagesController.php:740
 #, fuzzy
-#| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "T2"
 
 #: src/Controllers/JavaScriptMessagesController.php:741
 #, fuzzy
-#| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "T3"
 
 #: src/Controllers/JavaScriptMessagesController.php:742
 #, fuzzy
-#| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "T4"
 
 #: src/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
-#| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "T5"
 
 #: src/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
-#| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "T6"
 
 #: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
-#| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "T7"
 
 #: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
-#| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Tuần"
@@ -14402,66 +14239,54 @@ msgstr "Tuần"
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: src/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
-#| msgid "calendar-month-year"
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #: src/Controllers/JavaScriptMessagesController.php:749
 #, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "không"
 
 #: src/Controllers/JavaScriptMessagesController.php:750
 #, fuzzy
-#| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Thời gian"
 
 #: src/Controllers/JavaScriptMessagesController.php:751
 #, fuzzy
-#| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Giờ"
 
 #: src/Controllers/JavaScriptMessagesController.php:752
 #, fuzzy
-#| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Phút"
 
 #: src/Controllers/JavaScriptMessagesController.php:753
 #, fuzzy
-#| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Giây"
 
 #: src/Controllers/JavaScriptMessagesController.php:754
 #, fuzzy
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "%d giây"
 
 #: src/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
-#| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "mỗi giây"
 
 #: src/Controllers/JavaScriptMessagesController.php:756
 #, fuzzy
-#| msgctxt "Chart type"
-#| msgid "Timeline"
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
 msgstr "Bảng thời gian"
@@ -14469,8 +14294,6 @@ msgstr "Bảng thời gian"
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Trước"
@@ -14478,8 +14301,6 @@ msgstr "Trước"
 #. l10n: Display text for next month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
-#| msgctxt "Next month"
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "Tiếp theo"
@@ -14660,7 +14481,6 @@ msgstr "Cấu hình phpMyAdmin đã bị vô hiệu hóa. %sTìm hiểu lý do%s
 
 #: src/Controllers/Preferences/ManageController.php:89
 #, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
 msgstr "Thiếu các bảng lưu trữ cấu hình phpMyAdmin"
 
@@ -14674,7 +14494,6 @@ msgstr "Không thể nhập cấu hình"
 
 #: src/Controllers/Preferences/TwoFactorController.php:49
 #, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Two-factor authentication has been removed."
 msgstr "Quan hệ bên trong đã bị gỡ bỏ."
 
@@ -15329,7 +15148,6 @@ msgstr ""
 
 #: src/Controllers/Server/UserGroupsFormController.php:55
 #, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
 msgstr "Bộ nhớ đệm truy vấn đã bị tắt."
 
@@ -15441,8 +15259,6 @@ msgstr "Chưa chọn cột nào."
 
 #: src/Controllers/Table/DropColumnController.php:69
 #, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%1$d cơ sở dữ liệu được xóa thành công."
@@ -15455,7 +15271,6 @@ msgstr "Tên bảng không hợp lệ"
 #: src/Controllers/Table/GetFieldController.php:94
 #: src/Controllers/Transformation/WrapperController.php:77
 #, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
 msgstr "Có quá nhiều phép gia nhập mà không dùng chỉ mục."
 
@@ -15467,7 +15282,6 @@ msgstr "MySQL trả về kết quả là trống rỗng (vd. không có hàng n�
 
 #: src/Controllers/Table/GisVisualizationController.php:96
 #, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."
 msgstr "Chưa có hiệu quả trong phiên bản MySQL này."
 
@@ -15507,7 +15321,6 @@ msgstr "Cột trình bày đã được cập nhật thành công."
 
 #: src/Controllers/Table/RelationController.php:361
 #, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
 msgstr "Các quan hệ nội tại đã được cập nhật thành công."
 
@@ -15518,7 +15331,6 @@ msgstr "Hàng: %1$s, Cột: %2$s, Lỗi: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:26
 #, fuzzy
-#| msgid "Invalid direction \"%s\" given for parameter."
 msgid "Invalid request parameter."
 msgstr "Chỉ thị không hợp lệ \"%s\" đưa cho tham số."
 
@@ -15528,7 +15340,6 @@ msgstr "Các cột được di chuyển thành công."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:114
 #, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
 msgstr "Người dùng đã chọn không tìm thấy trong bảng đặc quyền."
 
@@ -15638,9 +15449,6 @@ msgstr ""
 
 #: src/Database/Designer/Common.php:447
 #, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
@@ -15655,13 +15463,11 @@ msgstr "Lỗi: Mối quan hệ đã tồn tại."
 
 #: src/Database/Designer/Common.php:530
 #, fuzzy
-#| msgid "FOREIGN KEY relation has been added."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "Quan hệ KHÓA NGOẠI đã được thêm vào."
 
 #: src/Database/Designer/Common.php:535
 #, fuzzy
-#| msgid "Error: FOREIGN KEY relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Lỗi: Quan hệ KHÓA NGOẠI không thể được thêm vào!"
 
@@ -15675,31 +15481,26 @@ msgstr "Lỗi: Các tính năng quan hệ đã bị vô hiệu hóa!"
 
 #: src/Database/Designer/Common.php:564
 #, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "Quan hệ nội tại đã được thêm."
 
 #: src/Database/Designer/Common.php:569
 #, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
 msgstr "Lỗi: Quan hệ nội bộ không thể được thêm vào!"
 
 #: src/Database/Designer/Common.php:599
 #, fuzzy
-#| msgid "FOREIGN KEY relation has been removed."
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "Quan hệ KHÓA NGOẠI đã được xóa bỏ."
 
 #: src/Database/Designer/Common.php:624
 #, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Lỗi: Quan hệ nội bộ không thể xóa bỏ được!"
 
 #: src/Database/Designer/Common.php:627
 #, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
 msgstr "Quan hệ bên trong đã bị gỡ bỏ."
 
@@ -16237,7 +16038,6 @@ msgstr ""
 
 #: src/File.php:372
 #, fuzzy
-#| msgid "Cannot read uploaded file."
 msgid "Cannot create temporary file."
 msgstr "Không thể đọc tập tin đã tải lên."
 
@@ -16266,7 +16066,6 @@ msgstr "Chỉ mục cột không thấy."
 
 #: src/Html/Generator.php:149
 #, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "Nhảy tới cơ sở dữ liệu \"%s\"."
 
@@ -16374,7 +16173,6 @@ msgstr "Tên cơ sở dữ liệu không được dài hơn %d ký tự."
 
 #: src/Identifiers/InvalidDatabaseName.php:25
 #, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The database name cannot end with a space character."
 msgstr "Các từ được ngăn cách nhau bằng ký tự khoảng trắng (\" \")."
 
@@ -16389,7 +16187,6 @@ msgstr "Tên bảng không được dài hơn %d ký tự."
 
 #: src/Identifiers/InvalidTableName.php:25
 #, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The table name cannot end with a space character."
 msgstr "Các từ được ngăn cách nhau bằng ký tự khoảng trắng (\" \")."
 
@@ -16404,15 +16201,11 @@ msgstr "Tên trình kích hoạt không được dài hơn %d ký tự."
 
 #: src/Identifiers/InvalidTriggerName.php:25
 #, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The trigger name cannot end with a space character."
 msgstr "Các từ được ngăn cách nhau bằng ký tự khoảng trắng (\" \")."
 
 #: src/Import/Import.php:954
 #, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
@@ -16954,7 +16747,6 @@ msgstr ""
 
 #: src/Plugins/Auth/AuthenticationCookie.php:268
 #, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Không thể kết nối đến máy chủ phục vụ cơ sở dữ liệu!"
 
@@ -16982,6 +16774,7 @@ msgid "Can not find signon authentication script: %s"
 msgstr "Không tìm thấy tập lệnh xác thực đăng nhập: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:39
+#: src/Plugins/AuthenticationPluginFactory.php:36
 msgid "Invalid authentication method set in configuration:"
 msgstr "Phương thức xác thực trong cấu hình không hợp lệ:"
 
@@ -17143,7 +16936,6 @@ msgstr "Xuất đầu đề bảng"
 #: src/Plugins/Export/ExportOdt.php:210
 #: src/Plugins/Export/ExportTexytext.php:138
 #, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data for query result"
 msgstr "Đang đổ dữ liệu cho bảng"
 
@@ -17157,7 +16949,6 @@ msgstr "Đang đổ dữ liệu"
 
 #: src/Plugins/Export/ExportPdf.php:144
 #, fuzzy
-#| msgid "Query results"
 msgid "Query result data"
 msgstr "Kết quả truy vấn"
 
@@ -17298,7 +17089,6 @@ msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:592
 #, fuzzy
-#| msgid "It appears your database uses functions;"
 msgid "It appears your database uses routines;"
 msgstr "Cơ sở dữ liệu của bạn có vẻ như có dùng các hàm;"
 
@@ -17356,13 +17146,11 @@ msgstr "AUTO_INCREMENT cho bảng"
 
 #: src/Plugins/Export/ExportSql.php:1700
 #, fuzzy
-#| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
 #: src/Plugins/Export/ExportSql.php:1730
 #, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
@@ -17811,7 +17599,6 @@ msgstr "Định dạng văn bản là XML có tô sáng cú pháp."
 
 #: src/Plugins/TwoFactor/Application.php:128
 #, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
 msgstr "Phần bổ sung xác thực"
 
@@ -17842,7 +17629,6 @@ msgstr "Xác thực hai yếu tố đã thất bại."
 
 #: src/Plugins/TwoFactorPlugin.php:110
 #, fuzzy
-#| msgid "Config authentication"
 msgid "No Two-Factor Authentication"
 msgstr "Cấu hình xác thực"
 
@@ -17852,7 +17638,6 @@ msgstr ""
 
 #: src/Plugins/TwoFactor/Simple.php:47
 #, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
 msgstr "Xác thực kiểu Signon"
 
@@ -17939,8 +17724,6 @@ msgstr "Không thể kết nối với %s chính."
 
 #: src/Replication/ReplicationGui.php:498
 #, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
@@ -17949,7 +17732,6 @@ msgstr ""
 
 #: src/Replication/ReplicationGui.php:516
 #, fuzzy
-#| msgid "Unable to change master!"
 msgid "Unable to change primary!"
 msgstr "Không thể đổi máy chính!"
 
@@ -18062,11 +17844,6 @@ msgstr "Đặc quyền dành cho %s"
 
 #: src/Server/Privileges.php:2470
 #, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -18080,12 +17857,6 @@ msgstr ""
 
 #: src/Server/Privileges.php:2486
 #, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, the privileges have to be reloaded but currently, you don't have "
-#| "the RELOAD privilege."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -18159,7 +17930,6 @@ msgstr "Hiện các bảng mở"
 
 #: src/Server/Status/Data.php:159
 #, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
 msgstr "Hiển thị máy lệ thuộc"
 
@@ -18487,7 +18257,6 @@ msgstr "Phải cung cấp định nghĩa bẫy."
 
 #: src/Types.php:98
 #, fuzzy
-#| msgid "Empty"
 msgid "empty"
 msgstr "Rỗng"
 
@@ -18611,9 +18380,6 @@ msgstr "Một sự kết hợp ngày và giờ, phạm vi hỗ trợ là %1$s đ
 
 #: src/Types.php:209
 #, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
@@ -18888,9 +18654,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Gặp lỗi khi đọc tập tin cấu hình!"
 
 #, fuzzy
-#~| msgid ""
-#~| "This usually means there is a syntax error in it, please check any "
-#~| "errors shown below."
 #~ msgid "This usually means there is a syntax error in it."
 #~ msgstr ""
 #~ "Việc này thường do có lỗi cú pháp trong đó, vui lòng kiểm tra xem các lỗi "
@@ -18931,13 +18694,10 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ "đến máy phục vụ."
 
 #, fuzzy, php-format
-#~| msgid "%d second"
-#~| msgid_plural "%d seconds"
 #~ msgid "%d seconds"
 #~ msgstr "%d giây"
 
 #, fuzzy, php-format
-#~| msgid "per minute"
 #~ msgid "%d minutes"
 #~ msgstr "mỗi phút"
 
@@ -18945,13 +18705,11 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "mỗi giờ:"
 
 #, fuzzy
-#~| msgid "Text"
 #~ msgctxt "Text context"
 #~ msgid "Text"
 #~ msgstr "Chữ"
 
 #, fuzzy
-#~| msgid "Use Tables"
 #~ msgid "One table"
 #~ msgid_plural "%count% tables"
 #~ msgstr[0] "Các bảng được dùng"
@@ -18963,7 +18721,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Đặt lại thành mặc định"
 
 #, fuzzy, php-format
-#~| msgid "Error while loading the search."
 #~ msgid "Error while working with template cache: %s"
 #~ msgstr "Gặp lỗi khi đang tải tìm kiếm."
 
@@ -18988,7 +18745,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Tọa độ:"
 
 #, fuzzy, php-format
-#~| msgid "Point %d"
 #~ msgid "Point %d:"
 #~ msgstr "Điểm %d"
 
@@ -19015,7 +18771,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ "trường \"Value\"."
 
 #, fuzzy, php-format
-#~| msgid "Failed to get real row count."
 #~ msgid "Failed to get description of column %s!"
 #~ msgstr "Gặp lỗi khi lấy số lượng hàng thực tế."
 
@@ -19037,7 +18792,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Hàm %s bị ảnh hưởng bởi lỗi đã biết, xem %s"
 
 #, fuzzy
-#~| msgid "Slave configuration"
 #~ msgid "Replica configuration"
 #~ msgstr "Cấu hình máy phụ"
 
@@ -19097,12 +18851,10 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Chuỗi phiên bản không thể phân tích cú pháp"
 
 #, fuzzy
-#~| msgid "Simulate query"
 #~ msgid "Multi-table query"
 #~ msgstr "Mô phỏng Truy vấn"
 
 #, fuzzy
-#~| msgid "Query failed"
 #~ msgid "Query by example"
 #~ msgstr "Truy vấn bị lỗi"
 
@@ -19117,7 +18869,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Chèn:"
 
 #, fuzzy
-#~| msgid "And:"
 #~ msgid "And"
 #~ msgstr "Và:"
 
@@ -19143,12 +18894,10 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Sửa:"
 
 #, fuzzy
-#~| msgid "Add/Delete criteria rows"
 #~ msgid "Add/Delete criteria rows:"
 #~ msgstr "Thêm/Xóa các hàng tiêu chí"
 
 #, fuzzy
-#~| msgid "Add/Delete columns"
 #~ msgid "Add/Delete columns:"
 #~ msgstr "Thêm/Xóa các cột"
 
@@ -19157,7 +18906,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Truy vấn SQL trên cơ sở dữ liệu <b>%s</b>:"
 
 #, fuzzy
-#~| msgid "Missing parameter:"
 #~ msgid "Missing connection parameters!"
 #~ msgstr "Thiếu tham số kết nối!"
 
@@ -19209,7 +18957,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Analyze Explain tại %s"
 
 #, fuzzy
-#~| msgid "Key is too short, it should have at least 8 characters."
 #~ msgid "Key is too short, it should have at least 32 characters."
 #~ msgstr "Khóa quá ngắn, nó nên có ít nhất là 8 ký tự."
 
@@ -19221,8 +18968,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Tập tin cấu hình bây giờ cần mật khẩu bí mật (blowfish_secret)."
 
 #, fuzzy
-#~| msgid ""
-#~| "The secret passphrase in configuration (blowfish_secret) is too short."
 #~ msgid ""
 #~ "The secret passphrase in configuration (blowfish_secret) is not the "
 #~ "correct length. It should be %d bytes long."
@@ -19246,7 +18991,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ "để dùng nó."
 
 #, fuzzy
-#~| msgid "Configuration saved."
 #~ msgid "Configuration not saved!"
 #~ msgstr "Cấu hình đã được lưu."
 
@@ -19260,7 +19004,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ "liệu[/doc]. Nếu không thì bạn chỉ có thể tải nó về hoặc xem nó."
 
 #, fuzzy
-#~| msgid "Error: FOREIGN KEY relation could not be removed!"
 #~ msgid "Error: FOREIGN KEY relationship could not be removed!"
 #~ msgstr "Lỗi: Quan hệ KHÓA NGOẠI không thể xóa bỏ được!"
 
@@ -19293,7 +19036,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ "tùy chon cho các định dạng khác."
 
 #, fuzzy
-#~| msgid "Browse your computer:"
 #~ msgid "Browse your computer"
 #~ msgstr "Duyệt máy tính của bạn:"
 
@@ -19329,8 +19071,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Không tìm thấy đường dẫn cho chủ đề %s!"
 
 #, fuzzy
-#~| msgctxt "Create new column"
-#~| msgid "New"
 #~ msgctxt "Create new routine"
 #~ msgid "New"
 #~ msgstr "Mới"
@@ -19373,7 +19113,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Không có hoạt động nào trong vòng %s giây; vui lòng đăng nhập lại."
 
 #, fuzzy
-#~| msgid "You do not have the necessary privileges to create a routine"
 #~ msgid "You do not have the necessary privileges to create a routine."
 #~ msgstr "Bạn không có đủ thẩm quyền cần thiết để tạo một thủ tục"
 
@@ -19381,7 +19120,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "bẫy"
 
 #, fuzzy
-#~| msgid "You do not have the necessary privileges to create a trigger"
 #~ msgid "You do not have the necessary privileges to create a trigger."
 #~ msgstr "Bạn không có đủ thẩm quyền cần thiết để tạo một bẫy"
 
@@ -19389,7 +19127,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "sự kiện"
 
 #, fuzzy
-#~| msgid "You do not have the necessary privileges to create an event"
 #~ msgid "You do not have the necessary privileges to create an event."
 #~ msgstr "Bạn không có đủ thẩm quyền cần thiết để tạo một sự kiện"
 
@@ -19416,7 +19153,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Dùng bảng máy chủ"
 
 #, fuzzy
-#~| msgid "Description"
 #~ msgctxt "for media (MIME) type transformation"
 #~ msgid "Description"
 #~ msgstr "Mô tả"
@@ -19441,15 +19177,11 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Giá trị thuộc tính tập tin GET sai"
 
 #, fuzzy
-#~| msgid "%d second"
-#~| msgid_plural "%d seconds"
 #~ msgid "%count% second"
 #~ msgid_plural "%count% seconds"
 #~ msgstr[0] "%d giây"
 
 #, fuzzy
-#~| msgid "%d minute"
-#~| msgid_plural "%d minutes"
 #~ msgid "%count% minute"
 #~ msgid_plural "%count% minutes"
 #~ msgstr[0] "%d phút"
@@ -19461,7 +19193,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Hiện Toàn bộ các truy vấn"
 
 #, fuzzy
-#~| msgid "No databases"
 #~ msgid "%count% database"
 #~ msgid_plural "%count% databases"
 #~ msgstr[0] "Không có cơ sở dữ liệu nào"
@@ -19497,11 +19228,10 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgid ""
 #~ "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 #~ msgstr ""
-#~ "Formset không đúng, kiểm tra lại mảng $formsets trong setup/frames/form."
-#~ "inc.php!"
+#~ "Formset không đúng, kiểm tra lại mảng $formsets trong setup/frames/"
+#~ "form.inc.php!"
 
 #, fuzzy
-#~| msgid "unknown"
 #~ msgid "Unknonwn"
 #~ msgstr "không hiểu"
 
@@ -19512,7 +19242,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Giá trị toàn cục"
 
 #, fuzzy
-#~| msgid "Height"
 #~ msgctxt "Collation variant"
 #~ msgid "weight=2"
 #~ msgstr "Cao"
@@ -19539,17 +19268,14 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Tiếng Tây Ban Nha truyền thống"
 
 #, fuzzy
-#~| msgid "Collation"
 #~ msgid "binary collation"
 #~ msgstr "Bảng mã đối chiếu"
 
 #, fuzzy
-#~| msgid "case-insensitive"
 #~ msgid "case-insensitive collation"
 #~ msgstr "không phân biệt HOA/thường"
 
 #, fuzzy
-#~| msgid "case-sensitive"
 #~ msgid "case-sensitive collation"
 #~ msgstr "phân biệt chữ HOA/thường"
 
@@ -19595,7 +19321,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Tải"
 
 #, fuzzy
-#~| msgid "Column names"
 #~ msgid "Column parser"
 #~ msgstr "Các tên cột"
 
@@ -19621,12 +19346,10 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Cần dấu ngoặc ôm mở."
 
 #, fuzzy
-#~| msgid "Unexpected token."
 #~ msgid "Unexpected keyword."
 #~ msgstr "Gặp thẻ bài không cần."
 
 #, fuzzy
-#~| msgid "Variable name was expected."
 #~ msgid "A symbol name was expected!"
 #~ msgstr "Cần tên biến."
 
@@ -19658,7 +19381,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Tùy chọn này xung đột với \"%1$s\"."
 
 #, fuzzy
-#~| msgid "Ending quote %1$s was expected."
 #~ msgid "Value/Expression for the option %1$s was expected"
 #~ msgstr "Cần trích dẫn đóng %1$s."
 
@@ -19705,7 +19427,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Không nhận ra từ khóa."
 
 #, fuzzy
-#~| msgid "Unexpected beginning of statement."
 #~ msgid "Unexpected ordering of clauses."
 #~ msgstr "Gặp phần đầu mệnh đề không cần."
 
@@ -19713,7 +19434,6 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Cần tên của thực thể."
 
 #, fuzzy
-#~| msgid "Variable name was expected."
 #~ msgid "A table name was expected."
 #~ msgstr "Cần tên biến."
 
@@ -19724,12 +19444,10 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "Cần từ khóa \"RETURNS\"."
 
 #, fuzzy
-#~| msgid "This type of clause was previously parsed."
 #~ msgid "This type of clause is not valid in Multi-table queries."
 #~ msgstr "Kiểu của mệnh đề này đã được phân tích trước đây."
 
 #, fuzzy
-#~| msgid "errors."
 #~ msgid "error #1"
 #~ msgstr "lỗi."
 
@@ -20595,11 +20313,9 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgstr "truy tìm các hành động đã thực hiện"
 
 #, fuzzy
-#~| msgid "Table"
 #~ msgid "tables"
 #~ msgstr "Bảng"
 
 #, fuzzy
-#~| msgid "Action"
 #~ msgid "functions"
 #~ msgstr "Hành động"
