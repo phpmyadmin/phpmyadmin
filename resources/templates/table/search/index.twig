@@ -91,8 +91,6 @@
             </tbody>
           </table>
         </div>
-
-        {% include 'modals/gis_editor.twig' with { 'location': 'search' } only %}
       </div>
 
       {% if default_sliders_state != 'disabled' %}
@@ -172,6 +170,8 @@
     </div>
   </div>
 </form>
+
+{% include 'modals/gis_editor.twig' with { 'location': 'search' } only %}
 
 <div class="modal fade" id="rangeSearchModal" tabindex="-1" aria-labelledby="rangeSearchModalLabel" aria-hidden="false">
   <div class="modal-dialog">
