@@ -1461,15 +1461,15 @@ class ExportSql extends ExportPlugin
             $compat = 'NONE';
         }
 
-        $result = $dbi->tryQuery(
-            'SHOW TABLE STATUS FROM ' . Util::backquote($db)
-            . ' WHERE Name = \'' . $dbi->escapeString((string) $table) . '\''
-        );
-        if ($result != false) {
-            if ($result->numRows() > 0) {
+        if ($showDates) {
+            $result = $dbi->tryQuery(
+                'SHOW TABLE STATUS FROM ' . Util::backquote($db)
+                . ' WHERE Name = \'' . $dbi->escapeString((string) $table) . '\''
+            );
+            if ($result != false && $result->numRows() > 0) {
                 $tmpres = $result->fetchAssoc();
 
-                if ($showDates && isset($tmpres['Create_time']) && ! empty($tmpres['Create_time'])) {
+                if (isset($tmpres['Create_time']) && ! empty($tmpres['Create_time'])) {
                     $schemaCreate .= $this->exportComment(
                         __('Creation:') . ' '
                         . Util::localisedDate(
@@ -1479,7 +1479,7 @@ class ExportSql extends ExportPlugin
                     $newCrlf = $this->exportComment() . $crlf;
                 }
 
-                if ($showDates && isset($tmpres['Update_time']) && ! empty($tmpres['Update_time'])) {
+                if (isset($tmpres['Update_time']) && ! empty($tmpres['Update_time'])) {
                     $schemaCreate .= $this->exportComment(
                         __('Last update:') . ' '
                         . Util::localisedDate(
@@ -1489,7 +1489,7 @@ class ExportSql extends ExportPlugin
                     $newCrlf = $this->exportComment() . $crlf;
                 }
 
-                if ($showDates && isset($tmpres['Check_time']) && ! empty($tmpres['Check_time'])) {
+                if (isset($tmpres['Check_time']) && ! empty($tmpres['Check_time'])) {
                     $schemaCreate .= $this->exportComment(
                         __('Last check:') . ' '
                         . Util::localisedDate(
