@@ -145,7 +145,7 @@
         </tr>
       </table>
 
-      {{ include('modals/gis_editor.twig') }}
+      {% include 'modals/gis_editor.twig' with { 'location': 'search' } only %}
     </div>
 
     <div class="card-footer">
