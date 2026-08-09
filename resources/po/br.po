@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2025-03-17 19:29+0000\n"
 "Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -13043,7 +13043,7 @@ msgstr "N'eus bet diuzet linenn ebet"
 msgid "Database Log"
 msgstr "Marilh an diaz roadennoù"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -13051,11 +13051,11 @@ msgstr ""
 "Kavet ez eus bet ur fazi hag un danevell fazioù zo bet kaset war-eeun, "
 "diouzh hoc'h arventennoù."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Ho trugarekaat evit bezañ kaset an danevell-mañ."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -13063,13 +13063,13 @@ msgstr ""
 "Kavet ez eus bet ur fazi hag un danevell fazioù zo bet savet. Siwazh n'eus "
 "ket bet gallet kas anezhi."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Ma welit tra pe dra a-dreuz, kasit keloù war-eeun a-zivout an draen "
 "diskoachet ganeoc'h."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "C'hoant hoc'h eus da freskaat ar bajenn marteze a-walc'h."
 
@@ -17904,7 +17904,7 @@ msgstr "Ger-tremen/anv implijer fall. Moned nac'het."
 msgid "Can not find signon authentication script: %s"
 msgstr "N'hall ket kavout ar skript dilesa evit ar mod \"signon\" :"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Termenet ez eus bet c'hefluniadur un hentenn dilesa direizh :"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2026-04-27 03:09+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12345,7 +12345,7 @@ msgstr "Seçilen tablolar yok."
 msgid "Database Log"
 msgstr "Veritabanı Günlüğü"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12353,11 +12353,11 @@ msgstr ""
 "Bir hata algılandı ve bir hata raporu otomatik olarak ayarlarınıza dayanarak "
 "gönderildi."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Bu raporu gönderdiğiniz için teşekkür ederiz."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12365,12 +12365,12 @@ msgstr ""
 "Bir hata algılandı ve bir hata raporu oluşturuldu ancak gönderimi başarısız "
 "oldu."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Eğer herhangi bir sorunla karşılaşırsanız lütfen hata raporunu elle gönderin."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Sayfayı yenilemek isteyebilirsiniz."
 
@@ -17039,7 +17039,7 @@ msgstr "Yanlış kullanıcı adı/parola girdiniz. Erişim engellendi."
 msgid "Can not find signon authentication script: %s"
 msgstr "Oturumu açma kimlik doğrulaması betiği bulunamıyor: %s"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Yapılandırma içinde geçersiz kimlik doğrulaması yöntemi ayarı:"
 

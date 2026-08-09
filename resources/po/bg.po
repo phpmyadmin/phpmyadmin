@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2025-12-18 18:00+0000\n"
 "Last-Translator: Кирил Стоименов <steemman123@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12357,7 +12357,7 @@ msgstr "Няма избрани таблици."
 msgid "Database Log"
 msgstr "Дневник БД"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12365,11 +12365,11 @@ msgstr ""
 "Установена е грешка и е изпратено автоматично съобщение за нея съобразно "
 "Вашите настройки."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Благодарим Ви за доклада."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12377,11 +12377,11 @@ msgstr ""
 "Засечена е грешка; за нея беше създадено съобщение, но то не беше успешно "
 "изпратено."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Ако срещате каквито и да е проблеми, докладвайте ръчно за проблем."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Препоръчва се да презаредите страницата."
 
@@ -16902,7 +16902,7 @@ msgstr "Грешно име/парола. Достъп отказан."
 msgid "Can not find signon authentication script: %s"
 msgstr "Не е намерен скрипт за удостоверяване по метода signon: %s"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Невалиден метод за удостоверяване в конфогурацията:"
 

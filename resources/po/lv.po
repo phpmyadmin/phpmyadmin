@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2026-08-07 14:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12253,7 +12253,7 @@ msgstr "Nav izvēlēta tabula."
 msgid "Database Log"
 msgstr "Datubāzes žurnāls"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12261,11 +12261,11 @@ msgstr ""
 "Atrasta kļūda un balstoties uz Jūsu iestatījumiem, kļūdu atskaite tika "
 "automātiski nosūtīta."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Paldies, ka iesniedzāt kļūdu atskaiti."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12273,11 +12273,11 @@ msgstr ""
 "Kļūda tika atrasta un kļūdu atskaite tika izveidota, taču to neizdevās "
 "nosūtīt."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Ja Jums rodas problēmas, lūdzu manuāli iesniedziet kļūdu atskaiti."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Varētu būt derīgi pārlādēt lapu."
 
@@ -16685,7 +16685,7 @@ msgstr "Kļūdains lietotājvārds/parole. Pieeja aizliegta."
 msgid "Can not find signon authentication script: %s"
 msgstr ""
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 

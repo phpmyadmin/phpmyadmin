@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2026-06-08 09:01+0000\n"
 "Last-Translator: Christian Caballero <caminomaster@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12495,7 +12495,7 @@ msgstr "No se han seleccionado tablas."
 msgid "Database Log"
 msgstr "Registro de la base de datos"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12503,23 +12503,23 @@ msgstr ""
 "Se detectó un error y se envió un reporte de error automáticamente según sus "
 "configuraciones."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Gracias por enviar este reporte."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "Se detectó un error y se generó un reporte de error, pero no pudo enviarse."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Si experimenta cualquier problema, envíe un reporte de error de forma manual."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Podría desear actualizar la página."
 
@@ -17259,7 +17259,7 @@ msgstr ""
 msgid "Can not find signon authentication script: %s"
 msgstr "No se pudo encontrar el script de autenticación «signon»: %s"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Método de autenticación no válido definido en la configuración:"
 

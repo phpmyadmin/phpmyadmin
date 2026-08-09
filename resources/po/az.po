@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2026-01-03 06:36+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12721,30 +12721,30 @@ msgstr "Heç bir cədvəl seçilməmişdir."
 msgid "Database Log"
 msgstr "Verilənlər Bazası Logları"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "Xəta aşkarlandı və seçimləriniz əsasında xəta hesabatı göndərildi."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Bu hesabatı göndərdiyiniz üçün təşəkkür edirik."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "Xəta aşkarlandı və xəta hesabatı yaradıldı, ancaq göndərilməsi uğursuz oldu."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Əgər hər hansı problemlə qarşılaşsanız, zəhmət olmasa hesabatı əl ilə "
 "göndərin."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Səhifəni yeniləmək istəyə bilərsiniz."
 
@@ -17434,7 +17434,7 @@ msgstr "Yanlış istifadəçi adı və ya parol. Giriş təsdiq edilmədi."
 msgid "Can not find signon authentication script: %s"
 msgstr ""
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 

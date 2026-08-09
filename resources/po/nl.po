@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2026-04-27 16:31+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12426,7 +12426,7 @@ msgstr "Geen tabellen geselecteerd."
 msgid "Database Log"
 msgstr "Database-log"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12434,11 +12434,11 @@ msgstr ""
 "Er is een fout ontdekt en een foutmeldingsverslag is automatisch verstuurd "
 "op basis van je instellingen."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Bedankt voor het versturen van dit verslag."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12446,11 +12446,11 @@ msgstr ""
 "Er is een fout ontdekt en een foutmeldingsverslag aangemaakt, maar het kon "
 "niet verstuurd worden."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Als u problemen ondervindt, meld dan handmatig een bug."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Misschien wilt u de pagina vernieuwen."
 
@@ -17191,7 +17191,7 @@ msgstr "Verkeerde gebruikersnaam/wachtwoord. Toegang geweigerd."
 msgid "Can not find signon authentication script: %s"
 msgstr "Signon-authenticatiescript kon niet gevonden worden: %s"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ongeldige authenticatiemethode opgegeven in configuratie:"
 

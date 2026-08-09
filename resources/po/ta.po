@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2026-07-28 04:01+0000\n"
 "Last-Translator: Rajkumar Ramadoss <lionrajkumar@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12249,7 +12249,7 @@ msgstr "எந்த அட்டவணைகளும் தேர்ந்த�
 msgid "Database Log"
 msgstr "தரவுத்தளப் பதிகை"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12257,11 +12257,11 @@ msgstr ""
 "ஓர் பிழைநிகழ்வு கண்டுபிடிக்கப்பட்டது மேலும் உங்கள் அமைப்புகளின் அடிப்படையில் ஒரு தன்னிச்சை "
 "பிழையறிக்கை அளிக்கப்பட்டது."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "இந்த அறிக்கையை அளித்தமைக்கு நன்றி."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12269,13 +12269,13 @@ msgstr ""
 "ஒரு பிழை கண்டறியப்பட்டது மேலும் ஒரு பிழையறிக்கை உருவாக்கப்பட்டுள்ளது ஆனால் அதை அனுப்ப "
 "இயலவில்லை."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "நீங்கள் ஏதேனும் சிக்கல்களை எதிர்கொண்டால் தயவுசெய்து கைமுறையாக ஒரு பிழை அறிக்கையை "
 "அளிக்கவும்."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "நீங்கள் இப்பக்கத்தை மீளேற்ற வேண்டியிருக்கலாம்."
 
@@ -16899,7 +16899,7 @@ msgstr "தவறான பயனர்பெயர்/கடவுச்சொ�
 msgid "Can not find signon authentication script: %s"
 msgstr "உள்நுழைவு அங்கீகார நிரல்கோவைகளை கண்டுபிடிக்க முடியவில்லை: %s"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "உள்ளமைவில் அமைக்கப்பட்ட தவறான அங்கீகார முறை:"
 

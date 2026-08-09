@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2026-01-03 06:36+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12426,7 +12426,7 @@ msgstr "Որևէ աղյուսակ չի նշվել։"
 msgid "Database Log"
 msgstr "Տվյալների բազայի մատյան"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12434,11 +12434,11 @@ msgstr ""
 "Հայտնաբերվել է սխալ։ Սխալի վերաբերյալ զեկույցը ներկայացվել է ինքնաշխատ՝ ըստ "
 "ձեր կայանքների։"
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Շնորհակալություն՝ այս զեկույցը ներկայացնելու համար։"
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12446,13 +12446,13 @@ msgstr ""
 "Հայտնաբերվել է սխալ։ Սխալի վերաբերյալ զեկույցը պատրաստվել է, սակայն դրա "
 "ուղարկումը ձախողվեց։"
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Եթե ձեզ մոտ առաջանում են որևէ խնդիրներ, խնդրում ենք սխալի վերաբերյալ "
 "զեկույցը ուղարկել ձեռքով։"
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Ցանկալի է թարմացնել էջը։"
 
@@ -17065,7 +17065,7 @@ msgstr ""
 msgid "Can not find signon authentication script: %s"
 msgstr "Signon-ով վավերացում"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Կազմաձևի ֆայլում նշված վավերացման եղանակը անվավեր է՝"
 

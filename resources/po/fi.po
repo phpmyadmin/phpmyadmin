@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2026-01-03 06:36+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -13283,7 +13283,7 @@ msgstr "Yhtään taulua ei ole valittu."
 msgid "Database Log"
 msgstr "Tietokantaloki"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -13291,23 +13291,23 @@ msgstr ""
 "Virhe on havaittu ja virheraportti on lähetetty automaattisesti riippuen "
 "asetuksistasi."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Kiitos tämän ilmoituksen lähettämisestä."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
 "Havaittiin virhe, josta luotiin ilmoitus, mutta sitä ei kyetty lähettämään."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Mikäli sinulla on ongelmia, ole hyvä ja lähetä virheraportti manuaalisesti."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Haluat ehkä päivittää tämän sivun."
 
@@ -18149,7 +18149,7 @@ msgstr "Väärä käyttäjätunnus tai salasana. Käyttö estetty."
 msgid "Can not find signon authentication script: %s"
 msgstr "Kirjautumisen todennuskomentosarjaa ei voi löytää:"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Asetuksissa on virheellinen todennustapa:"
 

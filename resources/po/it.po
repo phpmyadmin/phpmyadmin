@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2025-06-27 04:54+0000\n"
 "Last-Translator: Marcel <dev@tulite.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12521,7 +12521,7 @@ msgstr "Nessuna tabella selezionata."
 msgid "Database Log"
 msgstr "Log database"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12529,11 +12529,11 @@ msgstr ""
 "È stato rilevato un errore e un rapporto di errore è stato inviato "
 "automaticamente in base alle impostazioni."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Grazie per aver inviato questo rapporto."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12541,11 +12541,11 @@ msgstr ""
 "È stato rilevato un errore e un rapporto di errore è stato generato ma il "
 "suo invio non è riuscito."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "In caso di problemi inviare il rapporto manualmente."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Si consiglia di aggiornare la pagina."
 
@@ -17342,7 +17342,7 @@ msgstr "Nome utente o password errati. Accesso negato."
 msgid "Can not find signon authentication script: %s"
 msgstr "Impossibile ritrovare lo script per l'autenticazione signon:"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metodo di autenticazione impostato nella configurazione non valido:"
 

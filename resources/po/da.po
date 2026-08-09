@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12892,7 +12892,7 @@ msgstr "Ingen tabeller valgt."
 msgid "Database Log"
 msgstr "Databaselog"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12900,11 +12900,11 @@ msgstr ""
 "Der er opdaget en fejl, og der er automatisk blevet sendt en fejlrapport, "
 "baseret på dine indstillinger."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Tak for indsendelsen af denne rapport."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12912,12 +12912,12 @@ msgstr ""
 "Der er opdaget en fejl, og der er oprettet en fejlrapport, men den kunne "
 "ikke afsendes."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Hvis du stødte på problemer, så indsend venligst en fejlrapport manuelt."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Du skal muligvis genindlæse siden."
 
@@ -17773,7 +17773,7 @@ msgstr "Forkert brugernavn/adgangskode. Adgang nægtet."
 msgid "Can not find signon authentication script: %s"
 msgstr "Kunne ikke finde scriptet til autentifikation af log ind:"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Ugyldig autorisationsmetode sat i konfiguration:"
 

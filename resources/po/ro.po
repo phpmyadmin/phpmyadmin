@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2025-12-29 11:00+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12589,7 +12589,7 @@ msgstr "Nicio bază de date selectată."
 msgid "Database Log"
 msgstr "Jurnal bază de date"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12597,11 +12597,11 @@ msgstr ""
 "A fost detectată o eroare și a fost trimis automat un raport de erori în "
 "baza setărilor tale."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Îți mulțumim pentru trimiterea acest raport."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12609,13 +12609,13 @@ msgstr ""
 "O eroare a fost detectată și a fost generat un raport de eroare, dar nu a "
 "fost trimis."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Dacă întâmpini orice fel de probleme, te rog trimite manual un raport de "
 "erori."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Poate vrei să reîmprospătezi pagina."
 
@@ -17296,7 +17296,7 @@ msgstr "Nume de utilizator incorect/parolă incorectă. Acces refuzat."
 msgid "Can not find signon authentication script: %s"
 msgstr "Nu pot găsi scriptul de autentificare signon: %s"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metodă de autentificare invalidă setată în configurare:"
 

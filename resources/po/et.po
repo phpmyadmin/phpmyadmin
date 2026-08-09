@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2023-11-25 02:27+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12316,17 +12316,17 @@ msgstr "Ühtegi tabelit ei ole valitud."
 msgid "Database Log"
 msgstr "Andmebaasi logi"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr "Tuvastati viga, mis vastavalt su sätetele raporteeriti automaatselt."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Täname, et saatsid raporti."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12334,11 +12334,11 @@ msgstr ""
 "Tuvastati viga ja loodi sellele vastav vearaport, kuid seda ei õnnestunud "
 "saata."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr "Kui koged mingeid probleeme, siis raporteeri neist ise."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Sa võiksid lehekülje uuesti laadida."
 
@@ -17012,7 +17012,7 @@ msgstr "Vale kasutajanimi/parool. Ligipääs keelatud."
 msgid "Can not find signon authentication script: %s"
 msgstr "Ei leia sisselogimise autentimise skripti:"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Seadistuses on valitud vale autentimise meetod:"
 

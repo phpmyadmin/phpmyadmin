@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-02 00:43+0000\n"
+"POT-Creation-Date: 2026-08-09 00:23+0000\n"
 "PO-Revision-Date: 2026-08-04 00:01+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12374,7 +12374,7 @@ msgstr "Chưa có bảng nào được chọn."
 msgid "Database Log"
 msgstr "Nhật ký Cơ sở dữ liệu"
 
-#: src/Controllers/ErrorReportController.php:95
+#: src/Controllers/ErrorReportController.php:96
 msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
@@ -12382,11 +12382,11 @@ msgstr ""
 "Một lỗi đã được phát hiện và một báo cáo lỗi đã tự động được gửi đi dựa trên "
 "cài đặt cấu hình của bạn."
 
-#: src/Controllers/ErrorReportController.php:99
+#: src/Controllers/ErrorReportController.php:100
 msgid "Thank you for submitting this report."
 msgstr "Cám ơn bạn đã gửi báo cáo."
 
-#: src/Controllers/ErrorReportController.php:103
+#: src/Controllers/ErrorReportController.php:104
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
@@ -12394,13 +12394,13 @@ msgstr ""
 "Một lỗi đã được phát hiện và báo cáo. Báo cáo về lỗi này đã được lập nhưng "
 "có lỗi trong quá trình gửi."
 
-#: src/Controllers/ErrorReportController.php:106
+#: src/Controllers/ErrorReportController.php:107
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
 "Nếu bạn có kinh nghiệm phát hiện vấn đề nào đó không hoạt động tốt, xin hãy "
 "gửi báo cáo lỗi cho chúng tôi một cách thủ công."
 
-#: src/Controllers/ErrorReportController.php:109
+#: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Bạn có lẽ nên làm tươi trang này lại."
 
@@ -16981,7 +16981,7 @@ msgstr "Sai tài_khoản/mật_khẩu. Từ chối truy cập."
 msgid "Can not find signon authentication script: %s"
 msgstr "Không tìm thấy tập lệnh xác thực đăng nhập: %s"
 
-#: src/Plugins/AuthenticationPluginFactory.php:36
+#: src/Plugins/AuthenticationPluginFactory.php:39
 msgid "Invalid authentication method set in configuration:"
 msgstr "Phương thức xác thực trong cấu hình không hợp lệ:"
 
