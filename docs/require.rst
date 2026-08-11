@@ -28,7 +28,9 @@ PHP
 
   * manual installation required:
 
-    - `mysqli <https://www.php.net/mysqli>`_ To connect to MySQL/MariaDB databases
+    - `mysqli <https://www.php.net/mysqli>`_ or `pdo_mysql <https://www.php.net/pdo-mysql>`_
+      to connect to MySQL/MariaDB databases (mysqli is the default and recommended choice, see
+      :config:option:`$cfg['Servers'][$i]['extension']`)
     - `ctype <https://www.php.net/ctype>`_ To check the type of strings
 
 * The `mbstring <https://www.php.net/mbstring>`_ extension (see :term:`mbstring`) is strongly recommended

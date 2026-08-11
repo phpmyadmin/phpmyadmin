@@ -165,6 +165,24 @@ class ServerTest extends TestCase
         self::assertSame($expected, $serverArray['compress']);
     }
 
+    #[DataProvider('valuesForExtensionProvider')]
+    public function testExtension(mixed $actual, string $expected): void
+    {
+        $server = new Server(['extension' => $actual]);
+        $serverArray = $server->asArray();
+        self::assertSame($expected, $server->extension);
+        self::assertSame($expected, $serverArray['extension']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForExtensionProvider(): iterable
+    {
+        yield 'null value' => [null, 'mysqli'];
+        yield 'valid value' => ['mysqli', 'mysqli'];
+        yield 'valid value 2' => ['pdo', 'pdo'];
+        yield 'invalid value' => ['invalid', 'mysqli'];
+    }
+
     #[DataProvider('valuesForControlHostProvider')]
     public function testControlHost(mixed $actual, string $expected): void
     {

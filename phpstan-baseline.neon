@@ -4885,6 +4885,15 @@ parameters:
 			path: src/Dbal/DbiMysqli.php
 
 		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: src/Dbal/DbiPdo.php
+
+		-
 			message: '#^Method PhpMyAdmin\\Dbal\\MysqliResult\:\:fetchAllAssoc\(\) should return list\<array\<string\|null\>\> but returns list\<array\>\.$#'
 			identifier: return.type
 			count: 1
