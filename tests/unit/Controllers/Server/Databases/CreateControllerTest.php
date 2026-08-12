@@ -10,7 +10,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -22,14 +21,12 @@ final class CreateControllerTest extends AbstractTestCase
 {
     private DatabaseInterface $dbi;
 
-    private DbiDummy $dummyDbi;
-
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
     }
 

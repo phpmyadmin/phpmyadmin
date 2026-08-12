@@ -14,7 +14,6 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Tracking\Tracker;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -26,14 +25,12 @@ final class CheckRelationsControllerTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
 
-    protected DbiDummy $dummyDbi;
-
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
     }
 
