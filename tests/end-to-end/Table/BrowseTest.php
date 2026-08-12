@@ -187,11 +187,11 @@ class BrowseTest extends TestBase
         $this->doubleclick();
 
         self::assertSame(
+            'abcd',
             $this->waitForElement(
                 'xpath',
                 "//div[not(contains(@style,'display: none;'))]//textarea[contains(@class, 'edit_box')]",
             )->getAttribute('value'),
-            'abcd',
         );
 
         $this->byCssSelector('textarea.edit_box')->clear();

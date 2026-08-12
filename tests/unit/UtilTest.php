@@ -1052,10 +1052,10 @@ class UtilTest extends AbstractTestCase
 
     public function testGetPageFromPosition(): void
     {
-        self::assertSame(Util::getPageFromPosition(0, 1), 1);
-        self::assertSame(Util::getPageFromPosition(1, 1), 2);
-        self::assertSame(Util::getPageFromPosition(1, 2), 1);
-        self::assertSame(Util::getPageFromPosition(1, 6), 1);
+        self::assertSame(1, Util::getPageFromPosition(0, 1));
+        self::assertSame(2, Util::getPageFromPosition(1, 1));
+        self::assertSame(1, Util::getPageFromPosition(1, 2));
+        self::assertSame(1, Util::getPageFromPosition(1, 6));
     }
 
     /**
