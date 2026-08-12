@@ -14440,12 +14440,6 @@ parameters:
 			path: tests/unit/Controllers/NavigationControllerTest.php
 
 		-
-			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 4
-			path: tests/unit/Controllers/NavigationControllerTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -14533,12 +14527,6 @@ parameters:
 			path: tests/unit/Controllers/Server/Databases/CreateControllerTest.php
 
 		-
-			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 3
-			path: tests/unit/Controllers/Server/Databases/CreateControllerTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -14551,12 +14539,6 @@ parameters:
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
-			path: tests/unit/Controllers/Server/Databases/DestroyControllerTest.php
-
-		-
-			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
 			path: tests/unit/Controllers/Server/Databases/DestroyControllerTest.php
 
 		-
@@ -17014,15 +16996,9 @@ parameters:
 			path: tests/unit/Utils/HttpRequestTest.php
 
 		-
-			message: '#^Parameter \#1 \$needle of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$result of method PhpMyAdmin\\Tests\\Utils\\HttpRequestTest\:\:validateHttp\(\) expects bool\|string\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: tests/unit/Utils/HttpRequestTest.php
-
-		-
-			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
+			count: 4
 			path: tests/unit/Utils/HttpRequestTest.php
 
 		-

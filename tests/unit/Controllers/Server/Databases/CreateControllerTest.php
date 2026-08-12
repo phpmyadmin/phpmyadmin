@@ -51,6 +51,7 @@ final class CreateControllerTest extends AbstractTestCase
         $actual = $response->getJSONResult();
 
         self::assertArrayHasKey('message', $actual);
+        self::assertIsString($actual['message']);
         self::assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
 
         $response = new ResponseRenderer();
@@ -68,6 +69,7 @@ final class CreateControllerTest extends AbstractTestCase
         $actual = $response->getJSONResult();
 
         self::assertArrayHasKey('message', $actual);
+        self::assertIsString($actual['message']);
         self::assertStringContainsString('<div class="alert alert-success" role="alert">', $actual['message']);
         self::assertStringContainsString(
             sprintf(__('Database %1$s has been created.'), 'test_db'),
