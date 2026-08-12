@@ -160,7 +160,7 @@ class CentralColumnsTest extends AbstractTestCase
     {
         $this->dbi->expects(self::exactly(2))
             ->method('fetchResultSimple')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 self::COLUMN_DATA,
                 array_slice(self::COLUMN_DATA, 1, 2),
             );
