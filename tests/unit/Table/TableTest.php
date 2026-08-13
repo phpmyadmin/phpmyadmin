@@ -1543,16 +1543,9 @@ class TableTest extends AbstractTestCase
 
         // Renaming DB with a view bug
         $resultStub = $this->createMock(DummyResult::class);
-        $this->mockedDbi->expects($this->atLeast(4))->method('tryQuery')->willReturnMap([
+        $this->mockedDbi->expects($this->atLeast(3))->method('tryQuery')->willReturnMap([
             [
                 'SHOW CREATE TABLE `aa`.`ad`',
-                ConnectionType::User,
-                false,
-                true,
-                $resultStub,
-            ],
-            [
-                'SHOW TABLE STATUS FROM `aa` WHERE Name = \'ad\'',
                 ConnectionType::User,
                 false,
                 true,
