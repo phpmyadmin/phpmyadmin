@@ -49,6 +49,7 @@
     "stylelint-scss": "^3.21.0"
   },
   "resolutions": {
+    "@mapbox/jsonlint-lines-primitives": "<2.0.3",
     "node-releases": "<2.0.45"
   },
   "scripts": {
