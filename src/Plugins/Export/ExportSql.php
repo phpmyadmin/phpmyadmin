@@ -2511,6 +2511,10 @@ class ExportSql extends ExportPlugin
 
     private function getTableStatus(string $db, string $table): string
     {
+        if (! $this->doDates) {
+            return '';
+        }
+
         $newCrlf = "\n";
         $schemaCreate = '';
 
@@ -2521,7 +2525,7 @@ class ExportSql extends ExportPlugin
         if ($result !== false && $result->numRows() > 0) {
             $tmpres = $result->fetchAssoc();
 
-            if ($this->doDates && ! empty($tmpres['Create_time'])) {
+            if (! empty($tmpres['Create_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Creation:') . ' '
                     . Util::localisedDate(new DateTimeImmutable($tmpres['Create_time'])),
@@ -2529,7 +2533,7 @@ class ExportSql extends ExportPlugin
                 $newCrlf = $this->exportComment() . "\n";
             }
 
-            if ($this->doDates && ! empty($tmpres['Update_time'])) {
+            if (! empty($tmpres['Update_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last update:') . ' '
                     . Util::localisedDate(new DateTimeImmutable($tmpres['Update_time'])),
@@ -2537,7 +2541,7 @@ class ExportSql extends ExportPlugin
                 $newCrlf = $this->exportComment() . "\n";
             }
 
-            if ($this->doDates && ! empty($tmpres['Check_time'])) {
+            if (! empty($tmpres['Check_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last check:') . ' '
                     . Util::localisedDate(new DateTimeImmutable($tmpres['Check_time'])),

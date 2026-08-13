@@ -671,6 +671,7 @@ done
 if [ $do_daily -eq 1 ] ; then
     cat > "$kit_prefix".json << EOT
 {
+    "version": "$version",
     "date": "$(date --iso-8601=seconds)",
     "commit": "$git_head"
 }

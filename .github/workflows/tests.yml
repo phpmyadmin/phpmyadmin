@@ -109,8 +109,9 @@ jobs:
         run: composer run phpunit -- --testsuite unit --display-all-issues
 
       - name: Send coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v7
         with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
           name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
 
@@ -168,8 +169,9 @@ jobs:
         run: composer run phpunit -- --testsuite unit --display-all-issues
 
       - name: Send coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v7
         with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           flags: ${{ matrix.extension }}-extension
           name: php-${{ matrix.php-version }}-${{ matrix.extension }}-enabled
 

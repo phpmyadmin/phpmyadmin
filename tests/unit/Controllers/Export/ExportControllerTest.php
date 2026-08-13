@@ -158,7 +158,6 @@ final class ExportControllerTest extends AbstractTestCase
             --
             -- Table structure for table `test_table`
             --
-
             CREATE TABLE `test_table` (
               `id` int(11) NOT NULL,
               `name` varchar(20) NOT NULL,
@@ -331,7 +330,6 @@ final class ExportControllerTest extends AbstractTestCase
             --
             -- Table structure for table `test_table`
             --
-
             CREATE TABLE `test_table` (
               `id` int(11) NOT NULL,
               `name` varchar(20) NOT NULL,
@@ -478,7 +476,6 @@ final class ExportControllerTest extends AbstractTestCase
             --
             -- Table structure for table `test_table`
             --
-
             CREATE TABLE `test_table` (
               `id` int(11) NOT NULL,
               `name` varchar(20) NOT NULL,
@@ -644,7 +641,6 @@ final class ExportControllerTest extends AbstractTestCase
             --
             -- Table structure for table `test_table`
             --
-
             CREATE TABLE `test_table` (
               `id` int(11) NOT NULL,
               `name` varchar(20) NOT NULL,
