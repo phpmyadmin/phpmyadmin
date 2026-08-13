@@ -236,7 +236,7 @@ class RoutinesTest extends AbstractTestCase
         $oldDbi = DatabaseInterface::getInstance();
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
-        $dbi->method('quoteString')->willReturnMap([
+        $dbi->expects($this->any())->method('quoteString')->willReturnMap([
             ['foo', ConnectionType::User, "'foo'"],
             ["foo's bar", ConnectionType::User, "'foo\'s bar'"],
         ]);

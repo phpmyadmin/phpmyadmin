@@ -141,6 +141,7 @@ class NavigationControllerTest extends AbstractTestCase
 
         $responseMessage = $responseRenderer->getJSONResult()['message'];
 
+        self::assertIsString($responseMessage);
         self::assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
         // root.air-balloon_burner_dev2
@@ -293,6 +294,7 @@ class NavigationControllerTest extends AbstractTestCase
 
         $responseMessage = $responseRenderer->getJSONResult()['message'];
 
+        self::assertIsString($responseMessage);
         self::assertStringContainsString('<div id=\'pma_navigation_tree_content\'>', $responseMessage);
 
         $dbTemplate = '  <li class="database database">' . "\n"

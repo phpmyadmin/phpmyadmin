@@ -343,9 +343,9 @@ class InsertEditTest extends AbstractTestCase
         $fieldName = 'f1<';
 
         self::assertSame(
+            'f1&lt;',
             (new ReflectionMethod(InsertEdit::class, 'getColumnTitle'))
                 ->invokeArgs($this->insertEdit, [$fieldName, []]),
-            'f1&lt;',
         );
 
         $comments = [];

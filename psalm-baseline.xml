@@ -9145,14 +9145,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$responseMessage]]></code>
-      <code><![CDATA[$responseMessage]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$responseMessage]]></code>
-      <code><![CDATA[$responseMessage]]></code>
-    </MixedAssignment>
   </file>
   <file src="tests/unit/Controllers/Normalization/AddNewPrimaryControllerTest.php">
     <DeprecatedMethod>
@@ -9192,20 +9184,11 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$actual['message']]]></code>
-      <code><![CDATA[$actual['message']]]></code>
-      <code><![CDATA[$actual['message']]]></code>
-    </MixedArgument>
   </file>
   <file src="tests/unit/Controllers/Server/Databases/DestroyControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$actual['message']]]></code>
-      <code><![CDATA[$actual['message']]]></code>
-    </MixedArgument>
   </file>
   <file src="tests/unit/Controllers/Server/DatabasesControllerTest.php">
     <DeprecatedMethod>
@@ -10658,7 +10641,9 @@
     <MixedArgument>
       <code><![CDATA[$curl['ssl_version']]]></code>
       <code><![CDATA[$curl['ssl_version']]]></code>
-      <code><![CDATA[$expected]]></code>
+      <code><![CDATA[$result]]></code>
+      <code><![CDATA[$result]]></code>
+      <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
     </MixedArgument>
     <MixedAssignment>

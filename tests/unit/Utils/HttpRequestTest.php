@@ -189,13 +189,7 @@ class HttpRequestTest extends AbstractTestCase
         $this->validateHttp($result, $expected);
     }
 
-    /**
-     * Method to check http test results
-     *
-     * @param mixed $result   Result of HTTP request
-     * @param mixed $expected Expected match
-     */
-    private function validateHttp(mixed $result, mixed $expected): void
+    private function validateHttp(string|bool|null $result, string|bool|null $expected): void
     {
         if ($expected === true) {
             self::assertTrue($result);
@@ -204,7 +198,7 @@ class HttpRequestTest extends AbstractTestCase
         } elseif ($expected === null) {
             self::assertNull($result);
         } else {
-            self::assertNotNull($result, 'The request maybe has failed');
+            self::assertIsString($result, 'The request maybe has failed');
             self::assertStringContainsString($expected, $result);
         }
     }

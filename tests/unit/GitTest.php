@@ -516,7 +516,7 @@ PHP;
         $gitFolder = '';
         self::assertTrue($this->object->isGitRevision($gitFolder));
 
-        self::assertSame($gitFolder, 'customdir/.git');
+        self::assertSame('customdir/.git', $gitFolder);
     }
 
     /**
@@ -544,7 +544,7 @@ PHP;
         self::assertFalse($this->object->isGitRevision($gitFolder));
 
         // Assert that the value is replaced by cached one
-        self::assertSame($gitFolder, 'randomdir/.git');
+        self::assertSame('randomdir/.git', $gitFolder);
     }
 
     /**

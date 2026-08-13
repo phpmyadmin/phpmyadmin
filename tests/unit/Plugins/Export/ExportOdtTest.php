@@ -469,8 +469,8 @@ final class ExportOdtTest extends AbstractTestCase
 
         $dbiDummy->addSelectDb('test_db');
         self::assertSame(
-            $exportOdt->getTableDefStandIn('test_db', 'test_table'),
             '',
+            $exportOdt->getTableDefStandIn('test_db', 'test_table'),
         );
         $dbiDummy->assertAllSelectsConsumed();
 

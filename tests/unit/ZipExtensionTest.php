@@ -106,8 +106,8 @@ class ZipExtensionTest extends AbstractTestCase
     public function testGetNumberOfFiles(): void
     {
         self::assertSame(
-            $this->zipExtension->getNumberOfFiles('./tests/test_data/test.zip'),
             1,
+            $this->zipExtension->getNumberOfFiles('./tests/test_data/test.zip'),
         );
     }
 
