@@ -31,11 +31,7 @@ final class UrlRedirector
         }
 
         $url = is_string($urlParam) ? $urlParam : '';
-        if (
-            $url === ''
-            || preg_match('/^https:\/\/[^\n\r]*$/', $url) !== 1
-            || ! Core::isAllowedDomain($url)
-        ) {
+        if ($url === '' || preg_match('/^https:\/\/[^\n\r]*$/', $url) !== 1 || ! Core::isAllowedDomain($url)) {
             $response = $response->withHeader('Location', $this->response->fixRelativeUrlForRedirect('./'));
 
             return $response->withStatus(StatusCodeInterface::STATUS_FOUND);

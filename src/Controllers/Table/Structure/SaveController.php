@@ -113,10 +113,7 @@ final class SaveController implements InvocableController
                 $this->tableObj->removeUiProp(UiProperty::SortedColumn);
             }
 
-            if (
-                empty($_POST['field_adjust_privileges'][$i])
-                || $_POST['field_orig'][$i] == $_POST['field_name'][$i]
-            ) {
+            if (empty($_POST['field_adjust_privileges'][$i]) || $_POST['field_orig'][$i] == $_POST['field_name'][$i]) {
                 continue;
             }
 

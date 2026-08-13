@@ -186,11 +186,7 @@ final readonly class PrivilegesController implements InvocableController
         /**
          * Changes / copies a user, part III
          */
-        if (
-            $isChangeCopyUser
-            && $serverPrivileges->username !== null
-            && $serverPrivileges->hostname !== null
-        ) {
+        if ($isChangeCopyUser && $serverPrivileges->username !== null && $serverPrivileges->hostname !== null) {
             $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
                 $queries,
                 $serverPrivileges->username,
@@ -287,10 +283,7 @@ final readonly class PrivilegesController implements InvocableController
          * Deletes users
          *   (Changes / copies a user, part IV)
          */
-        if (
-            $request->hasBodyParam('delete')
-            || ($isChangeCopyUser && $request->getParsedBodyParam('mode') < 4)
-        ) {
+        if ($request->hasBodyParam('delete') || ($isChangeCopyUser && $request->getParsedBodyParam('mode') < 4)) {
             $queries = $serverPrivileges->getDataForDeleteUsers($queries, $isChangeCopyUser);
             if (! $isChangeCopyUser) {
                 [Current::$sqlQuery, Current::$message] = $serverPrivileges->deleteUser($queries);

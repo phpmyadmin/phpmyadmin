@@ -134,9 +134,7 @@ class ListDatabase extends ArrayObject
      */
     protected function checkOnlyDatabase(UserPrivileges $userPrivileges): bool
     {
-        if (
-            is_string($this->config->selectedServer['only_db']) && $this->config->selectedServer['only_db'] !== ''
-        ) {
+        if (is_string($this->config->selectedServer['only_db']) && $this->config->selectedServer['only_db'] !== '') {
             $this->config->selectedServer['only_db'] = [$this->config->selectedServer['only_db']];
         }
 

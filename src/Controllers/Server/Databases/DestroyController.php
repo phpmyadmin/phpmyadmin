@@ -42,10 +42,7 @@ final readonly class DestroyController implements InvocableController
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        if (
-            ! $request->isAjax()
-            || (! $this->dbi->isSuperUser() && ! $this->config->config->AllowUserDropDatabase)
-        ) {
+        if (! $request->isAjax() || (! $this->dbi->isSuperUser() && ! $this->config->config->AllowUserDropDatabase)) {
             $message = Message::error();
             $json = ['message' => $message];
             $this->response->setRequestStatus($message->isSuccess());

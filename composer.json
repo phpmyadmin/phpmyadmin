@@ -109,7 +109,7 @@
         "laminas/laminas-diactoros": "^3.0",
         "nyholm/psr7": "^1.8",
         "php-webdriver/webdriver": "^1.14",
-        "phpmyadmin/coding-standard": "^4.0",
+        "phpmyadmin/coding-standard": "^5.0",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.0",
         "phpstan/phpstan-deprecation-rules": "^2.0",

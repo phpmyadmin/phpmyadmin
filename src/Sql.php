@@ -986,10 +986,7 @@ class Sql
             }
         }
 
-        if (
-            $request->hasBodyParam('dropped_column')
-            && $db !== '' && $table !== null && $table !== ''
-        ) {
+        if ($request->hasBodyParam('dropped_column') && $db !== '' && $table !== null && $table !== '') {
             // to refresh the list of indexes (Ajax mode)
             $extraData['indexes_list'] = $this->getIndexList($table, $db);
         }
@@ -1030,11 +1027,7 @@ class Sql
 
         $bookmark = [];
         $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
-        if (
-            $bookmarkFeature !== null
-            && (int) $request->getQueryParam('id_bookmark') <= 0
-            && $sqlQuery
-        ) {
+        if ($bookmarkFeature !== null && (int) $request->getQueryParam('id_bookmark') <= 0 && $sqlQuery) {
             $bookmark = [
                 'db' => $db,
                 'table' => $table,

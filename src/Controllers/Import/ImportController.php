@@ -282,9 +282,7 @@ final readonly class ImportController implements InvocableController
                     }
 
                     // refresh navigation panel only
-                    if (
-                        preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Import::$importText) === 1
-                    ) {
+                    if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Import::$importText) === 1) {
                         $ajaxReload['reload'] = true;
                     }
 

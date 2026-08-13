@@ -1770,10 +1770,7 @@ class DatabaseInterface
              * match existing strings
              */
             foreach ($fields as $value) {
-                if (
-                    $value->orgtable === '' ||
-                        mb_strtolower($value->orgtable) !== mb_strtolower($value->table)
-                ) {
+                if ($value->orgtable === '' || mb_strtolower($value->orgtable) !== mb_strtolower($value->table)) {
                     continue;
                 }
 

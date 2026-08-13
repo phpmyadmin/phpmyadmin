@@ -33,12 +33,7 @@ final readonly class InsertEditColumn
         public bool $isChar,
         bool $insertMode,
     ) {
-        if (
-            $this->type === 'datetime'
-            && ! $this->isNull
-            && $default === null
-            && $insertMode
-        ) {
+        if ($this->type === 'datetime' && ! $this->isNull && $default === null && $insertMode) {
             $this->default = date('Y-m-d H:i:s');
         } else {
             $this->default = $default;

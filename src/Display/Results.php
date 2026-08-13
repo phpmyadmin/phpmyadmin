@@ -451,12 +451,7 @@ class Results
             $isLink = $hasEditLink || $deleteLink !== DeleteLinkEnum::NO_DELETE || $displayParts->hasSortLink;
 
             // Displays edit/delete/sort/insert links?
-            if (
-                $isLink
-                && $previousTable !== ''
-                && $field->table !== ''
-                && $field->table !== $previousTable
-            ) {
+            if ($isLink && $previousTable !== '' && $field->table !== '' && $field->table !== $previousTable) {
                 // don't display links
                 $hasEditLink = false;
                 $deleteLink = DeleteLinkEnum::NO_DELETE;
@@ -1761,10 +1756,7 @@ class Results
 
             // 1.2 Defines the URLs for the modify/delete link(s)
 
-            if (
-                $displayParts->hasEditLink
-                || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE
-            ) {
+            if ($displayParts->hasEditLink || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE) {
                 // 1.3 Displays the links at left if required
                 if (
                     $this->config->config->RowActionLinks === self::POSITION_LEFT
@@ -3013,12 +3005,7 @@ class Results
         }
 
         $navigation = [];
-        if (
-            $displayParts->hasNavigationBar &&
-            ! $hasParserError &&
-            $statement !== null &&
-            empty($statement->limit)
-        ) {
+        if ($displayParts->hasNavigationBar && ! $hasParserError && $statement !== null && empty($statement->limit)) {
             $navigation = $this->getTableNavigation($posNext, $posPrev, $sortByKeyData);
         }
 
@@ -3431,10 +3418,7 @@ class Results
         // If the parser found a PROCEDURE clause
         // (most probably PROCEDURE ANALYSE()) it makes no sense to
         // display the Export link).
-        if (
-            $statementInfo->flags->queryType === StatementType::Select
-            && ! $statementInfo->flags->isProcedure
-        ) {
+        if ($statementInfo->flags->queryType === StatementType::Select && ! $statementInfo->flags->isProcedure) {
             if (count($statementInfo->selectTables) === 1) {
                 $urlParams['single_table'] = 'true';
             }

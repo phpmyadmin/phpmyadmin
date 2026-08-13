@@ -151,10 +151,7 @@ class Innodb extends StorageEngine
     {
         $dbi = DatabaseInterface::getInstance();
 
-        if (
-            ($dbi->isMariaDB() && $dbi->getVersion() >= 100600)
-            || ($dbi->isMySql() && $dbi->getVersion() >= 80000)
-        ) {
+        if (($dbi->isMariaDB() && $dbi->getVersion() >= 100600) || ($dbi->isMySql() && $dbi->getVersion() >= 80000)) {
               return '';
         }
 
