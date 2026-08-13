@@ -251,9 +251,7 @@ class ExportOdt extends ExportPlugin
                     $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
-                } elseif (
-                    $fieldsMeta[$j]->isNumeric
-                ) {
+                } elseif ($fieldsMeta[$j]->isNumeric) {
                     $this->buffer .= '<table:table-cell office:value-type="float"'
                         . ' office:value="' . $row[$j] . '" >'
                         . '<text:p>'

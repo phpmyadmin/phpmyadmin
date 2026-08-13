@@ -706,11 +706,7 @@ class InsertEdit
 
         /** @var string $defaultAction */
         $defaultAction = $_POST['default_action'] ?? $_GET['default_action'] ?? '';
-        if (
-            $defaultAction === 'insert'
-            && $column->key === 'PRI'
-            && str_contains($column->extra, 'auto_increment')
-        ) {
+        if ($defaultAction === 'insert' && $column->key === 'PRI' && str_contains($column->extra, 'auto_increment')) {
             // When copying row, it is useful to empty auto-increment column to prevent duplicate key error.
             $data = $formattedDefaultValue = '';
         }
@@ -1225,19 +1221,11 @@ class InsertEdit
             return 'uuid()';
         }
 
-        if (
-            $editField->type === 'uuid'
-            && ! $editField->isNull
-            && $editField->value === "'uuid_v4()'"
-        ) {
+        if ($editField->type === 'uuid' && ! $editField->isNull && $editField->value === "'uuid_v4()'") {
             return 'uuid_v4()';
         }
 
-        if (
-            $editField->type === 'uuid'
-            && ! $editField->isNull
-            && $editField->value === "'uuid_v7()'"
-        ) {
+        if ($editField->type === 'uuid' && ! $editField->isNull && $editField->value === "'uuid_v7()'") {
             return 'uuid_v7()';
         }
 

@@ -238,10 +238,7 @@ final readonly class GisVisualizationController implements InvocableController
         }
 
         $labelColumn = '';
-        if (
-            isset($settingsIn['labelColumn']) &&
-            in_array($settingsIn['labelColumn'], $labelCandidates, true)
-        ) {
+        if (isset($settingsIn['labelColumn']) && in_array($settingsIn['labelColumn'], $labelCandidates, true)) {
             $labelColumn = $settingsIn['labelColumn'];
         }
 

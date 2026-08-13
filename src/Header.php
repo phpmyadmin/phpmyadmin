@@ -261,10 +261,7 @@ class Header
         $customHeader = self::renderHeader();
 
         // offer to load user preferences from localStorage
-        if (
-            $this->userPreferencesHandler->storageType === 'session'
-            && ! isset($_SESSION['userprefs_autoload'])
-        ) {
+        if ($this->userPreferencesHandler->storageType === 'session' && ! isset($_SESSION['userprefs_autoload'])) {
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();
         }
 

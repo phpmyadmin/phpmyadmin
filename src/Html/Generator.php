@@ -214,9 +214,7 @@ class Generator
         $class = 'text-danger';
         if (! $server['ssl']) {
             $message = __('SSL is not being used');
-            if (
-                ! empty($server['socket']) || in_array($server['host'], $config->config->MysqlSslWarningSafeHosts)
-            ) {
+            if (! empty($server['socket']) || in_array($server['host'], $config->config->MysqlSslWarningSafeHosts)) {
                 $class = '';
             }
         } elseif (! $server['ssl_verify']) {
@@ -296,11 +294,7 @@ class Generator
         // For primary keys of type char(36) or varchar(36) UUID if the default
         // function
         // Only applies to insert mode, as it would silently trash data on updates.
-        if (
-            $insertMode
-            && $key === 'PRI'
-            && ($type === 'char(36)' || $type === 'varchar(36)')
-        ) {
+        if ($insertMode && $key === 'PRI' && ($type === 'char(36)' || $type === 'varchar(36)')) {
             return $config->settings['DefaultFunctions']['FUNC_UUID'];
         }
 

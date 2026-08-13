@@ -57,9 +57,7 @@ final readonly class SetVariableController implements InvocableController
         ) {
             $exp = ['kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3];
             $value = (float) $matches[1] * 1024 ** $exp[mb_strtolower($matches[3])];
-        } elseif (
-            $variableType === 'integer'
-        ) {
+        } elseif ($variableType === 'integer') {
             $value = (int) $value;
         } else {
             $value = $this->dbi->quoteString($value);

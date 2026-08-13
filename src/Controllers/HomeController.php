@@ -189,10 +189,7 @@ final class HomeController implements InvocableController
         $relation = new Relation($this->dbi);
         if (Current::$server > 0 && $relation->arePmadbTablesAllDisabled() === false) {
             $relationParameters = $relation->getRelationParameters();
-            if (
-                ! $relationParameters->hasAllFeatures()
-                && ! $this->config->config->PmaNoRelation_DisableWarning
-            ) {
+            if (! $relationParameters->hasAllFeatures() && ! $this->config->config->PmaNoRelation_DisableWarning) {
                 $messageText = __(
                     'The phpMyAdmin configuration storage is not completely '
                     . 'configured, some extended features have been deactivated. '

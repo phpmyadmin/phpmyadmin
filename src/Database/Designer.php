@@ -206,10 +206,7 @@ class Designer
                     $columnsType[$tableColumnName] = 'designer/FieldKey_small';
                 } else {
                     $columnsType[$tableColumnName] = 'designer/Field_small';
-                    if (
-                        str_contains($columnInfo->type, 'char')
-                        || str_contains($columnInfo->type, 'text')
-                    ) {
+                    if (str_contains($columnInfo->type, 'char') || str_contains($columnInfo->type, 'text')) {
                         $columnsType[$tableColumnName] .= '_char';
                     } elseif (
                         str_contains($columnInfo->type, 'int')

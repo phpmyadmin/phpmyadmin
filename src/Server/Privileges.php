@@ -248,10 +248,7 @@ class Privileges
                 } else {
                     $privs[] = $currentGrant[1];
                 }
-            } elseif (
-                is_array($grantValue) && $grantValue !== []
-                && empty($_POST[$currentGrant[0] . '_none'])
-            ) {
+            } elseif (is_array($grantValue) && $grantValue !== [] && empty($_POST[$currentGrant[0] . '_none'])) {
                 // Required for proper escaping of ` (backtick) in a column name
                 $grantCols = array_map(
                     Util::backquote(...),
@@ -3305,10 +3302,7 @@ class Privileges
         // Accept only array of non-empty strings
         /** @var mixed $predDbname */
         $predDbname = $request->getParsedBodyParam('pred_dbname');
-        if (
-            is_array($predDbname)
-            && $predDbname === array_filter($predDbname)
-        ) {
+        if (is_array($predDbname) && $predDbname === array_filter($predDbname)) {
             $dbname = $predDbname;
             // If dbname contains only one database.
             if (count($dbname) === 1) {

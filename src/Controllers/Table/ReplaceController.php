@@ -163,10 +163,7 @@ final readonly class ReplaceController implements InvocableController
                 }
 
                 // Apply Input Transformation if defined
-                if (
-                    ! empty($mimeMap[$columnName])
-                    && ! empty($mimeMap[$columnName]['input_transformation'])
-                ) {
+                if (! empty($mimeMap[$columnName]) && ! empty($mimeMap[$columnName]['input_transformation'])) {
                     $filename = $mimeMap[$columnName]['input_transformation'];
                     $transformationPlugin = $this->transformations->getPluginInstance($filename);
                     if ($transformationPlugin instanceof IOTransformationsPlugin) {

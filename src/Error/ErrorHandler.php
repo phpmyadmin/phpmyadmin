@@ -187,8 +187,6 @@ class ErrorHandler
      * @param string $errfile error file
      * @param int    $errline error line
      *
-     * @return false
-     *
      * @throws ErrorException
      */
     public function handleError(
@@ -196,7 +194,7 @@ class ErrorHandler
         string $errstr,
         string $errfile,
         int $errline,
-    ): bool {
+    ): false {
         if (! function_exists('error_reporting')) {
             return false;
         }

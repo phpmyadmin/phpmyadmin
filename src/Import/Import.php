@@ -626,11 +626,7 @@ final class Import
             return ColumnType::Varchar;
         }
 
-        if (
-            $cell === (string) (float) $cell
-            && str_contains($cell, '.')
-            && mb_substr_count($cell, '.') === 1
-        ) {
+        if ($cell === (string) (float) $cell && str_contains($cell, '.') && mb_substr_count($cell, '.') === 1) {
             return ColumnType::Decimal;
         }
 
@@ -848,10 +844,7 @@ final class Import
                 for ($columnIndex = 0; $columnIndex < $numCols; ++$columnIndex) {
                     // If fully formatted SQL, no need to enclose
                     // with apostrophes, add slashes etc.
-                    if (
-                        $analyses !== null
-                        && $analyses[$tableIndex][$columnIndex]->isFullyFormattedSql
-                    ) {
+                    if ($analyses !== null && $analyses[$tableIndex][$columnIndex]->isFullyFormattedSql) {
                         $tempSQLStr .= (string) $row[$columnIndex];
                     } else {
                         $value = (string) $row[$columnIndex];

@@ -255,10 +255,7 @@ final class CreateController implements InvocableController
             $sqlQuery = 'ALTER';
         }
 
-        if (
-            isset($view['algorithm'])
-            && in_array($view['algorithm'], self::VIEW_ALGORITHM_OPTIONS, true)
-        ) {
+        if (isset($view['algorithm']) && in_array($view['algorithm'], self::VIEW_ALGORITHM_OPTIONS, true)) {
             $sqlQuery .= $separator . ' ALGORITHM = ' . $view['algorithm'];
         }
 
@@ -273,10 +270,7 @@ final class CreateController implements InvocableController
             }
         }
 
-        if (
-            isset($view['sql_security'])
-            && in_array($view['sql_security'], self::VIEW_SECURITY_OPTIONS, true)
-        ) {
+        if (isset($view['sql_security']) && in_array($view['sql_security'], self::VIEW_SECURITY_OPTIONS, true)) {
             $sqlQuery .= $separator . ' SQL SECURITY '
                 . $view['sql_security'];
         }

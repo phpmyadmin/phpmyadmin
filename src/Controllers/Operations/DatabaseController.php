@@ -63,9 +63,7 @@ final readonly class DatabaseController implements InvocableController
         /**
          * Rename/move or copy database
          */
-        if (
-            Current::$database !== '' && ($request->hasBodyParam('db_rename') || $request->hasBodyParam('db_copy'))
-        ) {
+        if (Current::$database !== '' && ($request->hasBodyParam('db_rename') || $request->hasBodyParam('db_copy'))) {
             $move = $request->hasBodyParam('db_rename');
 
             try {
@@ -269,9 +267,7 @@ final readonly class DatabaseController implements InvocableController
         $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
 
-        if (
-            ! $relationParameters->hasAllFeatures() && ! $this->config->config->PmaNoRelation_DisableWarning
-        ) {
+        if (! $relationParameters->hasAllFeatures() && ! $this->config->config->PmaNoRelation_DisableWarning) {
             Current::$message = Message::notice(
                 __(
                     'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.',
