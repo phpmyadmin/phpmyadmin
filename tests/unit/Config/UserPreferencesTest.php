@@ -417,7 +417,6 @@ class UserPreferencesTest extends AbstractTestCase
         ];
         $userPreferences->save($initialConfig);
 
-        /** @phpstan-ignore offsetAccess.notFound */
         self::assertSame(['db' => $initialConfig, 'ts' => 1445412480], $_SESSION['userconfig']);
 
         $partialConfig = [
