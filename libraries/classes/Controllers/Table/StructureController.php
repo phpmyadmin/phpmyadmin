@@ -1094,6 +1094,7 @@ class StructureController extends AbstractController
                 Util::getValueByKey($_POST, "field_null.${i}", 'NO'),
                 $_POST['field_default_type'][$i],
                 $_POST['field_default_value'][$i],
+                $_POST['field_default_function'][$i],
                 Util::getValueByKey($_POST, "field_extra.${i}", false),
                 Util::getValueByKey($_POST, "field_comments.${i}", ''),
                 Util::getValueByKey($_POST, "field_virtuality.${i}", ''),

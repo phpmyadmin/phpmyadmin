@@ -491,6 +491,8 @@ class Table
      *                                        NULL, NONE, USER_DEFINED
      * @param string      $default_value      default value for USER_DEFINED
      *                                        default type
+     * @param string      $default_function   default function for USER_DEFINED
+     *                                        default type
      * @param string      $extra              'AUTO_INCREMENT'
      * @param string      $comment            field comment
      * @param string      $virtuality         virtuality of the column
@@ -512,8 +514,9 @@ class Table
         $attribute = '',
         $collation = '',
         $null = false,
-        $default_type = 'USER_DEFINED',
+        $default_type = 'USER_DEFINED_VALUE',
         $default_value = '',
+        $default_function = '',
         $extra = '',
         $comment = '',
         $virtuality = '',
@@ -586,7 +589,7 @@ class Table
 
             if (! $virtuality) {
                 switch ($default_type) {
-                    case 'USER_DEFINED':
+                    case 'USER_DEFINED_VALUE':
                         if ($is_timestamp && $default_value === '0') {
                             // a TIMESTAMP does not accept DEFAULT '0'
                             // but DEFAULT 0 works
@@ -620,6 +623,14 @@ class Table
                         }
                         break;
                 /** @noinspection PhpMissingBreakStatementInspection */
+                    case 'USER_DEFINED_FUNCTION':
+                        // If user wants to add default function
+                        if ($default_function != null) {
+                            $query .= ' DEFAULT '
+                                . $dbi->escapeString((string) $default_function) . '('
+                                . $dbi->escapeString((string) $default_value) . ')';
+                        }
+                        break;
                     case 'NULL':
                         // If user uncheck null checkbox and not change default value null,
                         // default value will be ignored.
@@ -854,6 +865,7 @@ class Table
         $null,
         $default_type,
         $default_value,
+        $default_function,
         $extra,
         $comment,
         $virtuality,
@@ -871,6 +883,7 @@ class Table
             $null,
             $default_type,
             $default_value,
+            $default_function,
             $extra,
             $comment,
             $virtuality,
