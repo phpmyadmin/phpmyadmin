@@ -79,6 +79,7 @@ class Scripts
             && ! str_contains($filename, 'index.php')
             && ! str_contains($filename, 'shared.js')
             && ! str_contains($filename, 'datetimepicker.js')
+            && ! str_contains($filename, 'jquery-ui-timepicker-addon.js')
             && ! str_contains($filename, 'validator-messages.js');
     }
 
