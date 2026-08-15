@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-08-05 03:38+0000\n"
+"PO-Revision-Date: 2026-08-16 08:11+0000\n"
 "Last-Translator: SeyhaLite <sok123230@gmail.com>\n"
 "Language-Team: Khmer (Central) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-9/km/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.8.1.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1939,7 +1939,7 @@ msgstr ""
 #: templates/display/export/template_loading.twig:22
 #: templates/database/search/results.twig:43
 msgid "Delete"
-msgstr ""
+msgstr "លុប"
 
 #: js/messages.php:424 libraries/classes/Display/Results.php:934
 #: libraries/classes/Display/Results.php:942
@@ -1959,10 +1959,9 @@ msgid "No auto-saved query"
 msgstr ""
 
 #: js/messages.php:427
-#, fuzzy, php-format
-#| msgid "Disable %s"
+#, php-format
 msgid "Variable %d:"
-msgstr "បិទ %s"
+msgstr "អថេរ %d:"
 
 #: js/messages.php:430 libraries/classes/Normalization.php:967
 msgid "Pick"
@@ -6555,7 +6554,7 @@ msgstr ""
 #: templates/server/databases/databases_footer.twig:57
 #: templates/table/structure/check_all_table_column.twig:24
 msgid "Drop"
-msgstr "លុប"
+msgstr "ទម្លាក់"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1232
 #: libraries/classes/Controllers/Table/TableStructureController.php:1237
@@ -9121,10 +9120,9 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:298
-#, fuzzy, php-format
-#| msgid "Y Values"
+#, php-format
 msgid "%s value"
-msgstr "តម្លៃ Y"
+msgstr "តម្លៃ %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:332
 msgid ""
@@ -9215,10 +9213,9 @@ msgid "Metadata"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1080
-#, fuzzy, php-format
-#| msgid "Delete tracking data for this table"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "លុប​ទិន្នន័យ​តាមដាន​សម្រាប់​តារាង​នេះ"
+msgstr "ទិន្នន័យ Metadata សម្រាប់តារាង %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1087
 #, php-format
@@ -9295,10 +9292,9 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
-#, fuzzy, php-format
-#| msgid "Delete tracking data for this table"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "លុប​ទិន្នន័យ​តាមដាន​សម្រាប់​តារាង​នេះ"
+msgstr "Error ក្នងការអានទិន្នន៍យសម្រាប់តារាង %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 msgid "Object creation options (all are recommended)"
@@ -9459,10 +9455,9 @@ msgid "PDF export page"
 msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:102
-#, fuzzy, php-format
-#| msgid "Select All"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "ជ្រើសទាំងអស់"
+msgstr "គ្រោងទិន្នន័យនៃ Database %s"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:130
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:525
@@ -10633,10 +10628,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:47
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
+msgstr "រកមិនឃើញ Routine ឈ្មោះ %1$s នៅក្នុងទិន្នន័យ database %2$s ទេ។"
 
 #: libraries/classes/Rte/Words.php:48
 msgid "There are no routines to display."
