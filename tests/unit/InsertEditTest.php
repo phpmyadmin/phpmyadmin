@@ -1785,6 +1785,64 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
+     * @param array<string, string> $version
+     */
+    #[DataProvider('spatialConstructorProvider')]
+    public function testGetQueryValueForInsertFormatsSpatialConstructor(
+        array $version,
+        string $function,
+        string $value,
+        string $expected,
+    ): void {
+        $this->dbi->setVersion($version);
+
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField('', $value, '', true, false, false, $function, null, null, false),
+            false,
+            '',
+        );
+
+        self::assertSame($expected, $result);
+    }
+
+    /** @return array<string, array{array<string, string>, string, string, string}> */
+    public static function spatialConstructorProvider(): array
+    {
+        return [
+            'MySQL 8.0.1 WKT with SRID' => [
+                ['@@version' => '8.0.1', '@@version_comment' => 'MySQL Community Server - GPL'],
+                'ST_GeomFromText',
+                "'POINT(1 2)',4326",
+                "ST_GeomFromText('POINT(1 2)',4326,'axis-order=long-lat')",
+            ],
+            'MariaDB WKT with SRID' => [
+                ['@@version' => '10.9.3-MariaDB', '@@version_comment' => 'mariadb.org binary distribution'],
+                'ST_GeomFromText',
+                "'POINT(1 2)',4326",
+                "ST_GeomFromText('POINT(1 2)',4326)",
+            ],
+            'MySQL 8.0.0 WKT with SRID' => [
+                ['@@version' => '8.0.0', '@@version_comment' => 'MySQL Community Server - GPL'],
+                'ST_GeomFromText',
+                "'POINT(1 2)',4326",
+                "ST_GeomFromText('POINT(1 2)',4326)",
+            ],
+            'MySQL 8.0.1 WKT without SRID' => [
+                ['@@version' => '8.0.1', '@@version_comment' => 'MySQL Community Server - GPL'],
+                'ST_GeomFromText',
+                'POINT(1 2)',
+                "ST_GeomFromText('POINT(1 2)')",
+            ],
+            'MySQL 8.0.1 WKB with SRID' => [
+                ['@@version' => '8.0.1', '@@version_comment' => 'MySQL Community Server - GPL'],
+                'ST_GeomFromWKB',
+                "'0101',4326",
+                "ST_GeomFromWKB('0101',4326)",
+            ],
+        ];
+    }
+
+    /**
      * Test for getQueryValuesForUpdate
      */
     public function testGetQueryValuesForUpdate(): void
@@ -1980,6 +2038,34 @@ class InsertEditTest extends AbstractTestCase
         );
 
         self::assertSame('`fld` = NULL', $result);
+    }
+
+    public function testGetQueryValueForUpdatePreservesSpatialAxisOrder(): void
+    {
+        $this->dbi->setVersion([
+            '@@version' => '8.0.1',
+            '@@version_comment' => 'MySQL Community Server - GPL',
+        ]);
+
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField(
+                'location',
+                "'POINT(1 2)',4326",
+                '',
+                true,
+                false,
+                false,
+                'ST_GeomFromText',
+                null,
+                "'POINT(1 2)',4326",
+                false,
+            ),
+        );
+
+        self::assertSame(
+            "`location` = ST_GeomFromText('POINT(1 2)',4326,'axis-order=long-lat')",
+            $result,
+        );
     }
 
     /**
