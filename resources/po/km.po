@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-08-16 00:17+0000\n"
-"PO-Revision-Date: 2017-08-12 14:53+0000\n"
-"Last-Translator: ប៉ុកណូ រ៉ូយ៉ាល់ <royalpokno68@gmail.com>\n"
-"Language-Team: Central Khmer <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/km/>\n"
+"PO-Revision-Date: 2026-08-17 13:51+0000\n"
+"Last-Translator: SeyhaLite <sok123230@gmail.com>\n"
+"Language-Team: Khmer (Central) <https://hosted.weblate.org/projects/"
+"phpmyadmin/master/km/>\n"
 "Language: km\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -10352,9 +10352,9 @@ msgid ""
 msgstr ""
 
 #: src/Config/Descriptions.php:707 src/Plugins/Export/ExportSql.php:372
-#, fuzzy, php-format
+#, php-format
 msgid "%s view"
-msgstr "តម្លៃ Y"
+msgstr "ទិដ្ឋភាព %s"
 
 #: src/Config/Descriptions.php:708
 msgid "Use ignore inserts"
@@ -11648,9 +11648,9 @@ msgid "Error in processing request:"
 msgstr ""
 
 #: src/Controllers/Database/EventsController.php:191
-#, fuzzy, php-format
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
+msgstr "រកមិនឃើញ event ដែលមានឈ្មោះ %1$s នៅក្នុង database %2$s ទេ។"
 
 #: src/Controllers/Database/EventsController.php:217
 #, php-format
@@ -11658,10 +11658,11 @@ msgid "Export of event %s"
 msgstr ""
 
 #: src/Controllers/Database/EventsController.php:237
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
+msgstr ""
+"កំហុសដំណើរការ request ៖ រកមិនឃើញ event ជាមួយឈ្មោះ %1$s ក្នុង database %2$s ឡើយ។"
 
 #: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:57
@@ -14871,9 +14872,9 @@ msgid "Edit trigger"
 msgstr ""
 
 #: src/Controllers/Triggers/IndexController.php:209
-#, fuzzy, php-format
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
+msgstr "រកមិនឃើញ Trigger ដែលមានឈ្មោះ %1$s នៅក្នុងមូលដ្ឋាន database %2$s ទេ។"
 
 #: src/Controllers/Triggers/IndexController.php:250
 #, fuzzy, php-format
