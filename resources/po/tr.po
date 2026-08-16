@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-08-16 00:17+0000\n"
-"PO-Revision-Date: 2026-04-27 03:09+0000\n"
-"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
+"PO-Revision-Date: 2026-08-16 08:11+0000\n"
+"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -18893,10 +18893,8 @@ msgstr ""
 "etkinleştirir ve saklar"
 
 #: src/Types.php:290
-#, fuzzy
-#| msgid "Intended for storage of XML data"
 msgid "Intended for storage of IPv4 addresses"
-msgstr "XML verilerinin depolanması için tasarlanmıştır"
+msgstr "IPv4 adreslerinin depolanması için tasarlanmıştır"
 
 #: src/Types.php:291
 msgid ""
