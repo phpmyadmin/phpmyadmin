@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-09 00:23+0000\n"
+"POT-Creation-Date: 2026-08-16 00:17+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -227,7 +227,7 @@ msgstr "\"%s\" dan keyin"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:1989
+#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:1983
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Yo‘q"
@@ -305,7 +305,7 @@ msgstr "Ustun(lar) qo‘shish"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:312
-#: src/Controllers/Server/PrivilegesController.php:328
+#: src/Controllers/Server/PrivilegesController.php:321
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
 msgid "Go"
@@ -523,8 +523,8 @@ msgstr "Tashqi kalitni tanlang"
 #: src/Navigation/Nodes/NodeColumn.php:33
 #: src/Plugins/Export/ExportHtmlword.php:223
 #: src/Plugins/Export/ExportHtmlword.php:294
-#: src/Plugins/Export/ExportLatex.php:462 src/Plugins/Export/ExportOdt.php:321
-#: src/Plugins/Export/ExportOdt.php:392
+#: src/Plugins/Export/ExportLatex.php:462 src/Plugins/Export/ExportOdt.php:319
+#: src/Plugins/Export/ExportOdt.php:390
 #: src/Plugins/Export/ExportTexytext.php:240
 #: src/Plugins/Export/ExportTexytext.php:300
 #: src/Plugins/Export/Helpers/Pdf.php:470
@@ -658,7 +658,7 @@ msgstr "Foydalanuvchi"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:695
-#: src/Import/Import.php:1167 src/Menu.php:214 src/Menu.php:322
+#: src/Import/Import.php:1160 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1394
@@ -678,7 +678,7 @@ msgstr "Tuzilishi"
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
 #: src/Plugins/Export/ExportHtmlword.php:394
-#: src/Plugins/Export/ExportOdt.php:500
+#: src/Plugins/Export/ExportOdt.php:498
 #: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:312
 msgid "Name"
@@ -707,8 +707,8 @@ msgstr "Nomi"
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:261
 #: src/Plugins/Export/ExportHtmlword.php:226
 #: src/Plugins/Export/ExportHtmlword.php:297
-#: src/Plugins/Export/ExportLatex.php:463 src/Plugins/Export/ExportOdt.php:324
-#: src/Plugins/Export/ExportOdt.php:395
+#: src/Plugins/Export/ExportLatex.php:463 src/Plugins/Export/ExportOdt.php:322
+#: src/Plugins/Export/ExportOdt.php:393
 #: src/Plugins/Export/ExportTexytext.php:241
 #: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:472
@@ -752,8 +752,8 @@ msgstr ""
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:12
 #: src/Plugins/Export/ExportHtmlword.php:232
 #: src/Plugins/Export/ExportHtmlword.php:303
-#: src/Plugins/Export/ExportLatex.php:465 src/Plugins/Export/ExportOdt.php:330
-#: src/Plugins/Export/ExportOdt.php:401
+#: src/Plugins/Export/ExportLatex.php:465 src/Plugins/Export/ExportOdt.php:328
+#: src/Plugins/Export/ExportOdt.php:399
 #: src/Plugins/Export/ExportTexytext.php:243
 #: src/Plugins/Export/ExportTexytext.php:303
 #: src/Plugins/Export/Helpers/Pdf.php:476
@@ -817,8 +817,8 @@ msgstr "Atributlar"
 #: resources/templates/table/zoom_search/result_form.twig:34
 #: src/Plugins/Export/ExportHtmlword.php:229
 #: src/Plugins/Export/ExportHtmlword.php:300
-#: src/Plugins/Export/ExportLatex.php:464 src/Plugins/Export/ExportOdt.php:327
-#: src/Plugins/Export/ExportOdt.php:398
+#: src/Plugins/Export/ExportLatex.php:464 src/Plugins/Export/ExportOdt.php:325
+#: src/Plugins/Export/ExportOdt.php:396
 #: src/Plugins/Export/ExportTexytext.php:242
 #: src/Plugins/Export/ExportTexytext.php:302
 #: src/Plugins/Export/Helpers/Pdf.php:474
@@ -845,7 +845,7 @@ msgstr "Privilegiyalarni tahrirlash"
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:658 src/Config/Descriptions.php:673
 #: src/Config/Descriptions.php:709 src/Plugins/Export/ExportHtmlword.php:313
-#: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:411
+#: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:409
 #: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:493
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
@@ -867,7 +867,7 @@ msgstr "Ustun(lar)ni olib tashlash"
 #: resources/templates/database/data_dictionary/index.twig:32
 #: src/Config/Descriptions.php:662 src/Config/Descriptions.php:674
 #: src/Config/Descriptions.php:712 src/Plugins/Export/ExportHtmlword.php:320
-#: src/Plugins/Export/ExportOdt.php:418
+#: src/Plugins/Export/ExportOdt.php:416
 #: src/Plugins/Export/ExportTexytext.php:314
 #: src/Plugins/Export/Helpers/Pdf.php:501
 #, fuzzy
@@ -932,7 +932,7 @@ msgstr "O‘girishlar parametrlari"
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
 #: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:292
+#: src/Controllers/Table/ReplaceController.php:289
 msgid "No change"
 msgstr "O‘zgarish yo‘q"
 
@@ -954,7 +954,7 @@ msgstr "Tozalash"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:685 src/Html/MySQLDocumentation.php:51
+#: src/Html/Generator.php:679 src/Html/MySQLDocumentation.php:51
 #: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Dokumentatsiya"
@@ -1022,7 +1022,7 @@ msgstr "Faolsizlantirilgan"
 #: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:474
 #: src/Plugins/Export/ExportHtmlword.php:515
-#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:625
+#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "Yes"
@@ -1058,7 +1058,7 @@ msgstr "Ha"
 #: src/Controllers/JavaScriptMessagesController.php:344
 #: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:448
 #: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:515
-#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:625
+#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "No"
@@ -1126,8 +1126,8 @@ msgstr "so‘rov bo‘yicha"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:380
-#: src/Display/Results.php:1880 src/Html/Generator.php:533
-#: src/Html/Generator.php:790
+#: src/Display/Results.php:1872 src/Html/Generator.php:527
+#: src/Html/Generator.php:784
 msgid "Edit"
 msgstr "Tahrirlash"
 
@@ -1145,7 +1145,7 @@ msgstr "Tahrirlash"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:382
-#: src/Display/Results.php:2418 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2410 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "O‘chirish"
 
@@ -1166,8 +1166,8 @@ msgstr "O‘chirish"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:932 src/Plugins/Export/ExportHtmlword.php:145
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1564
-#: src/Server/Privileges.php:1566 src/Server/Status/Processes.php:103
+#: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1561
+#: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:103
 msgid "Database"
 msgstr "Ma`lumotlar bazasi"
 
@@ -1198,7 +1198,7 @@ msgstr "SQL-so‘rovlar tarixi"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
-#: src/Import/Import.php:1168 src/Import/Import.php:1226
+#: src/Import/Import.php:1161 src/Import/Import.php:1219
 msgid "Options"
 msgstr "Parametrlar"
 
@@ -1235,7 +1235,7 @@ msgstr "So‘rov tahlili"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:620
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:614
 msgid "Profiling"
 msgstr "Profillashtirish"
 
@@ -1343,7 +1343,7 @@ msgstr ""
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:927 src/Export/Export.php:697
-#: src/Html/Generator.php:589
+#: src/Html/Generator.php:583
 msgid "Refresh"
 msgstr "Yangilash"
 
@@ -1595,7 +1595,7 @@ msgstr "Chop etish"
 
 #: resources/templates/database/data_dictionary/index.twig:28
 #: src/Plugins/Export/ExportHtmlword.php:307
-#: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:405
+#: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:403
 #: src/Plugins/Export/ExportTexytext.php:305
 #: src/Plugins/Export/Helpers/Pdf.php:485
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
@@ -2051,7 +2051,7 @@ msgstr "Oxiri"
 #: resources/templates/database/routines/editor_form.twig:118
 #: resources/templates/triggers/editor_form.twig:62
 #: src/Plugins/Export/ExportHtmlword.php:397
-#: src/Plugins/Export/ExportOdt.php:509
+#: src/Plugins/Export/ExportOdt.php:507
 #: src/Plugins/Export/ExportTexytext.php:372
 #: src/Plugins/Export/Helpers/Pdf.php:318
 #, fuzzy
@@ -2149,7 +2149,7 @@ msgstr "Barchasini belgilash"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
-#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1279
+#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
 #: src/Util.php:1383 src/Util.php:1398 src/Util.php:1415
 msgid "Export"
 msgstr "Eksport"
@@ -2378,8 +2378,8 @@ msgstr "Sortirovka qilish"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1395
-#: src/Display/Results.php:1401 src/Util.php:1651 src/Util.php:1668
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1390
+#: src/Display/Results.php:1396 src/Util.php:1651 src/Util.php:1668
 msgid "Ascending"
 msgstr "O‘sish tartibida"
 
@@ -2390,8 +2390,8 @@ msgstr "O‘sish tartibida"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1390
-#: src/Display/Results.php:1406 src/Util.php:1656 src/Util.php:1673
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1385
+#: src/Display/Results.php:1401 src/Util.php:1656 src/Util.php:1673
 msgid "Descending"
 msgstr "Kamayish tartibida"
 
@@ -2445,7 +2445,7 @@ msgid "Copy query"
 msgstr "So‘rovni yangilash"
 
 #: resources/templates/database/multi_table_query/form.twig:176
-#: src/Html/Generator.php:558
+#: src/Html/Generator.php:552
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
@@ -2613,7 +2613,7 @@ msgstr "Jurnal fayli"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
-#: src/Controllers/Server/PrivilegesController.php:455 src/Menu.php:257
+#: src/Controllers/Server/PrivilegesController.php:448 src/Menu.php:257
 #: src/Menu.php:369 src/Util.php:1401 src/Util.php:1417
 msgid "Privileges"
 msgstr "Privilegiyalar"
@@ -2659,7 +2659,7 @@ msgstr "Muolajalar"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1271
+#: src/Server/Privileges.php:1268
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
@@ -2667,7 +2667,7 @@ msgstr "Privilegiyalarni tahrirlash"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2055
+#: src/Server/Privileges.php:2052
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
@@ -2689,7 +2689,7 @@ msgstr "Belgilanganlarni:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1215
+#: src/Server/Privileges.php:1212
 msgid "Not enough privilege to view users."
 msgstr ""
 
@@ -3229,8 +3229,8 @@ msgstr "Show SQL so‘rovlarini ko‘rsatish"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:935
-#: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1570
-#: src/Server/Privileges.php:1572
+#: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1569
 msgid "Table"
 msgstr "Jadval"
 
@@ -3512,14 +3512,14 @@ msgid "Extra options"
 msgstr "Jadval parametrlari"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1116
+#: src/Display/Results.php:1111
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Ma`lumotlarni qisqartirib ko‘rsatish"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1120
+#: src/Display/Results.php:1115
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
@@ -3566,7 +3566,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:468
-#: src/Display/Results.php:1881 src/Html/Generator.php:83
+#: src/Display/Results.php:1873 src/Html/Generator.php:83
 msgid "Copy"
 msgstr ""
 
@@ -3611,7 +3611,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:741 src/Import/Import.php:122 src/InsertEdit.php:425
+#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:425
 #: src/Message.php:138
 msgid "Error"
 msgstr "Xatolik"
@@ -3633,7 +3633,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:420
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:418
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically send report next time"
@@ -3707,7 +3707,7 @@ msgstr "Yangilandi"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:135
-#: src/Html/Generator.php:765
+#: src/Html/Generator.php:759
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL query:"
@@ -4226,7 +4226,7 @@ msgstr "Tadbiq qilish"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:412
-#: src/Export/Export.php:739 src/Html/Generator.php:849
+#: src/Export/Export.php:739 src/Html/Generator.php:843
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Orqaga"
@@ -5569,7 +5569,7 @@ msgstr "Foydalanuvchi"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
 #: src/Controllers/JavaScriptMessagesController.php:364
-#: src/Server/Privileges.php:1576 src/Server/Privileges.php:1578
+#: src/Server/Privileges.php:1573 src/Server/Privileges.php:1575
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
@@ -5583,7 +5583,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1577
+#: src/Server/Privileges.php:1574
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
@@ -5744,7 +5744,7 @@ msgstr "Serverlarni tahrirlash"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1571
+#: src/Server/Privileges.php:1568
 msgid "Table-specific privileges"
 msgstr "Jadval darajasijagi privilegiyalar"
 
@@ -5779,7 +5779,7 @@ msgstr "Quyidagi jadvalga privilegiya qo‘shish"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:316
 msgid "Allows reading data."
 msgstr "Ma`lumotlarni chaqirishga ruxsat beradi."
 
@@ -5808,20 +5808,20 @@ msgstr "Yo‘q"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:317
 msgid "Allows inserting and replacing data."
 msgstr "Ma`lumot qo‘yish va o‘zgartirishga ruxsat beradi."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:321
+#: src/Server/Privileges.php:318
 msgid "Allows changing data."
 msgstr "Ma`lumotlarni o‘zgartirishga ruxsat beradi."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:329
+#: src/Server/Privileges.php:326
 msgid "Has no effect in this MySQL version."
 msgstr "MySQL-serverning ushbu versiyada bunday xususiyat mavjud emas."
 
@@ -5829,7 +5829,7 @@ msgstr "MySQL-serverning ushbu versiyada bunday xususiyat mavjud emas."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:299 src/Server/Privileges.php:322
+#: src/Server/Privileges.php:296 src/Server/Privileges.php:319
 msgid "Allows deleting data."
 msgstr "Ma`lumotlarni o‘chirishga ruxsat beradi."
 
@@ -5837,7 +5837,7 @@ msgstr "Ma`lumotlarni o‘chirishga ruxsat beradi."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:300
+#: src/Server/Privileges.php:297
 msgid "Allows creating new tables."
 msgstr "Yangi jadvallar tuzishga ruxsat beradi."
 
@@ -5845,7 +5845,7 @@ msgstr "Yangi jadvallar tuzishga ruxsat beradi."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:301
+#: src/Server/Privileges.php:298
 msgid "Allows dropping tables."
 msgstr "Jadvallarni o‘chirishga rux`sat beradi."
 
@@ -5862,7 +5862,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:302 src/Server/Privileges.php:330
+#: src/Server/Privileges.php:299 src/Server/Privileges.php:327
 msgid "Allows creating and dropping indexes."
 msgstr "Indekslar qo‘shish va ularni o‘chirishga ruxsat beradi."
 
@@ -5870,7 +5870,7 @@ msgstr "Indekslar qo‘shish va ularni o‘chirishga ruxsat beradi."
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:303 src/Server/Privileges.php:331
+#: src/Server/Privileges.php:300 src/Server/Privileges.php:328
 msgid "Allows altering the structure of existing tables."
 msgstr "Mavjud jadvallarning tuzilishini o‘zgartirishga ruxsat beradi."
 
@@ -5880,8 +5880,8 @@ msgstr "Mavjud jadvallarning tuzilishini o‘zgartirishga ruxsat beradi."
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:304 src/Server/Privileges.php:350
-#: src/Server/Privileges.php:354
+#: src/Server/Privileges.php:301 src/Server/Privileges.php:347
+#: src/Server/Privileges.php:351
 msgid "Allows creating new views."
 msgstr "Yangi namoyishlar tuzish(CREATE VIEW)ga ruxsat beradi."
 
@@ -5889,8 +5889,8 @@ msgstr "Yangi namoyishlar tuzish(CREATE VIEW)ga ruxsat beradi."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:305 src/Server/Privileges.php:355
-#: src/Server/Privileges.php:357
+#: src/Server/Privileges.php:302 src/Server/Privileges.php:352
+#: src/Server/Privileges.php:354
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 "Namoyish tuzadigan so‘rov(SHOW CREATE VIEW)ni bajarishga ruxsat beradi."
@@ -5899,7 +5899,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:306 src/Server/Privileges.php:352
+#: src/Server/Privileges.php:303 src/Server/Privileges.php:349
 #, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
@@ -5910,7 +5910,7 @@ msgstr ""
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:363 src/Server/Privileges.php:372
+#: src/Server/Privileges.php:360 src/Server/Privileges.php:369
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
@@ -5928,55 +5928,55 @@ msgid "Global privileges"
 msgstr "Global privilegiyalar"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1565
+#: src/Server/Privileges.php:1562
 msgid "Database-specific privileges"
 msgstr "Ma`lumotlar bazasi privilegiyalari"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:325
 msgid "Allows importing data from and exporting data into files."
 msgstr "Ma`lumotlarni fayldan import va faylga eksport qilishga ruxsat beradi."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:320
 msgid "Allows creating new databases and tables."
 msgstr "Yangi ma`lumotlar bazalari va jadvallar tuzishga ruxsat beradi."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:321
 msgid "Allows dropping databases and tables."
 msgstr "Ma`lumotlar bazalarini va jadvallarni o‘chirishga ruxsat beradi."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:342
+#: src/Server/Privileges.php:339
 msgid "Allows creating temporary tables."
 msgstr "Vaqtinchalik jadvallar tuzishga ruxsat beradi."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:374
+#: src/Server/Privileges.php:371
 msgid "Allows creating stored routines."
 msgstr "Saqlanadigan muolajalar tuzishga ruxsat beradi."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:375
+#: src/Server/Privileges.php:372
 msgid "Allows altering and dropping stored routines."
 msgstr "Saqlanadigan muolajalarni o‘zgartirish va o‘chirishga ruxsat beradi."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:377
+#: src/Server/Privileges.php:374
 msgid "Allows executing stored routines."
 msgstr "Saqlanadigan muolajalarni bajarishga ruxsat beradi."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:351
+#: src/Server/Privileges.php:348
 #, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
@@ -5996,7 +5996,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:337
+#: src/Server/Privileges.php:334
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -6009,7 +6009,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:327
+#: src/Server/Privileges.php:324
 #, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
@@ -6017,7 +6017,7 @@ msgstr "Barcha foydalanuvchilarning jarayonlarini ko‘rishga ruxsat beradi"
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:325
+#: src/Server/Privileges.php:322
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Server sozlanishlarini qayta yuklashga va uning keshlarini tozalashga ruxsat "
@@ -6025,19 +6025,19 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:326
+#: src/Server/Privileges.php:323
 msgid "Allows shutting down the server."
 msgstr "Server ishini yakunlashga ruxsat beradi."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:332
+#: src/Server/Privileges.php:329
 msgid "Gives access to the complete list of databases."
 msgstr "Ma`lumotlar bazalarining to‘liq ro‘yxatiga ruxsat beradi."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:343
+#: src/Server/Privileges.php:340
 msgid "Allows locking tables for the current thread."
 msgstr "Joriy oqim uchun jadvalni blokirovku qilishga ruxsat beradi."
 
@@ -6059,7 +6059,7 @@ msgstr "MySQL-serverning ushbu versiyada bunday xususiyat mavjud emas."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:348
+#: src/Server/Privileges.php:345
 #, fuzzy
 #| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
@@ -6069,7 +6069,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:344
+#: src/Server/Privileges.php:341
 #, fuzzy
 #| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
@@ -6078,7 +6078,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:376
+#: src/Server/Privileges.php:373
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 "Foydalanuvchilar hisobini qo‘shish, o‘chirish va o‘zgartirishga ruxsat "
@@ -7056,7 +7056,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2436
+#: src/Display/Results.php:2428
 msgid "Kill"
 msgstr "Tugatish"
 
@@ -7264,7 +7264,7 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:458
+#: src/Controllers/Server/PrivilegesController.php:451
 #: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr "Foydalanuvchi"
@@ -7433,7 +7433,7 @@ msgstr "Boshlang‘ich"
 #: resources/templates/triggers/list.twig:51
 #: src/Controllers/JavaScriptMessagesController.php:277
 #: src/Plugins/Export/ExportHtmlword.php:395
-#: src/Plugins/Export/ExportOdt.php:503
+#: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
 #: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:105
 msgid "Time"
@@ -7491,7 +7491,7 @@ msgstr "Profillashtirish"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1033 src/Display/Results.php:2972
+#: src/Database/Routines.php:1033 src/Display/Results.php:2964
 #: src/Message.php:122
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -7875,7 +7875,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1433
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1421
 msgid "Ignore"
 msgstr "E`tibor bermaslik"
 
@@ -8671,7 +8671,7 @@ msgstr "Vaqt"
 #: src/Controllers/JavaScriptMessagesController.php:366
 #: src/Navigation/Nodes/NodeEvent.php:27
 #: src/Plugins/Export/ExportHtmlword.php:396
-#: src/Plugins/Export/ExportOdt.php:506
+#: src/Plugins/Export/ExportOdt.php:504
 #: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:316
 msgid "Event"
@@ -8688,8 +8688,8 @@ msgstr "Triggеrlarni eksport qilish"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:24
 #: src/Navigation/Nodes/NodeTriggerContainer.php:26
 #: src/Plugins/Export/ExportHtmlword.php:448
-#: src/Plugins/Export/ExportOdt.php:568 src/Plugins/Export/ExportPdf.php:173
-#: src/Plugins/Export/ExportSql.php:1852
+#: src/Plugins/Export/ExportOdt.php:566 src/Plugins/Export/ExportPdf.php:173
+#: src/Plugins/Export/ExportSql.php:1846
 #: src/Plugins/Export/ExportTexytext.php:408
 #: src/Plugins/Export/ExportXml.php:112 src/Util.php:1404 src/Util.php:1420
 msgid "Triggers"
@@ -13319,11 +13319,11 @@ msgstr "Statiskani ko‘rsatish"
 msgid "Skip locked tables"
 msgstr "Qulflangan jadvallarni tashlab ketishlik"
 
-#: src/Config/Descriptions.php:926 src/Html/Generator.php:498
+#: src/Config/Descriptions.php:926 src/Html/Generator.php:492
 msgid "Explain SQL"
 msgstr "So‘rov tahlili"
 
-#: src/Config/Descriptions.php:928 src/Html/Generator.php:569
+#: src/Config/Descriptions.php:928 src/Html/Generator.php:563
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -14002,13 +14002,13 @@ msgstr ""
 #: src/Controllers/Database/TrackingController.php:60
 #: src/Controllers/JavaScriptMessagesController.php:331
 #: src/Controllers/Operations/Database/CollationController.php:54
-#: src/Controllers/Operations/DatabaseController.php:234
-#: src/Controllers/Operations/DatabaseController.php:239
+#: src/Controllers/Operations/DatabaseController.php:232
+#: src/Controllers/Operations/DatabaseController.php:237
 #: src/Controllers/Operations/TableController.php:86
 #: src/Controllers/Operations/TableController.php:91
 #: src/Controllers/Operations/ViewController.php:61
 #: src/Controllers/Operations/ViewController.php:66
-#: src/Controllers/Server/Databases/DestroyController.php:65
+#: src/Controllers/Server/Databases/DestroyController.php:62
 #: src/Controllers/Table/AddFieldController.php:162
 #: src/Controllers/Table/AddFieldController.php:167
 #: src/Controllers/Table/ChangeController.php:70
@@ -14236,7 +14236,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:568
-#: src/Display/Results.php:3258
+#: src/Display/Results.php:3245
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -14316,7 +14316,7 @@ msgid ""
 "you need to logout from all servers."
 msgstr ""
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:194
 #, fuzzy, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
@@ -14328,12 +14328,12 @@ msgstr ""
 "Aloqador jadvallar bilan ishlash uchun qo‘shimcha imkoniyatlar mavjud emas. "
 "Sabablarini aniqlash uchun %sbu yerga%s bosing."
 
-#: src/Controllers/HomeController.php:203
+#: src/Controllers/HomeController.php:200
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: src/Controllers/HomeController.php:267
+#: src/Controllers/HomeController.php:264
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
@@ -14352,7 +14352,7 @@ msgstr ""
 "davomiyligidan kichikroq, shuning uchun login sessiyangiz phpMyAdmin "
 "dasturida konfiguratsiya qilganingizdan tezroq tugaydi."
 
-#: src/Controllers/HomeController.php:287
+#: src/Controllers/HomeController.php:284
 #, fuzzy
 #| msgid ""
 #| "r PHP parameter [a@https://www.php.net/manual/en/session.configuration."
@@ -14369,21 +14369,21 @@ msgstr ""
 "davomiyligidan kichikroq, shuning uchun login sessiyangiz phpMyAdmin "
 "dasturida konfiguratsiya qilganingizdan tezroq tugaydi."
 
-#: src/Controllers/HomeController.php:306
+#: src/Controllers/HomeController.php:303
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:325
+#: src/Controllers/HomeController.php:322
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:335
+#: src/Controllers/HomeController.php:332
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -14391,14 +14391,14 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:355
+#: src/Controllers/HomeController.php:352
 msgid ""
 "The configuration file needs a valid key for query encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:365
+#: src/Controllers/HomeController.php:362
 #, php-format
 msgid ""
 "The query encryption key in the configuration file is longer than necessary. "
@@ -14406,7 +14406,7 @@ msgid ""
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:383
+#: src/Controllers/HomeController.php:380
 #, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
@@ -14422,21 +14422,21 @@ msgstr ""
 "katalogi haliyam mavjud. phpMyAdmin muvaffaqiyatli o‘rnatilgandan keyin, uni "
 "o‘chirish tavsiya etiladi."
 
-#: src/Controllers/HomeController.php:398
+#: src/Controllers/HomeController.php:395
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: src/Controllers/HomeController.php:415
+#: src/Controllers/HomeController.php:412
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
 
-#: src/Controllers/HomeController.php:468
+#: src/Controllers/HomeController.php:465
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -14447,7 +14447,7 @@ msgstr ""
 "navbatida ma`lumot yo‘qolishiga olib kelishi mumkin. PHP \"mbstring\" "
 "kengaytmasini o‘rnatish qat`iy tavsiya etiladi."
 
-#: src/Controllers/HomeController.php:486
+#: src/Controllers/HomeController.php:483
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -14475,17 +14475,17 @@ msgstr "Ma`lumotlar bazasi nomini quyidagiga o‘zgartirish"
 msgid "Sorry an unexpected error happened!"
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:300
-#: src/Controllers/Import/ImportController.php:511
+#: src/Controllers/Import/ImportController.php:298
+#: src/Controllers/Import/ImportController.php:509
 msgid "Showing bookmark"
 msgstr "Xatcho‘plarni ko‘rsatish"
 
-#: src/Controllers/Import/ImportController.php:320
-#: src/Controllers/Import/ImportController.php:507
+#: src/Controllers/Import/ImportController.php:318
+#: src/Controllers/Import/ImportController.php:505
 msgid "The bookmark has been deleted."
 msgstr "Xatcho‘p o‘chirildi."
 
-#: src/Controllers/Import/ImportController.php:429
+#: src/Controllers/Import/ImportController.php:427
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -14495,14 +14495,14 @@ msgstr ""
 "qilinayotgan fayl hajmi PHP konfiguratsion faylida ko‘rsatilgan maksimal "
 "qiymatdan katta. Qarang: [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:519
+#: src/Controllers/Import/ImportController.php:517
 #, fuzzy, php-format
 #| msgid "Import has been successfully finished, %d queries executed."
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Import muvaffaqiyatli tugatildi, bajarilgan so‘rovlar soni: %d."
 
-#: src/Controllers/Import/ImportController.php:556
+#: src/Controllers/Import/ImportController.php:554
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -14515,7 +14515,7 @@ msgstr ""
 "unda o‘sha faylni tanlagan holda uni qayta ishga tushiring va jarayon "
 "uzilgan joydan boshlab davom etadi."
 
-#: src/Controllers/Import/ImportController.php:566
+#: src/Controllers/Import/ImportController.php:564
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -14524,13 +14524,13 @@ msgstr ""
 "Odatda, bu hol, php-ssenariylar uchun ajratilgan vaqt oshirilmaguncha "
 "phpMyAdmin dasturi import jarayonini yakunla olmasligini bildiradi."
 
-#: src/Controllers/Import/ImportController.php:637
+#: src/Controllers/Import/ImportController.php:635
 #: src/Controllers/Sql/SqlController.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr ""
 "\"DROP DATABASE\" (ma`lumotlar bazasini o‘chirish) buyrug‘i o‘chirilgan."
 
-#: src/Controllers/Import/ImportController.php:700 src/Sql.php:918
+#: src/Controllers/Import/ImportController.php:698 src/Sql.php:918
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -14808,12 +14808,12 @@ msgid "The user name is empty!"
 msgstr "Foydalanuvchi nomi belgilanmagan!"
 
 #: src/Controllers/JavaScriptMessagesController.php:147
-#: src/Server/Privileges.php:764 src/UserPassword.php:41
+#: src/Server/Privileges.php:761 src/UserPassword.php:41
 msgid "The password is empty!"
 msgstr "Parol belgilanmagan!"
 
 #: src/Controllers/JavaScriptMessagesController.php:148
-#: src/Server/Privileges.php:762 src/UserPassword.php:45
+#: src/Server/Privileges.php:759 src/UserPassword.php:45
 msgid "The passwords aren't the same!"
 msgstr "Kiritilgan parollar bir xil emas!"
 
@@ -16052,7 +16052,7 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:621
-#: src/Error/ErrorHandler.php:431
+#: src/Error/ErrorHandler.php:429
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -16769,7 +16769,7 @@ msgid "No such column"
 msgstr "Ustun(lar)ni olib tashlash"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:230 src/Types.php:659
+#: src/Normalization.php:230 src/Types.php:665
 #, fuzzy
 #| msgid "Lines terminated by"
 msgctxt "string types"
@@ -16781,21 +16781,21 @@ msgstr "Qatorlar bo‘luvchisi"
 msgid "No collation provided."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:84
+#: src/Controllers/Operations/DatabaseController.php:82
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:164
+#: src/Controllers/Operations/DatabaseController.php:162
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "\"%1$s\" ma`lumotlar bazasining nomi \"%2$s\" deb o‘zgartirildi."
 
-#: src/Controllers/Operations/DatabaseController.php:178
+#: src/Controllers/Operations/DatabaseController.php:176
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "\"%1$s\" ma`lumotlar bazasidan \"%2$s\" ga nusxa ko‘chirildi."
 
-#: src/Controllers/Operations/DatabaseController.php:277
+#: src/Controllers/Operations/DatabaseController.php:273
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -16846,7 +16846,7 @@ msgstr "Muolajalar"
 msgid "Database %1$s has been created."
 msgstr "%1$s ma`lumotlar bazasi tuzildi."
 
-#: src/Controllers/Server/Databases/DestroyController.php:88
+#: src/Controllers/Server/Databases/DestroyController.php:85
 #, fuzzy, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
@@ -17632,7 +17632,7 @@ msgstr "Faol holatda bo‘lgan jarayonlar soni."
 msgid "User groups management is not enabled."
 msgstr "Server javob bermayapti"
 
-#: src/Controllers/Server/Variables/SetVariableController.php:83
+#: src/Controllers/Server/Variables/SetVariableController.php:81
 msgid "Setting variable failed"
 msgstr ""
 
@@ -17685,7 +17685,7 @@ msgstr "Ma`lumotlar bazasi mavjud emas"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1086
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1079
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -17701,7 +17701,7 @@ msgstr "\"%s\" xatcho‘pi tuzildi"
 #: src/Controllers/Table/IndexesController.php:139
 #: src/Controllers/Table/IndexRenameController.php:123
 #: src/Controllers/Table/Structure/PartitioningController.php:266
-#: src/Controllers/Table/Structure/SaveController.php:231
+#: src/Controllers/Table/Structure/SaveController.php:228
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "%1$s jadvali muvaffaqiyatli o‘zgartirildi."
@@ -17834,7 +17834,7 @@ msgstr "\"%s\" jarayoni muvaffaqiyatli yakunlandi."
 msgid "Internal relationships were successfully updated."
 msgstr "Ichki aloqa o‘rnatildi"
 
-#: src/Controllers/Table/ReplaceController.php:186
+#: src/Controllers/Table/ReplaceController.php:183
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -17849,18 +17849,18 @@ msgstr ""
 msgid "The columns have been moved successfully."
 msgstr "Belgilangan foydalanuvchilar muvaffaqiyatli o‘chirildi."
 
-#: src/Controllers/Table/Structure/MoveColumnsController.php:114
+#: src/Controllers/Table/Structure/MoveColumnsController.php:111
 #, fuzzy
 #| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
 msgstr "Belgilangan foydalanuvchi privilegiyalar jadvalida topilmadi."
 
-#: src/Controllers/Table/Structure/MoveColumnsController.php:141
+#: src/Controllers/Table/Structure/MoveColumnsController.php:138
 msgid "The selected columns are already in the correct order."
 msgstr ""
 
 #: src/Controllers/Table/Structure/PartitioningController.php:258
-#: src/Controllers/Table/Structure/SaveController.php:281
+#: src/Controllers/Table/Structure/SaveController.php:278
 #: src/Tracking/Tracking.php:736
 #, fuzzy
 #| msgid "Ignore errors"
@@ -17873,7 +17873,7 @@ msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] ""
 
-#: src/Controllers/Table/Structure/SaveController.php:226
+#: src/Controllers/Table/Structure/SaveController.php:223
 #, fuzzy, php-format
 #| msgid "Table %1$s has been altered successfully."
 msgid ""
@@ -18065,7 +18065,7 @@ msgstr "Quyidagi so‘rovlar bajarildi:"
 #: src/Database/Events.php:119 src/Database/Events.php:140
 #: src/Database/Routines.php:110 src/Database/Routines.php:136
 #: src/Database/Routines.php:214 src/Database/Routines.php:228
-#: src/Database/Routines.php:1014 src/Html/Generator.php:806
+#: src/Database/Routines.php:1014 src/Html/Generator.php:800
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
 #: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
 msgid "MySQL said: "
@@ -18220,36 +18220,36 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2395 src/Display/Results.php:2410
+#: src/Display/Results.php:2387 src/Display/Results.php:2402
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Yozuv o‘chirildi"
 
-#: src/Display/Results.php:2977 src/Display/Results.php:3299 src/Sql.php:910
+#: src/Display/Results.php:2969 src/Display/Results.php:3286 src/Sql.php:910
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "So‘rov %01.4f sekund vaqt oldi"
 
-#: src/Display/Results.php:3267
+#: src/Display/Results.php:3254
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Yozuvlarni ko‘rsatish"
 
-#: src/Display/Results.php:3281
+#: src/Display/Results.php:3268
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3286
+#: src/Display/Results.php:3273
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "jami"
 
-#: src/Display/Results.php:3593
+#: src/Display/Results.php:3577
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -18540,7 +18540,7 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: src/Error/ErrorHandler.php:415
+#: src/Error/ErrorHandler.php:413
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
@@ -18709,54 +18709,54 @@ msgstr "\"%s\" ma`lumotlar bazasiga o‘tish."
 msgid "SSL is not being used"
 msgstr ""
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:221
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: src/Html/Generator.php:225
+#: src/Html/Generator.php:223
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: src/Html/Generator.php:228
+#: src/Html/Generator.php:226
 msgid "SSL is used"
 msgstr ""
 
-#: src/Html/Generator.php:332
+#: src/Html/Generator.php:326
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: src/Html/Generator.php:333
+#: src/Html/Generator.php:327
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:507
+#: src/Html/Generator.php:501
 msgid "Skip Explain SQL"
 msgstr "Tahlil kerak emas"
 
-#: src/Html/Generator.php:517
+#: src/Html/Generator.php:511
 #, fuzzy
 #| msgid "Skip Validate SQL"
 msgid "Skip Analyze SQL"
 msgstr "SQL sintaksisi tekshiruvini olib tashlash"
 
-#: src/Html/Generator.php:549
+#: src/Html/Generator.php:543
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "PHP-kod olib tashlash"
 
-#: src/Html/Generator.php:634
+#: src/Html/Generator.php:628
 #, fuzzy
 #| msgid "Edit mode"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Tahrirlash usuli"
 
-#: src/Html/Generator.php:748
+#: src/Html/Generator.php:742
 msgid "Static analysis:"
 msgstr ""
 
-#: src/Html/Generator.php:751
+#: src/Html/Generator.php:745
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -18851,50 +18851,50 @@ msgstr "So‘zlar bo‘sh joy (\" \") yordamida bo‘lingan."
 msgid "The trigger name cannot end with a space character."
 msgstr "So‘zlar bo‘sh joy (\" \") yordamida bo‘lingan."
 
-#: src/Import/Import.php:954
+#: src/Import/Import.php:947
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
 
-#: src/Import/Import.php:1171
+#: src/Import/Import.php:1164
 #, fuzzy, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
 msgstr "Ushbu jadvalga o‘tish"
 
-#: src/Import/Import.php:1179
+#: src/Import/Import.php:1172
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Faqat tuzilishi"
 
-#: src/Import/Import.php:1186 src/Import/Import.php:1235
+#: src/Import/Import.php:1179 src/Import/Import.php:1228
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "\"%s\" maydonida ma`lumot yo‘q"
 
-#: src/Import/Import.php:1197
+#: src/Import/Import.php:1190
 #, fuzzy, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
 msgstr "Ushbu ko‘rinishga o‘tish"
 
-#: src/Import/Import.php:1218
+#: src/Import/Import.php:1211
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Quyidagi tuzilishlar yo tuzildi yo o‘zgartirildi. Bu yerda siz quyidagi "
 "amallarni bajarishingiz mumkin:"
 
-#: src/Import/Import.php:1220
+#: src/Import/Import.php:1213
 #, fuzzy
 #| msgid "View a structure`s contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
 msgstr "Tuzilmani ko‘rish uchun uning nomi ustiga sichqoncha tugmasini bosing"
 
-#: src/Import/Import.php:1221
+#: src/Import/Import.php:1214
 #, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
@@ -18902,13 +18902,13 @@ msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Quyidagi tanlovlarni o‘zgartirish uchun, \"Tanlovlar\" bog‘iga bosing"
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1215
 #, fuzzy
 #| msgid "Edit its structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Tuzilmani o‘zgartirish uchun, \"Tuzilma\" bog‘iga kiring"
 
-#: src/Import/Import.php:1229
+#: src/Import/Import.php:1222
 #, fuzzy, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
@@ -18927,11 +18927,11 @@ msgstr "%1$s va %2$s indekslari bir xil, ulardan birini o‘chirish mumkin."
 msgid "web server upload directory:"
 msgstr "Yuklash katalogidan"
 
-#: src/InsertEdit.php:848 src/Sql.php:901
+#: src/InsertEdit.php:844 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "SQL-so‘rovni ko‘rsatish"
 
-#: src/InsertEdit.php:872 src/Sql.php:881
+#: src/InsertEdit.php:868 src/Sql.php:881
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Kiritilgan qator identifikatori: %1$d"
@@ -19053,7 +19053,7 @@ msgctxt "Create new column"
 msgid "New"
 msgstr ""
 
-#: src/Navigation/Nodes/NodeDatabaseContainer.php:46
+#: src/Navigation/Nodes/NodeDatabaseContainer.php:43
 msgctxt "Create new database"
 msgid "New"
 msgstr ""
@@ -19370,37 +19370,37 @@ msgstr ""
 msgid "Coalesce"
 msgstr "Yopish"
 
-#: src/Operations.php:887
+#: src/Operations.php:880
 msgid "Can't move table to same one!"
 msgstr "Jadvalni o‘z-o‘ziga ko‘chirib bo‘lmaydi!"
 
-#: src/Operations.php:889
+#: src/Operations.php:882
 msgid "Can't copy table to same one!"
 msgstr "Jadvalning o‘zidan o‘ziga nusxa ko‘chirish mumkin emas!"
 
-#: src/Operations.php:925
+#: src/Operations.php:918
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "\"%s\" jadvali \"%s\" ga ko‘chirildi."
 
-#: src/Operations.php:931
+#: src/Operations.php:924
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "\"%s\" jadvalidan \"%s\" ga nusxa ko‘chirildi."
 
-#: src/Operations.php:937
+#: src/Operations.php:930
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "\"%s\" jadvali \"%s\" ga ko‘chirildi."
 
-#: src/Operations.php:941
+#: src/Operations.php:934
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "\"%s\" jadvalidan \"%s\" ga nusxa ko‘chirildi."
 
-#: src/Operations.php:964
+#: src/Operations.php:957
 msgid "The table name is empty!"
 msgstr "Jadval nomi ko‘rsatilmagan!"
 
@@ -19548,25 +19548,25 @@ msgid "Data dump options"
 msgstr "Ma`lumotlar bazalarini ko‘rsatish afzalliklari"
 
 #: src/Plugins/Export/ExportHtmlword.php:167
-#: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2098
+#: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2092
 #: src/Plugins/Export/ExportTexytext.php:137
 msgid "Dumping data for table"
 msgstr "Jadval ma`lumotlarini damp qilish"
 
 #: src/Plugins/Export/ExportHtmlword.php:439
-#: src/Plugins/Export/ExportOdt.php:558 src/Plugins/Export/ExportSql.php:1834
+#: src/Plugins/Export/ExportOdt.php:556 src/Plugins/Export/ExportSql.php:1828
 #: src/Plugins/Export/ExportTexytext.php:401
 msgid "Table structure for table"
 msgstr "Jadval tuzilishi"
 
 #: src/Plugins/Export/ExportHtmlword.php:456
-#: src/Plugins/Export/ExportOdt.php:578 src/Plugins/Export/ExportSql.php:1900
+#: src/Plugins/Export/ExportOdt.php:576 src/Plugins/Export/ExportSql.php:1894
 #: src/Plugins/Export/ExportTexytext.php:414
 msgid "Structure for view"
 msgstr "Namoyish etish uchun tuzilma"
 
 #: src/Plugins/Export/ExportHtmlword.php:462
-#: src/Plugins/Export/ExportOdt.php:586 src/Plugins/Export/ExportSql.php:1943
+#: src/Plugins/Export/ExportOdt.php:584 src/Plugins/Export/ExportSql.php:1937
 #: src/Plugins/Export/ExportTexytext.php:418
 msgid "Stand-in structure for view"
 msgstr "Namoyish etish uchun tuzilma"
@@ -19659,7 +19659,7 @@ msgstr "Tuzilgan sana"
 msgid "PHP Version:"
 msgstr "PHP versiyasm"
 
-#: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1989
+#: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1983
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -19787,7 +19787,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "O‘girishlar parametrlari"
 
-#: src/Plugins/Export/ExportSql.php:418 src/Plugins/Export/ExportSql.php:2061
+#: src/Plugins/Export/ExportSql.php:418 src/Plugins/Export/ExportSql.php:2055
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -19853,8 +19853,8 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:595 src/Plugins/Export/ExportSql.php:1458
-#: src/Plugins/Export/ExportSql.php:1884
+#: src/Plugins/Export/ExportSql.php:595 src/Plugins/Export/ExportSql.php:1455
+#: src/Plugins/Export/ExportSql.php:1878
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
@@ -19882,96 +19882,96 @@ msgstr "\"%s\" maydonida ma`lumot yo‘q"
 msgid "Error reading structure for table %s:"
 msgstr "Jadval tuzilishi"
 
-#: src/Plugins/Export/ExportSql.php:1455
+#: src/Plugins/Export/ExportSql.php:1452
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1594
+#: src/Plugins/Export/ExportSql.php:1591
 msgid "Constraints for dumped tables"
 msgstr "Saqlangan jadvallarning tashqi kalitida cheklovlar"
 
-#: src/Plugins/Export/ExportSql.php:1595
+#: src/Plugins/Export/ExportSql.php:1592
 msgid "Constraints for table"
 msgstr "Jadvallarning tashqi kalitida cheklovlar"
 
-#: src/Plugins/Export/ExportSql.php:1621
+#: src/Plugins/Export/ExportSql.php:1618
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Saqlangan jadvallarning tashqi kalitida cheklovlar"
 
-#: src/Plugins/Export/ExportSql.php:1622
+#: src/Plugins/Export/ExportSql.php:1619
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Indexes for table"
 msgstr "Quyidagi jadval(lar)da qidirish:"
 
-#: src/Plugins/Export/ExportSql.php:1645
+#: src/Plugins/Export/ExportSql.php:1642
 #, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Nol qiymatlari uchun \"AUTO_INCREMENT\" ishlatmaslik"
 
-#: src/Plugins/Export/ExportSql.php:1646
+#: src/Plugins/Export/ExportSql.php:1643
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT qo‘shish"
 
-#: src/Plugins/Export/ExportSql.php:1700
+#: src/Plugins/Export/ExportSql.php:1694
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "JADVAL UCHUN MIME TURLARI"
 
-#: src/Plugins/Export/ExportSql.php:1730
+#: src/Plugins/Export/ExportSql.php:1724
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "Jadval aloqalari"
 
-#: src/Plugins/Export/ExportSql.php:1881
+#: src/Plugins/Export/ExportSql.php:1875
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1915
+#: src/Plugins/Export/ExportSql.php:1909
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "Namoyish etish uchun tuzilma"
 
-#: src/Plugins/Export/ExportSql.php:1946
+#: src/Plugins/Export/ExportSql.php:1940
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2002
+#: src/Plugins/Export/ExportSql.php:1996
 #, fuzzy, php-format
 #| msgid "Allows reading data."
 msgid "Error reading data for table %s:"
 msgstr "Ma`lumotlarni chaqirishga ruxsat beradi"
 
-#: src/Plugins/Export/ExportSql.php:2526
+#: src/Plugins/Export/ExportSql.php:2522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "Tuzish"
 
-#: src/Plugins/Export/ExportSql.php:2534
+#: src/Plugins/Export/ExportSql.php:2530
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Oxirgi yangilanish"
 
-#: src/Plugins/Export/ExportSql.php:2542
+#: src/Plugins/Export/ExportSql.php:2538
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
 msgstr "Oxirgi tekshiruv"
 
-#: src/Plugins/Export/ExportSql.php:2563
+#: src/Plugins/Export/ExportSql.php:2559
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -20688,8 +20688,8 @@ msgstr "Manba baza"
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:636
-#: src/Server/Privileges.php:3136
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:633
+#: src/Server/Privileges.php:3133
 #, fuzzy
 #| msgid "Host authentication order"
 msgid "Native MySQL authentication"
@@ -20724,66 +20724,66 @@ msgstr "Autentifikatsiya tartibi"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:276
+#: src/Server/Privileges.php:273
 msgid "No privileges."
 msgstr "Privilegiyalar yo‘q."
 
-#: src/Server/Privileges.php:282
+#: src/Server/Privileges.php:279
 msgid "Includes all privileges except GRANT."
 msgstr "GRANT dan tashqari barcha privilegiyalarni o‘z ichiga oladi."
 
-#: src/Server/Privileges.php:889
+#: src/Server/Privileges.php:886
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "\"%s\" foydalanuvchining paroli muvaffaqiyatli o‘zgartirildi."
 
-#: src/Server/Privileges.php:937
+#: src/Server/Privileges.php:934
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "\"%s\" foydalanuvchining privilegiyalari bekor qilindi."
 
-#: src/Server/Privileges.php:1275
+#: src/Server/Privileges.php:1272
 msgid "Revoke"
 msgstr "Bekor qilish"
 
-#: src/Server/Privileges.php:1880
+#: src/Server/Privileges.php:1877
 msgid "No users selected for deleting!"
 msgstr "O‘chirish lozim bo‘lgan foydalanuvchilar tanlanmagan!"
 
-#: src/Server/Privileges.php:1883
+#: src/Server/Privileges.php:1880
 msgid "Reloading the privileges"
 msgstr "Privilegiyalar qayta yuklanmoqda"
 
-#: src/Server/Privileges.php:1908
+#: src/Server/Privileges.php:1905
 msgid "The selected users have been deleted successfully."
 msgstr "Belgilangan foydalanuvchilar muvaffaqiyatli o‘chirildi."
 
-#: src/Server/Privileges.php:1982
+#: src/Server/Privileges.php:1979
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "\"%s\" uchun privilegiyalar o‘zgartirildi."
 
-#: src/Server/Privileges.php:2132
+#: src/Server/Privileges.php:2129
 #, php-format
 msgid "Deleting %s"
 msgstr "\"%s\" o‘chirilmoqda"
 
-#: src/Server/Privileges.php:2162
+#: src/Server/Privileges.php:2159
 msgid "The privileges were reloaded successfully."
 msgstr "Privilegiyalar muvaffaqiyatli qayta yuklandi."
 
-#: src/Server/Privileges.php:2228
+#: src/Server/Privileges.php:2225
 #, php-format
 msgid "The user %s already exists!"
 msgstr "\"%s\" nomli foydalanuvchi mavjud!"
 
-#: src/Server/Privileges.php:2381
+#: src/Server/Privileges.php:2378
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Privilegiyalar"
 
-#: src/Server/Privileges.php:2470
+#: src/Server/Privileges.php:2467
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -20801,7 +20801,7 @@ msgstr ""
 "ma`lumotlar server tomonidan ishlatilayotgan privilegiyalardan farq qilishi "
 "mumkin. Bu holda %sprivilegiyalarni qayta yuklash%s kerak."
 
-#: src/Server/Privileges.php:2486
+#: src/Server/Privileges.php:2483
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -20820,11 +20820,11 @@ msgstr ""
 "ma`lumotlar server tomonidan ishlatilayotgan privilegiyalardan farq qilishi "
 "mumkin. Bu holda %sprivilegiyalarni qayta yuklash%s kerak."
 
-#: src/Server/Privileges.php:2774
+#: src/Server/Privileges.php:2771
 msgid "You have added a new user."
 msgstr "Siz yangi foydalanuvchi qo‘shdingiz."
 
-#: src/Server/Privileges.php:3228
+#: src/Server/Privileges.php:3225
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -20936,14 +20936,14 @@ msgstr ""
 msgid "Showing as PHP code"
 msgstr "PHP-kod sifatida ko‘rsatish"
 
-#: src/Sql.php:1254
+#: src/Sql.php:1247
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: src/Sql.php:1268
+#: src/Sql.php:1261
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -21472,38 +21472,42 @@ msgid ""
 msgstr ""
 
 #: src/Types.php:290
+msgid "Intended for storage of IPv4 addresses"
+msgstr ""
+
+#: src/Types.php:291
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: src/Types.php:293
+#: src/Types.php:294
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr ""
 
-#: src/Types.php:294
+#: src/Types.php:295
 msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
 
-#: src/Types.php:296
+#: src/Types.php:297
 msgid "Intended for storage of XML data"
 msgstr ""
 
-#: src/Types.php:613
+#: src/Types.php:615
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr ""
 
-#: src/Types.php:631
+#: src/Types.php:633
 #, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Yangi indeks tuzish"
 
-#: src/Types.php:661
+#: src/Types.php:667
 #, fuzzy
 #| msgid "Log file count"
 msgctxt "spatial types"

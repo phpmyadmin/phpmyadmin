@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-09 00:23+0000\n"
+"POT-Creation-Date: 2026-08-16 00:17+0000\n"
 "PO-Revision-Date: 2026-07-11 09:01+0000\n"
 "Last-Translator: Adam Havránek <adamhavra@seznam.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -204,7 +204,7 @@ msgstr "po %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:1989
+#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:1983
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Žádná"
@@ -278,7 +278,7 @@ msgstr "sloupce"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:312
-#: src/Controllers/Server/PrivilegesController.php:328
+#: src/Controllers/Server/PrivilegesController.php:321
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
 msgid "Go"
@@ -481,8 +481,8 @@ msgstr "Jedná se o cizí klíč."
 #: src/Navigation/Nodes/NodeColumn.php:33
 #: src/Plugins/Export/ExportHtmlword.php:223
 #: src/Plugins/Export/ExportHtmlword.php:294
-#: src/Plugins/Export/ExportLatex.php:462 src/Plugins/Export/ExportOdt.php:321
-#: src/Plugins/Export/ExportOdt.php:392
+#: src/Plugins/Export/ExportLatex.php:462 src/Plugins/Export/ExportOdt.php:319
+#: src/Plugins/Export/ExportOdt.php:390
 #: src/Plugins/Export/ExportTexytext.php:240
 #: src/Plugins/Export/ExportTexytext.php:300
 #: src/Plugins/Export/Helpers/Pdf.php:470
@@ -584,7 +584,7 @@ msgstr "Skupina uzlů"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:695
-#: src/Import/Import.php:1167 src/Menu.php:214 src/Menu.php:322
+#: src/Import/Import.php:1160 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1394
@@ -604,7 +604,7 @@ msgstr "Struktura"
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
 #: src/Plugins/Export/ExportHtmlword.php:394
-#: src/Plugins/Export/ExportOdt.php:500
+#: src/Plugins/Export/ExportOdt.php:498
 #: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:312
 msgid "Name"
@@ -633,8 +633,8 @@ msgstr "Název"
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:261
 #: src/Plugins/Export/ExportHtmlword.php:226
 #: src/Plugins/Export/ExportHtmlword.php:297
-#: src/Plugins/Export/ExportLatex.php:463 src/Plugins/Export/ExportOdt.php:324
-#: src/Plugins/Export/ExportOdt.php:395
+#: src/Plugins/Export/ExportLatex.php:463 src/Plugins/Export/ExportOdt.php:322
+#: src/Plugins/Export/ExportOdt.php:393
 #: src/Plugins/Export/ExportTexytext.php:241
 #: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:472
@@ -672,8 +672,8 @@ msgstr ""
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:12
 #: src/Plugins/Export/ExportHtmlword.php:232
 #: src/Plugins/Export/ExportHtmlword.php:303
-#: src/Plugins/Export/ExportLatex.php:465 src/Plugins/Export/ExportOdt.php:330
-#: src/Plugins/Export/ExportOdt.php:401
+#: src/Plugins/Export/ExportLatex.php:465 src/Plugins/Export/ExportOdt.php:328
+#: src/Plugins/Export/ExportOdt.php:399
 #: src/Plugins/Export/ExportTexytext.php:243
 #: src/Plugins/Export/ExportTexytext.php:303
 #: src/Plugins/Export/Helpers/Pdf.php:476
@@ -737,8 +737,8 @@ msgstr "Vlastnosti"
 #: resources/templates/table/zoom_search/result_form.twig:34
 #: src/Plugins/Export/ExportHtmlword.php:229
 #: src/Plugins/Export/ExportHtmlword.php:300
-#: src/Plugins/Export/ExportLatex.php:464 src/Plugins/Export/ExportOdt.php:327
-#: src/Plugins/Export/ExportOdt.php:398
+#: src/Plugins/Export/ExportLatex.php:464 src/Plugins/Export/ExportOdt.php:325
+#: src/Plugins/Export/ExportOdt.php:396
 #: src/Plugins/Export/ExportTexytext.php:242
 #: src/Plugins/Export/ExportTexytext.php:302
 #: src/Plugins/Export/Helpers/Pdf.php:474
@@ -763,7 +763,7 @@ msgstr "Upravit oprávnění"
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:658 src/Config/Descriptions.php:673
 #: src/Config/Descriptions.php:709 src/Plugins/Export/ExportHtmlword.php:313
-#: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:411
+#: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:409
 #: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:493
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
@@ -783,7 +783,7 @@ msgstr "Přesunout sloupec"
 #: resources/templates/database/data_dictionary/index.twig:32
 #: src/Config/Descriptions.php:662 src/Config/Descriptions.php:674
 #: src/Config/Descriptions.php:712 src/Plugins/Export/ExportHtmlword.php:320
-#: src/Plugins/Export/ExportOdt.php:418
+#: src/Plugins/Export/ExportOdt.php:416
 #: src/Plugins/Export/ExportTexytext.php:314
 #: src/Plugins/Export/Helpers/Pdf.php:501
 msgid "Media type"
@@ -830,7 +830,7 @@ msgstr "Parametry vstupní transformace"
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
 #: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:292
+#: src/Controllers/Table/ReplaceController.php:289
 msgid "No change"
 msgstr "Žádná změna"
 
@@ -852,7 +852,7 @@ msgstr "Původní"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:685 src/Html/MySQLDocumentation.php:51
+#: src/Html/Generator.php:679 src/Html/MySQLDocumentation.php:51
 #: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Dokumentace"
@@ -920,7 +920,7 @@ msgstr "Vypnuto"
 #: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:474
 #: src/Plugins/Export/ExportHtmlword.php:515
-#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:625
+#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "Yes"
@@ -956,7 +956,7 @@ msgstr "Ano"
 #: src/Controllers/JavaScriptMessagesController.php:344
 #: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:448
 #: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:515
-#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:625
+#: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
 msgid "No"
@@ -1022,8 +1022,8 @@ msgstr "Znovu"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:380
-#: src/Display/Results.php:1880 src/Html/Generator.php:533
-#: src/Html/Generator.php:790
+#: src/Display/Results.php:1872 src/Html/Generator.php:527
+#: src/Html/Generator.php:784
 msgid "Edit"
 msgstr "Upravit"
 
@@ -1041,7 +1041,7 @@ msgstr "Upravit"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:382
-#: src/Display/Results.php:2418 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2410 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "Odstranit"
 
@@ -1062,8 +1062,8 @@ msgstr "Odstranit"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:932 src/Plugins/Export/ExportHtmlword.php:145
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1564
-#: src/Server/Privileges.php:1566 src/Server/Status/Processes.php:103
+#: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1561
+#: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:103
 msgid "Database"
 msgstr "Databáze"
 
@@ -1090,7 +1090,7 @@ msgstr "Historie"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
-#: src/Import/Import.php:1168 src/Import/Import.php:1226
+#: src/Import/Import.php:1161 src/Import/Import.php:1219
 msgid "Options"
 msgstr "Nastavení"
 
@@ -1119,7 +1119,7 @@ msgstr "Vysvětlit"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:620
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:614
 msgid "Profiling"
 msgstr "Profilování"
 
@@ -1201,7 +1201,7 @@ msgstr "Doba běhu:"
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:927 src/Export/Export.php:697
-#: src/Html/Generator.php:589
+#: src/Html/Generator.php:583
 msgid "Refresh"
 msgstr "Obnovit"
 
@@ -1418,7 +1418,7 @@ msgstr "Vytisknout"
 
 #: resources/templates/database/data_dictionary/index.twig:28
 #: src/Plugins/Export/ExportHtmlword.php:307
-#: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:405
+#: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:403
 #: src/Plugins/Export/ExportTexytext.php:305
 #: src/Plugins/Export/Helpers/Pdf.php:485
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
@@ -1794,7 +1794,7 @@ msgstr "Konec"
 #: resources/templates/database/routines/editor_form.twig:118
 #: resources/templates/triggers/editor_form.twig:62
 #: src/Plugins/Export/ExportHtmlword.php:397
-#: src/Plugins/Export/ExportOdt.php:509
+#: src/Plugins/Export/ExportOdt.php:507
 #: src/Plugins/Export/ExportTexytext.php:372
 #: src/Plugins/Export/Helpers/Pdf.php:318
 msgid "Definition"
@@ -1886,7 +1886,7 @@ msgstr "Zaškrtnout vše"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
-#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1279
+#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
 #: src/Util.php:1383 src/Util.php:1398 src/Util.php:1415
 msgid "Export"
 msgstr "Export"
@@ -2081,8 +2081,8 @@ msgstr "Řadit"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1395
-#: src/Display/Results.php:1401 src/Util.php:1651 src/Util.php:1668
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1390
+#: src/Display/Results.php:1396 src/Util.php:1651 src/Util.php:1668
 msgid "Ascending"
 msgstr "Vzestupně"
 
@@ -2093,8 +2093,8 @@ msgstr "Vzestupně"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1390
-#: src/Display/Results.php:1406 src/Util.php:1656 src/Util.php:1673
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1385
+#: src/Display/Results.php:1401 src/Util.php:1656 src/Util.php:1673
 msgid "Descending"
 msgstr "Sestupně"
 
@@ -2134,7 +2134,7 @@ msgid "Copy query"
 msgstr "Kopírovat dotaz"
 
 #: resources/templates/database/multi_table_query/form.twig:176
-#: src/Html/Generator.php:558
+#: src/Html/Generator.php:552
 msgid "Submit query"
 msgstr "Provést dotaz"
 
@@ -2282,7 +2282,7 @@ msgstr "Název počítače"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
-#: src/Controllers/Server/PrivilegesController.php:455 src/Menu.php:257
+#: src/Controllers/Server/PrivilegesController.php:448 src/Menu.php:257
 #: src/Menu.php:369 src/Util.php:1401 src/Util.php:1417
 msgid "Privileges"
 msgstr "Oprávnění"
@@ -2326,13 +2326,13 @@ msgstr "rutina"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1271
+#: src/Server/Privileges.php:1268
 msgid "Edit privileges"
 msgstr "Upravit oprávnění"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2055
+#: src/Server/Privileges.php:2052
 msgid "No user found."
 msgstr "Nebyl nalezen žádný uživatel."
 
@@ -2352,7 +2352,7 @@ msgstr "Zaškrtnuté:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1215
+#: src/Server/Privileges.php:1212
 msgid "Not enough privilege to view users."
 msgstr "Nedostatečná oprávnění k zobrazení uživatelů."
 
@@ -2802,8 +2802,8 @@ msgstr "Zobrazuji SQL dotaz pro vytvoření"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:935
-#: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1570
-#: src/Server/Privileges.php:1572
+#: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1569
 msgid "Table"
 msgstr "Tabulka"
 
@@ -3057,12 +3057,12 @@ msgid "Extra options"
 msgstr "Další možnosti"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1116
+#: src/Display/Results.php:1111
 msgid "Partial texts"
 msgstr "Zkrácené texty"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1120
+#: src/Display/Results.php:1115
 msgid "Full texts"
 msgstr "Celé texty"
 
@@ -3103,7 +3103,7 @@ msgstr "Binární (WKB)"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:468
-#: src/Display/Results.php:1881 src/Html/Generator.php:83
+#: src/Display/Results.php:1873 src/Html/Generator.php:83
 msgid "Copy"
 msgstr "Kopírovat"
 
@@ -3144,7 +3144,7 @@ msgstr "Převést na Kanu"
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:741 src/Import/Import.php:122 src/InsertEdit.php:425
+#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:425
 #: src/Message.php:138
 msgid "Error"
 msgstr "Chyba"
@@ -3170,7 +3170,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Prohlédněte si informace v hlášení:"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:420
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:418
 msgid "Automatically send report next time"
 msgstr "Příště odeslat hlášení automaticky"
 
@@ -3224,7 +3224,7 @@ msgstr "Aktualizovat"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:135
-#: src/Html/Generator.php:765
+#: src/Html/Generator.php:759
 msgid "SQL query:"
 msgstr "SQL dotaz:"
 
@@ -3636,7 +3636,7 @@ msgstr "Zvolit"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:412
-#: src/Export/Export.php:739 src/Html/Generator.php:849
+#: src/Export/Export.php:739 src/Html/Generator.php:843
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Zpět"
@@ -4780,7 +4780,7 @@ msgstr "Uživatel"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
 #: src/Controllers/JavaScriptMessagesController.php:364
-#: src/Server/Privileges.php:1576 src/Server/Privileges.php:1578
+#: src/Server/Privileges.php:1573 src/Server/Privileges.php:1575
 msgid "Routine"
 msgstr "Rutina"
 
@@ -4793,7 +4793,7 @@ msgstr ""
 "Poznámka: Pokoušíte se upravit práva uživatele, se kterým jste přihlášeni."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1577
+#: src/Server/Privileges.php:1574
 msgid "Routine-specific privileges"
 msgstr "Oprávnění pro jednotlivé rutiny"
 
@@ -4931,7 +4931,7 @@ msgstr "Upravit skupinu"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1571
+#: src/Server/Privileges.php:1568
 msgid "Table-specific privileges"
 msgstr "Oprávnění pro jednotlivé tabulky"
 
@@ -4960,7 +4960,7 @@ msgstr "Přidat oprávnění k následující rutině:"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:316
 msgid "Allows reading data."
 msgstr "Umožňuje vybírat data."
 
@@ -4987,20 +4987,20 @@ msgstr "Žádná"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:317
 msgid "Allows inserting and replacing data."
 msgstr "Umožňuje vkládat a přepisovat data."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:321
+#: src/Server/Privileges.php:318
 msgid "Allows changing data."
 msgstr "Umožňuje měnit data."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:329
+#: src/Server/Privileges.php:326
 msgid "Has no effect in this MySQL version."
 msgstr "Nemá žádný vliv v této verzi MySQL."
 
@@ -5008,7 +5008,7 @@ msgstr "Nemá žádný vliv v této verzi MySQL."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:299 src/Server/Privileges.php:322
+#: src/Server/Privileges.php:296 src/Server/Privileges.php:319
 msgid "Allows deleting data."
 msgstr "Umožňuje mazat data."
 
@@ -5016,7 +5016,7 @@ msgstr "Umožňuje mazat data."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:300
+#: src/Server/Privileges.php:297
 msgid "Allows creating new tables."
 msgstr "Umožňuje vytvářet nové tabulky."
 
@@ -5024,7 +5024,7 @@ msgstr "Umožňuje vytvářet nové tabulky."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:301
+#: src/Server/Privileges.php:298
 msgid "Allows dropping tables."
 msgstr "Umožňuje odstranit tabulky."
 
@@ -5043,7 +5043,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:302 src/Server/Privileges.php:330
+#: src/Server/Privileges.php:299 src/Server/Privileges.php:327
 msgid "Allows creating and dropping indexes."
 msgstr "Umožňuje vytvářet a odstraňovat indexy."
 
@@ -5051,7 +5051,7 @@ msgstr "Umožňuje vytvářet a odstraňovat indexy."
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:303 src/Server/Privileges.php:331
+#: src/Server/Privileges.php:300 src/Server/Privileges.php:328
 msgid "Allows altering the structure of existing tables."
 msgstr "Umožňuje měnit strukturu existujících tabulek."
 
@@ -5061,8 +5061,8 @@ msgstr "Umožňuje měnit strukturu existujících tabulek."
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:304 src/Server/Privileges.php:350
-#: src/Server/Privileges.php:354
+#: src/Server/Privileges.php:301 src/Server/Privileges.php:347
+#: src/Server/Privileges.php:351
 msgid "Allows creating new views."
 msgstr "Umožňuje vytvářet nové pohledy."
 
@@ -5070,8 +5070,8 @@ msgstr "Umožňuje vytvářet nové pohledy."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:305 src/Server/Privileges.php:355
-#: src/Server/Privileges.php:357
+#: src/Server/Privileges.php:302 src/Server/Privileges.php:352
+#: src/Server/Privileges.php:354
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Umožňuje spuštění dotazu SHOW CREATE VIEW."
 
@@ -5079,14 +5079,14 @@ msgstr "Umožňuje spuštění dotazu SHOW CREATE VIEW."
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:306 src/Server/Privileges.php:352
+#: src/Server/Privileges.php:303 src/Server/Privileges.php:349
 msgid "Allows creating and dropping triggers."
 msgstr "Umožňuje vytváření a mazání triggerů."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:363 src/Server/Privileges.php:372
+#: src/Server/Privileges.php:360 src/Server/Privileges.php:369
 msgid "Allows deleting historical rows."
 msgstr "Umožňuje mazání historických řádků."
 
@@ -5100,55 +5100,55 @@ msgid "Global privileges"
 msgstr "Globální oprávnění"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1565
+#: src/Server/Privileges.php:1562
 msgid "Database-specific privileges"
 msgstr "Oprávnění pro jednotlivé databáze"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:325
 msgid "Allows importing data from and exporting data into files."
 msgstr "Umožňuje importovat a exportovat data z/do souborů na serveru."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:320
 msgid "Allows creating new databases and tables."
 msgstr "Umožňuje vytvářet nové databáze a tabulky."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:321
 msgid "Allows dropping databases and tables."
 msgstr "Umožňuje odstranit databáze a tabulky."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:342
+#: src/Server/Privileges.php:339
 msgid "Allows creating temporary tables."
 msgstr "Umožňuje vytvářet dočasné tabulky."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:374
+#: src/Server/Privileges.php:371
 msgid "Allows creating stored routines."
 msgstr "Umožňuje vytvářet uložené procedury."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:375
+#: src/Server/Privileges.php:372
 msgid "Allows altering and dropping stored routines."
 msgstr "Umožňuje měnit a rušit uložené procedury."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:377
+#: src/Server/Privileges.php:374
 msgid "Allows executing stored routines."
 msgstr "Umožňuje spouštět uložené procedury."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:351
+#: src/Server/Privileges.php:348
 msgid "Allows to set up events for the event scheduler."
 msgstr "Umožňuje plánovat úlohy pomocí plánovače."
 
@@ -5166,7 +5166,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:337
+#: src/Server/Privileges.php:334
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5178,32 +5178,32 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:327
+#: src/Server/Privileges.php:324
 msgid "Allows viewing processes of all users."
 msgstr "Umožňuje prohlížet procesy všech uživatelů."
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:325
+#: src/Server/Privileges.php:322
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Umožňuje znovu načíst nastavení serveru a vyprázdnit mezipaměti serveru."
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:326
+#: src/Server/Privileges.php:323
 msgid "Allows shutting down the server."
 msgstr "Umožňuje vypnout server."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:332
+#: src/Server/Privileges.php:329
 msgid "Gives access to the complete list of databases."
 msgstr "Umožňuje přístup k úplnému seznamu databází."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:343
+#: src/Server/Privileges.php:340
 msgid "Allows locking tables for the current thread."
 msgstr "Umožňuje zamknout tabulku pro aktuální vlákno."
 
@@ -5221,19 +5221,19 @@ msgstr "V této verzi MySQL se nepoužívá."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:348
+#: src/Server/Privileges.php:345
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr "Umožní uživateli zjistit, kde je replikovaný / primární server."
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:344
+#: src/Server/Privileges.php:341
 msgid "Needed for the replication replicas."
 msgstr "Potřebné pro replikaci replikovaných serverů."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:376
+#: src/Server/Privileges.php:373
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Umožňuje vytvářet, rušit a přejmenovávat účty uživatelů."
 
@@ -6058,7 +6058,7 @@ msgid "Start auto refresh"
 msgstr "Zapnout automatické obnovování"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2436
+#: src/Display/Results.php:2428
 msgid "Kill"
 msgstr "Ukončit"
 
@@ -6231,7 +6231,7 @@ msgid "No users were found belonging to this user group."
 msgstr "V této skupině nebyli nalezeni žádní uživatelé."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:458
+#: src/Controllers/Server/PrivilegesController.php:451
 #: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr "Uživatel"
@@ -6387,7 +6387,7 @@ msgstr "Stav"
 #: resources/templates/triggers/list.twig:51
 #: src/Controllers/JavaScriptMessagesController.php:277
 #: src/Plugins/Export/ExportHtmlword.php:395
-#: src/Plugins/Export/ExportOdt.php:503
+#: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
 #: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:105
 msgid "Time"
@@ -6435,7 +6435,7 @@ msgstr "Výsečový graf s výsledky profilování."
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1033 src/Display/Results.php:2972
+#: src/Database/Routines.php:1033 src/Display/Results.php:2964
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Váš SQL-dotaz byl úspěšně vykonán."
@@ -6743,7 +6743,7 @@ msgstr "Uspořádejte přetažením"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1433
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1421
 msgid "Ignore"
 msgstr "Ignorovat"
 
@@ -7394,7 +7394,7 @@ msgstr "Spouštění"
 #: src/Controllers/JavaScriptMessagesController.php:366
 #: src/Navigation/Nodes/NodeEvent.php:27
 #: src/Plugins/Export/ExportHtmlword.php:396
-#: src/Plugins/Export/ExportOdt.php:506
+#: src/Plugins/Export/ExportOdt.php:504
 #: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:316
 msgid "Event"
@@ -7410,8 +7410,8 @@ msgstr "Exportovat trigger %s"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:24
 #: src/Navigation/Nodes/NodeTriggerContainer.php:26
 #: src/Plugins/Export/ExportHtmlword.php:448
-#: src/Plugins/Export/ExportOdt.php:568 src/Plugins/Export/ExportPdf.php:173
-#: src/Plugins/Export/ExportSql.php:1852
+#: src/Plugins/Export/ExportOdt.php:566 src/Plugins/Export/ExportPdf.php:173
+#: src/Plugins/Export/ExportSql.php:1846
 #: src/Plugins/Export/ExportTexytext.php:408
 #: src/Plugins/Export/ExportXml.php:112 src/Util.php:1404 src/Util.php:1420
 msgid "Triggers"
@@ -11454,11 +11454,11 @@ msgstr "Zobrazit statistiky"
 msgid "Skip locked tables"
 msgstr "Přeskočit zamčené tabulky"
 
-#: src/Config/Descriptions.php:926 src/Html/Generator.php:498
+#: src/Config/Descriptions.php:926 src/Html/Generator.php:492
 msgid "Explain SQL"
 msgstr "Vysvětlit SQL"
 
-#: src/Config/Descriptions.php:928 src/Html/Generator.php:569
+#: src/Config/Descriptions.php:928 src/Html/Generator.php:563
 msgid "Create PHP code"
 msgstr "Vytvořit PHP kód"
 
@@ -12000,13 +12000,13 @@ msgstr "Stránka s názvem \"%s\" již existuje. Přejmenuje ji na něco jiného
 #: src/Controllers/Database/TrackingController.php:60
 #: src/Controllers/JavaScriptMessagesController.php:331
 #: src/Controllers/Operations/Database/CollationController.php:54
-#: src/Controllers/Operations/DatabaseController.php:234
-#: src/Controllers/Operations/DatabaseController.php:239
+#: src/Controllers/Operations/DatabaseController.php:232
+#: src/Controllers/Operations/DatabaseController.php:237
 #: src/Controllers/Operations/TableController.php:86
 #: src/Controllers/Operations/TableController.php:91
 #: src/Controllers/Operations/ViewController.php:61
 #: src/Controllers/Operations/ViewController.php:66
-#: src/Controllers/Server/Databases/DestroyController.php:65
+#: src/Controllers/Server/Databases/DestroyController.php:62
 #: src/Controllers/Table/AddFieldController.php:162
 #: src/Controllers/Table/AddFieldController.php:167
 #: src/Controllers/Table/ChangeController.php:70
@@ -12221,7 +12221,7 @@ msgid "Success!"
 msgstr "Úspěch!"
 
 #: src/Controllers/Database/StructureController.php:568
-#: src/Display/Results.php:3258
+#: src/Display/Results.php:3245
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12300,7 +12300,7 @@ msgstr ""
 "Odhlásil jste se z jednoho serveru. Pro úplné odhlášení z phpMyAdminu se "
 "musíte odhlásit ze všech serverů."
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:194
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12309,14 +12309,14 @@ msgstr ""
 "Úložiště nastavení phpMyAdmina není plně dostupné, některé z rozšířených "
 "funkcí phpMyAdmina nelze používat. %sZjistěte proč%s. "
 
-#: src/Controllers/HomeController.php:203
+#: src/Controllers/HomeController.php:200
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Nebo alternativně jděte do oddílu 'Operace' u jakékoli databáze, kde je "
 "možné rovněž toto nastavit."
 
-#: src/Controllers/HomeController.php:267
+#: src/Controllers/HomeController.php:264
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12328,7 +12328,7 @@ msgstr ""
 "a]) je menší než platnost cookie nastavená v phpMyAdminovi. Z tohoto důvodu "
 "bude vaše přihlášení neplatné dříve, než jak je nastaveno v phpMyAdminovi."
 
-#: src/Controllers/HomeController.php:287
+#: src/Controllers/HomeController.php:284
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12337,7 +12337,7 @@ msgstr ""
 "phpMyAdminovi. Z tohoto důvodu vaše přihlášení vyprší dříve než je nastavené "
 "v phpMyAdminovi."
 
-#: src/Controllers/HomeController.php:306
+#: src/Controllers/HomeController.php:303
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12347,7 +12347,7 @@ msgstr ""
 "snadno napadnutelný; tuto slabinu zabezpečení byste měli skutečně napravit "
 "změnou hesla pro správce 'pma'."
 
-#: src/Controllers/HomeController.php:325
+#: src/Controllers/HomeController.php:322
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12357,7 +12357,7 @@ msgstr ""
 "Byl pro Vás automaticky vygenerován dočasný klíč. Prosím, upravte si ho v "
 "[doc@cfg_blowfish_secret]dokumentaci[/doc]."
 
-#: src/Controllers/HomeController.php:335
+#: src/Controllers/HomeController.php:332
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12368,7 +12368,7 @@ msgstr ""
 "potřeba. Měl by být dlouhý pouze %d bytů. Prosím, opravte si ho v "
 "[doc@cfg_blowfish_secret]dokumentaci[/doc]."
 
-#: src/Controllers/HomeController.php:355
+#: src/Controllers/HomeController.php:352
 msgid ""
 "The configuration file needs a valid key for query encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12378,7 +12378,7 @@ msgstr ""
 "automaticky vygenerován dočasný klíč. Podrobnosti najdete v "
 "[doc@cfg_URLQueryEncryptionSecretKey]dokumentaci[/doc]."
 
-#: src/Controllers/HomeController.php:365
+#: src/Controllers/HomeController.php:362
 #, php-format
 msgid ""
 "The query encryption key in the configuration file is longer than necessary. "
@@ -12389,7 +12389,7 @@ msgstr ""
 "Měl by mít délku pouze %d bajtů. Podívejte se prosím do "
 "[doc@cfg_URLQueryEncryptionSecretKey]dokumentace[/doc]."
 
-#: src/Controllers/HomeController.php:383
+#: src/Controllers/HomeController.php:380
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12401,7 +12401,7 @@ msgstr ""
 "phpMyAdmin nastaven. Pokud tak neučiníte, může být váš server ohrožen cizími "
 "lidmi přistupujícími k vašemu nastavení."
 
-#: src/Controllers/HomeController.php:398
+#: src/Controllers/HomeController.php:395
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12410,7 +12410,7 @@ msgstr ""
 "Adresář $cfg['TempDir'] (%s) není dostupný. phpMyAdmin nemůže kešovat "
 "šablony a bude kvůli tomu pomalý."
 
-#: src/Controllers/HomeController.php:415
+#: src/Controllers/HomeController.php:412
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
@@ -12420,7 +12420,7 @@ msgstr ""
 "nebude fungovat správně. Možné problémy najdete v [doc@faq1-46]dokumentaci[/"
 "doc]."
 
-#: src/Controllers/HomeController.php:468
+#: src/Controllers/HomeController.php:465
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12430,7 +12430,7 @@ msgstr ""
 "vícebajtovou znakovou sadu. Bez rozšíření mbstring neumí phpMyAdmin správně "
 "rozdělovat řetězce a proto to může mít nečekané následky."
 
-#: src/Controllers/HomeController.php:486
+#: src/Controllers/HomeController.php:483
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12455,17 +12455,17 @@ msgstr "Uveden chybný parametr formátu"
 msgid "Sorry an unexpected error happened!"
 msgstr "Omlouváme se, došlo k neočekávané chybě!"
 
-#: src/Controllers/Import/ImportController.php:300
-#: src/Controllers/Import/ImportController.php:511
+#: src/Controllers/Import/ImportController.php:298
+#: src/Controllers/Import/ImportController.php:509
 msgid "Showing bookmark"
 msgstr "Zobrazuji oblíbený dotaz"
 
-#: src/Controllers/Import/ImportController.php:320
-#: src/Controllers/Import/ImportController.php:507
+#: src/Controllers/Import/ImportController.php:318
+#: src/Controllers/Import/ImportController.php:505
 msgid "The bookmark has been deleted."
 msgstr "Položka byla smazána z oblíbených."
 
-#: src/Controllers/Import/ImportController.php:429
+#: src/Controllers/Import/ImportController.php:427
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12475,7 +12475,7 @@ msgstr ""
 "nebo jeho velikost překročila maximální velikost povolenou v nastavení PHP. "
 "Viz [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:519
+#: src/Controllers/Import/ImportController.php:517
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -12483,7 +12483,7 @@ msgstr[0] "Import byl úspěšně dokončen, byl proveden %d dotaz."
 msgstr[1] "Import byl úspěšně dokončen, byly provedeny %d dotazy."
 msgstr[2] "Import byl úspěšně dokončen, bylo provedeno %d dotazů."
 
-#: src/Controllers/Import/ImportController.php:556
+#: src/Controllers/Import/ImportController.php:554
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12492,7 +12492,7 @@ msgstr ""
 "Limit pro běh importu vypršel, prosím %sodešlete formulář%s znovu se stejným "
 "souborem a import bude pokračovat."
 
-#: src/Controllers/Import/ImportController.php:566
+#: src/Controllers/Import/ImportController.php:564
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12501,12 +12501,12 @@ msgstr ""
 "znamená, že phpMyAdmin nebude schopen načíst tento soubor, pokud nezvýšíte "
 "časové limity v PHP."
 
-#: src/Controllers/Import/ImportController.php:637
+#: src/Controllers/Import/ImportController.php:635
 #: src/Controllers/Sql/SqlController.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Příkaz „DROP DATABASE“ je vypnutý."
 
-#: src/Controllers/Import/ImportController.php:700 src/Sql.php:918
+#: src/Controllers/Import/ImportController.php:698 src/Sql.php:918
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK nastal]"
 
@@ -12740,12 +12740,12 @@ msgid "The user name is empty!"
 msgstr "Jméno uživatele je prázdné!"
 
 #: src/Controllers/JavaScriptMessagesController.php:147
-#: src/Server/Privileges.php:764 src/UserPassword.php:41
+#: src/Server/Privileges.php:761 src/UserPassword.php:41
 msgid "The password is empty!"
 msgstr "Heslo je prázdné!"
 
 #: src/Controllers/JavaScriptMessagesController.php:148
-#: src/Server/Privileges.php:762 src/UserPassword.php:45
+#: src/Server/Privileges.php:759 src/UserPassword.php:45
 msgid "The passwords aren't the same!"
 msgstr "Hesla nejsou stejná!"
 
@@ -13824,7 +13824,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Prosím podívejte se na spodní část okna."
 
 #: src/Controllers/JavaScriptMessagesController.php:621
-#: src/Error/ErrorHandler.php:431
+#: src/Error/ErrorHandler.php:429
 msgid "Ignore All"
 msgstr "Ignorovat vše"
 
@@ -14397,7 +14397,7 @@ msgid "No such column"
 msgstr "Žádný ze sloupců"
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:230 src/Types.php:659
+#: src/Normalization.php:230 src/Types.php:665
 msgctxt "string types"
 msgid "String"
 msgstr "Řetězce"
@@ -14407,23 +14407,23 @@ msgstr "Řetězce"
 msgid "No collation provided."
 msgstr "Není uvedeno kódování."
 
-#: src/Controllers/Operations/DatabaseController.php:84
+#: src/Controllers/Operations/DatabaseController.php:82
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Nelze vytvořit kopii databáze se stejným názvem. Změňte název a zkuste to "
 "znovu."
 
-#: src/Controllers/Operations/DatabaseController.php:164
+#: src/Controllers/Operations/DatabaseController.php:162
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Databáze %1$s byla přejmenována na %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:178
+#: src/Controllers/Operations/DatabaseController.php:176
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Databáze %1$s byla zkopírována do %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:277
+#: src/Controllers/Operations/DatabaseController.php:273
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14461,7 +14461,7 @@ msgstr "Chybějící parametr:"
 msgid "Database %1$s has been created."
 msgstr "Byla vytvořena databáze %1$s."
 
-#: src/Controllers/Server/Databases/DestroyController.php:88
+#: src/Controllers/Server/Databases/DestroyController.php:85
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -15194,7 +15194,7 @@ msgstr "Počet vláken, která nespí."
 msgid "User groups management is not enabled."
 msgstr "Správa skupin uživatelů není povolena."
 
-#: src/Controllers/Server/Variables/SetVariableController.php:83
+#: src/Controllers/Server/Variables/SetVariableController.php:81
 msgid "Setting variable failed"
 msgstr "Nastavení proměnné selhalo"
 
@@ -15241,7 +15241,7 @@ msgstr "Chybná data"
 msgid "Wrong data or no validation for %s"
 msgstr "Chybná data nebo chybějící ověření pro %s"
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1086
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1079
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Byl vytvořen oblíbený dotaz %s."
@@ -15254,7 +15254,7 @@ msgstr "Nepodařilo se uložit oblíbený dotaz!"
 #: src/Controllers/Table/IndexesController.php:139
 #: src/Controllers/Table/IndexRenameController.php:123
 #: src/Controllers/Table/Structure/PartitioningController.php:266
-#: src/Controllers/Table/Structure/SaveController.php:231
+#: src/Controllers/Table/Structure/SaveController.php:228
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabulka %1$s byla úspěšně změněna."
@@ -15367,7 +15367,7 @@ msgstr "Zobrazený sloupec byl aktualizován."
 msgid "Internal relationships were successfully updated."
 msgstr "Interní vztahy byly úspěšně aktualizovány."
 
-#: src/Controllers/Table/ReplaceController.php:186
+#: src/Controllers/Table/ReplaceController.php:183
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Řádek: %1$s, Sloupec: %2$s, Chyba: %3$s"
@@ -15380,16 +15380,16 @@ msgstr "Neplatný parametr požadavku."
 msgid "The columns have been moved successfully."
 msgstr "Vybrané sloupce byly úspěšně přesunuty."
 
-#: src/Controllers/Table/Structure/MoveColumnsController.php:114
+#: src/Controllers/Table/Structure/MoveColumnsController.php:111
 msgid "The selected columns do not match the columns in the table."
 msgstr "Vybrané sloupce se neshodují se sloupci v tabulce."
 
-#: src/Controllers/Table/Structure/MoveColumnsController.php:141
+#: src/Controllers/Table/Structure/MoveColumnsController.php:138
 msgid "The selected columns are already in the correct order."
 msgstr "Vybrané sloupce jsou již ve správném pořadí."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:258
-#: src/Controllers/Table/Structure/SaveController.php:281
+#: src/Controllers/Table/Structure/SaveController.php:278
 #: src/Tracking/Tracking.php:736
 msgid "Query error"
 msgstr "Chyba dotazu"
@@ -15402,7 +15402,7 @@ msgstr[0] "Název \"%s\" je rezervovaným klíčovým slovem MySQL."
 msgstr[1] "Názvy \"%s\" jsou rezervovaným klíčovým slovem MySQL."
 msgstr[2] "Názvy \"%s\" jsou rezervovaným klíčovým slovem MySQL."
 
-#: src/Controllers/Table/Structure/SaveController.php:226
+#: src/Controllers/Table/Structure/SaveController.php:223
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -15554,7 +15554,7 @@ msgstr "Následující dotaz selhal: „%s“"
 #: src/Database/Events.php:119 src/Database/Events.php:140
 #: src/Database/Routines.php:110 src/Database/Routines.php:136
 #: src/Database/Routines.php:214 src/Database/Routines.php:228
-#: src/Database/Routines.php:1014 src/Html/Generator.php:806
+#: src/Database/Routines.php:1014 src/Html/Generator.php:800
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
 #: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
 msgid "MySQL said: "
@@ -15703,31 +15703,31 @@ msgstr ""
 "Chyba 1045. Přístup pro uživatele je zakázán. Další informace o chybě mohou "
 "být dostupné, ale jsou skryté nastavením %s."
 
-#: src/Display/Results.php:2395 src/Display/Results.php:2410
+#: src/Display/Results.php:2387 src/Display/Results.php:2402
 msgid "The row has been deleted."
 msgstr "Řádek byl smazán."
 
-#: src/Display/Results.php:2977 src/Display/Results.php:3299 src/Sql.php:910
+#: src/Display/Results.php:2969 src/Display/Results.php:3286 src/Sql.php:910
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dotaz trval %01.4f sekund."
 
-#: src/Display/Results.php:3267
+#: src/Display/Results.php:3254
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Zobrazeny záznamy %1s - %2s"
 
-#: src/Display/Results.php:3281
+#: src/Display/Results.php:3268
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "Celkem %1$s, v dotazu %2$s"
 
-#: src/Display/Results.php:3286
+#: src/Display/Results.php:3273
 #, php-format
 msgid "%s total"
 msgstr "%s celkem"
 
-#: src/Display/Results.php:3593
+#: src/Display/Results.php:3577
 msgid "Link not found!"
 msgstr "Odkaz nebyl nalezen!"
 
@@ -16008,7 +16008,7 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr "Příliš mnoho chyb, některé nebudou zobrazeny."
 
-#: src/Error/ErrorHandler.php:415
+#: src/Error/ErrorHandler.php:413
 msgid "Report"
 msgstr "Nahlásit"
 
@@ -16154,48 +16154,48 @@ msgstr "Přejít na databázi „%s“."
 msgid "SSL is not being used"
 msgstr "SSL se nepoužívá"
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:221
 msgid "SSL is used with disabled verification"
 msgstr "SSL se používá se zakázaným ověřením"
 
-#: src/Html/Generator.php:225
+#: src/Html/Generator.php:223
 msgid "SSL is used without certification authority"
 msgstr "SSL se používá bez certifikační autority"
 
-#: src/Html/Generator.php:228
+#: src/Html/Generator.php:226
 msgid "SSL is used"
 msgstr "SSL se používá"
 
-#: src/Html/Generator.php:332
+#: src/Html/Generator.php:326
 msgid "The PHP function password_hash() with default options."
 msgstr "PHP funkce password_hash() s výchozími volbami."
 
-#: src/Html/Generator.php:333
+#: src/Html/Generator.php:327
 msgid "password_hash() PHP function"
 msgstr "PHP funkce password_hash()"
 
-#: src/Html/Generator.php:507
+#: src/Html/Generator.php:501
 msgid "Skip Explain SQL"
 msgstr "Bez vysvětlení SQL"
 
-#: src/Html/Generator.php:517
+#: src/Html/Generator.php:511
 msgid "Skip Analyze SQL"
 msgstr "Přeskočit analýzu SQL"
 
-#: src/Html/Generator.php:549
+#: src/Html/Generator.php:543
 msgid "Without PHP code"
 msgstr "Bez PHP kódu"
 
-#: src/Html/Generator.php:634
+#: src/Html/Generator.php:628
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Upravit zde v řádku"
 
-#: src/Html/Generator.php:748
+#: src/Html/Generator.php:742
 msgid "Static analysis:"
 msgstr "Statická analýza:"
 
-#: src/Html/Generator.php:751
+#: src/Html/Generator.php:745
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Při analýze bylo nalezeno %d chyb."
@@ -16281,7 +16281,7 @@ msgstr "Název triggeru nesmí být delší než %d znaků."
 msgid "The trigger name cannot end with a space character."
 msgstr "Název triggeru nesmí končit mezerou."
 
-#: src/Import/Import.php:954
+#: src/Import/Import.php:947
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
@@ -16289,45 +16289,45 @@ msgstr ""
 "Vrátit zpět lze pouze dotazy SQL typu INSERT, UPDATE, DELETE, REPLACE a SET "
 "(bez parametrů jako GLOBAL), které obsahují tabulky transakčního modulu."
 
-#: src/Import/Import.php:1171
+#: src/Import/Import.php:1164
 #, php-format
 msgid "Go to table: %s"
 msgstr "Přejít na tabulku: %s"
 
-#: src/Import/Import.php:1179
+#: src/Import/Import.php:1172
 #, php-format
 msgid "Structure of %s"
 msgstr "Struktura %s"
 
-#: src/Import/Import.php:1186 src/Import/Import.php:1235
+#: src/Import/Import.php:1179 src/Import/Import.php:1228
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Upravit nastavení pro %s"
 
-#: src/Import/Import.php:1197
+#: src/Import/Import.php:1190
 #, php-format
 msgid "Go to view: %s"
 msgstr "Přejít na pohled: %s"
 
-#: src/Import/Import.php:1218
+#: src/Import/Import.php:1211
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Následující tabulky byly vytvořeny nebo změněny. Teď můžete:"
 
-#: src/Import/Import.php:1220
+#: src/Import/Import.php:1213
 msgid "View a structure's contents by clicking on its name."
 msgstr "Obsah struktury se zobrazí po kliknutí na její název."
 
-#: src/Import/Import.php:1221
+#: src/Import/Import.php:1214
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Změnit jakákoliv její nastavení kliknutím na odkaz „Nastavení“."
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1215
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Strukturu upravíte kliknutím na odkaz „Struktura“."
 
-#: src/Import/Import.php:1229
+#: src/Import/Import.php:1222
 #, php-format
 msgid "Go to database: %s"
 msgstr "Přejít na databázi: %s"
@@ -16345,11 +16345,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "soubor z adresáře pro upload:"
 
-#: src/InsertEdit.php:848 src/Sql.php:901
+#: src/InsertEdit.php:844 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "Zobrazuji SQL dotaz"
 
-#: src/InsertEdit.php:872 src/Sql.php:881
+#: src/InsertEdit.php:868 src/Sql.php:881
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID vloženého řádku: %1$d"
@@ -16463,7 +16463,7 @@ msgctxt "Create new column"
 msgid "New"
 msgstr "Nové"
 
-#: src/Navigation/Nodes/NodeDatabaseContainer.php:46
+#: src/Navigation/Nodes/NodeDatabaseContainer.php:43
 msgctxt "Create new database"
 msgid "New"
 msgstr "Nová"
@@ -16802,35 +16802,35 @@ msgstr "Žádné částečné závislosti nenalezeny!"
 msgid "Coalesce"
 msgstr "Spojit"
 
-#: src/Operations.php:887
+#: src/Operations.php:880
 msgid "Can't move table to same one!"
 msgstr "Nelze přesunout tabulku na sebe samu!"
 
-#: src/Operations.php:889
+#: src/Operations.php:882
 msgid "Can't copy table to same one!"
 msgstr "Nelze kopírovat tabulku na sebe samu!"
 
-#: src/Operations.php:925
+#: src/Operations.php:918
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabulka %s byla přesunuta do %s. Práva byla upravena."
 
-#: src/Operations.php:931
+#: src/Operations.php:924
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabulka %s byla zkopírována do %s. Práva byla upravena."
 
-#: src/Operations.php:937
+#: src/Operations.php:930
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabulka %s byla přesunuta do %s."
 
-#: src/Operations.php:941
+#: src/Operations.php:934
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabulka %s byla zkopírována do %s."
 
-#: src/Operations.php:964
+#: src/Operations.php:957
 msgid "The table name is empty!"
 msgstr "Název tabulky je prázdný!"
 
@@ -16958,25 +16958,25 @@ msgid "Data dump options"
 msgstr "Nastavení výpisu dat"
 
 #: src/Plugins/Export/ExportHtmlword.php:167
-#: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2098
+#: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2092
 #: src/Plugins/Export/ExportTexytext.php:137
 msgid "Dumping data for table"
 msgstr "Vypisuji data pro tabulku"
 
 #: src/Plugins/Export/ExportHtmlword.php:439
-#: src/Plugins/Export/ExportOdt.php:558 src/Plugins/Export/ExportSql.php:1834
+#: src/Plugins/Export/ExportOdt.php:556 src/Plugins/Export/ExportSql.php:1828
 #: src/Plugins/Export/ExportTexytext.php:401
 msgid "Table structure for table"
 msgstr "Struktura tabulky"
 
 #: src/Plugins/Export/ExportHtmlword.php:456
-#: src/Plugins/Export/ExportOdt.php:578 src/Plugins/Export/ExportSql.php:1900
+#: src/Plugins/Export/ExportOdt.php:576 src/Plugins/Export/ExportSql.php:1894
 #: src/Plugins/Export/ExportTexytext.php:414
 msgid "Structure for view"
 msgstr "Struktura pro pohled"
 
 #: src/Plugins/Export/ExportHtmlword.php:462
-#: src/Plugins/Export/ExportOdt.php:586 src/Plugins/Export/ExportSql.php:1943
+#: src/Plugins/Export/ExportOdt.php:584 src/Plugins/Export/ExportSql.php:1937
 #: src/Plugins/Export/ExportTexytext.php:418
 msgid "Stand-in structure for view"
 msgstr "Zástupná struktura pro pohled"
@@ -17049,7 +17049,7 @@ msgstr "Vytvořeno:"
 msgid "PHP Version:"
 msgstr "Verze PHP:"
 
-#: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1989
+#: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1983
 msgid "Data:"
 msgstr "Data:"
 
@@ -17152,7 +17152,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr "Možnosti vytváření dat"
 
-#: src/Plugins/Export/ExportSql.php:418 src/Plugins/Export/ExportSql.php:2061
+#: src/Plugins/Export/ExportSql.php:418 src/Plugins/Export/ExportSql.php:2055
 msgid "Truncate table before insert"
 msgstr "Vyprázdnit tabulku před vkládáním"
 
@@ -17232,8 +17232,8 @@ msgstr ""
 msgid "It appears your database uses routines;"
 msgstr "Vaše databáze zřejmě využívá rutiny;"
 
-#: src/Plugins/Export/ExportSql.php:595 src/Plugins/Export/ExportSql.php:1458
-#: src/Plugins/Export/ExportSql.php:1884
+#: src/Plugins/Export/ExportSql.php:595 src/Plugins/Export/ExportSql.php:1455
+#: src/Plugins/Export/ExportSql.php:1878
 msgid "alias export may not work reliably in all cases."
 msgstr "je možné, že export aliasů v některých případech neproběhne správně."
 
@@ -17256,76 +17256,76 @@ msgstr "Metadata databáze %s"
 msgid "Error reading structure for table %s:"
 msgstr "Chyba při čtení struktury tabulky %s:"
 
-#: src/Plugins/Export/ExportSql.php:1455
+#: src/Plugins/Export/ExportSql.php:1452
 msgid "It appears your database uses views;"
 msgstr "Zdá se, že Vaše databáze používá pohledy;"
 
-#: src/Plugins/Export/ExportSql.php:1594
+#: src/Plugins/Export/ExportSql.php:1591
 msgid "Constraints for dumped tables"
 msgstr "Omezení pro exportované tabulky"
 
-#: src/Plugins/Export/ExportSql.php:1595
+#: src/Plugins/Export/ExportSql.php:1592
 msgid "Constraints for table"
 msgstr "Omezení pro tabulku"
 
-#: src/Plugins/Export/ExportSql.php:1621
+#: src/Plugins/Export/ExportSql.php:1618
 msgid "Indexes for dumped tables"
 msgstr "Indexy pro exportované tabulky"
 
-#: src/Plugins/Export/ExportSql.php:1622
+#: src/Plugins/Export/ExportSql.php:1619
 msgid "Indexes for table"
 msgstr "Indexy pro tabulku"
 
-#: src/Plugins/Export/ExportSql.php:1645
+#: src/Plugins/Export/ExportSql.php:1642
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT pro tabulky"
 
-#: src/Plugins/Export/ExportSql.php:1646
+#: src/Plugins/Export/ExportSql.php:1643
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT pro tabulku"
 
-#: src/Plugins/Export/ExportSql.php:1700
+#: src/Plugins/Export/ExportSql.php:1694
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "TYPY MÉDIÍ PRO TABULKU"
 
-#: src/Plugins/Export/ExportSql.php:1730
+#: src/Plugins/Export/ExportSql.php:1724
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "VZTAHY TABULKY"
 
-#: src/Plugins/Export/ExportSql.php:1881
+#: src/Plugins/Export/ExportSql.php:1875
 msgid "It appears your table uses triggers;"
 msgstr "Zdá se, že vaše tabulka využívá triggery;"
 
-#: src/Plugins/Export/ExportSql.php:1915
+#: src/Plugins/Export/ExportSql.php:1909
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Struktura pro pohled %s exportovaná jako tabulka"
 
-#: src/Plugins/Export/ExportSql.php:1946
+#: src/Plugins/Export/ExportSql.php:1940
 msgid "(See below for the actual view)"
 msgstr "(Vlastní pohled viz níže)"
 
-#: src/Plugins/Export/ExportSql.php:2002
+#: src/Plugins/Export/ExportSql.php:1996
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Chyba při čtení dat pro tabulku %s:"
 
-#: src/Plugins/Export/ExportSql.php:2526
+#: src/Plugins/Export/ExportSql.php:2522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
 msgid "Creation:"
 msgstr "Vytvořeno:"
 
-#: src/Plugins/Export/ExportSql.php:2534
+#: src/Plugins/Export/ExportSql.php:2530
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 msgid "Last update:"
 msgstr "Poslední změna:"
 
-#: src/Plugins/Export/ExportSql.php:2542
+#: src/Plugins/Export/ExportSql.php:2538
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
 msgid "Last check:"
 msgstr "Poslední kontrola:"
 
-#: src/Plugins/Export/ExportSql.php:2563
+#: src/Plugins/Export/ExportSql.php:2559
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -17960,8 +17960,8 @@ msgstr "Chyba 404! Stránka %s nebyla nalezena."
 msgid "Error 405! Request method not allowed."
 msgstr "Chyba 405! Nepovolená metoda požadavku."
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:636
-#: src/Server/Privileges.php:3136
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:633
+#: src/Server/Privileges.php:3133
 msgid "Native MySQL authentication"
 msgstr "Nativní ověřování MySQL"
 
@@ -17986,65 +17986,65 @@ msgstr "Staré ověřování MySQL-4.0"
 msgid "Account locking is not supported."
 msgstr "Zamykání účtů není podporováno."
 
-#: src/Server/Privileges.php:276
+#: src/Server/Privileges.php:273
 msgid "No privileges."
 msgstr "Žádná oprávnění."
 
-#: src/Server/Privileges.php:282
+#: src/Server/Privileges.php:279
 msgid "Includes all privileges except GRANT."
 msgstr "Všechna oprávnění kromě GRANT."
 
-#: src/Server/Privileges.php:889
+#: src/Server/Privileges.php:886
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Heslo pro %s bylo úspěšně změněno."
 
-#: src/Server/Privileges.php:937
+#: src/Server/Privileges.php:934
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Byla zrušena práva pro %s."
 
-#: src/Server/Privileges.php:1275
+#: src/Server/Privileges.php:1272
 msgid "Revoke"
 msgstr "Zrušit"
 
-#: src/Server/Privileges.php:1880
+#: src/Server/Privileges.php:1877
 msgid "No users selected for deleting!"
 msgstr "Musíte vybrat uživatele, které si přejete odstranit!"
 
-#: src/Server/Privileges.php:1883
+#: src/Server/Privileges.php:1880
 msgid "Reloading the privileges"
 msgstr "Načítám oprávnění"
 
-#: src/Server/Privileges.php:1908
+#: src/Server/Privileges.php:1905
 msgid "The selected users have been deleted successfully."
 msgstr "Vybraní uživatelé byli úspěšně odstraněni."
 
-#: src/Server/Privileges.php:1982
+#: src/Server/Privileges.php:1979
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Byla aktualizována oprávnění pro %s."
 
-#: src/Server/Privileges.php:2132
+#: src/Server/Privileges.php:2129
 #, php-format
 msgid "Deleting %s"
 msgstr "Odstraňuji %s"
 
-#: src/Server/Privileges.php:2162
+#: src/Server/Privileges.php:2159
 msgid "The privileges were reloaded successfully."
 msgstr "Oprávnění byla načtena úspěšně."
 
-#: src/Server/Privileges.php:2228
+#: src/Server/Privileges.php:2225
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Uživatel %s již existuje!"
 
-#: src/Server/Privileges.php:2381
+#: src/Server/Privileges.php:2378
 #, php-format
 msgid "Privileges for %s"
 msgstr "Oprávnění pro %s"
 
-#: src/Server/Privileges.php:2470
+#: src/Server/Privileges.php:2467
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18057,7 +18057,7 @@ msgstr ""
 "oprávnění, která server právě používá. V tom případě je před pokračováním "
 "vhodné %sznovu načíst oprávnění%s."
 
-#: src/Server/Privileges.php:2486
+#: src/Server/Privileges.php:2483
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -18070,11 +18070,11 @@ msgstr ""
 "oprávnění, která server právě používá. V tom případě je třeba znovu načíst "
 "oprávnění, k tomu však aktuálně nemáte dostatečné oprávnění."
 
-#: src/Server/Privileges.php:2774
+#: src/Server/Privileges.php:2771
 msgid "You have added a new user."
 msgstr "Uživatel byl přidán."
 
-#: src/Server/Privileges.php:3228
+#: src/Server/Privileges.php:3225
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18183,7 +18183,7 @@ msgstr "Pro procházení databáze je použit oblíbený dotaz „%s\"."
 msgid "Showing as PHP code"
 msgstr "Zobrazuji jako PHP kód"
 
-#: src/Sql.php:1254
+#: src/Sql.php:1247
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18192,7 +18192,7 @@ msgstr ""
 "Aktuální výběr neobsahuje unikátní klíč. Editování v mřížce, zaškrtávací "
 "políčka nebo odkazy na editaci a mazání proto nejsou k dispozici. %s"
 
-#: src/Sql.php:1268
+#: src/Sql.php:1261
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18734,6 +18734,12 @@ msgstr ""
 "(JavaScript Object Notation)"
 
 #: src/Types.php:290
+#, fuzzy
+#| msgid "Intended for storage of XML data"
+msgid "Intended for storage of IPv4 addresses"
+msgstr "Určeno pro ukládání dat ve formátu XML"
+
+#: src/Types.php:291
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18741,11 +18747,11 @@ msgstr ""
 "Určeno pro ukládání adres IPv6 i adres IPv4 za předpokladu konvenčního "
 "mapování adres IPv4 na adresy IPv6"
 
-#: src/Types.php:293
+#: src/Types.php:294
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128-bit UUID (Univerzální Unikátní Identifikátor)"
 
-#: src/Types.php:294
+#: src/Types.php:295
 msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
@@ -18753,21 +18759,21 @@ msgstr ""
 "Ukládá vektorová data optimalizovaná pro operace, jako je vyhledávání "
 "podobností a aplikace strojového učení"
 
-#: src/Types.php:296
+#: src/Types.php:297
 msgid "Intended for storage of XML data"
 msgstr "Určeno pro ukládání dat ve formátu XML"
 
-#: src/Types.php:613
+#: src/Types.php:615
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Čísla"
 
-#: src/Types.php:631
+#: src/Types.php:633
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Datum a čas"
 
-#: src/Types.php:661
+#: src/Types.php:667
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Prostorové"
