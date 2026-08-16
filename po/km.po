@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-08-15 18:43+0000\n"
+"PO-Revision-Date: 2026-08-17 17:59+0000\n"
 "Last-Translator: SeyhaLite <sok123230@gmail.com>\n"
 "Language-Team: Khmer (Central) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/km/>\n"
@@ -3031,10 +3031,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:729
 #: libraries/classes/Plugins/Export/ExportSql.php:356
-#, fuzzy, php-format
-#| msgid "Y Values"
+#, php-format
 msgid "%s view"
-msgstr "តម្លៃ Y"
+msgstr "ទិដ្ឋភាព %s"
 
 #: libraries/classes/Config/Descriptions.php:730
 msgid "Use ignore inserts"
@@ -8250,10 +8249,9 @@ msgid "Error in processing request:"
 msgstr ""
 
 #: libraries/classes/Database/Events.php:546
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
+msgstr "រកមិនឃើញ event ដែលមានឈ្មោះ %1$s នៅក្នុង database %2$s ទេ។"
 
 #: libraries/classes/Database/Events.php:578
 #, php-format
@@ -8261,11 +8259,11 @@ msgid "Export of event %s"
 msgstr ""
 
 #: libraries/classes/Database/Events.php:599
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
+msgstr ""
+"កំហុសដំណើរការ request ៖ រកមិនឃើញ event ជាមួយឈ្មោះ %1$s ក្នុង database %2$s ឡើយ។"
 
 #: libraries/classes/DatabaseInterface.php:1142
 #, php-format
@@ -8501,10 +8499,9 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:468
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
+msgstr "រកមិនឃើញ Trigger ដែលមានឈ្មោះ %1$s នៅក្នុងមូលដ្ឋាន database %2$s ទេ។"
 
 #: libraries/classes/Database/Triggers.php:502
 #: templates/database/triggers/export.twig:2
