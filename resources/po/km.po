@@ -34,19 +34,16 @@ msgstr ""
 
 #: resources/templates/base.twig:66
 #, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB documentation"
 msgstr "ឯកសារ​ជំនួយ​"
 
 #: resources/templates/base.twig:66
 #, fuzzy
-#| msgid "Documentation"
 msgid "MySQL documentation"
 msgstr "ឯកសារ​ជំនួយ​"
 
 #: resources/templates/base.twig:77
 #, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
 msgstr "ការ​កំណត់​រូបរាង​"
 
@@ -80,7 +77,6 @@ msgstr ""
 #: resources/templates/base.twig:112
 #: src/Controllers/JavaScriptMessagesController.php:316
 #, fuzzy
-#| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "ប្ដូរ​ការ​កំណត់"
 
@@ -213,7 +209,8 @@ msgstr ""
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:219
 #: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:1983
-#: src/Plugins/Schema/SchemaPdf.php:96
+#: src/Plugins/Schema/SchemaPdf.php:96 src/Display/Results.php:934
+#: src/Plugins/Export/ExportSql.php:1989
 msgid "None"
 msgstr "គ្មាន"
 
@@ -233,7 +230,6 @@ msgstr ""
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:38
 #, fuzzy
-#| msgid "Column"
 msgid "column(s)"
 msgstr "ជួរឈរ"
 
@@ -291,6 +287,7 @@ msgstr "ជួរឈរ"
 #: src/Controllers/Server/PrivilegesController.php:321
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
+#: src/Controllers/Server/PrivilegesController.php:328
 msgid "Go"
 msgstr "ទៅ"
 
@@ -311,7 +308,6 @@ msgstr ""
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:78
 #, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
 msgstr "ការ​តភ្ជាប់"
 
@@ -327,7 +323,6 @@ msgstr ""
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:151
 #, fuzzy
-#| msgid "Version information:"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
 msgstr "ព័ត៌មាន​អំពី​កំណែ៖"
@@ -378,7 +373,6 @@ msgstr ""
 #: resources/templates/table/zoom_search/result_form.twig:24
 #: resources/templates/table/zoom_search/result_form.twig:95
 #, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
 msgstr "កំពុង​ផ្ទុក…"
 
@@ -502,6 +496,7 @@ msgstr ""
 #: src/Plugins/Export/Helpers/Pdf.php:470
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
+#: src/Plugins/Export/ExportOdt.php:321 src/Plugins/Export/ExportOdt.php:392
 msgid "Column"
 msgstr "ជួរឈរ"
 
@@ -520,7 +515,6 @@ msgstr ""
 
 #: resources/templates/columns_definitions/partitions.twig:37
 #, fuzzy
-#| msgid "Creation:"
 msgid "Partitions:"
 msgstr "ការបង្កើត៖"
 
@@ -540,7 +534,6 @@ msgstr ""
 
 #: resources/templates/columns_definitions/partitions.twig:78
 #, fuzzy
-#| msgid "Y Values"
 msgid "Values"
 msgstr "តម្លៃ Y"
 
@@ -580,13 +573,11 @@ msgstr ""
 
 #: resources/templates/columns_definitions/partitions.twig:89
 #, fuzzy
-#| msgid "Filter rows"
 msgid "Min rows"
 msgstr "ត្រង​ជួរ​ដេក"
 
 #: resources/templates/columns_definitions/partitions.twig:90
 #, fuzzy
-#| msgid "Table"
 msgid "Table space"
 msgstr "តារាង"
 
@@ -610,7 +601,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1394
-#: src/Util.php:1411
+#: src/Util.php:1411 src/Import/Import.php:1167
 msgid "Structure"
 msgstr "រចនាសម្ព័ន្ធ"
 
@@ -628,7 +619,7 @@ msgstr "រចនាសម្ព័ន្ធ"
 #: src/Plugins/Export/ExportHtmlword.php:394
 #: src/Plugins/Export/ExportOdt.php:498
 #: src/Plugins/Export/ExportTexytext.php:369
-#: src/Plugins/Export/Helpers/Pdf.php:312
+#: src/Plugins/Export/Helpers/Pdf.php:312 src/Plugins/Export/ExportOdt.php:500
 msgid "Name"
 msgstr ""
 
@@ -662,6 +653,7 @@ msgstr ""
 #: src/Plugins/Export/Helpers/Pdf.php:472
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Export/ExportOdt.php:324 src/Plugins/Export/ExportOdt.php:395
 msgid "Type"
 msgstr "ប្រភេទ"
 
@@ -697,6 +689,7 @@ msgstr ""
 #: src/Plugins/Export/Helpers/Pdf.php:476
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Export/ExportOdt.php:330 src/Plugins/Export/ExportOdt.php:401
 msgid "Default"
 msgstr "លំនាំដើម"
 
@@ -760,6 +753,7 @@ msgstr ""
 #: src/Plugins/Export/Helpers/Pdf.php:474
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Export/ExportOdt.php:327 src/Plugins/Export/ExportOdt.php:398
 msgid "Null"
 msgstr "មោឃៈ"
 
@@ -784,6 +778,7 @@ msgstr ""
 #: src/Plugins/Export/Helpers/Pdf.php:493
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
+#: src/Plugins/Export/ExportOdt.php:411
 msgid "Comments"
 msgstr "មតិ"
 
@@ -801,9 +796,8 @@ msgstr ""
 #: src/Config/Descriptions.php:712 src/Plugins/Export/ExportHtmlword.php:320
 #: src/Plugins/Export/ExportOdt.php:416
 #: src/Plugins/Export/ExportTexytext.php:314
-#: src/Plugins/Export/Helpers/Pdf.php:501
+#: src/Plugins/Export/Helpers/Pdf.php:501 src/Plugins/Export/ExportOdt.php:418
 #, fuzzy
-#| msgid "Bad type!"
 msgid "Media type"
 msgstr "ប្រភេទ​មិន​ល្អ!"
 
@@ -833,7 +827,6 @@ msgstr ""
 #: resources/templates/columns_definitions/table_fields_definitions.twig:100
 #: resources/templates/transformation_overview.twig:37
 #, fuzzy
-#| msgid "Version information:"
 msgid "Input transformation"
 msgstr "ព័ត៌មាន​អំពី​កំណែ៖"
 
@@ -847,6 +840,7 @@ msgstr ""
 #: src/Controllers/Operations/TableController.php:328
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289
+#: src/Controllers/Table/ReplaceController.php:292
 msgid "No change"
 msgstr ""
 
@@ -869,7 +863,7 @@ msgstr ""
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:679 src/Html/MySQLDocumentation.php:51
-#: src/Sanitize.php:189
+#: src/Sanitize.php:189 src/Html/Generator.php:685
 msgid "Documentation"
 msgstr "ឯកសារ​ជំនួយ​"
 
@@ -939,6 +933,7 @@ msgstr ""
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Export/ExportOdt.php:625
 msgid "Yes"
 msgstr "បាទ/ចាស"
 
@@ -975,6 +970,7 @@ msgstr "បាទ/ចាស"
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Export/ExportOdt.php:625
 msgid "No"
 msgstr "ទេ"
 
@@ -1039,7 +1035,8 @@ msgstr ""
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:380
 #: src/Display/Results.php:1872 src/Html/Generator.php:527
-#: src/Html/Generator.php:784
+#: src/Html/Generator.php:784 src/Display/Results.php:1880
+#: src/Html/Generator.php:533 src/Html/Generator.php:790
 msgid "Edit"
 msgstr ""
 
@@ -1057,9 +1054,9 @@ msgstr ""
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:382
-#: src/Display/Results.php:2410 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2418 src/Tracking/Tracking.php:225
 msgid "Delete"
-msgstr ""
+msgstr "លុប"
 
 #: resources/templates/console/bookmark_content.twig:12
 #: resources/templates/console/display.twig:60
@@ -1080,6 +1077,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:182
 #: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1561
 #: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:103
+#: src/Server/Privileges.php:1564 src/Server/Privileges.php:1566
 msgid "Database"
 msgstr "មូលដ្ឋានទិន្នន័យ"
 
@@ -1107,13 +1105,13 @@ msgstr ""
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
 #: src/Import/Import.php:1161 src/Import/Import.php:1219
+#: src/Import/Import.php:1168 src/Import/Import.php:1226
 msgid "Options"
 msgstr ""
 
 #: resources/templates/console/display.twig:29
 #: resources/templates/console/display.twig:130
 #, fuzzy
-#| msgid "New bookmark"
 msgid "Bookmarks"
 msgstr "បង្កើត​ចំណាំ​ថ្មី"
 
@@ -1133,20 +1131,19 @@ msgstr ""
 #: resources/templates/console/display.twig:54
 #: resources/templates/console/display.twig:212
 #, fuzzy
-#| msgid "Explain output"
 msgid "Explain"
 msgstr "ពន្យល់​លទ្ធផល"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
 #: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:614
+#: src/Html/Generator.php:620
 msgid "Profiling"
 msgstr ""
 
 #: resources/templates/console/display.twig:57
 #: resources/templates/console/display.twig:215
 #, fuzzy
-#| msgid "New bookmark"
 msgid "Bookmark"
 msgstr "បង្កើត​ចំណាំ​ថ្មី"
 
@@ -1204,7 +1201,6 @@ msgstr ""
 
 #: resources/templates/console/display.twig:118
 #, fuzzy
-#| msgid "Table comments:"
 msgid "Show trace"
 msgstr "មតិយោបល់​តារាង៖"
 
@@ -1225,13 +1221,12 @@ msgstr ""
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:927 src/Export/Export.php:697
-#: src/Html/Generator.php:583
+#: src/Html/Generator.php:583 src/Html/Generator.php:589
 msgid "Refresh"
 msgstr ""
 
 #: resources/templates/console/display.twig:147
 #, fuzzy
-#| msgid "New bookmark"
 msgid "Add bookmark"
 msgstr "បង្កើត​ចំណាំ​ថ្មី"
 
@@ -1241,13 +1236,11 @@ msgstr ""
 
 #: resources/templates/console/display.twig:157
 #, fuzzy
-#| msgid "Select All"
 msgid "Target database"
 msgstr "ជ្រើសទាំងអស់"
 
 #: resources/templates/console/display.twig:160
 #, fuzzy
-#| msgid "Create bookmark"
 msgid "Share this bookmark"
 msgstr "បង្កើត​ចំណាំ"
 
@@ -1266,7 +1259,6 @@ msgstr ""
 
 #: resources/templates/console/display.twig:178
 #, fuzzy
-#| msgid "Default"
 msgid "Restore default values"
 msgstr "លំនាំដើម"
 
@@ -1299,7 +1291,6 @@ msgstr ""
 
 #: resources/templates/create_tracking_version.twig:15
 #, fuzzy, php-format
-#| msgid "Last version"
 msgid "Create version %1$s"
 msgstr "កំណែចុងក្រោយ"
 
@@ -1332,7 +1323,6 @@ msgstr ""
 #: resources/templates/database/central_columns/main.twig:36
 #: resources/templates/database/central_columns/main.twig:246
 #, fuzzy
-#| msgid "Contribute"
 msgid "Attribute"
 msgstr "រួម​ចំណែក"
 
@@ -1348,7 +1338,6 @@ msgstr ""
 #: resources/templates/database/central_columns/main.twig:168
 #: resources/templates/display/results/table.twig:139
 #, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
 msgstr "ត្រង​ជួរ​ដេក"
 
@@ -1364,13 +1353,11 @@ msgstr ""
 
 #: resources/templates/database/central_columns/main.twig:193
 #, fuzzy
-#| msgid "Select All"
 msgid "Select a table"
 msgstr "ជ្រើសទាំងអស់"
 
 #: resources/templates/database/central_columns/main.twig:200
 #, fuzzy
-#| msgid "Select All"
 msgid "Select a column."
 msgstr "ជ្រើសទាំងអស់"
 
@@ -1429,7 +1416,6 @@ msgstr "បោះបង់"
 #: resources/templates/database/create_table.twig:3
 #: resources/templates/database/operations/index.twig:28
 #, fuzzy
-#| msgid "Created"
 msgid "Create new table"
 msgstr "បានបង្កើត"
 
@@ -1447,7 +1433,6 @@ msgstr ""
 
 #: resources/templates/database/data_dictionary/index.twig:4
 #, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
 msgstr "យោបល់​មូលដ្ឋាន​ទិន្នន័យ"
 
@@ -1466,6 +1451,7 @@ msgstr ""
 #: src/Plugins/Export/Helpers/Pdf.php:485
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#: src/Plugins/Export/ExportOdt.php:405
 msgid "Links to"
 msgstr "តំណ​ទៅ​កាន់"
 
@@ -1521,7 +1507,6 @@ msgstr "ជ្រើសយកទាំងអស់"
 
 #: resources/templates/database/designer/database_tables.twig:37
 #, fuzzy
-#| msgid "Table comments:"
 msgid "Show/hide columns"
 msgstr "មតិយោបល់​តារាង៖"
 
@@ -1531,7 +1516,6 @@ msgstr ""
 
 #: resources/templates/database/designer/database_tables.twig:93
 #, fuzzy, php-format
-#| msgid "Select all"
 msgid "Select \"%s\""
 msgstr "ជ្រើសយកទាំងអស់"
 
@@ -1572,14 +1556,12 @@ msgstr ""
 #: resources/templates/database/designer/main.twig:43
 #: src/Controllers/JavaScriptMessagesController.php:518
 #, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
 msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
 
 #: resources/templates/database/designer/main.twig:48
 #: resources/templates/database/designer/main.twig:52
 #, fuzzy
-#| msgid "Reload page"
 msgid "New page"
 msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
@@ -1587,7 +1569,6 @@ msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 #: resources/templates/database/designer/main.twig:59
 #: src/Controllers/JavaScriptMessagesController.php:522
 #, fuzzy
-#| msgid "Reload page"
 msgid "Open page"
 msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
@@ -1595,7 +1576,6 @@ msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 #: resources/templates/database/designer/main.twig:66
 #: src/Controllers/JavaScriptMessagesController.php:520
 #, fuzzy
-#| msgid "Reload page"
 msgid "Save page"
 msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
@@ -1603,14 +1583,12 @@ msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 #: resources/templates/database/designer/main.twig:73
 #: src/Controllers/JavaScriptMessagesController.php:521
 #, fuzzy
-#| msgid "Reload page"
 msgid "Save page as"
 msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
 #: resources/templates/database/designer/main.twig:77
 #: resources/templates/database/designer/main.twig:80
 #, fuzzy
-#| msgid "Reload page"
 msgid "Delete pages"
 msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
@@ -1624,7 +1602,6 @@ msgstr ""
 #: resources/templates/database/designer/main.twig:94
 #: resources/templates/database/designer/main.twig:268
 #, fuzzy
-#| msgid "Last version"
 msgid "Create relationship"
 msgstr "កំណែចុងក្រោយ"
 
@@ -1700,7 +1677,6 @@ msgstr ""
 
 #: resources/templates/database/designer/main.twig:212
 #, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Hide/Show tables with no relationship"
 msgstr "ការ​លុប​ទិន្នន័យ​តាមដាន"
 
@@ -1710,7 +1686,6 @@ msgstr ""
 
 #: resources/templates/database/designer/main.twig:378
 #, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete relationship"
 msgstr "ការ​លុប​ទិន្នន័យ​តាមដាន"
 
@@ -1802,7 +1777,6 @@ msgstr ""
 
 #: resources/templates/database/designer/schema_export.twig:6
 #, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Select export relational type:"
 msgstr "ការ​លុប​ទិន្នន័យ​តាមដាន"
 
@@ -1815,7 +1789,6 @@ msgstr ""
 
 #: resources/templates/database/events/editor_form.twig:24
 #, fuzzy
-#| msgid "The database name is empty!"
 msgid "Event name"
 msgstr "ឈ្មោះមូលដ្ឋានទិន្នន័យនៅទទេ!"
 
@@ -1864,7 +1837,7 @@ msgstr ""
 #: src/Plugins/Export/ExportHtmlword.php:397
 #: src/Plugins/Export/ExportOdt.php:507
 #: src/Plugins/Export/ExportTexytext.php:372
-#: src/Plugins/Export/Helpers/Pdf.php:318
+#: src/Plugins/Export/Helpers/Pdf.php:318 src/Plugins/Export/ExportOdt.php:509
 msgid "Definition"
 msgstr ""
 
@@ -1921,7 +1894,6 @@ msgstr ""
 #: resources/templates/table/privileges/index.twig:117
 #: resources/templates/triggers/list.twig:14
 #, fuzzy
-#| msgid "Track table"
 msgid "Check all"
 msgstr "តាមដាន​តារាង"
 
@@ -1958,6 +1930,7 @@ msgstr "តាមដាន​តារាង"
 #: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
 #: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
 #: src/Util.php:1383 src/Util.php:1398 src/Util.php:1415
+#: src/Server/Privileges.php:1279
 msgid "Export"
 msgstr ""
 
@@ -1987,11 +1960,10 @@ msgstr ""
 #: resources/templates/triggers/row.twig:52
 #: resources/templates/triggers/row.twig:58 src/Operations.php:534
 msgid "Drop"
-msgstr "លុប"
+msgstr "ទម្លាក់"
 
 #: resources/templates/database/events/index.twig:29
 #, fuzzy
-#| msgid "Created"
 msgid "Create new event"
 msgstr "បានបង្កើត"
 
@@ -2018,7 +1990,6 @@ msgstr ""
 
 #: resources/templates/database/events/index.twig:161
 #, fuzzy
-#| msgid "The database name is empty!"
 msgid "Event editor"
 msgstr "ឈ្មោះមូលដ្ឋានទិន្នន័យនៅទទេ!"
 
@@ -2042,13 +2013,11 @@ msgstr "កំពុង​ផ្ទុក…"
 #: resources/templates/server/privileges/users_overview.twig:177
 #: resources/templates/triggers/list.twig:91
 #, fuzzy
-#| msgid "Reload page"
 msgid "Save changes"
 msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
 #: resources/templates/database/events/index.twig:181
 #, fuzzy
-#| msgid "Invalid export type"
 msgid "Export event"
 msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
@@ -2101,7 +2070,6 @@ msgstr ""
 
 #: resources/templates/database/export/index.twig:33
 #, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Export the data of all tables."
 msgstr "លុប​ទិន្នន័យ​តាមដាន​សម្រាប់​តារាង​នេះ"
 
@@ -2117,7 +2085,6 @@ msgstr ""
 #: resources/templates/database/multi_table_query/form.twig:27
 #: resources/templates/database/multi_table_query/form.twig:126
 #, fuzzy
-#| msgid "Select All"
 msgid "select table"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -2125,7 +2092,6 @@ msgstr "ជ្រើសទាំងអស់"
 #: resources/templates/database/multi_table_query/form.twig:84
 #: resources/templates/database/multi_table_query/form.twig:134
 #, fuzzy
-#| msgid "Select All"
 msgid "select column"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -2139,13 +2105,11 @@ msgstr "បង្ហាញ"
 
 #: resources/templates/database/multi_table_query/form.twig:40
 #, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
 msgstr "តារាង​"
 
 #: resources/templates/database/multi_table_query/form.twig:41
 #, fuzzy
-#| msgid "Column"
 msgid "Column alias"
 msgstr "ជួរឈរ"
 
@@ -2171,6 +2135,7 @@ msgstr ""
 #: resources/templates/table/search/index.twig:158
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1390
 #: src/Display/Results.php:1396 src/Util.php:1651 src/Util.php:1668
+#: src/Display/Results.php:1395 src/Display/Results.php:1401
 msgid "Ascending"
 msgstr ""
 
@@ -2183,6 +2148,7 @@ msgstr ""
 #: resources/templates/table/search/index.twig:162
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1385
 #: src/Display/Results.php:1401 src/Util.php:1656 src/Util.php:1673
+#: src/Display/Results.php:1390 src/Display/Results.php:1406
 msgid "Descending"
 msgstr ""
 
@@ -2198,7 +2164,6 @@ msgstr ""
 
 #: resources/templates/database/multi_table_query/form.twig:117
 #, fuzzy
-#| msgid "Table comments:"
 msgid "Another column"
 msgstr "មតិយោបល់​តារាង៖"
 
@@ -2208,7 +2173,6 @@ msgstr ""
 
 #: resources/templates/database/multi_table_query/form.twig:151
 #, fuzzy
-#| msgid "Select All"
 msgid "Remove this column"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -2219,18 +2183,16 @@ msgstr ""
 
 #: resources/templates/database/multi_table_query/form.twig:174
 #, fuzzy
-#| msgid "Updated"
 msgid "Update query"
 msgstr "បានធ្វើបច្ចុប្បន្នភាព"
 
 #: resources/templates/database/multi_table_query/form.twig:175
 #, fuzzy
-#| msgid "Updated"
 msgid "Copy query"
 msgstr "បានធ្វើបច្ចុប្បន្នភាព"
 
 #: resources/templates/database/multi_table_query/form.twig:176
-#: src/Html/Generator.php:552
+#: src/Html/Generator.php:552 src/Html/Generator.php:558
 msgid "Submit query"
 msgstr ""
 
@@ -2251,7 +2213,6 @@ msgstr ""
 #: resources/templates/database/operations/index.twig:59
 #: resources/templates/export.twig:276
 #, fuzzy
-#| msgid "The database name is empty!"
 msgid "New database name"
 msgstr "ឈ្មោះមូលដ្ឋានទិន្នន័យនៅទទេ!"
 
@@ -2380,6 +2341,7 @@ msgstr ""
 #: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:448 src/Menu.php:257
 #: src/Menu.php:369 src/Util.php:1401 src/Util.php:1417
+#: src/Controllers/Server/PrivilegesController.php:455
 msgid "Privileges"
 msgstr ""
 
@@ -2422,15 +2384,14 @@ msgstr ""
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1268
+#: src/Server/Privileges.php:1268 src/Server/Privileges.php:1271
 #, fuzzy
-#| msgid "Edit Index"
 msgid "Edit privileges"
 msgstr "កែ​សន្ទស្សន៍"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2052
+#: src/Server/Privileges.php:2052 src/Server/Privileges.php:2055
 msgid "No user found."
 msgstr ""
 
@@ -2450,7 +2411,7 @@ msgstr ""
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1212
+#: src/Server/Privileges.php:1212 src/Server/Privileges.php:1215
 msgid "Not enough privilege to view users."
 msgstr ""
 
@@ -2556,7 +2517,6 @@ msgstr ""
 
 #: resources/templates/database/routines/index.twig:36
 #, fuzzy
-#| msgid "Created"
 msgid "Create new routine"
 msgstr "បានបង្កើត"
 
@@ -2574,7 +2534,6 @@ msgstr ""
 
 #: resources/templates/database/routines/index.twig:98
 #, fuzzy
-#| msgid "Created"
 msgid "Export routine"
 msgstr "បានបង្កើត"
 
@@ -2636,7 +2595,6 @@ msgstr ""
 #: resources/templates/database/search/main.twig:36
 #: resources/templates/database/structure/copy_form.twig:14
 #, fuzzy
-#| msgid "Connections"
 msgid "Options:"
 msgstr "ការ​តភ្ជាប់"
 
@@ -2652,7 +2610,6 @@ msgstr ""
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/replication/database_multibox.twig:8
 #, fuzzy
-#| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "មិនរើសទាំងអស់"
 
@@ -2712,7 +2669,6 @@ msgstr ""
 #: resources/templates/database/structure/bulk_action_modal.twig:12
 #: resources/templates/database/structure/check_all_tables.twig:58
 #, fuzzy
-#| msgid "Contribute"
 msgid "Continue"
 msgstr "រួម​ចំណែក"
 
@@ -2730,7 +2686,6 @@ msgstr ""
 
 #: resources/templates/database/structure/check_all_tables.twig:10
 #, fuzzy
-#| msgid "Select All"
 msgid "Copy table"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -2771,7 +2726,6 @@ msgstr ""
 #: resources/templates/table/maintenance/checksum.twig:3
 #: resources/templates/table/operations/index.twig:364
 #, fuzzy
-#| msgid "Track table"
 msgid "Checksum table"
 msgstr "តាមដាន​តារាង"
 
@@ -2812,7 +2766,6 @@ msgstr ""
 
 #: resources/templates/database/structure/check_all_tables.twig:33
 #, fuzzy
-#| msgid "Add %s column(s) to index"
 msgid "Add columns to central list"
 msgstr "បន្ថែម​ជួរ​ឈរ %s ទៅ​សន្ទស្សន៍"
 
@@ -2822,7 +2775,6 @@ msgstr ""
 
 #: resources/templates/database/structure/check_all_tables.twig:35
 #, fuzzy
-#| msgid "Add %s column(s) to index"
 msgid "Make consistent with central list"
 msgstr "បន្ថែម​ជួរ​ឈរ %s ទៅ​សន្ទស្សន៍"
 
@@ -2911,7 +2863,8 @@ msgstr ""
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:935
 #: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569
+#: src/Server/Privileges.php:1569 src/Server/Privileges.php:1570
+#: src/Server/Privileges.php:1572
 msgid "Table"
 msgstr "តារាង"
 
@@ -3052,7 +3005,6 @@ msgstr "ដែល​អសកម្ម"
 #: resources/templates/database/tracking/tables.twig:137
 #: resources/templates/database/tracking/tables.twig:138
 #, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete tracking"
 msgstr "ការ​លុប​ទិន្នន័យ​តាមដាន"
 
@@ -3162,17 +3114,16 @@ msgstr ""
 #: resources/templates/display/results/table.twig:200
 #: resources/templates/table/search/index.twig:101
 #, fuzzy
-#| msgid "Connections"
 msgid "Extra options"
 msgstr "ការ​តភ្ជាប់"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1111
+#: src/Display/Results.php:1111 src/Display/Results.php:1116
 msgid "Partial texts"
 msgstr ""
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1115
+#: src/Display/Results.php:1115 src/Display/Results.php:1120
 msgid "Full texts"
 msgstr ""
 
@@ -3182,7 +3133,6 @@ msgstr ""
 
 #: resources/templates/display/results/table.twig:228
 #, fuzzy
-#| msgid "Select All"
 msgid "Display column for relationships"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -3216,6 +3166,7 @@ msgstr ""
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:468
 #: src/Display/Results.php:1873 src/Html/Generator.php:83
+#: src/Display/Results.php:1881
 msgid "Copy"
 msgstr ""
 
@@ -3257,7 +3208,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
 #: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:425
-#: src/Message.php:138
+#: src/Message.php:138 src/Html/Generator.php:741
 msgid "Error"
 msgstr ""
 
@@ -3279,6 +3230,7 @@ msgid "You may examine the data in the error report:"
 msgstr ""
 
 #: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:418
+#: src/Error/ErrorHandler.php:420
 msgid "Automatically send report next time"
 msgstr ""
 
@@ -3303,25 +3255,21 @@ msgstr ""
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
 #, fuzzy
-#| msgid "Select All"
 msgid "Select a template"
 msgstr "ជ្រើសទាំងអស់"
 
 #: resources/templates/export.twig:16
 #, fuzzy
-#| msgid "Invalid export type"
 msgid "Export templates:"
 msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
 #: resources/templates/export.twig:20
 #, fuzzy
-#| msgid "Reload page"
 msgid "New template:"
 msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
 #: resources/templates/export.twig:23 resources/templates/export.twig:26
 #, fuzzy
-#| msgid "The database name is empty!"
 msgid "Template name"
 msgstr "ឈ្មោះមូលដ្ឋានទិន្នន័យនៅទទេ!"
 
@@ -3335,14 +3283,13 @@ msgstr ""
 
 #: resources/templates/export.twig:53
 #, fuzzy
-#| msgid "Updated"
 msgid "Update"
 msgstr "បានធ្វើបច្ចុប្បន្នភាព"
 
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:135
-#: src/Html/Generator.php:759
+#: src/Html/Generator.php:759 src/Html/Generator.php:765
 msgid "SQL query:"
 msgstr ""
 
@@ -3412,7 +3359,6 @@ msgstr ""
 #: resources/templates/export.twig:204
 #: src/Controllers/JavaScriptMessagesController.php:283
 #, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "មូលដ្ឋានទិន្នន័យ"
@@ -3425,7 +3371,6 @@ msgstr ""
 #: resources/templates/export.twig:218
 #: src/Controllers/JavaScriptMessagesController.php:284
 #, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "តារាង"
@@ -3433,7 +3378,6 @@ msgstr "តារាង"
 #: resources/templates/export.twig:231
 #: src/Controllers/JavaScriptMessagesController.php:285
 #, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "ជួរឈរ"
@@ -3444,13 +3388,11 @@ msgstr ""
 
 #: resources/templates/export.twig:268
 #, fuzzy
-#| msgid "Select All"
 msgid "Select database:"
 msgstr "ជ្រើសទាំងអស់"
 
 #: resources/templates/export.twig:284
 #, fuzzy
-#| msgid "Select All"
 msgid "Select table:"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -3460,7 +3402,6 @@ msgstr ""
 
 #: resources/templates/export.twig:300
 #, fuzzy
-#| msgid "Select All"
 msgid "Select column:"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -3555,7 +3496,6 @@ msgstr ""
 
 #: resources/templates/gis_data_editor_form.twig:26
 #, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
 msgstr "ធរណីមាត្រ​ %d៖"
 
@@ -3565,7 +3505,6 @@ msgstr ""
 
 #: resources/templates/gis_data_editor_form.twig:41
 #, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -3625,7 +3564,6 @@ msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
 #: resources/templates/home/index.twig:55
 #, fuzzy
-#| msgid "Connections"
 msgid "Server connection collation:"
 msgstr "ការ​តភ្ជាប់"
 
@@ -3675,7 +3613,6 @@ msgstr "ប្រភេទ​ម៉ាស៊ីន​បម្រេី​៖"
 
 #: resources/templates/home/index.twig:193
 #, fuzzy
-#| msgid "Connections"
 msgid "Server connection:"
 msgstr "ការ​តភ្ជាប់"
 
@@ -3749,7 +3686,6 @@ msgstr ""
 
 #: resources/templates/home/index.twig:315
 #, fuzzy
-#| msgid "phpMyAdmin Demo Server"
 msgid "phpMyAdmin Themes"
 msgstr "ម៉ាស៊ីន​បម្រើ​ phpMyAdmin គំរូ"
 
@@ -3759,7 +3695,6 @@ msgstr ""
 
 #: resources/templates/home/themes.twig:8
 #, fuzzy, php-format
-#| msgid "Select All"
 msgid "Screenshot of the %s theme."
 msgstr "ជ្រើសទាំងអស់"
 
@@ -3772,7 +3707,7 @@ msgstr ""
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:412
 #: src/Export/Export.php:739 src/Html/Generator.php:843
-#: src/Plugins/Schema/ExportRelationSchema.php:266
+#: src/Plugins/Schema/ExportRelationSchema.php:266 src/Html/Generator.php:849
 msgid "Back"
 msgstr "បកក្រោយ"
 
@@ -3807,7 +3742,6 @@ msgstr ""
 
 #: resources/templates/import.twig:40
 #, fuzzy
-#| msgid "Select All"
 msgid "Select file to import"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -3832,7 +3766,6 @@ msgstr ""
 
 #: resources/templates/import.twig:65 resources/templates/import.twig:91
 #, fuzzy
-#| msgid "Select All"
 msgid "There are no files to import!"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -3868,7 +3801,6 @@ msgstr ""
 
 #: resources/templates/import.twig:149
 #, fuzzy
-#| msgid "Connections"
 msgid "Other options"
 msgstr "ការ​តភ្ជាប់"
 
@@ -3925,7 +3857,6 @@ msgstr ""
 
 #: resources/templates/login/form.twig:93
 #, fuzzy
-#| msgid "Server type:"
 msgid "Server choice:"
 msgstr "ប្រភេទ​ម៉ាស៊ីន​បម្រេី​៖"
 
@@ -3956,7 +3887,6 @@ msgstr ""
 #: resources/templates/login/twofactor/application_configure.twig:16
 #: resources/templates/login/twofactor/application.twig:2
 #, fuzzy
-#| msgid "Invalid export type"
 msgid "Authentication code:"
 msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
@@ -3976,7 +3906,6 @@ msgstr ""
 #: resources/templates/login/twofactor/key.twig:3
 #: resources/templates/preferences/two_factor/main.twig:56
 #, fuzzy
-#| msgid "Created"
 msgid "Deprecated!"
 msgstr "បានបង្កើត"
 
@@ -4070,21 +3999,18 @@ msgstr ""
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
 #, fuzzy
-#| msgid "Documentation"
 msgid "MariaDB Documentation"
 msgstr "ឯកសារ​ជំនួយ​"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
 #, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
 msgstr "ឯកសារ​ជំនួយ​"
 
 #: resources/templates/navigation/main.twig:43
 #: resources/templates/navigation/main.twig:44
 #, fuzzy
-#| msgid "Change settings"
 msgid "Navigation panel settings"
 msgstr "ប្ដូរ​ការ​កំណត់"
 
@@ -4127,7 +4053,6 @@ msgstr ""
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
 #, fuzzy
-#| msgid "Favorite tables"
 msgid "Recently visited tables"
 msgstr "តារាង​ដែល​ពេញ​ចិត្ត"
 
@@ -4152,7 +4077,6 @@ msgstr ""
 
 #: resources/templates/preferences/autoload.twig:11
 #, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete settings"
 msgstr "ការ​លុប​ទិន្នន័យ​តាមដាន"
 
@@ -4166,7 +4090,6 @@ msgstr ""
 
 #: resources/templates/preferences/header.twig:12
 #, fuzzy
-#| msgid "Change password"
 msgid "Two-factor authentication"
 msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
@@ -4279,7 +4202,6 @@ msgstr ""
 
 #: resources/templates/preferences/two_factor/configure.twig:12
 #, fuzzy
-#| msgid "Change password"
 msgid "Enable two-factor authentication"
 msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
@@ -4296,13 +4218,11 @@ msgstr ""
 #: resources/templates/preferences/two_factor/confirm.twig:13
 #: resources/templates/preferences/two_factor/main.twig:66
 #, fuzzy
-#| msgid "Change password"
 msgid "Disable two-factor authentication"
 msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
 #: resources/templates/preferences/two_factor/main.twig:5
 #, fuzzy
-#| msgid "Invalid export type"
 msgid "Two-factor authentication status"
 msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
@@ -4351,9 +4271,6 @@ msgstr ""
 
 #: resources/templates/relation/check_relations.twig:3
 #, fuzzy
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. %sFind out "
-#| "why%s."
 msgid "phpMyAdmin configuration storage"
 msgstr "ការ​កំណត់​រចនា​សម្ព័ន្ធ​ឃ្លាំង​ផ្ទុក phpMyAdmin ត្រូវ​បាន​បិទ​ដំណើរ​ការ។ %s ស្វែងរក​មូលហេតុ%s។"
 
@@ -4432,7 +4349,6 @@ msgstr ""
 
 #: resources/templates/relation/check_relations.twig:62
 #, fuzzy
-#| msgid "General settings"
 msgid "General relation features:"
 msgstr "ការ​កំណត់​ទូទៅ"
 
@@ -4467,13 +4383,11 @@ msgstr ""
 
 #: resources/templates/relation/check_relations.twig:150
 #, fuzzy
-#| msgid "Table comments:"
 msgid "Displaying column comments:"
 msgstr "មតិយោបល់​តារាង៖"
 
 #: resources/templates/relation/check_relations.twig:160
 #, fuzzy
-#| msgid "Version information:"
 msgid "Browser transformation:"
 msgstr "ព័ត៌មាន​អំពី​កំណែ៖"
 
@@ -4483,7 +4397,6 @@ msgstr ""
 
 #: resources/templates/relation/check_relations.twig:195
 #, fuzzy
-#| msgid "New bookmark"
 msgid "Bookmarked SQL query:"
 msgstr "បង្កើត​ចំណាំ​ថ្មី"
 
@@ -4493,13 +4406,11 @@ msgstr ""
 
 #: resources/templates/relation/check_relations.twig:245
 #, fuzzy
-#| msgid "Favorite tables"
 msgid "Persistent recently used tables:"
 msgstr "តារាង​ដែល​ពេញ​ចិត្ត"
 
 #: resources/templates/relation/check_relations.twig:270
 #, fuzzy
-#| msgid "Favorite tables"
 msgid "Persistent favorite tables:"
 msgstr "តារាង​ដែល​ពេញ​ចិត្ត"
 
@@ -4509,7 +4420,6 @@ msgstr ""
 
 #: resources/templates/relation/check_relations.twig:320
 #, fuzzy
-#| msgid "Tracking report"
 msgid "Tracking:"
 msgstr "របាយការណ៍​តាមដាន"
 
@@ -4539,7 +4449,6 @@ msgstr ""
 
 #: resources/templates/relation/check_relations.twig:508
 #, fuzzy
-#| msgid "Invalid export type"
 msgid "Saving export templates:"
 msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
@@ -4620,7 +4529,6 @@ msgstr ""
 
 #: resources/templates/server/collations/index.twig:23
 #, fuzzy
-#| msgid "Default"
 msgctxt "The collation is the default one"
 msgid "default"
 msgstr "លំនាំដើម"
@@ -4646,7 +4554,6 @@ msgstr ""
 #: resources/templates/server/databases/index.twig:160
 #: resources/templates/server/replication/replica_configuration.twig:2
 #, fuzzy
-#| msgid "Edit Index"
 msgid "Replica replication"
 msgstr "កែ​សន្ទស្សន៍"
 
@@ -4693,7 +4600,6 @@ msgstr ""
 #: resources/templates/server/databases/index.twig:302
 #: resources/templates/server/databases/index.twig:303
 #, fuzzy
-#| msgid "Enable %s"
 msgid "Enable statistics"
 msgstr "បើក %s"
 
@@ -4752,7 +4658,6 @@ msgstr ""
 
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #, fuzzy, php-format
-#| msgid "Reload page"
 msgid "%s pages"
 msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
@@ -4827,7 +4732,6 @@ msgstr ""
 
 #: resources/templates/server/plugins/index.twig:41
 #, fuzzy
-#| msgid "active"
 msgid "inactive"
 msgstr "ដែល​សកម្ម"
 
@@ -4837,7 +4741,6 @@ msgstr ""
 
 #: resources/templates/server/plugins/index.twig:45
 #, fuzzy
-#| msgid "Settings"
 msgid "deleting"
 msgstr "ការ​កំណត់"
 
@@ -4854,7 +4757,6 @@ msgstr ""
 
 #: resources/templates/server/privileges/add_user.twig:13
 #, fuzzy
-#| msgid "Database comment"
 msgid "Database for user account"
 msgstr "មតិយោបល់​មូលដ្ឋាន​ទិន្នន័យ៖"
 
@@ -4873,7 +4775,6 @@ msgstr ""
 
 #: resources/templates/server/privileges/add_user.twig:38
 #, fuzzy
-#| msgid "Created"
 msgid "Create user"
 msgstr "បានបង្កើត"
 
@@ -4911,7 +4812,6 @@ msgstr ""
 
 #: resources/templates/server/privileges/choose_user_group.twig:5
 #, fuzzy
-#| msgid "User:"
 msgid "User group:"
 msgstr "អ្នកប្រើ៖"
 
@@ -4930,6 +4830,7 @@ msgstr ""
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
 #: src/Controllers/JavaScriptMessagesController.php:364
 #: src/Server/Privileges.php:1573 src/Server/Privileges.php:1575
+#: src/Server/Privileges.php:1576 src/Server/Privileges.php:1578
 msgid "Routine"
 msgstr ""
 
@@ -4941,7 +4842,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1574 src/Server/Privileges.php:1577
 msgid "Routine-specific privileges"
 msgstr ""
 
@@ -4970,7 +4871,6 @@ msgstr ""
 
 #: resources/templates/server/privileges/initials_row.twig:1
 #, fuzzy
-#| msgid "Database comment"
 msgid "Pagination of user accounts"
 msgstr "មតិយោបល់​មូលដ្ឋាន​ទិន្នន័យ៖"
 
@@ -5026,7 +4926,6 @@ msgstr ""
 #: resources/templates/server/privileges/login_information_fields.twig:33
 #: resources/templates/server/replication/primary_add_replica_user.twig:39
 #, fuzzy
-#| msgid "Select All"
 msgid "Use host table"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -5053,7 +4952,6 @@ msgstr ""
 #: resources/templates/server/privileges/login_information_fields.twig:50
 #: resources/templates/server/replication/primary_add_replica_user.twig:53
 #, fuzzy
-#| msgid "Change password"
 msgid "No password"
 msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
@@ -5064,7 +4962,6 @@ msgstr ""
 
 #: resources/templates/server/privileges/login_information_fields.twig:69
 #, fuzzy
-#| msgid "Invalid export type"
 msgid "Authentication plugin"
 msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
@@ -5082,7 +4979,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1568
+#: src/Server/Privileges.php:1568 src/Server/Privileges.php:1571
 msgid "Table-specific privileges"
 msgstr ""
 
@@ -5109,7 +5006,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:316 src/Server/Privileges.php:319
 msgid "Allows reading data."
 msgstr ""
 
@@ -5136,20 +5033,20 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:317 src/Server/Privileges.php:320
 msgid "Allows inserting and replacing data."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:318 src/Server/Privileges.php:321
 msgid "Allows changing data."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:326
+#: src/Server/Privileges.php:326 src/Server/Privileges.php:329
 msgid "Has no effect in this MySQL version."
 msgstr ""
 
@@ -5158,6 +5055,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
 #: src/Server/Privileges.php:296 src/Server/Privileges.php:319
+#: src/Server/Privileges.php:299 src/Server/Privileges.php:322
 msgid "Allows deleting data."
 msgstr ""
 
@@ -5165,7 +5063,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:297
+#: src/Server/Privileges.php:297 src/Server/Privileges.php:300
 msgid "Allows creating new tables."
 msgstr ""
 
@@ -5173,7 +5071,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:298
+#: src/Server/Privileges.php:298 src/Server/Privileges.php:301
 msgid "Allows dropping tables."
 msgstr ""
 
@@ -5191,6 +5089,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
 #: src/Server/Privileges.php:299 src/Server/Privileges.php:327
+#: src/Server/Privileges.php:302 src/Server/Privileges.php:330
 msgid "Allows creating and dropping indexes."
 msgstr ""
 
@@ -5199,6 +5098,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
 #: src/Server/Privileges.php:300 src/Server/Privileges.php:328
+#: src/Server/Privileges.php:303 src/Server/Privileges.php:331
 msgid "Allows altering the structure of existing tables."
 msgstr ""
 
@@ -5209,7 +5109,8 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
 #: src/Server/Privileges.php:301 src/Server/Privileges.php:347
-#: src/Server/Privileges.php:351
+#: src/Server/Privileges.php:351 src/Server/Privileges.php:304
+#: src/Server/Privileges.php:350 src/Server/Privileges.php:354
 msgid "Allows creating new views."
 msgstr ""
 
@@ -5218,7 +5119,8 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
 #: src/Server/Privileges.php:302 src/Server/Privileges.php:352
-#: src/Server/Privileges.php:354
+#: src/Server/Privileges.php:354 src/Server/Privileges.php:305
+#: src/Server/Privileges.php:355 src/Server/Privileges.php:357
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
@@ -5227,6 +5129,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
 #: src/Server/Privileges.php:303 src/Server/Privileges.php:349
+#: src/Server/Privileges.php:306 src/Server/Privileges.php:352
 msgid "Allows creating and dropping triggers."
 msgstr ""
 
@@ -5234,6 +5137,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
 #: src/Server/Privileges.php:360 src/Server/Privileges.php:369
+#: src/Server/Privileges.php:363 src/Server/Privileges.php:372
 msgid "Allows deleting historical rows."
 msgstr ""
 
@@ -5247,55 +5151,55 @@ msgid "Global privileges"
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1562
+#: src/Server/Privileges.php:1562 src/Server/Privileges.php:1565
 msgid "Database-specific privileges"
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:325
+#: src/Server/Privileges.php:325 src/Server/Privileges.php:328
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:320 src/Server/Privileges.php:323
 msgid "Allows creating new databases and tables."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:321
+#: src/Server/Privileges.php:321 src/Server/Privileges.php:324
 msgid "Allows dropping databases and tables."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:339
+#: src/Server/Privileges.php:339 src/Server/Privileges.php:342
 msgid "Allows creating temporary tables."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:371
+#: src/Server/Privileges.php:371 src/Server/Privileges.php:374
 msgid "Allows creating stored routines."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:372
+#: src/Server/Privileges.php:372 src/Server/Privileges.php:375
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:374
+#: src/Server/Privileges.php:374 src/Server/Privileges.php:377
 msgid "Allows executing stored routines."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:348
+#: src/Server/Privileges.php:348 src/Server/Privileges.php:351
 msgid "Allows to set up events for the event scheduler."
 msgstr ""
 
@@ -5311,7 +5215,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:334 src/Server/Privileges.php:337
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5320,31 +5224,31 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:324 src/Server/Privileges.php:327
 msgid "Allows viewing processes of all users."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:322
+#: src/Server/Privileges.php:322 src/Server/Privileges.php:325
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:323 src/Server/Privileges.php:326
 msgid "Allows shutting down the server."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:329
+#: src/Server/Privileges.php:329 src/Server/Privileges.php:332
 msgid "Gives access to the complete list of databases."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:340
+#: src/Server/Privileges.php:340 src/Server/Privileges.php:343
 msgid "Allows locking tables for the current thread."
 msgstr ""
 
@@ -5362,19 +5266,19 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:345
+#: src/Server/Privileges.php:345 src/Server/Privileges.php:348
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:341
+#: src/Server/Privileges.php:341 src/Server/Privileges.php:344
 msgid "Needed for the replication replicas."
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:373
+#: src/Server/Privileges.php:373 src/Server/Privileges.php:376
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
@@ -5434,7 +5338,6 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:877
 #, fuzzy
-#| msgid "Edit Index"
 msgid "Update user privileges"
 msgstr "កែ​សន្ទស្សន៍"
 
@@ -5493,7 +5396,6 @@ msgstr ""
 #: resources/templates/server/privileges/users_overview.twig:100
 #: src/Controllers/JavaScriptMessagesController.php:158
 #, fuzzy
-#| msgid "Select All"
 msgid "Lock this account."
 msgstr "ជ្រើសទាំងអស់"
 
@@ -5511,7 +5413,6 @@ msgstr ""
 
 #: resources/templates/server/privileges/users_overview.twig:146
 #, fuzzy
-#| msgid "Removing Selected Users"
 msgid "Remove selected user accounts"
 msgstr "ការ​លុប​អ្នក​ប្រើ​ដែល​បាន​ជ្រើស"
 
@@ -5525,9 +5426,6 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:7
 #, fuzzy
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. %sFind out "
-#| "why%s."
 msgid "Replica configuration - Change or reconfigure primary server"
 msgstr "ការ​កំណត់​រចនា​សម្ព័ន្ធ​ឃ្លាំង​ផ្ទុក phpMyAdmin ត្រូវ​បាន​បិទ​ដំណើរ​ការ។ %s ស្វែងរក​មូលហេតុ%s។"
 
@@ -5557,7 +5455,6 @@ msgstr ""
 
 #: resources/templates/server/replication/index.twig:41
 #, fuzzy
-#| msgid "Edit Index"
 msgid "No privileges"
 msgstr "កែ​សន្ទស្សន៍"
 
@@ -5581,7 +5478,6 @@ msgstr ""
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:70
 #, fuzzy
-#| msgid "Change password"
 msgid "Generate password:"
 msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
@@ -5649,7 +5545,6 @@ msgstr ""
 
 #: resources/templates/server/replication/replica_configuration.twig:5
 #, fuzzy
-#| msgid "Connections"
 msgid "Primary connection:"
 msgstr "ការ​តភ្ជាប់"
 
@@ -5668,7 +5563,6 @@ msgstr ""
 
 #: resources/templates/server/replication/replica_configuration.twig:34
 #, fuzzy
-#| msgid "Select All"
 msgid "See replica status table"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -5678,7 +5572,6 @@ msgstr ""
 
 #: resources/templates/server/replication/replica_configuration.twig:48
 #, fuzzy
-#| msgid "Select All"
 msgid "Reset replica"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -5728,7 +5621,6 @@ msgstr ""
 
 #: resources/templates/server/replication/status_table.twig:6
 #, fuzzy
-#| msgid "Import"
 msgid "Primary status"
 msgstr "នាំចូល"
 
@@ -5746,7 +5638,6 @@ msgstr ""
 #: resources/templates/server/select/index.twig:8
 #: resources/templates/server/select/index.twig:19
 #, fuzzy
-#| msgid "Current settings"
 msgid "Current server:"
 msgstr "ការ​កំណត់​បច្ចុប្បន្ន"
 
@@ -5805,13 +5696,11 @@ msgstr ""
 
 #: resources/templates/server/status/advisor/index.twig:68
 #, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
 msgstr "បញ្ហា"
 
 #: resources/templates/server/status/advisor/index.twig:71
 #, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
 msgstr "ការ​ណែនាំ"
 
@@ -5825,7 +5714,6 @@ msgstr ""
 
 #: resources/templates/server/status/advisor/index.twig:80
 #, fuzzy
-#| msgid "Test"
 msgid "Test:"
 msgstr "សាកល្បង"
 
@@ -5858,7 +5746,6 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:4
 #, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
 msgstr "អង្គ​ចងចាំ​ប្រព័ន្ធ"
 
@@ -5890,7 +5777,6 @@ msgstr ""
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
 #, fuzzy, php-format
-#| msgid "Select All"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "ជ្រើសទាំងអស់"
@@ -5898,7 +5784,6 @@ msgstr[0] "ជ្រើសទាំងអស់"
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
 #, fuzzy, php-format
-#| msgid "Select All"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "ជ្រើសទាំងអស់"
@@ -5932,7 +5817,6 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:87
 #, fuzzy
-#| msgid "System memory"
 msgid "System monitor instructions"
 msgstr "អង្គ​ចងចាំ​ប្រព័ន្ធ"
 
@@ -6153,7 +6037,6 @@ msgstr ""
 
 #: resources/templates/server/status/processes/index.twig:14
 #, fuzzy
-#| msgid "not active"
 msgid "Show only active"
 msgstr "ដែល​អសកម្ម"
 
@@ -6169,7 +6052,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2428
+#: src/Display/Results.php:2428 src/Display/Results.php:2436
 msgid "Kill"
 msgstr ""
 
@@ -6324,7 +6207,6 @@ msgstr ""
 
 #: resources/templates/server/user_groups/user_groups.twig:50
 #, fuzzy
-#| msgid "Last version"
 msgid "Delete user group"
 msgstr "កំណែចុងក្រោយ"
 
@@ -6340,6 +6222,7 @@ msgstr ""
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:451
 #: src/Server/Status/Processes.php:101
+#: src/Controllers/Server/PrivilegesController.php:458
 msgid "User"
 msgstr ""
 
@@ -6465,7 +6348,6 @@ msgstr ""
 
 #: resources/templates/sql/_bookmark.twig:13
 #, fuzzy
-#| msgid "New bookmark"
 msgid "Bookmark label:"
 msgstr "បង្កើត​ចំណាំ​ថ្មី"
 
@@ -6476,7 +6358,6 @@ msgstr ""
 
 #: resources/templates/sql/_bookmark.twig:25
 #, fuzzy
-#| msgid "Create bookmark"
 msgid "Create new bookmark"
 msgstr "បង្កើត​ចំណាំ"
 
@@ -6501,6 +6382,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
 #: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:105
+#: src/Plugins/Export/ExportOdt.php:503
 msgid "Time"
 msgstr ""
 
@@ -6547,7 +6429,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
 #: src/Database/Routines.php:1033 src/Display/Results.php:2964
-#: src/Message.php:122
+#: src/Message.php:122 src/Display/Results.php:2972
 msgid "Your SQL query has been executed successfully."
 msgstr ""
 
@@ -6567,7 +6449,6 @@ msgstr ""
 #. l10n: Bind parameters in the SQL query using :parameterName format
 #: resources/templates/sql/query.twig:52
 #, fuzzy
-#| msgid "Bad parameters!"
 msgid "Bind parameters"
 msgstr "ប៉ារ៉ាម៉ែត្រ​មិន​ល្អ!"
 
@@ -6608,7 +6489,6 @@ msgstr ""
 
 #: resources/templates/sql/query.twig:163
 #, fuzzy
-#| msgid "New bookmark"
 msgid "Bookmark:"
 msgstr "បង្កើត​ចំណាំ​ថ្មី"
 
@@ -6638,7 +6518,6 @@ msgstr ""
 
 #: resources/templates/table/chart/tbl_chart.twig:10
 #, fuzzy
-#| msgid "Bad type!"
 msgid "Chart type"
 msgstr "ប្រភេទ​មិន​ល្អ!"
 
@@ -6724,7 +6603,6 @@ msgstr ""
 
 #: resources/templates/table/chart/tbl_chart.twig:126
 #, fuzzy
-#| msgid "Table comments:"
 msgid "Value Column:"
 msgstr "មតិយោបល់​តារាង៖"
 
@@ -6833,7 +6711,6 @@ msgstr ""
 
 #: resources/templates/table/index_form.twig:57
 #, fuzzy
-#| msgid "Action"
 msgid "Advanced options"
 msgstr "សកម្មភាព"
 
@@ -6847,7 +6724,6 @@ msgstr ""
 
 #: resources/templates/table/index_form.twig:101
 #, fuzzy
-#| msgid "User:"
 msgid "Parser:"
 msgstr "អ្នកប្រើ៖"
 
@@ -6865,6 +6741,7 @@ msgstr ""
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
 #: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1421
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1433
 msgid "Ignore"
 msgstr ""
 
@@ -6917,7 +6794,6 @@ msgstr ""
 
 #: resources/templates/table/insert/column_row.twig:30
 #, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
 msgstr "តម្លៃ​នៃ​ជួរ​ឈរ \"%s\""
 
@@ -6940,7 +6816,6 @@ msgstr ""
 
 #: resources/templates/table/maintenance/checksum.twig:13
 #, fuzzy
-#| msgid "Track table"
 msgid "Checksum"
 msgstr "តាមដាន​តារាង"
 
@@ -6973,7 +6848,6 @@ msgstr ""
 
 #: resources/templates/table/operations/index.twig:2
 #, fuzzy
-#| msgid "Tables"
 msgid "Table operations"
 msgstr "តារាង​"
 
@@ -6988,7 +6862,6 @@ msgstr ""
 
 #: resources/templates/table/operations/index.twig:51
 #, fuzzy
-#| msgid "No tables found in database."
 msgid "Move table to (database.table)"
 msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
 
@@ -7010,7 +6883,6 @@ msgstr ""
 
 #: resources/templates/table/operations/index.twig:259
 #, fuzzy
-#| msgid "No tables found in database."
 msgid "Copy table to (database.table)"
 msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
 
@@ -7098,37 +6970,31 @@ msgstr ""
 
 #: resources/templates/table/partition/check.twig:2
 #, fuzzy
-#| msgid "Edit Index"
 msgid "Check partition"
 msgstr "កែ​សន្ទស្សន៍"
 
 #: resources/templates/table/partition/drop.twig:2
 #, fuzzy
-#| msgid "Edit Index"
 msgid "Drop partition"
 msgstr "កែ​សន្ទស្សន៍"
 
 #: resources/templates/table/partition/optimize.twig:2
 #, fuzzy
-#| msgid "Edit Index"
 msgid "Optimize partition"
 msgstr "កែ​សន្ទស្សន៍"
 
 #: resources/templates/table/partition/rebuild.twig:2
 #, fuzzy
-#| msgid "Edit Index"
 msgid "Rebuild partition"
 msgstr "កែ​សន្ទស្សន៍"
 
 #: resources/templates/table/partition/repair.twig:2
 #, fuzzy
-#| msgid "Edit Index"
 msgid "Repair partition"
 msgstr "កែ​សន្ទស្សន៍"
 
 #: resources/templates/table/partition/truncate.twig:2
 #, fuzzy
-#| msgid "Edit Index"
 msgid "Truncate partition"
 msgstr "កែ​សន្ទស្សន៍"
 
@@ -7142,7 +7008,6 @@ msgstr ""
 
 #: resources/templates/table/relation/common_form.twig:16
 #, fuzzy
-#| msgid "Action"
 msgid "Actions"
 msgstr "សកម្មភាព"
 
@@ -7168,7 +7033,6 @@ msgstr ""
 
 #: resources/templates/table/relation/common_form.twig:47
 #, fuzzy
-#| msgid "Add %s column(s) to index"
 msgid "+ Add constraint"
 msgstr "បន្ថែម​ជួរ​ឈរ %s ទៅ​សន្ទស្សន៍"
 
@@ -7293,14 +7157,12 @@ msgstr ""
 
 #: resources/templates/table/structure/display_partitions.twig:195
 #, fuzzy
-#| msgid "Creation:"
 msgid "Partition table"
 msgstr "ការបង្កើត៖"
 
 #: resources/templates/table/structure/display_partitions.twig:208
 #: resources/templates/table/structure/partition_definition_form.twig:3
 #, fuzzy
-#| msgid "Edit Index"
 msgid "Edit partitioning"
 msgstr "កែ​សន្ទស្សន៍"
 
@@ -7313,7 +7175,6 @@ msgstr ""
 
 #: resources/templates/table/structure/display_structure.twig:70
 #, fuzzy
-#| msgid "Server type:"
 msgid "Media type:"
 msgstr "ប្រភេទ​ម៉ាស៊ីន​បម្រេី​៖"
 
@@ -7377,7 +7238,6 @@ msgstr ""
 
 #: resources/templates/table/structure/display_structure.twig:423
 #, fuzzy
-#| msgid "Track table"
 msgid "Track view"
 msgstr "តាមដាន​តារាង"
 
@@ -7440,7 +7300,6 @@ msgstr ""
 
 #: resources/templates/table/structure/drop_confirm.twig:2
 #, fuzzy
-#| msgid "Dropping Column"
 msgid "Dropping columns from the table"
 msgstr "ការ​លុប​ជួរ​ឈរ"
 
@@ -7448,7 +7307,6 @@ msgstr "ការ​លុប​ជួរ​ឈរ"
 #: resources/templates/table/tracking/main.twig:90
 #: resources/templates/table/tracking/main.twig:91
 #, fuzzy
-#| msgid "Last version"
 msgid "Delete version"
 msgstr "កំណែចុងក្រោយ"
 
@@ -7523,7 +7381,6 @@ msgstr ""
 #: resources/templates/transformation_overview.twig:19
 #: resources/templates/transformation_overview.twig:38
 #, fuzzy
-#| msgid "Questions"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "សំណួរ"
@@ -7548,7 +7405,7 @@ msgstr ""
 #: src/Plugins/Export/ExportHtmlword.php:396
 #: src/Plugins/Export/ExportOdt.php:504
 #: src/Plugins/Export/ExportTexytext.php:371
-#: src/Plugins/Export/Helpers/Pdf.php:316
+#: src/Plugins/Export/Helpers/Pdf.php:316 src/Plugins/Export/ExportOdt.php:506
 msgid "Event"
 msgstr ""
 
@@ -7566,12 +7423,12 @@ msgstr ""
 #: src/Plugins/Export/ExportSql.php:1846
 #: src/Plugins/Export/ExportTexytext.php:408
 #: src/Plugins/Export/ExportXml.php:112 src/Util.php:1404 src/Util.php:1420
+#: src/Plugins/Export/ExportOdt.php:568 src/Plugins/Export/ExportSql.php:1852
 msgid "Triggers"
 msgstr ""
 
 #: resources/templates/triggers/list.twig:29
 #, fuzzy
-#| msgid "Created"
 msgid "Create new trigger"
 msgstr "បានបង្កើត"
 
@@ -7585,7 +7442,6 @@ msgstr ""
 
 #: resources/templates/triggers/list.twig:101
 #, fuzzy
-#| msgid "Created"
 msgid "Export trigger"
 msgstr "បានបង្កើត"
 
@@ -7599,7 +7455,6 @@ msgstr ""
 
 #: src/Advisory/Advisor.php:207
 #, fuzzy, php-format
-#| msgid "Error text: %s"
 msgid "Error when evaluating: %s"
 msgstr "អត្ថបទ​កំហុស៖ %s"
 
@@ -7870,9 +7725,9 @@ msgstr ""
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 
 #: src/Advisory/Rules.php:223
@@ -8430,8 +8285,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
@@ -8927,7 +8782,6 @@ msgstr ""
 
 #: src/Charsets/Collation.php:446
 #, fuzzy
-#| msgid "Versions"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "កំណែ"
@@ -8998,7 +8852,6 @@ msgstr ""
 
 #: src/Config/ConfigFile.php:571
 #, fuzzy
-#| msgid "Select All"
 msgid "display column"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -9070,19 +8923,16 @@ msgstr ""
 
 #: src/Config/ConfigFile.php:622
 #, fuzzy
-#| msgid "Default"
 msgid "Server default"
 msgstr "លំនាំដើម"
 
 #: src/Config/ConfigFile.php:623
 #, fuzzy
-#| msgid "Enable %s"
 msgid "Enable"
 msgstr "បើក %s"
 
 #: src/Config/ConfigFile.php:624
 #, fuzzy
-#| msgid "Disable %s"
 msgid "Disable"
 msgstr "បិទ %s"
 
@@ -9657,9 +9507,9 @@ msgstr ""
 
 #: src/Config/Descriptions.php:355
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 
 #: src/Config/Descriptions.php:359
@@ -10222,7 +10072,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:605
 #, fuzzy
-#| msgid "Enable %s"
 msgid "Enable linter"
 msgstr "បើក %s"
 
@@ -10277,7 +10126,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:619
 #, fuzzy
-#| msgid "Table comments:"
 msgid "Show column comments"
 msgstr "មតិយោបល់​តារាង៖"
 
@@ -10287,7 +10135,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:621
 #, fuzzy
-#| msgid "Version information:"
 msgid "Default transformations for Hex"
 msgstr "ព័ត៌មាន​អំពី​កំណែ៖"
 
@@ -10301,7 +10148,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:624
 #, fuzzy
-#| msgid "Version information:"
 msgid "Default transformations for External"
 msgstr "ព័ត៌មាន​អំពី​កំណែ៖"
 
@@ -10315,7 +10161,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:627
 #, fuzzy
-#| msgid "Version information:"
 msgid "Default transformations for Inline"
 msgstr "ព័ត៌មាន​អំពី​កំណែ៖"
 
@@ -10325,7 +10170,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:629
 #, fuzzy
-#| msgid "Version information:"
 msgid "Default transformations for TextLink"
 msgstr "ព័ត៌មាន​អំពី​កំណែ៖"
 
@@ -10462,7 +10306,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:683
 #, fuzzy
-#| msgid "Select All"
 msgid "Remember filename template"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -10510,7 +10353,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:707 src/Plugins/Export/ExportSql.php:372
 #, fuzzy, php-format
-#| msgid "Y Values"
 msgid "%s view"
 msgstr "តម្លៃ Y"
 
@@ -10593,7 +10435,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:739
 #, fuzzy
-#| msgid "Change settings"
 msgid "Navigation tree"
 msgstr "ប្ដូរ​ការ​កំណត់"
 
@@ -10800,7 +10641,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:809
 #, fuzzy
-#| msgid "Change settings"
 msgid "Navigation panel width"
 msgstr "ប្ដូរ​ការ​កំណត់"
 
@@ -10868,7 +10708,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:827
 #, fuzzy
-#| msgid "Table comments:"
 msgid "Show tables in tree"
 msgstr "មតិយោបល់​តារាង៖"
 
@@ -10882,7 +10721,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:830
 #, fuzzy
-#| msgid "Processes"
 msgid "Show procedures in tree"
 msgstr "ដំណើរការ"
 
@@ -10892,7 +10730,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:832
 #, fuzzy
-#| msgid "Select All"
 msgid "Expand single database"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -11098,7 +10935,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:887
 #, fuzzy
-#| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "តារាង​ដែល​ពេញ​ចិត្ត"
 
@@ -11192,7 +11028,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:911
 #, fuzzy
-#| msgid "Table comments:"
 msgid "Show table comments"
 msgstr "មតិយោបល់​តារាង៖"
 
@@ -11210,7 +11045,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:915
 #, fuzzy
-#| msgid "Table comments:"
 msgid "Show table charset"
 msgstr "មតិយោបល់​តារាង៖"
 
@@ -11247,12 +11081,13 @@ msgid "Skip locked tables"
 msgstr ""
 
 #: src/Config/Descriptions.php:926 src/Html/Generator.php:492
+#: src/Html/Generator.php:498
 msgid "Explain SQL"
 msgstr ""
 
 #: src/Config/Descriptions.php:928 src/Html/Generator.php:563
+#: src/Html/Generator.php:569
 #, fuzzy
-#| msgid "Created"
 msgid "Create PHP code"
 msgstr "បានបង្កើត"
 
@@ -11447,7 +11282,6 @@ msgstr ""
 
 #: src/Config/Forms/User/MainForm.php:31
 #, fuzzy
-#| msgid "Version information:"
 msgid "Default transformations"
 msgstr "ព័ត៌មាន​អំពី​កំណែ៖"
 
@@ -11603,9 +11437,6 @@ msgstr ""
 
 #: src/Config/UserPreferences.php:187
 #, fuzzy
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. %sFind out "
-#| "why%s."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "ការ​កំណត់​រចនា​សម្ព័ន្ធ​ឃ្លាំង​ផ្ទុក phpMyAdmin ត្រូវ​បាន​បិទ​ដំណើរ​ការ។ %s ស្វែងរក​មូលហេតុ%s។"
 
@@ -11615,7 +11446,6 @@ msgstr ""
 
 #: src/Config/Validator.php:283
 #, fuzzy
-#| msgid "Invalid export type"
 msgid "Invalid authentication type!"
 msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
@@ -11682,7 +11512,6 @@ msgstr[0] ""
 
 #: src/Console/Console.php:71
 #, fuzzy
-#| msgid "New bookmark"
 msgid "No bookmarks"
 msgstr "បង្កើត​ចំណាំ​ថ្មី"
 
@@ -11792,6 +11621,9 @@ msgstr ""
 #: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:68
 #: src/Controllers/View/CreateController.php:73
+#: src/Controllers/Operations/DatabaseController.php:234
+#: src/Controllers/Operations/DatabaseController.php:239
+#: src/Controllers/Server/Databases/DestroyController.php:65
 msgid "No databases selected."
 msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
@@ -11817,7 +11649,6 @@ msgstr ""
 
 #: src/Controllers/Database/EventsController.php:191
 #, fuzzy, php-format
-#| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s."
 msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
 
@@ -11828,7 +11659,6 @@ msgstr ""
 
 #: src/Controllers/Database/EventsController.php:237
 #, fuzzy, php-format
-#| msgid "No tables found in database."
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
@@ -11910,7 +11740,6 @@ msgstr ""
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
 #, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "គ្មាន​តារាង​ដែល​បាន​ជ្រើស​យក។"
 
@@ -11931,10 +11760,9 @@ msgstr ""
 
 #: src/Controllers/Database/RoutinesController.php:305
 #: src/Controllers/Database/RoutinesController.php:373
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
+msgstr "រកមិនឃើញ Routine ឈ្មោះ %1$s នៅក្នុងទិន្នន័យ database %2$s ទេ។"
 
 #: src/Controllers/Database/RoutinesController.php:416
 #, php-format
@@ -11962,7 +11790,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:568
-#: src/Display/Results.php:3245
+#: src/Display/Results.php:3245 src/Display/Results.php:3258
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12036,10 +11864,8 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/HomeController.php:194
+#: src/Controllers/HomeController.php:197
 #, fuzzy, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. To find out "
-#| "why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
@@ -12048,29 +11874,35 @@ msgstr ""
 "មូលហេតុ។"
 
 #: src/Controllers/HomeController.php:200
+#: src/Controllers/HomeController.php:203
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
 #: src/Controllers/HomeController.php:264
+#: src/Controllers/HomeController.php:267
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"ប៉ារ៉ាម៉ែត្រPHPរបស់អ្នក [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank] session.gc_maxlifetime[/a] គឺថា​ទាប​បំផុត​"
-"ដែល​បានកំណត់រចនាសម្ព័ន្ធ​សុពលភាព​ Cookieក្នុង phpMyAdmin, ព្រោះ​តែ​បែបនេះ​ការចូលគណនី​របស់​អ្នក​ អាច​"
-"ផុត​កំណត់​ក្នុង​ពេល​ឆាប់​ៗ​ជាង​ការ​កំណត់​រចនា​សម្ព័ន្ធ​ក្នុង​​​phpMyAdmin។"
+"ប៉ារ៉ាម៉ែត្រPHPរបស់អ្នក [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-maxlifetime@_blank] "
+"session.gc_maxlifetime[/a] គឺថា​ទាប​បំផុត​ដែល​បានកំណត់រចនាសម្ព័ន្ធ​សុពលភាព​ Cookieក្នុង "
+"phpMyAdmin, ព្រោះ​តែ​បែបនេះ​ការចូលគណនី​របស់​អ្នក​ អាច​ផុត​កំណត់​ក្នុង​ពេល​ឆាប់​ៗ​ជាង​ការ​កំណត់​រចនា​សម្ព័ន្ធ​"
+"ក្នុង​​​phpMyAdmin។"
 
 #: src/Controllers/HomeController.php:284
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
 
 #: src/Controllers/HomeController.php:303
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12078,6 +11910,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/HomeController.php:322
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12085,6 +11918,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/HomeController.php:332
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12093,6 +11927,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/HomeController.php:352
+#: src/Controllers/HomeController.php:355
 msgid ""
 "The configuration file needs a valid key for query encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12100,6 +11935,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/HomeController.php:362
+#: src/Controllers/HomeController.php:365
 #, php-format
 msgid ""
 "The query encryption key in the configuration file is longer than necessary. "
@@ -12108,6 +11944,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/HomeController.php:380
+#: src/Controllers/HomeController.php:383
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12116,6 +11953,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/HomeController.php:395
+#: src/Controllers/HomeController.php:398
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12123,6 +11961,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/HomeController.php:412
+#: src/Controllers/HomeController.php:415
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
@@ -12130,6 +11969,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/HomeController.php:465
+#: src/Controllers/HomeController.php:468
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12137,6 +11977,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/HomeController.php:483
+#: src/Controllers/HomeController.php:486
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12159,15 +12000,20 @@ msgstr ""
 
 #: src/Controllers/Import/ImportController.php:298
 #: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:300
+#: src/Controllers/Import/ImportController.php:511
 msgid "Showing bookmark"
 msgstr "កំពុង​បង្ហាញ​ចំណាំ"
 
 #: src/Controllers/Import/ImportController.php:318
 #: src/Controllers/Import/ImportController.php:505
+#: src/Controllers/Import/ImportController.php:320
+#: src/Controllers/Import/ImportController.php:507
 msgid "The bookmark has been deleted."
 msgstr "បាន​លុប​ចំណាំ។"
 
 #: src/Controllers/Import/ImportController.php:427
+#: src/Controllers/Import/ImportController.php:429
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12177,12 +12023,14 @@ msgstr ""
 "អនុញ្ញាត​ដោយ​ការ​កំណត់​រចនាសម្ព័ន្ធ​សម្រាប់ PHP របស់​អ្នក។ មើល [doc@faq1-16]FAQ 1.16[/doc] ។"
 
 #: src/Controllers/Import/ImportController.php:517
+#: src/Controllers/Import/ImportController.php:519
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] ""
 
 #: src/Controllers/Import/ImportController.php:554
+#: src/Controllers/Import/ImportController.php:556
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12190,6 +12038,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/Import/ImportController.php:564
+#: src/Controllers/Import/ImportController.php:566
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12197,10 +12046,12 @@ msgstr ""
 
 #: src/Controllers/Import/ImportController.php:635
 #: src/Controllers/Sql/SqlController.php:138
+#: src/Controllers/Import/ImportController.php:637
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "ពាក្យ​បញ្ជា \"DROP DATABASE\" ត្រូវ​បាន​បិទ។"
 
 #: src/Controllers/Import/ImportController.php:698 src/Sql.php:918
+#: src/Controllers/Import/ImportController.php:700
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -12235,37 +12086,31 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:62
 #, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
 msgstr "អ្នក​រៀប​នឹង​កម្ទេច (DESTROY) តារាង​ទាំង​ស្រុង​ហើយ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:63
 #, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
 msgstr "លុប​ទិន្នន័យ​តាមដាន​សម្រាប់​តារាង​នេះ"
 
 #: src/Controllers/JavaScriptMessagesController.php:64
 #, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
 msgstr "លុប​ទិន្នន័យ​តាមដាន​សម្រាប់​តារាង​នេះ"
 
 #: src/Controllers/JavaScriptMessagesController.php:65
 #, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
 msgstr "លុប​ទិន្នន័យ​តាមដាន​សម្រាប់​តារាង​នេះ"
 
 #: src/Controllers/JavaScriptMessagesController.php:66
 #, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
 msgstr "លុប​ទិន្នន័យ​តាមដាន​សម្រាប់​តារាង​នេះ"
 
 #: src/Controllers/JavaScriptMessagesController.php:67
 #, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete entry from tracking report?"
 msgstr "ការ​លុប​ទិន្នន័យ​តាមដាន"
 
@@ -12279,7 +12124,6 @@ msgstr "ការ​លុប សោ/សន្ទស្សន៍ បឋម"
 
 #: src/Controllers/JavaScriptMessagesController.php:70
 #, fuzzy
-#| msgid "Dropping Column"
 msgid "Dropping Foreign key."
 msgstr "ការ​លុប​ជួរ​ឈរ"
 
@@ -12300,19 +12144,16 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:77
 #, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
 msgstr "តើ​អ្នក​ពិត​ជា​លុប​ការ​ស្វែងរក \"%s\" មែនទេ?"
 
 #: src/Controllers/JavaScriptMessagesController.php:78
 #, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this central column?"
 msgstr "តើ​អ្នក​ពិត​ជា​លុប​ការ​ស្វែងរក \"%s\" មែនទេ?"
 
 #: src/Controllers/JavaScriptMessagesController.php:79
 #, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete the selected items?"
 msgstr "តើ​អ្នក​ពិត​ជា​លុប​ការ​ស្វែងរក \"%s\" មែនទេ?"
 
@@ -12324,19 +12165,16 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:84
 #, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
 msgstr "តើ​អ្នក​ពិត​ជា​លុប​ការ​ស្វែងរក \"%s\" មែនទេ?"
 
 #: src/Controllers/JavaScriptMessagesController.php:85
 #, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to remove partitioning?"
 msgstr "តើ​អ្នក​ពិត​ជា​លុប​ការ​ស្វែងរក \"%s\" មែនទេ?"
 
 #: src/Controllers/JavaScriptMessagesController.php:86
 #, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr "តើ​អ្នក​ពិត​ជា​លុប​ការ​ស្វែងរក \"%s\" មែនទេ?"
 
@@ -12375,7 +12213,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:112
 #, fuzzy
-#| msgid "Select All"
 msgid "Reset all"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -12401,20 +12238,17 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:120
 #, fuzzy
-#| msgid "Add Index"
 msgid "Add index"
 msgstr "បន្ថែម​សន្ទស្សន៍"
 
 #: src/Controllers/JavaScriptMessagesController.php:121
 #, fuzzy
-#| msgid "Edit Index"
 msgid "Edit index"
 msgstr "កែ​សន្ទស្សន៍"
 
 #. l10n: Rename a table Index
 #: src/Controllers/JavaScriptMessagesController.php:123
 #, fuzzy
-#| msgid "Select All"
 msgid "Rename index"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -12432,20 +12266,17 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:128
 #, fuzzy
-#| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
 msgstr "បន្ថែម​ជួរ​ឈរ %s ទៅ​សន្ទស្សន៍"
 
 #. l10n: Default label for the y-Axis of Charts
 #: src/Controllers/JavaScriptMessagesController.php:139
 #, fuzzy
-#| msgid "Y Values"
 msgid "Y values"
 msgstr "តម្លៃ Y"
 
 #: src/Controllers/JavaScriptMessagesController.php:142
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter the SQL query first."
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
@@ -12459,11 +12290,13 @@ msgstr "ឈ្មោះ​អ្នក​ប្រើ​នៅ​ទទេ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:147
 #: src/Server/Privileges.php:761 src/UserPassword.php:41
+#: src/Server/Privileges.php:764
 msgid "The password is empty!"
 msgstr "ពាក្យ​សម្ងាត់​នៅ​ទទេ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:148
 #: src/Server/Privileges.php:759 src/UserPassword.php:45
+#: src/Server/Privileges.php:762
 msgid "The passwords aren't the same!"
 msgstr "ពាក្យ​សម្ងាត់​មិន​ដូច​គ្នា!"
 
@@ -12492,7 +12325,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:165
 #, fuzzy
-#| msgid "The bookmark has been deleted."
 msgid "Template was deleted."
 msgstr "បាន​លុប​ចំណាំ។"
 
@@ -12534,7 +12366,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:182
 #, fuzzy
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "ការ​ប្រើ CPU ប្រព័ន្ធ"
 
@@ -12572,7 +12403,6 @@ msgstr "អង្គ​ចងចាំ​ដែល​បាន​ប្រើ"
 
 #: src/Controllers/JavaScriptMessagesController.php:193
 #, fuzzy
-#| msgid "Total:"
 msgid "Total swap"
 msgstr "សរុប៖"
 
@@ -12832,13 +12662,11 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:303
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid table name."
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:304
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid database name."
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
@@ -12852,25 +12680,21 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:309
 #, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "ប៉ារ៉ាម៉ែត្រ​មិន​ល្អ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:321
 #, fuzzy
-#| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "បាន​បោះបង់​សំណើ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:322
 #, fuzzy
-#| msgid "Processing Request"
 msgid "Processing request"
 msgstr "កំពុង​ដំណើរការ​សំណើ"
 
 #: src/Controllers/JavaScriptMessagesController.php:323
 #, fuzzy
-#| msgid "Request Aborted!!"
 msgid "Request failed!!"
 msgstr "បាន​បោះបង់​សំណើ!"
 
@@ -12878,7 +12702,6 @@ msgstr "បាន​បោះបង់​សំណើ!"
 #: src/Controllers/Sql/EnumValuesController.php:38
 #: src/Controllers/Sql/SetValuesController.php:41
 #, fuzzy
-#| msgid "Error in Processing Request"
 msgid "Error in processing request"
 msgstr "មាន​កំហុស​ក្នុង​ពេល​ដំណើរការ​សំណើ"
 
@@ -12900,19 +12723,16 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:333
 #, fuzzy
-#| msgid "No databases selected."
 msgid "No accounts selected."
 msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
 #: src/Controllers/JavaScriptMessagesController.php:334
 #, fuzzy
-#| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "ការ​លុប​ជួរ​ឈរ"
 
 #: src/Controllers/JavaScriptMessagesController.php:335
 #, fuzzy
-#| msgid "Adding Primary Key"
 msgid "Adding primary key"
 msgstr "ការ​បន្ថែម​លេខ​ប​ឋម"
 
@@ -12922,13 +12742,11 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:341
 #, fuzzy
-#| msgid "Select All"
 msgid "Renaming databases"
 msgstr "ជ្រើសទាំងអស់"
 
 #: src/Controllers/JavaScriptMessagesController.php:342
 #, fuzzy
-#| msgid "Select All"
 msgid "Copying database"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -13011,7 +12829,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:381
 #, fuzzy
-#| msgid "Updated"
 msgid "Edit query"
 msgstr "បានធ្វើបច្ចុប្បន្នភាព"
 
@@ -13021,10 +12838,9 @@ msgid "%d is not valid row number."
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:385
-#, fuzzy, php-format
-#| msgid "Disable %s"
+#, php-format
 msgid "Variable %d:"
-msgstr "បិទ %s"
+msgstr "អថេរ %d:"
 
 #: src/Controllers/JavaScriptMessagesController.php:388
 #: src/Normalization.php:956
@@ -13048,7 +12864,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:395
 #, fuzzy
-#| msgid "Free memory"
 msgid "See more"
 msgstr "អង្គ​ចងចាំ​ទំនេរ"
 
@@ -13103,7 +12918,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:411
 #, fuzzy
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
@@ -13152,7 +12966,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:427
 #, fuzzy
-#| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
@@ -13332,7 +13145,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:523
 #, fuzzy
-#| msgid "Reload page"
 msgid "Delete page"
 msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
@@ -13347,7 +13159,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:528
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid page name"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
@@ -13374,7 +13185,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:536
 #, fuzzy
-#| msgid "Column"
 msgid "Column name"
 msgstr "ជួរឈរ"
 
@@ -13437,7 +13247,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:567
 #, fuzzy
-#| msgid "Cancel"
 msgid "cancel"
 msgstr "បោះបង់"
 
@@ -13452,13 +13261,11 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:571
 #, fuzzy
-#| msgid "Import"
 msgid "Import status"
 msgstr "នាំចូល"
 
 #: src/Controllers/JavaScriptMessagesController.php:573
 #, fuzzy
-#| msgid "Select All"
 msgid "Select database first"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -13472,7 +13279,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:585
 #, fuzzy
-#| msgid "Table comments:"
 msgid "Show panel"
 msgstr "មតិយោបល់​តារាង៖"
 
@@ -13513,7 +13319,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:602
 #, fuzzy
-#| msgid "Change settings"
 msgid "Change report settings"
 msgstr "ប្ដូរ​ការ​កំណត់"
 
@@ -13544,7 +13349,7 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:621
-#: src/Error/ErrorHandler.php:429
+#: src/Error/ErrorHandler.php:429 src/Error/ErrorHandler.php:431
 msgid "Ignore All"
 msgstr ""
 
@@ -13567,7 +13372,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:635
 #, fuzzy
-#| msgid "Select All"
 msgid "Copying failed!"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -13577,7 +13381,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:639
 #, fuzzy
-#| msgid "Do you really want to delete the search \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "តើ​អ្នក​ពិត​ជា​លុប​ការ​ស្វែងរក \"%s\" មែនទេ?"
 
@@ -13597,7 +13400,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:643
 #, fuzzy
-#| msgid "Table comments:"
 msgid "Show arguments"
 msgstr "មតិយោបល់​តារាង៖"
 
@@ -13616,7 +13418,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:654
 #, fuzzy
-#| msgid "No databases selected."
 msgid "Copy tables to"
 msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
@@ -13827,7 +13628,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:723 src/Util.php:512
 #, fuzzy
-#| msgid "No"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "ទេ"
@@ -13869,7 +13669,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:522
 #, fuzzy
-#| msgid "Status"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "ស្ថានភាព"
@@ -13911,7 +13710,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
-#| msgid "Wiki"
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "វិគី"
@@ -13919,7 +13717,6 @@ msgstr "វិគី"
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: src/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
-#| msgid "calendar-month-year"
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
@@ -13941,28 +13738,24 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:752
 #, fuzzy
-#| msgid "Select All"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "ជ្រើសទាំងអស់"
 
 #: src/Controllers/JavaScriptMessagesController.php:753
 #, fuzzy
-#| msgid "Select All"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "ជ្រើសទាំងអស់"
 
 #: src/Controllers/JavaScriptMessagesController.php:754
 #, fuzzy
-#| msgid "Select All"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "ជ្រើសទាំងអស់"
 
 #: src/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
-#| msgid "Select All"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "ជ្រើសទាំងអស់"
@@ -13999,49 +13792,41 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid email address"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:770
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:771
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid date"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid date ( ISO )"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:773
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:774
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:775
 #, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
 msgstr "សូម​បញ្ចូល​ប្រវែង​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:776
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter the same value again"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
@@ -14051,7 +13836,6 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:778
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter at least {0} characters"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
@@ -14061,31 +13845,26 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:780
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a value between {0} and {1}"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:781
 #, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "សូម​បញ្ចូល​ប្រវែង​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:782
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:783
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid date or time"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:784
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
@@ -14144,7 +13923,6 @@ msgstr ""
 #: src/Controllers/Normalization/GetColumnsController.php:29
 #: src/Normalization.php:225
 #, fuzzy
-#| msgid "Select All"
 msgid "Select one…"
 msgstr "ជ្រើសទាំងអស់"
 
@@ -14154,7 +13932,7 @@ msgid "No such column"
 msgstr ""
 
 #: src/Controllers/Normalization/GetColumnsController.php:35
-#: src/Normalization.php:230 src/Types.php:665
+#: src/Normalization.php:230 src/Types.php:665 src/Types.php:659
 msgctxt "string types"
 msgid "String"
 msgstr ""
@@ -14165,20 +13943,24 @@ msgid "No collation provided."
 msgstr ""
 
 #: src/Controllers/Operations/DatabaseController.php:82
+#: src/Controllers/Operations/DatabaseController.php:84
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 
 #: src/Controllers/Operations/DatabaseController.php:162
+#: src/Controllers/Operations/DatabaseController.php:164
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "បាន​ប្ដូរ​ឈ្មោះ​មូលដ្ឋាន​ទិន្នន័យ %1$s ទៅ​ជា %2$s។"
 
 #: src/Controllers/Operations/DatabaseController.php:176
+#: src/Controllers/Operations/DatabaseController.php:178
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "បានចម្លងមូលដ្ឋានទិន្នន័យ %1$s ទៅ %2$s។"
 
 #: src/Controllers/Operations/DatabaseController.php:273
+#: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14198,7 +13980,6 @@ msgstr ""
 
 #: src/Controllers/Preferences/TwoFactorController.php:49
 #, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "Two-factor authentication has been removed."
 msgstr "កំហុស៖ មិន​អាច​បន្ថែម​ចំណង​សម្ព័ន្ធ​បាន!"
 
@@ -14218,6 +13999,7 @@ msgid "Database %1$s has been created."
 msgstr "មូលដ្ឋាន​ទិន្នន័យ %1$s ត្រូវ​បាន​បង្កើត។"
 
 #: src/Controllers/Server/Databases/DestroyController.php:85
+#: src/Controllers/Server/Databases/DestroyController.php:88
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -14253,7 +14035,6 @@ msgstr ""
 
 #: src/Controllers/Server/Status/QueriesController.php:91
 #, fuzzy
-#| msgid "Connections"
 msgid "Other statements"
 msgstr "ការ​តភ្ជាប់"
 
@@ -14267,7 +14048,6 @@ msgstr ""
 
 #: src/Controllers/Server/Status/StatusController.php:173
 #, fuzzy
-#| msgid "Connections"
 msgid "Max. concurrent connections"
 msgstr "ការ​តភ្ជាប់"
 
@@ -14850,6 +14630,7 @@ msgid "User groups management is not enabled."
 msgstr ""
 
 #: src/Controllers/Server/Variables/SetVariableController.php:81
+#: src/Controllers/Server/Variables/SetVariableController.php:83
 msgid "Setting variable failed"
 msgstr ""
 
@@ -14892,7 +14673,7 @@ msgstr ""
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1079
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1079 src/Sql.php:1086
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "បាន​បង្កើត​ចំណាំ %s ។"
@@ -14906,6 +14687,7 @@ msgstr ""
 #: src/Controllers/Table/IndexRenameController.php:123
 #: src/Controllers/Table/Structure/PartitioningController.php:266
 #: src/Controllers/Table/Structure/SaveController.php:228
+#: src/Controllers/Table/Structure/SaveController.php:231
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr ""
@@ -14914,7 +14696,6 @@ msgstr ""
 #: src/Controllers/Table/DeleteConfirmController.php:38
 #: src/Controllers/Table/ExportRowsController.php:33
 #, fuzzy
-#| msgid "No databases selected."
 msgid "No row selected."
 msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
@@ -15003,13 +14784,11 @@ msgstr ""
 #: src/Controllers/Table/Partition/RepairController.php:36
 #: src/Controllers/Table/Partition/TruncateController.php:36
 #, fuzzy
-#| msgid "The database name is empty!"
 msgid "The partition name must be a non-empty string."
 msgstr "ឈ្មោះមូលដ្ឋានទិន្នន័យនៅទទេ!"
 
 #: src/Controllers/Table/RecentFavoriteController.php:37
 #, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Invalid database or table name."
 msgstr "សូម​បញ្ចូល​តម្លៃ​លេខ​ត្រឹម​ត្រូវ!"
 
@@ -15022,6 +14801,7 @@ msgid "Internal relationships were successfully updated."
 msgstr ""
 
 #: src/Controllers/Table/ReplaceController.php:183
+#: src/Controllers/Table/ReplaceController.php:186
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -15035,16 +14815,19 @@ msgid "The columns have been moved successfully."
 msgstr ""
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:111
+#: src/Controllers/Table/Structure/MoveColumnsController.php:114
 msgid "The selected columns do not match the columns in the table."
 msgstr ""
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:138
+#: src/Controllers/Table/Structure/MoveColumnsController.php:141
 msgid "The selected columns are already in the correct order."
 msgstr ""
 
 #: src/Controllers/Table/Structure/PartitioningController.php:258
 #: src/Controllers/Table/Structure/SaveController.php:278
 #: src/Tracking/Tracking.php:736
+#: src/Controllers/Table/Structure/SaveController.php:281
 msgid "Query error"
 msgstr ""
 
@@ -15055,6 +14838,7 @@ msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] ""
 
 #: src/Controllers/Table/Structure/SaveController.php:223
+#: src/Controllers/Table/Structure/SaveController.php:226
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -15075,7 +14859,6 @@ msgstr ""
 
 #: src/Controllers/Table/TrackingController.php:203
 #, fuzzy
-#| msgid "No databases selected."
 msgid "No versions selected."
 msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
@@ -15089,13 +14872,11 @@ msgstr ""
 
 #: src/Controllers/Triggers/IndexController.php:209
 #, fuzzy, php-format
-#| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "រកមិនឃើញតារាងនៅក្នុងមូលដ្ឋានទិន្នន័យ។"
 
 #: src/Controllers/Triggers/IndexController.php:250
 #, fuzzy, php-format
-#| msgid "No tables found in database."
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
@@ -15141,9 +14922,6 @@ msgstr ""
 
 #: src/Database/Designer/Common.php:447
 #, fuzzy
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. %sFind out "
-#| "why%s."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
@@ -15157,13 +14935,11 @@ msgstr ""
 
 #: src/Database/Designer/Common.php:530
 #, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "កំហុស៖ មិន​អាច​បន្ថែម​ចំណង​សម្ព័ន្ធ​បាន!"
 
 #: src/Database/Designer/Common.php:535
 #, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "កំហុស៖ មិន​អាច​បន្ថែម​ចំណង​សម្ព័ន្ធ​បាន!"
 
@@ -15177,31 +14953,26 @@ msgstr ""
 
 #: src/Database/Designer/Common.php:564
 #, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "Internal relationship has been added."
 msgstr "កំហុស៖ មិន​អាច​បន្ថែម​ចំណង​សម្ព័ន្ធ​បាន!"
 
 #: src/Database/Designer/Common.php:569
 #, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
 msgstr "កំហុស៖ មិន​អាច​បន្ថែម​ចំណង​សម្ព័ន្ធ​បាន!"
 
 #: src/Database/Designer/Common.php:599
 #, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "កំហុស៖ មិន​អាច​បន្ថែម​ចំណង​សម្ព័ន្ធ​បាន!"
 
 #: src/Database/Designer/Common.php:624
 #, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "Error: Internal relationship could not be removed!"
 msgstr "កំហុស៖ មិន​អាច​បន្ថែម​ចំណង​សម្ព័ន្ធ​បាន!"
 
 #: src/Database/Designer/Common.php:627
 #, fuzzy
-#| msgid "Error: Relation could not be added!"
 msgid "Internal relationship has been removed."
 msgstr "កំហុស៖ មិន​អាច​បន្ថែម​ចំណង​សម្ព័ន្ធ​បាន!"
 
@@ -15225,6 +14996,7 @@ msgstr ""
 #: src/Database/Routines.php:1014 src/Html/Generator.php:800
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
 #: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
+#: src/Html/Generator.php:806
 msgid "MySQL said: "
 msgstr ""
 
@@ -15322,7 +15094,6 @@ msgstr ""
 
 #: src/Database/Routines.php:823
 #, fuzzy
-#| msgid "Invalid export type"
 msgid "Invalid routine type!"
 msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
@@ -15365,32 +15136,32 @@ msgid ""
 msgstr ""
 
 #: src/Display/Results.php:2387 src/Display/Results.php:2402
+#: src/Display/Results.php:2395 src/Display/Results.php:2410
 msgid "The row has been deleted."
 msgstr ""
 
 #: src/Display/Results.php:2969 src/Display/Results.php:3286 src/Sql.php:910
+#: src/Display/Results.php:2977 src/Display/Results.php:3299
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
-#: src/Display/Results.php:3254
+#: src/Display/Results.php:3254 src/Display/Results.php:3267
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr ""
 
-#: src/Display/Results.php:3268
+#: src/Display/Results.php:3268 src/Display/Results.php:3281
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3273
+#: src/Display/Results.php:3273 src/Display/Results.php:3286
 #, fuzzy, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "%s total"
 msgstr "%s តារាង"
 
-#: src/Display/Results.php:3577
+#: src/Display/Results.php:3577 src/Display/Results.php:3593
 msgid "Link not found!"
 msgstr ""
 
@@ -15629,9 +15400,8 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: src/Error/ErrorHandler.php:413
+#: src/Error/ErrorHandler.php:413 src/Error/ErrorHandler.php:415
 #, fuzzy
-#| msgid "Import"
 msgid "Report"
 msgstr "នាំចូល"
 
@@ -15766,52 +15536,50 @@ msgstr ""
 msgid "SSL is not being used"
 msgstr ""
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:221 src/Html/Generator.php:223
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:223 src/Html/Generator.php:225
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:226 src/Html/Generator.php:228
 msgid "SSL is used"
 msgstr ""
 
-#: src/Html/Generator.php:326
+#: src/Html/Generator.php:326 src/Html/Generator.php:332
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: src/Html/Generator.php:327
+#: src/Html/Generator.php:327 src/Html/Generator.php:333
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:501
+#: src/Html/Generator.php:501 src/Html/Generator.php:507
 msgid "Skip Explain SQL"
 msgstr ""
 
-#: src/Html/Generator.php:511
+#: src/Html/Generator.php:511 src/Html/Generator.php:517
 msgid "Skip Analyze SQL"
 msgstr ""
 
-#: src/Html/Generator.php:543
+#: src/Html/Generator.php:543 src/Html/Generator.php:549
 #, fuzzy
-#| msgid "Created"
 msgid "Without PHP code"
 msgstr "បានបង្កើត"
 
-#: src/Html/Generator.php:628
+#: src/Html/Generator.php:628 src/Html/Generator.php:634
 #, fuzzy
-#| msgid "Edit Index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "កែ​សន្ទស្សន៍"
 
-#: src/Html/Generator.php:742
+#: src/Html/Generator.php:742 src/Html/Generator.php:748
 msgid "Static analysis:"
 msgstr ""
 
-#: src/Html/Generator.php:745
+#: src/Html/Generator.php:745 src/Html/Generator.php:751
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -15856,7 +15624,6 @@ msgstr ""
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 #, fuzzy
-#| msgid "The database name is empty!"
 msgid "The database name must be a non-empty string."
 msgstr "ឈ្មោះមូលដ្ឋានទិន្នន័យនៅទទេ!"
 
@@ -15871,7 +15638,6 @@ msgstr ""
 
 #: src/Identifiers/InvalidTableName.php:14
 #, fuzzy
-#| msgid "The database name is empty!"
 msgid "The table name must be a non-empty string."
 msgstr "ឈ្មោះមូលដ្ឋានទិន្នន័យនៅទទេ!"
 
@@ -15886,7 +15652,6 @@ msgstr ""
 
 #: src/Identifiers/InvalidTriggerName.php:14
 #, fuzzy
-#| msgid "The database name is empty!"
 msgid "The trigger name must not be empty."
 msgstr "ឈ្មោះមូលដ្ឋានទិន្នន័យនៅទទេ!"
 
@@ -15899,51 +15664,52 @@ msgstr ""
 msgid "The trigger name cannot end with a space character."
 msgstr ""
 
-#: src/Import/Import.php:947
+#: src/Import/Import.php:947 src/Import/Import.php:954
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
 
-#: src/Import/Import.php:1164
+#: src/Import/Import.php:1164 src/Import/Import.php:1171
 #, php-format
 msgid "Go to table: %s"
 msgstr ""
 
-#: src/Import/Import.php:1172
+#: src/Import/Import.php:1172 src/Import/Import.php:1179
 #, php-format
 msgid "Structure of %s"
 msgstr ""
 
 #: src/Import/Import.php:1179 src/Import/Import.php:1228
+#: src/Import/Import.php:1186 src/Import/Import.php:1235
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: src/Import/Import.php:1190
+#: src/Import/Import.php:1190 src/Import/Import.php:1197
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: src/Import/Import.php:1211
+#: src/Import/Import.php:1211 src/Import/Import.php:1218
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: src/Import/Import.php:1213
+#: src/Import/Import.php:1213 src/Import/Import.php:1220
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: src/Import/Import.php:1214
+#: src/Import/Import.php:1214 src/Import/Import.php:1221
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: src/Import/Import.php:1215
+#: src/Import/Import.php:1215 src/Import/Import.php:1222
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1222 src/Import/Import.php:1229
 #, php-format
 msgid "Go to database: %s"
 msgstr ""
@@ -15959,11 +15725,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr ""
 
-#: src/InsertEdit.php:844 src/Sql.php:901
+#: src/InsertEdit.php:844 src/Sql.php:901 src/InsertEdit.php:848
 msgid "Showing SQL query"
 msgstr ""
 
-#: src/InsertEdit.php:868 src/Sql.php:881
+#: src/InsertEdit.php:868 src/Sql.php:881 src/InsertEdit.php:872
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -16069,6 +15835,7 @@ msgid "New"
 msgstr ""
 
 #: src/Navigation/Nodes/NodeDatabaseContainer.php:43
+#: src/Navigation/Nodes/NodeDatabaseContainer.php:46
 msgctxt "Create new database"
 msgid "New"
 msgstr ""
@@ -16207,7 +15974,6 @@ msgstr ""
 
 #: src/Normalization.php:318
 #, fuzzy
-#| msgid "Removing Selected Users"
 msgid "Remove selected"
 msgstr "ការ​លុប​អ្នក​ប្រើ​ដែល​បាន​ជ្រើស"
 
@@ -16308,7 +16074,6 @@ msgstr ""
 #: src/Normalization.php:567 src/Normalization.php:727
 #: src/Normalization.php:802
 #, fuzzy
-#| msgid "Error in Processing Request"
 msgid "Error in processing!"
 msgstr "មាន​កំហុស​ក្នុង​ពេល​ដំណើរការ​សំណើ"
 
@@ -16366,39 +16131,38 @@ msgstr ""
 
 #: src/Operations.php:536
 #, fuzzy
-#| msgid "Close"
 msgid "Coalesce"
 msgstr "បិទ"
 
-#: src/Operations.php:880
+#: src/Operations.php:880 src/Operations.php:887
 msgid "Can't move table to same one!"
 msgstr ""
 
-#: src/Operations.php:882
+#: src/Operations.php:882 src/Operations.php:889
 msgid "Can't copy table to same one!"
 msgstr ""
 
-#: src/Operations.php:918
+#: src/Operations.php:918 src/Operations.php:925
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr ""
 
-#: src/Operations.php:924
+#: src/Operations.php:924 src/Operations.php:931
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr ""
 
-#: src/Operations.php:930
+#: src/Operations.php:930 src/Operations.php:937
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr ""
 
-#: src/Operations.php:934
+#: src/Operations.php:934 src/Operations.php:941
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr ""
 
-#: src/Operations.php:957
+#: src/Operations.php:957 src/Operations.php:964
 msgid "The table name is empty!"
 msgstr ""
 
@@ -16518,24 +16282,28 @@ msgstr ""
 #: src/Plugins/Export/ExportHtmlword.php:167
 #: src/Plugins/Export/ExportOdt.php:209 src/Plugins/Export/ExportSql.php:2092
 #: src/Plugins/Export/ExportTexytext.php:137
+#: src/Plugins/Export/ExportSql.php:2098
 msgid "Dumping data for table"
 msgstr ""
 
 #: src/Plugins/Export/ExportHtmlword.php:439
 #: src/Plugins/Export/ExportOdt.php:556 src/Plugins/Export/ExportSql.php:1828
 #: src/Plugins/Export/ExportTexytext.php:401
+#: src/Plugins/Export/ExportOdt.php:558 src/Plugins/Export/ExportSql.php:1834
 msgid "Table structure for table"
 msgstr ""
 
 #: src/Plugins/Export/ExportHtmlword.php:456
 #: src/Plugins/Export/ExportOdt.php:576 src/Plugins/Export/ExportSql.php:1894
 #: src/Plugins/Export/ExportTexytext.php:414
+#: src/Plugins/Export/ExportOdt.php:578 src/Plugins/Export/ExportSql.php:1900
 msgid "Structure for view"
 msgstr ""
 
 #: src/Plugins/Export/ExportHtmlword.php:462
 #: src/Plugins/Export/ExportOdt.php:584 src/Plugins/Export/ExportSql.php:1937
 #: src/Plugins/Export/ExportTexytext.php:418
+#: src/Plugins/Export/ExportOdt.php:586 src/Plugins/Export/ExportSql.php:1943
 msgid "Stand-in structure for view"
 msgstr ""
 
@@ -16608,6 +16376,7 @@ msgid "PHP Version:"
 msgstr ""
 
 #: src/Plugins/Export/ExportLatex.php:287 src/Plugins/Export/ExportSql.php:1983
+#: src/Plugins/Export/ExportSql.php:1989
 msgid "Data:"
 msgstr ""
 
@@ -16685,10 +16454,9 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:343
-#, fuzzy, php-format
-#| msgid "Y Values"
+#, php-format
 msgid "%s value"
-msgstr "តម្លៃ Y"
+msgstr "តម្លៃ %s"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: src/Plugins/Export/ExportSql.php:360
@@ -16706,6 +16474,7 @@ msgid "Data creation options"
 msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:418 src/Plugins/Export/ExportSql.php:2055
+#: src/Plugins/Export/ExportSql.php:2061
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -16772,7 +16541,8 @@ msgid "It appears your database uses routines;"
 msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:595 src/Plugins/Export/ExportSql.php:1455
-#: src/Plugins/Export/ExportSql.php:1878
+#: src/Plugins/Export/ExportSql.php:1878 src/Plugins/Export/ExportSql.php:1458
+#: src/Plugins/Export/ExportSql.php:1884
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
@@ -16781,10 +16551,9 @@ msgid "Metadata"
 msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:1109
-#, fuzzy, php-format
-#| msgid "Delete tracking data for this table"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "លុប​ទិន្នន័យ​តាមដាន​សម្រាប់​តារាង​នេះ"
+msgstr "ទិន្នន័យ Metadata សម្រាប់តារាង %s"
 
 #: src/Plugins/Export/ExportSql.php:1116
 #, php-format
@@ -16796,84 +16565,85 @@ msgstr ""
 msgid "Error reading structure for table %s:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1452
+#: src/Plugins/Export/ExportSql.php:1452 src/Plugins/Export/ExportSql.php:1455
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1591
+#: src/Plugins/Export/ExportSql.php:1591 src/Plugins/Export/ExportSql.php:1594
 msgid "Constraints for dumped tables"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1592
+#: src/Plugins/Export/ExportSql.php:1592 src/Plugins/Export/ExportSql.php:1595
 msgid "Constraints for table"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1618
+#: src/Plugins/Export/ExportSql.php:1618 src/Plugins/Export/ExportSql.php:1621
 msgid "Indexes for dumped tables"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1619
+#: src/Plugins/Export/ExportSql.php:1619 src/Plugins/Export/ExportSql.php:1622
 msgid "Indexes for table"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1642
+#: src/Plugins/Export/ExportSql.php:1642 src/Plugins/Export/ExportSql.php:1645
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1643
+#: src/Plugins/Export/ExportSql.php:1643 src/Plugins/Export/ExportSql.php:1646
 msgid "AUTO_INCREMENT for table"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1694
+#: src/Plugins/Export/ExportSql.php:1694 src/Plugins/Export/ExportSql.php:1700
 msgid "MEDIA TYPES FOR TABLE"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1724
+#: src/Plugins/Export/ExportSql.php:1724 src/Plugins/Export/ExportSql.php:1730
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1875
+#: src/Plugins/Export/ExportSql.php:1875 src/Plugins/Export/ExportSql.php:1881
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1909
+#: src/Plugins/Export/ExportSql.php:1909 src/Plugins/Export/ExportSql.php:1915
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1940
+#: src/Plugins/Export/ExportSql.php:1940 src/Plugins/Export/ExportSql.php:1946
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1996
-#, fuzzy, php-format
-#| msgid "Delete tracking data for this table"
+#: src/Plugins/Export/ExportSql.php:2002
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "លុប​ទិន្នន័យ​តាមដាន​សម្រាប់​តារាង​នេះ"
+msgstr "Error ក្នងការអានទិន្នន៍យសម្រាប់តារាង %s:"
 
 #: src/Plugins/Export/ExportSql.php:2522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
+#: src/Plugins/Export/ExportSql.php:2526
 msgid "Creation:"
 msgstr "ការបង្កើត៖"
 
 #: src/Plugins/Export/ExportSql.php:2530
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
+#: src/Plugins/Export/ExportSql.php:2534
 msgid "Last update:"
 msgstr "បច្ចុប្បន្នភាពចុងក្រោយ៖"
 
 #: src/Plugins/Export/ExportSql.php:2538
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
+#: src/Plugins/Export/ExportSql.php:2542
 msgid "Last check:"
 msgstr "ពិនិត្យចុងក្រោយ៖"
 
-#: src/Plugins/Export/ExportSql.php:2559
+#: src/Plugins/Export/ExportSql.php:2559 src/Plugins/Export/ExportSql.php:2563
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 
 #: src/Plugins/Export/ExportToon.php:67
 #, fuzzy
-#| msgid "Creation:"
 msgid "Indentation:"
 msgstr "ការបង្កើត៖"
 
@@ -16921,7 +16691,6 @@ msgstr ""
 
 #: src/Plugins/Import/ImportCsv.php:144
 #, fuzzy
-#| msgid "Column"
 msgid "Column names:"
 msgstr "ជួរឈរ"
 
@@ -17038,15 +16807,13 @@ msgstr ""
 
 #: src/Plugins/Schema/Pdf/Pdf.php:251
 #, fuzzy
-#| msgid "Invalid export type"
 msgid "PDF export page"
 msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
-#, fuzzy, php-format
-#| msgid "Select All"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "ជ្រើសទាំងអស់"
+msgstr "គ្រោងទិន្នន័យនៃ Database %s"
 
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:495
@@ -17309,7 +17076,6 @@ msgstr ""
 
 #: src/Plugins/TwoFactorPlugin.php:110
 #, fuzzy
-#| msgid "Change password"
 msgid "No Two-Factor Authentication"
 msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
@@ -17319,7 +17085,6 @@ msgstr ""
 
 #: src/Plugins/TwoFactor/Simple.php:47
 #, fuzzy
-#| msgid "Change password"
 msgid "Simple two-factor authentication"
 msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
@@ -17433,31 +17198,28 @@ msgid "Error 405! Request method not allowed."
 msgstr ""
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3133
+#: src/Server/Privileges.php:3133 src/Server/Privileges.php:636
+#: src/Server/Privileges.php:3136
 msgid "Native MySQL authentication"
 msgstr ""
 
 #: src/Server/Plugins.php:58
 #, fuzzy
-#| msgid "Change password"
 msgid "SHA256 password authentication"
 msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
 #: src/Server/Plugins.php:63
 #, fuzzy
-#| msgid "Change password"
 msgid "Caching sha2 authentication"
 msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
 #: src/Server/Plugins.php:68
 #, fuzzy
-#| msgid "Change password"
 msgid "Unix Socket based authentication"
 msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
 #: src/Server/Plugins.php:73
 #, fuzzy
-#| msgid "Documentation"
 msgid "Old MySQL-4.0 authentication"
 msgstr "ឯកសារ​ជំនួយ​"
 
@@ -17466,65 +17228,65 @@ msgstr "ឯកសារ​ជំនួយ​"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:273
+#: src/Server/Privileges.php:273 src/Server/Privileges.php:276
 msgid "No privileges."
 msgstr ""
 
-#: src/Server/Privileges.php:279
+#: src/Server/Privileges.php:279 src/Server/Privileges.php:282
 msgid "Includes all privileges except GRANT."
 msgstr ""
 
-#: src/Server/Privileges.php:886
+#: src/Server/Privileges.php:886 src/Server/Privileges.php:889
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
-#: src/Server/Privileges.php:934
+#: src/Server/Privileges.php:934 src/Server/Privileges.php:937
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr ""
 
-#: src/Server/Privileges.php:1272
+#: src/Server/Privileges.php:1272 src/Server/Privileges.php:1275
 msgid "Revoke"
 msgstr ""
 
-#: src/Server/Privileges.php:1877
+#: src/Server/Privileges.php:1877 src/Server/Privileges.php:1880
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: src/Server/Privileges.php:1880
+#: src/Server/Privileges.php:1880 src/Server/Privileges.php:1883
 msgid "Reloading the privileges"
 msgstr ""
 
-#: src/Server/Privileges.php:1905
+#: src/Server/Privileges.php:1905 src/Server/Privileges.php:1908
 msgid "The selected users have been deleted successfully."
 msgstr ""
 
-#: src/Server/Privileges.php:1979
+#: src/Server/Privileges.php:1979 src/Server/Privileges.php:1982
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
-#: src/Server/Privileges.php:2129
+#: src/Server/Privileges.php:2129 src/Server/Privileges.php:2132
 #, php-format
 msgid "Deleting %s"
 msgstr ""
 
-#: src/Server/Privileges.php:2159
+#: src/Server/Privileges.php:2159 src/Server/Privileges.php:2162
 msgid "The privileges were reloaded successfully."
 msgstr ""
 
-#: src/Server/Privileges.php:2225
+#: src/Server/Privileges.php:2225 src/Server/Privileges.php:2228
 #, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
-#: src/Server/Privileges.php:2378
+#: src/Server/Privileges.php:2378 src/Server/Privileges.php:2381
 #, php-format
 msgid "Privileges for %s"
 msgstr ""
 
-#: src/Server/Privileges.php:2467
+#: src/Server/Privileges.php:2467 src/Server/Privileges.php:2470
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17533,7 +17295,7 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 
-#: src/Server/Privileges.php:2483
+#: src/Server/Privileges.php:2483 src/Server/Privileges.php:2486
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -17542,11 +17304,11 @@ msgid ""
 "privilege."
 msgstr ""
 
-#: src/Server/Privileges.php:2771
+#: src/Server/Privileges.php:2771 src/Server/Privileges.php:2774
 msgid "You have added a new user."
 msgstr ""
 
-#: src/Server/Privileges.php:3225
+#: src/Server/Privileges.php:3225 src/Server/Privileges.php:3228
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -17647,14 +17409,14 @@ msgstr ""
 msgid "Showing as PHP code"
 msgstr ""
 
-#: src/Sql.php:1247
+#: src/Sql.php:1247 src/Sql.php:1254
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: src/Sql.php:1261
+#: src/Sql.php:1261 src/Sql.php:1268
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18140,37 +17902,37 @@ msgstr ""
 msgid "Intended for storage of IPv4 addresses"
 msgstr ""
 
-#: src/Types.php:291
+#: src/Types.php:291 src/Types.php:290
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: src/Types.php:294
+#: src/Types.php:294 src/Types.php:293
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr ""
 
-#: src/Types.php:295
+#: src/Types.php:295 src/Types.php:294
 msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
 
-#: src/Types.php:297
+#: src/Types.php:297 src/Types.php:296
 msgid "Intended for storage of XML data"
 msgstr ""
 
-#: src/Types.php:615
+#: src/Types.php:615 src/Types.php:613
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr ""
 
-#: src/Types.php:633
+#: src/Types.php:633 src/Types.php:631
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr ""
 
-#: src/Types.php:667
+#: src/Types.php:667 src/Types.php:661
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr ""
@@ -18181,7 +17943,6 @@ msgstr ""
 
 #: src/UserPassword.php:49
 #, fuzzy
-#| msgid "The password is empty!"
 msgid "Password is too long!"
 msgstr "ពាក្យ​សម្ងាត់​នៅ​ទទេ!"
 
@@ -18227,24 +17988,19 @@ msgstr ""
 #~ msgstr "ជំនាន់ពិធីការ​"
 
 #, fuzzy, php-format
-#~| msgid "Select All"
 #~ msgid "%d seconds"
 #~ msgstr "ជ្រើសទាំងអស់"
 
 #, fuzzy, php-format
-#~| msgid "Select All"
 #~ msgid "%d minutes"
 #~ msgstr "ជ្រើសទាំងអស់"
 
 #, fuzzy
-#~| msgid "%s table"
-#~| msgid_plural "%s tables"
 #~ msgid "One table"
 #~ msgid_plural "%count% tables"
 #~ msgstr[0] "%s តារាង"
 
 #, fuzzy
-#~| msgid "Default"
 #~ msgid "Set default"
 #~ msgstr "លំនាំដើម"
 
@@ -18259,7 +18015,6 @@ msgstr ""
 #~ msgstr "ចំណុច៖"
 
 #, fuzzy, php-format
-#~| msgid "Point %d"
 #~ msgid "Point %d:"
 #~ msgstr "ចំណុច %d"
 
@@ -18275,9 +18030,6 @@ msgstr ""
 #~ msgstr "រង្វង់​ក្នុង​ %d៖"
 
 #, fuzzy
-#~| msgid ""
-#~| "The phpMyAdmin configuration storage has been deactivated. %sFind out "
-#~| "why%s."
 #~ msgid "Replica configuration"
 #~ msgstr ""
 #~ "ការ​កំណត់​រចនា​សម្ព័ន្ធ​ឃ្លាំង​ផ្ទុក phpMyAdmin ត្រូវ​បាន​បិទ​ដំណើរ​ការ។ %s ស្វែងរក​មូលហេតុ%s។"
@@ -18303,108 +18055,87 @@ msgstr ""
 #~ msgstr "អ្នក​ត្រូវ​តែ​ជ្រើស​ជួរ​ឈរ​មួយ​យ៉ាង​តិច ដើម្បី​បង្ហាញ!"
 
 #, fuzzy
-#~| msgid "Select All"
 #~ msgid "Add/Delete columns:"
 #~ msgstr "ជ្រើសទាំងអស់"
 
 #, fuzzy
-#~| msgid "Error: Relation could not be added!"
 #~ msgid "Error: FOREIGN KEY relationship could not be removed!"
 #~ msgstr "កំហុស៖ មិន​អាច​បន្ថែម​ចំណង​សម្ព័ន្ធ​បាន!"
 
 #, fuzzy
-#~| msgid "Do you really want to execute \"%s\"?"
 #~ msgid "Do you really want to RESET SLAVE?"
 #~ msgstr "តើ​អ្នក​ពិត​ជា​ចង់​អនុវត្ត \"%s\" មែនទេ?"
 
 #, fuzzy
-#~| msgid "Connections"
 #~ msgid "Master connection:"
 #~ msgstr "ការ​តភ្ជាប់"
 
 #, fuzzy
-#~| msgid "Database"
 #~ msgid "Databases:"
 #~ msgstr "មូលដ្ឋានទិន្នន័យ"
 
 #, fuzzy
-#~| msgid "No databases selected."
 #~ msgid "A symbol name was expected!"
 #~ msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
 #, fuzzy
-#~| msgid "No databases selected."
 #~ msgid "A comma or a closing bracket was expected."
 #~ msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
 #, fuzzy
-#~| msgid "No databases selected."
 #~ msgid "An alias was expected."
 #~ msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
 #, fuzzy
-#~| msgid "No databases selected."
 #~ msgid "An expression was expected."
 #~ msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
 #, fuzzy
-#~| msgid "No databases selected."
 #~ msgid "Value/Expression for the option %1$s was expected"
 #~ msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
 #, fuzzy
-#~| msgid "The bookmark has been deleted."
 #~ msgid "A rename operation was expected."
 #~ msgstr "បាន​លុប​ចំណាំ។"
 
 #, fuzzy
-#~| msgid "No databases selected."
 #~ msgid "A table name was expected."
 #~ msgstr "មិន​បាន​ជ្រើស​មូលដ្ឋាន​ទិន្នន័យ។"
 
 #, fuzzy
-#~| msgid "The bookmark has been deleted."
 #~ msgid "At least one column definition was expected."
 #~ msgstr "បាន​លុប​ចំណាំ។"
 
 #, fuzzy
-#~| msgid "Table comments:"
 #~ msgid "Table comments: "
 #~ msgstr "មតិយោបល់​តារាង៖"
 
 #, fuzzy
-#~| msgid "New bookmark"
 #~ msgid "Total %d bookmark"
 #~ msgid_plural "Total %d bookmarks"
 #~ msgstr[0] "បង្កើត​ចំណាំ​ថ្មី"
 
 #, fuzzy
-#~| msgid "The bookmark has been deleted."
 #~ msgid "%1$s, %2$s and %3$s bookmarks included"
 #~ msgstr "បាន​លុប​ចំណាំ។"
 
 #, fuzzy
-#~| msgid "Table"
 #~ msgid "tables"
 #~ msgstr "តារាង"
 
 #, fuzzy
-#~| msgid "Processes"
 #~ msgid "procedures"
 #~ msgstr "ដំណើរការ"
 
 #, fuzzy
-#~| msgid "Recent"
 #~ msgid "events"
 #~ msgstr "ថ្មីៗ"
 
 #, fuzzy
-#~| msgid "Action"
 #~ msgid "functions"
 #~ msgstr "សកម្មភាព"
 
 #, fuzzy
-#~| msgid "Change password"
 #~ msgid "MySQL native password"
 #~ msgstr "ប្ដូរ​ពាក្យ​សម្ងាត់"
 
@@ -18412,7 +18143,6 @@ msgstr ""
 #~ msgstr "ជ្រើសទាំងអស់"
 
 #, fuzzy
-#~| msgid "Select All"
 #~ msgid "Please select a database."
 #~ msgstr "ជ្រើសទាំងអស់"
 
@@ -18420,42 +18150,34 @@ msgstr ""
 #~ msgstr "លុប​ទិន្នន័យ​តាមដាន​សម្រាប់​តារាង​នេះ"
 
 #, fuzzy
-#~| msgid "Other"
 #~ msgid "after"
 #~ msgstr "ផ្សេងៗ"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "Dia export page"
 #~ msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "SVG export page"
 #~ msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
 #, fuzzy
-#~| msgid "Reload page"
 #~ msgid "eps export page"
 #~ msgstr "ផ្ទុក​ទំព័រ​ឡើង​វិញ"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "pdf export page"
 #~ msgstr "ប្រភេទ​នាំ​ចេញ​មិន​ត្រឹម​ត្រូវ"
 
 #, fuzzy
-#~| msgid "New bookmark"
 #~ msgid " bookmarks, "
 #~ msgstr "បង្កើត​ចំណាំ​ថ្មី"
 
 #, fuzzy
-#~| msgid "Select All"
 #~ msgid "Select one ..."
 #~ msgstr "ជ្រើសទាំងអស់"
 
 #, fuzzy
-#~| msgid "Table comments:"
 #~ msgid "Have unique columns"
 #~ msgstr "មតិយោបល់​តារាង៖"
 
