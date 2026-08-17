@@ -149,12 +149,12 @@ interface DbalInterface
     /**
      * returns detailed array with all columns for sql
      *
-     * @param string $sql_query    target SQL query to get columns
+     * @param string $sqlQuery     target SQL query to get columns
      * @param array  $view_columns alias for columns
      *
      * @return array
      */
-    public function getColumnMapFromSql(string $sql_query, array $view_columns = []): array;
+    public function getColumnMapFromSql(string $sqlQuery, array $view_columns = []): array;
 
     /**
      * returns detailed array with all columns for given table in database,
