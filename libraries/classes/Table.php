@@ -1722,7 +1722,7 @@ class Table implements Stringable
     public function getColumnsMeta(): array
     {
         $moveColumnsSqlQuery = sprintf(
-            'SELECT * FROM %s.%s LIMIT 1',
+            'SELECT * FROM %s.%s LIMIT 0',
             Util::backquote($this->dbName),
             Util::backquote($this->name)
         );

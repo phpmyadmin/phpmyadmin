@@ -128,7 +128,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
             return ['Content-Type' => 'application/x-www-form-urlencoded'];
         });
 
-        $method = (new ReflectionMethod(ServerRequestFactory::class, 'createServerRequestFromGlobals'));
+        $method = new ReflectionMethod(ServerRequestFactory::class, 'createServerRequestFromGlobals');
         if (PHP_VERSION_ID < 80100) {
             $method->setAccessible(true);
         }
@@ -186,7 +186,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
     #[DataProvider('providerCreateUriFromGlobals')]
     public function testCreateUriFromGlobals(string $expected, array $server): void
     {
-        $createUriFromGlobals = (new ReflectionMethod(ServerRequestFactory::class, 'createUriFromGlobals'));
+        $createUriFromGlobals = new ReflectionMethod(ServerRequestFactory::class, 'createUriFromGlobals');
         if (PHP_VERSION_ID < 80100) {
             $createUriFromGlobals->setAccessible(true);
         }
