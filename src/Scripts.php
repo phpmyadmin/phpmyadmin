@@ -30,7 +30,7 @@ class Scripts
     /**
      * Generates new Scripts objects
      */
-    public function __construct(private readonly Template $template)
+    public function __construct(private readonly Template $template, private readonly Config $config)
     {
     }
 
@@ -119,6 +119,10 @@ class Scripts
      */
     public function getDisplay(): string
     {
-        return $this->template->render('scripts', ['files' => $this->files, 'code' => $this->code]);
+        return $this->template->render('scripts', [
+            'files' => $this->files,
+            'code' => $this->code,
+            'asset_version' => $this->config->getAssetVersion(),
+        ]);
     }
 }
