@@ -44,6 +44,7 @@ AJAX.registerTeardown('config.js', function () {
     $('form.prefs-form').off('change').off('submit');
     $(document).off('click', 'div.click-hide-message');
     $('#prefs_autoload').find('a').off('click');
+    $('form.config-form').off('shown.bs.tab');
 });
 
 AJAX.registerOnload('config.js', function () {
@@ -51,6 +52,43 @@ AJAX.registerOnload('config.js', function () {
     $topmenuUpt.find('a.active').attr('rel', 'samepage');
     $topmenuUpt.find('a:not(.active)').attr('rel', 'newpage');
 });
+
+// ------------------------------------------------------------------
+// Tabbed forms - tab state persistence via location.hash
+//
+
+function setupConfigTabsPersistence () {
+    var $form = $('form.config-form');
+    if (!$form.length) {
+        return;
+    }
+
+    // Activate the tab indicated by the URL hash on page load
+    var hash = window.location.hash;
+    if (hash && /^#[a-zA-Z0-9_]+$/.test(hash)) {
+        var $tabLink = $form.find('a[data-bs-toggle="tab"][href="' + hash + '"]');
+        if ($tabLink.length) {
+            bootstrap.Tab.getOrCreateInstance($tabLink[0]).show();
+        }
+    }
+
+    // Keep the URL hash and the tab_hash hidden input in sync when the user switches tabs
+    $form.on('shown.bs.tab', '[data-bs-toggle="tab"]', function () {
+        var href = $(this).attr('href');
+        if (href) {
+            window.location.hash = href;
+            $form.find('input[name="tab_hash"]').val(href.replace(/^#/, ''));
+        }
+    });
+}
+
+AJAX.registerOnload('config.js', function () {
+    setupConfigTabsPersistence();
+});
+
+//
+// END: Tabbed forms
+// ------------------------------------------------------------------
 
 // default values for fields
 var defaultValues = {};
