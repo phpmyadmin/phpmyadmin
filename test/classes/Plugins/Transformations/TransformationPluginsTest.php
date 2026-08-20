@@ -380,7 +380,7 @@ class TransformationPluginsTest extends AbstractTestCase
             [
                 new Image_JPEG_Link(),
                 'applyTransformationNoWrap',
-                null,
+                false,
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline plugin
             [
@@ -759,11 +759,7 @@ class TransformationPluginsTest extends AbstractTestCase
             return;
         }
 
-        $reflectionMethod = new ReflectionMethod($object, $method);
-        self::assertEquals($expected, $reflectionMethod->invokeArgs(
-            $reflectionMethod->isStatic() ? null : $object,
-            $args
-        ));
+        self::assertSame($expected, $object->$method(...$args));
     }
 
     /**
