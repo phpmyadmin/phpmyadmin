@@ -760,7 +760,9 @@ class TransformationPluginsTest extends AbstractTestCase
         }
 
         $reflectionMethod = new ReflectionMethod($object, $method);
-        self::assertEquals($expected, $reflectionMethod->invokeArgs($object, $args));
+        self::assertEquals($expected, $reflectionMethod->invokeArgs(
+            $reflectionMethod->isStatic() ? null : $object, $args
+        ));
     }
 
     /**
@@ -1313,7 +1315,9 @@ class TransformationPluginsTest extends AbstractTestCase
         string $error = ''
     ): void {
         $reflectionMethod = new ReflectionMethod($object, 'applyTransformation');
-        self::assertEquals($transformed, $reflectionMethod->invokeArgs($object, $applyArgs));
+        self::assertEquals($transformed, $reflectionMethod->invokeArgs(
+            $reflectionMethod->isStatic() ? null : $object, $applyArgs
+        ));
 
         // For output transformation plugins, this method may not exist
         if (method_exists($object, 'isSuccess')) {
