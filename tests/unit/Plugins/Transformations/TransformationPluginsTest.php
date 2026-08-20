@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
 use Closure;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Plugins\Transformations\Abs\DateFormatTransformationsPlugin;
@@ -112,9 +111,6 @@ class TransformationPluginsTest extends AbstractTestCase
     /** @return iterable<array-key, array{0: Closure, 1: mixed, 2?: mixed[]}> */
     public static function multiDataProvider(): iterable
     {
-        // TODO: Figure out why this is needed here
-        Config::getInstance()->set('CodemirrorEnable', false);
-
         // Test data for PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload plugin
         yield [Image_JPEG_Upload::getName(...), 'Image upload'];
         yield [
