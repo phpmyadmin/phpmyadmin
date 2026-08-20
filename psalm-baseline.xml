@@ -192,14 +192,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/Config/Form.php">
-    <MissingClosureParamType>
-      <code><![CDATA[$key]]></code>
-      <code><![CDATA[$key]]></code>
-      <code><![CDATA[$prefix]]></code>
-      <code><![CDATA[$prefix]]></code>
-      <code><![CDATA[$value]]></code>
-      <code><![CDATA[$value]]></code>
-    </MissingClosureParamType>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$keys]]></code>
     </MixedArgumentTypeCoercion>
