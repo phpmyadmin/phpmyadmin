@@ -13615,12 +13615,6 @@ parameters:
 			path: tests/end-to-end/TestBase.php
 
 		-
-			message: '#^Strict comparison using \=\=\= between Facebook\\WebDriver\\Remote\\RemoteWebDriver and null will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
-			path: tests/end-to-end/TestBase.php
-
-		-
 			message: '#^Variable static method call on Facebook\\WebDriver\\WebDriverBy\.$#'
 			identifier: staticMethod.dynamicName
 			count: 4

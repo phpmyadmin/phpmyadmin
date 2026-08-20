@@ -8593,9 +8593,6 @@
       <code><![CDATA[empty(getenv('TESTSUITE_SELENIUM_HOST'))]]></code>
       <code><![CDATA[empty(getenv('TESTSUITE_SELENIUM_PORT'))]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainNull>
-      <code><![CDATA[$this->webDriver === null]]></code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="tests/unit/AbstractTestCase.php">
     <PossiblyUndefinedArrayOffset>

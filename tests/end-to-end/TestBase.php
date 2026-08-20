@@ -677,9 +677,6 @@ abstract class TestBase extends TestCase
         $screenshotDir = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
             . '..' . DIRECTORY_SEPARATOR . 'build' . DIRECTORY_SEPARATOR
             . 'selenium';
-        if ($this->webDriver === null) {
-            return;
-        }
 
         $key = time();
 
