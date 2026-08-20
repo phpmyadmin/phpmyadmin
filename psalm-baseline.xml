@@ -6915,12 +6915,6 @@
     </UnusedClass>
   </file>
   <file src="src/Plugins/Transformations/Output/Text_Plain_Binarytoip.php">
-    <FalsableReturnStatement>
-      <code><![CDATA[FormatConverter::binaryToIp($buffer, $isBinary)]]></code>
-    </FalsableReturnStatement>
-    <InvalidFalsableReturnType>
-      <code><![CDATA[string]]></code>
-    </InvalidFalsableReturnType>
     <UnusedClass>
       <code><![CDATA[Text_Plain_Binarytoip]]></code>
     </UnusedClass>
@@ -8355,13 +8349,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/FormatConverter.php">
-    <MixedArgument>
-      <code><![CDATA[$buffer]]></code>
-      <code><![CDATA[$buffer]]></code>
-    </MixedArgument>
-    <MixedReturnStatement>
-      <code><![CDATA[$buffer]]></code>
-    </MixedReturnStatement>
     <RedundantCast>
       <code><![CDATA[(string) long2ip((int) $bufferAsFloat)]]></code>
     </RedundantCast>
