@@ -15,13 +15,13 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="{{ header.theme_path }}/jquery/jquery-ui.css">
   {% if header.codemirror_enable -%}
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/lib/codemirror.css?v={{ pma.version|url_encode }}">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/hint/show-hint.css?v={{ pma.version|url_encode }}">
+    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/lib/codemirror.css?v={{ header.asset_version|url_encode }}">
+    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/hint/show-hint.css?v={{ header.asset_version|url_encode }}">
     {% if header.lint_enable -%}
-      <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/lint/lint.css?v={{ pma.version|url_encode }}">
+      <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/lint/lint.css?v={{ header.asset_version|url_encode }}">
     {% endif %}
   {% endif %}
-  <link rel="stylesheet" type="text/css" href="{{ header.theme_path }}/css/theme{{ pma.text_dir == 'rtl' ? '.rtl' }}.css?v={{ pma.version|url_encode }}">
+  <link rel="stylesheet" type="text/css" href="{{ header.theme_path }}/css/theme{{ pma.text_dir == 'rtl' ? '.rtl' }}.css?v={{ header.asset_version|url_encode }}">
   <title>{{ header.title }}</title>
   {{ header.scripts|raw }}
   <noscript><style>html{display:block}</style></noscript>

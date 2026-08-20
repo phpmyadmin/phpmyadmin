@@ -84,7 +84,7 @@ class Header
             return $this->scripts;
         }
 
-        $this->scripts = new Scripts($this->template);
+        $this->scripts = new Scripts($this->template, $this->config);
 
         $this->scripts->addFile('runtime.js');
         $this->scripts->addFile('vendor/jquery/jquery.min.js');
@@ -134,7 +134,7 @@ class Header
             'is_https' => $this->config->isHttps(),
             'rootPath' => $this->config->getRootPath(),
             'arg_separator' => Url::getArgSeparator(),
-            'version' => Version::VERSION,
+            'asset_version' => $this->config->getAssetVersion(),
         ];
         if ($this->config->hasSelectedServer()) {
             $params['auth_type'] = $this->config->selectedServer['auth_type'];
@@ -283,6 +283,7 @@ class Header
             'codemirror_enable' => $this->config->config->CodemirrorEnable,
             'lint_enable' => $this->config->config->LintEnable,
             'theme_path' => $theme->getPath(),
+            'asset_version' => $this->config->getAssetVersion(),
             'server' => Current::$server,
             'title' => $this->getPageTitle(),
             'scripts' => $scripts->getDisplay(),
