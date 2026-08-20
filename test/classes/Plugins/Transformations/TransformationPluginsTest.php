@@ -761,7 +761,8 @@ class TransformationPluginsTest extends AbstractTestCase
 
         $reflectionMethod = new ReflectionMethod($object, $method);
         self::assertEquals($expected, $reflectionMethod->invokeArgs(
-            $reflectionMethod->isStatic() ? null : $object, $args
+            $reflectionMethod->isStatic() ? null : $object,
+            $args
         ));
     }
 
