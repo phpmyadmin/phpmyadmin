@@ -4774,12 +4774,6 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getCurrentUser\(\) should return string but returns string\|null\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTableIndexes\(\) should return array\<int, array\{Table\: string, Non_unique\: ''0''\|''1'', Key_name\: string, Seq_in_index\: string, Column_name\: string\|null, Collation\: ''A''\|''D''\|null, Cardinality\: string, Sub_part\: string\|null, \.\.\.\}\> but returns list\<array\<string\|null\>\>\.$#'
 			identifier: return.type
 			count: 1

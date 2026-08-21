@@ -3503,7 +3503,6 @@
     </MixedReturnTypeCoercion>
     <NullableReturnStatement>
       <code><![CDATA[$resultRows]]></code>
-      <code><![CDATA[$user]]></code>
     </NullableReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$tableData[$sortBy] ?? '']]></code>
