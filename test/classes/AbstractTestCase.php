@@ -322,7 +322,7 @@ abstract class AbstractTestCase extends TestCase
             $method->setAccessible(true);
         }
 
-        return $method->invokeArgs($object, $params);
+        return $method->invokeArgs($method->isStatic() ? null : $object, $params);
     }
 
     /**
