@@ -47,6 +47,7 @@ use function explode;
 use function implode;
 use function is_array;
 use function is_int;
+use function is_string;
 use function mb_strtolower;
 use function microtime;
 use function openlog;
@@ -1383,7 +1384,7 @@ class DatabaseInterface
         }
 
         $user = $this->fetchValue('SELECT CURRENT_USER();');
-        if ($user !== false) {
+        if (is_string($user)) {
             SessionCache::set('mysql_cur_user', $user);
 
             return $user;

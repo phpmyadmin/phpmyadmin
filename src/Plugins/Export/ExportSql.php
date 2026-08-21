@@ -2623,13 +2623,13 @@ class ExportSql extends ExportPlugin
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
-    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    private function setStringValue(mixed $fromRequest, string $fromConfig): string
     {
         if (is_string($fromRequest) && $fromRequest !== '') {
             return $fromRequest;
         }
 
-        if (is_string($fromConfig) && $fromConfig !== '') {
+        if ($fromConfig !== '') {
             return $fromConfig;
         }
 
@@ -2669,14 +2669,14 @@ class ExportSql extends ExportPlugin
     }
 
     /** @return int<0, max> */
-    private function setMaxQuerySize(mixed $fromRequest, mixed $fromConfig): int
+    private function setMaxQuerySize(mixed $fromRequest, int $fromConfig): int
     {
         if (is_numeric($fromRequest) && $fromRequest >= 0) {
             return (int) $fromRequest;
         }
 
-        if (is_numeric($fromConfig) && $fromConfig >= 0) {
-            return (int) $fromConfig;
+        if ($fromConfig >= 0) {
+            return $fromConfig;
         }
 
         return 50000;

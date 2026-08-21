@@ -192,14 +192,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/Config/Form.php">
-    <MissingClosureParamType>
-      <code><![CDATA[$key]]></code>
-      <code><![CDATA[$key]]></code>
-      <code><![CDATA[$prefix]]></code>
-      <code><![CDATA[$prefix]]></code>
-      <code><![CDATA[$value]]></code>
-      <code><![CDATA[$value]]></code>
-    </MissingClosureParamType>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$keys]]></code>
     </MixedArgumentTypeCoercion>
@@ -3511,7 +3503,6 @@
     </MixedReturnTypeCoercion>
     <NullableReturnStatement>
       <code><![CDATA[$resultRows]]></code>
-      <code><![CDATA[$user]]></code>
     </NullableReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$tableData[$sortBy] ?? '']]></code>
@@ -5725,7 +5716,6 @@
       <code><![CDATA[$token->value]]></code>
     </ArgumentTypeCoercion>
     <LessSpecificReturnStatement>
-      <code><![CDATA[(int) $fromConfig]]></code>
       <code><![CDATA[(int) $fromRequest]]></code>
     </LessSpecificReturnStatement>
     <MixedArgumentTypeCoercion>
@@ -6923,12 +6913,6 @@
     </UnusedClass>
   </file>
   <file src="src/Plugins/Transformations/Output/Text_Plain_Binarytoip.php">
-    <FalsableReturnStatement>
-      <code><![CDATA[FormatConverter::binaryToIp($buffer, $isBinary)]]></code>
-    </FalsableReturnStatement>
-    <InvalidFalsableReturnType>
-      <code><![CDATA[string]]></code>
-    </InvalidFalsableReturnType>
     <UnusedClass>
       <code><![CDATA[Text_Plain_Binarytoip]]></code>
     </UnusedClass>
@@ -7599,9 +7583,6 @@
     </MixedAssignment>
   </file>
   <file src="src/Sql.php">
-    <InvalidNullableReturnType>
-      <code><![CDATA[string]]></code>
-    </InvalidNullableReturnType>
     <MixedArgument>
       <code><![CDATA[$numberOfLine / $maxRows]]></code>
       <code><![CDATA[$request->getQueryParam('label')]]></code>
@@ -7643,9 +7624,6 @@
     <NoValue>
       <code><![CDATA[$statementInfo->statement->where]]></code>
     </NoValue>
-    <NullableReturnStatement>
-      <code><![CDATA[$row[$column]]]></code>
-    </NullableReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$numRows]]></code>
       <code><![CDATA[$numRows]]></code>
@@ -8363,13 +8341,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/FormatConverter.php">
-    <MixedArgument>
-      <code><![CDATA[$buffer]]></code>
-      <code><![CDATA[$buffer]]></code>
-    </MixedArgument>
-    <MixedReturnStatement>
-      <code><![CDATA[$buffer]]></code>
-    </MixedReturnStatement>
     <RedundantCast>
       <code><![CDATA[(string) long2ip((int) $bufferAsFloat)]]></code>
     </RedundantCast>
@@ -8392,13 +8363,9 @@
       <code><![CDATA[$httpStatus]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$context['http']['content']]]></code>
       <code><![CDATA[$httpStatus]]></code>
       <code><![CDATA[$http_response_header]]></code>
     </MixedAssignment>
-    <MixedReturnStatement>
-      <code><![CDATA[$response]]></code>
-    </MixedReturnStatement>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
@@ -8593,9 +8560,6 @@
       <code><![CDATA[empty(getenv('TESTSUITE_SELENIUM_HOST'))]]></code>
       <code><![CDATA[empty(getenv('TESTSUITE_SELENIUM_PORT'))]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainNull>
-      <code><![CDATA[$this->webDriver === null]]></code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="tests/unit/AbstractTestCase.php">
     <PossiblyUndefinedArrayOffset>
@@ -10639,33 +10603,17 @@
   </file>
   <file src="tests/unit/Utils/HttpRequestTest.php">
     <MixedArgument>
-      <code><![CDATA[$curl['ssl_version']]]></code>
-      <code><![CDATA[$curl['ssl_version']]]></code>
-      <code><![CDATA[$result]]></code>
-      <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
-      <code><![CDATA[$result]]></code>
-      <code><![CDATA[$result]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$curl !== false ? $curl['ssl_version'] : '?']]></code>
-    </MixedOperand>
-    <RedundantCondition>
-      <code><![CDATA[$curl !== false]]></code>
-      <code><![CDATA[$curl !== false]]></code>
-    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! ini_get('allow_url_fopen')]]></code>
       <code><![CDATA[! ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA['?']]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/Utils/SessionCacheTest.php">
     <DeprecatedMethod>

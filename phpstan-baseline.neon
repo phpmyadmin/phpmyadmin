@@ -4774,12 +4774,6 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getCurrentUser\(\) should return string but returns string\|null\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTableIndexes\(\) should return array\<int, array\{Table\: string, Non_unique\: ''0''\|''1'', Key_name\: string, Seq_in_index\: string, Column_name\: string\|null, Collation\: ''A''\|''D''\|null, Cardinality\: string, Sub_part\: string\|null, \.\.\.\}\> but returns list\<array\<string\|null\>\>\.$#'
 			identifier: return.type
 			count: 1
@@ -8682,7 +8676,7 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\Plugins\\Export\\ExportSql\:\:setMaxQuerySize\(\) should return int\<0, max\> but returns int\.$#'
 			identifier: return.type
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -10324,12 +10318,6 @@ parameters:
 			path: src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Plugins\\Transformations\\Output\\Text_Plain_Binarytoip\:\:applyTransformation\(\) should return string but returns string\|false\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Plugins/Transformations/Output/Text_Plain_Binarytoip.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -11749,12 +11737,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Sql\:\:getFullValuesForSetColumn\(\) should return string but returns string\|null\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Sql\:\:getStartPosToDisplayRow\(\) should return int but returns \(float\|int\)\.$#'
 			identifier: return.type
 			count: 1
@@ -13090,42 +13072,6 @@ parameters:
 			path: src/Utils/ForeignKey.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Utils\\FormatConverter\:\:binaryToIp\(\) should return string\|false but returns mixed\.$#'
-			identifier: return.type
-			count: 2
-			path: src/Utils/FormatConverter.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Utils\\FormatConverter\:\:ipToBinary\(\) should return string but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Utils/FormatConverter.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function str_starts_with expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Utils/FormatConverter.php
-
-		-
-			message: '#^Parameter \#1 \$ip of function inet_pton expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Utils/FormatConverter.php
-
-		-
-			message: '#^Parameter \#1 \$string of function bin2hex expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Utils/FormatConverter.php
-
-		-
-			message: '#^Parameter \#1 \$string of function substr expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Utils/FormatConverter.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -13150,12 +13096,6 @@ parameters:
 			path: src/Utils/HttpRequest.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Utils\\HttpRequest\:\:response\(\) should return bool\|string\|null but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Utils/HttpRequest.php
-
-		-
 			message: '#^Offset 1 might not exist on array\{\}\|array\{non\-falsy\-string, numeric\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
@@ -13174,7 +13114,7 @@ parameters:
 			path: src/Utils/HttpRequest.php
 
 		-
-			message: '#^Parameter \#3 \$value of function curl_setopt expects array\|string, mixed given\.$#'
+			message: '#^Parameter \#3 \$value of function curl_setopt expects array\|string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Utils/HttpRequest.php
@@ -13611,12 +13551,6 @@ parameters:
 		-
 			message: '#^Property PhpMyAdmin\\Tests\\Selenium\\TestBase\:\:\$sqlWindowHandle \(string\|null\) does not accept mixed\.$#'
 			identifier: assign.propertyType
-			count: 1
-			path: tests/end-to-end/TestBase.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between Facebook\\WebDriver\\Remote\\RemoteWebDriver and null will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
 			count: 1
 			path: tests/end-to-end/TestBase.php
 
@@ -16942,16 +16876,10 @@ parameters:
 			path: tests/unit/Utils/ForeignKeyTest.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Tests\\Utils\\FormatConverterTest\:\:providerBinaryToIp\(\) should return array\<array\{string, string, bool\}\> but returns array\{array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', false\}, array\{''my ip'', ''my ip'', false\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''6d79206970'', ''my ip'', true\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''666566'', ''fef'', true\}, array\{''0ded'', string\|false, true\}, array\{''127\.0\.0\.1'', string\|false, true\}\}\.$#'
+			message: '#^Method PhpMyAdmin\\Tests\\Utils\\FormatConverterTest\:\:providerBinaryToIp\(\) should return array\<array\{string, string, bool\}\> but returns array\{array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', false\}, array\{''my ip'', ''my ip'', false\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''6d79206970'', ''my ip'', true\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''666566'', ''fef'', true\}, array\{''0ded'', string\|false, true\}, array\{''127\.0\.0\.1'', string\|false, true\}, \.\.\.\}\.$#'
 			identifier: return.type
 			count: 1
 			path: tests/unit/Utils/FormatConverterTest.php
-
-		-
-			message: '#^Binary operation "\." between ''Not supported in…'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: tests/unit/Utils/HttpRequestTest.php
 
 		-
 			message: '#^Only booleans are allowed in a negated boolean, string\|false given\.$#'
@@ -16960,15 +16888,9 @@ parameters:
 			path: tests/unit/Utils/HttpRequestTest.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function stripos expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: tests/unit/Utils/HttpRequestTest.php
-
-		-
 			message: '#^Parameter \#1 \$result of method PhpMyAdmin\\Tests\\Utils\\HttpRequestTest\:\:validateHttp\(\) expects bool\|string\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 4
+			count: 2
 			path: tests/unit/Utils/HttpRequestTest.php
 
 		-
