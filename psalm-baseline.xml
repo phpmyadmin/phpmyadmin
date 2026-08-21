@@ -4136,11 +4136,6 @@
     </MixedAssignment>
   </file>
   <file src="src/Gis/GisLineString.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedClass>
       <code><![CDATA[TCPDF]]></code>
     </DeprecatedClass>
@@ -4169,11 +4164,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisMultiLineString.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedClass>
       <code><![CDATA[TCPDF]]></code>
     </DeprecatedClass>
@@ -4218,11 +4208,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisMultiPoint.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedClass>
       <code><![CDATA[TCPDF]]></code>
     </DeprecatedClass>
@@ -4255,11 +4240,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisMultiPolygon.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedClass>
       <code><![CDATA[TCPDF]]></code>
     </DeprecatedClass>
@@ -4364,11 +4344,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisPoint.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedClass>
       <code><![CDATA[TCPDF]]></code>
     </DeprecatedClass>
@@ -4385,11 +4360,6 @@
     </PossiblyFalseArgument>
   </file>
   <file src="src/Gis/GisPolygon.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedClass>
       <code><![CDATA[TCPDF]]></code>
     </DeprecatedClass>

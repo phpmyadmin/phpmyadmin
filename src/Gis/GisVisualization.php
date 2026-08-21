@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\FileDownload;
 use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Image\Color;
 use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Util;
 use TCPDF;
@@ -289,7 +290,7 @@ class GisVisualization
         $image = ImageWrapper::create(
             $this->width,
             $this->height,
-            ['red' => 229, 'green' => 229, 'blue' => 229],
+            new Color(229, 229, 229),
         );
         if ($image === null) {
             return null;
@@ -469,7 +470,7 @@ class GisVisualization
                     continue;
                 }
 
-                $color = self::COLORS[$colorIndex];
+                $color = new Color(...self::COLORS[$colorIndex]);
                 $label = trim((string) ($row[$this->labelColumn] ?? ''));
 
                 if ($format === 'svg') {

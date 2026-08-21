@@ -5968,12 +5968,6 @@ parameters:
 			path: src/Gis/GisLineString.php
 
 		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisLineString.php
-
-		-
 			message: '#^Parameter \#5 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:line\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6097,12 +6091,6 @@ parameters:
 			path: src/Gis/GisMultiLineString.php
 
 		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisMultiLineString.php
-
-		-
 			message: '#^Parameter \#5 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:line\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6203,12 +6191,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$point of method PhpMyAdmin\\Gis\\GisGeometry\:\:getWktCoord\(\) expects array\{x\: float\|int\|string, y\: float\|int\|string\}\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisMultiPoint.php
-
-		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Gis/GisMultiPoint.php
@@ -6391,12 +6373,6 @@ parameters:
 			path: src/Gis/GisMultiPolygon.php
 
 		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisMultiPolygon.php
-
-		-
 			message: '#^Parameter \#2 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:filledPolygon\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6479,12 +6455,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$point of method PhpMyAdmin\\Gis\\GisGeometry\:\:getWktCoord\(\) expects array\{x\: float\|int\|string, y\: float\|int\|string\}\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisPoint.php
-
-		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Gis/GisPoint.php
@@ -6578,12 +6548,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$points of method PhpMyAdmin\\Image\\ImageWrapper\:\:filledPolygon\(\) expects list\<int\>, list\<float\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisPolygon.php
-
-		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Gis/GisPolygon.php
