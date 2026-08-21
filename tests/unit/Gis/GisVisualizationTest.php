@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Gis;
 use Generator;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Gis\Format;
 use PhpMyAdmin\Gis\GisVisualization;
 use PhpMyAdmin\Gis\GisVisualizationSettings;
 use PhpMyAdmin\Image\ImageWrapper;
@@ -399,7 +400,7 @@ class GisVisualizationTest extends AbstractTestCase
         $pdf->setCompression(false);
         (new ReflectionProperty($pdf, 'file_id'))->setValue($pdf, md5($name));
 
-        $vis->getMethod('prepareDataSet')->invoke($visualization, $data, 'pdf', $pdf);
+        $vis->getMethod('prepareDataSet')->invoke($visualization, $data, Format::Pdf, $pdf);
         $pdfBlob = $pdf->Output(dest: 'S');
 
         $this->assertSameOrSaveNewVersion($name, 'pdf', $pdfBlob);
