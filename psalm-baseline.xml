@@ -4237,11 +4237,6 @@
     </MixedAssignment>
   </file>
   <file src="src/Gis/GisLineString.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <MixedArgument>
       <code><![CDATA[$dataRow[$i] ?? null]]></code>
       <code><![CDATA[$tempPoint[0]]]></code>
@@ -4267,11 +4262,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisMultiLineString.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <MixedArgument>
       <code><![CDATA[$dataRow[$i][$j] ?? null]]></code>
       <code><![CDATA[$tempPoint[0]]]></code>
@@ -4313,11 +4303,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisMultiPoint.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <MixedArgument>
       <code><![CDATA[$dataRow[$i] ?? null]]></code>
     </MixedArgument>
@@ -4347,11 +4332,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisMultiPolygon.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <InvalidArgument>
       <code><![CDATA[$pointsArr]]></code>
     </InvalidArgument>
@@ -4453,11 +4433,6 @@
     </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisPoint.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <MixedArgument>
       <code><![CDATA[$gisData[$index]['POINT'] ?? null]]></code>
     </MixedArgument>
@@ -4471,11 +4446,6 @@
     </PossiblyFalseArgument>
   </file>
   <file src="src/Gis/GisPolygon.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-      <code><![CDATA[$color]]></code>
-    </ArgumentTypeCoercion>
     <InvalidArgument>
       <code><![CDATA[$pointsArr]]></code>
     </InvalidArgument>
