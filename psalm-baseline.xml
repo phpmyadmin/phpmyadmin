@@ -7585,9 +7585,6 @@
     </MixedAssignment>
   </file>
   <file src="src/Sql.php">
-    <InvalidNullableReturnType>
-      <code><![CDATA[string]]></code>
-    </InvalidNullableReturnType>
     <MixedArgument>
       <code><![CDATA[$numberOfLine / $maxRows]]></code>
       <code><![CDATA[$request->getQueryParam('label')]]></code>
@@ -7629,9 +7626,6 @@
     <NoValue>
       <code><![CDATA[$statementInfo->statement->where]]></code>
     </NoValue>
-    <NullableReturnStatement>
-      <code><![CDATA[$row[$column]]]></code>
-    </NullableReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$numRows]]></code>
       <code><![CDATA[$numRows]]></code>
@@ -10619,12 +10613,8 @@
       <code><![CDATA[$curl['ssl_version']]]></code>
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
-      <code><![CDATA[$result]]></code>
-      <code><![CDATA[$result]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$result]]></code>
-      <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
     </MixedAssignment>

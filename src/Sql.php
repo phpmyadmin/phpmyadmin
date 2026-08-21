@@ -327,7 +327,7 @@ class Sql
             $whereClause,
         ));
 
-        if ($row === []) {
+        if ($row === [] || $row[$column] === null) {
             return '';
         }
 

@@ -11743,12 +11743,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Sql\:\:getFullValuesForSetColumn\(\) should return string but returns string\|null\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Sql\:\:getStartPosToDisplayRow\(\) should return int but returns \(float\|int\)\.$#'
 			identifier: return.type
 			count: 1
