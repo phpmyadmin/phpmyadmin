@@ -2581,7 +2581,7 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept list\<mixed\>\.$#'
+			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|null\) does not accept list\<mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Controllers/Table/ChangeRowsController.php
@@ -2731,7 +2731,7 @@ parameters:
 			path: src/Controllers/Table/ExportController.php
 
 		-
-			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept list\<mixed\>\.$#'
+			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|null\) does not accept list\<mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Controllers/Table/ExportRowsController.php
