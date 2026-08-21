@@ -365,7 +365,7 @@ final readonly class ReplaceController implements InvocableController
         }
 
         if ($returnToSqlQuery !== '') {
-            Current::$dispQuery = Current::$sqlQuery;
+            Current::$displayQuery = Current::$sqlQuery;
             Current::$displayMessage = Current::$message;
             Current::$message = null;
             Current::$sqlQuery = $returnToSqlQuery;

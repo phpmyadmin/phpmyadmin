@@ -58,7 +58,7 @@ final readonly class DeleteRowsController implements InvocableController
             ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
             Current::$displayMessage = __('Your SQL query has been executed successfully.');
-            Current::$dispQuery = Current::$sqlQuery;
+            Current::$displayQuery = Current::$sqlQuery;
         }
 
         if ($request->hasBodyParam('original_sql_query')) {
@@ -74,7 +74,7 @@ final readonly class DeleteRowsController implements InvocableController
             '',
             '',
             UrlParams::$goto,
-            Current::$dispQuery,
+            Current::$displayQuery,
             Current::$displayMessage ?? '',
             Current::$sqlQuery,
             Current::$sqlQuery,
