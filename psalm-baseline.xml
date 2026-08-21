@@ -8365,13 +8365,9 @@
       <code><![CDATA[$httpStatus]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$context['http']['content']]]></code>
       <code><![CDATA[$httpStatus]]></code>
       <code><![CDATA[$http_response_header]]></code>
     </MixedAssignment>
-    <MixedReturnStatement>
-      <code><![CDATA[$response]]></code>
-    </MixedReturnStatement>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
@@ -10609,8 +10605,6 @@
   </file>
   <file src="tests/unit/Utils/HttpRequestTest.php">
     <MixedArgument>
-      <code><![CDATA[$curl['ssl_version']]]></code>
-      <code><![CDATA[$curl['ssl_version']]]></code>
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
     </MixedArgument>
@@ -10618,20 +10612,10 @@
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$curl !== false ? $curl['ssl_version'] : '?']]></code>
-    </MixedOperand>
-    <RedundantCondition>
-      <code><![CDATA[$curl !== false]]></code>
-      <code><![CDATA[$curl !== false]]></code>
-    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! ini_get('allow_url_fopen')]]></code>
       <code><![CDATA[! ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA['?']]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/Utils/SessionCacheTest.php">
     <DeprecatedMethod>

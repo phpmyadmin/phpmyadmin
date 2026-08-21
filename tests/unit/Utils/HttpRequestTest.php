@@ -15,12 +15,7 @@ use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionMethod;
 
-use function curl_version;
 use function ini_get;
-use function stripos;
-
-use const CURLOPT_CAINFO;
-use const CURLOPT_CAPATH;
 
 #[CoversClass(HttpRequest::class)]
 #[Medium]
@@ -36,27 +31,6 @@ class HttpRequestTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $this->httpRequest = new HttpRequest();
-    }
-
-    /**
-     * Skip test if CURL extension does not support SSL flags
-     */
-    private function checkCurlSslFlagsSupport(): void
-    {
-        $curl = curl_version();
-        /**
-         * Some SSL engines in CURL do not support CURLOPT_CAPATH
-         * and CURLOPT_CAINFO flags, see
-         * https://curl.haxx.se/docs/ssl-compared.html
-         */
-        if (
-            $curl !== false && stripos($curl['ssl_version'], 'WinSSL') === false
-            && stripos($curl['ssl_version'], 'SecureTransport') === false
-        ) {
-            return;
-        }
-
-        self::markTestSkipped('Not supported in CURL SSL backend: ' . ($curl !== false ? $curl['ssl_version'] : '?'));
     }
 
     /**
@@ -78,64 +52,6 @@ class HttpRequestTest extends AbstractTestCase
     ): void {
         $result = (new ReflectionMethod(HttpRequest::class, 'curl'))
             ->invokeArgs($this->httpRequest, [$url, $method, $returnOnlyStatus]);
-        $this->validateHttp($result, $expected);
-    }
-
-    /**
-     * Test for http request using Curl with CURLOPT_CAPATH
-     *
-     * @param string           $url              url
-     * @param RequestMethod    $method           method
-     * @param bool             $returnOnlyStatus return only status
-     * @param bool|string|null $expected         expected result
-     */
-    #[DataProvider('httpRequests')]
-    #[Group('network')]
-    #[RequiresPhpExtension('curl')]
-    public function testCurlCAPath(
-        string $url,
-        RequestMethod $method,
-        bool $returnOnlyStatus,
-        bool|string|null $expected,
-    ): void {
-        $this->checkCurlSslFlagsSupport();
-        $result = (new ReflectionMethod(HttpRequest::class, 'curl'))->invokeArgs($this->httpRequest, [
-            $url,
-            $method,
-            $returnOnlyStatus,
-            null,
-            '',
-            CURLOPT_CAPATH,
-        ]);
-        $this->validateHttp($result, $expected);
-    }
-
-    /**
-     * Test for http request using Curl with CURLOPT_CAINFO
-     *
-     * @param string           $url              url
-     * @param RequestMethod    $method           method
-     * @param bool             $returnOnlyStatus return only status
-     * @param bool|string|null $expected         expected result
-     */
-    #[DataProvider('httpRequests')]
-    #[Group('network')]
-    #[RequiresPhpExtension('curl')]
-    public function testCurlCAInfo(
-        string $url,
-        RequestMethod $method,
-        bool $returnOnlyStatus,
-        bool|string|null $expected,
-    ): void {
-        $this->checkCurlSslFlagsSupport();
-        $result = (new ReflectionMethod(HttpRequest::class, 'curl'))->invokeArgs($this->httpRequest, [
-            $url,
-            $method,
-            $returnOnlyStatus,
-            null,
-            '',
-            CURLOPT_CAINFO,
-        ]);
         $this->validateHttp($result, $expected);
     }
 
