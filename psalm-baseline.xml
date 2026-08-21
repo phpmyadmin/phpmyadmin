@@ -5716,7 +5716,6 @@
       <code><![CDATA[$token->value]]></code>
     </ArgumentTypeCoercion>
     <LessSpecificReturnStatement>
-      <code><![CDATA[(int) $fromConfig]]></code>
       <code><![CDATA[(int) $fromRequest]]></code>
     </LessSpecificReturnStatement>
     <MixedArgumentTypeCoercion>
