@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Image\Color;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -48,19 +49,18 @@ class GisPolygon extends GisGeometry
      *
      * @param string    $spatial   GIS POLYGON object
      * @param string    $label     Label for the GIS POLYGON object
-     * @param int[]     $color     Color for the GIS POLYGON object
      * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
-        array $color,
+        Color $color,
         ScaleData $scaleData,
         ImageWrapper $image,
     ): void {
         // allocate colors
-        $black = $image->colorAllocate(0, 0, 0);
-        $fillColor = $image->colorAllocate(...$color);
+        $black = $image->colorAllocate(Color::black());
+        $fillColor = $image->colorAllocate($color);
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr($spatial, 9, -2);
@@ -93,13 +93,12 @@ class GisPolygon extends GisGeometry
      *
      * @param string    $spatial   GIS POLYGON object
      * @param string    $label     Label for the GIS POLYGON object
-     * @param int[]     $color     Color for the GIS POLYGON object
      * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPdf(
         string $spatial,
         string $label,
-        array $color,
+        Color $color,
         ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
@@ -116,7 +115,7 @@ class GisPolygon extends GisGeometry
         }
 
         // draw polygon
-        $pdf->Polygon($pointsArr, 'F*', [], $color);
+        $pdf->Polygon($pointsArr, 'F*', [], $color->toArray());
         if ($label === '') {
             return;
         }
@@ -132,18 +131,17 @@ class GisPolygon extends GisGeometry
      *
      * @param string    $spatial   GIS POLYGON object
      * @param string    $label     Label for the GIS POLYGON object
-     * @param int[]     $color     Color for the GIS POLYGON object
      * @param ScaleData $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
+    public function prepareRowAsSvg(string $spatial, string $label, Color $color, ScaleData $scaleData): string
     {
         $options = [
             'class' => 'polygon vector',
             'stroke' => 'black',
             'stroke-width' => 0.5,
-            'fill' => sprintf('#%02x%02x%02x', $color[0], $color[1], $color[2]),
+            'fill' => sprintf('#%02x%02x%02x', $color->red, $color->green, $color->blue),
             'fill-rule' => 'evenodd',
             'fill-opacity' => 0.8,
         ];

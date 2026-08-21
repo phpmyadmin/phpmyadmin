@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Image;
 
+use PhpMyAdmin\Image\Color;
 use PhpMyAdmin\Image\ImageWrapper;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
@@ -39,7 +40,7 @@ final class ImageWrapperTest extends TestCase
     {
         $width = 155;
         $height = 35;
-        $background = ['red' => 108, 'green' => 120, 'blue' => 175];
+        $background = new Color(108, 120, 175);
         $points = [16, 2, 12, 12, 2, 12, 10, 19, 6, 30, 16, 24, 26, 30, 22, 19, 30, 12, 20, 12];
 
         $actualImage = ImageWrapper::create($width, $height, $background);
@@ -47,7 +48,7 @@ final class ImageWrapperTest extends TestCase
         self::assertSame($width, $actualImage->width());
         self::assertSame($height, $actualImage->height());
 
-        $color = $actualImage->colorAllocate(248, 156, 14);
+        $color = $actualImage->colorAllocate(new Color(248, 156, 14));
         self::assertNotFalse($color);
         self::assertTrue($actualImage->string(5, 35, 8, 'phpMyAdmin', $color));
         self::assertTrue($actualImage->filledPolygon($points, $color));
