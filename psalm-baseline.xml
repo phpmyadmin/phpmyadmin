@@ -1982,9 +1982,6 @@
     <MixedAssignment>
       <code><![CDATA[$repopulate]]></code>
     </MixedAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty(Current::$displayMessage)]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/ChangeRowsController.php">
     <MixedAssignment>

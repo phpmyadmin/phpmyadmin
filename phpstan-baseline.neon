@@ -2551,12 +2551,6 @@ parameters:
 			path: src/Controllers/Table/AddFieldController.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#1 \$rowId of method PhpMyAdmin\\InsertEdit\:\:getHtmlForIgnoreOption\(\) expects int, \(int\<1, max\>\|string\) given\.$#'
 			identifier: argument.type
 			count: 1

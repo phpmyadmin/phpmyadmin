@@ -9,6 +9,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sql;
@@ -57,7 +58,7 @@ final readonly class DeleteRowsController implements InvocableController
 
             ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
-            Current::$displayMessage = __('Your SQL query has been executed successfully.');
+            Current::$displayMessage = Message::success();
             Current::$displayQuery = Current::$sqlQuery;
         }
 

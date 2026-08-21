@@ -173,7 +173,7 @@ class ChangeController implements InvocableController
          *
          * $disp_message come from /table/replace
          */
-        if (! empty(Current::$displayMessage)) {
+        if (Current::$displayMessage !== null) {
             $this->response->addHTML(Generator::getMessage(Current::$displayMessage));
         }
 
