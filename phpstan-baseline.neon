@@ -6697,12 +6697,6 @@ parameters:
 			path: src/Gis/GisVisualization.php
 
 		-
-			message: '#^Strict comparison using \=\=\= between \(T of ''ol''\)\|T of ''ol'' and ''ol'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
-			path: src/Gis/GisVisualization.php
-
-		-
 			message: '#^Binary operation "\*" between 24 and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
