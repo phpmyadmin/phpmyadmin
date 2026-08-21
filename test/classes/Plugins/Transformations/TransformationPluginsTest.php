@@ -755,11 +755,9 @@ class TransformationPluginsTest extends AbstractTestCase
     #[DataProvider('multiDataProvider')]
     public function testGetMulti($object, string $method, $expected, array $args = []): void
     {
-        if (! method_exists($object, $method)) {
-            return;
-        }
-
-        self::assertSame($expected, $object->$method(...$args));
+        $testMethod = [$object, $method];
+        self::assertIsCallable($testMethod);
+        self::assertSame($expected, $testMethod(...$args));
     }
 
     /**

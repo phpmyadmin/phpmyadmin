@@ -46461,11 +46461,6 @@ parameters:
 			path: test/classes/Plugins/Transformations/TransformationPluginsTest.php
 
 		-
-			message: "#^Variable method call on object\\.$#"
-			count: 1
-			path: test/classes/Plugins/Transformations/TransformationPluginsTest.php
-
-		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:anything\\(\\)\\.$#"
 			count: 2
 			path: test/classes/Plugins/TwoFactor/WebAuthnTest.php
