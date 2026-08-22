@@ -13,7 +13,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Maintenance;
@@ -71,11 +70,7 @@ final readonly class RepairController implements InvocableController
 
         [$rows, $query] = $this->model->getRepairTableRows($database, $selectedTables);
 
-        $message = Generator::getMessage(
-            __('Your SQL query has been executed successfully.'),
-            $query,
-            MessageType::Success,
-        );
+        $message = Generator::getMessage(Message::success(), $query);
 
         $this->response->render('table/maintenance/repair', ['message' => $message, 'rows' => $rows]);
 

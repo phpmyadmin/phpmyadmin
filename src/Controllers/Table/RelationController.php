@@ -15,6 +15,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Indexes\Index;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
@@ -142,13 +143,7 @@ final readonly class RelationController implements InvocableController
 
         if ($displayQuery !== '' && ! $seenError) {
             Current::$displayQuery = $displayQuery;
-            $this->response->addHTML(
-                Generator::getMessage(
-                    __('Your SQL query has been executed successfully.'),
-                    null,
-                    MessageType::Success,
-                ),
-            );
+            $this->response->addHTML(Generator::getMessage(Message::success()));
         }
 
         // Updates for display field

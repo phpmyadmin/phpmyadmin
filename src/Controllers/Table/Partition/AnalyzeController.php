@@ -12,7 +12,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
@@ -45,11 +44,7 @@ final readonly class AnalyzeController implements InvocableController
 
         [$rows, $query] = $this->model->analyze($database, $table, $partitionName);
 
-        $message = Generator::getMessage(
-            __('Your SQL query has been executed successfully.'),
-            $query,
-            MessageType::Success,
-        );
+        $message = Generator::getMessage(Message::success(), $query);
 
         $this->response->render('table/partition/analyze', [
             'partition_name' => $partitionName,

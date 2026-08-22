@@ -2961,7 +2961,7 @@ class Results
 
             $sqlQueryMessage = Generator::getMessage($message, $this->sqlQuery, MessageType::Success);
         } elseif (! $this->printView && ! $isLimitedDisplay) {
-            $message = Message::success(__('Your SQL query has been executed successfully.'));
+            $message = Message::success();
 
             if ($this->queryTime > 0) {
                 $message->addText('(');
