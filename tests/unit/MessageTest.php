@@ -9,8 +9,6 @@ use PhpMyAdmin\MessageType;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-use function md5;
-
 #[CoversClass(Message::class)]
 class MessageTest extends AbstractTestCase
 {
@@ -252,19 +250,6 @@ class MessageTest extends AbstractTestCase
         self::assertSame(
             'test1test&lt;b&gt;test2',
             $message->getMessage(),
-        );
-    }
-
-    /**
-     * testing getHash method
-     */
-    public function testGetHash(): void
-    {
-        $message = new Message('<&>test');
-        $message->setMessage('<&>test');
-        self::assertSame(
-            md5(MessageType::Notice->getNumericalValue() . '<&>test<&>test'),
-            $message->getHash(),
         );
     }
 

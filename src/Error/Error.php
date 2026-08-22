@@ -76,6 +76,11 @@ class Error extends Message
     protected bool $hideLocation = false;
 
     /**
+     * Unique id
+     */
+    protected string|null $hash = null;
+
+    /**
      * @param string $errstr  error message
      * @param string $errfile file
      * @param int    $errline line

@@ -11,7 +11,6 @@ use function _ngettext;
 use function htmlspecialchars;
 use function is_float;
 use function is_int;
-use function md5;
 use function sprintf;
 
 use const ENT_COMPAT;
@@ -66,11 +65,6 @@ class Message implements Stringable
      * Whether to use BB code when displaying.
      */
     protected bool $useBBCode = true;
-
-    /**
-     * Unique id
-     */
-    protected string|null $hash = null;
 
     /**
      * holds parameters
@@ -415,20 +409,6 @@ class Message implements Stringable
     public function getParams(): array
     {
         return $this->params;
-    }
-
-    /**
-     * returns unique Message::$hash, if not exists it will be created
-     *
-     * @return string Message::$hash
-     */
-    public function getHash(): string
-    {
-        if ($this->hash === null) {
-            $this->hash = md5($this->type->getNumericalValue() . $this->string . $this->message);
-        }
-
-        return $this->hash;
     }
 
     /**
