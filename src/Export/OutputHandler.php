@@ -9,7 +9,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Exceptions\InsufficientSpaceExportException;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\UserAgentParser;
 use PhpMyAdmin\ZipExtension;
@@ -229,17 +228,15 @@ class OutputHandler
             fclose($fileHandle);
 
             if ($this->dumpBuffer !== '' && $writeResult !== strlen($this->dumpBuffer)) {
-                return new Message(
+                return Message::error(
                     __('Insufficient space to save the file %s.'),
-                    MessageType::Error,
                     [$this->saveFilename],
                 );
             }
         }
 
-        return new Message(
+        return Message::success(
             __('Dump has been saved to file %s.'),
-            MessageType::Success,
             [$this->saveFilename],
         );
     }

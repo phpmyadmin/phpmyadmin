@@ -47,11 +47,6 @@ use const ENT_COMPAT;
 class Message implements Stringable
 {
     /**
-     * The locale string identifier
-     */
-    protected string $string = '';
-
-    /**
      * The formatted message
      */
     protected string $message = '';
@@ -85,12 +80,13 @@ class Message implements Stringable
      * @param mixed[] $params An array of parameters to use in the message constant definitions above
      */
     public function __construct(
-        string $string = '',
+        protected string $string = '',
         private MessageType $type = MessageType::Notice,
         array $params = [],
     ) {
-        $this->string = $string;
-        $this->params = $params;
+        foreach ($params as $param) {
+            $this->addParam($param);
+        }
     }
 
     /**
@@ -117,7 +113,7 @@ class Message implements Stringable
             $string = __('Your SQL query has been executed successfully.');
         }
 
-        return self::create($string, MessageType::Success, $params);
+        return new self($string, MessageType::Success, $params);
     }
 
     /**
@@ -134,7 +130,7 @@ class Message implements Stringable
             $string = __('Error');
         }
 
-        return self::create($string, MessageType::Error, $params);
+        return new self($string, MessageType::Error, $params);
     }
 
     /**
@@ -150,22 +146,7 @@ class Message implements Stringable
      */
     public static function notice(string $string, array $params = []): self
     {
-        return self::create($string, MessageType::Notice, $params);
-    }
-
-    /**
-     * Builds a message, escaping each parameter the same way addParam() does.
-     *
-     * @param mixed[] $params Parameters to substitute into the string
-     */
-    private static function create(string $string, MessageType $type, array $params): self
-    {
-        $message = new Message($string, $type);
-        foreach ($params as $param) {
-            $message->addParam($param);
-        }
-
-        return $message;
+        return new self($string, MessageType::Notice, $params);
     }
 
     /**
