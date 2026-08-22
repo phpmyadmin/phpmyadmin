@@ -1063,6 +1063,12 @@ class InsertEdit
             return $this->dbi->quoteString($uuid);
         }
 
+        if ($editField->function === 'ULID') {
+            $ulid = Ulid::generate();
+
+            return $this->dbi->quoteString($ulid);
+        }
+
         if (
             in_array($editField->function, $this->getGisFromTextFunctions(), true)
             || in_array($editField->function, $this->getGisFromWKBFunctions(), true)
