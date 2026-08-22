@@ -11,7 +11,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
@@ -86,14 +85,14 @@ final readonly class UserPasswordController implements InvocableController
                 }
 
                 if ($request->isAjax()) {
-                    $sqlQuery = Generator::getMessage($changePasswordMessage['msg'], $sqlQuery, MessageType::Success);
+                    $sqlQuery = Generator::getMessage($changePasswordMessage['msg'], $sqlQuery);
                     $this->response->addJSON('message', $sqlQuery);
 
                     return $this->response->response();
                 }
 
                 $this->response->addHTML('<h1>' . __('Change password') . '</h1>' . "\n\n");
-                $this->response->addHTML(Generator::getMessage($message, $sqlQuery, MessageType::Success));
+                $this->response->addHTML(Generator::getMessage($message, $sqlQuery));
                 $this->response->render('user_password', []);
 
                 return $this->response->response();

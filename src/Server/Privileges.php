@@ -1362,7 +1362,7 @@ class Privileges
 
         $extraData = [];
         if ($sqlQuery !== '') {
-            $extraData['sql_query'] = Generator::getMessage('', $sqlQuery);
+            $extraData['sql_query'] = Generator::getMessage(new Message(), $sqlQuery);
         }
 
         if ($isChangeCopyUser) {

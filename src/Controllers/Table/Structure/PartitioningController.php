@@ -14,7 +14,6 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Partitioning\TablePartitionDefinition;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
@@ -267,7 +266,7 @@ final readonly class PartitioningController implements InvocableController
         );
         $message->addParam(Current::$table);
         $this->response->addHTML(
-            Generator::getMessage($message, $sqlQuery, MessageType::Success),
+            Generator::getMessage($message, $sqlQuery),
         );
     }
 }

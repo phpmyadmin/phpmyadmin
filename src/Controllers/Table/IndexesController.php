@@ -17,7 +17,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Indexes;
@@ -135,13 +134,11 @@ final readonly class IndexesController implements InvocableController
             $this->dbi->query($sqlQuery);
 
             if ($request->isAjax()) {
-                $message = Message::success(
-                    __('Table %1$s has been altered successfully.'),
-                );
+                $message = Message::success(__('Table %1$s has been altered successfully.'));
                 $message->addParam(Current::$table);
                 $this->response->addJSON(
                     'message',
-                    Generator::getMessage($message, $sqlQuery, MessageType::Success),
+                    Generator::getMessage($message, $sqlQuery),
                 );
 
                 $indexes = Index::getFromTable($this->dbi, Current::$table, Current::$database);

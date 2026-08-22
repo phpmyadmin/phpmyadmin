@@ -15,7 +15,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Indexes;
@@ -124,7 +123,7 @@ final readonly class IndexRenameController implements InvocableController
         $message->addParam($tableName->getName());
         $this->response->addJSON(
             'message',
-            Generator::getMessage($message, $sqlQuery, MessageType::Success),
+            Generator::getMessage($message, $sqlQuery),
         );
 
         $indexes = Index::getFromTable($this->dbi, $tableName->getName(), $databaseName->getName());

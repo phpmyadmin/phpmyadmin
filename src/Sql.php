@@ -966,7 +966,7 @@ class Sql
             );
         }
 
-        $queryMessage = Generator::getMessage($message, $sqlQuery, MessageType::Success);
+        $queryMessage = Generator::getMessage($message, $sqlQuery);
 
         if (self::$showAsPhp !== null) {
             return $queryMessage;
@@ -1221,7 +1221,7 @@ class Sql
         Message|null $displayMessage,
     ): string {
         if ($displayQuery !== null && $showSql) {
-            return Generator::getMessage($displayMessage ?? '', $displayQuery);
+            return Generator::getMessage($displayMessage ?? new Message(), $displayQuery);
         }
 
         return '';
@@ -1572,7 +1572,7 @@ class Sql
                 $request->hasBodyParam('rollback_query'),
             );
 
-            return Generator::getMessage($message, Current::$sqlQuery, MessageType::Success);
+            return Generator::getMessage($message, Current::$sqlQuery);
         }
 
         // Handle disable/enable foreign key checks

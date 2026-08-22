@@ -39,6 +39,6 @@ final class MessageExtension
             default => MessageType::Notice,
         };
 
-        return Generator::getMessage($message, $statement, $type);
+        return Generator::getMessage(new Message($message, $type), $statement);
     }
 }

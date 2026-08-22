@@ -16,7 +16,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\ColumnsDefinition;
@@ -139,7 +138,7 @@ final readonly class AddFieldController implements InvocableController
             Current::$message->addParam(Current::$table);
             $this->response->addJSON(
                 'message',
-                Generator::getMessage(Current::$message, Current::$sqlQuery, MessageType::Success),
+                Generator::getMessage(Current::$message, Current::$sqlQuery),
             );
 
             // Give an URL to call and use to appends the structure after the success message

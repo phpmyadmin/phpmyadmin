@@ -18,7 +18,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Indexes\IndexColumn;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Octetstream_Sql;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Json;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
@@ -2959,7 +2958,7 @@ class Results
                 $afterCount,
             );
 
-            $sqlQueryMessage = Generator::getMessage($message, $this->sqlQuery, MessageType::Success);
+            $sqlQueryMessage = Generator::getMessage($message, $this->sqlQuery);
         } elseif (! $this->printView && ! $isLimitedDisplay) {
             $message = Message::success();
 
@@ -2972,7 +2971,7 @@ class Results
                 $message->addMessage($messageQueryTime, '');
             }
 
-            $sqlQueryMessage = Generator::getMessage($message, $this->sqlQuery, MessageType::Success);
+            $sqlQueryMessage = Generator::getMessage($message, $this->sqlQuery);
         }
 
         // 2.3 Prepare the navigation bars

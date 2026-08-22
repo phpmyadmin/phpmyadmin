@@ -160,7 +160,7 @@ class InsertEdit
             if ($rows[$keyId] === []) {
                 $this->responseRenderer->addHTML(
                     Generator::getMessage(
-                        __('MySQL returned an empty result set (i.e. zero rows).'),
+                        new Message(__('MySQL returned an empty result set (i.e. zero rows).')),
                         $localQuery,
                     ),
                 );

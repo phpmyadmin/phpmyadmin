@@ -146,7 +146,7 @@ final readonly class TrackingController implements InvocableController
                 . $entry['statement'] . "\n";
         }
 
-        $this->response->addHTML(Generator::getMessage(__('Database Log'), $log));
+        $this->response->addHTML(Generator::getMessage(new Message(__('Database Log')), $log));
 
         return $this->response->response();
     }

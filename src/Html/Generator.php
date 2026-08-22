@@ -12,7 +12,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Query\Compatibility;
@@ -389,8 +388,8 @@ class Generator
      * Prepare the message and the query
      * usually the message is the result of the query executed
      *
-     * @param Message|string $message  the message to display
-     * @param string|null    $sqlQuery the query to display
+     * @param Message     $message  the message to display
+     * @param string|null $sqlQuery the query to display
      *
      * @throws Throwable
      * @throws LoaderError
@@ -398,9 +397,8 @@ class Generator
      * @throws SyntaxError
      */
     public static function getMessage(
-        Message|string $message,
+        Message $message,
         string|null $sqlQuery = null,
-        MessageType $type = MessageType::Notice,
     ): string {
         $retval = '';
 
@@ -420,10 +418,6 @@ class Generator
         if (Sql::$usingBookmarkMessage !== null) {
             $retval .= Sql::$usingBookmarkMessage->getDisplay();
             Sql::$usingBookmarkMessage = null;
-        }
-
-        if (is_string($message)) {
-            $message = new Message($message, $type);
         }
 
         if (! $renderSql) {

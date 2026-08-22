@@ -715,7 +715,7 @@ final readonly class ImportController implements InvocableController
             $this->response->addJSON('message', Message::success(ImportSettings::$message));
             $this->response->addJSON(
                 'sql_query',
-                Generator::getMessage(ImportSettings::$message, Current::$sqlQuery, MessageType::Success),
+                Generator::getMessage(new Message(ImportSettings::$message, MessageType::Success), Current::$sqlQuery),
             );
         } elseif (Import::$result === false) {
             $this->response->setRequestStatus(false);

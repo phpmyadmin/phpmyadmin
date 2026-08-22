@@ -1476,9 +1476,9 @@
     <MixedAssignment>
       <code><![CDATA[$newname]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[Response]]></code>
+    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Preferences/ExportController.php">
     <PossiblyUnusedMethod>

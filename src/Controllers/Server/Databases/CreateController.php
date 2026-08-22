@@ -90,7 +90,7 @@ final readonly class CreateController implements InvocableController
 
             $json = [
                 'message' => $message,
-                'sql_query' => Generator::getMessage('', $sqlQuery, MessageType::Success),
+                'sql_query' => Generator::getMessage(new Message('', MessageType::Success), $sqlQuery),
                 'url' => $scriptName . Url::getCommon(
                     ['db' => $newDb],
                     ! str_contains($scriptName, '?') ? '?' : '&',

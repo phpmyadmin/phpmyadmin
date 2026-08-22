@@ -17,7 +17,6 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
@@ -1227,7 +1226,6 @@ class ResultsTest extends AbstractTestCase
             'sql_query_message' => Generator::getMessage(
                 Message::success('Showing rows 0 -  2 (3 total, Query took 1.2340 seconds.)'),
                 $query,
-                MessageType::Success,
             ),
             'navigation' => [
                 'page_selector' => '',
@@ -1494,7 +1492,6 @@ class ResultsTest extends AbstractTestCase
             'sql_query_message' => Generator::getMessage(
                 Message::success('Showing rows 0 -  1 (2 total, Query took 1.2340 seconds.)'),
                 $query,
-                MessageType::Success,
             ),
             'navigation' => [
                 'page_selector' => '',

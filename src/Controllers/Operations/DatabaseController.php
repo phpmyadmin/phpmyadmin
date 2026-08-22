@@ -203,7 +203,7 @@ final readonly class DatabaseController implements InvocableController
                 $this->response->addJSON('newname', $newDatabaseName?->getName() ?? '');
                 $this->response->addJSON(
                     'sql_query',
-                    Generator::getMessage('', Current::$sqlQuery),
+                    Generator::getMessage(new Message(), Current::$sqlQuery),
                 );
                 $this->response->addJSON('db', Current::$database);
 
