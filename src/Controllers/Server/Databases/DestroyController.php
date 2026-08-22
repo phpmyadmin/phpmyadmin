@@ -86,8 +86,8 @@ final readonly class DestroyController implements InvocableController
                 '%1$d databases have been dropped successfully.',
                 $numberOfDatabases,
             ),
+            [$numberOfDatabases],
         );
-        $message->addParam($numberOfDatabases);
         $json = ['message' => $message];
         $this->response->setRequestStatus($message->isSuccess());
         $this->response->addJSON($json);

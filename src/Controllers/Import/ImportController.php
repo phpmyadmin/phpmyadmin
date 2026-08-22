@@ -164,9 +164,8 @@ final readonly class ImportController implements InvocableController
                     'You probably tried to upload a file that is too large. Please refer ' .
                     'to %sdocumentation%s for a workaround for this limit.',
                 ),
+                ['[doc@faq1-16]', '[/doc]'],
             );
-            Current::$message->addParam('[doc@faq1-16]');
-            Current::$message->addParam('[/doc]');
 
             // so we can obtain the message
             $_SESSION['Import_message']['message'] = Current::$message->getDisplay();
@@ -519,8 +518,8 @@ final readonly class ImportController implements InvocableController
                         ImportSettings::$executedQueries,
                     )
                     . '</em>',
+                    [ImportSettings::$executedQueries],
                 );
-                Current::$message->addParam(ImportSettings::$executedQueries);
 
                 if (ImportSettings::$importNotice !== '') {
                     Current::$message->addHtml(ImportSettings::$importNotice);

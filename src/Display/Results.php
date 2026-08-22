@@ -2965,8 +2965,7 @@ class Results
             if ($this->queryTime > 0) {
                 $message->addText('(');
 
-                $messageQueryTime = Message::notice(__('Query took %01.4f seconds.') . ')');
-                $messageQueryTime->addParam($this->queryTime);
+                $messageQueryTime = Message::notice(__('Query took %01.4f seconds.') . ')', [$this->queryTime]);
 
                 $message->addMessage($messageQueryTime, '');
             }
@@ -3243,15 +3242,13 @@ class Results
                 __(
                     'This view has at least this number of rows. Please refer to %sdocumentation%s.',
                 ),
+                ['[doc@cfg_MaxExactCount]', '[/doc]'],
             );
 
-            $message->addParam('[doc@cfg_MaxExactCount]');
-            $message->addParam('[/doc]');
             $messageViewWarning = Generator::showHint($message->getMessage());
         }
 
-        $message = Message::success(__('Showing rows %1s - %2s'));
-        $message->addParam($firstShownRec);
+        $message = Message::success(__('Showing rows %1s - %2s'), [$firstShownRec]);
 
         if ($messageViewWarning !== false) {
             $message->addParamHtml('... ' . $messageViewWarning);
@@ -3265,12 +3262,13 @@ class Results
             if ($this->unlimNumRows !== $total) {
                 $messageTotal = Message::notice(
                     $preCount . __('%1$s total, %2$s in query'),
+                    [Util::formatNumber($total, 0), Util::formatNumber($this->unlimNumRows, 0)],
                 );
-                $messageTotal->addParam(Util::formatNumber($total, 0));
-                $messageTotal->addParam(Util::formatNumber($this->unlimNumRows, 0));
             } else {
-                $messageTotal = Message::notice($preCount . __('%s total'));
-                $messageTotal->addParam(Util::formatNumber($total, 0));
+                $messageTotal = Message::notice(
+                    $preCount . __('%s total'),
+                    [Util::formatNumber($total, 0)],
+                );
             }
 
             if ($afterCount !== '') {
@@ -3282,8 +3280,7 @@ class Results
             $message->addText(', ', '');
         }
 
-        $messageQueryTime = Message::notice(__('Query took %01.4f seconds.') . ')');
-        $messageQueryTime->addParam($this->queryTime);
+        $messageQueryTime = Message::notice(__('Query took %01.4f seconds.') . ')', [$this->queryTime]);
 
         $message->addMessage($messageQueryTime, '');
         $message->addHtml($sortedColumnMessage, '');

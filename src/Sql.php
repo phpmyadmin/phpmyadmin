@@ -442,8 +442,10 @@ class Sql
         );
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
-            self::$usingBookmarkMessage = Message::notice(__('Using bookmark "%s" as default browse query.'));
-            self::$usingBookmarkMessage->addParam($table);
+            self::$usingBookmarkMessage = Message::notice(
+                __('Using bookmark "%s" as default browse query.'),
+                [$table],
+            );
             self::$usingBookmarkMessage->addHtml(MySQLDocumentation::showDocumentation('faq', 'faq6-22'));
 
             return $bookmark->getQuery();
@@ -878,8 +880,7 @@ class Sql
                 // need to use a temporary because the Message class
                 // currently supports adding parameters only to the first
                 // message
-                $inserted = Message::notice(__('Inserted row id: %1$d'));
-                $inserted->addParam($insertId + $numRows - 1);
+                $inserted = Message::notice(__('Inserted row id: %1$d'), [$insertId + $numRows - 1]);
                 $message->addMessage($inserted);
             }
         } elseif ($statementInfo->flags->isAffected) {
@@ -908,8 +909,8 @@ class Sql
         if ($this->queryTime > 0) {
             $queryTime = Message::notice(
                 '(' . __('Query took %01.4f seconds.') . ')',
+                [$this->queryTime],
             );
-            $queryTime->addParam($this->queryTime);
             $message->addMessage($queryTime);
         }
 
@@ -1075,10 +1076,7 @@ class Sql
     {
         $output = '';
         if ($label !== null && $label !== '') {
-            $message = Message::success(
-                __('Bookmark %s has been created.'),
-            );
-            $message->addParam($label);
+            $message = Message::success(__('Bookmark %s has been created.'), [$label]);
             $output = $message->getDisplay();
         }
 

@@ -134,8 +134,8 @@ final readonly class AddFieldController implements InvocableController
             // Go back to the structure sub-page
             Current::$message = Message::success(
                 __('Table %1$s has been altered successfully.'),
+                [Current::$table],
             );
-            Current::$message->addParam(Current::$table);
             $this->response->addJSON(
                 'message',
                 Generator::getMessage(Current::$message, Current::$sqlQuery),

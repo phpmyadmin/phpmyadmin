@@ -44,9 +44,7 @@ final readonly class AccountLockController implements InvocableController
             return $this->response->response();
         }
 
-        $message = Message::success(__('The account %s@%s has been successfully locked.'));
-        $message->addParam($userName);
-        $message->addParam($hostName);
+        $message = Message::success(__('The account %s@%s has been successfully locked.'), [$userName, $hostName]);
         $this->response->addJSON(['message' => $message]);
 
         return $this->response->response();

@@ -215,8 +215,7 @@ readonly class SqlController implements InvocableController
         }
 
         if ($result) {
-            $msg = Message::success(__('Bookmark %s has been created.'));
-            $msg->addParam($bookmarkFields['bkm_label']);
+            $msg = Message::success(__('Bookmark %s has been created.'), [$bookmarkFields['bkm_label']]);
             $this->response->addJSON('message', $msg);
 
             return $this->response->response();

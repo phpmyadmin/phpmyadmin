@@ -865,9 +865,7 @@ class InsertEdit
                         $insertId += $totalAffectedRows - 1;
                     }
 
-                    $lastMessage = Message::notice(__('Inserted row id: %1$d'));
-                    $lastMessage->addParam($insertId);
-                    $lastMessages[] = $lastMessage;
+                    $lastMessages[] = Message::notice(__('Inserted row id: %1$d'), [$insertId]);
                 }
             }
 

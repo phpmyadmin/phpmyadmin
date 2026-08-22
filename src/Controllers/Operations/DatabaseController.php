@@ -160,9 +160,8 @@ final readonly class DatabaseController implements InvocableController
 
                         Current::$message = Message::success(
                             __('Database %1$s has been renamed to %2$s.'),
+                            [Current::$database, $newDatabaseName->getName()],
                         );
-                        Current::$message->addParam(Current::$database);
-                        Current::$message->addParam($newDatabaseName->getName());
                     } else {
                         if ($request->hasBodyParam('adjust_privileges')) {
                             $this->operations->adjustPrivilegesCopyDb(
@@ -174,9 +173,8 @@ final readonly class DatabaseController implements InvocableController
 
                         Current::$message = Message::success(
                             __('Database %1$s has been copied to %2$s.'),
+                            [Current::$database, $newDatabaseName->getName()],
                         );
-                        Current::$message->addParam(Current::$database);
-                        Current::$message->addParam($newDatabaseName->getName());
                     }
 
                     ResponseRenderer::$reload = true;

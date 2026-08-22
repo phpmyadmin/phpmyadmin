@@ -81,8 +81,10 @@ class OutputHandler
                     if ($this->fileHandle !== null) {
                         $writeResult = @fwrite($this->fileHandle, $this->dumpBuffer);
                         if ($writeResult !== strlen($this->dumpBuffer)) {
-                            Current::$message = Message::error(__('Insufficient space to save the file %s.'));
-                            Current::$message->addParam($this->saveFilename);
+                            Current::$message = Message::error(
+                                __('Insufficient space to save the file %s.'),
+                                [$this->saveFilename],
+                            );
 
                             throw new InsufficientSpaceExportException();
                         }
@@ -112,8 +114,10 @@ class OutputHandler
         if ($this->fileHandle !== null && $line !== '') {
             $writeResult = @fwrite($this->fileHandle, $line);
             if ($writeResult !== strlen($line)) {
-                Current::$message = Message::error(__('Insufficient space to save the file %s.'));
-                Current::$message->addParam($this->saveFilename);
+                Current::$message = Message::error(
+                    __('Insufficient space to save the file %s.'),
+                    [$this->saveFilename],
+                );
 
                 throw new InsufficientSpaceExportException();
             }
@@ -190,37 +194,25 @@ class OutputHandler
             && ((! $quickExport && ! $overwriteFile)
             || ($quickExport && ! $quickOverwriteFile))
         ) {
-            $message = Message::error(
-                __(
-                    'File %s already exists on server, change filename or check overwrite option.',
-                ),
+            return Message::error(
+                __('File %s already exists on server, change filename or check overwrite option.'),
+                [$this->saveFilename],
             );
-            $message->addParam($this->saveFilename);
-
-            return $message;
         }
 
         if (@is_file($this->saveFilename) && ! @is_writable($this->saveFilename)) {
-            $message = Message::error(
-                __(
-                    'The web server does not have permission to save the file %s.',
-                ),
+            return Message::error(
+                __('The web server does not have permission to save the file %s.'),
+                [$this->saveFilename],
             );
-            $message->addParam($this->saveFilename);
-
-            return $message;
         }
 
         $fileHandle = @fopen($this->saveFilename, 'w');
         if ($fileHandle === false) {
-            $message = Message::error(
-                __(
-                    'The web server does not have permission to save the file %s.',
-                ),
+            return Message::error(
+                __('The web server does not have permission to save the file %s.'),
+                [$this->saveFilename],
             );
-            $message->addParam($this->saveFilename);
-
-            return $message;
         }
 
         $this->fileHandle = $fileHandle;

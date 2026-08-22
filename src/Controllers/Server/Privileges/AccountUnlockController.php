@@ -44,9 +44,7 @@ final readonly class AccountUnlockController implements InvocableController
             return $this->response->response();
         }
 
-        $message = Message::success(__('The account %s@%s has been successfully unlocked.'));
-        $message->addParam($userName);
-        $message->addParam($hostName);
+        $message = Message::success(__('The account %s@%s has been successfully unlocked.'), [$userName, $hostName]);
         $this->response->addJSON(['message' => $message]);
 
         return $this->response->response();

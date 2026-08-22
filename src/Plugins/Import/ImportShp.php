@@ -108,8 +108,8 @@ class ImportShp extends ImportPlugin
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
                 Current::$message = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".'),
+                    [$importHandle->getError()],
                 );
-                Current::$message->addParam($importHandle->getError());
 
                 return [];
             }
@@ -174,8 +174,8 @@ class ImportShp extends ImportPlugin
             Import::$hasError = true;
             Current::$message = Message::error(
                 __('There was an error importing the ESRI shape file: "%s".'),
+                [$shp->lastError],
             );
-            Current::$message->addParam($shp->lastError);
 
             return [];
         }
@@ -199,8 +199,8 @@ class ImportShp extends ImportPlugin
                 Import::$hasError = true;
                 Current::$message = Message::error(
                     __('MySQL Spatial Extension does not support ESRI type "%s".'),
+                    [$shp->getShapeName()],
                 );
-                Current::$message->addParam($shp->getShapeName());
 
                 return [];
         }

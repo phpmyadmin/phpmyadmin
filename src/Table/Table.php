@@ -1604,8 +1604,8 @@ class Table implements Stringable
                             __(
                                 'Error creating foreign key on %1$s (check data types)',
                             ),
+                            [implode(', ', $masterField)],
                         );
-                        $message->addParam(implode(', ', $masterField));
                         $htmlOutput .= $message->getDisplay();
                     } else {
                         $htmlOutput .= Generator::mysqlDie($tmpErrorCreate, $createQuery, false);

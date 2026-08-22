@@ -106,17 +106,18 @@ class Message implements Stringable
      *
      * shorthand for getting a simple success message
      *
-     * @param string $string A localized string
-     *                       e.g. __('Your SQL query has been
-     *                       executed successfully')
+     * @param string  $string A localized string
+     *                        e.g. __('Your SQL query has been
+     *                        executed successfully')
+     * @param mixed[] $params Parameters to substitute into the string
      */
-    public static function success(string $string = ''): self
+    public static function success(string $string = '', array $params = []): self
     {
         if ($string === '') {
             $string = __('Your SQL query has been executed successfully.');
         }
 
-        return new Message($string, MessageType::Success);
+        return self::create($string, MessageType::Success, $params);
     }
 
     /**
@@ -124,15 +125,16 @@ class Message implements Stringable
      *
      * shorthand for getting a simple error message
      *
-     * @param string $string A localized string e.g. __('Error')
+     * @param string  $string A localized string e.g. __('Error')
+     * @param mixed[] $params Parameters to substitute into the string
      */
-    public static function error(string $string = ''): self
+    public static function error(string $string = '', array $params = []): self
     {
         if ($string === '') {
             $string = __('Error');
         }
 
-        return new Message($string, MessageType::Error);
+        return self::create($string, MessageType::Error, $params);
     }
 
     /**
@@ -140,14 +142,30 @@ class Message implements Stringable
      *
      * shorthand for getting a simple notice message
      *
-     * @param string $string A localized string
-     *                       e.g. __('The additional features for working with
-     *                       linked tables have been deactivated. To find out
-     *                       why click %shere%s.')
+     * @param string  $string A localized string
+     *                        e.g. __('The additional features for working with
+     *                        linked tables have been deactivated. To find out
+     *                        why click %shere%s.')
+     * @param mixed[] $params Parameters to substitute into the string
      */
-    public static function notice(string $string): self
+    public static function notice(string $string, array $params = []): self
     {
-        return new Message($string, MessageType::Notice);
+        return self::create($string, MessageType::Notice, $params);
+    }
+
+    /**
+     * Builds a message, escaping each parameter the same way addParam() does.
+     *
+     * @param mixed[] $params Parameters to substitute into the string
+     */
+    private static function create(string $string, MessageType $type, array $params): self
+    {
+        $message = new Message($string, $type);
+        foreach ($params as $param) {
+            $message->addParam($param);
+        }
+
+        return $message;
     }
 
     /**

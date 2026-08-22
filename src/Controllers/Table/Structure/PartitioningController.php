@@ -261,10 +261,7 @@ final readonly class PartitioningController implements InvocableController
             return;
         }
 
-        $message = Message::success(
-            __('Table %1$s has been altered successfully.'),
-        );
-        $message->addParam(Current::$table);
+        $message = Message::success(__('Table %1$s has been altered successfully.'), [Current::$table]);
         $this->response->addHTML(
             Generator::getMessage($message, $sqlQuery),
         );

@@ -119,8 +119,7 @@ final readonly class IndexRenameController implements InvocableController
 
         $this->dbi->query($sqlQuery);
 
-        $message = Message::success(__('Table %1$s has been altered successfully.'));
-        $message->addParam($tableName->getName());
+        $message = Message::success(__('Table %1$s has been altered successfully.'), [$tableName->getName()]);
         $this->response->addJSON(
             'message',
             Generator::getMessage($message, $sqlQuery),

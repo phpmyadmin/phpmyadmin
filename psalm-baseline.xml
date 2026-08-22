@@ -5033,6 +5033,9 @@
     <MixedArgument>
       <code><![CDATA[$this->params]]></code>
     </MixedArgument>
+    <MixedAssignment>
+      <code><![CDATA[$param]]></code>
+    </MixedAssignment>
   </file>
   <file src="src/Navigation/Navigation.php">
     <PossiblyNullArrayOffset>
