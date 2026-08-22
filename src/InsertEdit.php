@@ -1063,12 +1063,18 @@ class InsertEdit
             return $this->dbi->quoteString($uuid);
         }
 
-        if (
-            in_array($editField->function, $this->getGisFromTextFunctions(), true)
-            || in_array($editField->function, $this->getGisFromWKBFunctions(), true)
-        ) {
+        $isGisFromTextFunction = in_array($editField->function, $this->getGisFromTextFunctions(), true);
+        if ($isGisFromTextFunction || in_array($editField->function, $this->getGisFromWKBFunctions(), true)) {
             preg_match('/^(\'?)(.*?)\1(?:,(\d+))?$/', $editField->value, $matches);
             $escapedParams = $this->dbi->quoteString($matches[2]) . (isset($matches[3]) ? ',' . $matches[3] : '');
+            if (
+                $isGisFromTextFunction
+                && isset($matches[3])
+                && $this->dbi->getVersion() >= 80001
+                && ! $this->dbi->isMariaDB()
+            ) {
+                $escapedParams .= ',' . $this->dbi->quoteString('axis-order=long-lat');
+            }
 
             return $editField->function . '(' . $escapedParams . ')';
         }
