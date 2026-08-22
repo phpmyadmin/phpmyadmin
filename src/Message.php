@@ -16,8 +16,6 @@ use function sprintf;
 use const ENT_COMPAT;
 
 /**
- * a single message
- *
  * simple usage examples:
  * <code>
  * // display simple error message 'Error'
@@ -28,20 +26,6 @@ use const ENT_COMPAT;
  *
  * // get special notice
  * $message = Message::notice(__('This is a localized notice'));
- * </code>
- *
- * more advanced usage example:
- * <code>
- * // create another message, a hint, with a localized string which expects
- * $hint = Message::notice('Read the %smanual%s');
- * // replace placeholders with the following params
- * $hint->addParam('[doc@cfg_Example]');
- * $hint->addParam('[/doc]');
- * // add this hint as a tooltip
- * $hint = showHint($hint);
- *
- * // add the retrieved tooltip reference to the original message
- * $message->addMessage($hint);
  * </code>
  */
 final class Message implements Stringable
