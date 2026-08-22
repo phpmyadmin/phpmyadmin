@@ -9,6 +9,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
@@ -525,6 +526,7 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * Test for Core::sendHeaderLocation
      */
+    #[AllowMockObjectsWithoutExpectations]
     public function testSendHeaderLocationIisLongUri(): void
     {
         $GLOBALS['server'] = 0;

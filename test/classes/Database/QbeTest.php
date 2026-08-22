@@ -30,8 +30,7 @@ class QbeTest extends AbstractTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma_test';
         $this->object = new Qbe(new Relation($GLOBALS['dbi']), new Template(), $GLOBALS['dbi'], 'pma_test');
-        //mock DBI
-        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $create_table = 'CREATE TABLE `table1` ('
             . '`id` int(11) NOT NULL,'
@@ -41,7 +40,6 @@ class QbeTest extends AbstractTestCase
             . ') ENGINE=InnoDB DEFAULT CHARSET=latin1';
 
         $dbi->method('fetchValue')
-            ->with('SHOW CREATE TABLE `pma_test`.`table1`', 1)
             ->willReturn($create_table);
 
         $dbi->method('getTableIndexes')->willReturn([]);

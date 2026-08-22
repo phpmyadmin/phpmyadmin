@@ -32,11 +32,9 @@ class SearchTest extends AbstractTestCase
         $GLOBALS['db'] = 'pma';
         $GLOBALS['_POST'] = [];
 
-        //mock DBI
-        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $dbi->method('getColumns')
-            ->with('pma', 'table1')
             ->willReturn([
                 ['Field' => 'column1'],
                 ['Field' => 'column2'],
