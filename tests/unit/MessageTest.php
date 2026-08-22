@@ -12,9 +12,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 #[CoversClass(Message::class)]
 class MessageTest extends AbstractTestCase
 {
-    /**
-     * to String casting test
-     */
     public function testToString(): void
     {
         $message = new Message();
@@ -22,9 +19,6 @@ class MessageTest extends AbstractTestCase
         self::assertSame('test<&>', (string) $message);
     }
 
-    /**
-     * test success method
-     */
     public function testSuccess(): void
     {
         $message = new Message('test<&>', MessageType::Success);
@@ -35,9 +29,6 @@ class MessageTest extends AbstractTestCase
         );
     }
 
-    /**
-     * test error method
-     */
     public function testError(): void
     {
         $message = new Message('test<&>', MessageType::Error);
@@ -45,18 +36,12 @@ class MessageTest extends AbstractTestCase
         self::assertSame('Error', Message::error()->getString());
     }
 
-    /**
-     * test notice method
-     */
     public function testNotice(): void
     {
         $message = new Message('test<&>', MessageType::Notice);
         self::assertEquals($message, Message::notice('test<&>'));
     }
 
-    /**
-     * test rawError method
-     */
     public function testRawError(): void
     {
         $message = new Message('', MessageType::Error);
@@ -66,9 +51,6 @@ class MessageTest extends AbstractTestCase
         self::assertEquals($message, Message::rawError('test<&>'));
     }
 
-    /**
-     * test rawNotice method
-     */
     public function testRawNotice(): void
     {
         $message = new Message('', MessageType::Notice);
@@ -78,9 +60,6 @@ class MessageTest extends AbstractTestCase
         self::assertEquals($message, Message::rawNotice('test<&>'));
     }
 
-    /**
-     * test rawSuccess method
-     */
     public function testRawSuccess(): void
     {
         $message = new Message('', MessageType::Success);
@@ -90,9 +69,6 @@ class MessageTest extends AbstractTestCase
         self::assertEquals($message, Message::rawSuccess('test<&>'));
     }
 
-    /**
-     * testing isSuccess method
-     */
     public function testIsSuccess(): void
     {
         $message = new Message();
@@ -101,9 +77,6 @@ class MessageTest extends AbstractTestCase
         self::assertTrue($message->isSuccess());
     }
 
-    /**
-     * testing isNotice method
-     */
     public function testIsNotice(): void
     {
         $message = new Message();
@@ -114,9 +87,6 @@ class MessageTest extends AbstractTestCase
         self::assertTrue($message->isNotice());
     }
 
-    /**
-     * testing isError method
-     */
     public function testIsError(): void
     {
         $message = new Message();
@@ -125,9 +95,6 @@ class MessageTest extends AbstractTestCase
         self::assertTrue($message->isError());
     }
 
-    /**
-     * testing setter of message
-     */
     public function testSetMessage(): void
     {
         $message = new Message();
@@ -135,9 +102,6 @@ class MessageTest extends AbstractTestCase
         self::assertSame('test&<>', $message->getMessage());
     }
 
-    /**
-     * testing add param method
-     */
     public function testAddParam(): void
     {
         $message = new Message('m1 %s %s %s', params: ['param1']);
@@ -149,9 +113,6 @@ class MessageTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test adding html markup
-     */
     public function testAddParamHtml(): void
     {
         $message = new Message();
@@ -165,9 +126,6 @@ class MessageTest extends AbstractTestCase
         );
     }
 
-    /**
-     * testing add string method
-     */
     public function testAddString(): void
     {
         $message = new Message();
@@ -183,9 +141,6 @@ class MessageTest extends AbstractTestCase
         );
     }
 
-    /**
-     * testing add message method
-     */
     public function testAddMessage(): void
     {
         $message = new Message();
@@ -206,9 +161,6 @@ class MessageTest extends AbstractTestCase
         );
     }
 
-    /**
-     * testing add messages method
-     */
     public function testAddMessages(): void
     {
         $messages = [];
@@ -224,9 +176,6 @@ class MessageTest extends AbstractTestCase
         );
     }
 
-    /**
-     * testing add messages method
-     */
     public function testAddMessagesString(): void
     {
         $messages = ['test1', 'test<b>', 'test2'];
@@ -244,10 +193,6 @@ class MessageTest extends AbstractTestCase
         );
     }
 
-    /**
-     * getMessage test - with empty message and with non-empty string -
-     * not key in globals additional params are defined
-     */
     public function testGetMessageWithoutMessageWithStringWithParams(): void
     {
         $message = new Message('test string %s %s');
@@ -260,19 +205,12 @@ class MessageTest extends AbstractTestCase
         );
     }
 
-    /**
-     * getMessage test - with empty message and with empty string
-     */
     public function testGetMessageWithoutMessageWithEmptyString(): void
     {
         $message = new Message();
         self::assertSame('', $message->getMessage());
     }
 
-    /**
-     * getMessage test - message is defined
-     * message with BBCode defined
-     */
     public function testGetMessageWithMessageWithBBCode(): void
     {
         $message = new Message();
@@ -295,9 +233,6 @@ class MessageTest extends AbstractTestCase
         self::assertSame('danger', $message->getContext());
     }
 
-    /**
-     * getDisplay test
-     */
     public function testGetDisplay(): void
     {
         $message = new Message();
@@ -310,11 +245,7 @@ class MessageTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Data provider for testAffectedRows
-     *
-     * @return array<int, array{int, string}> Test-data
-     */
+    /** @return array<int, array{int, string}> Test-data */
     public static function providerAffectedRows(): array
     {
         return [
@@ -339,12 +270,6 @@ class MessageTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for getMessageForAffectedRows() method
-     *
-     * @param int    $rows   Number of rows
-     * @param string $output Expected string
-     */
     #[DataProvider('providerAffectedRows')]
     public function testAffectedRows(int $rows, string $output): void
     {
@@ -353,11 +278,7 @@ class MessageTest extends AbstractTestCase
         self::assertSame($output, $message->getDisplay());
     }
 
-    /**
-     * Data provider for testInsertedRows
-     *
-     * @return array<int, array{int, string}> Test-data
-     */
+    /** @return array<int, array{int, string}> Test-data */
     public static function providerInsertedRows(): array
     {
         return [
@@ -382,12 +303,6 @@ class MessageTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for getMessageForInsertedRows() method
-     *
-     * @param int    $rows   Number of rows
-     * @param string $output Expected string
-     */
     #[DataProvider('providerInsertedRows')]
     public function testInsertedRows(int $rows, string $output): void
     {
@@ -396,11 +311,7 @@ class MessageTest extends AbstractTestCase
         self::assertSame($output, $message->getDisplay());
     }
 
-    /**
-     * Data provider for testDeletedRows
-     *
-     * @return array<int, array{int, string}> Test-data
-     */
+    /** @return array<int, array{int, string}> Test-data */
     public static function providerDeletedRows(): array
     {
         return [
@@ -425,12 +336,6 @@ class MessageTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for getMessageForDeletedRows() method
-     *
-     * @param int    $rows   Number of rows
-     * @param string $output Expected string
-     */
     #[DataProvider('providerDeletedRows')]
     public function testDeletedRows(int $rows, string $output): void
     {
