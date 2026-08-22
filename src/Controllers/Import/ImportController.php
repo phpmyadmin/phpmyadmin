@@ -665,7 +665,7 @@ final readonly class ImportController implements InvocableController
                     '', // message_to_show
                     UrlParams::$goto, // goto
                     null, // disp_query
-                    '', // disp_message
+                    null, // disp_message
                     Current::$sqlQuery,
                     Current::$sqlQuery, // complete_query
                 );

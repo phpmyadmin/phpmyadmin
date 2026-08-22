@@ -184,7 +184,7 @@ readonly class SqlController implements InvocableController
             Current::$messageToShow,
             UrlParams::$goto,
             Current::$displayQuery,
-            Current::$displayMessage ?? '',
+            Current::$displayMessage,
             Current::$sqlQuery,
             Current::$completeQuery ?? Current::$sqlQuery,
         ));

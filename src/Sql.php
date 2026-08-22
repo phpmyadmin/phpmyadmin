@@ -1211,17 +1211,17 @@ class Sql
     /**
      * Function to get html for the previous query if there is such.
      *
-     * @param string|null    $displayQuery   display query
-     * @param bool           $showSql        whether to show sql
-     * @param Message|string $displayMessage display message
+     * @param string|null  $displayQuery   display query
+     * @param bool         $showSql        whether to show sql
+     * @param Message|null $displayMessage display message
      */
     private function getHtmlForPreviousUpdateQuery(
         string|null $displayQuery,
         bool $showSql,
-        Message|string $displayMessage,
+        Message|null $displayMessage,
     ): string {
         if ($displayQuery !== null && $showSql) {
-            return Generator::getMessage($displayMessage, $displayQuery, MessageType::Success);
+            return Generator::getMessage($displayMessage ?? '', $displayQuery);
         }
 
         return '';
@@ -1292,7 +1292,7 @@ class Sql
         int|string $unlimNumRows,
         int|string $numRows,
         string|null $dispQuery,
-        Message|string $dispMessage,
+        Message|null $dispMessage,
         array $profilingResults,
         string $sqlQuery,
         string $completeQuery,
@@ -1440,16 +1440,16 @@ class Sql
     /**
      * Function to execute the query and send the response
      *
-     * @param bool           $isGotoFile          whether goto file or not
-     * @param string         $db                  current database
-     * @param string|null    $table               current table
-     * @param string         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param string         $messageToShow       message to show
-     * @param string         $goto                goto page url
-     * @param string|null    $dispQuery           display query
-     * @param Message|string $dispMessage         display message
-     * @param string         $sqlQuery            sql query
-     * @param string         $completeQuery       complete query
+     * @param bool         $isGotoFile          whether goto file or not
+     * @param string       $db                  current database
+     * @param string|null  $table               current table
+     * @param string       $sqlQueryForBookmark the sql query to be stored as bookmark
+     * @param string       $messageToShow       message to show
+     * @param string       $goto                goto page url
+     * @param string|null  $dispQuery           display query
+     * @param Message|null $dispMessage         display message
+     * @param string       $sqlQuery            sql query
+     * @param string       $completeQuery       complete query
      */
     public function executeQueryAndSendQueryResponse(
         ServerRequest $request,
@@ -1461,7 +1461,7 @@ class Sql
         string $messageToShow,
         string $goto,
         string|null $dispQuery,
-        Message|string $dispMessage,
+        Message|null $dispMessage,
         string $sqlQuery,
         string $completeQuery,
     ): string {
@@ -1491,16 +1491,16 @@ class Sql
     /**
      * Function to execute the query and send the response
      *
-     * @param bool           $isGotoFile          whether goto file or not
-     * @param string         $db                  current database
-     * @param string|null    $table               current table
-     * @param string         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param string         $messageToShow       message to show
-     * @param string         $goto                goto page url
-     * @param string|null    $dispQuery           display query
-     * @param Message|string $dispMessage         display message
-     * @param string         $sqlQuery            sql query
-     * @param string         $completeQuery       complete query
+     * @param bool         $isGotoFile          whether goto file or not
+     * @param string       $db                  current database
+     * @param string|null  $table               current table
+     * @param string       $sqlQueryForBookmark the sql query to be stored as bookmark
+     * @param string       $messageToShow       message to show
+     * @param string       $goto                goto page url
+     * @param string|null  $dispQuery           display query
+     * @param Message|null $dispMessage         display message
+     * @param string       $sqlQuery            sql query
+     * @param string       $completeQuery       complete query
      *
      * @return string html
      */
@@ -1514,7 +1514,7 @@ class Sql
         string $messageToShow,
         string $goto,
         string|null $dispQuery,
-        Message|string $dispMessage,
+        Message|null $dispMessage,
         string $sqlQuery,
         string $completeQuery,
     ): string {

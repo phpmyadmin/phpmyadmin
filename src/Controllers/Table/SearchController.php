@@ -240,7 +240,7 @@ final class SearchController implements InvocableController
             '', // message_to_show
             UrlParams::$goto, // goto
             null, // disp_query
-            '', // disp_message
+            null, // disp_message
             $sqlQuery, // sql_query
             $sqlQuery, // complete_query
         ));

@@ -76,7 +76,7 @@ final readonly class DeleteRowsController implements InvocableController
             '',
             UrlParams::$goto,
             Current::$displayQuery,
-            Current::$displayMessage ?? '',
+            Current::$displayMessage,
             Current::$sqlQuery,
             Current::$sqlQuery,
         ));
