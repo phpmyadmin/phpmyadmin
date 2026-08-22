@@ -47,11 +47,6 @@ use const ENT_COMPAT;
 final class Message implements Stringable
 {
     /**
-     * The formatted message
-     */
-    private string $message = '';
-
-    /**
      * Whether to use BB code when displaying.
      */
     private bool $useBBCode = true;
@@ -153,8 +148,7 @@ final class Message implements Stringable
      */
     public static function raw(string $message, MessageType $type = MessageType::Notice): self
     {
-        $r = new Message('', $type);
-        $r->message = $message;
+        $r = new self($message, $type);
         $r->useBBCode = false;
 
         return $r;
@@ -380,7 +374,7 @@ final class Message implements Stringable
      */
     public function getMessage(): string
     {
-        return $this->compile($this->getRawMessage());
+        return $this->compile($this->string);
     }
 
     public function getMessageWithIcon(): string
@@ -393,12 +387,7 @@ final class Message implements Stringable
 
         $icon = Html\Generator::getImage($image);
 
-        return $this->compile($icon . ' ' . $this->getRawMessage());
-    }
-
-    private function getRawMessage(): string
-    {
-        return $this->message !== '' ? $this->message : $this->string;
+        return $this->compile($icon . ' ' . $this->string);
     }
 
     private function compile(string $message): string
