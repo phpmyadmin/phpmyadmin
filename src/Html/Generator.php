@@ -426,7 +426,6 @@ class Generator
 
         $retval .= '<div class="card mb-3 result_query">' . "\n";
 
-        $message->markDisplayed();
         $retval .= '<div class="alert alert-' . $message->getContext();
         $retval .= ' border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">' . "\n";
         $retval .= '  ' . $message->getMessageWithIcon() . "\n";

@@ -310,7 +310,6 @@ class MessageTest extends AbstractTestCase
     public function testGetDisplay(): void
     {
         $message = new Message();
-        self::assertFalse($message->isDisplayed());
         $message->setMessage('Test Message');
         self::assertSame(
             '<div class="alert alert-primary" role="alert">' . "\n"
@@ -318,20 +317,6 @@ class MessageTest extends AbstractTestCase
             . '</div>' . "\n",
             $message->getDisplay(),
         );
-        self::assertTrue($message->isDisplayed());
-    }
-
-    /**
-     * isDisplayed test
-     */
-    public function testIsDisplayed(): void
-    {
-        $message = new Message();
-        self::assertFalse($message->isDisplayed());
-        $message->markDisplayed();
-        self::assertTrue($message->isDisplayed());
-        $message->markDisplayed();
-        self::assertTrue($message->isDisplayed());
     }
 
     /**

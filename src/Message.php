@@ -44,43 +44,38 @@ use const ENT_COMPAT;
  * $message->addMessage($hint);
  * </code>
  */
-class Message implements Stringable
+final class Message implements Stringable
 {
     /**
      * The formatted message
      */
-    protected string $message = '';
-
-    /**
-     * Whether the message was already displayed
-     */
-    protected bool $isDisplayed = false;
+    private string $message = '';
 
     /**
      * Whether to use BB code when displaying.
      */
-    protected bool $useBBCode = true;
+    private bool $useBBCode = true;
 
     /**
      * holds parameters
      *
      * @var array<self|string|int|float>
      */
-    protected array $params = [];
+    private array $params = [];
 
     /**
      * holds additional messages
      *
      * @var    (string|Message)[]
      */
-    protected array $addedMessages = [];
+    private array $addedMessages = [];
 
     /**
      * @param string                       $string The message to be displayed
      * @param array<self|string|int|float> $params Parameters to substitute into the string
      */
     public function __construct(
-        protected string $string = '',
+        private string $string = '',
         private MessageType $type = MessageType::Notice,
         array $params = [],
     ) {
@@ -420,7 +415,7 @@ class Message implements Stringable
 
     public function getMessageWithIcon(): string
     {
-        $image = match ($this->getLevel()) {
+        $image = match ($this->type) {
             MessageType::Error => 's_error',
             MessageType::Success => 's_success',
             MessageType::Notice => 's_notice',
@@ -464,14 +459,9 @@ class Message implements Stringable
         return $this->string;
     }
 
-    protected function getLevel(): MessageType
-    {
-        return $this->type;
-    }
-
     public function getContext(): string
     {
-        return match ($this->getLevel()) {
+        return match ($this->type) {
             MessageType::Error => 'danger',
             MessageType::Success => 'success',
             MessageType::Notice => 'primary',
@@ -485,23 +475,11 @@ class Message implements Stringable
      */
     public function getDisplay(): string
     {
-        $this->markDisplayed();
-
         $template = new Template(Config::getInstance());
 
         return $template->render(
             'message',
             ['context' => $this->getContext(), 'message' => $this->getMessageWithIcon()],
         );
-    }
-
-    public function isDisplayed(): bool
-    {
-        return $this->isDisplayed;
-    }
-
-    public function markDisplayed(): void
-    {
-        $this->isDisplayed = true;
     }
 }
