@@ -14,8 +14,7 @@ class MessageTest extends AbstractTestCase
 {
     public function testToString(): void
     {
-        $message = new Message();
-        $message->setMessage('test<&>');
+        $message = Message::raw('test<&>');
         self::assertSame('test<&>', (string) $message);
     }
 
@@ -44,28 +43,20 @@ class MessageTest extends AbstractTestCase
 
     public function testRawError(): void
     {
-        $message = new Message('', MessageType::Error);
-        $message->setMessage('test<&>');
-        $message->setBBCode(false);
+        $message = Message::raw('test<&>', MessageType::Error);
 
         self::assertEquals($message, Message::rawError('test<&>'));
     }
 
     public function testRawNotice(): void
     {
-        $message = new Message('', MessageType::Notice);
-        $message->setMessage('test<&>');
-        $message->setBBCode(false);
-
+        $message = Message::raw('test<&>', MessageType::Notice);
         self::assertEquals($message, Message::rawNotice('test<&>'));
     }
 
     public function testRawSuccess(): void
     {
-        $message = new Message('', MessageType::Success);
-        $message->setMessage('test<&>');
-        $message->setBBCode(false);
-
+        $message = Message::raw('test<&>', MessageType::Success);
         self::assertEquals($message, Message::rawSuccess('test<&>'));
     }
 
@@ -107,7 +98,7 @@ class MessageTest extends AbstractTestCase
         $message = new Message('m1 %s %s %s', params: ['param1']);
         $message->addParam('param2');
         $message->addParam(Message::notice('m2 %s', ['param3']));
-        self::assertEquals(
+        self::assertSame(
             'm1 param1 param2 m2 param3',
             $message->getMessage(),
         );
@@ -115,8 +106,7 @@ class MessageTest extends AbstractTestCase
 
     public function testAddParamHtml(): void
     {
-        $message = new Message();
-        $message->setMessage('Hello %s%s%s');
+        $message = Message::raw('Hello %s%s%s');
         $message->addParamHtml('<a href="">');
         $message->addParam('user<>');
         $message->addParamHtml('</a>');
@@ -196,7 +186,6 @@ class MessageTest extends AbstractTestCase
     public function testGetMessageWithoutMessageWithStringWithParams(): void
     {
         $message = new Message('test string %s %s');
-        $message->setMessage('');
         $message->addParam('test param 1');
         $message->addParam('test param 2');
         self::assertSame(
@@ -213,8 +202,8 @@ class MessageTest extends AbstractTestCase
 
     public function testGetMessageWithMessageWithBBCode(): void
     {
-        $message = new Message();
-        $message->setMessage('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
+        $message = Message::raw('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
+        $message->setBBCode(true);
         self::assertSame(
             '<kbd>test</kbd> <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.'
             . 'net%2Fen%2Flatest%2Fconfig.html%23cfg_Example"'
@@ -235,8 +224,7 @@ class MessageTest extends AbstractTestCase
 
     public function testGetDisplay(): void
     {
-        $message = new Message();
-        $message->setMessage('Test Message');
+        $message = Message::raw('Test Message');
         self::assertSame(
             '<div class="alert alert-primary" role="alert">' . "\n"
             . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message' . "\n"
