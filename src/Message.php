@@ -95,8 +95,8 @@ class Message implements Stringable
         private MessageType $type = MessageType::Notice,
         array $params = [],
     ) {
-        $this->setString($string);
-        $this->setParams($params);
+        $this->string = $string;
+        $this->params = $params;
     }
 
     /**
@@ -294,16 +294,6 @@ class Message implements Stringable
         $this->message = $message;
     }
 
-    /**
-     * set string (does not take effect if raw message is set)
-     *
-     * @param string $string string to set
-     */
-    public function setString(string $string): void
-    {
-        $this->string = $string;
-    }
-
     public function setType(MessageType $type): void
     {
         $this->type = $type;
@@ -415,16 +405,6 @@ class Message implements Stringable
     public function addHtml(string $message, string $separator = ' '): void
     {
         $this->addMessageToList(self::rawNotice($message), $separator);
-    }
-
-    /**
-     * set all params at once, usually used in conjunction with string
-     *
-     * @param mixed[] $params parameters to set
-     */
-    public function setParams(array $params): void
-    {
-        $this->params = $params;
     }
 
     /**
