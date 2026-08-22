@@ -183,14 +183,14 @@ class MessageTest extends AbstractTestCase
     {
         $message = new Message();
         $message->addText('test', '*');
-        self::assertEquals(
-            ['*', Message::notice('test')],
-            $message->getAddedMessages(),
+        self::assertSame(
+            '*test',
+            $message->getMessage(),
         );
         $message->addText('test', '');
-        self::assertEquals(
-            ['*', Message::notice('test'), Message::notice('test')],
-            $message->getAddedMessages(),
+        self::assertSame(
+            '*testtest',
+            $message->getMessage(),
         );
     }
 
@@ -201,14 +201,14 @@ class MessageTest extends AbstractTestCase
     {
         $message = new Message();
         $message->addText('test<>', '');
-        self::assertEquals(
-            [Message::notice('test&lt;&gt;')],
-            $message->getAddedMessages(),
+        self::assertSame(
+            'test&lt;&gt;',
+            $message->getMessage(),
         );
         $message->addHtml('<b>test</b>');
-        self::assertEquals(
-            [Message::notice('test&lt;&gt;'), ' ', Message::rawNotice('<b>test</b>')],
-            $message->getAddedMessages(),
+        self::assertSame(
+            'test&lt;&gt; <b>test</b>',
+            $message->getMessage(),
         );
         $message->addMessage(Message::notice('test<>'));
         self::assertSame(
@@ -229,9 +229,9 @@ class MessageTest extends AbstractTestCase
         $message = new Message();
         $message->addMessages($messages, '');
 
-        self::assertEquals(
-            [Message::notice('Test1'), Message::error('PMA_Test2'), Message::notice('Test3')],
-            $message->getAddedMessages(),
+        self::assertSame(
+            'Test1PMA_Test2Test3',
+            $message->getMessage(),
         );
     }
 
@@ -244,9 +244,9 @@ class MessageTest extends AbstractTestCase
         $message = new Message();
         $message->addMessagesString($messages, '');
 
-        self::assertEquals(
-            [Message::notice('test1'), Message::notice('test&lt;b&gt;'), Message::notice('test2')],
-            $message->getAddedMessages(),
+        self::assertSame(
+            'test1test&lt;b&gt;test2',
+            $message->getMessage(),
         );
 
         self::assertSame(

@@ -418,16 +418,6 @@ class Message implements Stringable
     }
 
     /**
-     * return all added messages
-     *
-     * @return (string|Message)[]
-     */
-    public function getAddedMessages(): array
-    {
-        return $this->addedMessages;
-    }
-
-    /**
      * returns unique Message::$hash, if not exists it will be created
      *
      * @return string Message::$hash
@@ -468,7 +458,7 @@ class Message implements Stringable
             $message = Sanitize::convertBBCode($message, true);
         }
 
-        foreach ($this->getAddedMessages() as $addMessage) {
+        foreach ($this->addedMessages as $addMessage) {
             $message .= $addMessage;
         }
 
