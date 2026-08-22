@@ -64,7 +64,7 @@ class Message implements Stringable
     /**
      * holds parameters
      *
-     * @var    mixed[]
+     * @var array<self|string|int|float>
      */
     protected array $params = [];
 
@@ -76,8 +76,8 @@ class Message implements Stringable
     protected array $addedMessages = [];
 
     /**
-     * @param string  $string The message to be displayed
-     * @param mixed[] $params An array of parameters to use in the message constant definitions above
+     * @param string                       $string The message to be displayed
+     * @param array<self|string|int|float> $params Parameters to substitute into the string
      */
     public function __construct(
         protected string $string = '',
@@ -102,10 +102,10 @@ class Message implements Stringable
      *
      * shorthand for getting a simple success message
      *
-     * @param string  $string A localized string
-     *                        e.g. __('Your SQL query has been
-     *                        executed successfully')
-     * @param mixed[] $params Parameters to substitute into the string
+     * @param string                       $string A localized string
+     *                                             e.g. __('Your SQL query has been
+     *                                             executed successfully')
+     * @param array<self|string|int|float> $params Parameters to substitute into the string
      */
     public static function success(string $string = '', array $params = []): self
     {
@@ -121,8 +121,8 @@ class Message implements Stringable
      *
      * shorthand for getting a simple error message
      *
-     * @param string  $string A localized string e.g. __('Error')
-     * @param mixed[] $params Parameters to substitute into the string
+     * @param string                       $string A localized string e.g. __('Error')
+     * @param array<self|string|int|float> $params Parameters to substitute into the string
      */
     public static function error(string $string = '', array $params = []): self
     {
@@ -138,11 +138,11 @@ class Message implements Stringable
      *
      * shorthand for getting a simple notice message
      *
-     * @param string  $string A localized string
-     *                        e.g. __('The additional features for working with
-     *                        linked tables have been deactivated. To find out
-     *                        why click %shere%s.')
-     * @param mixed[] $params Parameters to substitute into the string
+     * @param string                       $string A localized string
+     *                                             e.g. __('The additional features for working with
+     *                                             linked tables have been deactivated. To find out
+     *                                             why click %shere%s.')
+     * @param array<self|string|int|float> $params Parameters to substitute into the string
      */
     public static function notice(string $string, array $params = []): self
     {
@@ -299,15 +299,13 @@ class Message implements Stringable
      * <code>
      * $message->addParam('[em]some string[/em]');
      * </code>
-     *
-     * @param mixed $param parameter to add
      */
-    public function addParam(mixed $param): void
+    public function addParam(self|string|int|float $param): void
     {
         if ($param instanceof self || is_float($param) || is_int($param)) {
             $this->params[] = $param;
         } else {
-            $this->params[] = htmlspecialchars((string) $param, ENT_COMPAT);
+            $this->params[] = htmlspecialchars($param, ENT_COMPAT);
         }
     }
 
@@ -403,7 +401,7 @@ class Message implements Stringable
     /**
      * return all parameters
      *
-     * @return mixed[]
+     * @return array<self|string|int|float>
      */
     public function getParams(): array
     {

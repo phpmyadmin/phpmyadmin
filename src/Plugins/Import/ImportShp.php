@@ -28,6 +28,7 @@ use PhpMyAdmin\ZipExtension;
 use ZipArchive;
 
 use function __;
+use function assert;
 use function count;
 use function extension_loaded;
 use function file_exists;
@@ -106,9 +107,11 @@ class ImportShp extends ImportPlugin
             && $this->zipExtension->getNumberOfFiles(ImportSettings::$importFile) > 1
         ) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
+                $error = $importHandle->getError();
+                assert($error !== null);
                 Current::$message = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".'),
-                    [$importHandle->getError()],
+                    [$error],
                 );
 
                 return [];

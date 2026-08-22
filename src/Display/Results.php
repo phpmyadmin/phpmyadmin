@@ -128,7 +128,7 @@ class Results
     private array $fieldsMeta = [];
 
     /* time taken for execute the SQL query */
-    private float|null $queryTime = null;
+    private float $queryTime = 0;
 
     /**
      * the total number of rows returned by the SQL query
@@ -3248,7 +3248,7 @@ class Results
             $messageViewWarning = Generator::showHint($message->getMessage());
         }
 
-        $message = Message::success(__('Showing rows %1s - %2s'), [$firstShownRec]);
+        $message = Message::success(__('Showing rows %1s - %2s'), [(int) $firstShownRec]);
 
         if ($messageViewWarning !== false) {
             $message->addParamHtml('... ' . $messageViewWarning);
