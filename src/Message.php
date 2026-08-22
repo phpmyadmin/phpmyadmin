@@ -394,16 +394,6 @@ final class Message implements Stringable
     }
 
     /**
-     * return all parameters
-     *
-     * @return array<self|string|int|float>
-     */
-    public function getParams(): array
-    {
-        return $this->params;
-    }
-
-    /**
      * returns compiled message
      *
      * @return string complete message

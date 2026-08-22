@@ -140,21 +140,12 @@ class MessageTest extends AbstractTestCase
      */
     public function testAddParam(): void
     {
-        $message = new Message();
-        $message->addParam(Message::notice('test'));
+        $message = new Message('m1 %s %s %s', params: ['param1']);
+        $message->addParam('param2');
+        $message->addParam(Message::notice('m2 %s', ['param3']));
         self::assertEquals(
-            [Message::notice('test')],
-            $message->getParams(),
-        );
-        $message->addParam('test');
-        self::assertEquals(
-            [Message::notice('test'), 'test'],
-            $message->getParams(),
-        );
-        $message->addParam('test');
-        self::assertEquals(
-            [Message::notice('test'), 'test', Message::notice('test')],
-            $message->getParams(),
+            'm1 param1 param2 m2 param3',
+            $message->getMessage(),
         );
     }
 
