@@ -155,7 +155,7 @@ final class Message implements Stringable
     {
         $r = new Message('', $type);
         $r->message = $message;
-        $r->setBBCode(false);
+        $r->useBBCode = false;
 
         return $r;
     }
@@ -260,16 +260,6 @@ final class Message implements Stringable
     public function isError(): bool
     {
         return $this->type === MessageType::Error;
-    }
-
-    /**
-     * Set whether we should use BB Code when rendering.
-     *
-     * @param bool $useBBCode Use BB Code?
-     */
-    public function setBBCode(bool $useBBCode): void
-    {
-        $this->useBBCode = $useBBCode;
     }
 
     public function setType(MessageType $type): void

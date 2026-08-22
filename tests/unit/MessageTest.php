@@ -193,10 +193,9 @@ class MessageTest extends AbstractTestCase
         self::assertSame('', $message->getMessage());
     }
 
-    public function testGetMessageWithMessageWithBBCode(): void
+    public function testGetMessageWithBBCode(): void
     {
-        $message = Message::raw('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
-        $message->setBBCode(true);
+        $message = new Message('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
         self::assertSame(
             '<kbd>test</kbd> <a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.'
             . 'net%2Fen%2Flatest%2Fconfig.html%23cfg_Example"'
