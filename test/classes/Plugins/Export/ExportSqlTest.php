@@ -592,11 +592,10 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
 
-        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi = $this->createStub(DatabaseInterface::class);
         $dbi->method('escapeString')->willReturnArgument(0);
 
         $dbi->method('getColumns')
-            ->with('db', 'view')
             ->willReturn([
                 'cname' => [
                     'Type' => 'char',
@@ -625,11 +624,10 @@ class ExportSqlTest extends AbstractTestCase
         // case 2
         unset($GLOBALS['sql_compatibility']);
 
-        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi = $this->createStub(DatabaseInterface::class);
         $dbi->method('escapeString')->willReturnArgument(0);
 
         $dbi->method('getColumns')
-            ->with('db', 'view')
             ->willReturn([
                 'cname' => [
                     'Type' => 'char',
