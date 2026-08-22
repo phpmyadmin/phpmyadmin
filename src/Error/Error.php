@@ -495,4 +495,12 @@ class Error extends Message
 
         return str_replace(DIRECTORY_SEPARATOR . PATH_SEPARATOR, DIRECTORY_SEPARATOR, $path);
     }
+
+    /**
+     * Returns only message string without image & other HTML.
+     */
+    public function getOnlyMessage(): string
+    {
+        return $this->message;
+    }
 }

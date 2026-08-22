@@ -446,14 +446,6 @@ class Message implements Stringable
     }
 
     /**
-     * Returns only message string without image & other HTML.
-     */
-    public function getOnlyMessage(): string
-    {
-        return $this->message;
-    }
-
-    /**
      * returns Message::$string
      *
      * @return string Message::$string
