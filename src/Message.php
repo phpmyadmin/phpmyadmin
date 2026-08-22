@@ -415,17 +415,29 @@ class Message implements Stringable
      */
     public function getMessage(): string
     {
-        $message = $this->message;
+        return $this->compile($this->getRawMessage());
+    }
 
-        if ($message === '') {
-            $message = $this->getString();
-        }
+    public function getMessageWithIcon(): string
+    {
+        $image = match ($this->getLevel()) {
+            MessageType::Error => 's_error',
+            MessageType::Success => 's_success',
+            MessageType::Notice => 's_notice',
+        };
 
-        /** @infection-ignore-all */
-        if ($this->isDisplayed()) {
-            $message = $this->getMessageWithIcon($message);
-        }
+        $icon = Html\Generator::getImage($image);
 
+        return $this->compile($icon . ' ' . $this->getRawMessage());
+    }
+
+    private function getRawMessage(): string
+    {
+        return $this->message !== '' ? $this->message : $this->string;
+    }
+
+    private function compile(string $message): string
+    {
         if ($this->params !== []) {
             // phpcs:disable SlevomatCodingStandard.PHP.OptimizedFunctionsWithoutUnpacking.UnpackingUsed
             $message = sprintf($message, ...$this->params);
@@ -473,44 +485,23 @@ class Message implements Stringable
      */
     public function getDisplay(): string
     {
-        $this->isDisplayed(true);
+        $this->markDisplayed();
 
         $template = new Template(Config::getInstance());
 
-        return $template->render('message', ['context' => $this->getContext(), 'message' => $this->getMessage()]);
+        return $template->render(
+            'message',
+            ['context' => $this->getContext(), 'message' => $this->getMessageWithIcon()],
+        );
     }
 
-    /**
-     * sets and returns whether the message was displayed or not
-     *
-     * @param bool $isDisplayed whether to set displayed flag
-     *
-     * @infection-ignore-all
-     */
-    public function isDisplayed(bool $isDisplayed = false): bool
+    public function isDisplayed(): bool
     {
-        if ($isDisplayed) {
-            $this->isDisplayed = true;
-        }
-
         return $this->isDisplayed;
     }
 
-    /**
-     * Returns the message with corresponding image icon
-     *
-     * @param string $message the message(s)
-     *
-     * @return string message with icon
-     */
-    public function getMessageWithIcon(string $message): string
+    public function markDisplayed(): void
     {
-        $image = match ($this->getLevel()) {
-            MessageType::Error => 's_error',
-            MessageType::Success => 's_success',
-            MessageType::Notice =>'s_notice',
-        };
-
-        return self::notice(Html\Generator::getImage($image)) . ' ' . $message;
+        $this->isDisplayed = true;
     }
 }

@@ -327,9 +327,11 @@ class MessageTest extends AbstractTestCase
     public function testIsDisplayed(): void
     {
         $message = new Message();
-        self::assertFalse($message->isDisplayed(false));
-        self::assertTrue($message->isDisplayed(true));
-        self::assertTrue($message->isDisplayed(false));
+        self::assertFalse($message->isDisplayed());
+        $message->markDisplayed();
+        self::assertTrue($message->isDisplayed());
+        $message->markDisplayed();
+        self::assertTrue($message->isDisplayed());
     }
 
     /**

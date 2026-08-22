@@ -426,7 +426,7 @@ class Error extends Message
      */
     public function getDisplay(): string
     {
-        $this->isDisplayed(true);
+        $this->markDisplayed();
 
         $template = new Template(Config::getInstance());
 
@@ -436,7 +436,7 @@ class Error extends Message
             'type' => $this->getType(),
             'file' => $this->getFile(),
             'line' => $this->getLine(),
-            'message' => $this->getMessage(),
+            'message' => $this->getMessageWithIcon(),
             'formatted_backtrace' => $this->getBacktraceDisplay(),
         ]);
     }
