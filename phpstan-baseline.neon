@@ -42421,6 +42421,11 @@ parameters:
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
 		-
+			message: "#^Cannot call method expects\\(\\) on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Table/SearchControllerTest.php
+
+		-
 			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/SearchControllerTest.php
@@ -42442,6 +42447,11 @@ parameters:
 
 		-
 			message: "#^Cannot call method with\\(\\) on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Table/SearchControllerTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
 			count: 1
 			path: test/classes/Controllers/Table/SearchControllerTest.php
 
@@ -42692,7 +42702,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method expects\\(\\) on mixed\\.$#"
-			count: 7
+			count: 8
 			path: test/classes/Database/CentralColumnsTest.php
 
 		-
@@ -42717,7 +42727,7 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 1
+			count: 2
 			path: test/classes/Database/CentralColumnsTest.php
 
 		-

@@ -14756,12 +14756,13 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Controllers/Table/SearchControllerTest.php">
-    <MixedMethodCall occurrences="2">
+    <MixedMethodCall occurrences="3">
+      <code>method</code>
       <code>willReturn</code>
       <code>with</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="1">
-      <code>method</code>
+      <code>expects</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/CoreTest.php">
@@ -14852,7 +14853,8 @@
     <MixedAssignment occurrences="1">
       <code>$list_detail_cols</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="24">
+    <MixedMethodCall occurrences="25">
+      <code>method</code>
       <code>method</code>
       <code>method</code>
       <code>method</code>
@@ -14889,7 +14891,7 @@
       <code>expects</code>
       <code>expects</code>
       <code>expects</code>
-      <code>method</code>
+      <code>expects</code>
       <code>method</code>
       <code>method</code>
     </UndefinedMethod>
