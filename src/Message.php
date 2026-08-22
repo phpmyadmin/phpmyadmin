@@ -154,7 +154,7 @@ final class Message implements Stringable
     public static function raw(string $message, MessageType $type = MessageType::Notice): self
     {
         $r = new Message('', $type);
-        $r->setMessage($message);
+        $r->message = $message;
         $r->setBBCode(false);
 
         return $r;
@@ -270,16 +270,6 @@ final class Message implements Stringable
     public function setBBCode(bool $useBBCode): void
     {
         $this->useBBCode = $useBBCode;
-    }
-
-    /**
-     * set raw message (overrides string)
-     *
-     * @param string $message A localized string
-     */
-    public function setMessage(string $message): void
-    {
-        $this->message = $message;
     }
 
     public function setType(MessageType $type): void

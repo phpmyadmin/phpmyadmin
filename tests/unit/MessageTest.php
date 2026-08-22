@@ -86,13 +86,6 @@ class MessageTest extends AbstractTestCase
         self::assertTrue($message->isError());
     }
 
-    public function testSetMessage(): void
-    {
-        $message = new Message();
-        $message->setMessage('test&<>');
-        self::assertSame('test&<>', $message->getMessage());
-    }
-
     public function testAddParam(): void
     {
         $message = new Message('m1 %s %s %s', params: ['param1']);
