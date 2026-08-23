@@ -8323,12 +8323,8 @@
     <MixedArgument>
       <code><![CDATA[$array]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$columnNames]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$array]]></code>
-      <code><![CDATA[$columnNames[]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>

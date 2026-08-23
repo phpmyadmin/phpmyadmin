@@ -2304,6 +2304,11 @@ class DbiDummy implements DbiExtension
                     ['latin1_swedish_ci', 'latin1', '8', 'Yes', 'Yes', '1'],
                 ],
             ],
+            [
+                'query' => 'SELECT `COLUMN_NAME`, `COLUMN_TYPE` FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'database\' AND `TABLE_NAME` COLLATE utf8_bin = \'table\' ORDER BY `ORDINAL_POSITION`',
+                'columns' => ['COLUMN_NAME', 'COLUMN_TYPE'],
+                'result' => [['id<>', 'int(11)'], ['name', 'varchar(255)'], ['email', 'varchar(255)']],
+            ],
         ];
     }
 }
