@@ -2820,12 +2820,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/UserPasswordController.php">
-    <MixedArgument>
-      <code><![CDATA[$message->getDisplay()]]></code>
-    </MixedArgument>
-    <MixedMethodCall>
-      <code><![CDATA[getDisplay]]></code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>

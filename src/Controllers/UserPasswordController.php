@@ -52,6 +52,7 @@ final readonly class UserPasswordController implements InvocableController
 
         $noPass = $request->getParsedBodyParamAsStringOrNull('nopass');
 
+        $changePasswordMessage = null;
         /**
          * If the "change password" form has been submitted, checks for valid values
          * and submit the query or logout
@@ -62,9 +63,8 @@ final readonly class UserPasswordController implements InvocableController
 
             $password = $noPass === '1' ? '' : $pmaPw;
             $changePasswordMessage = $this->userPassword->setChangePasswordMsg($pmaPw, $pmaPw2, $noPass === '1');
-            $message = $changePasswordMessage['msg'];
 
-            if (! $changePasswordMessage['error']) {
+            if (! $changePasswordMessage->isError()) {
                 try {
                     $sqlQuery = $this->userPassword->changePassword(
                         $password,
@@ -85,21 +85,21 @@ final readonly class UserPasswordController implements InvocableController
                 }
 
                 if ($request->isAjax()) {
-                    $sqlQuery = Generator::getMessage($changePasswordMessage['msg'], $sqlQuery);
+                    $sqlQuery = Generator::getMessage($changePasswordMessage, $sqlQuery);
                     $this->response->addJSON('message', $sqlQuery);
 
                     return $this->response->response();
                 }
 
                 $this->response->addHTML('<h1>' . __('Change password') . '</h1>' . "\n\n");
-                $this->response->addHTML(Generator::getMessage($message, $sqlQuery));
+                $this->response->addHTML(Generator::getMessage($changePasswordMessage, $sqlQuery));
                 $this->response->render('user_password', []);
 
                 return $this->response->response();
             }
 
             if ($request->isAjax()) {
-                $this->response->addJSON('message', $changePasswordMessage['msg']);
+                $this->response->addJSON('message', $changePasswordMessage);
                 $this->response->setRequestStatus(false);
 
                 return $this->response->response();
@@ -112,8 +112,8 @@ final readonly class UserPasswordController implements InvocableController
          */
 
         // Displays an error message if required
-        if (isset($message)) {
-            $this->response->addHTML($message);
+        if ($changePasswordMessage instanceof Message) {
+            $this->response->addHTML($changePasswordMessage);
         }
 
         $this->response->addHTML($this->userPassword->getFormForChangePassword('', '', $request->getRoute()));
