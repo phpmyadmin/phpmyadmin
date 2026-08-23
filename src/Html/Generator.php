@@ -361,7 +361,7 @@ class Generator
      * @return array<string, int|string>
      * @psalm-return array{pos: int, unlim_num_rows: int, rows: int, sql_query: string}
      */
-    public static function getStartAndNumberOfRowsFieldsetData(string $sqlQuery): array
+    public static function getStartAndNumberOfRowsFieldsetData(string $sqlQuery, int|null $posFromRequest = null): array
     {
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = (int) $_REQUEST['session_max_rows'];
@@ -373,8 +373,8 @@ class Generator
         }
 
         $numberOfLine = (int) $_REQUEST['unlim_num_rows'];
-        if (isset($_REQUEST['pos'])) {
-            $pos = (int) $_REQUEST['pos'];
+        if ($posFromRequest !== null) {
+            $pos = $posFromRequest;
         } elseif (isset($_SESSION['tmpval']['pos'])) {
             $pos = (int) $_SESSION['tmpval']['pos'];
         } else {

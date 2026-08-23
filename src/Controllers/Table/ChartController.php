@@ -172,7 +172,12 @@ final readonly class ChartController implements InvocableController
         $urlParams['db'] = Current::$database;
         $urlParams['reload'] = 1;
 
-        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData(Current::$sqlQuery);
+        $pos = $request->getParam('pos');
+        if ($pos !== null) {
+            $pos = (int) $pos;
+        }
+
+        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData(Current::$sqlQuery, $pos);
 
         /**
          * Displays the page
@@ -213,14 +218,16 @@ final readonly class ChartController implements InvocableController
             }
         }
 
+        $pos = (int) $request->getParam('pos');
+        $sessionMaxRows = (int) $request->getParam('session_max_rows');
         $parser = new Parser(Current::$sqlQuery);
         $statement = $parser->statements[0];
         assert($statement instanceof SelectStatement);
         if (! $statement->limit instanceof Limit) {
-            $statement->limit = new Limit($_REQUEST['session_max_rows'], $_REQUEST['pos']);
+            $statement->limit = new Limit($sessionMaxRows, $pos);
         } else {
-            $start = $statement->limit->offset + $_REQUEST['pos'];
-            $rows = min($_REQUEST['session_max_rows'], $statement->limit->rowCount - $_REQUEST['pos']);
+            $start = $statement->limit->offset + $pos;
+            $rows = min($sessionMaxRows, $statement->limit->rowCount - $pos);
             $statement->limit = new Limit($rows, $start);
         }
 
