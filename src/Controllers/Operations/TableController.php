@@ -369,9 +369,7 @@ final readonly class TableController implements InvocableController
             }
 
             if (Current::$sqlQuery === '') {
-                $this->response->addHTML(
-                    $newMessage->getDisplay(),
-                );
+                $this->response->addHTML($newMessage);
             } else {
                 $this->response->addHTML(
                     Generator::getMessage($newMessage, Current::$sqlQuery),

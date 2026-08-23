@@ -213,9 +213,9 @@ class ResponseRenderer
     /**
      * Append HTML code to the current output buffer
      */
-    public function addHTML(string $content): void
+    public function addHTML(string|Message $content): void
     {
-        $this->HTML .= $content;
+        $this->HTML .= $content instanceof Message ? $content->getDisplay($this->template) : $content;
     }
 
     /**
@@ -232,7 +232,7 @@ class ResponseRenderer
                 $this->addJSON($key, $value);
             }
         } elseif ($value instanceof Message) {
-            $this->JSON[$json] = $value->getDisplay();
+            $this->JSON[$json] = $value->getDisplay($this->template);
         } else {
             $this->JSON[$json] = $value;
         }
@@ -258,7 +258,7 @@ class ResponseRenderer
         if (! isset($this->JSON['message'])) {
             $this->JSON['message'] = $this->HTML;
         } elseif ($this->JSON['message'] instanceof Message) {
-            $this->JSON['message'] = $this->JSON['message']->getDisplay();
+            $this->JSON['message'] = $this->JSON['message']->getDisplay($this->template);
         }
 
         if ($this->isSuccess) {
@@ -451,7 +451,7 @@ class ResponseRenderer
             . '[br]';
         $this->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
         $this->setRequestStatus(false);
-        $this->addHTML(Message::error($errorMessage)->getDisplay());
+        $this->addHTML(Message::error($errorMessage)->getDisplay($this->template));
 
         return $this->response();
     }

@@ -186,7 +186,7 @@ final readonly class ImportController implements InvocableController
         $importFormat = ImportFormat::tryFrom($format);
         if ($importFormat === null) {
             $this->response->setRequestStatus(false);
-            $this->response->addHTML(Message::error(__('Incorrect format parameter'))->getDisplay());
+            $this->response->addHTML(Message::error(__('Incorrect format parameter')));
 
             return $this->response->response();
         }
@@ -400,8 +400,8 @@ final readonly class ImportController implements InvocableController
                 $_SESSION['Import_message']['message'] = $errorMessage->getDisplay();
 
                 $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $errorMessage->getDisplay());
-                $this->response->addHTML($errorMessage->getDisplay());
+                $this->response->addJSON('message', $errorMessage);
+                $this->response->addHTML($errorMessage);
 
                 return $this->response->response();
             }
@@ -415,8 +415,8 @@ final readonly class ImportController implements InvocableController
                 $_SESSION['Import_message']['message'] = $errorMessage->getDisplay();
 
                 $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $errorMessage->getDisplay());
-                $this->response->addHTML($errorMessage->getDisplay());
+                $this->response->addJSON('message', $errorMessage);
+                $this->response->addHTML($errorMessage);
 
                 return $this->response->response();
             }
@@ -432,8 +432,8 @@ final readonly class ImportController implements InvocableController
             $_SESSION['Import_message']['message'] = Current::$message->getDisplay();
 
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', Current::$message->getDisplay());
-            $this->response->addHTML(Current::$message->getDisplay());
+            $this->response->addJSON('message', Current::$message);
+            $this->response->addHTML(Current::$message);
 
             return $this->response->response();
         }

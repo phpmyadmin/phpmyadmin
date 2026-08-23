@@ -218,7 +218,7 @@ final readonly class IndexController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->addHTML($message->getDisplay());
+            $this->response->addHTML($message);
         }
 
         $message = null;

@@ -45,7 +45,7 @@ final readonly class UserPasswordController implements InvocableController
         if ($this->config->selectedServer['auth_type'] === 'config' || ! $hasAccessPrivilege) {
             $this->response->addHTML(Message::error(
                 __('You don\'t have sufficient privileges to be here right now!'),
-            )->getDisplay());
+            ));
 
             return $this->response->response();
         }
@@ -113,7 +113,7 @@ final readonly class UserPasswordController implements InvocableController
 
         // Displays an error message if required
         if (isset($message)) {
-            $this->response->addHTML($message->getDisplay());
+            $this->response->addHTML($message);
         }
 
         $this->response->addHTML($this->userPassword->getFormForChangePassword('', '', $request->getRoute()));

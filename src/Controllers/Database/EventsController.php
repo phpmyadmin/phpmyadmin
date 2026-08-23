@@ -200,7 +200,7 @@ final readonly class EventsController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->addHTML($message->getDisplay());
+            $this->response->addHTML($message);
         }
 
         if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
@@ -247,7 +247,7 @@ final readonly class EventsController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->addHTML($message->getDisplay());
+                $this->response->addHTML($message);
             }
         }
 

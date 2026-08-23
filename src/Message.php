@@ -416,9 +416,9 @@ final class Message implements Stringable
      *
      * @return string whole message box
      */
-    public function getDisplay(): string
+    public function getDisplay(Template|null $template = null): string
     {
-        $template = new Template(Config::getInstance());
+        $template ??= new Template(Config::getInstance());
 
         return $template->render(
             'message',

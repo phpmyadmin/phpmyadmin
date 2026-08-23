@@ -290,7 +290,7 @@ final readonly class RoutinesController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->addHTML($message->getDisplay());
+            $this->response->addHTML($message);
         }
 
         /**
@@ -314,7 +314,7 @@ final readonly class RoutinesController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->addHTML($message->getDisplay());
+                $this->response->addHTML($message);
 
                 return $this->response->response();
             }
@@ -324,13 +324,13 @@ final readonly class RoutinesController implements InvocableController
             // Print/send output
             if ($request->isAjax()) {
                 $this->response->setRequestStatus($message->isSuccess());
-                $this->response->addJSON('message', $message->getDisplay() . $output);
+                $this->response->addJSON('message', $message->getDisplay($this->template) . $output);
                 $this->response->addJSON('dialog', false);
 
                 return $this->response->response();
             }
 
-            $this->response->addHTML($message->getDisplay() . $output);
+            $this->response->addHTML($message->getDisplay($this->template) . $output);
             if ($message->isError()) {
                 // At least one query has failed, so shouldn't
                 // execute any more queries, so we quit.
@@ -447,7 +447,7 @@ final readonly class RoutinesController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->addHTML($message->getDisplay());
+                $this->response->addHTML($message);
             }
         }
 

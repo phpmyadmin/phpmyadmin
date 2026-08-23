@@ -37,7 +37,7 @@ final readonly class CheckController implements InvocableController
             $table = TableName::from($request->getParam('table'));
         } catch (InvalidIdentifier | InvalidArgumentException $exception) {
             $message = Message::error($exception->getMessage());
-            $this->response->addHTML($message->getDisplay());
+            $this->response->addHTML($message);
 
             return $this->response->response();
         }

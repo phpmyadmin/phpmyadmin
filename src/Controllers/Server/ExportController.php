@@ -55,7 +55,7 @@ final readonly class ExportController implements InvocableController
         if ($exportList === []) {
             $this->response->addHTML(Message::error(
                 __('Could not load export plugins, please check your installation!'),
-            )->getDisplay());
+            ));
 
             return $this->response->response();
         }

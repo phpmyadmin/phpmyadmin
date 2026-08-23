@@ -56,7 +56,7 @@ final readonly class AnalyzeController implements InvocableController
         } catch (InvalidIdentifier $exception) {
             $message = Message::error($exception->getMessage());
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $message->getDisplay());
+            $this->response->addJSON('message', $message);
 
             return $this->response->response();
         }
