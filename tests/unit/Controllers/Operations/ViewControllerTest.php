@@ -59,10 +59,7 @@ class ViewControllerTest extends AbstractTestCase
 
         $output = $responseRenderer->getHTMLResult();
 
-        self::assertStringContainsString(
-            'Invalid table name: test_db.&lt;img src=x onerror=alert(1)&gt;',
-            $output,
-        );
+        self::assertStringContainsString('Invalid table name: test_db.&lt;img src=x onerror=alert(1)&gt;', $output);
         self::assertStringNotContainsString('<img src=x onerror=alert(1)>', $output);
         self::assertStringContainsString('alert alert-danger', $output);
     }
