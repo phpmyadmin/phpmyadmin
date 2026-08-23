@@ -18,6 +18,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
+use Webmozart\Assert\Assert;
 
 use function is_array;
 
@@ -55,6 +56,7 @@ final readonly class ReplicationController implements InvocableController
 
         $urlParams = $request->getParsedBodyParam('url_params');
         if (is_array($urlParams)) {
+            Assert::allString($urlParams);
             UrlParams::$params = $urlParams;
         }
 

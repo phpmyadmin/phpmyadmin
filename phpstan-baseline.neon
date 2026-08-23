@@ -2275,7 +2275,7 @@ parameters:
 			path: src/Controllers/Server/ReplicationController.php
 
 		-
-			message: '#^Static property PhpMyAdmin\\UrlParams\:\:\$params \(array\<string, bool\|int\|string\>\) does not accept array\<mixed, mixed\>\.$#'
+			message: '#^Static property PhpMyAdmin\\UrlParams\:\:\$params \(array\<string, bool\|int\|string\>\) does not accept array\<mixed, string\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Controllers/Server/ReplicationController.php
