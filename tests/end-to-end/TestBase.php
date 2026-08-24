@@ -1003,6 +1003,40 @@ abstract class TestBase extends TestCase
     }
 
     /**
+     * Select an option that matches a text, on a <select> that may have been enhanced by the searchable-select
+     * JS widget (select.search): its native <select> is hidden once enhanced, so a plain click on one of its
+     * <option> elements is not interactable, and it has to be picked from the widget's own list instead.
+     *
+     * @param string $selectId Id of the (possibly enhanced) <select> element
+     * @param string $text     The text of the option to pick
+     */
+    public function selectSearchableOption(string $selectId, string $text): void
+    {
+        if ($this->byId($selectId)->isDisplayed()) {
+            $this->waitForElement(
+                'xpath',
+                '//select[@id=\'' . $selectId . '\']//option[contains(text(), \'' . $text . '\')]',
+            )->click();
+
+            return;
+        }
+
+        $this->byXPath(
+            '//select[@id=\'' . $selectId . '\']'
+            . '/parent::div[contains(concat(" ", normalize-space(@class), " "), " searchable-select ")]'
+            . '//button[contains(concat(" ", normalize-space(@class), " "), " searchable-select-toggle ")]',
+        )->click();
+
+        $this->waitUntilElementIsVisible(
+            'xpath',
+            '//div[contains(concat(" ", normalize-space(@class), " "), " searchable-select-menu ")]'
+            . '[contains(concat(" ", normalize-space(@class), " "), " show ")]'
+            . '//li[contains(concat(" ", normalize-space(@class), " "), " searchable-select-option ")]'
+            . '[contains(text(), \'' . $text . '\')]',
+        )->click();
+    }
+
+    /**
      * Scrolls to a coordinate such that the element with given id is visible
      *
      * @param string $elementId Id of the element
