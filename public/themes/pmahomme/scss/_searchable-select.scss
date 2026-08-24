@@ -24,6 +24,11 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+
+      /* zero-width space keeps a line box (and thus the toggle's height) even when no option is selected */
+      &::before {
+        content: "\200b";
+      }
     }
   }
 }
