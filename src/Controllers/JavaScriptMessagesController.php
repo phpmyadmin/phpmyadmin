@@ -391,6 +391,7 @@ final readonly class JavaScriptMessagesController implements InvocableController
 
             /* For searchable select boxes (select.search) */
             'strSearchableSelectNoResults' => __('No matches found'),
+            'strSearchableSelectClearSelection' => __('Clear selection'),
             'strEmptyCentralList' => __(
                 'No columns in the central list. Make sure the Central columns list for '
                 . 'database %s has columns that are not present in the current table.',

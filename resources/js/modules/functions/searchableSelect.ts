@@ -38,7 +38,14 @@ function enhanceSearchableSelects (): void {
             class: 'searchable-select-toggle form-select',
             'aria-haspopup': 'listbox',
             'aria-expanded': 'false'
-        }).append($('<span>', { class: 'searchable-select-toggle-text' }));
+        }).append(
+            $('<span>', { class: 'searchable-select-toggle-text' }),
+            $('<span>', {
+                class: 'searchable-select-clear d-none',
+                title: window.Messages.strSearchableSelectClearSelection,
+                'aria-hidden': 'true'
+            }).html('&times;')
+        );
 
         const $menu = $('<div>', { class: 'searchable-select-menu dropdown-menu' })
             .append(
@@ -74,6 +81,23 @@ function updateToggleText ($wrapper: JQuery): void {
     const select = $wrapper.find('select.searchable-select-native')[0] as HTMLSelectElement;
     const selectedOption = select.options[select.selectedIndex] as HTMLOptionElement | undefined;
     $wrapper.find('.searchable-select-toggle-text').text(selectedOption ? (selectedOption.label || selectedOption.text) : '');
+    $wrapper.find('.searchable-select-clear').toggleClass('d-none', ! (allowsClear(select) && select.value !== ''));
+}
+
+/* the clear affordance only makes sense if there is actually an empty option to fall back to */
+function allowsClear (select: HTMLSelectElement): boolean {
+    return Array.from(select.options).some((option) => option.value === '');
+}
+
+function clearSelection ($wrapper: JQuery): void {
+    const select = $wrapper.find('select.searchable-select-native')[0] as HTMLSelectElement;
+    if (! allowsClear(select) || select.value === '') {
+        return;
+    }
+
+    select.value = '';
+    $(select).trigger('change');
+    $wrapper.find('.searchable-select-toggle').trigger('focus');
 }
 
 /**
@@ -268,6 +292,13 @@ function getToggleClickHandler () {
     return function (event: JQuery.ClickEvent) {
         event.preventDefault();
         const $wrapper = getWrapper(this);
+
+        if ($(event.target).closest('.searchable-select-clear').length > 0) {
+            clearSelection($wrapper);
+
+            return;
+        }
+
         if ($wrapper.hasClass('show')) {
             closeMenu($wrapper);
             $(this).trigger('focus');

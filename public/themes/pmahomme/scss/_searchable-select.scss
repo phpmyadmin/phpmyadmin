@@ -8,6 +8,7 @@
  */
 .searchable-select {
   display: inline-block;
+  min-width: 150px;
 
   select.searchable-select-native {
     display: none;
@@ -21,6 +22,8 @@
     background-color: $input-bg;
 
     .searchable-select-toggle-text {
+      flex: 1 1 auto;
+      min-width: 0;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -28,6 +31,25 @@
       /* zero-width space keeps a line box (and thus the toggle's height) even when no option is selected */
       &::before {
         content: "\200b";
+      }
+    }
+
+    .searchable-select-clear {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      width: 1.2em;
+      height: 1.2em;
+      margin-inline-start: 0.25rem;
+      font-size: 1.85em;
+      line-height: 1;
+      color: $dropdown-link-disabled-color;
+      border-radius: 50%;
+
+      &:hover {
+        color: $body-color;
+        background-color: $dropdown-link-hover-bg;
       }
     }
   }
