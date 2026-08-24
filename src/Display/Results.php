@@ -27,7 +27,10 @@ use PhpMyAdmin\Plugins\TransformationsInterface;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\SqlParser\Utils\StatementInfo;
@@ -552,7 +555,9 @@ class Results
     {
         return ! ($this->isCount || $this->isExport || $this->isFunction || $this->isAnalyse)
             && $statementInfo->flags->selectFrom
-            && ! empty($statementInfo->statement->from)
+            && ($statementInfo->statement instanceof SelectStatement
+                || $statementInfo->statement instanceof DeleteStatement)
+            && $statementInfo->statement->from !== null
             && count($statementInfo->statement->from) === 1
             && ! empty($statementInfo->statement->from[0]->table);
     }
@@ -699,7 +704,7 @@ class Results
             : (int) $_SESSION['tmpval']['query'][$sqlMd5]['max_rows'];
 
         // Prepare Display column comments if enabled
-        $commentsMap = $this->getTableCommentsArray($statementInfo);
+        $commentsMap = $this->getTableCommentsArray($statementInfo->statement);
 
         [$colOrder, $colVisib] = $this->getColumnParams($statementInfo);
 
@@ -818,7 +823,7 @@ class Results
 
         // See if we have to highlight any header fields of a WHERE query.
         // Uses SQL-Parser results.
-        $this->setHighlightedColumnGlobalField($statementInfo);
+        $this->setHighlightedColumnGlobalField($statementInfo->statement);
 
         // Get the headers for all of the columns
         $tableHeadersForColumns = $this->getTableHeadersForColumns(
@@ -995,14 +1000,18 @@ class Results
      *
      * @return string[][] table comments
      */
-    private function getTableCommentsArray(StatementInfo $statementInfo): array
+    private function getTableCommentsArray(Statement|null $statement): array
     {
-        if (! $this->config->config->ShowBrowseComments || empty($statementInfo->statement->from)) {
+        if (
+            ! $this->config->config->ShowBrowseComments ||
+            ! ($statement instanceof SelectStatement || $statement instanceof DeleteStatement) ||
+            $statement->from === null
+        ) {
             return [];
         }
 
         $ret = [];
-        foreach ($statementInfo->statement->from as $field) {
+        foreach ($statement->from as $field) {
             if (empty($field->table)) {
                 continue;
             }
@@ -1021,13 +1030,18 @@ class Results
      *
      * @see getTableHeaders()
      */
-    private function setHighlightedColumnGlobalField(StatementInfo $statementInfo): void
+    private function setHighlightedColumnGlobalField(Statement|null $statement): void
     {
-        if (empty($statementInfo->statement->where)) {
+        if (
+            ! ($statement instanceof SelectStatement
+            || $statement instanceof DeleteStatement
+            || $statement instanceof UpdateStatement)
+            || $statement->where === null
+        ) {
             return;
         }
 
-        foreach ($statementInfo->statement->where as $expr) {
+        foreach ($statement->where as $expr) {
             foreach ($expr->identifiers as $identifier) {
                 $this->highlightColumns[$identifier] = true;
             }
@@ -1797,7 +1811,7 @@ class Results
                 $gridEditConfig,
                 $colVisib,
                 $urlSqlQuery,
-                $statementInfo,
+                $statementInfo->statement,
             );
 
             // 3. Displays the modify/delete links on the right if required
@@ -1995,7 +2009,7 @@ class Results
         string $gridEditConfig,
         bool|array|string $colVisib,
         string $urlSqlQuery,
-        StatementInfo $statementInfo,
+        Statement|null $statement,
     ): string {
         $rowValuesHtml = '';
 
@@ -2099,8 +2113,8 @@ class Results
 
             $expressions = [];
 
-            if ($statementInfo->statement instanceof SelectStatement) {
-                $expressions = $statementInfo->statement->expr;
+            if ($statement instanceof SelectStatement) {
+                $expressions = $statement->expr;
             }
 
             /**
@@ -2142,7 +2156,7 @@ class Results
                     $conditionField,
                     $meta,
                     $map,
-                    $statementInfo,
+                    $statement,
                     $transformationPlugin,
                     $transformOptions,
                 );
@@ -2160,7 +2174,7 @@ class Results
                     $conditionField,
                     $transformationPlugin,
                     $transformOptions,
-                    $statementInfo,
+                    $statement,
                 );
             } else {
                 $rowValuesHtml .= $this->getDataCellForNonNumericColumns(
@@ -2172,7 +2186,7 @@ class Results
                     $conditionField,
                     $transformationPlugin,
                     $transformOptions,
-                    $statementInfo,
+                    $statement,
                 );
             }
         }
@@ -2501,7 +2515,7 @@ class Results
         bool $conditionField,
         FieldMetadata $meta,
         array $map,
-        StatementInfo $statementInfo,
+        Statement|null $statement,
         TransformationsInterface|null $transformationPlugin,
         array $transformOptions,
     ): string {
@@ -2518,7 +2532,7 @@ class Results
         return $this->getRowData(
             $class,
             $conditionField,
-            $statementInfo,
+            $statement,
             $meta,
             $map,
             $column,
@@ -2554,7 +2568,7 @@ class Results
         bool $conditionField,
         TransformationsInterface|null $transformationPlugin,
         array $transformOptions,
-        StatementInfo $statementInfo,
+        Statement|null $statement,
     ): string {
         if ($column === null) {
             return $this->buildNullDisplay($class, $conditionField, $meta);
@@ -2589,7 +2603,7 @@ class Results
             return $this->getRowData(
                 $class,
                 $conditionField,
-                $statementInfo,
+                $statement,
                 $meta,
                 $map,
                 $wktval,
@@ -2613,7 +2627,7 @@ class Results
             return $this->getRowData(
                 $class,
                 $conditionField,
-                $statementInfo,
+                $statement,
                 $meta,
                 $map,
                 $wkbval,
@@ -2662,7 +2676,7 @@ class Results
         bool $conditionField,
         TransformationsInterface|null $transformationPlugin,
         array $transformOptions,
-        StatementInfo $statementInfo,
+        Statement|null $statement,
     ): string {
         $bIsText = $transformationPlugin !== null && ! str_contains($transformationPlugin::getMIMEType(), 'Text');
 
@@ -2761,7 +2775,7 @@ class Results
         return $this->getRowData(
             $class,
             $conditionField,
-            $statementInfo,
+            $statement,
             $meta,
             $map,
             $column,
@@ -2952,7 +2966,7 @@ class Results
         if ($displayParts->hasNavigationBar) {
             $message = $this->setMessageInformation(
                 $sortedColumnMessage,
-                $statementInfo,
+                $statementInfo->statement,
                 $total,
                 $posNext,
                 $preCount,
@@ -3214,15 +3228,20 @@ class Results
      */
     private function setMessageInformation(
         string $sortedColumnMessage,
-        StatementInfo $statementInfo,
+        Statement|null $statement,
         int $total,
         int $posNext,
         string $preCount,
         string $afterCount,
     ): Message {
-        if (! empty($statementInfo->statement->limit)) {
-            $firstShownRec = $statementInfo->statement->limit->offset;
-            $rowCount = $statementInfo->statement->limit->rowCount;
+        if (
+            ($statement instanceof SelectStatement
+            || $statement instanceof DeleteStatement
+            || $statement instanceof UpdateStatement)
+            && $statement->limit !== null
+        ) {
+            $firstShownRec = $statement->limit->offset;
+            $rowCount = $statement->limit->rowCount;
 
             if ($rowCount < $total) {
                 $lastShownRec = $firstShownRec + $rowCount - 1;
@@ -3609,7 +3628,7 @@ class Results
     private function getRowData(
         string $class,
         bool $conditionField,
-        StatementInfo $statementInfo,
+        Statement|null $statement,
         FieldMetadata $meta,
         array $map,
         string $data,
@@ -3632,8 +3651,8 @@ class Results
             $transformationPlugin !== null,
         );
 
-        if (! empty($statementInfo->statement->expr)) {
-            foreach ($statementInfo->statement->expr as $expr) {
+        if ($statement instanceof SelectStatement) {
+            foreach ($statement->expr as $expr) {
                 if (empty($expr->alias) || empty($expr->column)) {
                     continue;
                 }
