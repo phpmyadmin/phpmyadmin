@@ -1495,6 +1495,7 @@ class TableTest extends AbstractTestCase
         $targetDb = 'PMA_new';
 
         $getTableMap = [
+            [$sourceDb, $sourceTable, new Table($sourceTable, $sourceDb, $this->mockedDbi)],
             [$targetDb, $targetTable, new Table($targetTable, $targetDb, $this->mockedDbi)],
             ['aa', 'ad', new Table('ad', 'aa', $this->mockedDbi)],
         ];
@@ -1560,7 +1561,7 @@ class TableTest extends AbstractTestCase
                 false,
             ],
         ]);
-        $resultStub->method('fetchRow')->willReturn([
+        $resultStub->expects($this->atLeastOnce())->method('fetchRow')->willReturn([
             'ad',
             'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`'
                 . ' SQL SECURITY DEFINER VIEW `ad` AS select `aa`.`bb`.`ac` AS `ac` from `bb`',
