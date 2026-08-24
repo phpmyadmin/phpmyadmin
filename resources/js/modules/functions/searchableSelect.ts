@@ -246,17 +246,25 @@ function filterOptionsList ($wrapper: JQuery, query: string): void {
     });
 
     $menu.find('.searchable-select-empty').toggleClass('d-none', visibleCount > 0);
-    highlightOption($menu, $menu.find('.searchable-select-option:not(.d-none):not(.disabled)').first());
+
+    /* on open (empty query), land on the currently selected option if there is one, instead of always the first row */
+    const $visible = $menu.find('.searchable-select-option:not(.d-none):not(.disabled)');
+    const $selected = needle === '' ? $visible.filter('.selected') : $();
+    highlightOption($menu, $selected.length > 0 ? $selected.first() : $visible.first());
 }
 
 function highlightOption ($menu: JQuery, $option: JQuery): void {
     $menu.find('.searchable-select-option.highlighted').removeClass('highlighted');
     if ($option.length > 0) {
         $option.addClass('highlighted');
-        const optionEl = $option.get(0);
-        if (optionEl && typeof optionEl.scrollIntoView === 'function') {
-            optionEl.scrollIntoView({ block: 'nearest' });
-        }
+        scrollToOption($option);
+    }
+}
+
+function scrollToOption ($option: JQuery): void {
+    const optionEl = $option.get(0);
+    if (optionEl && typeof optionEl.scrollIntoView === 'function') {
+        optionEl.scrollIntoView({ block: 'nearest' });
     }
 }
 
@@ -283,6 +291,18 @@ function openMenu ($wrapper: JQuery): void {
     const $menu = getMenu($wrapper);
     $menu.find('.searchable-select-search').val('');
     positionMenu($wrapper, $menu);
+
+    /*
+     * The initial highlight was set while the menu was still hidden (its size is needed to position it first), so
+     * scrollIntoView had nothing to scroll yet. Redoing it synchronously right here still does nothing: the browser
+     * hasn't settled the layout of the just-reparented, just-repositioned menu yet. Deferring it to the next frame
+     * (after that layout has actually happened) is what makes the scroll take effect.
+     */
+    // eslint-disable-next-line compat/compat
+    requestAnimationFrame(() => {
+        scrollToOption($menu.find('.searchable-select-option.highlighted'));
+    });
+
     $wrapper.addClass('show');
     $wrapper.find('.searchable-select-toggle').attr('aria-expanded', 'true');
     $menu.find('.searchable-select-search').trigger('focus');
