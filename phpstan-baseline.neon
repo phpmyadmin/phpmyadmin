@@ -7531,12 +7531,6 @@ parameters:
 			path: src/Navigation/Navigation.php
 
 		-
-			message: '#^Access to an undefined property PhpMyAdmin\\Navigation\\Nodes\\Node\:\:\$secondIcon\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 1
@@ -13336,18 +13330,6 @@ parameters:
 			'''
 			identifier: method.deprecatedClass
 			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '#^Call to static method Webmozart\\Assert\\Assert\:\:isInstanceOf\(\) with Webauthn\\PublicKeyCredentialCreationOptions and ''Webauthn\\\\PublicKeyCredentialCreationOptions'' will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '#^Call to static method Webmozart\\Assert\\Assert\:\:isInstanceOf\(\) with Webauthn\\PublicKeyCredentialRequestOptions and ''Webauthn\\\\PublicKeyCredentialRequestOptions'' will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
 			path: src/WebAuthn/WebauthnLibServer.php
 
 		-
