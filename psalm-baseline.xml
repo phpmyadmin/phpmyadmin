@@ -1233,10 +1233,10 @@
     <MixedArgument occurrences="11">
       <code>$db</code>
       <code>$db</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
+      <code>$each_table['TABLE_NAME']</code>
+      <code>$each_table['TABLE_NAME']</code>
+      <code>$each_table['TABLE_NAME']</code>
+      <code>$each_table['TABLE_NAME']</code>
       <code>$num_tables</code>
       <code>$sql_query</code>
       <code>$table</code>
@@ -1247,11 +1247,11 @@
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="5">
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
+      <code>$each_table['TABLE_NAME']</code>
+      <code>$each_table['TABLE_NAME']</code>
+      <code>$each_table['TABLE_NAME']</code>
+      <code>$each_table['TABLE_NAME']</code>
+      <code>$each_table['TABLE_NAME']</code>
     </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$urlParams['goto']</code>

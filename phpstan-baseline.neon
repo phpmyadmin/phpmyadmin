@@ -3716,7 +3716,7 @@ parameters:
 			path: libraries/classes/Controllers/Database/ExportController.php
 
 		-
-			message: "#^Cannot access offset 'Name' on mixed\\.$#"
+			message: "#^Cannot access offset 'TABLE_NAME' on mixed\\.$#"
 			count: 5
 			path: libraries/classes/Controllers/Database/ExportController.php
 

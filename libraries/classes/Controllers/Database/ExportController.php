@@ -92,27 +92,27 @@ final class ExportController extends AbstractController
 
         foreach ($tables as $each_table) {
             if (isset($_POST['table_select']) && is_array($_POST['table_select'])) {
-                $is_checked = $this->export->getCheckedClause($each_table['Name'], $_POST['table_select']);
+                $is_checked = $this->export->getCheckedClause($each_table['TABLE_NAME'], $_POST['table_select']);
             } elseif (isset($table_select)) {
-                $is_checked = $this->export->getCheckedClause($each_table['Name'], $table_select);
+                $is_checked = $this->export->getCheckedClause($each_table['TABLE_NAME'], $table_select);
             } else {
                 $is_checked = true;
             }
 
             if (isset($_POST['table_structure']) && is_array($_POST['table_structure'])) {
-                $structure_checked = $this->export->getCheckedClause($each_table['Name'], $_POST['table_structure']);
+                $structure_checked = $this->export->getCheckedClause($each_table['TABLE_NAME'], $_POST['table_structure']);
             } else {
                 $structure_checked = $is_checked;
             }
 
             if (isset($_POST['table_data']) && is_array($_POST['table_data'])) {
-                $data_checked = $this->export->getCheckedClause($each_table['Name'], $_POST['table_data']);
+                $data_checked = $this->export->getCheckedClause($each_table['TABLE_NAME'], $_POST['table_data']);
             } else {
                 $data_checked = $is_checked;
             }
 
             $tablesForMultiValues[] = [
-                'name' => $each_table['Name'],
+                'name' => $each_table['TABLE_NAME'],
                 'is_checked_select' => $is_checked,
                 'is_checked_structure' => $structure_checked,
                 'is_checked_data' => $data_checked,
