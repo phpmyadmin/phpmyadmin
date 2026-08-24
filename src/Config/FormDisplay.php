@@ -83,6 +83,8 @@ class FormDisplay
 
     /**
      * Dictionary with user preferences keys
+     *
+     * @var array<int>|null
      */
     private array|null $userprefsKeys = null;
 

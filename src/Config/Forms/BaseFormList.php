@@ -117,7 +117,7 @@ class BaseFormList
     /**
      * Returns list of fields used in the form.
      *
-     * @return string[]
+     * @return list<string>
      */
     public static function getFields(): array
     {
