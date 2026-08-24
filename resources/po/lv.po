@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-08-23 00:18+0000\n"
-"PO-Revision-Date: 2026-08-07 14:51+0000\n"
+"PO-Revision-Date: 2026-08-24 21:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.8.1.dev0\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -530,9 +530,8 @@ msgid "Partition"
 msgstr "Pozīcija"
 
 #: resources/templates/columns_definitions/partitions.twig:78
-#, fuzzy
 msgid "Values"
-msgstr "Vērtība"
+msgstr "Vērtības"
 
 #: resources/templates/columns_definitions/partitions.twig:82
 #, fuzzy
@@ -1018,9 +1017,8 @@ msgstr "Izvērst"
 #: resources/templates/console/bookmark_content.twig:9
 #: resources/templates/console/display.twig:52
 #: resources/templates/console/display.twig:210
-#, fuzzy
 msgid "Requery"
-msgstr "vaicājumā"
+msgstr "Pārvaicāt"
 
 #: resources/templates/console/bookmark_content.twig:10
 #: resources/templates/console/display.twig:53
@@ -1103,9 +1101,8 @@ msgstr "Konsole"
 #: resources/templates/console/display.twig:19
 #: resources/templates/setup/home/index.twig:169
 #: resources/templates/sql/query.twig:38
-#, fuzzy
 msgid "Clear"
-msgstr "Kalendārs"
+msgstr "Notīrīt"
 
 #: resources/templates/console/display.twig:22
 msgid "History"
@@ -1180,9 +1177,8 @@ msgid "ascending"
 msgstr "Augošā secībā"
 
 #: resources/templates/console/display.twig:82
-#, fuzzy
 msgid "descending"
-msgstr "Dilstošā secībā"
+msgstr "dilstošā secībā"
 
 #: resources/templates/console/display.twig:85
 msgid "Order:"
@@ -1190,9 +1186,8 @@ msgstr "Kārtošanas secība:"
 
 #: resources/templates/console/display.twig:91
 #: resources/templates/table/find_replace/replace_preview.twig:16
-#, fuzzy
 msgid "Count"
-msgstr "Lauks"
+msgstr "Skaits"
 
 #: resources/templates/console/display.twig:94
 #, fuzzy
@@ -1251,7 +1246,7 @@ msgstr "Meklēt"
 #: resources/templates/console/display.twig:154
 #, fuzzy
 msgid "Label"
-msgstr "Nosaukums"
+msgstr "Etiķete"
 
 #: resources/templates/console/display.twig:157
 #, fuzzy
@@ -1744,9 +1739,8 @@ msgstr "Vērtība"
 #: resources/templates/database/designer/main.twig:648
 #: resources/templates/database/designer/main.twig:854
 #: resources/templates/database/designer/main.twig:1047
-#, fuzzy
 msgid "subquery"
-msgstr "vaicājumā"
+msgstr "apakšvaicājums"
 
 #: resources/templates/database/designer/main.twig:492
 #: resources/templates/database/designer/main.twig:708
@@ -2191,9 +2185,8 @@ msgstr "Pievienot lietotāju"
 #: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
 #: src/Config/ConfigFile.php:565
-#, fuzzy
 msgid "Text"
-msgstr "Tests"
+msgstr "Teksts"
 
 #: resources/templates/database/multi_table_query/form.twig:117
 #, fuzzy
@@ -2475,9 +2468,8 @@ msgid "Parameters"
 msgstr "Parametri"
 
 #: resources/templates/database/routines/editor_form.twig:54
-#, fuzzy
 msgid "Direction"
-msgstr "Izveidošana"
+msgstr "Virziens"
 
 #: resources/templates/database/routines/editor_form.twig:72
 #: resources/templates/database/routines/editor_form.twig:74
@@ -2992,11 +2984,11 @@ msgstr "Pievienot"
 #: resources/templates/table/operations/index.twig:436
 #, php-format
 msgid "Table %s has been emptied."
-msgstr "Tabula %s tika iztukšota."
+msgstr "%s tabula tika iztukšota."
 
 #: resources/templates/database/structure/structure_table_row.twig:240
 msgid "in use"
-msgstr "lietošanā"
+msgstr "izmanto"
 
 #: resources/templates/database/structure/table_header.twig:26
 #: resources/templates/table/structure/display_partitions.twig:29
@@ -3137,10 +3129,9 @@ msgstr "Sākums"
 #: resources/templates/list_navigator.twig:21
 #: resources/templates/server/binlog/index.twig:45
 #: resources/templates/server/binlog/index.twig:50
-#, fuzzy
 msgctxt "Previous page"
 msgid "Previous"
-msgstr "Iepriekšējie"
+msgstr "Iepriekšējā"
 
 #: resources/templates/display/results/table.twig:55
 #: resources/templates/display/results/table.twig:59
@@ -3148,10 +3139,9 @@ msgstr "Iepriekšējie"
 #: resources/templates/list_navigator.twig:35
 #: resources/templates/server/binlog/index.twig:70
 #: resources/templates/server/binlog/index.twig:75
-#, fuzzy
 msgctxt "Next page"
 msgid "Next"
-msgstr "Nākamie"
+msgstr "Nākamā"
 
 #: resources/templates/display/results/table.twig:73
 #: resources/templates/display/results/table.twig:77
@@ -3588,10 +3578,9 @@ msgid "Spatial Reference System Identifier"
 msgstr ""
 
 #: resources/templates/gis_data_editor_form.twig:41
-#, fuzzy
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
-msgstr "SRID:"
+msgstr "Ģeotelpisko koordinātu sistēmu identifikators (SRID):"
 
 #: resources/templates/gis_data_editor_form.twig:61
 #: resources/templates/table/gis_visualization/gis_visualization.twig:39
@@ -4583,9 +4572,8 @@ msgstr "Izvēlieties bināro log-failu apskatei"
 
 #: resources/templates/server/binlog/index.twig:25
 #: src/Server/Status/Data.php:128
-#, fuzzy
 msgid "Files"
-msgstr "Lauki"
+msgstr "Datnes"
 
 #: resources/templates/server/binlog/index.twig:57
 #: resources/templates/server/binlog/index.twig:58
@@ -4830,9 +4818,8 @@ msgstr ""
 
 #: resources/templates/server/plugins/index.twig:28
 #: resources/templates/table/tracking/main.twig:28
-#, fuzzy
 msgid "Version"
-msgstr "Persiešu"
+msgstr "Versija"
 
 #: resources/templates/server/plugins/index.twig:29
 msgid "Author"
@@ -4848,9 +4835,8 @@ msgid "disabled"
 msgstr "Izslēgts"
 
 #: resources/templates/server/plugins/index.twig:45
-#, fuzzy
 msgid "deleting"
-msgstr "Dzēš"
+msgstr "dzēš"
 
 #: resources/templates/server/plugins/index.twig:47
 #, fuzzy
@@ -6538,9 +6524,8 @@ msgstr "Tikai dati"
 
 #: resources/templates/sql/profiling_chart.twig:11
 #: src/Config/Descriptions.php:963
-#, fuzzy
 msgid "Order"
-msgstr "Cits"
+msgstr "Kārtošanas secība"
 
 #: resources/templates/sql/profiling_chart.twig:12
 #: resources/templates/sql/profiling_chart.twig:36
@@ -6729,10 +6714,9 @@ msgid "Pie"
 msgstr "Pīrāgs/Kūka/Apļveida"
 
 #: resources/templates/table/chart/tbl_chart.twig:37
-#, fuzzy
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr "Laiks"
+msgstr "Laikskalas"
 
 #: resources/templates/table/chart/tbl_chart.twig:41
 msgctxt "Chart type"
@@ -6855,9 +6839,8 @@ msgid "Replaced string"
 msgstr "Relācijas"
 
 #: resources/templates/table/find_replace/replace_preview.twig:36
-#, fuzzy
 msgid "Replace"
-msgstr "Relācijas"
+msgstr "Aizstāt"
 
 #: resources/templates/table/gis_visualization/gis_visualization.twig:2
 msgid "Display GIS Visualization"
@@ -7209,7 +7192,7 @@ msgstr "Svešo atslēgu pārbaude:"
 
 #: resources/templates/table/relation/common_form.twig:16
 msgid "Actions"
-msgstr "Darbība"
+msgstr "Darbības"
 
 #: resources/templates/table/relation/common_form.twig:17
 #, fuzzy
@@ -7290,9 +7273,8 @@ msgid "Display order:"
 msgstr "Attēlošanas secība:"
 
 #: resources/templates/table/search/index.twig:180
-#, fuzzy
 msgid "Range search"
-msgstr "Meklēt"
+msgstr "Diapazona meklēšana"
 
 #: resources/templates/table/search/index.twig:186
 msgid "Minimum value:"
@@ -7358,9 +7340,8 @@ msgstr ""
 
 #: resources/templates/table/structure/display_partitions.twig:125
 #: src/Operations.php:526
-#, fuzzy
 msgid "Repair"
-msgstr "Restaurēt tabulu"
+msgstr "Salabot"
 
 #: resources/templates/table/structure/display_partitions.twig:135
 #: src/Operations.php:527
@@ -9186,10 +9167,9 @@ msgstr "O"
 
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:729
-#, fuzzy
 msgctxt "Week day name"
 msgid "Thursday"
-msgstr "O"
+msgstr "Ceturtdiena"
 
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:730
@@ -10842,9 +10822,8 @@ msgid "Database structure"
 msgstr "Datubāzes"
 
 #: src/Config/Descriptions.php:759
-#, fuzzy
 msgid "Tabs"
-msgstr "Tabula"
+msgstr "Cilnes"
 
 #: src/Config/Descriptions.php:760
 #, fuzzy
@@ -14977,7 +14956,7 @@ msgstr ""
 
 #: src/Controllers/Server/Status/VariablesController.php:475
 msgid "The number of sorts that were done with ranges."
-msgstr ""
+msgstr "Ar diapazoniem veikto kārtošanas reižu skaits."
 
 #: src/Controllers/Server/Status/VariablesController.php:476
 msgid "The number of sorted rows."
@@ -16555,9 +16534,8 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: src/Operations.php:536
-#, fuzzy
 msgid "Coalesce"
-msgstr "Aizvērt"
+msgstr "Apvienot"
 
 #: src/Operations.php:880
 msgid "Can't move table to same one!"
@@ -18150,9 +18128,8 @@ msgid "You must provide a trigger definition."
 msgstr "Jāievada palaidēja definīcija."
 
 #: src/Types.php:98
-#, fuzzy
 msgid "empty"
-msgstr "Iztukšot"
+msgstr "tukšs"
 
 #: src/Types.php:99
 msgid "not empty"
@@ -18162,30 +18139,41 @@ msgstr ""
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"1 baita vesels skaitlis, kura vērtība var būt diapazonā no -128 līdz 127, ja "
+"satur negatīvo zīmi, jeb no 0 līdz 255, ja bez zīmes"
 
 #: src/Types.php:163
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"2 baitu vesels skaitlis, kura vērtība var būt diapazonā no -32768 līdz "
+"32767, ja satur negatīvo zīmi, jeb no 0 līdz 65535, ja bez zīmes"
 
 #: src/Types.php:165
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"3 baitu vesels skaitlis, kura vērtība var būt diapazonā no -8388608 līdz "
+"8388607, ja satur negatīvo zīmi, jeb no 0 līdz 16777215, ja bez zīmes"
 
 #: src/Types.php:168
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
+"4 baitu vesels skaitlis, kura vērtība var būt diapazonā no -2147483648 līdz "
+"2147483647, ja satur negatīvo zīmi, jeb no 0 līdz 4294967295, ja bez zīmes"
 
 #: src/Types.php:173
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"8 baitu vesels skaitlis, kura vērtība var būt diapazonā no -"
+"9223372036854775808 līdz 9223372036854775807, ja satur negatīvo zīmi, jeb no "
+"0 līdz 18446744073709551615, ja bez zīmes"
 
 #: src/Types.php:178
 msgid ""
