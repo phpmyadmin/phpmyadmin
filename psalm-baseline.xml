@@ -8528,10 +8528,6 @@
       <code><![CDATA[$assertionResponseDecoded]]></code>
       <code><![CDATA[$attestationResponseDecoded]]></code>
     </MixedAssignment>
-    <RedundantCondition>
-      <code><![CDATA[isInstanceOf]]></code>
-      <code><![CDATA[isInstanceOf]]></code>
-    </RedundantCondition>
   </file>
   <file src="src/ZipExtension.php">
     <ArgumentTypeCoercion>
