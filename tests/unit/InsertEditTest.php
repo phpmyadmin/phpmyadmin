@@ -2333,7 +2333,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         self::assertStringContainsString(
-            '<select name="funcs[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]"'
+            '<select name="funcs[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]" class="search"'
             . ' onchange="return verificationsAfterFieldChange(\'d8578edf8458ce06fbc5bb76a58c5ca4\','
             . ' \'0\', \'datetime\')" id="field_1_1">',
             $actual,
