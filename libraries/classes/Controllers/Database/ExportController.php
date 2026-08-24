@@ -100,7 +100,10 @@ final class ExportController extends AbstractController
             }
 
             if (isset($_POST['table_structure']) && is_array($_POST['table_structure'])) {
-                $structure_checked = $this->export->getCheckedClause($each_table['TABLE_NAME'], $_POST['table_structure']);
+                $structure_checked = $this->export->getCheckedClause(
+                    $each_table['TABLE_NAME'],
+                    $_POST['table_structure']
+                );
             } else {
                 $structure_checked = $is_checked;
             }
