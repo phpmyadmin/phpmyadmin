@@ -3260,24 +3260,7 @@
     <MixedArrayAccess>
       <code><![CDATA[$opt['value']]]></code>
     </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$routine->paramDir[$i]]]></code>
-      <code><![CDATA[$routine->paramLength[$i]]]></code>
-      <code><![CDATA[$routine->paramName[$i]]]></code>
-      <code><![CDATA[$routine->paramOptsNum[$i]]]></code>
-      <code><![CDATA[$routine->paramOptsText[$i]]]></code>
-      <code><![CDATA[$routine->paramType[$i]]]></code>
-    </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$routine->paramDir[$i]]]></code>
-      <code><![CDATA[$routine->paramLength[$i]]]></code>
-      <code><![CDATA[$routine->paramName[$i]]]></code>
-      <code><![CDATA[$routine->paramOptsNum[$i]]]></code>
-      <code><![CDATA[$routine->paramOptsText[$i]]]></code>
-      <code><![CDATA[$routine->paramType[$i]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$i]]></code>
       <code><![CDATA[$itemParamLength]]></code>
       <code><![CDATA[$itemParamLength]]></code>
       <code><![CDATA[$itemParamName]]></code>

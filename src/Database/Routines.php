@@ -551,14 +551,14 @@ class Routines
     /**
      * Creates one row for the parameter table used in the routine editor.
      *
-     * @param mixed  $index Either a numeric index of the row being processed
-     *                      or NULL to create a template row for AJAX request
-     * @param string $class Class used to hide the direction column, if the
-     *                      row is for a stored function.
+     * @param int|null $index Either a numeric index of the row being processed
+     *                        or NULL to create a template row for AJAX request
+     * @param string   $class Class used to hide the direction column, if the
+     *                        row is for a stored function.
      *
      * @return mixed[]
      */
-    public function getParameterRow(RoutineItem|null $routine = null, mixed $index = null, string $class = ''): array
+    public function getParameterRow(RoutineItem|null $routine = null, int|null $index = null, string $class = ''): array
     {
         if ($index === null) {
             // template row for AJAX request
