@@ -366,16 +366,12 @@ class Routines
             ? $itemReturnType
             : '';
 
-        if (mb_strtolower($request->getParsedBodyParamAsString('item_isdeterministic', '')) === 'on') {
-            $item->isDeterministic = " checked='checked'";
-        }
+        $item->isDeterministic =
+            mb_strtolower($request->getParsedBodyParamAsString('item_isdeterministic', '')) === 'on';
 
         $itemSecurityType = $request->getParsedBodyParamAsStringOrNull('item_securitytype');
-        if ($itemSecurityType === 'DEFINER') {
-            $item->securityTypeDefiner = " selected='selected'";
-        } elseif ($itemSecurityType === 'INVOKER') {
-            $item->securityTypeInvoker = " selected='selected'";
-        }
+        $item->securityTypeDefiner = $itemSecurityType === 'DEFINER';
+        $item->securityTypeInvoker = $itemSecurityType === 'INVOKER';
 
         $itemSqlDataAccess = $request->getParsedBodyParamAsStringOrNull('item_sqldataaccess');
         if (in_array($itemSqlDataAccess, $this->sqlDataAccess, true)) {
@@ -424,10 +420,6 @@ class Routines
             return null;
         }
 
-        // Get required data
-        $retval['item_name'] = $routine['SPECIFIC_NAME'];
-        $retval['item_type'] = $routine['ROUTINE_TYPE'];
-
         if ($routine['ROUTINE_TYPE'] === 'FUNCTION') {
             $definition = self::getFunctionDefinition($this->dbi, Current::$database, $routine['SPECIFIC_NAME']);
         } else {
@@ -451,9 +443,6 @@ class Routines
         }
 
         $retval = array_merge($retval, $this->getParameters($stmt));
-        $retval['item_param_opts_text'] = $retval['item_param_opts_num'];
-
-        $retval['item_type_toggle'] = $retval['item_type'] === 'FUNCTION' ? 'PROCEDURE' : 'FUNCTION';
 
         $retval['item_returntype'] = '';
         $retval['item_returnlength'] = '';
@@ -484,47 +473,29 @@ class Routines
             $retval['item_returnopts_num'] = implode(' ', $numericOpts);
         }
 
-        $retval['item_definer'] = $stmt->options?->get('DEFINER') ?? '';
-        $retval['item_definition'] = $body;
-        $retval['item_isdeterministic'] = '';
-        if ($routine['IS_DETERMINISTIC'] === 'YES') {
-            $retval['item_isdeterministic'] = " checked='checked'";
-        }
-
-        $retval['item_securitytype_definer'] = '';
-        $retval['item_securitytype_invoker'] = '';
-        if ($routine['SECURITY_TYPE'] === 'DEFINER') {
-            $retval['item_securitytype_definer'] = " selected='selected'";
-        } elseif ($routine['SECURITY_TYPE'] === 'INVOKER') {
-            $retval['item_securitytype_invoker'] = " selected='selected'";
-        }
-
-        $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
-        $retval['item_comment'] = $routine['ROUTINE_COMMENT'];
-
         return new RoutineItem(
-            $retval['item_name'],
-            $retval['item_name'],
+            $routine['SPECIFIC_NAME'],
+            $routine['SPECIFIC_NAME'],
             $retval['item_returnlength'],
             $retval['item_returnopts_num'],
             $retval['item_returnopts_text'],
-            $retval['item_definition'],
-            $retval['item_comment'],
-            $retval['item_definer'],
-            RoutineType::from($retval['item_type']),
-            RoutineType::from($retval['item_type']),
+            $body,
+            $routine['ROUTINE_COMMENT'],
+            $stmt->options?->get('DEFINER') ?? '',
+            RoutineType::from($routine['ROUTINE_TYPE']),
+            RoutineType::from($routine['ROUTINE_TYPE']),
             $retval['item_num_params'],
             $retval['item_param_dir'],
             $retval['item_param_name'],
             $retval['item_param_type'],
             $retval['item_param_length'],
             $retval['item_param_opts_num'],
-            $retval['item_param_opts_text'],
+            $retval['item_param_opts_num'],
             $retval['item_returntype'],
-            $retval['item_isdeterministic'],
-            $retval['item_securitytype_definer'],
-            $retval['item_securitytype_invoker'],
-            $retval['item_sqldataaccess'],
+            $routine['IS_DETERMINISTIC'] === 'YES',
+            $routine['SECURITY_TYPE'] === 'DEFINER',
+            $routine['SECURITY_TYPE'] === 'INVOKER',
+            $routine['SQL_DATA_ACCESS'],
             $retval['item_param_length_arr'],
         );
     }

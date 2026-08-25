@@ -3317,7 +3317,7 @@
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
-      <code><![CDATA[$retval['item_definer']]]></code>
+      <code><![CDATA[$stmt->options?->get('DEFINER') ?? '']]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_POST['funcs'][$routine->paramName[$i]]]]></code>

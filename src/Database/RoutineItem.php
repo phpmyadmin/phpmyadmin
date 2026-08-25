@@ -37,9 +37,9 @@ final class RoutineItem
         public array $paramOptsNum = [],
         public array $paramOptsText = [],
         public string $returnType = '',
-        public string $isDeterministic = '',
-        public string $securityTypeDefiner = '',
-        public string $securityTypeInvoker = '',
+        public bool $isDeterministic = false,
+        public bool $securityTypeDefiner = false,
+        public bool $securityTypeInvoker = false,
         public string $sqlDataAccess = '',
         public array $paramLengthArray = [],
     ) {

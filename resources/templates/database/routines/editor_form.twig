@@ -124,7 +124,7 @@
         <tr>
           <td class="text-nowrap">{{ t('Is deterministic') }}</td>
           <td>
-            <input type="checkbox" name="item_isdeterministic"{{ routine.isDeterministic|raw }}>
+            <input type="checkbox" name="item_isdeterministic"{{ (routine.isDeterministic ? " checked='checked'" : '')|raw }}>
           </td>
         </tr>
 
@@ -154,8 +154,8 @@
           <td class="text-nowrap">{{ t('Security type') }}</td>
           <td>
             <select name="item_securitytype">
-              <option value="DEFINER"{{ routine.securityTypeDefiner|raw }}>DEFINER</option>
-              <option value="INVOKER"{{ routine.securityTypeInvoker|raw }}>INVOKER</option>
+              <option value="DEFINER"{{ (routine.securityTypeDefiner ? " selected='selected'" : '')|raw }}>DEFINER</option>
+              <option value="INVOKER"{{ (routine.securityTypeInvoker ? " selected='selected'" : '')|raw }}>INVOKER</option>
             </select>
           </td>
         </tr>
