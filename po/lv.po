@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-08-25 18:23+0000\n"
+"PO-Revision-Date: 2026-08-25 23:36+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "lv/>\n"
@@ -1669,6 +1669,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:104
 msgid "Enable bzip2 compression for import operations."
 msgstr ""
+"Iespējo ([a@https://en-wp.org/wiki/Bzip2]bzip2[/a]) saspiešanu ievietošanas "
+"darbībām."
 
 #: libraries/classes/Config/Descriptions.php:105
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
@@ -2742,7 +2744,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:624
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/classes/Config/Descriptions.php:625
 msgid "CHAR columns editing"
@@ -3333,7 +3335,7 @@ msgstr "Lapu virsraksti"
 
 #: libraries/classes/Config/Descriptions.php:769
 msgid "Security"
-msgstr ""
+msgstr "Drošība"
 
 #: libraries/classes/Config/Descriptions.php:770
 msgid "Basic settings"
@@ -4251,7 +4253,7 @@ msgstr "Parole"
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "URL for reCAPTCHA v2 API"
@@ -7240,23 +7242,23 @@ msgstr "Aizvietot tabulas datus ar datiem no faila"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Extremely weak"
-msgstr ""
+msgstr "Ārkārtīgi vienkārša"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Very weak"
-msgstr ""
+msgstr "Ļoti vienkārša"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Weak"
-msgstr ""
+msgstr "Vienkārša"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:680
 msgid "Good"
-msgstr ""
+msgstr "Laba"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:681
 msgid "Strong"
-msgstr ""
+msgstr "Sarežģīta"
 
 #. l10n: error code 5 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:685
@@ -10251,23 +10253,22 @@ msgstr ""
 #: libraries/classes/Operations.php:548
 #: templates/table/structure/display_partitions.twig:84
 msgid "Analyze"
-msgstr ""
+msgstr "Analizēt"
 
 #: libraries/classes/Operations.php:549
 #: templates/table/structure/display_partitions.twig:94
-#, fuzzy
 msgid "Check"
-msgstr "Čehu"
+msgstr "Pārbaudīt"
 
 #: libraries/classes/Operations.php:550
 #: templates/table/structure/display_partitions.twig:104
 msgid "Optimize"
-msgstr ""
+msgstr "Optimizēt"
 
 #: libraries/classes/Operations.php:551
 #: templates/table/structure/display_partitions.twig:114
 msgid "Rebuild"
-msgstr ""
+msgstr "Pārbūvēt"
 
 #: libraries/classes/Operations.php:552
 #: templates/table/structure/display_partitions.twig:124
@@ -10302,6 +10303,7 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:120
 #: templates/table/structure/display_structure.twig:290
 #: templates/table/structure/display_structure.twig:525
+#, fuzzy
 msgid "Drop"
 msgstr "Likvidēt"
 
@@ -13281,10 +13283,8 @@ msgstr ""
 
 #: templates/columns_definitions/column_attributes.twig:165
 #: templates/table/structure/display_partitions.twig:26
-#, fuzzy
-#| msgid "Compression"
 msgid "Expression"
-msgstr "Kompresija"
+msgstr "Izteiksme"
 
 #: templates/columns_definitions/column_attributes.twig:186
 msgid "first"
@@ -13422,7 +13422,7 @@ msgstr "Pozīcija"
 
 #: templates/columns_definitions/partitions.twig:84
 msgid "Engine"
-msgstr ""
+msgstr "Dzinējs"
 
 #: templates/columns_definitions/partitions.twig:85
 #: templates/config/form_display/input.twig:53
@@ -14296,7 +14296,7 @@ msgstr ""
 
 #: templates/database/events/index.twig:143
 msgid "OFF"
-msgstr ""
+msgstr "IZSLĒGT"
 
 #: templates/database/export/index.twig:61
 msgid ""
@@ -14741,7 +14741,7 @@ msgstr ""
 #: templates/database/routines/row.twig:44
 #: templates/database/routines/row.twig:48
 msgid "Execute"
-msgstr ""
+msgstr "Izpildīt"
 
 #: templates/database/search/main.twig:5
 msgid "Search in database"
@@ -15646,7 +15646,7 @@ msgstr "Oficiālā phpMyAdmin mājaslapa"
 
 #: templates/home/index.twig:255
 msgid "Contribute"
-msgstr "Piedalies"
+msgstr "Dot savu artavu"
 
 #: templates/home/index.twig:260
 msgid "Get support"
@@ -16804,10 +16804,8 @@ msgid "inactive"
 msgstr "neaktīvs"
 
 #: templates/server/plugins/index.twig:43
-#, fuzzy
-#| msgid "Disabled"
 msgid "disabled"
-msgstr "Izslēgts"
+msgstr "atspējots"
 
 #: templates/server/plugins/index.twig:45
 msgid "deleting"
@@ -17094,6 +17092,7 @@ msgid "Global privileges"
 msgstr "Globālās privilēģijas"
 
 #: templates/server/privileges/privileges_table.twig:552
+#, fuzzy
 msgid "Administration"
 msgstr "Administrācija"
 
@@ -17546,7 +17545,7 @@ msgstr ""
 
 #: templates/server/status/base.twig:31
 msgid "Advisor"
-msgstr ""
+msgstr "Padomdevējs"
 
 #: templates/server/status/monitor/index.twig:8
 #, fuzzy
@@ -17790,7 +17789,7 @@ msgstr "Izteiksmes"
 #. l10n: # = Amount of queries
 #: templates/server/status/queries/index.twig:38
 msgid "#"
-msgstr ""
+msgstr "Sk."
 
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
@@ -17958,7 +17957,7 @@ msgstr "Labojumi tika saglabāti"
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
-msgstr ""
+msgstr "Lejupielādēt"
 
 #: templates/setup/error.twig:3
 msgid "Submitted form contains errors"
@@ -18147,21 +18146,19 @@ msgid "Chart type"
 msgstr "Importēt failus"
 
 #: templates/table/chart/tbl_chart.twig:13
-#, fuzzy
-#| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Mar"
+msgstr "Stabu"
 
 #: templates/table/chart/tbl_chart.twig:17
 msgctxt "Chart type"
 msgid "Column"
-msgstr "Kolonna"
+msgstr "Kolonnu"
 
 #: templates/table/chart/tbl_chart.twig:21
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Līniju"
 
 #: templates/table/chart/tbl_chart.twig:25
 msgctxt "Chart type"
@@ -18174,9 +18171,10 @@ msgid "Area"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:33
+#, fuzzy
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "Pīrāgs/Kūka/Apļveida"
+msgstr "Pīrāgs/Kūka/Apļveida/Sektoru"
 
 #: templates/table/chart/tbl_chart.twig:37
 msgctxt "Chart type"
@@ -18198,7 +18196,7 @@ msgstr "Diagrammas/Grafika nosaukums:"
 
 #: templates/table/chart/tbl_chart.twig:57
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-ass:"
 
 #: templates/table/chart/tbl_chart.twig:73
 msgid "Series:"
@@ -18865,7 +18863,7 @@ msgstr "Rindas statistika"
 
 #: templates/table/structure/display_table_stats.twig:84
 msgid "static"
-msgstr ""
+msgstr "statisks"
 
 #: templates/table/structure/display_table_stats.twig:86
 msgid "dynamic"
@@ -18915,7 +18913,7 @@ msgstr ""
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 msgctxt "Number"
 msgid "#"
-msgstr ""
+msgstr "Nr."
 
 #: templates/table/tracking/report_table.twig:5
 msgid "Date"
