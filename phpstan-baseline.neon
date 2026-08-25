@@ -1432,44 +1432,8 @@ parameters:
 			path: src/Controllers/Database/ImportController.php
 
 		-
-			message: '#^Binary operation "\-" between mixed and 1 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 6
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Cannot access an offset on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Cannot access offset \(float\|int\) on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Cannot use \+\+ on mixed\.$#'
-			identifier: postInc.type
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Cannot use \-\- on mixed\.$#'
-			identifier: postDec.type
 			count: 1
 			path: src/Controllers/Database/RoutinesController.php
 
@@ -1500,7 +1464,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlentities expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 1
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
@@ -4432,12 +4396,6 @@ parameters:
 			path: src/Database/Events.php
 
 		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 2
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Binary operation "\." between ''\('' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
@@ -4456,15 +4414,9 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
+			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 15
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Cannot access offset mixed on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 9
+			count: 2
 			path: src/Database/Routines.php
 
 		-
@@ -4540,37 +4492,25 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
+			message: '#^Method PhpMyAdmin\\Database\\Routines\:\:getParameters\(\) should return array\{item_num_params\: int, item_param_dir\: array\<string\>, item_param_name\: array\<string\>, item_param_type\: array\<string\>, item_param_length\: array\<string\>, item_param_length_arr\: array\<array\<string\>\>, item_param_opts_num\: array\<string\>\} but returns array\{item_num_params\: int\<0, max\>, item_param_dir\: array\{\}, item_param_name\: array\{\}, item_param_type\: array\{\}, item_param_length\: array\{\}, item_param_length_arr\: array\{\}, item_param_opts_num\: array\{\}\}\|array\{item_num_params\: int\<0, max\>, item_param_dir\: non\-empty\-array\<int\<0, max\>, string\|null\>, item_param_name\: non\-empty\-array\<int\<0, max\>, string\|null\>, item_param_type\: non\-empty\-array\<int\<0, max\>, string\|null\>, item_param_length\: non\-empty\-array\<int\<0, max\>, string\>, item_param_length_arr\: non\-empty\-array\<int\<0, max\>, array\<int\|string\>\>, item_param_opts_num\: non\-empty\-array\<int\<0, max\>, list\<string\|null\>\|string\>\}\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Database/Routines.php
+
+		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 4
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#1 \$alias of method PhpMyAdmin\\Types\:\:mapAliasToMysqlType\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function stripos expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 8
+			count: 3
 			path: src/Database/Routines.php
 
 		-
 			message: '#^Parameter \#1 \$itemParamName of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects array\<string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#1 \$quotedString of static method PhpMyAdmin\\Util\:\:unQuote\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Database/Routines.php
@@ -4582,12 +4522,6 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#1 \$string of function htmlentities expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4596,7 +4530,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function mb_strtolower expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 5
+			count: 2
 			path: src/Database/Routines.php
 
 		-
@@ -4612,9 +4546,9 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
+			message: '#^Parameter \#18 \$returnType of class PhpMyAdmin\\Database\\RoutineItem constructor expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 1
 			path: src/Database/Routines.php
 
 		-
@@ -4648,19 +4582,7 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Routines\:\:getFunctionDefinition\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Routines\:\:getProcedureDefinition\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Routines\:\:getProcedureDefinition\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Database/Routines.php
@@ -4668,6 +4590,24 @@ parameters:
 		-
 			message: '#^Parameter \#7 \$itemType of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects PhpMyAdmin\\Database\\RoutineType, PhpMyAdmin\\Database\\RoutineType\|null given\.$#'
 			identifier: argument.type
+			count: 1
+			path: src/Database/Routines.php
+
+		-
+			message: '#^Parameter \#8 \$definer of class PhpMyAdmin\\Database\\RoutineItem constructor expects string, PhpMyAdmin\\SqlParser\\Components\\Expression\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Database/Routines.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 6
+			path: src/Database/Routines.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between array\{SPECIFIC_NAME\: string, ROUTINE_TYPE\: string, DTD_IDENTIFIER\: string\|null, ROUTINE_DEFINITION\: string\|null, IS_DETERMINISTIC\: string, SQL_DATA_ACCESS\: string, ROUTINE_COMMENT\: string, SECURITY_TYPE\: string\} and array\{\} will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
 			count: 1
 			path: src/Database/Routines.php
 
