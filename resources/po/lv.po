@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-08-23 00:18+0000\n"
-"PO-Revision-Date: 2026-08-24 21:51+0000\n"
+"PO-Revision-Date: 2026-08-25 23:36+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -179,9 +179,8 @@ msgstr ""
 
 #: resources/templates/columns_definitions/column_attributes.twig:164
 #: resources/templates/table/structure/display_partitions.twig:27
-#, fuzzy
 msgid "Expression"
-msgstr "Kompresija"
+msgstr "Izteiksme"
 
 #: resources/templates/columns_definitions/column_attributes.twig:184
 msgid "first"
@@ -540,7 +539,7 @@ msgstr "Pozīcija"
 
 #: resources/templates/columns_definitions/partitions.twig:84
 msgid "Engine"
-msgstr ""
+msgstr "Dzinējs"
 
 #: resources/templates/columns_definitions/partitions.twig:85
 #: resources/templates/config/form_display/input.twig:53
@@ -1172,9 +1171,8 @@ msgid "During current session"
 msgstr ""
 
 #: resources/templates/console/display.twig:79
-#, fuzzy
 msgid "ascending"
-msgstr "Augošā secībā"
+msgstr "augošā secībā"
 
 #: resources/templates/console/display.twig:82
 msgid "descending"
@@ -1333,9 +1331,8 @@ msgstr "Pievienot jaunu kolonnu"
 
 #: resources/templates/database/central_columns/main.twig:24
 #: resources/templates/database/central_columns/main.twig:234
-#, fuzzy
 msgid "Length/Value"
-msgstr "Garums/Vērtības*"
+msgstr "Garums/Vērtība"
 
 #: resources/templates/database/central_columns/main.twig:36
 #: resources/templates/database/central_columns/main.twig:246
@@ -1988,6 +1985,7 @@ msgstr "Eksports"
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
 #: resources/templates/triggers/row.twig:58 src/Operations.php:534
+#, fuzzy
 msgid "Drop"
 msgstr "Likvidēt"
 
@@ -2015,7 +2013,7 @@ msgstr ""
 
 #: resources/templates/database/events/index.twig:143
 msgid "OFF"
-msgstr ""
+msgstr "IZSLĒGT"
 
 #: resources/templates/database/events/index.twig:161
 #, fuzzy
@@ -2589,7 +2587,7 @@ msgstr "Izpildīt apakšprogrammu"
 #: resources/templates/database/routines/row.twig:35
 #: resources/templates/database/routines/row.twig:38
 msgid "Execute"
-msgstr ""
+msgstr "Izpildīt"
 
 #: resources/templates/database/routines/parameter_row.twig:24
 #: resources/templates/modals/enum_set_editor.twig:5
@@ -3734,7 +3732,7 @@ msgstr "Oficiālā phpMyAdmin mājaslapa"
 
 #: resources/templates/home/index.twig:274
 msgid "Contribute"
-msgstr "Piedalies"
+msgstr "Dot savu artavu"
 
 #: resources/templates/home/index.twig:279
 msgid "Get support"
@@ -4591,7 +4589,7 @@ msgstr "Rādīt pilnos vaicājumus"
 
 #: resources/templates/server/binlog/index.twig:82
 msgid "Log name"
-msgstr "Log-faila nosaukums"
+msgstr "Žurnāla nosaukums"
 
 #: resources/templates/server/binlog/index.twig:83
 msgid "Position"
@@ -4830,9 +4828,8 @@ msgid "inactive"
 msgstr "neaktīvs"
 
 #: resources/templates/server/plugins/index.twig:43
-#, fuzzy
 msgid "disabled"
-msgstr "Izslēgts"
+msgstr "atspējots"
 
 #: resources/templates/server/plugins/index.twig:45
 msgid "deleting"
@@ -5302,6 +5299,7 @@ msgid "Allows to set up events for the event scheduler."
 msgstr "Ļauj bloķēt tabulas tekošajai darbībai."
 
 #: resources/templates/server/privileges/privileges_table.twig:561
+#, fuzzy
 msgid "Administration"
 msgstr "Administrācija"
 
@@ -5830,9 +5828,8 @@ msgid "Recommendation:"
 msgstr "Ieteikums:"
 
 #: resources/templates/server/status/advisor/index.twig:74
-#, fuzzy
 msgid "Justification:"
-msgstr "Dokumentācija"
+msgstr "Pamatojums:"
 
 #: resources/templates/server/status/advisor/index.twig:77
 msgid "Used variable / formula:"
@@ -5867,7 +5864,7 @@ msgstr ""
 
 #: resources/templates/server/status/base.twig:31
 msgid "Advisor"
-msgstr ""
+msgstr "Padomdevējs"
 
 #: resources/templates/server/status/monitor/index.twig:4
 #, fuzzy
@@ -6233,7 +6230,7 @@ msgstr "Izteiksmes"
 #. l10n: # = Amount of queries
 #: resources/templates/server/status/queries/index.twig:33
 msgid "#"
-msgstr ""
+msgstr "Sk."
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:34
@@ -6413,7 +6410,7 @@ msgstr "Labojumi tika saglabāti"
 #: resources/templates/setup/config/index.twig:22
 #: resources/templates/setup/home/index.twig:168
 msgid "Download"
-msgstr ""
+msgstr "Lejupielādēt"
 
 #: resources/templates/setup/error.twig:3
 msgid "Submitted form contains errors"
@@ -6683,20 +6680,19 @@ msgid "Chart type"
 msgstr "Importēt failus"
 
 #: resources/templates/table/chart/tbl_chart.twig:13
-#, fuzzy
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Mar"
+msgstr "Stabu"
 
 #: resources/templates/table/chart/tbl_chart.twig:17
 msgctxt "Chart type"
 msgid "Column"
-msgstr "Kolonna"
+msgstr "Kolonnu"
 
 #: resources/templates/table/chart/tbl_chart.twig:21
 msgctxt "Chart type"
 msgid "Line"
-msgstr ""
+msgstr "Līniju"
 
 #: resources/templates/table/chart/tbl_chart.twig:25
 msgctxt "Chart type"
@@ -6709,9 +6705,10 @@ msgid "Area"
 msgstr ""
 
 #: resources/templates/table/chart/tbl_chart.twig:33
+#, fuzzy
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "Pīrāgs/Kūka/Apļveida"
+msgstr "Pīrāgs/Kūka/Apļveida/Sektoru"
 
 #: resources/templates/table/chart/tbl_chart.twig:37
 msgctxt "Chart type"
@@ -6733,7 +6730,7 @@ msgstr "Diagrammas/Grafika nosaukums:"
 
 #: resources/templates/table/chart/tbl_chart.twig:57
 msgid "X-Axis:"
-msgstr ""
+msgstr "X-ass:"
 
 #: resources/templates/table/chart/tbl_chart.twig:73
 msgid "Series:"
@@ -7320,23 +7317,22 @@ msgstr "Rindas garums"
 #: resources/templates/table/structure/display_partitions.twig:85
 #: src/Operations.php:522
 msgid "Analyze"
-msgstr ""
+msgstr "Analizēt"
 
 #: resources/templates/table/structure/display_partitions.twig:95
 #: src/Operations.php:523
-#, fuzzy
 msgid "Check"
-msgstr "Čehu"
+msgstr "Pārbaudīt"
 
 #: resources/templates/table/structure/display_partitions.twig:105
 #: src/Operations.php:524
 msgid "Optimize"
-msgstr ""
+msgstr "Optimizēt"
 
 #: resources/templates/table/structure/display_partitions.twig:115
 #: src/Operations.php:525
 msgid "Rebuild"
-msgstr ""
+msgstr "Pārbūvēt"
 
 #: resources/templates/table/structure/display_partitions.twig:125
 #: src/Operations.php:526
@@ -7473,7 +7469,7 @@ msgstr "Rindas statistika"
 
 #: resources/templates/table/structure/display_table_stats.twig:83
 msgid "static"
-msgstr ""
+msgstr "statisks"
 
 #: resources/templates/table/structure/display_table_stats.twig:85
 msgid "dynamic"
@@ -7529,7 +7525,7 @@ msgstr ""
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 msgctxt "Number"
 msgid "#"
-msgstr ""
+msgstr "Nr."
 
 #: resources/templates/table/tracking/report_table.twig:5
 msgid "Date"
@@ -7606,9 +7602,8 @@ msgstr "Laiks"
 #: src/Plugins/Export/ExportOdt.php:504
 #: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:316
-#, fuzzy
 msgid "Event"
-msgstr "Nosūtīts"
+msgstr "Notikums"
 
 #: resources/templates/triggers/export.twig:2
 #: src/Controllers/Triggers/IndexController.php:233
@@ -9146,24 +9141,21 @@ msgstr "Neaizvērtas pēdiņas"
 
 #: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
 msgctxt "Week day name"
 msgid "Monday"
-msgstr "P"
+msgstr "Pirmdiena"
 
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
 msgctxt "Week day name"
 msgid "Tuesday"
-msgstr "O"
+msgstr "Otrdiena"
 
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
 msgctxt "Week day name"
 msgid "Wednesday"
-msgstr "O"
+msgstr "Trešdiena"
 
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:729
@@ -9173,23 +9165,21 @@ msgstr "Ceturtdiena"
 
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:730
-#, fuzzy
 msgctxt "Week day name"
 msgid "Friday"
-msgstr "Pk"
+msgstr "Piektdiena"
 
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:731
 msgctxt "Week day name"
 msgid "Saturday"
-msgstr ""
+msgstr "Sestdiena"
 
 #: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
 msgctxt "Week day name"
 msgid "Sunday"
-msgstr "Sv"
+msgstr "Svētdiena"
 
 #: src/Config/ConfigFile.php:617
 msgid "Ask before sending error reports"
@@ -9314,6 +9304,8 @@ msgstr ""
 #: src/Config/Descriptions.php:92
 msgid "Enable bzip2 compression for import operations."
 msgstr ""
+"Iespējo ([a@https://en-wp.org/wiki/Bzip2]bzip2[/a]) saspiešanu ievietošanas "
+"darbībām."
 
 #: src/Config/Descriptions.php:93
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
@@ -10361,7 +10353,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:602
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: src/Config/Descriptions.php:603
 msgid "CHAR columns editing"
@@ -10784,7 +10776,7 @@ msgstr "Lapu virsraksti"
 
 #: src/Config/Descriptions.php:747
 msgid "Security"
-msgstr ""
+msgstr "Drošība"
 
 #: src/Config/Descriptions.php:748
 msgid "Basic settings"
@@ -11512,7 +11504,7 @@ msgstr "Parole"
 
 #: src/Config/Descriptions.php:944
 msgid "ZIP"
-msgstr ""
+msgstr "ZIP"
 
 #: src/Config/Descriptions.php:945
 msgid "URL for reCAPTCHA v2 API"
@@ -12664,9 +12656,8 @@ msgstr "Lūdzu, atlasiet indeksa kolonnu(-as)."
 
 #. l10n: Default label for the y-Axis of Charts
 #: src/Controllers/JavaScriptMessagesController.php:139
-#, fuzzy
 msgid "Y values"
-msgstr "Y Vērtība"
+msgstr "Y vērtības"
 
 #: src/Controllers/JavaScriptMessagesController.php:142
 msgid "Please enter the SQL query first."
@@ -13831,23 +13822,23 @@ msgstr "Aizvietot tabulas datus ar datiem no faila"
 
 #: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Extremely weak"
-msgstr ""
+msgstr "Ārkārtīgi vienkārša"
 
 #: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Very weak"
-msgstr ""
+msgstr "Ļoti vienkārša"
 
 #: src/Controllers/JavaScriptMessagesController.php:662
 msgid "Weak"
-msgstr ""
+msgstr "Vienkārša"
 
 #: src/Controllers/JavaScriptMessagesController.php:663
 msgid "Good"
-msgstr ""
+msgstr "Laba"
 
 #: src/Controllers/JavaScriptMessagesController.php:664
 msgid "Strong"
-msgstr ""
+msgstr "Sarežģīta"
 
 #. l10n: error code 5 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:668
