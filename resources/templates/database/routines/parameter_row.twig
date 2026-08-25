@@ -10,7 +10,7 @@
     </select>
   </td>
   <td>
-    <input name="item_param_name[{{ index }}]" type="text" value="{{ item_param_name|raw }}">
+    <input name="item_param_name[{{ index }}]" type="text" value="{{ item_param_name }}">
   </td>
   <td>
     <select name="item_param_type[{{ index }}]">
@@ -18,7 +18,7 @@
     </select>
   </td>
   <td>
-    <input id="item_param_length_{{ index }}" name="item_param_length[{{ index }}]" type="text" value="{{ item_param_length|raw }}">
+    <input id="item_param_length_{{ index }}" name="item_param_length[{{ index }}]" type="text" value="{{ item_param_length }}">
     <div class="enum_hint">
       <a href="#" class="open_enum_editor">
         {{ get_image('b_edit', '', {'title': t('ENUM/SET editor')}) }}

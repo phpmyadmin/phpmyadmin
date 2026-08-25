@@ -356,7 +356,7 @@ const DatabaseTriggers = {
          * @var question String containing the question to be asked for confirmation
          */
         const question = $('<div></div>').text(
-            $currRow.children('td').children('.drop_sql').html(),
+            $currRow.children('td').children('.drop_sql').text(),
         );
         // We ask for confirmation first here, before submitting the ajax request
         $this.confirm(question, $this.attr('href'), function (url) {

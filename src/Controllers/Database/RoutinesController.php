@@ -27,15 +27,12 @@ use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
-use function htmlentities;
 use function htmlspecialchars;
 use function in_array;
 use function max;
 use function mb_strtoupper;
 use function sprintf;
 use function trim;
-
-use const ENT_QUOTES;
 
 /**
  * Routines management.
@@ -185,12 +182,6 @@ final readonly class RoutinesController implements InvocableController
             }
 
             if ($routine !== null) {
-                // Show form
-                for ($i = 0; $i < $routine->numParams; $i++) {
-                    $routine->paramName[$i] = htmlentities($routine->paramName[$i], ENT_QUOTES);
-                    $routine->paramLength[$i] = htmlentities($routine->paramLength[$i], ENT_QUOTES);
-                }
-
                 // Handle some logic first
                 if ($operation === 'change') {
                     $routine->type = $routine->type->getOpposite();
@@ -341,9 +332,7 @@ final readonly class RoutinesController implements InvocableController
                     'params' => $params,
                 ]);
                 if ($request->isAjax()) {
-                    $title = __('Execute routine') . ' ' . Util::backquote(
-                        htmlentities($_GET['item_name'], ENT_QUOTES),
-                    );
+                    $title = __('Execute routine') . ' ' . Util::backquote($routine->name);
                     $this->response->addJSON('message', $form);
                     $this->response->addJSON('title', $title);
                     $this->response->addJSON('dialog', true);
@@ -400,9 +389,9 @@ final readonly class RoutinesController implements InvocableController
                 $exportData = "DELIMITER $$\n" . $routineDefinition . "$$\nDELIMITER ;\n";
             }
 
-            $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
+            $itemName = Util::backquote($_GET['item_name']);
             if ($exportData !== false) {
-                $exportData = htmlspecialchars(trim($exportData));
+                $exportData = trim($exportData);
                 $title = sprintf(__('Export of routine %s'), $itemName);
 
                 if ($request->isAjax()) {
@@ -425,7 +414,7 @@ final readonly class RoutinesController implements InvocableController
                         'Error in processing request: No routine with name %1$s found in database %2$s.'
                         . ' You might be lacking the necessary privileges to view/export this routine.',
                     ),
-                    $itemName,
+                    htmlspecialchars($itemName),
                     htmlspecialchars(Util::backquote(Current::$database)),
                 );
                 $message = Message::error($message);

@@ -1462,12 +1462,6 @@ parameters:
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
-			message: '#^Parameter \#1 \$string of function htmlentities expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
 			message: '#^Parameter \#1 \$string of function mb_strtoupper expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4441,12 +4435,6 @@ parameters:
 			message: '#^Cannot access property \$parameters on PhpMyAdmin\\SqlParser\\Components\\DataType\|null\.$#'
 			identifier: property.nonObject
 			count: 2
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Cannot assign new offset to list\<string\>\|string\|null\.$#'
-			identifier: offsetAssign.dimType
-			count: 1
 			path: src/Database/Routines.php
 
 		-

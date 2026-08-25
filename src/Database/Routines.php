@@ -26,7 +26,6 @@ use function array_merge;
 use function assert;
 use function count;
 use function explode;
-use function htmlentities;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
@@ -40,8 +39,6 @@ use function str_contains;
 use function str_ends_with;
 use function str_starts_with;
 use function stripos;
-
-use const ENT_QUOTES;
 
 /**
  * Functions for routine management.
@@ -1039,12 +1036,6 @@ class Routines
      */
     public function getExecuteForm(RoutineItem $routine): array
     {
-        // Escape special characters
-        $routine->name = htmlentities($routine->name, ENT_QUOTES);
-        for ($i = 0; $i < $routine->numParams; $i++) {
-            $routine->paramName[$i] = htmlentities($routine->paramName[$i], ENT_QUOTES);
-        }
-
         $params = [];
 
         for ($i = 0; $i < $routine->numParams; $i++) {
@@ -1081,9 +1072,8 @@ class Routines
 
             if (in_array($routine->paramType[$i], ['ENUM', 'SET'], true)) {
                 $params[$i]['input_type'] = $routine->paramType[$i] === 'ENUM' ? 'radio' : 'checkbox';
-                foreach ($routine->paramLengthArray[$i] as $value) {
-                    $value = htmlentities(Util::unQuote($value), ENT_QUOTES);
-                    $params[$i]['htmlentities'][] = $value;
+                foreach ($routine->paramLengthArray[$i] as $key => $value) {
+                    $routine->paramLengthArray[$i][$key] = Util::unQuote($value);
                 }
             } else {
                 $params[$i]['input_type'] = 'text';
