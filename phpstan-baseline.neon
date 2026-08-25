@@ -4588,12 +4588,6 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Strict comparison using \=\=\= between array\{SPECIFIC_NAME\: string, ROUTINE_TYPE\: string, DTD_IDENTIFIER\: string\|null, ROUTINE_DEFINITION\: string\|null, IS_DETERMINISTIC\: string, SQL_DATA_ACCESS\: string, ROUTINE_COMMENT\: string, SECURITY_TYPE\: string\} and array\{\} will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#1 \$array of function array_intersect expects an array of values castable to string, array\<mixed, mixed\> given\.$#'
 			identifier: argument.type
 			count: 1

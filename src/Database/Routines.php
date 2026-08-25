@@ -399,6 +399,12 @@ class Routines
                  . ' AND ROUTINE_TYPE=' . $this->dbi->quoteString($type);
         $query = 'SELECT ' . $fields . ' FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
 
+        $routineRow = $this->dbi->fetchSingleRow($query);
+
+        if ($routineRow === []) {
+            return null;
+        }
+
         /**
          * @var array{
          *  SPECIFIC_NAME: string,
@@ -411,11 +417,7 @@ class Routines
          *  SECURITY_TYPE: string
          * } $routine
          */
-        $routine = $this->dbi->fetchSingleRow($query);
-
-        if ($routine === []) {
-            return null;
-        }
+        $routine = $routineRow;
 
         if ($routine['ROUTINE_TYPE'] === 'FUNCTION') {
             $definition = self::getFunctionDefinition($this->dbi, Current::$database, $routine['SPECIFIC_NAME']);

@@ -3218,10 +3218,6 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="src/Database/Routines.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[$routine === []]]></code>
-      <code><![CDATA[$routine === []]]></code>
-    </DocblockTypeContradiction>
     <InvalidReturnStatement>
       <code><![CDATA[$retval]]></code>
       <code><![CDATA[$this->dbi->fetchResult($privilegesBackupQuery, 0)]]></code>
