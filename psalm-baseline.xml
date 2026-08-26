@@ -791,8 +791,6 @@
   </file>
   <file src="src/Controllers/Database/RoutinesController.php">
     <MixedArgument>
-      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
@@ -802,52 +800,7 @@
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_opts_num'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$routine['item_num_params'] - 1]]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$routine['item_param_dir'][]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_length'][]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][]]]></code>
-      <code><![CDATA[$routine['item_param_opts_num'][]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][]]]></code>
-      <code><![CDATA[$routine['item_param_type'][]]]></code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_opts_num'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][$routine['item_num_params'] - 1]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$routine['item_num_params'] - 1]]]></code>
-    </MixedArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_original_name']]]></code>
-      <code><![CDATA[$routine['item_original_type']]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-      <code><![CDATA[$routine['item_num_params']]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
@@ -865,7 +818,6 @@
       <code><![CDATA[$_REQUEST['type'] ?? '']]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
@@ -3248,103 +3200,69 @@
       <code><![CDATA[$returns]]></code>
     </PossiblyUnusedProperty>
   </file>
+  <file src="src/Database/RoutineItem.php">
+    <PossiblyUnusedProperty>
+      <code><![CDATA[$comment]]></code>
+      <code><![CDATA[$definer]]></code>
+      <code><![CDATA[$definition]]></code>
+      <code><![CDATA[$isDeterministic]]></code>
+      <code><![CDATA[$originalName]]></code>
+      <code><![CDATA[$originalType]]></code>
+      <code><![CDATA[$returnLength]]></code>
+      <code><![CDATA[$returnOptsNum]]></code>
+      <code><![CDATA[$returnOptsText]]></code>
+      <code><![CDATA[$returnType]]></code>
+      <code><![CDATA[$securityTypeDefiner]]></code>
+      <code><![CDATA[$securityTypeInvoker]]></code>
+      <code><![CDATA[$sqlDataAccess]]></code>
+    </PossiblyUnusedProperty>
+  </file>
   <file src="src/Database/Routines.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$retval['item_param_dir'][$key]]]></code>
-    </InvalidArrayOffset>
     <InvalidReturnStatement>
+      <code><![CDATA[$retval]]></code>
       <code><![CDATA[$this->dbi->fetchResult($privilegesBackupQuery, 0)]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
+      <code><![CDATA[array{
+     *  item_num_params: int,
+     *  item_param_dir: array<string>,
+     *  item_param_name: array<string>,
+     *  item_param_type: array<string>,
+     *  item_param_length: array<string>,
+     *  item_param_length_arr: array<string[]>,
+     *  item_param_opts_num: array<string>
+     * }]]></code>
       <code><![CDATA[string[][]]]></code>
     </InvalidReturnType>
     <MixedArgument>
-      <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
-      <code><![CDATA[$itemParamOpsNum[$i]]]></code>
-      <code><![CDATA[$itemParamOpsText[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
-      <code><![CDATA[$routine['item_name']]]></code>
-      <code><![CDATA[$routine['item_name']]]></code>
-      <code><![CDATA[$routine['item_name']]]></code>
-      <code><![CDATA[$routine['item_name']]]></code>
-      <code><![CDATA[$routine['item_name']]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$value]]></code>
+      <code><![CDATA[$_POST['funcs'][$routine->paramName[$i]]]]></code>
+      <code><![CDATA[$itemParamDir ?? []]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$itemParamDir]]></code>
-      <code><![CDATA[$itemParamName]]></code>
       <code><![CDATA[$retval['item_param_opts_num'][$idx]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$opt['value']]]></code>
-      <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_length_arr'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
-      <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
-      <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
-      <code><![CDATA[$_POST['params'][$routine['item_param_name'][$i]]]]></code>
-      <code><![CDATA[$_POST['params'][$routine['item_param_name'][$i]]]]></code>
-      <code><![CDATA[$routine['item_param_dir'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_length'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_name'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_opts_num'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_opts_text'][$i]]]></code>
-      <code><![CDATA[$routine['item_param_type'][$i]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$i]]></code>
+      <code><![CDATA[$itemParamLength]]></code>
       <code><![CDATA[$itemParamLength]]></code>
       <code><![CDATA[$itemParamName]]></code>
+      <code><![CDATA[$itemParamName]]></code>
+      <code><![CDATA[$itemParamOptsNum]]></code>
+      <code><![CDATA[$itemParamOptsText]]></code>
+      <code><![CDATA[$itemParamType]]></code>
       <code><![CDATA[$itemParamType]]></code>
       <code><![CDATA[$opt]]></code>
       <code><![CDATA[$retval['item_param_opts_num'][$idx][]]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$itemParamLength[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
-      <code><![CDATA[$_POST['item_isdeterministic']]]></code>
+      <code><![CDATA[$_POST['funcs'][$routine->paramName[$i]]]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
@@ -3361,9 +3279,14 @@
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
+      <code><![CDATA[$stmt->options?->get('DEFINER') ?? '']]></code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayOffset>
+      <code><![CDATA[$_POST['funcs'][$routine->paramName[$i]]]]></code>
+      <code><![CDATA[$_POST['funcs'][$routine->paramName[$i]]]]></code>
+      <code><![CDATA[$_POST['params'][$routine->paramName[$i]]]]></code>
+    </PossiblyInvalidArrayOffset>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_isdeterministic']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
@@ -3377,19 +3300,14 @@
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidIterator>
-      <code><![CDATA[$retval['item_param_dir']]]></code>
-    </PossiblyInvalidIterator>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$_POST['item_returnlength']]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$createRoutine]]></code>
-      <code><![CDATA[$itemType]]></code>
       <code><![CDATA[$param->type->parameters]]></code>
-      <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
-      <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
+      <code><![CDATA[$retval['item_returntype']]]></code>
     </PossiblyNullArgument>
     <PossiblyNullIterator>
       <code><![CDATA[$param->type->options->options]]></code>
@@ -3408,11 +3326,10 @@
     </PossiblyNullReference>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_POST['item_original_type']]]></code>
-      <code><![CDATA[$routine['item_param_name']]]></code>
     </PossiblyUndefinedArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
-      <code><![CDATA[empty($_POST['funcs'][$routine['item_param_name'][$i]])]]></code>
+      <code><![CDATA[empty($_POST['funcs'][$routine->paramName[$i]])]]></code>
       <code><![CDATA[empty($_POST['item_adjust_privileges'])]]></code>
       <code><![CDATA[empty($_POST['item_returnlength'])]]></code>
       <code><![CDATA[empty($_POST['item_returnlength'])]]></code>
@@ -3420,6 +3337,9 @@
       <code><![CDATA[empty($_POST['item_returnopts_text'])]]></code>
       <code><![CDATA[empty($itemParamDir[$i])]]></code>
       <code><![CDATA[empty($itemParamName[$i])]]></code>
+      <code><![CDATA[empty($itemParamOpsNum[$i])]]></code>
+      <code><![CDATA[empty($itemParamOpsText[$i])]]></code>
+      <code><![CDATA[empty($itemParamType[$i])]]></code>
       <code><![CDATA[empty($routine['DTD_IDENTIFIER'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -9596,8 +9516,7 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedAssignment>
-      <code><![CDATA[$_POST[$key]]]></code>
-      <code><![CDATA[$_REQUEST[$key]]]></code>
+      <code><![CDATA[$postData[$key]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <UndefinedAttributeClass>

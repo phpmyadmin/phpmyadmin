@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Database\RoutineItem;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Database\RoutineType;
 use PhpMyAdmin\Dbal\ConnectionType;
@@ -42,29 +43,30 @@ class RoutinesTest extends AbstractTestCase
      * Test for getDataFromRequest
      *
      * @param array<string, mixed> $in  Input
-     * @param array<string, mixed> $out Expected output
+     * @param RoutineItem          $out Expected output
      */
     #[DataProvider('providerGetDataFromRequest')]
-    public function testGetDataFromRequest(array $in, array $out): void
+    public function testGetDataFromRequest(array $in, RoutineItem $out): void
     {
-        unset($_POST);
-        unset($_REQUEST);
+        $postData = [];
         foreach ($in as $key => $value) {
             if ($value === '') {
                 continue;
             }
 
-            $_POST[$key] = $value;
-            $_REQUEST[$key] = $value;
+            $postData[$key] = $value;
         }
 
-        self::assertEquals($out, $this->routines->getDataFromRequest());
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody($postData);
+
+        self::assertEquals($out, $this->routines->getDataFromRequest($request));
     }
 
     /**
      * Data provider for testGetDataFromRequest
      *
-     * @return array<array{array<string, mixed>, array<string, mixed>}>
+     * @return array<array{array<string, mixed>, RoutineItem}>
      */
     public static function providerGetDataFromRequest(): array
     {
@@ -93,31 +95,18 @@ class RoutinesTest extends AbstractTestCase
                     'item_securitytype' => '',
                     'item_sqldataaccess' => '',
                 ],
-                [
-                    'item_name' => '',
-                    'item_original_name' => '',
-                    'item_returnlength' => '',
-                    'item_returnopts_num' => '',
-                    'item_returnopts_text' => '',
-                    'item_definition' => '',
-                    'item_comment' => '',
-                    'item_definer' => '',
-                    'item_type' => 'PROCEDURE',
-                    'item_type_toggle' => 'FUNCTION',
-                    'item_original_type' => 'PROCEDURE',
-                    'item_num_params' => 0,
-                    'item_param_dir' => [],
-                    'item_param_name' => [],
-                    'item_param_type' => [],
-                    'item_param_length' => [],
-                    'item_param_opts_num' => [],
-                    'item_param_opts_text' => [],
-                    'item_returntype' => '',
-                    'item_isdeterministic' => '',
-                    'item_securitytype_definer' => '',
-                    'item_securitytype_invoker' => '',
-                    'item_sqldataaccess' => '',
-                ],
+                new RoutineItem(
+                    name: '',
+                    originalName: '',
+                    returnLength: '',
+                    returnOptsNum: '',
+                    returnOptsText: '',
+                    definition: '',
+                    comment: '',
+                    definer: '',
+                    type: RoutineType::Procedure,
+                    originalType: RoutineType::Procedure,
+                ),
             ],
             [
                 [
@@ -143,31 +132,28 @@ class RoutinesTest extends AbstractTestCase
                     'item_securitytype' => 'INVOKER',
                     'item_sqldataaccess' => 'NO SQL',
                 ],
-                [
-                    'item_name' => 'proc2',
-                    'item_original_name' => 'proc',
-                    'item_returnlength' => '',
-                    'item_returnopts_num' => '',
-                    'item_returnopts_text' => '',
-                    'item_definition' => 'SELECT NULL',
-                    'item_comment' => 'some text',
-                    'item_definer' => 'root@localhost',
-                    'item_type' => 'PROCEDURE',
-                    'item_type_toggle' => 'FUNCTION',
-                    'item_original_type' => 'PROCEDURE',
-                    'item_num_params' => 2,
-                    'item_param_dir' => ['IN', ''],
-                    'item_param_name' => ['bar', 'baz'],
-                    'item_param_type' => ['INT', ''],
-                    'item_param_length' => ['20', ''],
-                    'item_param_opts_num' => ['UNSIGNED', ''],
-                    'item_param_opts_text' => ['', 'latin1'],
-                    'item_returntype' => '',
-                    'item_isdeterministic' => ' checked=\'checked\'',
-                    'item_securitytype_definer' => '',
-                    'item_securitytype_invoker' => ' selected=\'selected\'',
-                    'item_sqldataaccess' => 'NO SQL',
-                ],
+                new RoutineItem(
+                    name: 'proc2',
+                    originalName: 'proc',
+                    returnLength: '',
+                    returnOptsNum: '',
+                    returnOptsText: '',
+                    definition: 'SELECT NULL',
+                    comment: 'some text',
+                    definer: 'root@localhost',
+                    type: RoutineType::Procedure,
+                    originalType: RoutineType::Procedure,
+                    numParams: 2,
+                    paramDir: ['IN', ''],
+                    paramName: ['bar', 'baz'],
+                    paramType: ['INT', ''],
+                    paramLength: ['20', ''],
+                    paramOptsNum: ['UNSIGNED', ''],
+                    paramOptsText: ['', 'latin1'],
+                    isDeterministic: true,
+                    securityTypeInvoker: true,
+                    sqlDataAccess: 'NO SQL',
+                ),
             ],
             [
                 [
@@ -193,31 +179,27 @@ class RoutinesTest extends AbstractTestCase
                     'item_securitytype' => 'DEFINER',
                     'item_sqldataaccess' => '',
                 ],
-                [
-                    'item_name' => 'func2',
-                    'item_original_name' => 'func',
-                    'item_returnlength' => '20',
-                    'item_returnopts_num' => '',
-                    'item_returnopts_text' => 'CHARSET utf8',
-                    'item_definition' => 'SELECT NULL',
-                    'item_comment' => 'some text',
-                    'item_definer' => 'root@localhost',
-                    'item_type' => 'FUNCTION',
-                    'item_type_toggle' => 'PROCEDURE',
-                    'item_original_type' => 'FUNCTION',
-                    'item_num_params' => '2',
-                    'item_param_dir' => [],
-                    'item_param_name' => ['bar', 'baz'],
-                    'item_param_type' => ['', 'TEXT'],
-                    'item_param_length' => ['10,10', ''],
-                    'item_param_opts_num' => ['UNSIGNED', ''],
-                    'item_param_opts_text' => ['', 'utf8'],
-                    'item_returntype' => 'VARCHAR',
-                    'item_isdeterministic' => '',
-                    'item_securitytype_definer' => ' selected=\'selected\'',
-                    'item_securitytype_invoker' => '',
-                    'item_sqldataaccess' => '',
-                ],
+                new RoutineItem(
+                    name: 'func2',
+                    originalName: 'func',
+                    returnLength: '20',
+                    returnOptsNum: '',
+                    returnOptsText: 'CHARSET utf8',
+                    definition: 'SELECT NULL',
+                    comment: 'some text',
+                    definer: 'root@localhost',
+                    type: RoutineType::Function,
+                    originalType: RoutineType::Function,
+                    numParams: 2,
+                    paramDir: [],
+                    paramName: ['bar', 'baz'],
+                    paramType: ['', 'TEXT'],
+                    paramLength: ['10,10', ''],
+                    paramOptsNum: ['UNSIGNED', ''],
+                    paramOptsText: ['', 'utf8'],
+                    returnType: 'VARCHAR',
+                    securityTypeDefiner: true,
+                ),
             ],
         ];
     }
@@ -559,29 +541,32 @@ class RoutinesTest extends AbstractTestCase
         $data = $routines->getDataFromName('test_function', 'FUNCTION');
         $dbiDummy->assertAllQueriesConsumed();
 
-        self::assertSame([
-            'item_name' => 'test_function',
-            'item_type' => 'FUNCTION',
-            'item_num_params' => 1,
-            'item_param_dir' => [null],
-            'item_param_name' => ['s'],
-            'item_param_type' => ['CHAR'],
-            'item_param_length' => ['50'],
-            'item_param_length_arr' => [['50']],
-            'item_param_opts_num' => ['utf8mb4'],
-            'item_param_opts_text' => ['utf8mb4'],
-            'item_type_toggle' => 'PROCEDURE',
-            'item_returntype' => 'CHAR',
-            'item_returnlength' => '50',
-            'item_returnopts_num' => '',
-            'item_returnopts_text' => 'utf8mb4',
-            'item_definer' => '`test_user`@`localhost`',
-            'item_definition' => "BEGIN RETURN CONCAT('Hello, ', s, '!'); END",
-            'item_isdeterministic' => " checked='checked'",
-            'item_securitytype_definer' => " selected='selected'",
-            'item_securitytype_invoker' => '',
-            'item_sqldataaccess' => 'CONTAINS SQL',
-            'item_comment' => 'Comment',
-        ], $data);
+        self::assertEquals(
+            new RoutineItem(
+                name: 'test_function',
+                originalName: 'test_function',
+                returnLength: '50',
+                returnOptsNum: '',
+                returnOptsText: 'utf8mb4',
+                definition: "BEGIN RETURN CONCAT('Hello, ', s, '!'); END",
+                comment: 'Comment',
+                definer: '`test_user`@`localhost`',
+                type: RoutineType::Function,
+                originalType: RoutineType::Function,
+                numParams: 1,
+                paramDir: [''],
+                paramName: ['s'],
+                paramType: ['CHAR'],
+                paramLength: ['50'],
+                paramOptsNum: ['utf8mb4'],
+                paramOptsText: ['utf8mb4'],
+                returnType: 'CHAR',
+                isDeterministic: true,
+                securityTypeDefiner: true,
+                sqlDataAccess: 'CONTAINS SQL',
+                paramLengthArray: [['50']],
+            ),
+            $data,
+        );
     }
 }

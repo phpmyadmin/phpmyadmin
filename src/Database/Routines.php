@@ -18,6 +18,7 @@ use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function _ngettext;
@@ -25,13 +26,11 @@ use function array_merge;
 use function assert;
 use function count;
 use function explode;
-use function htmlentities;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
 use function is_string;
-use function max;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function preg_match;
@@ -40,8 +39,6 @@ use function str_contains;
 use function str_ends_with;
 use function str_starts_with;
 use function stripos;
-
-use const ENT_QUOTES;
 
 /**
  * Functions for routine management.
@@ -292,121 +289,94 @@ class Routines
      * complete the editor form. It is especially necessary to handle
      * the 'Add another parameter', 'Remove last parameter' and
      * 'Change routine type' functionalities when JS is disabled.
-     *
-     * @return mixed[]    Data necessary to create the routine editor.
      */
-    public function getDataFromRequest(): array
+    public function getDataFromRequest(ServerRequest $request): RoutineItem
     {
-        $retval = [];
-        $indices = [
-            'item_name',
-            'item_original_name',
-            'item_returnlength',
-            'item_returnopts_num',
-            'item_returnopts_text',
-            'item_definition',
-            'item_comment',
-            'item_definer',
-        ];
-        foreach ($indices as $index) {
-            $retval[$index] = $_POST[$index] ?? '';
-        }
+        $availableTypes = Util::getSupportedDatatypes($this->dbi);
+        $type = RoutineType::tryFrom($request->getParsedBodyParamAsString('item_type', 'PROCEDURE'))
+            ?? RoutineType::Procedure;
+        $originalType = RoutineType::tryFrom($request->getParsedBodyParamAsString('item_original_type', 'PROCEDURE'))
+            ?? RoutineType::Procedure;
+        $item = new RoutineItem(
+            $request->getParsedBodyParamAsString('item_name', ''),
+            $request->getParsedBodyParamAsString('item_original_name', ''),
+            $request->getParsedBodyParamAsString('item_returnlength', ''),
+            $request->getParsedBodyParamAsString('item_returnopts_num', ''),
+            $request->getParsedBodyParamAsString('item_returnopts_text', ''),
+            $request->getParsedBodyParamAsString('item_definition', ''),
+            $request->getParsedBodyParamAsString('item_comment', ''),
+            $request->getParsedBodyParamAsString('item_definer', ''),
+            $type,
+            $originalType,
+        );
 
-        $retval['item_type'] = 'PROCEDURE';
-        $retval['item_type_toggle'] = 'FUNCTION';
-        if (isset($_POST['item_type']) && $_POST['item_type'] === 'FUNCTION') {
-            $retval['item_type'] = 'FUNCTION';
-            $retval['item_type_toggle'] = 'PROCEDURE';
-        }
+        $itemParamName = $request->getParsedBodyParam('item_param_name');
+        $itemParamType = $request->getParsedBodyParam('item_param_type');
+        $itemParamLength = $request->getParsedBodyParam('item_param_length');
+        $itemParamOptsNum = $request->getParsedBodyParam('item_param_opts_num');
+        $itemParamOptsText = $request->getParsedBodyParam('item_param_opts_text');
 
-        $retval['item_original_type'] = 'PROCEDURE';
-        if (isset($_POST['item_original_type']) && $_POST['item_original_type'] === 'FUNCTION') {
-            $retval['item_original_type'] = 'FUNCTION';
-        }
-
-        $retval['item_num_params'] = 0;
-        $retval['item_param_dir'] = [];
-        $retval['item_param_name'] = [];
-        $retval['item_param_type'] = [];
-        $retval['item_param_length'] = [];
-        $retval['item_param_opts_num'] = [];
-        $retval['item_param_opts_text'] = [];
         if (
-            isset(
-                $_POST['item_param_name'],
-                $_POST['item_param_type'],
-                $_POST['item_param_length'],
-                $_POST['item_param_opts_num'],
-                $_POST['item_param_opts_text'],
-            )
-            && is_array($_POST['item_param_name'])
-            && is_array($_POST['item_param_type'])
-            && is_array($_POST['item_param_length'])
-            && is_array($_POST['item_param_opts_num'])
-            && is_array($_POST['item_param_opts_text'])
+            is_array($itemParamName)
+            && is_array($itemParamType)
+            && is_array($itemParamLength)
+            && is_array($itemParamOptsNum)
+            && is_array($itemParamOptsText)
         ) {
-            if ($_POST['item_type'] === 'PROCEDURE') {
-                $retval['item_param_dir'] = $_POST['item_param_dir'];
-                foreach ($retval['item_param_dir'] as $key => $value) {
+            Assert::allString($itemParamName);
+            Assert::allString($itemParamType);
+            Assert::allString($itemParamLength);
+            Assert::allString($itemParamOptsNum);
+            Assert::allString($itemParamOptsText);
+
+            if ($type === RoutineType::Procedure) {
+                $itemParamDir = $request->getParsedBodyParam('item_param_dir', []);
+                Assert::isArray($itemParamDir);
+                foreach ($itemParamDir as $key => $value) {
                     if (in_array($value, $this->directions, true)) {
                         continue;
                     }
 
-                    $retval['item_param_dir'][$key] = '';
+                    $itemParamDir[$key] = '';
                 }
             }
 
-            $retval['item_param_name'] = $_POST['item_param_name'];
-            $retval['item_param_type'] = $_POST['item_param_type'];
-            foreach ($retval['item_param_type'] as $key => $value) {
-                if (in_array($value, Util::getSupportedDatatypes($this->dbi), true)) {
+            foreach ($itemParamType as $key => $value) {
+                if (in_array($value, $availableTypes, true)) {
                     continue;
                 }
 
-                $retval['item_param_type'][$key] = '';
+                $itemParamType[$key] = '';
             }
 
-            $retval['item_param_length'] = $_POST['item_param_length'];
-            $retval['item_param_opts_num'] = $_POST['item_param_opts_num'];
-            $retval['item_param_opts_text'] = $_POST['item_param_opts_text'];
-            $retval['item_num_params'] = max(
-                count($retval['item_param_name']),
-                count($retval['item_param_type']),
-                count($retval['item_param_length']),
-                count($retval['item_param_opts_num']),
-                count($retval['item_param_opts_text']),
+            $item->setParams(
+                $itemParamName,
+                $itemParamType,
+                $itemParamLength,
+                $itemParamOptsNum,
+                $itemParamOptsText,
+                $itemParamDir ?? [],
             );
         }
 
-        $retval['item_returntype'] = '';
-        if (
-            isset($_POST['item_returntype'])
-            && in_array($_POST['item_returntype'], Util::getSupportedDatatypes($this->dbi), true)
-        ) {
-            $retval['item_returntype'] = $_POST['item_returntype'];
+        $itemReturnType = $request->getParsedBodyParamAsStringOrNull('item_returntype');
+        $item->returnType = in_array($itemReturnType, $availableTypes, true)
+            ? $itemReturnType
+            : '';
+
+        $item->isDeterministic =
+            mb_strtolower($request->getParsedBodyParamAsString('item_isdeterministic', '')) === 'on';
+
+        $itemSecurityType = $request->getParsedBodyParamAsStringOrNull('item_securitytype');
+        $item->securityTypeDefiner = $itemSecurityType === 'DEFINER';
+        $item->securityTypeInvoker = $itemSecurityType === 'INVOKER';
+
+        $itemSqlDataAccess = $request->getParsedBodyParamAsStringOrNull('item_sqldataaccess');
+        if (in_array($itemSqlDataAccess, $this->sqlDataAccess, true)) {
+            $item->sqlDataAccess = $itemSqlDataAccess;
         }
 
-        $retval['item_isdeterministic'] = '';
-        if (isset($_POST['item_isdeterministic']) && mb_strtolower($_POST['item_isdeterministic']) === 'on') {
-            $retval['item_isdeterministic'] = " checked='checked'";
-        }
-
-        $retval['item_securitytype_definer'] = '';
-        $retval['item_securitytype_invoker'] = '';
-        if (isset($_POST['item_securitytype'])) {
-            if ($_POST['item_securitytype'] === 'DEFINER') {
-                $retval['item_securitytype_definer'] = " selected='selected'";
-            } elseif ($_POST['item_securitytype'] === 'INVOKER') {
-                $retval['item_securitytype_invoker'] = " selected='selected'";
-            }
-        }
-
-        $retval['item_sqldataaccess'] = '';
-        if (isset($_POST['item_sqldataaccess']) && in_array($_POST['item_sqldataaccess'], $this->sqlDataAccess, true)) {
-            $retval['item_sqldataaccess'] = $_POST['item_sqldataaccess'];
-        }
-
-        return $retval;
+        return $item;
     }
 
     /**
@@ -415,11 +385,8 @@ class Routines
      *
      * @param string $name The name of the routine.
      * @param string $type Type of routine (ROUTINE|PROCEDURE)
-     * @param bool   $all  Whether to return all data or just the info about parameters.
-     *
-     * @return mixed[]|null    Data necessary to create the routine editor.
      */
-    public function getDataFromName(string $name, string $type, bool $all = true): array|null
+    public function getDataFromName(string $name, string $type): RoutineItem|null
     {
         $retval = [];
 
@@ -433,15 +400,25 @@ class Routines
                  . ' AND ROUTINE_TYPE=' . $this->dbi->quoteString($type);
         $query = 'SELECT ' . $fields . ' FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
 
-        $routine = $this->dbi->fetchSingleRow($query);
+        $routineRow = $this->dbi->fetchSingleRow($query);
 
-        if ($routine === []) {
+        if ($routineRow === []) {
             return null;
         }
 
-        // Get required data
-        $retval['item_name'] = $routine['SPECIFIC_NAME'];
-        $retval['item_type'] = $routine['ROUTINE_TYPE'];
+        /**
+         * @var array{
+         *  SPECIFIC_NAME: string,
+         *  ROUTINE_TYPE: string,
+         *  DTD_IDENTIFIER: string|null,
+         *  ROUTINE_DEFINITION: string|null,
+         *  IS_DETERMINISTIC: string,
+         *  SQL_DATA_ACCESS: string,
+         *  ROUTINE_COMMENT: string,
+         *  SECURITY_TYPE: string
+         * } $routine
+         */
+        $routine = $routineRow;
 
         if ($routine['ROUTINE_TYPE'] === 'FUNCTION') {
             $definition = self::getFunctionDefinition($this->dbi, Current::$database, $routine['SPECIFIC_NAME']);
@@ -466,14 +443,6 @@ class Routines
         }
 
         $retval = array_merge($retval, $this->getParameters($stmt));
-        $retval['item_param_opts_text'] = $retval['item_param_opts_num'];
-
-        // Get extra data
-        if (! $all) {
-            return $retval;
-        }
-
-        $retval['item_type_toggle'] = $retval['item_type'] === 'FUNCTION' ? 'PROCEDURE' : 'FUNCTION';
 
         $retval['item_returntype'] = '';
         $retval['item_returnlength'] = '';
@@ -504,25 +473,31 @@ class Routines
             $retval['item_returnopts_num'] = implode(' ', $numericOpts);
         }
 
-        $retval['item_definer'] = $stmt->options?->get('DEFINER') ?? '';
-        $retval['item_definition'] = $body;
-        $retval['item_isdeterministic'] = '';
-        if ($routine['IS_DETERMINISTIC'] === 'YES') {
-            $retval['item_isdeterministic'] = " checked='checked'";
-        }
-
-        $retval['item_securitytype_definer'] = '';
-        $retval['item_securitytype_invoker'] = '';
-        if ($routine['SECURITY_TYPE'] === 'DEFINER') {
-            $retval['item_securitytype_definer'] = " selected='selected'";
-        } elseif ($routine['SECURITY_TYPE'] === 'INVOKER') {
-            $retval['item_securitytype_invoker'] = " selected='selected'";
-        }
-
-        $retval['item_sqldataaccess'] = $routine['SQL_DATA_ACCESS'];
-        $retval['item_comment'] = $routine['ROUTINE_COMMENT'];
-
-        return $retval;
+        return new RoutineItem(
+            $routine['SPECIFIC_NAME'],
+            $routine['SPECIFIC_NAME'],
+            $retval['item_returnlength'],
+            $retval['item_returnopts_num'],
+            $retval['item_returnopts_text'],
+            $body,
+            $routine['ROUTINE_COMMENT'],
+            $stmt->options?->get('DEFINER') ?? '',
+            RoutineType::from($routine['ROUTINE_TYPE']),
+            RoutineType::from($routine['ROUTINE_TYPE']),
+            $retval['item_num_params'],
+            $retval['item_param_dir'],
+            $retval['item_param_name'],
+            $retval['item_param_type'],
+            $retval['item_param_length'],
+            $retval['item_param_opts_num'],
+            $retval['item_param_opts_num'],
+            $retval['item_returntype'],
+            $routine['IS_DETERMINISTIC'] === 'YES',
+            $routine['SECURITY_TYPE'] === 'DEFINER',
+            $routine['SECURITY_TYPE'] === 'INVOKER',
+            $routine['SQL_DATA_ACCESS'],
+            $retval['item_param_length_arr'],
+        );
     }
 
     /**
@@ -530,7 +505,15 @@ class Routines
      *
      * @param CreateStatement $statement the statement to be processed
      *
-     * @return array<string, int|array<int, mixed[]|string|null>>
+     * @return array{
+     *  item_num_params: int,
+     *  item_param_dir: array<string>,
+     *  item_param_name: array<string>,
+     *  item_param_type: array<string>,
+     *  item_param_length: array<string>,
+     *  item_param_length_arr: array<string[]>,
+     *  item_param_opts_num: array<string>
+     * }
      */
     private function getParameters(CreateStatement $statement): array
     {
@@ -571,38 +554,24 @@ class Routines
     /**
      * Creates one row for the parameter table used in the routine editor.
      *
-     * @param mixed[] $routine Data for the routine returned by
-     *                       getDataFromRequest() or getDataFromName()
-     * @param mixed   $index   Either a numeric index of the row being processed
-     *                         or NULL to create a template row for AJAX request
-     * @param string  $class   Class used to hide the direction column, if the
-     *                         row is for a stored function.
+     * @param int|null $index Either a numeric index of the row being processed
+     *                        or NULL to create a template row for AJAX request
+     * @param string   $class Class used to hide the direction column, if the
+     *                        row is for a stored function.
      *
      * @return mixed[]
      */
-    public function getParameterRow(array $routine = [], mixed $index = null, string $class = ''): array
+    public function getParameterRow(RoutineItem|null $routine = null, int|null $index = null, string $class = ''): array
     {
         if ($index === null) {
             // template row for AJAX request
             $i = 0;
             $index = '%s';
             $dropClass = '';
-            $routine = [
-                'item_param_dir' => [''],
-                'item_param_name' => [''],
-                'item_param_type' => [''],
-                'item_param_length' => [''],
-                'item_param_opts_num' => [''],
-                'item_param_opts_text' => [''],
-            ];
-        } elseif ($routine !== []) {
+        } else {
             // regular row for routine editor
             $dropClass = ' hide';
             $i = $index;
-        } else {
-            // No input data. This shouldn't happen,
-            // but better be safe than sorry.
-            return [];
         }
 
         $allCharsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
@@ -611,7 +580,7 @@ class Routines
             $charsets[] = [
                 'name' => $charset->getName(),
                 'description' => $charset->getDescription(),
-                'is_selected' => $charset->getName() === mb_strtolower($routine['item_param_opts_text'][$i]),
+                'is_selected' => $charset->getName() === mb_strtolower($routine->paramOptsText[$i] ?? ''),
             ];
         }
 
@@ -620,12 +589,12 @@ class Routines
             'index' => $index,
             'param_directions' => $this->directions,
             'param_opts_num' => $this->numericOptions,
-            'item_param_dir' => $routine['item_param_dir'][$i] ?? '',
-            'item_param_name' => $routine['item_param_name'][$i] ?? '',
-            'item_param_length' => $routine['item_param_length'][$i] ?? '',
-            'item_param_opts_num' => $routine['item_param_opts_num'][$i] ?? '',
+            'item_param_dir' => $routine->paramDir[$i] ?? '',
+            'item_param_name' => $routine->paramName[$i] ?? '',
+            'item_param_length' => $routine->paramLength[$i] ?? '',
+            'item_param_opts_num' => $routine->paramOptsNum[$i] ?? '',
             'supported_datatypes' => Generator::getSupportedDatatypes(
-                $this->dbi->types->mapAliasToMysqlType($routine['item_param_type'][$i]),
+                $this->dbi->types->mapAliasToMysqlType($routine->paramType[$i] ?? ''),
             ),
             'charsets' => $charsets,
             'drop_class' => $dropClass,
@@ -637,10 +606,10 @@ class Routines
      *
      * @param string[] $itemParamName     The parameter names
      * @param string[] $itemParamDir      The direction parameter (see $this->directions)
-     * @param mixed[]  $itemParamType     The parameter type
-     * @param mixed[]  $itemParamLength   A length or not for the parameter
-     * @param mixed[]  $itemParamOpsText  An optional charset for the parameter
-     * @param mixed[]  $itemParamOpsNum   An optional parameter for a $itemParamType NUMBER
+     * @param string[] $itemParamType     The parameter type
+     * @param string[] $itemParamLength   A length or not for the parameter
+     * @param string[] $itemParamOpsText  An optional charset for the parameter
+     * @param string[] $itemParamOpsNum   An optional parameter for a $itemParamType NUMBER
      * @param bool     $warnedAboutLength A boolean that will be switched if a the length warning is given
      */
     private function processParamsAndBuild(
@@ -840,13 +809,21 @@ class Routines
 
         $params = '';
         if (
-            $itemParamName !== []
+            $itemType !== null
+            && $itemParamName !== []
             && $itemParamType !== []
             && $itemParamLength !== []
             && is_array($itemParamName)
             && is_array($itemParamType)
             && is_array($itemParamLength)
         ) {
+            Assert::allString($itemParamName);
+            Assert::allString($itemParamDir);
+            Assert::allString($itemParamType);
+            Assert::allString($itemParamLength);
+            Assert::allString($itemParamOpsText);
+            Assert::allString($itemParamOpsNum);
+
             $params = $this->processParamsAndBuild(
                 $itemParamName,
                 $itemParamDir,
@@ -895,32 +872,28 @@ class Routines
         return $query;
     }
 
-    /**
-     * @param mixed[] $routine The routine params
-     *
-     * @return string[] The SQL queries / SQL query parts
-     */
-    private function getQueriesFromRoutineForm(array $routine): array
+    /** @return string[] The SQL queries / SQL query parts */
+    private function getQueriesFromRoutineForm(RoutineItem $routine): array
     {
         $queries = [];
         $outParams = [];
         $args = [];
         $allFunctions = $this->dbi->types->getAllFunctions();
-        for ($i = 0; $i < $routine['item_num_params']; $i++) {
-            if (isset($_POST['params'][$routine['item_param_name'][$i]])) {
-                $value = $_POST['params'][$routine['item_param_name'][$i]];
+        for ($i = 0; $i < $routine->numParams; $i++) {
+            if (isset($_POST['params'][$routine->paramName[$i]])) {
+                $value = $_POST['params'][$routine->paramName[$i]];
                 if (is_array($value)) { // is SET type
                     $value = implode(',', $value);
                 }
 
                 if (
-                    ! empty($_POST['funcs'][$routine['item_param_name'][$i]])
-                    && in_array($_POST['funcs'][$routine['item_param_name'][$i]], $allFunctions, true)
+                    ! empty($_POST['funcs'][$routine->paramName[$i]])
+                    && in_array($_POST['funcs'][$routine->paramName[$i]], $allFunctions, true)
                 ) {
                     $queries[] = sprintf(
                         'SET @p%d=%s(%s);',
                         $i,
-                        $_POST['funcs'][$routine['item_param_name'][$i]],
+                        $_POST['funcs'][$routine->paramName[$i]],
                         $this->dbi->quoteString($value),
                     );
                 } else {
@@ -930,21 +903,21 @@ class Routines
 
             $args[] = '@p' . $i;
 
-            if ($routine['item_type'] !== 'PROCEDURE') {
+            if ($routine->type !== RoutineType::Procedure) {
                 continue;
             }
 
-            if ($routine['item_param_dir'][$i] !== 'OUT' && $routine['item_param_dir'][$i] !== 'INOUT') {
+            if ($routine->paramDir[$i] !== 'OUT' && $routine->paramDir[$i] !== 'INOUT') {
                 continue;
             }
 
-            $outParams[] = '@p' . $i . ' AS ' . Util::backquote($routine['item_param_name'][$i]);
+            $outParams[] = '@p' . $i . ' AS ' . Util::backquote($routine->paramName[$i]);
         }
 
-        if ($routine['item_type'] === 'PROCEDURE') {
+        if ($routine->type === RoutineType::Procedure) {
             $queries[] = sprintf(
                 'CALL %s(%s);',
-                Util::backquote($routine['item_name']),
+                Util::backquote($routine->name),
                 implode(', ', $args),
             );
             if ($outParams !== []) {
@@ -953,21 +926,17 @@ class Routines
         } else {
             $queries[] = sprintf(
                 'SELECT %s(%s) AS %s;',
-                Util::backquote($routine['item_name']),
+                Util::backquote($routine->name),
                 implode(', ', $args),
-                Util::backquote($routine['item_name']),
+                Util::backquote($routine->name),
             );
         }
 
         return $queries;
     }
 
-    /**
-     * @param mixed[] $routine
-     *
-     * @psalm-return array{string, Message}
-     */
-    public function handleExecuteRoutine(array $routine): array
+    /** @psalm-return array{string, Message} */
+    public function handleExecuteRoutine(RoutineItem $routine): array
     {
         $queries = $this->getQueriesFromRoutineForm($routine);
 
@@ -1024,14 +993,14 @@ class Routines
         $output .= '<div class="card my-3"><div class="card-header">';
         $output .= sprintf(
             __('Execution results of routine %s'),
-            htmlspecialchars(Util::backquote($routine['item_name'])),
+            htmlspecialchars(Util::backquote($routine->name)),
         );
         $output .= '</div><div class="card-body">';
         $output .= $resultHtmlTables;
         $output .= '</div></div>';
 
         $message = __('Your SQL query has been executed successfully.');
-        if ($routine['item_type'] === 'PROCEDURE') {
+        if ($routine->type === RoutineType::Procedure) {
             $message .= '<br>';
 
             // TODO : message need to be modified according to the
@@ -1074,34 +1043,26 @@ class Routines
     /**
      * Creates the HTML code that shows the routine execution dialog.
      *
-     * @param mixed[] $routine Data for the routine returned by getDataFromName()
-     *
-     * @return array{mixed[], mixed[]}
+     * @return array{RoutineItem, mixed[]}
      */
-    public function getExecuteForm(array $routine): array
+    public function getExecuteForm(RoutineItem $routine): array
     {
-        // Escape special characters
-        $routine['item_name'] = htmlentities($routine['item_name'], ENT_QUOTES);
-        for ($i = 0; $i < $routine['item_num_params']; $i++) {
-            $routine['item_param_name'][$i] = htmlentities($routine['item_param_name'][$i], ENT_QUOTES);
-        }
-
         $params = [];
 
-        for ($i = 0; $i < $routine['item_num_params']; $i++) {
-            if ($routine['item_type'] === 'PROCEDURE' && $routine['item_param_dir'][$i] === 'OUT') {
+        for ($i = 0; $i < $routine->numParams; $i++) {
+            if ($routine->type === RoutineType::Procedure && $routine->paramDir[$i] === 'OUT') {
                 continue;
             }
 
             if ($this->config->config->ShowFunctionFields) {
                 if (
-                    stripos($routine['item_param_type'][$i], 'enum') !== false
-                    || stripos($routine['item_param_type'][$i], 'set') !== false
+                    stripos($routine->paramType[$i], 'enum') !== false
+                    || stripos($routine->paramType[$i], 'set') !== false
                 ) {
                     $params[$i]['generator'] = null;
                 } else {
                     $defaultFunction = Generator::getDefaultFunctionForField(
-                        mb_strtolower($routine['item_param_type'][$i]),
+                        mb_strtolower($routine->paramType[$i]),
                         false,
                         '',
                         '',
@@ -1114,17 +1075,16 @@ class Routines
                 }
             }
 
-            if ($routine['item_param_type'][$i] === 'DATETIME' || $routine['item_param_type'][$i] === 'TIMESTAMP') {
+            if ($routine->paramType[$i] === 'DATETIME' || $routine->paramType[$i] === 'TIMESTAMP') {
                 $params[$i]['class'] = 'datetimefield';
-            } elseif ($routine['item_param_type'][$i] === 'DATE') {
+            } elseif ($routine->paramType[$i] === 'DATE') {
                 $params[$i]['class'] = 'datefield';
             }
 
-            if (in_array($routine['item_param_type'][$i], ['ENUM', 'SET'], true)) {
-                $params[$i]['input_type'] = $routine['item_param_type'][$i] === 'ENUM' ? 'radio' : 'checkbox';
-                foreach ($routine['item_param_length_arr'][$i] as $value) {
-                    $value = htmlentities(Util::unQuote($value), ENT_QUOTES);
-                    $params[$i]['htmlentities'][] = $value;
+            if (in_array($routine->paramType[$i], ['ENUM', 'SET'], true)) {
+                $params[$i]['input_type'] = $routine->paramType[$i] === 'ENUM' ? 'radio' : 'checkbox';
+                foreach ($routine->paramLengthArray[$i] as $key => $value) {
+                    $routine->paramLengthArray[$i][$key] = Util::unQuote($value);
                 }
             } else {
                 $params[$i]['input_type'] = 'text';
