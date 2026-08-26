@@ -3237,19 +3237,10 @@
     <MixedArgument>
       <code><![CDATA[$_POST['funcs'][$routine->paramName[$i]]]]></code>
       <code><![CDATA[$itemParamDir ?? []]]></code>
-      <code><![CDATA[$itemParamOpsNum[$i]]]></code>
-      <code><![CDATA[$itemParamOpsText[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$itemParamDir]]></code>
-      <code><![CDATA[$itemParamName]]></code>
-      <code><![CDATA[$itemParamType]]></code>
       <code><![CDATA[$retval['item_param_opts_num'][$idx]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedArgumentTypeCoercion>
@@ -3269,13 +3260,7 @@
       <code><![CDATA[$retval['item_param_opts_num'][$idx][]]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$itemParamLength[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
-      <code><![CDATA[$itemParamType[$i]]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['funcs'][$routine->paramName[$i]]]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
@@ -3321,7 +3306,6 @@
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$createRoutine]]></code>
-      <code><![CDATA[$itemType]]></code>
       <code><![CDATA[$param->type->parameters]]></code>
       <code><![CDATA[$retval['item_returntype']]]></code>
     </PossiblyNullArgument>
@@ -3353,6 +3337,9 @@
       <code><![CDATA[empty($_POST['item_returnopts_text'])]]></code>
       <code><![CDATA[empty($itemParamDir[$i])]]></code>
       <code><![CDATA[empty($itemParamName[$i])]]></code>
+      <code><![CDATA[empty($itemParamOpsNum[$i])]]></code>
+      <code><![CDATA[empty($itemParamOpsText[$i])]]></code>
+      <code><![CDATA[empty($itemParamType[$i])]]></code>
       <code><![CDATA[empty($routine['DTD_IDENTIFIER'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>

@@ -4392,19 +4392,13 @@ parameters:
 		-
 			message: '#^Binary operation "\." between ''\('' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 2
+			count: 1
 			path: src/Database/Routines.php
 
 		-
 			message: '#^Binary operation "\." between ''DROP '' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
 			path: src/Database/Routines.php
 
 		-
@@ -4498,12 +4492,6 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#1 \$itemParamName of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects array\<string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 6
@@ -4518,19 +4506,19 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function mb_strtolower expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Database/Routines.php
 
 		-
 			message: '#^Parameter \#1 \$string of function mb_strtoupper expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Database/Routines.php
 
 		-
 			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeClass\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 4
+			count: 2
 			path: src/Database/Routines.php
 
 		-
@@ -4546,15 +4534,9 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#2 \$itemParamDir of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects array\<string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#2 \$subject of function preg_match expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 4
+			count: 2
 			path: src/Database/Routines.php
 
 		-
@@ -4571,12 +4553,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Routines\:\:getProcedureDefinition\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#7 \$itemType of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects PhpMyAdmin\\Database\\RoutineType, PhpMyAdmin\\Database\\RoutineType\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Database/Routines.php

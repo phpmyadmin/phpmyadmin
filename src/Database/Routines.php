@@ -324,6 +324,7 @@ class Routines
             && is_array($itemParamOptsText)
         ) {
             Assert::allString($itemParamName);
+            Assert::allString($itemParamType);
             Assert::allString($itemParamLength);
             Assert::allString($itemParamOptsNum);
             Assert::allString($itemParamOptsText);
@@ -605,10 +606,10 @@ class Routines
      *
      * @param string[] $itemParamName     The parameter names
      * @param string[] $itemParamDir      The direction parameter (see $this->directions)
-     * @param mixed[]  $itemParamType     The parameter type
-     * @param mixed[]  $itemParamLength   A length or not for the parameter
-     * @param mixed[]  $itemParamOpsText  An optional charset for the parameter
-     * @param mixed[]  $itemParamOpsNum   An optional parameter for a $itemParamType NUMBER
+     * @param string[] $itemParamType     The parameter type
+     * @param string[] $itemParamLength   A length or not for the parameter
+     * @param string[] $itemParamOpsText  An optional charset for the parameter
+     * @param string[] $itemParamOpsNum   An optional parameter for a $itemParamType NUMBER
      * @param bool     $warnedAboutLength A boolean that will be switched if a the length warning is given
      */
     private function processParamsAndBuild(
@@ -808,13 +809,21 @@ class Routines
 
         $params = '';
         if (
-            $itemParamName !== []
+            $itemType !== null
+            && $itemParamName !== []
             && $itemParamType !== []
             && $itemParamLength !== []
             && is_array($itemParamName)
             && is_array($itemParamType)
             && is_array($itemParamLength)
         ) {
+            Assert::allString($itemParamName);
+            Assert::allString($itemParamDir);
+            Assert::allString($itemParamType);
+            Assert::allString($itemParamLength);
+            Assert::allString($itemParamOpsText);
+            Assert::allString($itemParamOpsNum);
+
             $params = $this->processParamsAndBuild(
                 $itemParamName,
                 $itemParamDir,
