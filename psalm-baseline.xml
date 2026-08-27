@@ -331,7 +331,7 @@
     </MixedAssignment>
     <MixedReturnTypeCoercion>
       <code><![CDATA[$names]]></code>
-      <code><![CDATA[string[]]]></code>
+      <code><![CDATA[list<string>]]></code>
     </MixedReturnTypeCoercion>
   </file>
   <file src="src/Config/Forms/Setup/FeaturesForm.php">
