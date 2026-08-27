@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-08-23 00:18+0000\n"
-"PO-Revision-Date: 2026-08-25 23:36+0000\n"
+"PO-Revision-Date: 2026-08-27 19:52+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -50,7 +50,7 @@ msgstr ""
 #: resources/templates/base.twig:84 resources/templates/home/index.twig:153
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr ""
+msgstr "Gaišs"
 
 #: resources/templates/base.twig:86 resources/templates/home/index.twig:155
 msgctxt "Dark color mode of the theme"
@@ -1462,6 +1462,7 @@ msgstr "Drukāt"
 #: src/Plugins/Export/Helpers/Pdf.php:485
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#, fuzzy
 msgid "Links to"
 msgstr "Linki uz"
 
@@ -2009,7 +2010,7 @@ msgstr ""
 
 #: resources/templates/database/events/index.twig:132
 msgid "ON"
-msgstr ""
+msgstr "IESLĒGT"
 
 #: resources/templates/database/events/index.twig:143
 msgid "OFF"
@@ -3437,7 +3438,7 @@ msgstr "Datubāze"
 #: resources/templates/export.twig:210 resources/templates/export.twig:224
 #: resources/templates/export.twig:237 resources/templates/export.twig:254
 msgid "Remove"
-msgstr ""
+msgstr "Noņemt"
 
 #: resources/templates/export.twig:218
 #: src/Controllers/JavaScriptMessagesController.php:284
@@ -3750,7 +3751,7 @@ msgstr "Licence"
 #: resources/templates/home/index.twig:300
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
-msgstr ""
+msgstr "Brīdinājums"
 
 #: resources/templates/home/index.twig:302
 msgid "Notice"
@@ -3951,27 +3952,33 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Lūdzu, noskenējiet tālāk norādīto QR kodu savas ierīces divfaktoru "
+"autorizācijas lietotnē un ievadiet ģenerēto autorizācijas kodu."
 
 #: resources/templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
-msgstr ""
+msgstr "Slepenais kods/atslēga:"
 
 #: resources/templates/login/twofactor/application_configure.twig:16
 #: resources/templates/login/twofactor/application.twig:2
 msgid "Authentication code:"
-msgstr "Autentifikācijas kods:"
+msgstr "Autorizācijas kods:"
 
 #: resources/templates/login/twofactor/application.twig:5
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Atveriet divfaktoru autorizācijas lietotni savā ierīcē, lai skatītu "
+"autorizācijas kodu un apstiprinātu savu identitāti."
 
 #: resources/templates/login/twofactor/invalid.twig:2
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
+"Iestatītā divfaktoru autorizācija nav pieejama. Lūdzu, uzstādiet trūkstošās "
+"atkarības."
 
 #: resources/templates/login/twofactor/key_configure.twig:3
 #: resources/templates/login/twofactor/key.twig:3
@@ -4075,9 +4082,8 @@ msgstr "MariaDB dokumentācija"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
-#, fuzzy
 msgid "MySQL Documentation"
-msgstr "Dokumentācija"
+msgstr "MySQL dokumentācija"
 
 #: resources/templates/navigation/main.twig:43
 #: resources/templates/navigation/main.twig:44
@@ -4164,9 +4170,8 @@ msgid "Manage your settings"
 msgstr "Pārvaldīt savus iestatījumus"
 
 #: resources/templates/preferences/header.twig:12
-#, fuzzy
 msgid "Two-factor authentication"
-msgstr "Dokumentācija"
+msgstr "Divfaktoru (2FA) autorizācija"
 
 #: resources/templates/preferences/header.twig:18
 #: src/Config/Forms/User/FeaturesForm.php:81
@@ -4249,14 +4254,12 @@ msgid ""
 msgstr ""
 
 #: resources/templates/preferences/manage/main.twig:80
-#, fuzzy
 msgid "Save as JSON file"
-msgstr "Saglabāt kā failu"
+msgstr "Saglabāt kā JSON datni"
 
 #: resources/templates/preferences/manage/main.twig:84
-#, fuzzy
 msgid "Save as PHP file"
-msgstr "Saglabāt kā failu"
+msgstr "Saglabāt kā PHP datni"
 
 #: resources/templates/preferences/manage/main.twig:89
 msgid "Save to browser's storage"
@@ -4278,38 +4281,40 @@ msgstr ""
 #: resources/templates/preferences/two_factor/main.twig:77
 #: resources/templates/preferences/two_factor/main.twig:98
 msgid "Configure two-factor authentication"
-msgstr ""
+msgstr "Iestatīt divfaktoru autorizāciju"
 
 #: resources/templates/preferences/two_factor/configure.twig:12
-#, fuzzy
 msgid "Enable two-factor authentication"
-msgstr "Mainīt paroli"
+msgstr "Iespējot divfaktoru autorizāciju"
 
 #: resources/templates/preferences/two_factor/confirm.twig:5
 msgid "Confirm disabling two-factor authentication"
-msgstr ""
+msgstr "Apstipriniet divfaktoru autorizācijas atspējošanu"
 
 #: resources/templates/preferences/two_factor/confirm.twig:9
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"Atspējojot divfaktoru autorizāciju, jūs varēsiet atkal pieteikties tikai ar "
+"paroli."
 
 #: resources/templates/preferences/two_factor/confirm.twig:13
 #: resources/templates/preferences/two_factor/main.twig:66
 msgid "Disable two-factor authentication"
-msgstr "Atspējot divfaktoru (2FA) autentifikāciju"
+msgstr "Atspējot divfaktoru (2FA) autorizāciju"
 
 #: resources/templates/preferences/two_factor/main.twig:5
-#, fuzzy
 msgid "Two-factor authentication status"
-msgstr "Dokumentācija"
+msgstr "Divfaktoru autorizācijas statuss"
 
 #: resources/templates/preferences/two_factor/main.twig:11
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Divfaktoru autorizācija nav pieejama. Lūdzu, uzstādiet neobligātās "
+"atkarības, lai iespējotu iekšējās autorizācijas komponentes."
 
 #: resources/templates/preferences/two_factor/main.twig:12
 #: resources/templates/preferences/two_factor/main.twig:27
@@ -4318,12 +4323,12 @@ msgstr ""
 
 #: resources/templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
+msgstr "Šim kontam pieejama un iestatīta divfaktoru autorizācija."
 
 #: resources/templates/preferences/two_factor/main.twig:22
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
-msgstr ""
+msgstr "Šim kontam pieejama divfaktoru autorizācija, taču tā nav iestatīta."
 
 #: resources/templates/preferences/two_factor/main.twig:26
 msgid ""
@@ -4812,7 +4817,7 @@ msgstr "Papildinājumi"
 
 #: resources/templates/server/plugins/index.twig:26
 msgid "Plugin"
-msgstr ""
+msgstr "Papildinājums"
 
 #: resources/templates/server/plugins/index.twig:28
 #: resources/templates/table/tracking/main.twig:28
@@ -4821,7 +4826,7 @@ msgstr "Versija"
 
 #: resources/templates/server/plugins/index.twig:29
 msgid "Author"
-msgstr ""
+msgstr "Autors"
 
 #: resources/templates/server/plugins/index.twig:41
 msgid "inactive"
@@ -6395,7 +6400,7 @@ msgstr ""
 #: resources/templates/setup/base.twig:28
 #: resources/templates/setup/home/index.twig:20
 msgid "Overview"
-msgstr ""
+msgstr "Pārskats"
 
 #: resources/templates/setup/config/index.twig:4
 #: resources/templates/setup/home/index.twig:100
@@ -6422,7 +6427,7 @@ msgstr ""
 
 #: resources/templates/setup/error.twig:14
 msgid "Ignore errors"
-msgstr ""
+msgstr "Ignorēt kļūdas"
 
 #: resources/templates/setup/error.twig:18
 #, fuzzy
@@ -6452,7 +6457,7 @@ msgstr "Noklusējuma valoda"
 
 #: resources/templates/setup/home/index.twig:131
 msgid "Default server"
-msgstr ""
+msgstr "Noklusējuma serveris"
 
 #: resources/templates/setup/home/index.twig:142
 msgid "let the user choose"
@@ -6471,13 +6476,12 @@ msgid "Display"
 msgstr ""
 
 #: resources/templates/setup/home/index.twig:179
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin dokumentācija"
+msgstr "phpMyAdmin vietne"
 
 #: resources/templates/setup/home/index.twig:180
 msgid "Donate"
-msgstr ""
+msgstr "Ziedot"
 
 #: resources/templates/setup/home/index.twig:181
 msgid "Check for latest version"
@@ -6485,12 +6489,11 @@ msgstr ""
 
 #: resources/templates/setup/servers/index.twig:6
 msgid "Edit server"
-msgstr ""
+msgstr "Rediģēt serveri"
 
 #: resources/templates/setup/servers/index.twig:11
-#, fuzzy
 msgid "Add a new server"
-msgstr "Pievienot jaunu lietotāju"
+msgstr "Pievienot jaunu serveri"
 
 #: resources/templates/setup/servers/index.twig:17
 msgid "Something went wrong."
@@ -9094,7 +9097,7 @@ msgstr "Ielikt"
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:552
 #: src/Config/ConfigFile.php:557 src/Config/ConfigFile.php:565
 msgid "Both"
-msgstr ""
+msgstr "Abi"
 
 #: src/Config/ConfigFile.php:549
 msgid "Nowhere"
@@ -10729,7 +10732,7 @@ msgstr "CSV dati"
 
 #: src/Config/Descriptions.php:730
 msgid "Developer"
-msgstr ""
+msgstr "Izstrādātājs"
 
 #: src/Config/Descriptions.php:731
 msgid "Edit mode"
@@ -10833,7 +10836,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:763
 msgid "Warnings"
-msgstr ""
+msgstr "Brīdinājumi"
 
 #: src/Config/Descriptions.php:765
 msgid "GZip"
@@ -11630,7 +11633,7 @@ msgstr "CSV dati MS Excel formātā"
 
 #: src/Config/Forms/User/ExportForm.php:114
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "Microsoft Word 2000 dokuments"
 
 #: src/Config/Forms/User/ExportForm.php:120
 #: src/Config/Forms/User/ImportForm.php:47
@@ -14350,11 +14353,11 @@ msgstr ""
 
 #: src/Controllers/Preferences/TwoFactorController.php:49
 msgid "Two-factor authentication has been removed."
-msgstr "Divfaktoru autentifikācija noņemta."
+msgstr "Divfaktoru autorizācija noņemta."
 
 #: src/Controllers/Preferences/TwoFactorController.php:62
 msgid "Two-factor authentication has been configured."
-msgstr ""
+msgstr "Divfaktoru autorizācija iestatīta."
 
 #: src/Controllers/SchemaExportController.php:40
 #: src/Controllers/Server/UserGroupsFormController.php:46
@@ -16135,7 +16138,7 @@ msgstr ""
 
 #: src/Menu.php:284 src/Menu.php:395 src/Util.php:1405 src/Util.php:1419
 msgid "Tracking"
-msgstr ""
+msgstr "Izsekošana"
 
 #: src/Menu.php:336 src/Menu.php:344 src/Menu.php:352
 msgid "Database seems to be empty!"
@@ -16634,6 +16637,7 @@ msgstr ""
 #: src/Plugins/AuthenticationPlugin.php:315
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"Ir iespējota divfaktoru autorizācija. Lūdzu, apstipriniet savu pieteikšanos."
 
 #: src/Plugins/Export/ExportCsv.php:68 src/Plugins/Export/ExportToon.php:62
 #: src/Plugins/Import/AbstractImportCsv.php:36
@@ -17059,7 +17063,7 @@ msgstr ""
 
 #: src/Plugins/Export/Helpers/Pdf.php:149
 msgid "Purpose:"
-msgstr ""
+msgstr "Mērķis:"
 
 #: src/Plugins/Import/AbstractImportCsv.php:30
 msgid ""
@@ -17476,9 +17480,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr ""
 
 #: src/Plugins/TwoFactor/Application.php:128
-#, fuzzy
 msgid "Authentication Application (2FA)"
-msgstr "Dokumentācija"
+msgstr "Autorizācijas lietotne (2FA)"
 
 #: src/Plugins/TwoFactor/Application.php:137
 msgid ""
@@ -17499,25 +17502,23 @@ msgstr ""
 #: src/Plugins/TwoFactorPlugin.php:57
 #, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr ""
+msgstr "Divfaktoru autorizācija neizdevās: %s"
 
 #: src/Plugins/TwoFactorPlugin.php:62
 msgid "Two-factor authentication failed."
-msgstr ""
+msgstr "Divfaktoru autorizācija neizdevās."
 
 #: src/Plugins/TwoFactorPlugin.php:110
-#, fuzzy
 msgid "No Two-Factor Authentication"
-msgstr "Dokumentācija"
+msgstr "Nav divfaktoru autorizācijas"
 
 #: src/Plugins/TwoFactorPlugin.php:118
 msgid "Login using password only."
 msgstr ""
 
 #: src/Plugins/TwoFactor/Simple.php:47
-#, fuzzy
 msgid "Simple two-factor authentication"
-msgstr "Mainīt paroli"
+msgstr "Vienkārša divfaktoru autorizācija"
 
 #: src/Plugins/TwoFactor/Simple.php:55
 msgid "For testing purposes only!"
@@ -17763,9 +17764,8 @@ msgid "Handler"
 msgstr ""
 
 #: src/Server/Status/Data.php:117
-#, fuzzy
 msgid "Query cache"
-msgstr "Vaicājuma tips"
+msgstr "Vaicājumu kešatmiņa"
 
 #: src/Server/Status/Data.php:118
 msgid "Threads"
@@ -17782,7 +17782,7 @@ msgstr "Lietot aizturētos INSERT"
 
 #: src/Server/Status/Data.php:122
 msgid "Key cache"
-msgstr ""
+msgstr "Atslēgu kešatmiņa"
 
 #: src/Server/Status/Data.php:123
 msgid "Joins"
