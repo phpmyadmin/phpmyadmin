@@ -284,13 +284,13 @@ class ExportOds extends ExportPlugin
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
-    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    private function setStringValue(mixed $fromRequest, string $fromConfig): string
     {
         if (is_string($fromRequest) && $fromRequest !== '') {
             return $fromRequest;
         }
 
-        if (is_string($fromConfig) && $fromConfig !== '') {
+        if ($fromConfig !== '') {
             return $fromConfig;
         }
 

@@ -293,13 +293,12 @@ class ExportCodegen extends ExportPlugin
     }
 
     /** @return self::HANDLER_NHIBERNATE_* */
-    private function setFormat(mixed $fromRequest, mixed $fromConfig): int
+    private function setFormat(mixed $fromRequest, int $fromConfig): int
     {
-        $value = self::HANDLER_NHIBERNATE_CS;
         if (is_numeric($fromRequest)) {
             $value = (int) $fromRequest;
-        } elseif (is_numeric($fromConfig)) {
-            $value = (int) $fromConfig;
+        } else {
+            $value = $fromConfig;
         }
 
         return $value === self::HANDLER_NHIBERNATE_XML ? self::HANDLER_NHIBERNATE_XML : self::HANDLER_NHIBERNATE_CS;

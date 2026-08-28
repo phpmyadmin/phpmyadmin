@@ -47,6 +47,7 @@ class FormatConverterTest extends AbstractTestCase
             ['666566', 'fef', true],
             ['0ded', hex2bin('0DED'), true],
             ['127.0.0.1', hex2bin('30783766303030303031'), true],
+            ['0x0a0b0c', '0x0a0b0c', false],
         ];
     }
 
