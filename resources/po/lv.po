@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-08-23 00:18+0000\n"
-"PO-Revision-Date: 2026-08-27 19:52+0000\n"
+"PO-Revision-Date: 2026-08-29 00:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -20,9 +20,8 @@ msgid "Javascript must be enabled past this point!"
 msgstr "Lai nodrošinātu pilnu funkcionalitāti, jums ir jāiespējo JavaScript!"
 
 #: resources/templates/base.twig:50
-#, fuzzy
 msgid "Open user account menu"
-msgstr "Pievienot lietotāju"
+msgstr "Atvērt lietotāja konta izvēlni"
 
 #: resources/templates/base.twig:61 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -30,14 +29,12 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin dokumentācija"
 
 #: resources/templates/base.twig:66
-#, fuzzy
 msgid "MariaDB documentation"
-msgstr "Dokumentācija"
+msgstr "MariaDB dokumentācija"
 
 #: resources/templates/base.twig:66
-#, fuzzy
 msgid "MySQL documentation"
-msgstr "Dokumentācija"
+msgstr "MySQL dokumentācija"
 
 #: resources/templates/base.twig:77
 msgid "Appearance:"
@@ -55,7 +52,7 @@ msgstr "Gaišs"
 #: resources/templates/base.twig:86 resources/templates/home/index.twig:155
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Tumšs"
 
 #: resources/templates/base.twig:99
 #: resources/templates/server/status/monitor/index.twig:8
@@ -104,7 +101,7 @@ msgstr "Trūkst Git informācijas!"
 #: resources/templates/database/central_columns/main.twig:71
 #: resources/templates/database/central_columns/main.twig:304
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Rediģēt ENUM/SET vērtības"
 
 #: resources/templates/columns_definitions/column_attributes.twig:38
 #: resources/templates/database/central_columns/edit_table_row.twig:30
@@ -216,7 +213,7 @@ msgstr "Nav"
 #: resources/templates/database/create_table.twig:6
 #: resources/templates/database/operations/index.twig:31
 msgid "Table name"
-msgstr ""
+msgstr "Tabulas nosaukums"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:30
 #: resources/templates/console/display.twig:136
@@ -491,6 +488,7 @@ msgstr "Šī ir ārējā atslēga."
 #: src/Plugins/Export/Helpers/Pdf.php:470
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
+#, fuzzy
 msgid "Column"
 msgstr "Lauks"
 
@@ -570,9 +568,8 @@ msgid "Max rows"
 msgstr "Maksimālais rindu skaits"
 
 #: resources/templates/columns_definitions/partitions.twig:89
-#, fuzzy
 msgid "Min rows"
-msgstr "Apskatīt"
+msgstr "Minimālais rindu skaits"
 
 #: resources/templates/columns_definitions/partitions.twig:90
 #, fuzzy
@@ -992,7 +989,7 @@ msgstr ""
 #: resources/templates/config/form_display/input.twig:63
 #: resources/templates/config/form_display/input.twig:64
 msgid "Restore default value"
-msgstr ""
+msgstr "Atjaunot noklusējuma vērtību"
 
 #: resources/templates/config/form_display/input.twig:79
 #: resources/templates/config/form_display/input.twig:80
@@ -1630,7 +1627,7 @@ msgstr ""
 #: resources/templates/database/designer/main.twig:112
 #: resources/templates/database/designer/main.twig:115
 msgid "Help"
-msgstr ""
+msgstr "Palīdzība"
 
 #: resources/templates/database/designer/main.twig:120
 #: resources/templates/database/designer/main.twig:123
@@ -1959,7 +1956,7 @@ msgstr "Iezīmēt visu"
 #: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
 #: src/Util.php:1383 src/Util.php:1398 src/Util.php:1415
 msgid "Export"
-msgstr "Eksports"
+msgstr "Izgūt"
 
 #: resources/templates/database/events/index.twig:20
 #: resources/templates/database/events/index.twig:21
@@ -2150,7 +2147,7 @@ msgstr "kritērijs"
 #: resources/templates/database/multi_table_query/form.twig:56
 #: src/Util.php:1643
 msgid "Sort"
-msgstr "Kārtošana"
+msgstr "Kārtot"
 
 #: resources/templates/database/multi_table_query/form.twig:57
 #: resources/templates/server/databases/index.twig:109
@@ -2314,7 +2311,7 @@ msgstr ""
 #: src/Config/Descriptions.php:713
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "Pievienot %s"
 
 #: resources/templates/database/operations/index.twig:161
 #: resources/templates/table/operations/index.twig:73
@@ -2534,7 +2531,7 @@ msgstr "Funkcija"
 
 #: resources/templates/database/routines/execute_form.twig:54
 msgid "This routine does not require any parameters."
-msgstr ""
+msgstr "Šai apakšprogrammai nav nepieciešami parametri."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:375
 #: src/Util.php:1402
@@ -2555,9 +2552,8 @@ msgid "Search"
 msgstr "Meklēt"
 
 #: resources/templates/database/routines/index.twig:36
-#, fuzzy
 msgid "Create new routine"
-msgstr "Servera versija"
+msgstr "Izveidot jaunu apakšprogrammu"
 
 #: resources/templates/database/routines/index.twig:49
 msgid "There are no routines to display."
@@ -2569,14 +2565,12 @@ msgid "Returns"
 msgstr "Tabulas opcijas"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
 msgid "Routine editor"
-msgstr "Kolonnu nosaukumi"
+msgstr "Apakšprogrammas redaktors"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
 msgid "Export routine"
-msgstr "Eksporta veids"
+msgstr "Izgūt apakšprogrammu"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:354
@@ -2593,7 +2587,7 @@ msgstr "Izpildīt"
 #: resources/templates/database/routines/parameter_row.twig:24
 #: resources/templates/modals/enum_set_editor.twig:5
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET redaktors"
 
 #: resources/templates/database/search/main.twig:2
 msgid "Search in database"
@@ -3713,7 +3707,7 @@ msgstr "Datubāzes klienta versija:"
 
 #: resources/templates/home/index.twig:231
 msgid "PHP extension:"
-msgstr "PHP paplašinājums:"
+msgstr "PHP papildinājums:"
 
 #: resources/templates/home/index.twig:238
 msgid "PHP version:"
@@ -3793,7 +3787,7 @@ msgstr "Atpakaļ"
 #: src/Config/Forms/User/ImportForm.php:59 src/Menu.php:250 src/Menu.php:357
 #: src/Menu.php:474 src/Util.php:1384 src/Util.php:1399 src/Util.php:1416
 msgid "Import"
-msgstr "Imports"
+msgstr "Ievietot"
 
 #: resources/templates/import.twig:23
 msgid "File to import:"
@@ -4180,20 +4174,18 @@ msgstr ""
 
 #: resources/templates/preferences/header.twig:24
 #: src/Config/Descriptions.php:755 src/Config/Forms/User/SqlForm.php:38
-#, fuzzy
 msgid "SQL queries"
-msgstr "SQL vaicājums"
+msgstr "SQL vaicājumi"
 
 #: resources/templates/preferences/header.twig:30
 #: src/Config/Descriptions.php:738 src/Config/Forms/User/NaviForm.php:57
 msgid "Navigation panel"
-msgstr ""
+msgstr "Navigācijas panelis"
 
 #: resources/templates/preferences/header.twig:36
 #: src/Config/Descriptions.php:742 src/Config/Forms/User/MainForm.php:76
-#, fuzzy
 msgid "Main panel"
-msgstr "Pievienot jaunu lauku"
+msgstr "Galvenais panelis"
 
 #: resources/templates/preferences/header.twig:55
 #: resources/templates/preferences/manage/main.twig:71
@@ -4939,9 +4931,8 @@ msgstr ""
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
 #: src/Server/Privileges.php:1574
-#, fuzzy
 msgid "Routine-specific privileges"
-msgstr "Kolonnu specifiskās privilēģijas"
+msgstr "Apakšprogrammu specifiskās privilēģijas"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:52
 #: resources/templates/server/privileges/privileges_table.twig:11
@@ -4955,18 +4946,18 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Ļauj lietotājam pārvaldīt (piešķirt vai noņemt) citu lietotāju privilēģijas, "
+"kas piešķirtas šajā apakšprogrammā."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:78
 #: resources/templates/server/privileges/edit_routine_privileges.twig:81
-#, fuzzy
 msgid "Allows altering and dropping this routine."
-msgstr "Ļauj veidot un dzēst indeksus."
+msgstr "Ļauj mainīt un dzēst šo apakšprogrammu."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:90
 #: resources/templates/server/privileges/edit_routine_privileges.twig:93
-#, fuzzy
 msgid "Allows executing this routine."
-msgstr "Ļauj veidot jaunas tabulas."
+msgstr "Ļauj izpildīt šo apakšprogrammu."
 
 #: resources/templates/server/privileges/initials_row.twig:1
 #, fuzzy
@@ -5883,7 +5874,7 @@ msgstr "S"
 
 #: resources/templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "Instrukcijas/Iestatīšana"
 
 #: resources/templates/server/status/monitor/index.twig:16
 #, fuzzy
@@ -6107,9 +6098,8 @@ msgid "Query"
 msgstr "Vaicājums"
 
 #: resources/templates/server/status/monitor/index.twig:280
-#, fuzzy
 msgid "Analyse query"
-msgstr "Analizēt pieprasījumu"
+msgstr "Analizēt vaicājumu"
 
 #: resources/templates/server/status/monitor/index.twig:290
 msgid "Analysing logs"
@@ -6893,12 +6883,11 @@ msgstr ""
 
 #: resources/templates/table/index_form.twig:84
 msgid "Index type:"
-msgstr "Indeksa tips&nbsp;:"
+msgstr "Indeksa tips:"
 
 #: resources/templates/table/index_form.twig:101
-#, fuzzy
 msgid "Parser:"
-msgstr "Lietotājs:"
+msgstr "Parsētājs:"
 
 #: resources/templates/table/index_form.twig:117
 msgid "Comment:"
@@ -7136,9 +7125,8 @@ msgstr "Nav datubāzu"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
 #: src/Config/Descriptions.php:758 src/Plugins/Export/ExportPdf.php:170
-#, fuzzy
 msgid "Table structure"
-msgstr "Datubāzes"
+msgstr "Tabulas struktūra"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:11
 #, fuzzy
@@ -10743,9 +10731,8 @@ msgid "Export defaults"
 msgstr ""
 
 #: src/Config/Descriptions.php:733
-#, fuzzy
 msgid "General"
-msgstr "Uzģenerēja"
+msgstr "Vispārīgie"
 
 #: src/Config/Descriptions.php:734
 #, fuzzy
@@ -10754,7 +10741,7 @@ msgstr "Importēt failus"
 
 #: src/Config/Descriptions.php:735
 msgid "Import / export"
-msgstr ""
+msgstr "Ievietot / Izgūt"
 
 #: src/Config/Descriptions.php:736
 msgid "LaTeX"
@@ -10812,9 +10799,8 @@ msgid "Startup"
 msgstr "Statuss"
 
 #: src/Config/Descriptions.php:757
-#, fuzzy
 msgid "Database structure"
-msgstr "Datubāzes"
+msgstr "Datubāzes struktūra"
 
 #: src/Config/Descriptions.php:759
 msgid "Tabs"
@@ -10947,7 +10933,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:802
 msgid "Maximum databases"
-msgstr ""
+msgstr "Maksimālais datubāzu skaits"
 
 #: src/Config/Descriptions.php:803
 #, fuzzy
@@ -10964,7 +10950,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:806
 msgid "Maximum tables"
-msgstr ""
+msgstr "Maksimālais tabulu skaits"
 
 #: src/Config/Descriptions.php:807
 #, fuzzy
@@ -11014,7 +11000,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:817
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "Minimālais vienumu skaits, ko parādīt atlases laukā"
 
 #: src/Config/Descriptions.php:819
 msgid "Minimum number of databases to display the database filter box"
@@ -11075,9 +11061,8 @@ msgid "Expand single database"
 msgstr "Kopē datubāzi"
 
 #: src/Config/Descriptions.php:833
-#, fuzzy
 msgid "Recently used tables"
-msgstr "Analizēt tabulu"
+msgstr "Nesen izmantotās tabulas"
 
 #: src/Config/Descriptions.php:835
 msgid "Where to show the table row links"
@@ -11093,9 +11078,8 @@ msgid "Natural order"
 msgstr "Mainīt datu kārtošanas laukus"
 
 #: src/Config/Descriptions.php:839
-#, fuzzy
 msgid "Table navigation bar"
-msgstr "Tabulas virsraksts"
+msgstr "Tabulas navigācijas josla"
 
 #: src/Config/Descriptions.php:840
 msgid "GZip output buffering"
@@ -11494,7 +11478,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:941
 msgid "Proxy URL"
-msgstr ""
+msgstr "Starpniekservera URL adrese"
 
 #: src/Config/Descriptions.php:942
 msgid "Proxy username"
@@ -11589,7 +11573,7 @@ msgstr "Mainīgais"
 #: src/Config/FormDisplay.php:768
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\"%s\" nepieciešams %s papildinājums"
 
 #: src/Config/FormDisplay.php:790
 #, php-format
@@ -12158,6 +12142,9 @@ msgid ""
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
+"Kļūda, apstrādājot pieprasījumu: Apakšprogramma ar %1$s nosaukumu netika "
+"atrasta %2$s datubāzē. Iespējams, jums nav nepieciešamo privilēģiju, lai "
+"skatītu/izgūtu šo apakšprogrammu."
 
 #: src/Controllers/Database/SearchController.php:63
 msgid ""
@@ -13153,6 +13140,7 @@ msgid "Show search results"
 msgstr "Rādīt meklēšanas rezultātus"
 
 #: src/Controllers/JavaScriptMessagesController.php:356
+#, fuzzy
 msgid "Browsing"
 msgstr "Apskata"
 
@@ -13333,12 +13321,11 @@ msgstr ""
 #: src/Controllers/JavaScriptMessagesController.php:420
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr ""
+msgstr "DZĒST (DROP) %s kolonnas %s tabulā"
 
 #: src/Controllers/JavaScriptMessagesController.php:421
-#, fuzzy
 msgid "Create the following table"
-msgstr "Pievienot privilēģijas uz sekojošo tabulu"
+msgstr "Izveidot sekojošo tabulu"
 
 #: src/Controllers/JavaScriptMessagesController.php:424
 msgid "Third step of normalization (3NF)"
@@ -13762,7 +13749,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:634
 msgid "Successfully copied!"
-msgstr ""
+msgstr "Veiksmīgi nokopēts!"
 
 #: src/Controllers/JavaScriptMessagesController.php:635
 msgid "Copying failed!"
@@ -15037,7 +15024,7 @@ msgstr ""
 
 #: src/Controllers/Setup/HomeController.php:84
 msgid "Insecure connection"
-msgstr ""
+msgstr "Nedrošs savienojums"
 
 #: src/Controllers/Setup/ValidateController.php:61
 #, fuzzy
@@ -15274,7 +15261,7 @@ msgstr ""
 #: src/Core.php:106 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "Trūkst %s papildinājums. Lūdzu, pārbaudiet savu PHP konfigurāciju."
 
 #: src/Database/CentralColumns.php:321
 #, php-format
@@ -15450,7 +15437,7 @@ msgstr "Atvainojiet, mums neizdevās atjaunot izdzēsto apakšprogrammu."
 #: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "%1$s apakšprogramma izmainīta. Privilēģijas ir pielāgotas."
+msgstr "%1$s apakšprogramma izmainīta. Privilēģijas pielāgotas."
 
 #: src/Database/Routines.php:279
 #, php-format
@@ -17170,7 +17157,7 @@ msgstr ""
 #: src/Plugins/Import/ImportShp.php:201
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL Spatial papildinājums neatbalsta \"%s\" ESRI tipu."
 
 #: src/Plugins/Import/ImportShp.php:246
 msgid "The imported file does not contain any data!"
@@ -17790,7 +17777,7 @@ msgstr ""
 
 #: src/Server/Status/Data.php:125
 msgid "Sorting"
-msgstr ""
+msgstr "Kārtošana"
 
 #: src/Server/Status/Data.php:127
 msgid "Transaction coordinator"
@@ -17829,7 +17816,7 @@ msgstr "Komanda"
 
 #: src/Server/Status/Processes.php:110
 msgid "Progress"
-msgstr ""
+msgstr "Progress"
 
 #: src/Setup/Index.php:127
 msgid ""
