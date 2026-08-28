@@ -1077,10 +1077,6 @@
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_ROWS']]]></code>
     </PossiblyNullOperand>
-    <RedundantCast>
-      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
-      <code><![CDATA[(string) $_REQUEST['tbl_group']]]></code>
-    </RedundantCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $currentTable['COUNTED']]]></code>
     </RiskyTruthyFalsyComparison>
@@ -8415,10 +8411,6 @@
       <code><![CDATA[$assertionResponseDecoded]]></code>
       <code><![CDATA[$attestationResponseDecoded]]></code>
     </MixedAssignment>
-    <RedundantCondition>
-      <code><![CDATA[isInstanceOf]]></code>
-      <code><![CDATA[isInstanceOf]]></code>
-    </RedundantCondition>
   </file>
   <file src="src/ZipExtension.php">
     <ArgumentTypeCoercion>

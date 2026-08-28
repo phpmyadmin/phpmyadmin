@@ -196,7 +196,6 @@ final class WebauthnLibServer implements Server
             'rpId' => $host,
             'timeout' => 60000,
         ]);
-        Assert::isInstanceOf($requestOptions, PublicKeyCredentialRequestOptions::class);
 
         $attestationStatementSupportManager = new AttestationStatementSupportManager();
         $attestationStatementSupportManager->add(new NoneAttestationStatementSupport());
@@ -284,7 +283,6 @@ final class WebauthnLibServer implements Server
             'timeout' => 60000,
         ];
         $credentialCreationOptions = PublicKeyCredentialCreationOptions::createFromArray($creationOptionsArray);
-        Assert::isInstanceOf($credentialCreationOptions, PublicKeyCredentialCreationOptions::class);
 
         $attestationStatementSupportManager = new AttestationStatementSupportManager();
         $attestationStatementSupportManager->add(new NoneAttestationStatementSupport());

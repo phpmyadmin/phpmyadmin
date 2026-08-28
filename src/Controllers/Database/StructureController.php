@@ -44,7 +44,6 @@ use function count;
 use function implode;
 use function in_array;
 use function is_numeric;
-use function is_scalar;
 use function is_string;
 use function max;
 use function mb_substr;
@@ -108,7 +107,7 @@ final class StructureController implements InvocableController
 
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($this->config->config->SkipLockedTables) {
-            $tables = $this->getTablesWhenOpen(Current::$database);
+            $tables = $this->getTablesWhenOpen(Current::$database, (string) $request->getParam('tbl_group'));
             $totalNumTables = count($tables);
         } else {
             [$tables, $totalNumTables] = $this->getDbInfo(
@@ -1041,7 +1040,7 @@ final class StructureController implements InvocableController
      *
      * @return (string|int|null)[][] list of tables
      */
-    private function getTablesWhenOpen(string $db): array
+    private function getTablesWhenOpen(string $db, string $tableGroupParam): array
     {
         $openTables = $this->dbi->query(
             'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ' WHERE In_use > 0;',
@@ -1063,14 +1062,10 @@ final class StructureController implements InvocableController
         $tables = [];
         $tblGroupSql = '';
         $whereAdded = false;
-        if (
-            isset($_REQUEST['tbl_group'])
-            && is_scalar($_REQUEST['tbl_group'])
-            && (string) $_REQUEST['tbl_group'] !== ''
-        ) {
-            $group = $this->dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
+        if ($tableGroupParam !== '') {
+            $group = $this->dbi->escapeMysqlWildcards($tableGroupParam);
             $groupWithSeparator = $this->dbi->escapeMysqlWildcards(
-                $_REQUEST['tbl_group'] . $this->config->config->NavigationTreeTableSeparator,
+                $tableGroupParam . $this->config->config->NavigationTreeTableSeparator,
             );
             $tblGroupSql .= ' WHERE ('
                 . Util::backquote('Tables_in_' . $db)

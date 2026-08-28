@@ -1573,15 +1573,9 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Binary operation "\." between mixed and array\<string\>\|string\|false results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Binary operation "\." between non\-empty\-string and array\<string\>\|string\|false results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
+			count: 2
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -1594,6 +1588,12 @@ parameters:
 			message: '#^Cannot access offset ''table_limit_offset_db'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -2227,7 +2227,7 @@ parameters:
 			path: src/Controllers/Server/ReplicationController.php
 
 		-
-			message: '#^Static property PhpMyAdmin\\UrlParams\:\:\$params \(array\<string, bool\|int\|string\>\) does not accept array\<mixed, mixed\>\.$#'
+			message: '#^Static property PhpMyAdmin\\UrlParams\:\:\$params \(array\<string, bool\|int\|string\>\) does not accept array\<mixed, string\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Controllers/Server/ReplicationController.php
@@ -7409,12 +7409,6 @@ parameters:
 			identifier: if.condNotBoolean
 			count: 1
 			path: src/Navigation/Navigation.php
-
-		-
-			message: '#^Access to an undefined property PhpMyAdmin\\Navigation\\Nodes\\Node\:\:\$secondIcon\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Navigation/NavigationTree.php
 
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
@@ -13162,18 +13156,6 @@ parameters:
 			'''
 			identifier: method.deprecatedClass
 			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '#^Call to static method Webmozart\\Assert\\Assert\:\:isInstanceOf\(\) with Webauthn\\PublicKeyCredentialCreationOptions and ''Webauthn\\\\PublicKeyCredentialCreationOptions'' will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '#^Call to static method Webmozart\\Assert\\Assert\:\:isInstanceOf\(\) with Webauthn\\PublicKeyCredentialRequestOptions and ''Webauthn\\\\PublicKeyCredentialRequestOptions'' will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
 			path: src/WebAuthn/WebauthnLibServer.php
 
 		-
