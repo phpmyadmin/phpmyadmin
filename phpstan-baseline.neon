@@ -9186,6 +9186,14 @@ parameters:
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
 
 		-
+			message: """
+				#^Fetching class constant class of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Controllers/Table/GisVisualizationController.php
+
+		-
 			message: "#^Parameter \\#1 \\$arr1 of function array_merge expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Table/GisVisualizationController.php
@@ -18071,6 +18079,22 @@ parameters:
 			path: libraries/classes/Gis/GisGeometry.php
 
 		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisGeometry.php
+
+		-
+			message: """
+				#^Return type of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisGeometry.php
+
+		-
 			message: "#^Cannot access offset 'geom_count' on mixed\\.$#"
 			count: 2
 			path: libraries/classes/Gis/GisGeometryCollection.php
@@ -18211,6 +18235,22 @@ parameters:
 			path: libraries/classes/Gis/GisGeometryCollection.php
 
 		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisGeometryCollection.php
+
+		-
+			message: """
+				#^Return type of method PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisGeometryCollection.php
+
+		-
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisGeometryCollection\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisGeometryCollection.php
@@ -18297,6 +18337,22 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisLineString.php
+
+		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisLineString.php
+
+		-
+			message: """
+				#^Return type of method PhpMyAdmin\\\\Gis\\\\GisLineString\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
 			count: 1
 			path: libraries/classes/Gis/GisLineString.php
 
@@ -18407,6 +18463,22 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:string\\(\\) expects int, int\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiLineString.php
+
+		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisMultiLineString.php
+
+		-
+			message: """
+				#^Return type of method PhpMyAdmin\\\\Gis\\\\GisMultiLineString\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
 			count: 1
 			path: libraries/classes/Gis/GisMultiLineString.php
 
@@ -18527,6 +18599,22 @@ parameters:
 
 		-
 			message: "#^Parameter \\#7 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:arc\\(\\) expects int, int\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisMultiPoint.php
+
+		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisMultiPoint.php
+
+		-
+			message: """
+				#^Return type of method PhpMyAdmin\\\\Gis\\\\GisMultiPoint\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
 			count: 1
 			path: libraries/classes/Gis/GisMultiPoint.php
 
@@ -18701,6 +18789,22 @@ parameters:
 			path: libraries/classes/Gis/GisMultiPolygon.php
 
 		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
+			message: """
+				#^Return type of method PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisMultiPolygon.php
+
+		-
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisMultiPolygon\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisMultiPolygon.php
@@ -18787,6 +18891,22 @@ parameters:
 
 		-
 			message: "#^Parameter \\#7 \\$color of method PhpMyAdmin\\\\Image\\\\ImageWrapper\\:\\:arc\\(\\) expects int, int\\|false given\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisPoint.php
+
+		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisPoint.php
+
+		-
+			message: """
+				#^Return type of method PhpMyAdmin\\\\Gis\\\\GisPoint\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
 			count: 1
 			path: libraries/classes/Gis/GisPoint.php
 
@@ -18921,6 +19041,22 @@ parameters:
 			path: libraries/classes/Gis/GisPolygon.php
 
 		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisPolygon.php
+
+		-
+			message: """
+				#^Return type of method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:prepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Gis/GisPolygon.php
+
+		-
 			message: "#^Static property PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:\\$instance \\(PhpMyAdmin\\\\Gis\\\\GisPolygon\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: libraries/classes/Gis/GisPolygon.php
@@ -18977,6 +19113,14 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisVisualization.php
+
+		-
+			message: """
+				#^Instantiation of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 
@@ -19157,6 +19301,14 @@ parameters:
 
 		-
 			message: "#^Parameter \\#5 \\$image of method PhpMyAdmin\\\\Gis\\\\GisGeometry\\:\\:prepareRowAsPng\\(\\) expects PhpMyAdmin\\\\Image\\\\ImageWrapper, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Gis/GisVisualization.php
+
+		-
+			message: """
+				#^Parameter \\$results of method PhpMyAdmin\\\\Gis\\\\GisVisualization\\:\\:prepareDataSet\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
 			count: 1
 			path: libraries/classes/Gis/GisVisualization.php
 
@@ -24401,8 +24553,40 @@ parameters:
 			path: libraries/classes/Partitioning/TablePartitionDefinition.php
 
 		-
+			message: """
+				#^Call to method UTF8ToUTF16BE\\(\\) of deprecated class TCPDF_FONTS\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 2
+			path: libraries/classes/Pdf.php
+
+		-
+			message: """
+				#^Call to method __construct\\(\\) of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Pdf.php
+
+		-
+			message: """
+				#^Call to method _putpages\\(\\) of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Pdf.php
+
+		-
 			message: "#^Cannot access offset int\\<1, max\\> on mixed\\.$#"
 			count: 2
+			path: libraries/classes/Pdf.php
+
+		-
+			message: """
+				#^Class PhpMyAdmin\\\\Pdf extends deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
 			path: libraries/classes/Pdf.php
 
 		-
@@ -26301,6 +26485,14 @@ parameters:
 			path: libraries/classes/Plugins/Export/ExportPdf.php
 
 		-
+			message: """
+				#^Fetching class constant class of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Plugins/Export/ExportPdf.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Plugins\\\\Export\\\\ExportPdf\\:\\:exportData\\(\\) has parameter \\$aliases with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Export/ExportPdf.php
@@ -27668,6 +27860,14 @@ parameters:
 		-
 			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
 			count: 2
+			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: """
+				#^Call to method empty_string\\(\\) of deprecated class TCPDF_STATIC\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
 			path: libraries/classes/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -29779,6 +29979,14 @@ parameters:
 			message: "#^Parameter \\#1 \\$table of method PhpMyAdmin\\\\Plugins\\\\Schema\\\\RelationStats\\:\\:getXy\\(\\) expects PhpMyAdmin\\\\Plugins\\\\Schema\\\\TableStats, string given\\.$#"
 			count: 2
 			path: libraries/classes/Plugins/Schema/RelationStats.php
+
+		-
+			message: """
+				#^Fetching class constant class of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: libraries/classes/Plugins/Schema/SchemaPdf.php
 
 		-
 			message: "#^Call to an undefined method object\\:\\:printElementLine\\(\\)\\.$#"
@@ -43911,6 +44119,22 @@ parameters:
 			path: test/classes/Gis/GisGeometryCollectionTest.php
 
 		-
+			message: """
+				#^Fetching class constant class of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisGeometryCollectionTest.php
+
+		-
+			message: """
+				#^Instantiation of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisGeometryCollectionTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:providerForGenerateParams\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
@@ -43972,6 +44196,14 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:testScaleRow\\(\\) has parameter \\$output with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: test/classes/Gis/GisGeometryCollectionTest.php
+
+		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeometryCollectionTest\\:\\:testPrepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
 			count: 1
 			path: test/classes/Gis/GisGeometryCollectionTest.php
 
@@ -44041,6 +44273,22 @@ parameters:
 			path: test/classes/Gis/GisLineStringTest.php
 
 		-
+			message: """
+				#^Fetching class constant class of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisLineStringTest.php
+
+		-
+			message: """
+				#^Instantiation of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisLineStringTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:providerForPrepareRowAsOl\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: test/classes/Gis/GisLineStringTest.php
@@ -44096,7 +44344,31 @@ parameters:
 			path: test/classes/Gis/GisLineStringTest.php
 
 		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisLineStringTest\\:\\:testPrepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisLineStringTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Gis/GisMultiLineStringTest.php
+
+		-
+			message: """
+				#^Fetching class constant class of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisMultiLineStringTest.php
+
+		-
+			message: """
+				#^Instantiation of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
 			count: 1
 			path: test/classes/Gis/GisMultiLineStringTest.php
 
@@ -44156,7 +44428,31 @@ parameters:
 			path: test/classes/Gis/GisMultiLineStringTest.php
 
 		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiLineStringTest\\:\\:testPrepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisMultiLineStringTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Gis/GisMultiPointTest.php
+
+		-
+			message: """
+				#^Fetching class constant class of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisMultiPointTest.php
+
+		-
+			message: """
+				#^Instantiation of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
 			count: 1
 			path: test/classes/Gis/GisMultiPointTest.php
 
@@ -44216,6 +44512,14 @@ parameters:
 			path: test/classes/Gis/GisMultiPointTest.php
 
 		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPointTest\\:\\:testPrepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisMultiPointTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Gis/GisMultiPolygonTest.php
@@ -44243,6 +44547,22 @@ parameters:
 		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
 			count: 2
+			path: test/classes/Gis/GisMultiPolygonTest.php
+
+		-
+			message: """
+				#^Fetching class constant class of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisMultiPolygonTest.php
+
+		-
+			message: """
+				#^Instantiation of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
@@ -44316,7 +44636,31 @@ parameters:
 			path: test/classes/Gis/GisMultiPolygonTest.php
 
 		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisMultiPolygonTest\\:\\:testPrepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisMultiPolygonTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
+			count: 1
+			path: test/classes/Gis/GisPointTest.php
+
+		-
+			message: """
+				#^Fetching class constant class of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisPointTest.php
+
+		-
+			message: """
+				#^Instantiation of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
 			count: 1
 			path: test/classes/Gis/GisPointTest.php
 
@@ -44386,6 +44730,14 @@ parameters:
 			path: test/classes/Gis/GisPointTest.php
 
 		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPointTest\\:\\:testPrepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisPointTest.php
+
+		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) with 'TCPDF' and TCPDF will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
@@ -44438,6 +44790,22 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PhpMyAdmin\\\\Gis\\\\GisPolygon\\:\\:isPointInsidePolygon\\(\\)\\.$#"
 			count: 2
+			path: test/classes/Gis/GisPolygonTest.php
+
+		-
+			message: """
+				#^Fetching class constant class of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
+			path: test/classes/Gis/GisPolygonTest.php
+
+		-
+			message: """
+				#^Instantiation of deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
+			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 
 		-
@@ -44542,6 +44910,14 @@ parameters:
 
 		-
 			message: "#^PHPDoc type PhpMyAdmin\\\\Gis\\\\GisPolygon of property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:\\$object is not the same as PHPDoc type PhpMyAdmin\\\\Gis\\\\GisGeometry of overridden property PhpMyAdmin\\\\Tests\\\\Gis\\\\GisGeomTestCase\\:\\:\\$object\\.$#"
+			count: 1
+			path: test/classes/Gis/GisPolygonTest.php
+
+		-
+			message: """
+				#^Parameter \\$pdf of method PhpMyAdmin\\\\Tests\\\\Gis\\\\GisPolygonTest\\:\\:testPrepareRowAsPdf\\(\\) has typehint with deprecated class TCPDF\\:
+				TCPDF is deprecated\\: migrate to tecnickcom/tc\\-lib\\-pdf\\.$#
+			"""
 			count: 1
 			path: test/classes/Gis/GisPolygonTest.php
 

@@ -3295,6 +3295,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
+    <DeprecatedClass occurrences="1">
+      <code>TCPDF::class</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="1">
       <code>$urlParams</code>
     </MixedArgument>
@@ -6739,6 +6742,10 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Gis/GisGeometry.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="7">
       <code>$line</code>
       <code>$point</code>
@@ -6768,6 +6775,10 @@
     </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Gis/GisGeometryCollection.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <DocblockTypeContradiction occurrences="2">
       <code>! $gis_obj</code>
       <code>$gis_obj</code>
@@ -6811,6 +6822,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisLineString.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="3">
       <code>$temp_point[0]</code>
       <code>$temp_point[1]</code>
@@ -6847,6 +6862,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiLineString.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="3">
       <code>$temp_point[0]</code>
       <code>$temp_point[1]</code>
@@ -6898,6 +6917,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPoint.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="2">
       <code>$point</code>
       <code>$wkt</code>
@@ -6943,6 +6966,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPolygon.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="9">
       <code>$label_point[0]</code>
       <code>$label_point[0]</code>
@@ -7055,6 +7082,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisPoint.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="1">
       <code>$wkt</code>
     </MixedArgument>
@@ -7095,6 +7126,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisPolygon.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="2">
       <code>$wkt</code>
       <code>($y1 - $y0) ** 2 + ($x0 - $x1) ** 2</code>
@@ -7238,6 +7273,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisVisualization.php">
+    <DeprecatedClass occurrences="2">
+      <code>ImageWrapper|TCPDF|string|false</code>
+      <code>new TCPDF('', 'pt', $GLOBALS['cfg']['PDFDefaultPageSize'], true, 'UTF-8', false)</code>
+    </DeprecatedClass>
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;userSpecifiedSettings === null</code>
     </DocblockTypeContradiction>
@@ -9039,6 +9078,13 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Pdf.php">
+    <DeprecatedClass occurrences="5">
+      <code>TCPDF</code>
+      <code>TCPDF_FONTS::UTF8ToUTF16BE($name, false, true, $this-&gt;CurrentFont)</code>
+      <code>TCPDF_FONTS::UTF8ToUTF16BE($value, false, true, $this-&gt;CurrentFont)</code>
+      <code>parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa)</code>
+      <code>parent::_putpages()</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="4">
       <code>$pdfData</code>
       <code>$this-&gt;CurrentFont</code>
@@ -9580,6 +9626,9 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportPdf.php">
+    <DeprecatedClass occurrences="1">
+      <code>TCPDF::class</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="1">
       <code>$pdf-&gt;getPDFData()</code>
     </MixedArgument>
@@ -9968,6 +10017,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
+    <DeprecatedClass occurrences="1">
+      <code>TCPDF_STATIC::empty_string($y)</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="79">
       <code>$col_as</code>
       <code>$column['Type']</code>
@@ -11276,6 +11328,11 @@
     <PossiblyFalseOperand occurrences="1">
       <code>$pos</code>
     </PossiblyFalseOperand>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/SchemaPdf.php">
+    <DeprecatedClass occurrences="1">
+      <code>TCPDF::class</code>
+    </DeprecatedClass>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/RelationStatsSvg.php">
     <MixedMethodCall occurrences="7">
@@ -15108,6 +15165,11 @@
     </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisGeometryCollectionTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedInferredReturnType occurrences="6">
       <code>array</code>
       <code>array</code>
@@ -15127,6 +15189,11 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Gis/GisLineStringTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
@@ -15137,6 +15204,11 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisMultiLineStringTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
@@ -15147,6 +15219,11 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisMultiPointTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
@@ -15157,6 +15234,11 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisMultiPolygonTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedArrayAssignment occurrences="3">
       <code>$temp1[0]['MULTIPOLYGON']['no_of_polygons']</code>
       <code>$temp2[0]['MULTIPOLYGON'][1]</code>
@@ -15173,6 +15255,11 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisPointTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedInferredReturnType occurrences="4">
       <code>array</code>
       <code>array</code>
@@ -15184,6 +15271,11 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisPolygonTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedArrayAccess occurrences="5">
       <code>$temp1[0]['POLYGON'][1]</code>
       <code>$temp['POLYGON'][0]</code>
