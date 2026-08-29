@@ -10144,9 +10144,6 @@
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Plugins/Transformations/TransformationPluginsTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[testTransformation]]></code>
     </InvalidArgument>
