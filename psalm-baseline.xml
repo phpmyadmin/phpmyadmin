@@ -2112,6 +2112,9 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="src/Controllers/Table/GisVisualizationController.php">
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF::class]]></code>
+    </DeprecatedClass>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
@@ -4129,12 +4132,18 @@
     </NullArgument>
   </file>
   <file src="src/Gis/GisGeometry.php">
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF]]></code>
+    </DeprecatedClass>
     <PossiblyFalseOperand>
       <code><![CDATA[$lastComma]]></code>
       <code><![CDATA[$lastComma]]></code>
     </PossiblyFalseOperand>
   </file>
   <file src="src/Gis/GisGeometryCollection.php">
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF]]></code>
+    </DeprecatedClass>
     <MixedArgument>
       <code><![CDATA[$type]]></code>
     </MixedArgument>
@@ -4149,6 +4158,9 @@
       <code><![CDATA[$color]]></code>
       <code><![CDATA[$color]]></code>
     </ArgumentTypeCoercion>
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF]]></code>
+    </DeprecatedClass>
     <MixedArgument>
       <code><![CDATA[$dataRow[$i] ?? null]]></code>
       <code><![CDATA[$tempPoint[0]]]></code>
@@ -4179,6 +4191,9 @@
       <code><![CDATA[$color]]></code>
       <code><![CDATA[$color]]></code>
     </ArgumentTypeCoercion>
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF]]></code>
+    </DeprecatedClass>
     <MixedArgument>
       <code><![CDATA[$dataRow[$i][$j] ?? null]]></code>
       <code><![CDATA[$tempPoint[0]]]></code>
@@ -4225,6 +4240,9 @@
       <code><![CDATA[$color]]></code>
       <code><![CDATA[$color]]></code>
     </ArgumentTypeCoercion>
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF]]></code>
+    </DeprecatedClass>
     <MixedArgument>
       <code><![CDATA[$dataRow[$i] ?? null]]></code>
     </MixedArgument>
@@ -4259,6 +4277,9 @@
       <code><![CDATA[$color]]></code>
       <code><![CDATA[$color]]></code>
     </ArgumentTypeCoercion>
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF]]></code>
+    </DeprecatedClass>
     <InvalidArgument>
       <code><![CDATA[$pointsArr]]></code>
     </InvalidArgument>
@@ -4365,6 +4386,9 @@
       <code><![CDATA[$color]]></code>
       <code><![CDATA[$color]]></code>
     </ArgumentTypeCoercion>
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF]]></code>
+    </DeprecatedClass>
     <MixedArgument>
       <code><![CDATA[$gisData[$index]['POINT'] ?? null]]></code>
     </MixedArgument>
@@ -4383,6 +4407,9 @@
       <code><![CDATA[$color]]></code>
       <code><![CDATA[$color]]></code>
     </ArgumentTypeCoercion>
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF]]></code>
+    </DeprecatedClass>
     <InvalidArgument>
       <code><![CDATA[$pointsArr]]></code>
     </InvalidArgument>
@@ -4418,6 +4445,18 @@
       <code><![CDATA[$this->height]]></code>
       <code><![CDATA[$this->width]]></code>
     </ArgumentTypeCoercion>
+    <DeprecatedClass>
+      <code><![CDATA[ImageWrapper|TCPDF|null]]></code>
+      <code><![CDATA[TCPDF]]></code>
+      <code><![CDATA[new TCPDF(
+            orientation: 'P',
+            unit: 'pt',
+            format: $format,
+            unicode: true,
+            encoding: 'UTF-8',
+            diskcache: false,
+        )]]></code>
+    </DeprecatedClass>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -5339,6 +5378,13 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="src/Pdf.php">
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF]]></code>
+      <code><![CDATA[TCPDF_FONTS::UTF8ToUTF16BE($name, false, true, $this->CurrentFont)]]></code>
+      <code><![CDATA[TCPDF_FONTS::UTF8ToUTF16BE($value, false, true, $this->CurrentFont)]]></code>
+      <code><![CDATA[parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa)]]></code>
+      <code><![CDATA[parent::_putpages()]]></code>
+    </DeprecatedClass>
     <MixedArgument>
       <code><![CDATA[$this->CurrentFont]]></code>
       <code><![CDATA[$this->pages]]></code>
@@ -5612,6 +5658,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/ExportPdf.php">
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF::class]]></code>
+    </DeprecatedClass>
     <MixedArgument>
       <code><![CDATA[$this->pdf->getPDFData()]]></code>
     </MixedArgument>
@@ -5732,6 +5781,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/Helpers/Pdf.php">
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF_STATIC::empty_string($y)]]></code>
+    </DeprecatedClass>
     <MixedArgument>
       <code><![CDATA[$cellFontSize]]></code>
       <code><![CDATA[$colAs]]></code>
@@ -6598,6 +6650,9 @@
     </DeprecatedMethod>
   </file>
   <file src="src/Plugins/Schema/SchemaPdf.php">
+    <DeprecatedClass>
+      <code><![CDATA[TCPDF::class]]></code>
+    </DeprecatedClass>
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
@@ -9666,6 +9721,13 @@
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]]]></code>
       <code><![CDATA[$temp1[0]['POLYGON'][1][3]['y']]]></code>
     </MixedArrayAccess>
+  </file>
+  <file src="tests/unit/Gis/GisVisualizationTest.php">
+    <DeprecatedClass>
+      <code><![CDATA[$pdf]]></code>
+      <code><![CDATA[TCPDF_STATIC::class]]></code>
+      <code><![CDATA[TCPDF_STATIC::class]]></code>
+    </DeprecatedClass>
   </file>
   <file src="tests/unit/GitTest.php">
     <RedundantConditionGivenDocblockType>
