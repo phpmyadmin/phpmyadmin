@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-08-23 00:18+0000\n"
-"PO-Revision-Date: 2026-08-29 00:51+0000\n"
+"PO-Revision-Date: 2026-08-30 00:43+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -3347,9 +3347,8 @@ msgid "Template:"
 msgstr "Veidne:"
 
 #: resources/templates/export.twig:53
-#, fuzzy
 msgid "Update"
-msgstr "Atjaunot vaicājumu"
+msgstr "Atjaunināt"
 
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
@@ -4910,9 +4909,8 @@ msgstr "Rediģēt privilēģijas:"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:5
 #: resources/templates/server/privileges/user_properties.twig:5
-#, fuzzy
 msgid "User account"
-msgstr "Lietotājs"
+msgstr "Lietotāja konts"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
@@ -6439,7 +6437,7 @@ msgstr ""
 
 #: resources/templates/setup/home/index.twig:89
 msgid "New server"
-msgstr ""
+msgstr "Jauns serveris"
 
 #: resources/templates/setup/home/index.twig:113
 msgid "Default language"
@@ -7397,9 +7395,8 @@ msgstr "Pievienot %s lauku(s)"
 #: resources/templates/table/structure/display_structure.twig:317
 #: resources/templates/table/structure/display_structure.twig:321
 #: resources/templates/table/structure/display_structure.twig:406
-#, fuzzy
 msgid "Move columns"
-msgstr "Pievienot %s lauku(s)"
+msgstr "Pārvietot kolonnas"
 
 #: resources/templates/table/structure/display_structure.twig:322
 msgid "Move the columns by dragging them up and down."
@@ -9109,7 +9106,7 @@ msgstr ""
 
 #: src/Config/ConfigFile.php:571
 msgid "key"
-msgstr ""
+msgstr "atslēga"
 
 #: src/Config/ConfigFile.php:571
 #, fuzzy
@@ -11547,9 +11544,8 @@ msgid "Console mode"
 msgstr ""
 
 #: src/Config/Descriptions.php:964
-#, fuzzy
 msgid "Order by"
-msgstr "Cits"
+msgstr "Kārtot pēc"
 
 #: src/Config/Descriptions.php:965
 msgid "Server connection collation"
@@ -15081,9 +15077,9 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: src/Controllers/Table/CreateController.php:83
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s already exists!"
-msgstr "Lietotājs %s jau eksistē!"
+msgstr "%s tabula jau pastāv!"
 
 #: src/Controllers/Table/DropColumnConfirmationController.php:44
 #: src/Controllers/Table/DropColumnController.php:40
@@ -17701,7 +17697,7 @@ msgstr "Privilēģijas tika veiksmīgi pārlādētas."
 #: src/Server/Privileges.php:2225
 #, php-format
 msgid "The user %s already exists!"
-msgstr "Lietotājs %s jau eksistē!"
+msgstr "Lietotājs %s jau pastāv!"
 
 #: src/Server/Privileges.php:2378
 #, php-format
@@ -17788,9 +17784,8 @@ msgid "Flush (close) all tables"
 msgstr ""
 
 #: src/Server/Status/Data.php:153
-#, fuzzy
 msgid "Show open tables"
-msgstr "Rādīt tabulas"
+msgstr "Rādīt atvērtās tabulas"
 
 #: src/Server/Status/Data.php:159
 #, fuzzy
@@ -17864,7 +17859,7 @@ msgid "Run SQL query/queries on server “%s”"
 msgstr "Izpildīt SQL vaicājumu(s) uz datubāzes %s"
 
 #: src/SqlQueryForm.php:160
-#, php-format
+#, fuzzy, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Izpildīt SQL vaicājumu(s) uz datubāzes %s"
 
@@ -17997,9 +17992,8 @@ msgid "Delete tracking data row from report"
 msgstr "Dzēst izsekošanas datu rindu no pārskata"
 
 #: src/Tracking/Tracking.php:230
-#, fuzzy
 msgid "No data"
-msgstr "Nav datubāzu"
+msgstr "Nav datu"
 
 #: src/Tracking/Tracking.php:291
 #, php-format
@@ -18025,7 +18019,7 @@ msgstr ""
 #: src/Tracking/Tracking.php:405
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Izgūt kā %s"
 
 #: src/Tracking/Tracking.php:560
 #, php-format
