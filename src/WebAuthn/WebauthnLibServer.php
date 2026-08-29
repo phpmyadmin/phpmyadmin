@@ -60,7 +60,6 @@ final class WebauthnLibServer implements Server
     public function __construct(private TwoFactor $twofactor)
     {
         $this->coseAlgorithmManagerFactory = new ManagerFactory();
-        $this->coseAlgorithmManagerFactory->add('RS1', new RSA\RS1());
         $this->coseAlgorithmManagerFactory->add('RS256', new RSA\RS256());
         $this->coseAlgorithmManagerFactory->add('RS384', new RSA\RS384());
         $this->coseAlgorithmManagerFactory->add('RS512', new RSA\RS512());

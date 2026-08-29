@@ -2719,6 +2719,15 @@ parameters:
 			path: src/Controllers/Table/GetFieldController.php
 
 		-
+			message: '''
+				#^Access to constant on deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 1
+			path: src/Controllers/Table/GisVisualizationController.php
+
+		-
 			message: '#^Cannot access offset ''max_rows'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -5959,6 +5968,15 @@ parameters:
 			path: src/Gis/GisGeometry.php
 
 		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisGeometry\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisGeometry.php
+
+		-
 			message: '#^Cannot access offset ''data_length'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -5975,6 +5993,51 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Gis/GisGeometryCollection.php
+
+		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisGeometryCollection\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisGeometryCollection.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisLineString.php
+
+		-
+			message: '''
+				#^Call to method PolyLine\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisLineString.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisLineString.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisLineString.php
 
 		-
 			message: '#^Cannot access offset ''LINESTRING'' on mixed\.$#'
@@ -6019,6 +6082,15 @@ parameters:
 			path: src/Gis/GisLineString.php
 
 		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisLineString\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisLineString.php
+
+		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 1
@@ -6033,6 +6105,42 @@ parameters:
 		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
+			count: 1
+			path: src/Gis/GisMultiLineString.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiLineString.php
+
+		-
+			message: '''
+				#^Call to method PolyLine\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiLineString.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiLineString.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
 			count: 1
 			path: src/Gis/GisMultiLineString.php
 
@@ -6103,6 +6211,15 @@ parameters:
 			path: src/Gis/GisMultiLineString.php
 
 		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisMultiLineString\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiLineString.php
+
+		-
 			message: '#^Binary operation "\." between mixed and '' '' results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -6111,6 +6228,42 @@ parameters:
 		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
+			count: 1
+			path: src/Gis/GisMultiPoint.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPoint.php
+
+		-
+			message: '''
+				#^Call to method Circle\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPoint.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPoint.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
 			count: 1
 			path: src/Gis/GisMultiPoint.php
 
@@ -6169,6 +6322,15 @@ parameters:
 			path: src/Gis/GisMultiPoint.php
 
 		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisMultiPoint\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPoint.php
+
+		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 7
@@ -6184,6 +6346,42 @@ parameters:
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
+			path: src/Gis/GisMultiPolygon.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPolygon.php
+
+		-
+			message: '''
+				#^Call to method Polygon\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPolygon.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPolygon.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
 			path: src/Gis/GisMultiPolygon.php
 
 		-
@@ -6307,6 +6505,15 @@ parameters:
 			path: src/Gis/GisMultiPolygon.php
 
 		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisMultiPolygon\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPolygon.php
+
+		-
 			message: '#^Possibly invalid array key type mixed\.$#'
 			identifier: offsetAccess.invalidOffset
 			count: 4
@@ -6321,6 +6528,42 @@ parameters:
 		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
+			count: 1
+			path: src/Gis/GisPoint.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPoint.php
+
+		-
+			message: '''
+				#^Call to method Circle\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPoint.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPoint.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
 			count: 1
 			path: src/Gis/GisPoint.php
 
@@ -6353,6 +6596,51 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Gis/GisPoint.php
+
+		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisPoint\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisPoint.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPolygon.php
+
+		-
+			message: '''
+				#^Call to method Polygon\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPolygon.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPolygon.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPolygon.php
 
 		-
 			message: '#^Cannot access offset ''POLYGON'' on mixed\.$#'
@@ -6410,6 +6698,15 @@ parameters:
 
 		-
 			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisPolygon\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisPolygon.php
+
+		-
+			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
 			'''
@@ -6427,6 +6724,60 @@ parameters:
 			path: src/Gis/GisVisualization.php
 
 		-
+			message: '''
+				#^Call to method AddPage\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Call to method Output\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Call to method __construct\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Call to method setAutoPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Call to method setPrintFooter\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Call to method setPrintHeader\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 1
@@ -6439,6 +6790,15 @@ parameters:
 			path: src/Gis/GisVisualization.php
 
 		-
+			message: '''
+				#^Instantiation of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: new.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
 			message: '#^Parameter \#1 \$width of static method PhpMyAdmin\\Image\\ImageWrapper\:\:create\(\) expects int\<1, max\>, int given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6447,6 +6807,24 @@ parameters:
 		-
 			message: '#^Parameter \#2 \$height of static method PhpMyAdmin\\Image\\ImageWrapper\:\:create\(\) expects int\<1, max\>, int given\.$#'
 			identifier: argument.type
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Parameter \$renderer of method PhpMyAdmin\\Gis\\GisVisualization\:\:prepareDataSet\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 2
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Return type of method PhpMyAdmin\\Gis\\GisVisualization\:\:createEmptyPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: return.deprecatedClass
 			count: 1
 			path: src/Gis/GisVisualization.php
 
@@ -8044,9 +8422,153 @@ parameters:
 			path: src/Partitioning/TablePartitionDefinition.php
 
 		-
+			message: '''
+				#^Access to property \$CurrentFont of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$page of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$pages of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 3
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method AddFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method UTF8ToUTF16BE\(\) of deprecated class TCPDF_FONTS\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: staticMethod.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method __construct\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method _putpages\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method getAliasNbPages\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method getAliasNumPage\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setAuthor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFooterFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setLanguageArray\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
 			message: '#^Cannot access offset int\<1, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Class PhpMyAdmin\\Pdf extends deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: class.extendsDeprecatedClass
+			count: 1
 			path: src/Pdf.php
 
 		-
@@ -8476,6 +8998,33 @@ parameters:
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
+			message: '''
+				#^Access to constant on deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/ExportPdf.php
+
+		-
+			message: '''
+				#^Call to method Open\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/ExportPdf.php
+
+		-
+			message: '''
+				#^Call to method getPDFData\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/ExportPdf.php
+
+		-
 			message: '#^Class PhpMyAdmin\\Plugins\\Export\\ExportPdf has an uninitialized property \$pdf\. Give it default value or assign it in the constructor\.$#'
 			identifier: property.uninitialized
 			count: 1
@@ -8674,6 +9223,150 @@ parameters:
 			path: src/Plugins/Export/ExportXml.php
 
 		-
+			message: '''
+				#^Access to property \$CurOrientation of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$FontSizePt of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 11
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$InFooter of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$PageBreakTrigger of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$bMargin of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 3
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$h of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 3
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$k of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$lMargin of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 13
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$page of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 46
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$pagedim of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 4
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$rMargin of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$rtl of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$tMargin of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 14
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$w of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$x of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 5
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$y of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
 			message: '#^Binary operation "\+" between \(float\|int\) and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 6
@@ -8755,6 +9448,123 @@ parameters:
 			message: '#^Binary operation "/" between mixed and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method AcceptPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method AddPage\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 4
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method GetStringWidth\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method GetY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 7
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Line\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 12
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method MultiCell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method empty_string\(\) of deprecated class TCPDF_STATIC\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: staticMethod.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setAutoPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFillColor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 7
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -9547,6 +10357,51 @@ parameters:
 			path: src/Plugins/Schema/ExportRelationSchema.php
 
 		-
+			message: '''
+				#^Access to property \$CurrentFont of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$FontSize of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$rMargin of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$w of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$x of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
 			message: '#^Binary operation "\+" between float and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -9588,6 +10443,141 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
+			count: 2
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method GetX\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method GetY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Line\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Link\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Ln\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method MultiCell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Rect\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method checkPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method getPDFData\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setLineWidth\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setX\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
 			count: 2
 			path: src/Plugins/Schema/Pdf/Pdf.php
 
@@ -9685,8 +10675,179 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
+			message: '''
+				#^Call to method AddLink\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method AddPage\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method Bookmark\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 31
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method Line\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method Ln\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method Open\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method PageNo\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
 			message: '#^Call to method TCPDF\:\:Line\(\) with incorrect case\: line$#'
 			identifier: method.nameCase
+			count: 2
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method getPageHeight\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method getPageWidth\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setAutoPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 4
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setDrawColor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setLink\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setMargins\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setTitle\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setX\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
 			count: 2
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -9817,6 +10978,51 @@ parameters:
 			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
+			message: '''
+				#^Call to method GetStringWidth\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: '''
+				#^Call to method setFillColor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 4
+			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: '''
+				#^Call to method setLink\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: '''
+				#^Call to method setTextColor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
 			message: '#^Cannot access offset ''\-'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 3
@@ -9869,6 +11075,15 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Plugins/Schema/SchemaEps.php
+
+		-
+			message: '''
+				#^Access to constant on deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/SchemaPdf.php
 
 		-
 			message: '''
@@ -15373,6 +16588,51 @@ parameters:
 			path: tests/unit/Gis/GisPolygonTest.php
 
 		-
+			message: '''
+				#^Access to constant on deprecated class TCPDF_STATIC\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 2
+			path: tests/unit/Gis/GisVisualizationTest.php
+
+		-
+			message: '''
+				#^Call to method Output\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/Gis/GisVisualizationTest.php
+
+		-
+			message: '''
+				#^Call to method setCompression\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/Gis/GisVisualizationTest.php
+
+		-
+			message: '''
+				#^Call to method setDocCreationTimestamp\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/Gis/GisVisualizationTest.php
+
+		-
+			message: '''
+				#^Call to method setDocModificationTimestamp\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/Gis/GisVisualizationTest.php
+
+		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''author'' and array\{hash\: ''97b9895908f281b62c9…'', branch\: ''QA_5_2'', message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
@@ -15851,6 +17111,114 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: tests/unit/Partitioning/TablePartitionDefinitionTest.php
+
+		-
+			message: '''
+				#^Call to method AddPage\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method Bookmark\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method Line\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method Ln\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method Open\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method getPDFData\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method setAutoPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method setDrawColor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method setMargins\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method setTitle\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
 
 		-
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'

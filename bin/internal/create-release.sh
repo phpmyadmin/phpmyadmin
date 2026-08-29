@@ -177,6 +177,7 @@ cleanup_composer_vendors() {
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
         vendor/tecnickcom/tcpdf/Makefile \
+        vendor/tecnickcom/tcpdf/SECURITY.md \
         vendor/williamdes/mariadb-mysql-kbs/schemas/ \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.json \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
@@ -191,13 +192,13 @@ cleanup_composer_vendors() {
         vendor/twig/twig/src/Test/ \
         vendor/psr/event-dispatcher/.editorconfig \
         vendor/psr/http-message/docs/ \
+        vendor/pragmarx/google2fa/.github/workflows/run-tests.yml \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
         vendor/pragmarx/google2fa-qrcode/tests \
         vendor/slim/psr7/phpunit.xml.dist \
-        vendor/slim/psr7/tests/ \
-        vendor/brick/math/codecov.yml
+        vendor/slim/psr7/tests/
 
     rm \
         vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
