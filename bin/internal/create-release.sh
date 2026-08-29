@@ -191,7 +191,6 @@ cleanup_composer_vendors() {
         vendor/twig/twig/src/Test/ \
         vendor/psr/event-dispatcher/.editorconfig \
         vendor/psr/http-message/docs/ \
-        vendor/pragmarx/google2fa/.github/ \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
