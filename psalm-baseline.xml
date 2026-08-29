@@ -8129,11 +8129,6 @@
       <code><![CDATA[empty($_POST['item_timing'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Twig/PmaGlobalVariable.php">
-    <UnusedParam>
-      <code><![CDATA[$arguments]]></code>
-    </UnusedParam>
-  </file>
   <file src="src/TwoFactor.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
