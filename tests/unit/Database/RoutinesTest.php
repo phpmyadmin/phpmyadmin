@@ -14,12 +14,10 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
-use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 #[CoversClass(Routines::class)]
-#[AllowMockObjectsWithoutExpectations]
 class RoutinesTest extends AbstractTestCase
 {
     private Routines $routines;
@@ -33,10 +31,11 @@ class RoutinesTest extends AbstractTestCase
 
         $this->setLanguage();
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $config = Config::getInstance();
+        $dbiDummy = $this->createDbiDummy();
+        $config = new Config();
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
 
-        $this->routines = new Routines(DatabaseInterface::getInstance(), $config);
+        $this->routines = new Routines($dbi, $config);
     }
 
     /**
@@ -214,27 +213,21 @@ class RoutinesTest extends AbstractTestCase
     #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(array $request, string $query, int $numErr): void
     {
-        $config = Config::getInstance();
-        $oldDbi = DatabaseInterface::getInstance();
-        $dbi = $this->createMock(DatabaseInterface::class);
+        $config = new Config();
+        $dbi = self::createStub(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
-        $dbi->expects($this->any())->method('quoteString')->willReturnMap([
+        $dbi->method('quoteString')->willReturnMap([
             ['foo', ConnectionType::User, "'foo'"],
             ["foo's bar", ConnectionType::User, "'foo\'s bar'"],
         ]);
-        DatabaseInterface::$instance = $dbi;
 
         $routines = new Routines($dbi, $config);
 
-        unset($_POST);
         $_POST = $request;
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody($request);
         self::assertSame($query, $routines->getQueryFromRequest($request));
         self::assertSame($numErr, $routines->getErrorCount());
-
-        // reset
-        DatabaseInterface::$instance = $oldDbi;
     }
 
     /**

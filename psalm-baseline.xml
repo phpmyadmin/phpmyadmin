@@ -9460,19 +9460,10 @@
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Database/RoutinesTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedAssignment>
       <code><![CDATA[$postData[$key]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <UndefinedAttributeClass>
-      <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
-    </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/Database/SearchTest.php">
     <DeprecatedMethod>
