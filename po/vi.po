@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-08-09 13:51+0000\n"
+"PO-Revision-Date: 2026-08-30 07:51+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/5-"
 "2/vi/>\n"
@@ -1692,7 +1692,6 @@ msgid "Lithuanian"
 msgstr "Tiếng Lát-vi"
 
 #: libraries/classes/Charsets/Collation.php:538
-#, fuzzy
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Tiếng Miến Điện"
@@ -6627,6 +6626,8 @@ msgstr "Định nghĩa hàm lưu trữ phải có chứa lệnh RETURN!"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:373
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Không có thủ tục nào có thể xuất ra được. Có thể thiếu các đặc quyền cần "
+"thiết."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:376
 #, php-format
@@ -9569,9 +9570,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Bạn đã cố tải một tệp có kiểu nén không được hỗ trợ (%s). Hoặc việc hỗ trợ "
-"cho kiểu nén này chưa được triển khai, hoặc đã bị vô hiệu hóa bởi cấu hình "
-"của bạn."
+"Bạn đã cố tải tập tin có nén không được hỗ trợ (%s). Cấu hình của bạn không "
+"triển khai hoặc vô hiệu hóa hỗ trợ cho nó."
 
 #: libraries/classes/FlashMessages.php:24
 #, fuzzy
@@ -12719,22 +12719,20 @@ msgstr ""
 "là từ 0 đến 255"
 
 #: libraries/classes/Types.php:234
-#, fuzzy
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
-"Số nguyên 2-byte, có ký hiệu phạm vi từ -32,768 đến 32,767,không ký hiệu "
-"phạm vi từ 0 đến 65,535"
+"Số nguyên 2 byte, phạm vi có dấu là -32,768 đến 32,767, phạm vi không dấu là "
+"0 đến 65,535"
 
 #: libraries/classes/Types.php:238
-#, fuzzy
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
-"Số nguyên 3-byte, có ký hiệu phạm vi là từ -8,388,608 đến 8,388,607, không "
-"ký hiệu phạm vi từ 0 đến 16,777,215"
+"Số nguyên 3 byte, phạm vi có dấu là -8,388,608 đến 8,388,607, phạm vi không "
+"dấu là 0 đến 16,777,215"
 
 #: libraries/classes/Types.php:243
 #, fuzzy
@@ -12785,13 +12783,12 @@ msgstr ""
 "2.2250738585072014E-308 đến 1.7976931348623157E + 308"
 
 #: libraries/classes/Types.php:277
-#, fuzzy
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
-"Từ đồng nghĩa cho DOUBLE (ngoại lệ: trong chế độ REAL_AS_FLOAT SQL nó là từ "
-"đồng nghĩa cho FLOAT)"
+"Từ đồng nghĩa với DOUBLE (ngoại trừ: trong chế độ SQL REAL_AS_FLOAT, nó là "
+"từ đồng nghĩa với FLOAT)"
 
 #: libraries/classes/Types.php:280
 #, fuzzy
@@ -14620,10 +14617,8 @@ msgid "Modify:"
 msgstr "Sửa:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Thêm/Xóa các hàng tiêu chí"
+msgstr "Thêm/Xóa các hàng tiêu chí:"
 
 #: templates/database/qbe/selection_form.twig:67
 msgid "Add/Delete columns:"
@@ -15390,10 +15385,9 @@ msgstr "Tọa độ:"
 #: templates/gis_data_editor_form.twig:106
 #: templates/gis_data_editor_form.twig:151
 #: templates/gis_data_editor_form.twig:207
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Điểm %d"
+msgstr "Điểm %d:"
 
 #: templates/gis_data_editor_form.twig:130
 #, php-format
