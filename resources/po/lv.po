@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-08-30 00:43+0000\n"
-"PO-Revision-Date: 2026-08-29 00:51+0000\n"
+"PO-Revision-Date: 2026-08-30 08:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -2438,6 +2438,7 @@ msgstr "Lietotāji netika atrasti."
 #: resources/templates/server/privileges/users_overview.twig:122
 #: resources/templates/table/privileges/index.twig:115
 #: resources/templates/table/privileges/index.twig:118
+#, fuzzy
 msgid "With selected:"
 msgstr "Ar iezīmēto:"
 
@@ -3031,11 +3032,11 @@ msgstr "Pēdējā pārbaude"
 
 #: resources/templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
-msgstr ""
+msgstr "Izsekošana aktivizēta."
 
 #: resources/templates/database/structure/tracking_icon.twig:5
 msgid "Tracking is not active."
-msgstr ""
+msgstr "Izsekošana nav aktivizēta."
 
 #: resources/templates/database/tracking/tables.twig:4
 msgid "Tracked tables"
@@ -3213,7 +3214,7 @@ msgstr ""
 
 #: resources/templates/display/results/table.twig:243
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "Rādīt BLOB saturu"
 
 #: resources/templates/display/results/table.twig:255
 #, fuzzy
@@ -3363,9 +3364,8 @@ msgstr "SQL vaicājums:"
 
 #. l10n: Button to show the SQL query on the export page
 #: resources/templates/export.twig:72
-#, fuzzy
 msgid "Show SQL query"
-msgstr "Rādīt pilnos vaicājumus"
+msgstr "Rādīt SQL vaicājumu"
 
 #: resources/templates/export.twig:102
 msgid "Export method:"
@@ -3384,9 +3384,8 @@ msgid "Format:"
 msgstr "Formāts:"
 
 #: resources/templates/export.twig:119
-#, fuzzy
 msgid "File format to export"
-msgstr "Daļēji teksti"
+msgstr "Datnes izgūšanas formāts"
 
 #: resources/templates/export.twig:131
 msgid "Rows:"
@@ -3420,7 +3419,7 @@ msgstr "Pārrakstīt eksistējošos failus"
 
 #: resources/templates/export.twig:187 resources/templates/export.twig:331
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Pārsaukt izgūtās datubāzes/tabulas/kolonnas"
 
 #: resources/templates/export.twig:195
 msgid "Defined aliases"
@@ -3528,22 +3527,20 @@ msgid "gzipped"
 msgstr "Arhivēts ar gzip"
 
 #: resources/templates/export.twig:455
-#, fuzzy
 msgid "Export databases as separate files"
-msgstr "Izveidot jaunu tabulu datubāzē %s"
+msgstr "Izgūt katru datubāzi atsevišķā datnē"
 
 #: resources/templates/export.twig:457
-#, fuzzy
 msgid "Export tables as separate files"
-msgstr "horizontālā (pagriezti virsraksti)"
+msgstr "Izgūt katru tabulu atsevišķā datnē"
 
 #: resources/templates/export.twig:468
 msgid "Skip tables larger than:"
-msgstr ""
+msgstr "Izlaist tabulas, kas lielākas par:"
 
 #: resources/templates/export.twig:470
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "Izmērs tiek mērīts MiB mērvienībās."
 
 #: resources/templates/export.twig:476 resources/templates/import.twig:173
 msgid "Format-specific options:"
@@ -3660,10 +3657,9 @@ msgid "Theme"
 msgstr "Motīvs"
 
 #: resources/templates/home/index.twig:141
-#, fuzzy
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Tikai apskatīt"
+msgstr "Skatīt visus"
 
 #: resources/templates/home/index.twig:177
 msgid "Database server"
@@ -3755,9 +3751,8 @@ msgid "Notice"
 msgstr ""
 
 #: resources/templates/home/index.twig:315
-#, fuzzy
 msgid "phpMyAdmin Themes"
-msgstr "phpMyAdmin dokumentācija"
+msgstr "phpMyAdmin motīvi"
 
 #: resources/templates/home/index.twig:326
 msgid "Get more themes!"
@@ -3808,9 +3803,8 @@ msgid ""
 msgstr ""
 
 #: resources/templates/import.twig:37
-#, fuzzy
 msgid "Upload a file"
-msgstr "Saglabāt kā failu"
+msgstr "Augšupielādēt datni"
 
 #: resources/templates/import.twig:40
 #, fuzzy
@@ -4089,9 +4083,8 @@ msgstr "Navigācijas paneļa iestatījumi"
 
 #: resources/templates/navigation/main.twig:47
 #: resources/templates/navigation/main.twig:48
-#, fuzzy
 msgid "Reload navigation panel"
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Pārlādēt navigācijas paneli"
 
 #: resources/templates/navigation/main.twig:67
 msgid "An error has occurred while loading the navigation display"
@@ -4561,6 +4554,7 @@ msgstr ""
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:494
 #: src/Server/Status/Data.php:119 src/Util.php:1386
+#, fuzzy
 msgid "Binary log"
 msgstr "Binārais log-fails"
 
@@ -5992,7 +5986,7 @@ msgstr ""
 #: resources/templates/server/status/monitor/index.twig:123
 #: resources/templates/server/status/monitor/index.twig:129
 msgid "Chart Title"
-msgstr "Diagrammas virsraksts"
+msgstr "Grafika virsraksts"
 
 #: resources/templates/server/status/monitor/index.twig:133
 #, fuzzy
@@ -10120,7 +10114,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:534
 msgid "Highlight selected rows."
-msgstr ""
+msgstr "Izcelt atlasītās rindas."
 
 #: src/Config/Descriptions.php:535
 msgid "Highlight row pointed by the mouse cursor."
@@ -12117,9 +12111,8 @@ msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
 #: src/Controllers/Database/RoutinesController.php:88
-#, fuzzy
 msgid "No table selected."
-msgstr "Nav izvēlēta tabula."
+msgstr "Nav atlasīta neviena tabula."
 
 #: src/Controllers/Database/RoutinesController.php:170
 #: src/Controllers/Database/RoutinesController.php:173
@@ -12211,7 +12204,7 @@ msgstr ""
 
 #: src/Controllers/Database/TrackingController.php:114
 msgid "No tables selected."
-msgstr "Nav izvēlēta tabula."
+msgstr "Nav atlasīta neviena tabula."
 
 #: src/Controllers/Database/TrackingController.php:149
 msgid "Database Log"
@@ -12770,7 +12763,7 @@ msgstr "Sistēmas atmiņa"
 
 #: src/Controllers/JavaScriptMessagesController.php:184
 msgid "System swap"
-msgstr ""
+msgstr "Sistēmas mijmaiņa"
 
 #: src/Controllers/JavaScriptMessagesController.php:186
 msgid "Average load"
@@ -12782,11 +12775,11 @@ msgstr "Kopējā atmiņa"
 
 #: src/Controllers/JavaScriptMessagesController.php:188
 msgid "Cached memory"
-msgstr ""
+msgstr "Kešatmiņa"
 
 #: src/Controllers/JavaScriptMessagesController.php:189
 msgid "Buffered memory"
-msgstr ""
+msgstr "Buferatmiņa"
 
 #: src/Controllers/JavaScriptMessagesController.php:190
 msgid "Free memory"
@@ -12797,22 +12790,20 @@ msgid "Used memory"
 msgstr "Izmantotā atmiņa"
 
 #: src/Controllers/JavaScriptMessagesController.php:193
-#, fuzzy
 msgid "Total swap"
-msgstr "Kopā"
+msgstr "Kopējā mijmaiņa"
 
 #: src/Controllers/JavaScriptMessagesController.php:194
-#, fuzzy
 msgid "Cached swap"
-msgstr "Diska vietas lietošana"
+msgstr "Kešmijmaiņa"
 
 #: src/Controllers/JavaScriptMessagesController.php:195
 msgid "Used swap"
-msgstr ""
+msgstr "Izmantotā mijmaiņa"
 
 #: src/Controllers/JavaScriptMessagesController.php:196
 msgid "Free swap"
-msgstr ""
+msgstr "Brīvā mijmaiņa"
 
 #: src/Controllers/JavaScriptMessagesController.php:198
 msgid "Bytes sent"
@@ -12961,9 +12952,8 @@ msgid "Current settings"
 msgstr "Pašreizējie iestatījumi"
 
 #: src/Controllers/JavaScriptMessagesController.php:256
-#, fuzzy
 msgid "Chart title"
-msgstr "Importēt failus"
+msgstr "Grafika virsraksts"
 
 #. l10n: As in differential values
 #: src/Controllers/JavaScriptMessagesController.php:258
@@ -13002,6 +12992,7 @@ msgid "Analyzing…"
 msgstr "Analizē…"
 
 #: src/Controllers/JavaScriptMessagesController.php:275
+#, fuzzy
 msgid "Explain output"
 msgstr "Izskaidrot izvadu"
 
@@ -13030,11 +13021,11 @@ msgstr "Žurnāla tabulas atlasīšanas parametri"
 #. l10n: Filter as in "Start Filtering"
 #: src/Controllers/JavaScriptMessagesController.php:290
 msgid "Filter"
-msgstr "Filtrēt"
+msgstr "Atlasīt"
 
 #: src/Controllers/JavaScriptMessagesController.php:291
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Atlasīt vaicājumus pēc vārda/regulārās izteiksmes:"
 
 #: src/Controllers/JavaScriptMessagesController.php:292
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -13115,9 +13106,8 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:333
-#, fuzzy
 msgid "No accounts selected."
-msgstr "Nav izvēlēta kolonna."
+msgstr "Nav atlasīts neviens konts."
 
 #: src/Controllers/JavaScriptMessagesController.php:334
 #, fuzzy
@@ -13365,7 +13355,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:427
 msgid "No dependencies selected!"
-msgstr "Nav atlasītas atkarības!"
+msgstr "Nav atlasīta neviena atkarība!"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 #, fuzzy
@@ -16159,16 +16149,15 @@ msgstr "Izsekošana"
 
 #: src/Menu.php:336 src/Menu.php:344 src/Menu.php:352
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "Izskatās, ka datubāze tukša!"
 
 #: src/Menu.php:402 src/Util.php:1406
 msgid "Designer"
 msgstr ""
 
 #: src/Menu.php:463
-#, fuzzy
 msgid "User accounts"
-msgstr "Lietotājs"
+msgstr "Lietotāju konti"
 
 #: src/Menu.php:512 src/Util.php:1389
 msgid "Charsets"
@@ -16388,9 +16377,8 @@ msgid ""
 msgstr ""
 
 #: src/Normalization.php:318
-#, fuzzy
 msgid "Remove selected"
-msgstr "Dzēst izvēlētos lietotājus"
+msgstr "Noņemt atlasīto"
 
 #: src/Normalization.php:320
 #, fuzzy
