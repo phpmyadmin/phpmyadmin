@@ -260,11 +260,9 @@ class Table implements Stringable
      * Returns full table status info, or specific if $info provided
      * this info is collected from information_schema
      *
-     * @param T $info specific information to be fetched
+     * @param string|null $info specific information to be fetched
      *
-     * @return (T is null ? (string|int|null)[]|null : (string|int|null))
-     *
-     * @template T of string|null
+     * @return ($info is null ? (string|int|null)[]|null : (string|int|null))
      */
     public function getStatusInfo(string|null $info = null): array|string|int|null
     {
