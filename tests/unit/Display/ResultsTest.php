@@ -279,7 +279,7 @@ class ResultsTest extends AbstractTestCase
     {
         $query = 'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10';
         (new ReflectionMethod(DisplayResults::class, 'setHighlightedColumnGlobalField'))
-            ->invokeArgs($this->object, [Query::getAll($query)]);
+            ->invokeArgs($this->object, [Query::getAll($query)->statement]);
 
         self::assertSame([
             'db_name' => true,
@@ -571,7 +571,7 @@ class ResultsTest extends AbstractTestCase
                 $conditionField,
                 $transformationPlugin,
                 $transformOptions,
-                $statementInfo,
+                $statementInfo->statement,
             ],
         );
         self::assertIsString($actual);
@@ -649,7 +649,7 @@ class ResultsTest extends AbstractTestCase
             'disabled',
             false,
             $query,
-            Query::getAll($query),
+            Query::getAll($query)->statement,
         ]);
 
         // Dateformat

@@ -4810,43 +4810,19 @@ parameters:
 			path: src/Dbal/MysqliResult.php
 
 		-
-			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$expr\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$from\.$#'
-			identifier: property.notFound
-			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$limit\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$where\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 4
-			path: src/Display/Results.php
-
-		-
 			message: '#^Binary operation "%%" between int\<1, max\> and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Display/Results.php
 
 		-
-			message: '#^Binary operation "\+" between mixed and int results in an error\.$#'
+			message: '#^Binary operation "\+" between int\|string and int results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Display/Results.php
+
+		-
+			message: '#^Binary operation "\+" between int\|string and int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Display/Results.php
@@ -4858,15 +4834,9 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Binary operation "\+" between mixed and mixed results in an error\.$#'
+			message: '#^Binary operation "\-" between mixed and 1 results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Binary operation "\-" between \(array\|float\|int\) and 1 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
+			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -4960,12 +4930,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Cannot access offset 0 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -4978,12 +4942,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Cannot access property \$alias on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Cannot access property \$column on PhpMyAdmin\\SqlParser\\Components\\Expression\|null\.$#'
 			identifier: property.nonObject
 			count: 1
@@ -4993,30 +4951,6 @@ parameters:
 			message: '#^Cannot access property \$expr on PhpMyAdmin\\SqlParser\\Components\\Expression\|null\.$#'
 			identifier: property.nonObject
 			count: 3
-			path: src/Display/Results.php
-
-		-
-			message: '#^Cannot access property \$identifiers on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Cannot access property \$offset on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Cannot access property \$rowCount on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Cannot access property \$table on mixed\.$#'
-			identifier: property.nonObject
-			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -5040,7 +4974,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 23
+			count: 18
 			path: src/Display/Results.php
 
 		-
@@ -5110,19 +5044,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Only numeric types are allowed in \-, \(array\|float\|int\) given on the left side\.$#'
-			identifier: minus.leftNonNumeric
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#1 \$array of function array_shift expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getComments\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -5160,7 +5082,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -5183,18 +5105,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$rows of static method PhpMyAdmin\\Util\:\:pageselector\(\) expects int, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#2 \$string2 of function strcasecmp expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getComments\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -5238,13 +5148,7 @@ parameters:
 		-
 			message: '#^Possibly invalid array key type mixed\.$#'
 			identifier: offsetAccess.invalidOffset
-			count: 16
-			path: src/Display/Results.php
-
-		-
-			message: '#^Property PhpMyAdmin\\FieldMetadata\:\:\$name \(string\) does not accept mixed\.$#'
-			identifier: assign.propertyType
-			count: 1
+			count: 15
 			path: src/Display/Results.php
 
 		-

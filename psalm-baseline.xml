@@ -3515,12 +3515,8 @@
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
-      <code><![CDATA[$expr->alias]]></code>
-      <code><![CDATA[$field->table]]></code>
-      <code><![CDATA[$statementInfo->statement->from]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
-      <code><![CDATA[empty($field->database) ? $this->db : $field->database]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['display_binary']]]></code>
@@ -3547,9 +3543,12 @@
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pftext']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pftext']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pftext']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
@@ -3636,14 +3635,14 @@
       <code><![CDATA[$colOrder]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
-      <code><![CDATA[$expr]]></code>
-      <code><![CDATA[$expr]]></code>
-      <code><![CDATA[$field]]></code>
+      <code><![CDATA[$firstShownRec]]></code>
+      <code><![CDATA[$firstShownRec]]></code>
       <code><![CDATA[$geoOption]]></code>
       <code><![CDATA[$hiddenFields['session_max_rows']]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$identifier]]></code>
+      <code><![CDATA[$lastShownRec]]></code>
       <code><![CDATA[$meta->name]]></code>
       <code><![CDATA[$pftext]]></code>
       <code><![CDATA[$pos]]></code>
@@ -3658,17 +3657,8 @@
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['repeat_cells']]]></code>
+      <code><![CDATA[$firstShownRec]]></code>
     </MixedOperand>
-    <MixedPropertyFetch>
-      <code><![CDATA[$expr->alias]]></code>
-      <code><![CDATA[$expr->column]]></code>
-      <code><![CDATA[$expr->column]]></code>
-      <code><![CDATA[$expr->identifiers]]></code>
-      <code><![CDATA[$field->database]]></code>
-      <code><![CDATA[$field->table]]></code>
-      <code><![CDATA[$statementInfo->statement->from[0]->table]]></code>
-      <code><![CDATA[$statementInfo->statement->limit->offset]]></code>
-    </MixedPropertyFetch>
     <MixedReturnTypeCoercion>
       <code><![CDATA[[$singleSortOrder, implode(', ', $sortOrderColumns), $orderImg ?? '']]]></code>
       <code><![CDATA[string[]]]></code>
@@ -3677,6 +3667,11 @@
       <code><![CDATA[$this->numRows > 0 ? $this->numRows - 1 : 0]]></code>
       <code><![CDATA[$this->numRows > 0 ? $this->numRows - 1 : 0]]></code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$firstShownRec]]></code>
+      <code><![CDATA[$firstShownRec]]></code>
+      <code><![CDATA[$rowCount]]></code>
+    </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$oneKey->refTableName]]></code>
       <code><![CDATA[$rel['foreign_db']]]></code>
@@ -3709,36 +3704,24 @@
       <code><![CDATA[$o->expr->expr]]></code>
       <code><![CDATA[$order->expr->column]]></code>
     </PossiblyNullPropertyFetch>
-    <RedundantCondition>
-      <code><![CDATA[empty($statementInfo->statement->from)]]></code>
-      <code><![CDATA[empty($statementInfo->statement->from)]]></code>
-      <code><![CDATA[empty($statementInfo->statement->where)]]></code>
-      <code><![CDATA[empty($statementInfo->statement->where)]]></code>
-    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $colVisibCurrent]]></code>
       <code><![CDATA[! $colVisibElement]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$posMimeOctetstream]]></code>
+      <code><![CDATA[empty($expr->alias)]]></code>
+      <code><![CDATA[empty($expr->column)]]></code>
+      <code><![CDATA[empty($field->database)]]></code>
+      <code><![CDATA[empty($field->table)]]></code>
       <code><![CDATA[empty($linkRelations['link_dependancy_params'])]]></code>
       <code><![CDATA[empty($rowInfo['routine_type'])]]></code>
       <code><![CDATA[empty($statement->order)]]></code>
+      <code><![CDATA[empty($statementInfo->statement->from[0]->table)]]></code>
       <code><![CDATA[empty($this->mediaTypeMap[$orgFullColName]['input_transformation'])]]></code>
       <code><![CDATA[empty($this->mediaTypeMap[$orgFullColName]['transformation'])]]></code>
       <code><![CDATA[strpos($linkRelations['default_page'], '?')]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[! empty($statementInfo->statement->expr)]]></code>
-      <code><![CDATA[! empty($statementInfo->statement->from)]]></code>
-      <code><![CDATA[! empty($statementInfo->statement->limit)]]></code>
-    </TypeDoesNotContainType>
-    <UnusedParam>
-      <code><![CDATA[$afterCount]]></code>
-      <code><![CDATA[$posNext]]></code>
-      <code><![CDATA[$preCount]]></code>
-      <code><![CDATA[$total]]></code>
-    </UnusedParam>
   </file>
   <file src="src/Encoding.php">
     <DeprecatedMethod>
