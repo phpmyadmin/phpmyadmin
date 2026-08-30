@@ -5213,13 +5213,6 @@
       <code><![CDATA[$oldPriv[7]]]></code>
       <code><![CDATA[$query]]></code>
     </PossiblyNullOperand>
-    <RedundantCast>
-      <code><![CDATA[(string) $_POST['new_name']]]></code>
-      <code><![CDATA[(string) $_POST['new_name']]]></code>
-      <code><![CDATA[(string) $_POST['new_name']]]></code>
-      <code><![CDATA[(string) $_POST['new_name']]]></code>
-      <code><![CDATA[(string) $_POST['new_name']]]></code>
-    </RedundantCast>
     <RiskyCast>
       <code><![CDATA[$_POST['new_auto_increment']]]></code>
     </RiskyCast>
