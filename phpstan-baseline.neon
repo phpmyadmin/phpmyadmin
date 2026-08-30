@@ -14125,18 +14125,6 @@ parameters:
 			path: src/Util.php
 
 		-
-			message: '#^Parameter \#2 \$array of function implode expects array\<string\>, list given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Variable static method call on PhpMyAdmin\\Util\.$#'
-			identifier: staticMethod.dynamicName
-			count: 1
-			path: src/Util.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#

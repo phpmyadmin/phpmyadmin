@@ -1138,16 +1138,7 @@ class Util
         /* Fetch columns list if required */
         if (str_contains($string, '@COLUMNS@')) {
             $columnsList = $dbi->getColumnNames(Current::$database, Current::$table);
-
-            $columnNames = [];
-            if ($escape !== null) {
-                foreach ($columnsList as $column) {
-                    $columnNames[] = self::$escape($column);
-                }
-            } else {
-                $columnNames = $columnsList;
-            }
-
+            $columnNames = $escape !== null ? array_map($escape, $columnsList) : $columnsList;
             $replace['@COLUMNS@'] = implode(',', $columnNames);
         }
 
