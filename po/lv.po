@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-08-30 07:51+0000\n"
+"PO-Revision-Date: 2026-08-30 08:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "lv/>\n"
@@ -4860,10 +4860,8 @@ msgstr ""
 #: libraries/classes/Controllers/Table/MaintenanceController.php:117
 #: libraries/classes/Controllers/Table/MaintenanceController.php:153
 #: libraries/classes/Controllers/Table/MaintenanceController.php:188
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
-msgstr "Nav izvēlēta tabula."
+msgstr "Nav atlasīta neviena tabula."
 
 #: libraries/classes/Controllers/Database/ImportController.php:75
 #: libraries/classes/Controllers/ImportController.php:619
@@ -4977,7 +4975,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/TrackingController.php:118
 msgid "No tables selected."
-msgstr "Nav izvēlēta tabula."
+msgstr "Nav atlasīta neviena tabula."
 
 #: libraries/classes/Controllers/Database/TrackingController.php:157
 msgid "Database Log"
@@ -6467,7 +6465,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:446
 msgid "No dependencies selected!"
-msgstr "Nav atlasītas atkarības!"
+msgstr "Nav atlasīta neviena atkarība!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:449
 #: libraries/classes/InsertEdit.php:1892
