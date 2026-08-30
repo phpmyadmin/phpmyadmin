@@ -281,8 +281,8 @@ class ImportCsv extends AbstractImportCsv
                 if ($lasti === $i && $lastlen === $len) {
                     Current::$message = Message::error(
                         __('Invalid format of CSV input on line %d.'),
+                        [$line],
                     );
-                    Current::$message->addParam($line);
                     Import::$hasError = true;
                     break;
                 }
@@ -494,8 +494,8 @@ class ImportCsv extends AbstractImportCsv
                                 __(
                                     'Invalid column count in CSV input on line %d.',
                                 ),
+                                [$line],
                             );
-                            Current::$message->addParam($line);
                             Import::$hasError = true;
                             break;
                         }
@@ -539,8 +539,8 @@ class ImportCsv extends AbstractImportCsv
 
         Current::$message = Message::error(
             __('Invalid format of CSV input on line %d.'),
+            [$line],
         );
-        Current::$message->addParam($line);
         Import::$hasError = true;
 
         return $sqlStatements;
@@ -669,8 +669,8 @@ class ImportCsv extends AbstractImportCsv
         if ($csvTerminated === '') {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
+                [__('Columns terminated with')],
             );
-            Current::$message->addParam(__('Columns terminated with'));
             Import::$hasError = true;
             $paramError = true;
             // The default dialog of MS Excel when generating a CSV produces a
@@ -684,8 +684,8 @@ class ImportCsv extends AbstractImportCsv
         } elseif (strlen($csvEnclosed) > 1) {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
+                [__('Columns enclosed with')],
             );
-            Current::$message->addParam(__('Columns enclosed with'));
             Import::$hasError = true;
             $paramError = true;
             // I could not find a test case where having no escaping characters
@@ -695,15 +695,15 @@ class ImportCsv extends AbstractImportCsv
         } elseif (strlen($csvEscaped) > 1) {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
+                [__('Columns escaped with')],
             );
-            Current::$message->addParam(__('Columns escaped with'));
             Import::$hasError = true;
             $paramError = true;
         } elseif (strlen($csvNewLine) !== 1 && $csvNewLine !== 'auto') {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
+                [__('Lines terminated with')],
             );
-            Current::$message->addParam(__('Lines terminated with'));
             Import::$hasError = true;
             $paramError = true;
         }
@@ -795,8 +795,8 @@ class ImportCsv extends AbstractImportCsv
                         . ' names are spelled correctly, separated by commas'
                         . ', and not enclosed in quotes.',
                     ),
+                    [$val],
                 );
-                Current::$message->addParam($val);
                 Import::$hasError = true;
                 break;
             }

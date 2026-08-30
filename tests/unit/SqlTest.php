@@ -640,7 +640,7 @@ class SqlTest extends AbstractTestCase
             '',
             'index.php?route=/sql',
             null,
-            '',
+            null,
             'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
             'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
         );
@@ -749,7 +749,7 @@ class SqlTest extends AbstractTestCase
             '',
             'index.php?route=/sql',
             null,
-            '',
+            null,
             "SELECT * FROM `sakila`.`country` WHERE `last_update` > '2025-02-01';",
             "SELECT * FROM `sakila`.`country` WHERE `last_update` > '2025-02-01';",
         );

@@ -11,14 +11,11 @@ use function _ngettext;
 use function htmlspecialchars;
 use function is_float;
 use function is_int;
-use function md5;
 use function sprintf;
 
 use const ENT_COMPAT;
 
 /**
- * a single message
- *
  * simple usage examples:
  * <code>
  * // display simple error message 'Error'
@@ -30,73 +27,40 @@ use const ENT_COMPAT;
  * // get special notice
  * $message = Message::notice(__('This is a localized notice'));
  * </code>
- *
- * more advanced usage example:
- * <code>
- * // create another message, a hint, with a localized string which expects
- * $hint = Message::notice('Read the %smanual%s');
- * // replace placeholders with the following params
- * $hint->addParam('[doc@cfg_Example]');
- * $hint->addParam('[/doc]');
- * // add this hint as a tooltip
- * $hint = showHint($hint);
- *
- * // add the retrieved tooltip reference to the original message
- * $message->addMessage($hint);
- * </code>
  */
-class Message implements Stringable
+final class Message implements Stringable
 {
-    /**
-     * The locale string identifier
-     */
-    protected string $string = '';
-
-    /**
-     * The formatted message
-     */
-    protected string $message = '';
-
-    /**
-     * Whether the message was already displayed
-     */
-    protected bool $isDisplayed = false;
-
     /**
      * Whether to use BB code when displaying.
      */
-    protected bool $useBBCode = true;
-
-    /**
-     * Unique id
-     */
-    protected string|null $hash = null;
+    private bool $useBBCode = true;
 
     /**
      * holds parameters
      *
-     * @var    mixed[]
+     * @var array<self|string|int|float>
      */
-    protected array $params = [];
+    private array $params = [];
 
     /**
      * holds additional messages
      *
      * @var    (string|Message)[]
      */
-    protected array $addedMessages = [];
+    private array $addedMessages = [];
 
     /**
-     * @param string  $string The message to be displayed
-     * @param mixed[] $params An array of parameters to use in the message constant definitions above
+     * @param string                       $string The message to be displayed
+     * @param array<self|string|int|float> $params Parameters to substitute into the string
      */
     public function __construct(
-        string $string = '',
+        private string $string = '',
         private MessageType $type = MessageType::Notice,
         array $params = [],
     ) {
-        $this->setString($string);
-        $this->setParams($params);
+        foreach ($params as $param) {
+            $this->addParam($param);
+        }
     }
 
     /**
@@ -112,17 +76,18 @@ class Message implements Stringable
      *
      * shorthand for getting a simple success message
      *
-     * @param string $string A localized string
-     *                       e.g. __('Your SQL query has been
-     *                       executed successfully')
+     * @param string                       $string A localized string
+     *                                             e.g. __('Your SQL query has been
+     *                                             executed successfully')
+     * @param array<self|string|int|float> $params Parameters to substitute into the string
      */
-    public static function success(string $string = ''): self
+    public static function success(string $string = '', array $params = []): self
     {
         if ($string === '') {
             $string = __('Your SQL query has been executed successfully.');
         }
 
-        return new Message($string, MessageType::Success);
+        return new self($string, MessageType::Success, $params);
     }
 
     /**
@@ -130,15 +95,16 @@ class Message implements Stringable
      *
      * shorthand for getting a simple error message
      *
-     * @param string $string A localized string e.g. __('Error')
+     * @param string                       $string A localized string e.g. __('Error')
+     * @param array<self|string|int|float> $params Parameters to substitute into the string
      */
-    public static function error(string $string = ''): self
+    public static function error(string $string = '', array $params = []): self
     {
         if ($string === '') {
             $string = __('Error');
         }
 
-        return new Message($string, MessageType::Error);
+        return new self($string, MessageType::Error, $params);
     }
 
     /**
@@ -146,14 +112,15 @@ class Message implements Stringable
      *
      * shorthand for getting a simple notice message
      *
-     * @param string $string A localized string
-     *                       e.g. __('The additional features for working with
-     *                       linked tables have been deactivated. To find out
-     *                       why click %shere%s.')
+     * @param string                       $string A localized string
+     *                                             e.g. __('The additional features for working with
+     *                                             linked tables have been deactivated. To find out
+     *                                             why click %shere%s.')
+     * @param array<self|string|int|float> $params Parameters to substitute into the string
      */
-    public static function notice(string $string): self
+    public static function notice(string $string, array $params = []): self
     {
-        return new Message($string, MessageType::Notice);
+        return new self($string, MessageType::Notice, $params);
     }
 
     /**
@@ -165,9 +132,8 @@ class Message implements Stringable
      */
     public static function raw(string $message, MessageType $type = MessageType::Notice): self
     {
-        $r = new Message('', $type);
-        $r->setMessage($message);
-        $r->setBBCode(false);
+        $r = new self($message, $type);
+        $r->useBBCode = false;
 
         return $r;
     }
@@ -274,36 +240,6 @@ class Message implements Stringable
         return $this->type === MessageType::Error;
     }
 
-    /**
-     * Set whether we should use BB Code when rendering.
-     *
-     * @param bool $useBBCode Use BB Code?
-     */
-    public function setBBCode(bool $useBBCode): void
-    {
-        $this->useBBCode = $useBBCode;
-    }
-
-    /**
-     * set raw message (overrides string)
-     *
-     * @param string $message A localized string
-     */
-    public function setMessage(string $message): void
-    {
-        $this->message = $message;
-    }
-
-    /**
-     * set string (does not take effect if raw message is set)
-     *
-     * @param string $string string to set
-     */
-    public function setString(string $string): void
-    {
-        $this->string = $string;
-    }
-
     public function setType(MessageType $type): void
     {
         $this->type = $type;
@@ -316,15 +252,13 @@ class Message implements Stringable
      * <code>
      * $message->addParam('[em]some string[/em]');
      * </code>
-     *
-     * @param mixed $param parameter to add
      */
-    public function addParam(mixed $param): void
+    public function addParam(self|string|int|float $param): void
     {
         if ($param instanceof self || is_float($param) || is_int($param)) {
             $this->params[] = $param;
         } else {
-            $this->params[] = htmlspecialchars((string) $param, ENT_COMPAT);
+            $this->params[] = htmlspecialchars($param, ENT_COMPAT);
         }
     }
 
@@ -418,67 +352,30 @@ class Message implements Stringable
     }
 
     /**
-     * set all params at once, usually used in conjunction with string
-     *
-     * @param mixed[] $params parameters to set
-     */
-    public function setParams(array $params): void
-    {
-        $this->params = $params;
-    }
-
-    /**
-     * return all parameters
-     *
-     * @return mixed[]
-     */
-    public function getParams(): array
-    {
-        return $this->params;
-    }
-
-    /**
-     * return all added messages
-     *
-     * @return (string|Message)[]
-     */
-    public function getAddedMessages(): array
-    {
-        return $this->addedMessages;
-    }
-
-    /**
-     * returns unique Message::$hash, if not exists it will be created
-     *
-     * @return string Message::$hash
-     */
-    public function getHash(): string
-    {
-        if ($this->hash === null) {
-            $this->hash = md5($this->type->getNumericalValue() . $this->string . $this->message);
-        }
-
-        return $this->hash;
-    }
-
-    /**
      * returns compiled message
      *
      * @return string complete message
      */
     public function getMessage(): string
     {
-        $message = $this->message;
+        return $this->compile($this->string);
+    }
 
-        if ($message === '') {
-            $message = $this->getString();
-        }
+    public function getMessageWithIcon(): string
+    {
+        $image = match ($this->type) {
+            MessageType::Error => 's_error',
+            MessageType::Success => 's_success',
+            MessageType::Notice => 's_notice',
+        };
 
-        /** @infection-ignore-all */
-        if ($this->isDisplayed()) {
-            $message = $this->getMessageWithIcon($message);
-        }
+        $icon = Html\Generator::getImage($image);
 
+        return $this->compile($icon . ' ' . $this->string);
+    }
+
+    private function compile(string $message): string
+    {
         if ($this->params !== []) {
             // phpcs:disable SlevomatCodingStandard.PHP.OptimizedFunctionsWithoutUnpacking.UnpackingUsed
             $message = sprintf($message, ...$this->params);
@@ -488,19 +385,11 @@ class Message implements Stringable
             $message = Sanitize::convertBBCode($message, true);
         }
 
-        foreach ($this->getAddedMessages() as $addMessage) {
+        foreach ($this->addedMessages as $addMessage) {
             $message .= $addMessage;
         }
 
         return $message;
-    }
-
-    /**
-     * Returns only message string without image & other HTML.
-     */
-    public function getOnlyMessage(): string
-    {
-        return $this->message;
     }
 
     /**
@@ -513,14 +402,9 @@ class Message implements Stringable
         return $this->string;
     }
 
-    protected function getLevel(): MessageType
-    {
-        return $this->type;
-    }
-
     public function getContext(): string
     {
-        return match ($this->getLevel()) {
+        return match ($this->type) {
             MessageType::Error => 'danger',
             MessageType::Success => 'success',
             MessageType::Notice => 'primary',
@@ -532,46 +416,13 @@ class Message implements Stringable
      *
      * @return string whole message box
      */
-    public function getDisplay(): string
+    public function getDisplay(Template|null $template = null): string
     {
-        $this->isDisplayed(true);
+        $template ??= new Template(Config::getInstance());
 
-        $template = new Template(Config::getInstance());
-
-        return $template->render('message', ['context' => $this->getContext(), 'message' => $this->getMessage()]);
-    }
-
-    /**
-     * sets and returns whether the message was displayed or not
-     *
-     * @param bool $isDisplayed whether to set displayed flag
-     *
-     * @infection-ignore-all
-     */
-    public function isDisplayed(bool $isDisplayed = false): bool
-    {
-        if ($isDisplayed) {
-            $this->isDisplayed = true;
-        }
-
-        return $this->isDisplayed;
-    }
-
-    /**
-     * Returns the message with corresponding image icon
-     *
-     * @param string $message the message(s)
-     *
-     * @return string message with icon
-     */
-    public function getMessageWithIcon(string $message): string
-    {
-        $image = match ($this->getLevel()) {
-            MessageType::Error => 's_error',
-            MessageType::Success => 's_success',
-            MessageType::Notice =>'s_notice',
-        };
-
-        return self::notice(Html\Generator::getImage($image)) . ' ' . $message;
+        return $template->render(
+            'message',
+            ['context' => $this->getContext(), 'message' => $this->getMessageWithIcon()],
+        );
     }
 }

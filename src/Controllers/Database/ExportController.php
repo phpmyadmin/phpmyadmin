@@ -69,9 +69,7 @@ final readonly class ExportController implements InvocableController
 
         // exit if no tables in db found
         if (Current::$numTables < 1) {
-            $this->response->addHTML(
-                Message::error(__('No tables found in database.'))->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(__('No tables found in database.')));
 
             return $this->response->response();
         }
@@ -127,7 +125,7 @@ final readonly class ExportController implements InvocableController
         if ($exportList === []) {
             $this->response->addHTML(Message::error(
                 __('Could not load export plugins, please check your installation!'),
-            )->getDisplay());
+            ));
 
             return $this->response->response();
         }

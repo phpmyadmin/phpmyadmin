@@ -12,7 +12,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
@@ -38,7 +37,7 @@ final readonly class DropController implements InvocableController
             $table = TableName::from($request->getParam('table'));
         } catch (InvalidIdentifier | InvalidArgumentException $exception) {
             $message = Message::error($exception->getMessage());
-            $this->response->addHTML($message->getDisplay());
+            $this->response->addHTML($message);
 
             return $this->response->response();
         }
@@ -46,17 +45,9 @@ final readonly class DropController implements InvocableController
         [$result, $query] = $this->model->drop($database, $table, $partitionName);
 
         if ($result) {
-            $message = Generator::getMessage(
-                __('Your SQL query has been executed successfully.'),
-                $query,
-                MessageType::Success,
-            );
+            $message = Generator::getMessage(Message::success(), $query);
         } else {
-            $message = Generator::getMessage(
-                __('Error'),
-                $query,
-                MessageType::Error,
-            );
+            $message = Generator::getMessage(Message::error(), $query);
         }
 
         $this->response->render('table/partition/drop', ['partition_name' => $partitionName, 'message' => $message]);

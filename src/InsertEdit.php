@@ -160,7 +160,7 @@ class InsertEdit
             if ($rows[$keyId] === []) {
                 $this->responseRenderer->addHTML(
                     Generator::getMessage(
-                        __('MySQL returned an empty result set (i.e. zero rows).'),
+                        new Message(__('MySQL returned an empty result set (i.e. zero rows).')),
                         $localQuery,
                     ),
                 );
@@ -852,9 +852,7 @@ class InsertEdit
                         $insertId += $totalAffectedRows - 1;
                     }
 
-                    $lastMessage = Message::notice(__('Inserted row id: %1$d'));
-                    $lastMessage->addParam($insertId);
-                    $lastMessages[] = $lastMessage;
+                    $lastMessages[] = Message::notice(__('Inserted row id: %1$d'), [$insertId]);
                 }
             }
 

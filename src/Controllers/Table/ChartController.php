@@ -56,9 +56,7 @@ final readonly class ChartController implements InvocableController
         // Throw error if no sql query is set
         if (Current::$sqlQuery === '') {
             $this->response->setRequestStatus(false);
-            $this->response->addHTML(
-                Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(__('No SQL query was set to fetch data.')));
 
             return $this->response->response();
         }

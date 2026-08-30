@@ -43,9 +43,7 @@ final readonly class UserGroupsController implements InvocableController
          * Only allowed to superuser
          */
         if (! $this->dbi->isSuperUser()) {
-            $this->response->addHTML(
-                Message::error(__('No Privileges'))->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(__('No Privileges')));
 
             return $this->response->response();
         }

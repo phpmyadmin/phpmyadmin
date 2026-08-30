@@ -45,7 +45,7 @@ final readonly class PrivilegesController implements InvocableController
                 $db = DatabaseName::from(mb_strtolower($db->getName()));
             }
         } catch (InvalidDatabaseName $exception) {
-            $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
+            $this->response->addHTML(Message::error($exception->getMessage()));
 
             return $this->response->response();
         }
@@ -60,10 +60,7 @@ final readonly class PrivilegesController implements InvocableController
 
         if (! $this->dbi->isSuperUser() && ! $isGrantUser && ! $isCreateUser) {
             $this->response->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
-            $this->response->addHTML(
-                Message::error(__('No Privileges'))
-                    ->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(__('No Privileges')));
 
             return $this->response->response();
         }
@@ -71,7 +68,7 @@ final readonly class PrivilegesController implements InvocableController
         if (! $isGrantUser && ! $isCreateUser) {
             $this->response->addHTML(Message::notice(
                 __('You do not have the privileges to administrate the users!'),
-            )->getDisplay());
+            ));
         }
 
         $scriptName = Url::getFromRoute($this->config->config->DefaultTabDatabase);

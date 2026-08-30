@@ -41,7 +41,7 @@ final readonly class SchemaExportController implements InvocableController
                 . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
                 . '[br]';
             $this->response->setRequestStatus(false);
-            $this->response->addHTML(Message::error($errorMessage)->getDisplay());
+            $this->response->addHTML(Message::error($errorMessage));
 
             return $this->response->response();
         }
@@ -53,7 +53,7 @@ final readonly class SchemaExportController implements InvocableController
             $exportInfo = $this->export->getExportSchemaInfo($db, $exportType);
         } catch (ExportException $exception) {
             $this->response->setRequestStatus(false);
-            $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
+            $this->response->addHTML(Message::error($exception->getMessage()));
 
             return $this->response->response();
         }

@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Error;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Message;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\MessageType;
+use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use Throwable;
 
@@ -48,32 +49,49 @@ use const E_USER_WARNING;
 use const E_WARNING;
 use const PATH_SEPARATOR;
 
-/**
- * a single error
- */
-class Error extends Message
+final class Error
 {
+    /**
+     * The error message
+     */
+    private string $message;
+
+    /**
+     * Whether the error was already displayed
+     */
+    private bool $isDisplayed = false;
+
+    /**
+     * Whether to use BB code when displaying.
+     */
+    private bool $useBBCode = true;
+
     /**
      * The file in which the error occurred
      */
-    protected string $file = '';
+    private string $file = '';
 
     /**
      * The line in which the error occurred
      */
-    protected int $line = 0;
+    private int $line = 0;
 
     /**
      * Holds the backtrace for this error
      *
      * @var mixed[]
      */
-    protected array $backtrace = [];
+    private array $backtrace = [];
 
     /**
      * Hide location of errors
      */
-    protected bool $hideLocation = false;
+    private bool $hideLocation = false;
+
+    /**
+     * Unique id
+     */
+    private string|null $hash = null;
 
     /**
      * @param string $errstr  error message
@@ -82,9 +100,7 @@ class Error extends Message
      */
     public function __construct(private int $errorNumber, string $errstr, string $errfile, int $errline)
     {
-        parent::__construct();
-
-        $this->setMessage($errstr);
+        $this->message = $errstr;
         $this->setFile($errfile);
         $this->setLine($errline);
 
@@ -278,7 +294,7 @@ class Error extends Message
         };
     }
 
-    protected function getLevel(): MessageType
+    private function getLevel(): MessageType
     {
         return match ($this->errorNumber) {
             default => MessageType::Error,
@@ -288,6 +304,43 @@ class Error extends Message
             E_DEPRECATED,
             E_USER_DEPRECATED => MessageType::Notice,
         };
+    }
+
+    public function getContext(): string
+    {
+        return $this->getLevel() === MessageType::Error ? 'danger' : 'primary';
+    }
+
+    public function setBBCode(bool $useBBCode): void
+    {
+        $this->useBBCode = $useBBCode;
+    }
+
+    public function isDisplayed(): bool
+    {
+        return $this->isDisplayed;
+    }
+
+    public function markDisplayed(): void
+    {
+        $this->isDisplayed = true;
+    }
+
+    public function getMessage(): string
+    {
+        return $this->convertBBCode($this->message);
+    }
+
+    private function getMessageWithIcon(): string
+    {
+        $image = $this->getLevel() === MessageType::Error ? 's_error' : 's_notice';
+
+        return $this->convertBBCode(Generator::getImage($image) . ' ' . $this->message);
+    }
+
+    private function convertBBCode(string $message): string
+    {
+        return $this->useBBCode ? Sanitize::convertBBCode($message, true) : $message;
     }
 
     /**
@@ -421,17 +474,17 @@ class Error extends Message
      */
     public function getDisplay(): string
     {
-        $this->isDisplayed(true);
+        $this->markDisplayed();
 
         $template = new Template(Config::getInstance());
 
         return $template->render('error/get_display', [
-            'context' => $this->getLevel() === MessageType::Error ? 'danger' : 'primary',
+            'context' => $this->getContext(),
             'is_user_error' => $this->isUserError(),
             'type' => $this->getType(),
             'file' => $this->getFile(),
             'line' => $this->getLine(),
-            'message' => $this->getMessage(),
+            'message' => $this->getMessageWithIcon(),
             'formatted_backtrace' => $this->getBacktraceDisplay(),
         ]);
     }
@@ -489,5 +542,13 @@ class Error extends Message
         $path = $result . str_replace(implode(DIRECTORY_SEPARATOR, $destParts), '', $dest);
 
         return str_replace(DIRECTORY_SEPARATOR . PATH_SEPARATOR, DIRECTORY_SEPARATOR, $path);
+    }
+
+    /**
+     * Returns only message string without image & other HTML.
+     */
+    public function getOnlyMessage(): string
+    {
+        return $this->message;
     }
 }

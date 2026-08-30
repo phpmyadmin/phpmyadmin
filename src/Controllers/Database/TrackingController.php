@@ -69,7 +69,7 @@ final readonly class TrackingController implements InvocableController
             $this->tracking->deleteTracking(Current::$database, $request->getParsedBodyParamAsString('table'));
             $this->response->addHTML(Message::success(
                 __('Tracking data deleted successfully.'),
-            )->getDisplay());
+            ));
         } elseif ($request->hasBodyParam('submit_create_version')) {
             $this->tracking->createTrackingForMultipleTables(
                 Current::$database,
@@ -83,7 +83,7 @@ final readonly class TrackingController implements InvocableController
                     ),
                     htmlspecialchars($request->getParsedBodyParamAsString('version')),
                 ),
-            )->getDisplay());
+            ));
         } elseif ($request->hasBodyParam('submit_mult')) {
         /** @var string[] $selectedTable */
             $selectedTable = $request->getParsedBodyParam('selected_tbl', []);
@@ -95,7 +95,7 @@ final readonly class TrackingController implements InvocableController
 
                     $this->response->addHTML(Message::success(
                         __('Tracking data deleted successfully.'),
-                    )->getDisplay());
+                    ));
                 } elseif ($request->getParsedBodyParam('submit_mult') === 'track') {
                     $this->response->render('create_tracking_version', [
                         'route' => '/database/tracking',
@@ -112,7 +112,7 @@ final readonly class TrackingController implements InvocableController
             } else {
                 $this->response->addHTML(Message::notice(
                     __('No tables selected.'),
-                )->getDisplay());
+                ));
             }
         }
 
@@ -146,7 +146,7 @@ final readonly class TrackingController implements InvocableController
                 . $entry['statement'] . "\n";
         }
 
-        $this->response->addHTML(Generator::getMessage(__('Database Log'), $log));
+        $this->response->addHTML(Generator::getMessage(new Message(__('Database Log')), $log));
 
         return $this->response->response();
     }

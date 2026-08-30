@@ -1416,9 +1416,9 @@
     <MixedAssignment>
       <code><![CDATA[$newname]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[Response]]></code>
+    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Preferences/ExportController.php">
     <PossiblyUnusedMethod>
@@ -1922,9 +1922,6 @@
     <MixedAssignment>
       <code><![CDATA[$repopulate]]></code>
     </MixedAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty(Current::$displayMessage)]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/ChangeRowsController.php">
     <MixedAssignment>
@@ -2766,12 +2763,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/UserPasswordController.php">
-    <MixedArgument>
-      <code><![CDATA[$message->getDisplay()]]></code>
-    </MixedArgument>
-    <MixedMethodCall>
-      <code><![CDATA[getDisplay]]></code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -4932,9 +4923,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$this->params]]></code>
-    </MixedArgument>
   </file>
   <file src="src/Navigation/Navigation.php">
     <PossiblyNullArrayOffset>

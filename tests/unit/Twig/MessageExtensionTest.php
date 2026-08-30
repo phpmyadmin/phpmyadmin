@@ -37,23 +37,23 @@ final class MessageExtensionTest extends AbstractTestCase
         $message = 'Message';
         $statement = '';
         self::assertSame(
-            Generator::getMessage($message, $statement, MessageType::Success),
+            Generator::getMessage(new Message($message, MessageType::Success), $statement),
             MessageExtension::getStatementMessage($message, $statement, 'success'),
         );
         self::assertSame(
-            Generator::getMessage($message, $statement, MessageType::Error),
+            Generator::getMessage(new Message($message, MessageType::Error), $statement),
             MessageExtension::getStatementMessage($message, $statement, 'error'),
         );
         self::assertSame(
-            Generator::getMessage($message, $statement, MessageType::Error),
+            Generator::getMessage(new Message($message, MessageType::Error), $statement),
             MessageExtension::getStatementMessage($message, $statement, 'danger'),
         );
         self::assertSame(
-            Generator::getMessage($message, $statement),
+            Generator::getMessage(new Message($message), $statement),
             MessageExtension::getStatementMessage($message, $statement, 'notice'),
         );
         self::assertSame(
-            Generator::getMessage($message, $statement),
+            Generator::getMessage(new Message($message), $statement),
             MessageExtension::getStatementMessage($message, $statement, 'unknown'),
         );
     }

@@ -442,8 +442,10 @@ class Sql
         );
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
-            self::$usingBookmarkMessage = Message::notice(__('Using bookmark "%s" as default browse query.'));
-            self::$usingBookmarkMessage->addParam($table);
+            self::$usingBookmarkMessage = Message::notice(
+                __('Using bookmark "%s" as default browse query.'),
+                [$table],
+            );
             self::$usingBookmarkMessage->addHtml(MySQLDocumentation::showDocumentation('faq', 'faq6-22'));
 
             return $bookmark->getQuery();
@@ -878,8 +880,7 @@ class Sql
                 // need to use a temporary because the Message class
                 // currently supports adding parameters only to the first
                 // message
-                $inserted = Message::notice(__('Inserted row id: %1$d'));
-                $inserted->addParam($insertId + $numRows - 1);
+                $inserted = Message::notice(__('Inserted row id: %1$d'), [$insertId + $numRows - 1]);
                 $message->addMessage($inserted);
             }
         } elseif ($statementInfo->flags->isAffected) {
@@ -908,8 +909,8 @@ class Sql
         if ($this->queryTime > 0) {
             $queryTime = Message::notice(
                 '(' . __('Query took %01.4f seconds.') . ')',
+                [$this->queryTime],
             );
-            $queryTime->addParam($this->queryTime);
             $message->addMessage($queryTime);
         }
 
@@ -966,7 +967,7 @@ class Sql
             );
         }
 
-        $queryMessage = Generator::getMessage($message, $sqlQuery, MessageType::Success);
+        $queryMessage = Generator::getMessage($message, $sqlQuery);
 
         if (self::$showAsPhp !== null) {
             return $queryMessage;
@@ -1075,10 +1076,7 @@ class Sql
     {
         $output = '';
         if ($label !== null && $label !== '') {
-            $message = Message::success(
-                __('Bookmark %s has been created.'),
-            );
-            $message->addParam($label);
+            $message = Message::success(__('Bookmark %s has been created.'), [$label]);
             $output = $message->getDisplay();
         }
 
@@ -1211,17 +1209,17 @@ class Sql
     /**
      * Function to get html for the previous query if there is such.
      *
-     * @param string|null    $displayQuery   display query
-     * @param bool           $showSql        whether to show sql
-     * @param Message|string $displayMessage display message
+     * @param string|null  $displayQuery   display query
+     * @param bool         $showSql        whether to show sql
+     * @param Message|null $displayMessage display message
      */
     private function getHtmlForPreviousUpdateQuery(
         string|null $displayQuery,
         bool $showSql,
-        Message|string $displayMessage,
+        Message|null $displayMessage,
     ): string {
         if ($displayQuery !== null && $showSql) {
-            return Generator::getMessage($displayMessage, $displayQuery, MessageType::Success);
+            return Generator::getMessage($displayMessage ?? new Message(), $displayQuery);
         }
 
         return '';
@@ -1292,7 +1290,7 @@ class Sql
         int|string $unlimNumRows,
         int|string $numRows,
         string|null $dispQuery,
-        Message|string $dispMessage,
+        Message|null $dispMessage,
         array $profilingResults,
         string $sqlQuery,
         string $completeQuery,
@@ -1440,16 +1438,16 @@ class Sql
     /**
      * Function to execute the query and send the response
      *
-     * @param bool           $isGotoFile          whether goto file or not
-     * @param string         $db                  current database
-     * @param string|null    $table               current table
-     * @param string         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param string         $messageToShow       message to show
-     * @param string         $goto                goto page url
-     * @param string|null    $dispQuery           display query
-     * @param Message|string $dispMessage         display message
-     * @param string         $sqlQuery            sql query
-     * @param string         $completeQuery       complete query
+     * @param bool         $isGotoFile          whether goto file or not
+     * @param string       $db                  current database
+     * @param string|null  $table               current table
+     * @param string       $sqlQueryForBookmark the sql query to be stored as bookmark
+     * @param string       $messageToShow       message to show
+     * @param string       $goto                goto page url
+     * @param string|null  $dispQuery           display query
+     * @param Message|null $dispMessage         display message
+     * @param string       $sqlQuery            sql query
+     * @param string       $completeQuery       complete query
      */
     public function executeQueryAndSendQueryResponse(
         ServerRequest $request,
@@ -1461,7 +1459,7 @@ class Sql
         string $messageToShow,
         string $goto,
         string|null $dispQuery,
-        Message|string $dispMessage,
+        Message|null $dispMessage,
         string $sqlQuery,
         string $completeQuery,
     ): string {
@@ -1491,16 +1489,16 @@ class Sql
     /**
      * Function to execute the query and send the response
      *
-     * @param bool           $isGotoFile          whether goto file or not
-     * @param string         $db                  current database
-     * @param string|null    $table               current table
-     * @param string         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param string         $messageToShow       message to show
-     * @param string         $goto                goto page url
-     * @param string|null    $dispQuery           display query
-     * @param Message|string $dispMessage         display message
-     * @param string         $sqlQuery            sql query
-     * @param string         $completeQuery       complete query
+     * @param bool         $isGotoFile          whether goto file or not
+     * @param string       $db                  current database
+     * @param string|null  $table               current table
+     * @param string       $sqlQueryForBookmark the sql query to be stored as bookmark
+     * @param string       $messageToShow       message to show
+     * @param string       $goto                goto page url
+     * @param string|null  $dispQuery           display query
+     * @param Message|null $dispMessage         display message
+     * @param string       $sqlQuery            sql query
+     * @param string       $completeQuery       complete query
      *
      * @return string html
      */
@@ -1514,7 +1512,7 @@ class Sql
         string $messageToShow,
         string $goto,
         string|null $dispQuery,
-        Message|string $dispMessage,
+        Message|null $dispMessage,
         string $sqlQuery,
         string $completeQuery,
     ): string {
@@ -1572,7 +1570,7 @@ class Sql
                 $request->hasBodyParam('rollback_query'),
             );
 
-            return Generator::getMessage($message, Current::$sqlQuery, MessageType::Success);
+            return Generator::getMessage($message, Current::$sqlQuery);
         }
 
         // Handle disable/enable foreign key checks

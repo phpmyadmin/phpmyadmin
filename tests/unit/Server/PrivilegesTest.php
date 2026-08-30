@@ -1210,7 +1210,7 @@ class PrivilegesTest extends AbstractTestCase
 
         //sql_query
         self::assertSame(
-            Generator::getMessage('', $sqlQuery),
+            Generator::getMessage(new Message(), $sqlQuery),
             $extraData['sql_query'],
         );
 

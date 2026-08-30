@@ -134,9 +134,7 @@ class Routines
                 } else {
                     Current::$message = Message::success(
                         __('Routine %1$s has been created.'),
-                    );
-                    Current::$message->addParam(
-                        Util::backquote($_POST['item_name']),
+                        [Util::backquote($_POST['item_name'])],
                     );
                     $sqlQuery = $routineQuery;
                 }

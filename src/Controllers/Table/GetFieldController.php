@@ -91,7 +91,7 @@ final readonly class GetFieldController implements InvocableController
         ) {
             $this->response->setRequestStatus(false);
             /* l10n: In case a SQL query did not pass a security check  */
-            $this->response->addHTML(Message::error(__('There is an issue with your request.'))->getDisplay());
+            $this->response->addHTML(Message::error(__('There is an issue with your request.')));
 
             return $this->response->response();
         }

@@ -121,9 +121,7 @@ class Events
                     } else {
                         Current::$message = Message::success(
                             __('Event %1$s has been modified.'),
-                        );
-                        Current::$message->addParam(
-                            Util::backquote($_POST['item_name']),
+                            [Util::backquote($_POST['item_name'])],
                         );
                         $sqlQuery = $dropItem . $itemQuery;
                     }
@@ -141,9 +139,7 @@ class Events
                 } else {
                     Current::$message = Message::success(
                         __('Event %1$s has been created.'),
-                    );
-                    Current::$message->addParam(
-                        Util::backquote($_POST['item_name']),
+                        [Util::backquote($_POST['item_name'])],
                     );
                     $sqlQuery = $itemQuery;
                 }
