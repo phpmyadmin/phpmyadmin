@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-23 00:18+0000\n"
+"POT-Creation-Date: 2026-08-30 00:43+0000\n"
 "PO-Revision-Date: 2025-12-29 11:00+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -242,7 +242,7 @@ msgstr "coloană(e)"
 #: resources/templates/database/operations/index.twig:186
 #: resources/templates/database/operations/index.twig:226
 #: resources/templates/database/routines/editor_form.twig:186
-#: resources/templates/database/routines/execute_form.twig:61
+#: resources/templates/database/routines/execute_form.twig:63
 #: resources/templates/display/results/table.twig:279
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
@@ -637,7 +637,7 @@ msgstr "Nume"
 #: resources/templates/table/structure/display_structure.twig:473
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:261
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:236
 #: src/Plugins/Export/ExportHtmlword.php:226
 #: src/Plugins/Export/ExportHtmlword.php:297
 #: src/Plugins/Export/ExportLatex.php:463 src/Plugins/Export/ExportOdt.php:322
@@ -2460,12 +2460,12 @@ msgstr "Parametri rutină"
 
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:260
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:235
 #: src/Navigation/Nodes/NodeFunction.php:27
 msgid "Function"
 msgstr "Funcție"
 
-#: resources/templates/database/routines/execute_form.twig:54
+#: resources/templates/database/routines/execute_form.twig:56
 #, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
@@ -2515,8 +2515,8 @@ msgid "Export routine"
 msgstr "Exportul rutinei %s"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:354
-#: src/Controllers/Database/RoutinesController.php:364
+#: src/Controllers/Database/RoutinesController.php:335
+#: src/Controllers/Database/RoutinesController.php:343
 msgid "Execute routine"
 msgstr "Execută rutina"
 
@@ -3191,7 +3191,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:425
+#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:412
 #: src/Message.php:138
 msgid "Error"
 msgstr "Eroare"
@@ -3745,7 +3745,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "De asemenea, poți trage și plasa un fișier în orice pagină."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:426
+#: src/InsertEdit.php:413
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Directorul pe care l-ai setat pentru încărcare nu poate fi găsit."
 
@@ -5077,7 +5077,7 @@ msgstr "Permite citirea datelor."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:434
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:421
 msgid "Or"
 msgstr "Sau"
 
@@ -6626,7 +6626,7 @@ msgstr "Profilez rezultatele"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1033 src/Display/Results.php:2964
+#: src/Database/Routines.php:1002 src/Display/Results.php:2964
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Interogarea SQL a fost executată cu succes."
@@ -6937,7 +6937,7 @@ msgstr "Trage pentru a reordona"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1421
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1408
 msgid "Ignore"
 msgstr "Ignoră"
 
@@ -7116,13 +7116,13 @@ msgstr "Golește tabelul (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:369
+#: src/Controllers/Database/StructureController.php:368
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Vizualizarea %s a fost eliminată."
 
 #: resources/templates/table/operations/index.twig:459
-#: src/Controllers/Database/StructureController.php:369
+#: src/Controllers/Database/StructureController.php:368
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabelul %s a fost eliminat."
@@ -11916,37 +11916,37 @@ msgstr "Ordonează după"
 msgid "Server connection collation"
 msgstr "Colaționare conexiune server"
 
-#: src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:582
 #, php-format
 msgid "Missing data for %s"
 msgstr "Lipsesc date pentru %s"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
+#: src/Config/FormDisplay.php:622 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:809
 msgid "Incorrect value!"
 msgstr "Valoare incorectă!"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:768
 msgid "unavailable"
 msgstr "indisponibil"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:770
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "„%s” necesită extensia %s"
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:792
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Importul comprimat nu va funcționa deoarece lipsește funcția %s."
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:801
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Exportul comprimat nu va funcționa deoarece lipsește funcția %s."
 
-#: src/Config/FormDisplay.php:815 src/Config/FormDisplay.php:816
-#: src/Config/FormDisplay.php:817
+#: src/Config/FormDisplay.php:817 src/Config/FormDisplay.php:818
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "maxim %s"
@@ -12321,14 +12321,14 @@ msgstr "Există deja o pagină numită „%s”. Te rog să o redenumești în a
 #: src/Controllers/Database/ExportController.php:62
 #: src/Controllers/Database/ImportController.php:61
 #: src/Controllers/Database/ImportController.php:66
-#: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:98
+#: src/Controllers/Database/RoutinesController.php:77
+#: src/Controllers/Database/RoutinesController.php:95
 #: src/Controllers/Database/SearchController.php:53
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:54
 #: src/Controllers/Database/SqlController.php:59
-#: src/Controllers/Database/StructureController.php:157
-#: src/Controllers/Database/StructureController.php:162
+#: src/Controllers/Database/StructureController.php:156
+#: src/Controllers/Database/StructureController.php:161
 #: src/Controllers/Database/Structure/FavoriteTableController.php:65
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
 #: src/Controllers/Database/TrackingController.php:55
@@ -12397,9 +12397,9 @@ msgid "Edit event"
 msgstr "Editează evenimentul"
 
 #: src/Controllers/Database/EventsController.php:189
-#: src/Controllers/Database/RoutinesController.php:273
-#: src/Controllers/Database/RoutinesController.php:303
-#: src/Controllers/Database/RoutinesController.php:371
+#: src/Controllers/Database/RoutinesController.php:254
+#: src/Controllers/Database/RoutinesController.php:284
+#: src/Controllers/Database/RoutinesController.php:350
 #: src/Controllers/Triggers/IndexController.php:207
 msgid "Error in processing request:"
 msgstr "Eroare la procesarea cererii:"
@@ -12446,7 +12446,7 @@ msgstr "Niciun privilegiu"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nu ai privilegii pentru a gestiona utilizatorii!"
 
-#: src/Controllers/Database/RoutinesController.php:88
+#: src/Controllers/Database/RoutinesController.php:85
 #: src/Controllers/Database/Structure/AddPrefixController.php:35
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:38
@@ -12500,15 +12500,15 @@ msgstr "Nu ai privilegii pentru a gestiona utilizatorii!"
 msgid "No table selected."
 msgstr "Niciun tabel selectat."
 
-#: src/Controllers/Database/RoutinesController.php:173
+#: src/Controllers/Database/RoutinesController.php:170
 msgid "Add routine"
 msgstr "Adaugă rutină"
 
-#: src/Controllers/Database/RoutinesController.php:177
+#: src/Controllers/Database/RoutinesController.php:174
 msgid "Edit routine"
 msgstr "Editează rutina"
 
-#: src/Controllers/Database/RoutinesController.php:276
+#: src/Controllers/Database/RoutinesController.php:257
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12517,18 +12517,18 @@ msgstr ""
 "Nicio rutină cu numele %1$s găsită în baza de date %2$s. S-ar putea să fie "
 "blocate privilegiile necesare pentru a edita această rutină."
 
-#: src/Controllers/Database/RoutinesController.php:305
-#: src/Controllers/Database/RoutinesController.php:373
+#: src/Controllers/Database/RoutinesController.php:286
+#: src/Controllers/Database/RoutinesController.php:352
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Nicio rutină cu numele %1$s găsită în baza de date %2$s."
 
-#: src/Controllers/Database/RoutinesController.php:416
+#: src/Controllers/Database/RoutinesController.php:395
 #, php-format
 msgid "Export of routine %s"
 msgstr "Exportul rutinei %s"
 
-#: src/Controllers/Database/RoutinesController.php:435
+#: src/Controllers/Database/RoutinesController.php:414
 #, fuzzy, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12550,7 +12550,7 @@ msgstr ""
 msgid "Success!"
 msgstr "Succes!"
 
-#: src/Controllers/Database/StructureController.php:568
+#: src/Controllers/Database/StructureController.php:567
 #: src/Display/Results.php:3245
 #, php-format
 msgid ""
@@ -12560,7 +12560,7 @@ msgstr ""
 "Această vizualizare are cel puțin acest număr de rânduri. Te rog vezi "
 "%sdocumentația%s."
 
-#: src/Controllers/Database/StructureController.php:737
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "necunoscut"
 
@@ -14332,7 +14332,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabelul %s există deja!"
 
-#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:245
+#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:248
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Ascunde"
@@ -15650,7 +15650,7 @@ msgid "There is an issue with your request."
 msgstr "Există prea multe asocieri fără indexuri."
 
 #: src/Controllers/Table/GetFieldController.php:109
-#: src/Database/Routines.php:1050 src/Import/Import.php:138
+#: src/Database/Routines.php:1019 src/Import/Import.php:138
 #: src/InsertEdit.php:163 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
@@ -15886,9 +15886,9 @@ msgstr ""
 "Nu am putut încărca modulele din schemă, te rog verifică-ți instalarea!"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:106
-#: src/Database/Routines.php:132 src/Database/Routines.php:210
-#: src/Database/Routines.php:1010 src/Triggers/Triggers.php:84
+#: src/Database/Events.php:136 src/Database/Routines.php:103
+#: src/Database/Routines.php:129 src/Database/Routines.php:207
+#: src/Database/Routines.php:979 src/Triggers/Triggers.php:84
 #: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:128
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15896,9 +15896,9 @@ msgstr "Următoarea interogare a eșuat: „%s”"
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
 #: src/Database/Events.php:119 src/Database/Events.php:140
-#: src/Database/Routines.php:110 src/Database/Routines.php:136
-#: src/Database/Routines.php:214 src/Database/Routines.php:228
-#: src/Database/Routines.php:1014 src/Html/Generator.php:800
+#: src/Database/Routines.php:107 src/Database/Routines.php:133
+#: src/Database/Routines.php:211 src/Database/Routines.php:225
+#: src/Database/Routines.php:983 src/Html/Generator.php:800
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
 #: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
 msgid "MySQL said: "
@@ -15908,7 +15908,7 @@ msgstr "MySQL zice: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Regretăm, nu am putut restaura evenimentul eliminat."
 
-#: src/Database/Events.php:117 src/Database/Routines.php:226
+#: src/Database/Events.php:117 src/Database/Routines.php:223
 #: src/Triggers/Triggers.php:109
 msgid "The backed up query was:"
 msgstr "Interogarea de siguranță era:"
@@ -15923,12 +15923,12 @@ msgstr "Evenimentul %1$s a fost modificat."
 msgid "Event %1$s has been created."
 msgstr "Evenimentul %1$s a fost creat."
 
-#: src/Database/Events.php:157 src/Database/Routines.php:152
+#: src/Database/Events.php:157 src/Database/Routines.php:149
 #: src/Triggers/Triggers.php:149
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Au apărut una sau mai multe erori în timpul procesării cererii tale:"
 
-#: src/Database/Events.php:267 src/Database/Routines.php:816
+#: src/Database/Events.php:267 src/Database/Routines.php:785
 #: src/Triggers/Triggers.php:191
 #, fuzzy
 msgid "The definer must be in the \"username@hostname\" format!"
@@ -15956,41 +15956,41 @@ msgstr "Trebuie să furnizezi un tip valid de eveniment."
 msgid "You must provide an event definition."
 msgstr "Trebuie să furnizezi o definiție a evenimentului."
 
-#: src/Database/Routines.php:87
+#: src/Database/Routines.php:84
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Tip de rutină invalid: „%s”"
 
-#: src/Database/Routines.php:139
+#: src/Database/Routines.php:136
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Rutina %1$s a fost creată."
 
-#: src/Database/Routines.php:225
+#: src/Database/Routines.php:222
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Regretăm, nu am reușit să restaurăm rutina eliminată."
 
-#: src/Database/Routines.php:274
+#: src/Database/Routines.php:271
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Rutina %1$s a fost modificată. Privilegiile au fost ajustate."
 
-#: src/Database/Routines.php:279
+#: src/Database/Routines.php:276
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Rutina %1$s a fost modificată."
 
-#: src/Database/Routines.php:661
+#: src/Database/Routines.php:630
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 "Trebuie să furnizezi un nume și un tip pentru fiecare parametru al rutinei."
 
-#: src/Database/Routines.php:679
+#: src/Database/Routines.php:648
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Direcție dată „%s” este invalidă pentru parametru."
 
-#: src/Database/Routines.php:699 src/Database/Routines.php:764
+#: src/Database/Routines.php:668 src/Database/Routines.php:733
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15998,30 +15998,30 @@ msgstr ""
 "Trebuie să furnizezi lungimea/valorile pentru parametrii rutinei de tipul "
 "ENUM, SET, VARCHAR și VARBINARY."
 
-#: src/Database/Routines.php:746
+#: src/Database/Routines.php:715
 msgid "You must provide a valid return type for the routine."
 msgstr "Trebuie să furnizezi un tip de revenire valid pentru rutină."
 
-#: src/Database/Routines.php:823
+#: src/Database/Routines.php:792
 #, fuzzy
 #| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
 msgstr "Tip de rutină invalid: „%s”"
 
-#: src/Database/Routines.php:829
+#: src/Database/Routines.php:798
 msgid "You must provide a routine name!"
 msgstr "Trebuie să furnizezi un nume de rutină!"
 
-#: src/Database/Routines.php:892
+#: src/Database/Routines.php:869
 msgid "You must provide a routine definition."
 msgstr "Trebuie să furnizezi o definiție a rutinei."
 
-#: src/Database/Routines.php:1026
+#: src/Database/Routines.php:995
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Rezultate de execuție ale rutinei %s"
 
-#: src/Database/Routines.php:1041
+#: src/Database/Routines.php:1010
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -16029,7 +16029,7 @@ msgstr[0] "Un rând afectat de ultima declarație din cadrul procedurii."
 msgstr[1] "%d rânduri afectate de ultima declarație din cadrul procedurii."
 msgstr[2] "%d de rânduri afectate de ultima declarație din cadrul procedurii."
 
-#: src/Dbal/DatabaseInterface.php:1075
+#: src/Dbal/DatabaseInterface.php:1076
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16041,7 +16041,7 @@ msgstr ""
 "em]. phpMyAdmin folosește în prezent fusul orar implicit al serverului de "
 "baze de date."
 
-#: src/Dbal/DatabaseInterface.php:1116
+#: src/Dbal/DatabaseInterface.php:1117
 msgid "Failed to set configured collation connection!"
 msgstr "Setarea conexiunii de colaționare configurată a eșuat!"
 
@@ -16725,15 +16725,15 @@ msgid ""
 msgstr ""
 "Indexurile %1$s și %2$s par să fie egale și unul ar putea fi înlăturat."
 
-#: src/InsertEdit.php:435
+#: src/InsertEdit.php:422
 msgid "web server upload directory:"
 msgstr "director încărcare pe server web:"
 
-#: src/InsertEdit.php:844 src/Sql.php:901
+#: src/InsertEdit.php:831 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "Arăt interogarea SQL"
 
-#: src/InsertEdit.php:868 src/Sql.php:881
+#: src/InsertEdit.php:855 src/Sql.php:881
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID rând inserat: %1$d"

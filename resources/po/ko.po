@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-23 00:18+0000\n"
+"POT-Creation-Date: 2026-08-30 00:43+0000\n"
 "PO-Revision-Date: 2026-06-02 06:01+0000\n"
 "Last-Translator: kim8ccf3a4116ec4691 <kim@yong.biz>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -233,7 +233,7 @@ msgstr "열"
 #: resources/templates/database/operations/index.twig:186
 #: resources/templates/database/operations/index.twig:226
 #: resources/templates/database/routines/editor_form.twig:186
-#: resources/templates/database/routines/execute_form.twig:61
+#: resources/templates/database/routines/execute_form.twig:63
 #: resources/templates/display/results/table.twig:279
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
@@ -628,7 +628,7 @@ msgstr "이름"
 #: resources/templates/table/structure/display_structure.twig:473
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:261
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:236
 #: src/Plugins/Export/ExportHtmlword.php:226
 #: src/Plugins/Export/ExportHtmlword.php:297
 #: src/Plugins/Export/ExportLatex.php:463 src/Plugins/Export/ExportOdt.php:322
@@ -2425,12 +2425,12 @@ msgstr "루틴 파라미터"
 
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:260
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:235
 #: src/Navigation/Nodes/NodeFunction.php:27
 msgid "Function"
 msgstr "함수"
 
-#: resources/templates/database/routines/execute_form.twig:54
+#: resources/templates/database/routines/execute_form.twig:56
 msgid "This routine does not require any parameters."
 msgstr "이 루틴은 파라미터가 필요없습니다."
 
@@ -2473,8 +2473,8 @@ msgid "Export routine"
 msgstr "루틴 내보내기"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:354
-#: src/Controllers/Database/RoutinesController.php:364
+#: src/Controllers/Database/RoutinesController.php:335
+#: src/Controllers/Database/RoutinesController.php:343
 msgid "Execute routine"
 msgstr "루틴 실행"
 
@@ -3131,7 +3131,7 @@ msgstr "전각 가나로 변환"
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:425
+#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:412
 #: src/Message.php:138
 msgid "Error"
 msgstr "오류"
@@ -3672,7 +3672,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "어느 페이지에서나 파일을 끌어다 놓을 수 있습니다."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:426
+#: src/InsertEdit.php:413
 msgid "The directory you set for upload work cannot be reached."
 msgstr "설정한 업로드 디렉토리에 접근할 수 없습니다."
 
@@ -4938,7 +4938,7 @@ msgstr "데이터 읽기 허용."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:434
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:421
 msgid "Or"
 msgstr "또는"
 
@@ -6383,7 +6383,7 @@ msgstr "프로파일링 결과로 파이 차트."
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1033 src/Display/Results.php:2964
+#: src/Database/Routines.php:1002 src/Display/Results.php:2964
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "쿼리가 정상적으로 실행되었습니다."
@@ -6693,7 +6693,7 @@ msgstr "재정렬하려면 드래그"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1421
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1408
 msgid "Ignore"
 msgstr "무시"
 
@@ -6860,13 +6860,13 @@ msgstr "테이블 비우기 (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:369
+#: src/Controllers/Database/StructureController.php:368
 #, php-format
 msgid "View %s has been dropped."
 msgstr "뷰 %s가 제거되었습니다."
 
 #: resources/templates/table/operations/index.twig:459
-#: src/Controllers/Database/StructureController.php:369
+#: src/Controllers/Database/StructureController.php:368
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "테이블 %s를 삭제했습니다."
@@ -11432,37 +11432,37 @@ msgstr "정렬 순서"
 msgid "Server connection collation"
 msgstr "서버 연결의 문자정렬순서"
 
-#: src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:582
 #, php-format
 msgid "Missing data for %s"
 msgstr "%s 데이터 누락"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
+#: src/Config/FormDisplay.php:622 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:809
 msgid "Incorrect value!"
 msgstr "잘못된 값!"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:768
 msgid "unavailable"
 msgstr "사용불가"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:770
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\"(은)는 %s 확장기능이 필요합니다"
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:792
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "%s 기능이 누락되어 가져올 수 없습니다."
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:801
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "%s 기능이 누락되어 내보낼 수 없습니다."
 
-#: src/Config/FormDisplay.php:815 src/Config/FormDisplay.php:816
-#: src/Config/FormDisplay.php:817
+#: src/Config/FormDisplay.php:817 src/Config/FormDisplay.php:818
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "최대 %s"
@@ -11825,14 +11825,14 @@ msgstr ""
 #: src/Controllers/Database/ExportController.php:62
 #: src/Controllers/Database/ImportController.php:61
 #: src/Controllers/Database/ImportController.php:66
-#: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:98
+#: src/Controllers/Database/RoutinesController.php:77
+#: src/Controllers/Database/RoutinesController.php:95
 #: src/Controllers/Database/SearchController.php:53
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:54
 #: src/Controllers/Database/SqlController.php:59
-#: src/Controllers/Database/StructureController.php:157
-#: src/Controllers/Database/StructureController.php:162
+#: src/Controllers/Database/StructureController.php:156
+#: src/Controllers/Database/StructureController.php:161
 #: src/Controllers/Database/Structure/FavoriteTableController.php:65
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
 #: src/Controllers/Database/TrackingController.php:55
@@ -11901,9 +11901,9 @@ msgid "Edit event"
 msgstr "이벤트 수정"
 
 #: src/Controllers/Database/EventsController.php:189
-#: src/Controllers/Database/RoutinesController.php:273
-#: src/Controllers/Database/RoutinesController.php:303
-#: src/Controllers/Database/RoutinesController.php:371
+#: src/Controllers/Database/RoutinesController.php:254
+#: src/Controllers/Database/RoutinesController.php:284
+#: src/Controllers/Database/RoutinesController.php:350
 #: src/Controllers/Triggers/IndexController.php:207
 msgid "Error in processing request:"
 msgstr "요청 처리 중 에러가 발생:"
@@ -11952,7 +11952,7 @@ msgstr "권한 없음"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "사용자를 관리할 권한이 없습니다!"
 
-#: src/Controllers/Database/RoutinesController.php:88
+#: src/Controllers/Database/RoutinesController.php:85
 #: src/Controllers/Database/Structure/AddPrefixController.php:35
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:38
@@ -12006,15 +12006,15 @@ msgstr "사용자를 관리할 권한이 없습니다!"
 msgid "No table selected."
 msgstr "선택한 테이블이 없습니다."
 
-#: src/Controllers/Database/RoutinesController.php:173
+#: src/Controllers/Database/RoutinesController.php:170
 msgid "Add routine"
 msgstr "루틴 추가하기"
 
-#: src/Controllers/Database/RoutinesController.php:177
+#: src/Controllers/Database/RoutinesController.php:174
 msgid "Edit routine"
 msgstr "루틴 수정"
 
-#: src/Controllers/Database/RoutinesController.php:276
+#: src/Controllers/Database/RoutinesController.php:257
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12023,18 +12023,18 @@ msgstr ""
 "%2$s 데이터베이스에 %1$s 이름의 루틴을 찾을 수 없습니다. 이 루틴을 편집하는 "
 "데 필요한 권한이 부족할 수 있습니다."
 
-#: src/Controllers/Database/RoutinesController.php:305
-#: src/Controllers/Database/RoutinesController.php:373
+#: src/Controllers/Database/RoutinesController.php:286
+#: src/Controllers/Database/RoutinesController.php:352
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "%2$s 데이터베이스에 %1$s 라는 이름의 루틴이 없습니다."
 
-#: src/Controllers/Database/RoutinesController.php:416
+#: src/Controllers/Database/RoutinesController.php:395
 #, php-format
 msgid "Export of routine %s"
 msgstr "루틴 %s 내보내기"
 
-#: src/Controllers/Database/RoutinesController.php:435
+#: src/Controllers/Database/RoutinesController.php:414
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12058,7 +12058,7 @@ msgstr ""
 msgid "Success!"
 msgstr "성공!"
 
-#: src/Controllers/Database/StructureController.php:568
+#: src/Controllers/Database/StructureController.php:567
 #: src/Display/Results.php:3245
 #, php-format
 msgid ""
@@ -12067,7 +12067,7 @@ msgid ""
 msgstr ""
 "이 뷰는 최소 이 숫자 이상의 열을 가지고 있습니다. %s문서%s를 참조해 주십시오."
 
-#: src/Controllers/Database/StructureController.php:737
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "알수없음"
 
@@ -13798,7 +13798,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "%s 테이블이 이미 존재합니다!"
 
-#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:245
+#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:248
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "숨기기"
@@ -15110,7 +15110,7 @@ msgid "There is an issue with your request."
 msgstr "요청에 문제가 있습니다."
 
 #: src/Controllers/Table/GetFieldController.php:109
-#: src/Database/Routines.php:1050 src/Import/Import.php:138
+#: src/Database/Routines.php:1019 src/Import/Import.php:138
 #: src/InsertEdit.php:163 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "결과값이 없습니다. (빈 레코드 리턴)."
@@ -15325,9 +15325,9 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "개요 플러그인을 로드할 수 없습니다. 올바로 설치되었는지 확인해주세요!"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:106
-#: src/Database/Routines.php:132 src/Database/Routines.php:210
-#: src/Database/Routines.php:1010 src/Triggers/Triggers.php:84
+#: src/Database/Events.php:136 src/Database/Routines.php:103
+#: src/Database/Routines.php:129 src/Database/Routines.php:207
+#: src/Database/Routines.php:979 src/Triggers/Triggers.php:84
 #: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:128
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15335,9 +15335,9 @@ msgstr "쿼리 실행 실패: \"%s\""
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
 #: src/Database/Events.php:119 src/Database/Events.php:140
-#: src/Database/Routines.php:110 src/Database/Routines.php:136
-#: src/Database/Routines.php:214 src/Database/Routines.php:228
-#: src/Database/Routines.php:1014 src/Html/Generator.php:800
+#: src/Database/Routines.php:107 src/Database/Routines.php:133
+#: src/Database/Routines.php:211 src/Database/Routines.php:225
+#: src/Database/Routines.php:983 src/Html/Generator.php:800
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
 #: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
 msgid "MySQL said: "
@@ -15347,7 +15347,7 @@ msgstr "MySQL 메시지: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "삭제한 이벤트를 복원하지 못했습니다."
 
-#: src/Database/Events.php:117 src/Database/Routines.php:226
+#: src/Database/Events.php:117 src/Database/Routines.php:223
 #: src/Triggers/Triggers.php:109
 msgid "The backed up query was:"
 msgstr "백업했던 쿼리:"
@@ -15362,12 +15362,12 @@ msgstr "이벤트 %1$s 를 변경했습니다."
 msgid "Event %1$s has been created."
 msgstr "이벤트 %1$s 를 생성했습니다."
 
-#: src/Database/Events.php:157 src/Database/Routines.php:152
+#: src/Database/Events.php:157 src/Database/Routines.php:149
 #: src/Triggers/Triggers.php:149
 msgid "One or more errors have occurred while processing your request:"
 msgstr "요청을 처리하는 중에 하나 혹은 그 이상의 오류가 발생했습니다:"
 
-#: src/Database/Events.php:267 src/Database/Routines.php:816
+#: src/Database/Events.php:267 src/Database/Routines.php:785
 #: src/Triggers/Triggers.php:191
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "디파이너의 형식은 \"username@hostname\" 이어야 합니다!"
@@ -15392,40 +15392,40 @@ msgstr "올바른 이벤트 타입을 입력하세요."
 msgid "You must provide an event definition."
 msgstr "이벤트 정의를 입력하세요."
 
-#: src/Database/Routines.php:87
+#: src/Database/Routines.php:84
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "잘못된 루틴 타입: \"%s\""
 
-#: src/Database/Routines.php:139
+#: src/Database/Routines.php:136
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "루틴 %1$s가 생성되었습니다."
 
-#: src/Database/Routines.php:225
+#: src/Database/Routines.php:222
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "죄송합니다만 삭제한 루틴을 복구하지 못했습니다."
 
-#: src/Database/Routines.php:274
+#: src/Database/Routines.php:271
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "%1$s 루틴이수정되었습니다. 권한이 조정되었습니다."
 
-#: src/Database/Routines.php:279
+#: src/Database/Routines.php:276
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "루틴 %1$s가 수정되었습니다."
 
-#: src/Database/Routines.php:661
+#: src/Database/Routines.php:630
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "각 루틴 매개변수의 이름과 유형을 제공해야 합니다."
 
-#: src/Database/Routines.php:679
+#: src/Database/Routines.php:648
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "매개 변수에 대해 지정된 방향 \"%s\"가 잘못되었습니다."
 
-#: src/Database/Routines.php:699 src/Database/Routines.php:764
+#: src/Database/Routines.php:668 src/Database/Routines.php:733
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15433,34 +15433,34 @@ msgstr ""
 "ENUM, SET, VARCHAR, VARBINARY 유형의 루틴 매개변수에 대한 길이/값을 제공해야 "
 "합니다."
 
-#: src/Database/Routines.php:746
+#: src/Database/Routines.php:715
 msgid "You must provide a valid return type for the routine."
 msgstr "루틴에 유효한 반환 유형을 제공해야 합니다."
 
-#: src/Database/Routines.php:823
+#: src/Database/Routines.php:792
 msgid "Invalid routine type!"
 msgstr "루틴 타입이 잘못되었습니다!"
 
-#: src/Database/Routines.php:829
+#: src/Database/Routines.php:798
 msgid "You must provide a routine name!"
 msgstr "루틴 이름이 필요합니다!"
 
-#: src/Database/Routines.php:892
+#: src/Database/Routines.php:869
 msgid "You must provide a routine definition."
 msgstr "루틴의 정의를 제공해야 합니다."
 
-#: src/Database/Routines.php:1026
+#: src/Database/Routines.php:995
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "루틴 %s의 실행 결과"
 
-#: src/Database/Routines.php:1041
+#: src/Database/Routines.php:1010
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "프로시저 내부의 마지막 구문에 %d 행이 영향을 받습니다."
 
-#: src/Dbal/DatabaseInterface.php:1075
+#: src/Dbal/DatabaseInterface.php:1076
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15471,7 +15471,7 @@ msgstr ""
 "[%3$d]['SessionTimeZone'][/em]에 대한 구성 설정을 확인하십시오. phpMyAdmin은 "
 "현재 데이터베이스 서버의 기본 시간대를 사용하고 있습니다."
 
-#: src/Dbal/DatabaseInterface.php:1116
+#: src/Dbal/DatabaseInterface.php:1117
 msgid "Failed to set configured collation connection!"
 msgstr "문자정렬순서 연결을 설정하는데 실패했습니다!"
 
@@ -16115,15 +16115,15 @@ msgid ""
 msgstr ""
 "인덱스 %1$s와 %2$s는 동일한 것으로, 두 가지 중 하나는 제거해도 상관없습니다."
 
-#: src/InsertEdit.php:435
+#: src/InsertEdit.php:422
 msgid "web server upload directory:"
 msgstr "웹 서버 업로드 디렉터리:"
 
-#: src/InsertEdit.php:844 src/Sql.php:901
+#: src/InsertEdit.php:831 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
-#: src/InsertEdit.php:868 src/Sql.php:881
+#: src/InsertEdit.php:855 src/Sql.php:881
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "삽입된 행의 id: %1$d"

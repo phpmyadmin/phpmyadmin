@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-23 00:18+0000\n"
+"POT-Creation-Date: 2026-08-30 00:43+0000\n"
 "PO-Revision-Date: 2026-06-24 15:01+0000\n"
 "Last-Translator: reducedradius <flytothehighest@users.noreply.hosted.weblate."
 "org>\n"
@@ -232,7 +232,7 @@ msgstr "列"
 #: resources/templates/database/operations/index.twig:186
 #: resources/templates/database/operations/index.twig:226
 #: resources/templates/database/routines/editor_form.twig:186
-#: resources/templates/database/routines/execute_form.twig:61
+#: resources/templates/database/routines/execute_form.twig:63
 #: resources/templates/display/results/table.twig:279
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
@@ -626,7 +626,7 @@ msgstr "名字"
 #: resources/templates/table/structure/display_structure.twig:473
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:261
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:236
 #: src/Plugins/Export/ExportHtmlword.php:226
 #: src/Plugins/Export/ExportHtmlword.php:297
 #: src/Plugins/Export/ExportLatex.php:463 src/Plugins/Export/ExportOdt.php:322
@@ -2421,12 +2421,12 @@ msgstr "程序参数"
 
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:260
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:235
 #: src/Navigation/Nodes/NodeFunction.php:27
 msgid "Function"
 msgstr "函数"
 
-#: resources/templates/database/routines/execute_form.twig:54
+#: resources/templates/database/routines/execute_form.twig:56
 #, fuzzy
 #| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
@@ -2475,8 +2475,8 @@ msgid "Export routine"
 msgstr "导出程序 %s"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:354
-#: src/Controllers/Database/RoutinesController.php:364
+#: src/Controllers/Database/RoutinesController.php:335
+#: src/Controllers/Database/RoutinesController.php:343
 msgid "Execute routine"
 msgstr "运行程序"
 
@@ -3135,7 +3135,7 @@ msgstr "转换为假名"
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:425
+#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:412
 #: src/Message.php:138
 msgid "Error"
 msgstr "错误"
@@ -3677,7 +3677,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "您可在各页面间拖放文件。"
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:426
+#: src/InsertEdit.php:413
 msgid "The directory you set for upload work cannot be reached."
 msgstr "无法访问用于上传的文件夹。"
 
@@ -4922,7 +4922,7 @@ msgstr "允许读取数据。"
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:434
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:421
 msgid "Or"
 msgstr "或"
 
@@ -6364,7 +6364,7 @@ msgstr "性能分析结果。"
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1033 src/Display/Results.php:2964
+#: src/Database/Routines.php:1002 src/Display/Results.php:2964
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "您的 SQL 语句已成功运行。"
@@ -6671,7 +6671,7 @@ msgstr "拖拽以重排顺序"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1421
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1408
 msgid "Ignore"
 msgstr "忽略"
 
@@ -6838,13 +6838,13 @@ msgstr "清空数据表 (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:369
+#: src/Controllers/Database/StructureController.php:368
 #, php-format
 msgid "View %s has been dropped."
 msgstr "已删除视图 %s。"
 
 #: resources/templates/table/operations/index.twig:459
-#: src/Controllers/Database/StructureController.php:369
+#: src/Controllers/Database/StructureController.php:368
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "已删除表 %s。"
@@ -11249,37 +11249,37 @@ msgstr "排序条件"
 msgid "Server connection collation"
 msgstr "服务器连接排序规则"
 
-#: src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:582
 #, php-format
 msgid "Missing data for %s"
 msgstr "缺少 %s 的数据"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
+#: src/Config/FormDisplay.php:622 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:809
 msgid "Incorrect value!"
 msgstr "值错误！"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:768
 msgid "unavailable"
 msgstr "不可用"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:770
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "“%s”需要 %s 扩展"
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:792
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "因缺少函数 %s 压缩导入功能无效。"
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:801
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "因缺少函数 %s 压缩导出功能无效。"
 
-#: src/Config/FormDisplay.php:815 src/Config/FormDisplay.php:816
-#: src/Config/FormDisplay.php:817
+#: src/Config/FormDisplay.php:817 src/Config/FormDisplay.php:818
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "最大 %s"
@@ -11626,14 +11626,14 @@ msgstr "已经有名为 “%s” 的页面了，请重新命名。"
 #: src/Controllers/Database/ExportController.php:62
 #: src/Controllers/Database/ImportController.php:61
 #: src/Controllers/Database/ImportController.php:66
-#: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:98
+#: src/Controllers/Database/RoutinesController.php:77
+#: src/Controllers/Database/RoutinesController.php:95
 #: src/Controllers/Database/SearchController.php:53
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:54
 #: src/Controllers/Database/SqlController.php:59
-#: src/Controllers/Database/StructureController.php:157
-#: src/Controllers/Database/StructureController.php:162
+#: src/Controllers/Database/StructureController.php:156
+#: src/Controllers/Database/StructureController.php:161
 #: src/Controllers/Database/Structure/FavoriteTableController.php:65
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
 #: src/Controllers/Database/TrackingController.php:55
@@ -11702,9 +11702,9 @@ msgid "Edit event"
 msgstr "编辑事件"
 
 #: src/Controllers/Database/EventsController.php:189
-#: src/Controllers/Database/RoutinesController.php:273
-#: src/Controllers/Database/RoutinesController.php:303
-#: src/Controllers/Database/RoutinesController.php:371
+#: src/Controllers/Database/RoutinesController.php:254
+#: src/Controllers/Database/RoutinesController.php:284
+#: src/Controllers/Database/RoutinesController.php:350
 #: src/Controllers/Triggers/IndexController.php:207
 msgid "Error in processing request:"
 msgstr "处理请求时遇到错误:"
@@ -11750,7 +11750,7 @@ msgstr "无权限"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "您没有权限管理用户！"
 
-#: src/Controllers/Database/RoutinesController.php:88
+#: src/Controllers/Database/RoutinesController.php:85
 #: src/Controllers/Database/Structure/AddPrefixController.php:35
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:38
@@ -11804,33 +11804,33 @@ msgstr "您没有权限管理用户！"
 msgid "No table selected."
 msgstr "没有已选择的表。"
 
-#: src/Controllers/Database/RoutinesController.php:173
+#: src/Controllers/Database/RoutinesController.php:170
 msgid "Add routine"
 msgstr "添加程序"
 
-#: src/Controllers/Database/RoutinesController.php:177
+#: src/Controllers/Database/RoutinesController.php:174
 msgid "Edit routine"
 msgstr "编辑程序"
 
-#: src/Controllers/Database/RoutinesController.php:276
+#: src/Controllers/Database/RoutinesController.php:257
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr "在数据库%2$s中找不到名称为%1$s的例程。您可能缺少编辑此例程的必要权限。"
 
-#: src/Controllers/Database/RoutinesController.php:305
-#: src/Controllers/Database/RoutinesController.php:373
+#: src/Controllers/Database/RoutinesController.php:286
+#: src/Controllers/Database/RoutinesController.php:352
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "在数据库 %2$s 中找不到名为 %1$s 的程序。"
 
-#: src/Controllers/Database/RoutinesController.php:416
+#: src/Controllers/Database/RoutinesController.php:395
 #, php-format
 msgid "Export of routine %s"
 msgstr "导出程序 %s"
 
-#: src/Controllers/Database/RoutinesController.php:435
+#: src/Controllers/Database/RoutinesController.php:414
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -11852,7 +11852,7 @@ msgstr "[code]$cfg['UseDbSearch'][/code] 配置禁用了数据库内部搜索。
 msgid "Success!"
 msgstr "成功！"
 
-#: src/Controllers/Database/StructureController.php:568
+#: src/Controllers/Database/StructureController.php:567
 #: src/Display/Results.php:3245
 #, php-format
 msgid ""
@@ -11860,7 +11860,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "此视图的行数最少有这么多。请参阅%s档案%s。"
 
-#: src/Controllers/Database/StructureController.php:737
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "未知"
 
@@ -13559,7 +13559,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "数据表 %s 已存在！"
 
-#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:245
+#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:248
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "隐藏"
@@ -14831,7 +14831,7 @@ msgid "There is an issue with your request."
 msgstr "您的请求有问题。"
 
 #: src/Controllers/Table/GetFieldController.php:109
-#: src/Database/Routines.php:1050 src/Import/Import.php:138
+#: src/Database/Routines.php:1019 src/Import/Import.php:138
 #: src/InsertEdit.php:163 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 返回的查询结果为空 (即零行)。"
@@ -15052,9 +15052,9 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "无法加载schema插件，请检查您的安装！"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:106
-#: src/Database/Routines.php:132 src/Database/Routines.php:210
-#: src/Database/Routines.php:1010 src/Triggers/Triggers.php:84
+#: src/Database/Events.php:136 src/Database/Routines.php:103
+#: src/Database/Routines.php:129 src/Database/Routines.php:207
+#: src/Database/Routines.php:979 src/Triggers/Triggers.php:84
 #: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:128
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15062,9 +15062,9 @@ msgstr "下列查询失败了: \"%s\""
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
 #: src/Database/Events.php:119 src/Database/Events.php:140
-#: src/Database/Routines.php:110 src/Database/Routines.php:136
-#: src/Database/Routines.php:214 src/Database/Routines.php:228
-#: src/Database/Routines.php:1014 src/Html/Generator.php:800
+#: src/Database/Routines.php:107 src/Database/Routines.php:133
+#: src/Database/Routines.php:211 src/Database/Routines.php:225
+#: src/Database/Routines.php:983 src/Html/Generator.php:800
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
 #: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
 msgid "MySQL said: "
@@ -15074,7 +15074,7 @@ msgstr "MySQL 返回： "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "抱歉，恢复已删除的事件失败。"
 
-#: src/Database/Events.php:117 src/Database/Routines.php:226
+#: src/Database/Events.php:117 src/Database/Routines.php:223
 #: src/Triggers/Triggers.php:109
 msgid "The backed up query was:"
 msgstr "已备份的查询为:"
@@ -15089,12 +15089,12 @@ msgstr "已修改事件 %1$s 。"
 msgid "Event %1$s has been created."
 msgstr "已创建事件 %1$s 。"
 
-#: src/Database/Events.php:157 src/Database/Routines.php:152
+#: src/Database/Events.php:157 src/Database/Routines.php:149
 #: src/Triggers/Triggers.php:149
 msgid "One or more errors have occurred while processing your request:"
 msgstr "处理请求时发生了一个或多个错误:"
 
-#: src/Database/Events.php:267 src/Database/Routines.php:816
+#: src/Database/Events.php:267 src/Database/Routines.php:785
 #: src/Triggers/Triggers.php:191
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "用户必须是 \"用户名@主机名\" 格式！"
@@ -15119,75 +15119,75 @@ msgstr "请选择一个有效的事件类型。"
 msgid "You must provide an event definition."
 msgstr "请输入事件定义。"
 
-#: src/Database/Routines.php:87
+#: src/Database/Routines.php:84
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "无效的程序类型: \"%s\""
 
-#: src/Database/Routines.php:139
+#: src/Database/Routines.php:136
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "已创建程序 %1$s 。"
 
-#: src/Database/Routines.php:225
+#: src/Database/Routines.php:222
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "抱歉，恢复已删除的程序失败。"
 
-#: src/Database/Routines.php:274
+#: src/Database/Routines.php:271
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "已修改程序 %1$s 。已调整权限。"
 
-#: src/Database/Routines.php:279
+#: src/Database/Routines.php:276
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "已修改程序 %1$s 。"
 
-#: src/Database/Routines.php:661
+#: src/Database/Routines.php:630
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "请输入每一个参数的名称并设置其类型。"
 
-#: src/Database/Routines.php:679
+#: src/Database/Routines.php:648
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "参数方向 \"%s\" 无效。"
 
-#: src/Database/Routines.php:699 src/Database/Routines.php:764
+#: src/Database/Routines.php:668 src/Database/Routines.php:733
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr "请设置 ENUM、SET、VARCHAR 和 VARBINARY 类型参数的长度/值。"
 
-#: src/Database/Routines.php:746
+#: src/Database/Routines.php:715
 msgid "You must provide a valid return type for the routine."
 msgstr "请设置一个有效的返回类型。"
 
-#: src/Database/Routines.php:823
+#: src/Database/Routines.php:792
 #, fuzzy
 #| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
 msgstr "无效的程序类型: \"%s\""
 
-#: src/Database/Routines.php:829
+#: src/Database/Routines.php:798
 msgid "You must provide a routine name!"
 msgstr "需要程序名称!"
 
-#: src/Database/Routines.php:892
+#: src/Database/Routines.php:869
 msgid "You must provide a routine definition."
 msgstr "请输入程序定义。"
 
-#: src/Database/Routines.php:1026
+#: src/Database/Routines.php:995
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "程序 %s 的运行结果"
 
-#: src/Database/Routines.php:1041
+#: src/Database/Routines.php:1010
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "存储过程中最后一条语句影响了 %d 行。"
 
-#: src/Dbal/DatabaseInterface.php:1075
+#: src/Dbal/DatabaseInterface.php:1076
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15197,7 +15197,7 @@ msgstr ""
 "无法为服务器 %2$d 设置时区 “%1$s” 。请检查您的配置中 [em]$cfg['Servers']"
 "[%3$d]['SessionTimeZone'][/em] 字段。服务器当前使用默认时区。"
 
-#: src/Dbal/DatabaseInterface.php:1116
+#: src/Dbal/DatabaseInterface.php:1117
 msgid "Failed to set configured collation connection!"
 msgstr "无法设置配置的整理连接！"
 
@@ -15818,15 +15818,15 @@ msgid ""
 "removed."
 msgstr "索引 %1$s 和 %2$s 似乎是相同的，可以删除其中一个。"
 
-#: src/InsertEdit.php:435
+#: src/InsertEdit.php:422
 msgid "web server upload directory:"
 msgstr "网站服务器上传文件夹："
 
-#: src/InsertEdit.php:844 src/Sql.php:901
+#: src/InsertEdit.php:831 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "显示 SQL 查询"
 
-#: src/InsertEdit.php:868 src/Sql.php:881
+#: src/InsertEdit.php:855 src/Sql.php:881
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "插入的行 id: %1$d"

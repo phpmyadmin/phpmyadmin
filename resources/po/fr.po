@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-23 00:18+0000\n"
+"POT-Creation-Date: 2026-08-30 00:43+0000\n"
 "PO-Revision-Date: 2026-06-02 06:01+0000\n"
 "Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -233,7 +233,7 @@ msgstr "colonne(s)"
 #: resources/templates/database/operations/index.twig:186
 #: resources/templates/database/operations/index.twig:226
 #: resources/templates/database/routines/editor_form.twig:186
-#: resources/templates/database/routines/execute_form.twig:61
+#: resources/templates/database/routines/execute_form.twig:63
 #: resources/templates/display/results/table.twig:279
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
@@ -628,7 +628,7 @@ msgstr "Nom"
 #: resources/templates/table/structure/display_structure.twig:473
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:11
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:261
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:236
 #: src/Plugins/Export/ExportHtmlword.php:226
 #: src/Plugins/Export/ExportHtmlword.php:297
 #: src/Plugins/Export/ExportLatex.php:463 src/Plugins/Export/ExportOdt.php:322
@@ -2435,12 +2435,12 @@ msgstr "Paramètres de procédure"
 
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:260
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:235
 #: src/Navigation/Nodes/NodeFunction.php:27
 msgid "Function"
 msgstr "Fonction"
 
-#: resources/templates/database/routines/execute_form.twig:54
+#: resources/templates/database/routines/execute_form.twig:56
 msgid "This routine does not require any parameters."
 msgstr "Cette procédure ne requiert aucun paramètre."
 
@@ -2483,8 +2483,8 @@ msgid "Export routine"
 msgstr "Exporter la procédure"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:354
-#: src/Controllers/Database/RoutinesController.php:364
+#: src/Controllers/Database/RoutinesController.php:335
+#: src/Controllers/Database/RoutinesController.php:343
 msgid "Execute routine"
 msgstr "Exécuter la procédure"
 
@@ -3150,7 +3150,7 @@ msgstr "Convertir en Kana"
 #: src/Controllers/Table/Partition/DropController.php:56
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:425
+#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:412
 #: src/Message.php:138
 msgid "Error"
 msgstr "Erreur"
@@ -3696,7 +3696,7 @@ msgstr ""
 "page."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:426
+#: src/InsertEdit.php:413
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Le répertoire de transfert est inaccessible."
 
@@ -5007,7 +5007,7 @@ msgstr "Permission de lire des données."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:434
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:421
 msgid "Or"
 msgstr "Ou"
 
@@ -6507,7 +6507,7 @@ msgstr "Profilage des résultats."
 #: src/Controllers/Table/Partition/RepairController.php:49
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1033 src/Display/Results.php:2964
+#: src/Database/Routines.php:1002 src/Display/Results.php:2964
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "La requête SQL a été exécutée avec succès."
@@ -6817,7 +6817,7 @@ msgstr "Faire glisser pour réordonner"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1421
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1408
 msgid "Ignore"
 msgstr "Ignorer"
 
@@ -6990,13 +6990,13 @@ msgstr "Vider la table (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:369
+#: src/Controllers/Database/StructureController.php:368
 #, php-format
 msgid "View %s has been dropped."
 msgstr "La vue %s a été supprimée."
 
 #: resources/templates/table/operations/index.twig:459
-#: src/Controllers/Database/StructureController.php:369
+#: src/Controllers/Database/StructureController.php:368
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "La table %s a été supprimée."
@@ -11777,37 +11777,37 @@ msgstr "Trier par"
 msgid "Server connection collation"
 msgstr "Interclassement pour la connexion au serveur"
 
-#: src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:582
 #, php-format
 msgid "Missing data for %s"
 msgstr "Données manquantes pour %s"
 
-#: src/Config/FormDisplay.php:620 src/Config/Validator.php:589
+#: src/Config/FormDisplay.php:622 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:809
 msgid "Incorrect value!"
 msgstr "Valeur incorrecte !"
 
-#: src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:768
 msgid "unavailable"
 msgstr "non disponible"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:770
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "« %s » requiert l'extension %s"
 
-#: src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:792
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Importation compressée impossible, fonction manquante (%s)."
 
-#: src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:801
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Exportation compressée impossible, fonction manquante (%s)."
 
-#: src/Config/FormDisplay.php:815 src/Config/FormDisplay.php:816
-#: src/Config/FormDisplay.php:817
+#: src/Config/FormDisplay.php:817 src/Config/FormDisplay.php:818
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "maximum %s"
@@ -12196,14 +12196,14 @@ msgstr ""
 #: src/Controllers/Database/ExportController.php:62
 #: src/Controllers/Database/ImportController.php:61
 #: src/Controllers/Database/ImportController.php:66
-#: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:98
+#: src/Controllers/Database/RoutinesController.php:77
+#: src/Controllers/Database/RoutinesController.php:95
 #: src/Controllers/Database/SearchController.php:53
 #: src/Controllers/Database/SearchController.php:58
 #: src/Controllers/Database/SqlController.php:54
 #: src/Controllers/Database/SqlController.php:59
-#: src/Controllers/Database/StructureController.php:157
-#: src/Controllers/Database/StructureController.php:162
+#: src/Controllers/Database/StructureController.php:156
+#: src/Controllers/Database/StructureController.php:161
 #: src/Controllers/Database/Structure/FavoriteTableController.php:65
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
 #: src/Controllers/Database/TrackingController.php:55
@@ -12272,9 +12272,9 @@ msgid "Edit event"
 msgstr "Modifier l'évènement"
 
 #: src/Controllers/Database/EventsController.php:189
-#: src/Controllers/Database/RoutinesController.php:273
-#: src/Controllers/Database/RoutinesController.php:303
-#: src/Controllers/Database/RoutinesController.php:371
+#: src/Controllers/Database/RoutinesController.php:254
+#: src/Controllers/Database/RoutinesController.php:284
+#: src/Controllers/Database/RoutinesController.php:350
 #: src/Controllers/Triggers/IndexController.php:207
 msgid "Error in processing request:"
 msgstr "Erreur dans le traitement de la requête :"
@@ -12329,7 +12329,7 @@ msgstr ""
 "L'utilisateur n'a pas les privilèges nécessaires pour administrer les "
 "utilisateurs !"
 
-#: src/Controllers/Database/RoutinesController.php:88
+#: src/Controllers/Database/RoutinesController.php:85
 #: src/Controllers/Database/Structure/AddPrefixController.php:35
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:39
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:38
@@ -12383,15 +12383,15 @@ msgstr ""
 msgid "No table selected."
 msgstr "Aucune table n'a été sélectionnée."
 
-#: src/Controllers/Database/RoutinesController.php:173
+#: src/Controllers/Database/RoutinesController.php:170
 msgid "Add routine"
 msgstr "Ajouter une procédure"
 
-#: src/Controllers/Database/RoutinesController.php:177
+#: src/Controllers/Database/RoutinesController.php:174
 msgid "Edit routine"
 msgstr "Éditer une procédure"
 
-#: src/Controllers/Database/RoutinesController.php:276
+#: src/Controllers/Database/RoutinesController.php:257
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12401,20 +12401,20 @@ msgstr ""
 "L'utilisateur manque sans doute des privilèges nécessaires pour modifier "
 "cette procédure."
 
-#: src/Controllers/Database/RoutinesController.php:305
-#: src/Controllers/Database/RoutinesController.php:373
+#: src/Controllers/Database/RoutinesController.php:286
+#: src/Controllers/Database/RoutinesController.php:352
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr ""
 "Aucune procédure portant le nom %1$s n'a été trouvée dans la base de données "
 "%2$s."
 
-#: src/Controllers/Database/RoutinesController.php:416
+#: src/Controllers/Database/RoutinesController.php:395
 #, php-format
 msgid "Export of routine %s"
 msgstr "Exporter la procédure %s"
 
-#: src/Controllers/Database/RoutinesController.php:435
+#: src/Controllers/Database/RoutinesController.php:414
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12439,7 +12439,7 @@ msgstr ""
 msgid "Success!"
 msgstr "Succès !"
 
-#: src/Controllers/Database/StructureController.php:568
+#: src/Controllers/Database/StructureController.php:567
 #: src/Display/Results.php:3245
 #, php-format
 msgid ""
@@ -12449,7 +12449,7 @@ msgstr ""
 "Cette vue contient au moins ce nombre de lignes. Merci de se référer à "
 "%sdocumentation%s."
 
-#: src/Controllers/Database/StructureController.php:737
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "inconnu"
 
@@ -14257,7 +14257,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "La table %s existe déjà !"
 
-#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:245
+#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:248
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Masquer"
@@ -15625,7 +15625,7 @@ msgid "There is an issue with your request."
 msgstr "Il y a un problème avec votre requête."
 
 #: src/Controllers/Table/GetFieldController.php:109
-#: src/Database/Routines.php:1050 src/Import/Import.php:138
+#: src/Database/Routines.php:1019 src/Import/Import.php:138
 #: src/InsertEdit.php:163 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a retourné un résultat vide (c'est à dire aucune ligne)."
@@ -15853,9 +15853,9 @@ msgstr ""
 "l'installation !"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:106
-#: src/Database/Routines.php:132 src/Database/Routines.php:210
-#: src/Database/Routines.php:1010 src/Triggers/Triggers.php:84
+#: src/Database/Events.php:136 src/Database/Routines.php:103
+#: src/Database/Routines.php:129 src/Database/Routines.php:207
+#: src/Database/Routines.php:979 src/Triggers/Triggers.php:84
 #: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:128
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15863,9 +15863,9 @@ msgstr "La requête « %s » a échoué"
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
 #: src/Database/Events.php:119 src/Database/Events.php:140
-#: src/Database/Routines.php:110 src/Database/Routines.php:136
-#: src/Database/Routines.php:214 src/Database/Routines.php:228
-#: src/Database/Routines.php:1014 src/Html/Generator.php:800
+#: src/Database/Routines.php:107 src/Database/Routines.php:133
+#: src/Database/Routines.php:211 src/Database/Routines.php:225
+#: src/Database/Routines.php:983 src/Html/Generator.php:800
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
 #: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
 msgid "MySQL said: "
@@ -15875,7 +15875,7 @@ msgstr "MySQL a répondu : "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Il a été impossible de restaurer l'évènement."
 
-#: src/Database/Events.php:117 src/Database/Routines.php:226
+#: src/Database/Events.php:117 src/Database/Routines.php:223
 #: src/Triggers/Triggers.php:109
 msgid "The backed up query was:"
 msgstr "La requête conservée est :"
@@ -15890,12 +15890,12 @@ msgstr "L'évènement %1$s a été modifié."
 msgid "Event %1$s has been created."
 msgstr "L'évènement %1$s a été créé."
 
-#: src/Database/Events.php:157 src/Database/Routines.php:152
+#: src/Database/Events.php:157 src/Database/Routines.php:149
 #: src/Triggers/Triggers.php:149
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Au moins une erreur s'est produite lors du traitement de la requête :"
 
-#: src/Database/Events.php:267 src/Database/Routines.php:816
+#: src/Database/Events.php:267 src/Database/Routines.php:785
 #: src/Triggers/Triggers.php:191
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Le créateur doit suivre le format « utilisateur@machine » !"
@@ -15920,40 +15920,40 @@ msgstr "Il faut fournir un type valide pour l'évènement."
 msgid "You must provide an event definition."
 msgstr "Il faut fournir une définition pour l'évènement."
 
-#: src/Database/Routines.php:87
+#: src/Database/Routines.php:84
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Type de procédure invalide : « %s »"
 
-#: src/Database/Routines.php:139
+#: src/Database/Routines.php:136
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "La procédure %1$s a été créée."
 
-#: src/Database/Routines.php:225
+#: src/Database/Routines.php:222
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Il a été impossible de restaurer la procédure."
 
-#: src/Database/Routines.php:274
+#: src/Database/Routines.php:271
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "La procédure %1$s a été modifiée. Les privilèges ont été ajustés."
 
-#: src/Database/Routines.php:279
+#: src/Database/Routines.php:276
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "La procédure %1$s a été modifiée."
 
-#: src/Database/Routines.php:661
+#: src/Database/Routines.php:630
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Il faut fournir un nom et un type pour chacun des paramètres."
 
-#: src/Database/Routines.php:679
+#: src/Database/Routines.php:648
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "La direction « %s » fournie pour le paramètre est invalide."
 
-#: src/Database/Routines.php:699 src/Database/Routines.php:764
+#: src/Database/Routines.php:668 src/Database/Routines.php:733
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15961,28 +15961,28 @@ msgstr ""
 "Il faut fournir une longueur ou une valeur pour les paramètres de type ENUM, "
 "SET, VARCHAR et VARBINARY."
 
-#: src/Database/Routines.php:746
+#: src/Database/Routines.php:715
 msgid "You must provide a valid return type for the routine."
 msgstr "Il faut fournir un type de retour valide pour la procédure."
 
-#: src/Database/Routines.php:823
+#: src/Database/Routines.php:792
 msgid "Invalid routine type!"
 msgstr "Type de procédure invalide !"
 
-#: src/Database/Routines.php:829
+#: src/Database/Routines.php:798
 msgid "You must provide a routine name!"
 msgstr "Il faut fournir un nom pour la procédure !"
 
-#: src/Database/Routines.php:892
+#: src/Database/Routines.php:869
 msgid "You must provide a routine definition."
 msgstr "Il faut fournir une définition pour la procédure."
 
-#: src/Database/Routines.php:1026
+#: src/Database/Routines.php:995
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Résultats de l'exécution de la procédure %s"
 
-#: src/Database/Routines.php:1041
+#: src/Database/Routines.php:1010
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -15991,7 +15991,7 @@ msgstr[0] ""
 msgstr[1] ""
 "%d lignes ont été affectées par la dernière instruction de la procédure."
 
-#: src/Dbal/DatabaseInterface.php:1075
+#: src/Dbal/DatabaseInterface.php:1076
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16003,7 +16003,7 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin utilise actuellement le fuseau horaire "
 "par défaut du serveur de base de données."
 
-#: src/Dbal/DatabaseInterface.php:1116
+#: src/Dbal/DatabaseInterface.php:1117
 msgid "Failed to set configured collation connection!"
 msgstr "Impossible de modifier l'interclassement configuré pour la connexion !"
 
@@ -16681,15 +16681,15 @@ msgstr ""
 "Les index %1$s et %2$s semblent identiques et l'un d'eux pourrait être "
 "supprimé."
 
-#: src/InsertEdit.php:435
+#: src/InsertEdit.php:422
 msgid "web server upload directory:"
 msgstr "répertoire de transfert du serveur Web :"
 
-#: src/InsertEdit.php:844 src/Sql.php:901
+#: src/InsertEdit.php:831 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "Affichage de la requête SQL"
 
-#: src/InsertEdit.php:868 src/Sql.php:881
+#: src/InsertEdit.php:855 src/Sql.php:881
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identifiant de la ligne insérée : %1$d"
