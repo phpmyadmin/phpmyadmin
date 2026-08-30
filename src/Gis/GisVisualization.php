@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\FileDownload;
 use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Image\Color;
 use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Util;
 use TCPDF;
@@ -251,7 +252,7 @@ class GisVisualization
      */
     private function svg(): string
     {
-        $svg = $this->prepareDataSet($this->data, 'svg');
+        $svg = $this->prepareDataSet($this->data, Format::Svg);
 
         return '<?xml version="1.0" encoding="UTF-8" standalone="no"?>'
             . "\n"
@@ -289,13 +290,13 @@ class GisVisualization
         $image = ImageWrapper::create(
             $this->width,
             $this->height,
-            ['red' => 229, 'green' => 229, 'blue' => 229],
+            new Color(229, 229, 229),
         );
         if ($image === null) {
             return null;
         }
 
-        $this->prepareDataSet($this->data, 'png', $image);
+        $this->prepareDataSet($this->data, Format::Png, $image);
 
         return $image;
     }
@@ -329,7 +330,7 @@ class GisVisualization
     public function asOl(): array
     {
         return [
-            'geometries' => $this->prepareDataSet($this->data, 'ol'),
+            'geometries' => $this->prepareDataSet($this->data, Format::Ol),
             'colors' => self::COLORS,
         ];
     }
@@ -338,7 +339,7 @@ class GisVisualization
     private function asPdfFile(): FileDownload
     {
         $pdf = $this->createEmptyPdf(Config::getInstance()->config->PDFDefaultPageSize ?? 'A4');
-        $this->prepareDataSet($this->data, 'pdf', $pdf);
+        $this->prepareDataSet($this->data, Format::Pdf, $pdf);
 
         $blob = $pdf->Output('', 'S');
 
@@ -437,18 +438,16 @@ class GisVisualization
      * Prepares and return the dataset as needed by the visualization.
      *
      * @param mixed[][]               $data     Raw data
-     * @param string                  $format   Format of the visualization
      * @param ImageWrapper|TCPDF|null $renderer Image object in the case of png, TCPDF object in the case of pdf
-     * @psalm-param T $format
      *
-     * @psalm-return (T is 'svg' ? string : (T is 'ol' ? list<array{wkt: string, srid?: int, label?: string}> : null))
+     * @psalm-return ($format is Format::Svg
+     *  ? string
+     *  : ($format is Format::Ol ? list<array{wkt: string, srid?: int, label?: string}> : null))
      * The exported data
-     *
-     * @template T of 'ol'|'pdf'|'png'|'svg'
      */
     private function prepareDataSet(
         array $data,
-        string $format,
+        Format $format,
         ImageWrapper|TCPDF|null $renderer = null,
     ): array|string|null {
         $svg = '';
@@ -469,18 +468,18 @@ class GisVisualization
                     continue;
                 }
 
-                $color = self::COLORS[$colorIndex];
+                $color = new Color(...self::COLORS[$colorIndex]);
                 $label = trim((string) ($row[$this->labelColumn] ?? ''));
 
-                if ($format === 'svg') {
+                if ($format === Format::Svg) {
                     $svg .= $gisObj->prepareRowAsSvg($wkt, htmlspecialchars($label), $color, $scaleData);
-                } elseif ($format === 'png') {
+                } elseif ($format === Format::Png) {
                     assert($renderer instanceof ImageWrapper);
                     $gisObj->prepareRowAsPng($wkt, $label, $color, $scaleData, $renderer);
-                } elseif ($format === 'pdf') {
+                } elseif ($format === Format::Pdf) {
                     assert($renderer instanceof TCPDF);
                     $gisObj->prepareRowAsPdf($wkt, $label, $color, $scaleData, $renderer);
-                } elseif ($format === 'ol') {
+                } elseif ($format === Format::Ol) {
                     $olDataset[] = $gisObj->prepareRowAsOl($wkt, (int) $row['srid'], $label);
                 }
 
@@ -489,8 +488,8 @@ class GisVisualization
         }
 
         return match ($format) {
-            'svg' => $svg,
-            'ol' => $olDataset,
+            Format::Svg => $svg,
+            Format::Ol => $olDataset,
             default => null,
         };
     }
