@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-08-30 07:51+0000\n"
+"PO-Revision-Date: 2026-08-30 08:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "lv/>\n"
@@ -371,7 +371,7 @@ msgstr ""
 
 #: db_tracking.php:95
 msgid "No tables selected."
-msgstr "Nav izvēlēta tabula."
+msgstr "Nav atlasīta neviena tabula."
 
 #: db_tracking.php:153
 msgid "Database Log"
@@ -2122,7 +2122,7 @@ msgstr ""
 
 #: js/messages.php:479
 msgid "No dependencies selected!"
-msgstr "Nav atlasītas atkarības!"
+msgstr "Nav atlasīta neviena atkarība!"
 
 #: js/messages.php:482 libraries/classes/CentralColumns.php:1254
 #: libraries/classes/InsertEdit.php:1805
@@ -3651,7 +3651,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Highlight selected rows."
-msgstr ""
+msgstr "Izcelt atlasītās rindas."
 
 #: libraries/classes/Config/Descriptions.php:93
 msgid "Row marker"
