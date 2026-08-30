@@ -284,6 +284,7 @@ msgstr "cột"
 #: src/Controllers/Server/PrivilegesController.php:321
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
+#: resources/templates/database/routines/execute_form.twig:61
 msgid "Go"
 msgstr "Thực hiện"
 
@@ -642,7 +643,7 @@ msgstr "Tên"
 #: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:472
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625 src/InsertEdit.php:261
 msgid "Type"
 msgstr "Kiểu"
 
@@ -2437,11 +2438,12 @@ msgstr "Tham số thủ tục"
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
 #: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:235
-#: src/Navigation/Nodes/NodeFunction.php:27
+#: src/Navigation/Nodes/NodeFunction.php:27 src/InsertEdit.php:260
 msgid "Function"
 msgstr "Hàm"
 
 #: resources/templates/database/routines/execute_form.twig:56
+#: resources/templates/database/routines/execute_form.twig:54
 msgid "This routine does not require any parameters."
 msgstr "Thủ tục không yêu cầu bất kỳ tham số nào."
 
@@ -2486,6 +2488,8 @@ msgstr "Xuất thủ tục"
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:335
 #: src/Controllers/Database/RoutinesController.php:343
+#: src/Controllers/Database/RoutinesController.php:354
+#: src/Controllers/Database/RoutinesController.php:364
 msgid "Execute routine"
 msgstr "Thực thi thủ tục"
 
@@ -3146,7 +3150,7 @@ msgstr "Chuyển đổi sang Kana"
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
 #: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:412
-#: src/Message.php:138
+#: src/Message.php:138 src/InsertEdit.php:425
 msgid "Error"
 msgstr "Lỗi"
 
@@ -3687,7 +3691,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Bạn cũng có thể kéo thả một tập tin trên bất kỳ trang nào."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:413
+#: src/InsertEdit.php:413 src/InsertEdit.php:426
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Thư mục bạn đặt cho việc tải lên không thể tiếp cận được."
 
@@ -4974,6 +4978,7 @@ msgstr "Cho phép đọc dữ liệu."
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
 #: resources/templates/table/search/index.twig:128 src/InsertEdit.php:421
+#: src/InsertEdit.php:434
 msgid "Or"
 msgstr "Hoặc"
 
@@ -5392,8 +5397,8 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"Hãy chắc là bạn có mã-số-máy-chủ không trùng lặp trong tập tin cấu hình (my."
-"cnf) của bạn. Nếu không hãy thêm dòng sau đây vào phần [mysqld]:"
+"Hãy chắc là bạn có mã-số-máy-chủ không trùng lặp trong tập tin cấu hình "
+"(my.cnf) của bạn. Nếu không hãy thêm dòng sau đây vào phần [mysqld]:"
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
@@ -6429,7 +6434,7 @@ msgstr "Biểu đồ hình tròn thể hiện kết quả phân tích đặc đi
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
 #: src/Database/Routines.php:1002 src/Display/Results.php:2964
-#: src/Message.php:122
+#: src/Message.php:122 src/Database/Routines.php:1033
 msgid "Your SQL query has been executed successfully."
 msgstr "Truy vấn SQL của bạn đã được thực hiện thành công."
 
@@ -6738,6 +6743,7 @@ msgstr "Kéo thả để thay đổi thứ tự"
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
 #: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1408
+#: src/InsertEdit.php:1421
 msgid "Ignore"
 msgstr "Bỏ qua"
 
@@ -6912,12 +6918,14 @@ msgstr "Xóa dữ liệu của bảng (DELETE FROM)"
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
 #: src/Controllers/Database/StructureController.php:368
+#: src/Controllers/Database/StructureController.php:369
 #, php-format
 msgid "View %s has been dropped."
 msgstr "View %s đã được xóa bỏ."
 
 #: resources/templates/table/operations/index.twig:459
 #: src/Controllers/Database/StructureController.php:368
+#: src/Controllers/Database/StructureController.php:369
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Bảng %s đã được xóa bỏ."
@@ -7748,9 +7756,9 @@ msgstr "Phương thức đệm tối ưu."
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Bạn đang dùng bộ đệm truy vấn MySQL với cơ sở dữ liệu lưu lượng truy cập khá "
 "cao. Có thể cân nhắc sử dụng <a href=\"https://dev.mysql.com/doc/refman/5.6/"
@@ -8401,8 +8409,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Đặc biệt trên hệ thống có nhiều thao tác ghi vào bảng InnoDB, bạn nên đặt "
 "{innodb_log_file_size} là 25% của {innodb_buffer_pool_size}. Tuy nhiên, giá "
@@ -8488,8 +8496,8 @@ msgstr ""
 "dụng của mình. Nếu không phải như vậy, bạn cần đánh giá cẩn thận mức tiêu "
 "thụ bộ nhớ của các dịch vụ khác và các Bảng không phải InnoDB rồi đặt biến "
 "này cho phù hợp. Nếu nó được đặt quá cao, hệ thống của bạn sẽ bắt đầu hoán "
-"đổi, điều này làm giảm hiệu suất đáng kể. Xem thêm <a href=\"https://www."
-"percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">bài viết "
+"đổi, điều này làm giảm hiệu suất đáng kể. Xem thêm <a href=\"https://"
+"www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">bài viết "
 "này</a>"
 
 #: src/Advisory/Rules.php:738
@@ -8520,8 +8528,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Việc đặt {concurrent_insert} thành 1 giúp giảm thiểu sự xung đột giữa người "
-"đọc và người ghi đối với một bảng nhất định. Xem thêm <a href=\"https://dev."
-"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">Tài liệu MySQL</a>"
+"đọc và người ghi đối với một bảng nhất định. Xem thêm <a href=\"https://"
+"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">Tài liệu MySQL</a>"
 
 #: src/Advisory/Rules.php:757
 msgid "concurrent_insert is set to 0"
@@ -8979,7 +8987,6 @@ msgid "Lithuanian"
 msgstr "Tiếng Lát-vi"
 
 #: src/Charsets/Collation.php:443
-#, fuzzy
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Tiếng Miến Điện"
@@ -9823,13 +9830,13 @@ msgstr ""
 
 #: src/Config/Descriptions.php:355
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Thông tin thêm trên [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]theo dõi lỗi phpMyAdmin[/a] và [a@https://bugs.mysql."
-"com/19588]Lỗi MySQL[/a]"
+"Thông tin thêm trên [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]theo dõi lỗi phpMyAdmin[/a] và [a@https://bugs.mysql.com/19588]Lỗi "
+"MySQL[/a]"
 
 #: src/Config/Descriptions.php:359
 msgid ""
@@ -10113,8 +10120,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Hiển thị liên kết đến [a@https://www.php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]."
+"Hiển thị liên kết đến [a@https://www.php.net/manual/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: src/Config/Descriptions.php:484
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -11618,37 +11625,39 @@ msgstr "Xếp theo"
 msgid "Server connection collation"
 msgstr "Bảng mã đối chiếu kết nối máy dịch vụ"
 
-#: src/Config/FormDisplay.php:582
+#: src/Config/FormDisplay.php:582 src/Config/FormDisplay.php:580
 #, php-format
 msgid "Missing data for %s"
 msgstr "Thiếu dữ liệu cho %s"
 
 #: src/Config/FormDisplay.php:622 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Config/FormDisplay.php:620
 msgid "Incorrect value!"
 msgstr "Giá trị không đúng!"
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:768 src/Config/FormDisplay.php:766
 msgid "unavailable"
 msgstr "không sẵn có"
 
-#: src/Config/FormDisplay.php:770
+#: src/Config/FormDisplay.php:770 src/Config/FormDisplay.php:768
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" yêu cầu cần có phần mở rộng %s"
 
-#: src/Config/FormDisplay.php:792
+#: src/Config/FormDisplay.php:792 src/Config/FormDisplay.php:790
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "Việc nhập khẩu dữ liệu có nén sẽ không làm việc bởi vì thiếu hàm %s."
 
-#: src/Config/FormDisplay.php:801
+#: src/Config/FormDisplay.php:801 src/Config/FormDisplay.php:799
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "Việc xuất khẩu dữ liệu có nén sẽ không làm việc bởi vì thiếu hàm %s."
 
 #: src/Config/FormDisplay.php:817 src/Config/FormDisplay.php:818
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:819 src/Config/FormDisplay.php:815
+#: src/Config/FormDisplay.php:816
 #, php-format
 msgid "maximum %s"
 msgstr "tối đa là %s"
@@ -12051,6 +12060,10 @@ msgstr ""
 #: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:68
 #: src/Controllers/View/CreateController.php:73
+#: src/Controllers/Database/RoutinesController.php:80
+#: src/Controllers/Database/RoutinesController.php:98
+#: src/Controllers/Database/StructureController.php:157
+#: src/Controllers/Database/StructureController.php:162
 msgid "No databases selected."
 msgstr "Chưa chọn cơ sở dữ liệu."
 
@@ -12071,6 +12084,9 @@ msgstr "Sửa sự kiện"
 #: src/Controllers/Database/RoutinesController.php:284
 #: src/Controllers/Database/RoutinesController.php:350
 #: src/Controllers/Triggers/IndexController.php:207
+#: src/Controllers/Database/RoutinesController.php:273
+#: src/Controllers/Database/RoutinesController.php:303
+#: src/Controllers/Database/RoutinesController.php:371
 msgid "Error in processing request:"
 msgstr "Có lỗi trong yêu cấu xử lý:"
 
@@ -12171,19 +12187,23 @@ msgstr "Bạn không có quyền quản trị người dùng!"
 #: src/Controllers/Table/ZoomSearchController.php:114
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
+#: src/Controllers/Database/RoutinesController.php:88
 #, fuzzy
 msgid "No table selected."
 msgstr "Chưa có bảng nào được chọn."
 
 #: src/Controllers/Database/RoutinesController.php:170
+#: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
 msgstr "Thêm thủ tục"
 
 #: src/Controllers/Database/RoutinesController.php:174
+#: src/Controllers/Database/RoutinesController.php:177
 msgid "Edit routine"
 msgstr "Sửa thủ tục"
 
 #: src/Controllers/Database/RoutinesController.php:257
+#: src/Controllers/Database/RoutinesController.php:276
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12192,16 +12212,20 @@ msgstr ""
 
 #: src/Controllers/Database/RoutinesController.php:286
 #: src/Controllers/Database/RoutinesController.php:352
+#: src/Controllers/Database/RoutinesController.php:305
+#: src/Controllers/Database/RoutinesController.php:373
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Không có thủ tục nào mang tên %1$s ở trong cơ sở dữ liệu %2$s."
 
 #: src/Controllers/Database/RoutinesController.php:395
+#: src/Controllers/Database/RoutinesController.php:416
 #, php-format
 msgid "Export of routine %s"
 msgstr "Xuất của thủ tục %s"
 
 #: src/Controllers/Database/RoutinesController.php:414
+#: src/Controllers/Database/RoutinesController.php:435
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12223,6 +12247,7 @@ msgstr "Thành công!"
 
 #: src/Controllers/Database/StructureController.php:567
 #: src/Display/Results.php:3245
+#: src/Controllers/Database/StructureController.php:568
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12231,6 +12256,7 @@ msgstr ""
 "View này có ít nhất số lượng dòng này. Vui lòng tham khảo %stài liệu%s."
 
 #: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:737
 msgid "unknown"
 msgstr "không hiểu"
 
@@ -12322,15 +12348,17 @@ msgstr ""
 
 #: src/Controllers/HomeController.php:264
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"Tham số PHP [a@https://www.php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] của bạn thấp hơn "
-"giá trị cookie được đặt cấu hình trong phpMyAdmin, bởi vì điều này nên việc "
-"đăng nhập của bạn có thể hết hạn sớm hơn so với thời hạn cấu hình trong "
+"Tham số PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] của bạn thấp hơn giá trị "
+"cookie được đặt cấu hình trong phpMyAdmin, bởi vì điều này nên việc đăng "
+"nhập của bạn có thể hết hạn sớm hơn so với thời hạn cấu hình trong "
 "phpMyAdmin."
 
 #: src/Controllers/HomeController.php:284
@@ -13240,6 +13268,8 @@ msgstr "Định nghĩa hàm lưu trữ phải có chứa lệnh RETURN!"
 #: src/Controllers/JavaScriptMessagesController.php:363
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
+"Không có thủ tục nào có thể xuất ra được. Có thể thiếu các đặc quyền cần "
+"thiết."
 
 #: src/Controllers/JavaScriptMessagesController.php:365
 #: src/Navigation/Nodes/NodeTrigger.php:27
@@ -13987,7 +14017,7 @@ msgid "Table %s already exists!"
 msgstr "Bảng %s đã sẵn có từ trước rồi!"
 
 #: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:248
-#: src/Navigation/Nodes/NodeDatabaseChild.php:50
+#: src/Navigation/Nodes/NodeDatabaseChild.php:50 src/InsertEdit.php:245
 msgid "Hide"
 msgstr "Ẩn"
 
@@ -15269,7 +15299,7 @@ msgstr "Có quá nhiều phép gia nhập mà không dùng chỉ mục."
 
 #: src/Controllers/Table/GetFieldController.php:109
 #: src/Database/Routines.php:1019 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:904
+#: src/InsertEdit.php:163 src/Sql.php:904 src/Database/Routines.php:1050
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL trả về kết quả là trống rỗng (vd. không có hàng nào)."
 
@@ -15507,6 +15537,8 @@ msgstr ""
 #: src/Database/Routines.php:129 src/Database/Routines.php:207
 #: src/Database/Routines.php:979 src/Triggers/Triggers.php:84
 #: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:128
+#: src/Database/Routines.php:106 src/Database/Routines.php:132
+#: src/Database/Routines.php:210 src/Database/Routines.php:1010
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "Truy vấn sau đây bị lỗi: \"%s\""
@@ -15518,6 +15550,9 @@ msgstr "Truy vấn sau đây bị lỗi: \"%s\""
 #: src/Database/Routines.php:983 src/Html/Generator.php:800
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
 #: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
+#: src/Database/Routines.php:110 src/Database/Routines.php:136
+#: src/Database/Routines.php:214 src/Database/Routines.php:228
+#: src/Database/Routines.php:1014
 msgid "MySQL said: "
 msgstr "MySQL đã nói: "
 
@@ -15526,7 +15561,7 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr "Rất tiếc, chúng tôi gặp lỗi khi phục hồi lại sự kiện đã xóa."
 
 #: src/Database/Events.php:117 src/Database/Routines.php:223
-#: src/Triggers/Triggers.php:109
+#: src/Triggers/Triggers.php:109 src/Database/Routines.php:226
 msgid "The backed up query was:"
 msgstr "Truy vấn sao lưu dự phòng là:"
 
@@ -15541,12 +15576,12 @@ msgid "Event %1$s has been created."
 msgstr "Sự kiện %1$s đã được tạo ra."
 
 #: src/Database/Events.php:157 src/Database/Routines.php:149
-#: src/Triggers/Triggers.php:149
+#: src/Triggers/Triggers.php:149 src/Database/Routines.php:152
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Có một hay nhiều lỗi xảy ra khi đang xử lý yêu cầu của bạn:"
 
 #: src/Database/Events.php:267 src/Database/Routines.php:785
-#: src/Triggers/Triggers.php:191
+#: src/Triggers/Triggers.php:191 src/Database/Routines.php:816
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Định nghĩa phải ở định dạng \"username@hostname\"!"
 
@@ -15570,73 +15605,74 @@ msgstr "Bạn phải cung cấp kiểu hợp lệ cho sự kiện."
 msgid "You must provide an event definition."
 msgstr "Phải cung cấp một định nghĩa sự kiện."
 
-#: src/Database/Routines.php:84
+#: src/Database/Routines.php:84 src/Database/Routines.php:87
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Kiểu thủ tục không hợp lệ: \"%s\""
 
-#: src/Database/Routines.php:136
+#: src/Database/Routines.php:136 src/Database/Routines.php:139
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Thủ tục %1$s đã được tạo ra."
 
-#: src/Database/Routines.php:222
+#: src/Database/Routines.php:222 src/Database/Routines.php:225
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Rất tiếc, chúng tôi gặp lỗi khi khôi phục lịa thủ tục đã xóa."
 
-#: src/Database/Routines.php:271
+#: src/Database/Routines.php:271 src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Thủ tục %1$s đã bị sửa đổi. Các đặc quyền bị sửa đổi."
 
-#: src/Database/Routines.php:276
+#: src/Database/Routines.php:276 src/Database/Routines.php:279
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Thủ tục %1$s đã bị sửa đổi."
 
-#: src/Database/Routines.php:630
+#: src/Database/Routines.php:630 src/Database/Routines.php:661
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: src/Database/Routines.php:648
+#: src/Database/Routines.php:648 src/Database/Routines.php:679
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Chỉ thị không hợp lệ \"%s\" đưa cho tham số."
 
 #: src/Database/Routines.php:668 src/Database/Routines.php:733
+#: src/Database/Routines.php:699 src/Database/Routines.php:764
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: src/Database/Routines.php:715
+#: src/Database/Routines.php:715 src/Database/Routines.php:746
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: src/Database/Routines.php:792
+#: src/Database/Routines.php:792 src/Database/Routines.php:823
 msgid "Invalid routine type!"
 msgstr "Loại thủ tục không hợp lệ!"
 
-#: src/Database/Routines.php:798
+#: src/Database/Routines.php:798 src/Database/Routines.php:829
 msgid "You must provide a routine name!"
 msgstr "Phải ghi rõ tên thủ tục!"
 
-#: src/Database/Routines.php:869
+#: src/Database/Routines.php:869 src/Database/Routines.php:892
 msgid "You must provide a routine definition."
 msgstr "Phải cung cấp định nghĩa thủ tục."
 
-#: src/Database/Routines.php:995
+#: src/Database/Routines.php:995 src/Database/Routines.php:1026
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Kết quả thực thi của thủ tục %s"
 
-#: src/Database/Routines.php:1010
+#: src/Database/Routines.php:1010 src/Database/Routines.php:1041
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d hàng chịu ảnh hưởng bởi lệnh cuối trong thủ tục."
 
-#: src/Dbal/DatabaseInterface.php:1076
+#: src/Dbal/DatabaseInterface.php:1076 src/Dbal/DatabaseInterface.php:1075
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15644,7 +15680,7 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/Dbal/DatabaseInterface.php:1117
+#: src/Dbal/DatabaseInterface.php:1117 src/Dbal/DatabaseInterface.php:1116
 msgid "Failed to set configured collation connection!"
 msgstr "Không thể thiết lập kết nối đối chiếu đã cấu hình!"
 
@@ -16048,9 +16084,8 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
-"Bạn đã cố tải một tệp có kiểu nén không được hỗ trợ (%s). Hoặc việc hỗ trợ "
-"cho kiểu nén này chưa được triển khai, hoặc đã bị vô hiệu hóa bởi cấu hình "
-"của bạn."
+"Bạn đã cố tải tập tin có nén không được hỗ trợ (%s). Cấu hình của bạn không "
+"triển khai hoặc vô hiệu hóa hỗ trợ cho nó."
 
 #: src/FlashMessenger.php:31
 #, fuzzy
@@ -16261,15 +16296,15 @@ msgstr ""
 "Các chỉ mục %1$s và %2$s dường như là giống nhau và một trong số chúng có "
 "thể gần như chắc chắn nên được xóa bỏ."
 
-#: src/InsertEdit.php:422
+#: src/InsertEdit.php:422 src/InsertEdit.php:435
 msgid "web server upload directory:"
 msgstr "thư mục để tải lên máy chủ:"
 
-#: src/InsertEdit.php:831 src/Sql.php:901
+#: src/InsertEdit.php:831 src/Sql.php:901 src/InsertEdit.php:844
 msgid "Showing SQL query"
 msgstr "Hiện truy vấn SQL"
 
-#: src/InsertEdit.php:855 src/Sql.php:881
+#: src/InsertEdit.php:855 src/Sql.php:881 src/InsertEdit.php:868
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Chỉ số id người dùng kép: %1$d"
@@ -18264,22 +18299,20 @@ msgstr ""
 "là từ 0 đến 255"
 
 #: src/Types.php:163
-#, fuzzy
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
-"Số nguyên 2-byte, có ký hiệu phạm vi từ -32,768 đến 32,767,không ký hiệu "
-"phạm vi từ 0 đến 65,535"
+"Số nguyên 2 byte, phạm vi có dấu là -32,768 đến 32,767, phạm vi không dấu là "
+"0 đến 65,535"
 
 #: src/Types.php:165
-#, fuzzy
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
-"Số nguyên 3-byte, có ký hiệu phạm vi là từ -8,388,608 đến 8,388,607, không "
-"ký hiệu phạm vi từ 0 đến 16,777,215"
+"Số nguyên 3 byte, phạm vi có dấu là -8,388,608 đến 8,388,607, phạm vi không "
+"dấu là 0 đến 16,777,215"
 
 #: src/Types.php:168
 #, fuzzy
@@ -18330,13 +18363,12 @@ msgstr ""
 "2.2250738585072014E-308 đến 1.7976931348623157E + 308"
 
 #: src/Types.php:192
-#, fuzzy
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
-"Từ đồng nghĩa cho DOUBLE (ngoại lệ: trong chế độ REAL_AS_FLOAT SQL nó là từ "
-"đồng nghĩa cho FLOAT)"
+"Từ đồng nghĩa với DOUBLE (ngoại trừ: trong chế độ SQL REAL_AS_FLOAT, nó là "
+"từ đồng nghĩa với FLOAT)"
 
 #: src/Types.php:193
 #, fuzzy
@@ -19224,8 +19256,8 @@ msgstr "Không tìm thấy tập tin nào trong kho ZIP!"
 #~ msgid ""
 #~ "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 #~ msgstr ""
-#~ "Formset không đúng, kiểm tra lại mảng $formsets trong setup/frames/form."
-#~ "inc.php!"
+#~ "Formset không đúng, kiểm tra lại mảng $formsets trong setup/frames/"
+#~ "form.inc.php!"
 
 #, fuzzy
 #~ msgid "Unknonwn"

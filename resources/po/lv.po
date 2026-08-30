@@ -281,6 +281,7 @@ msgstr "kolonna(s)"
 #: src/Controllers/Server/PrivilegesController.php:321
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
+#: resources/templates/database/routines/execute_form.twig:61
 msgid "Go"
 msgstr "Aiziet"
 
@@ -648,7 +649,7 @@ msgstr "Nosaukums"
 #: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:472
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625 src/InsertEdit.php:261
 msgid "Type"
 msgstr "Tips"
 
@@ -2525,11 +2526,12 @@ msgstr "Apakšprogrammas parametri"
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
 #: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:235
-#: src/Navigation/Nodes/NodeFunction.php:27
+#: src/Navigation/Nodes/NodeFunction.php:27 src/InsertEdit.php:260
 msgid "Function"
 msgstr "Funkcija"
 
 #: resources/templates/database/routines/execute_form.twig:56
+#: resources/templates/database/routines/execute_form.twig:54
 msgid "This routine does not require any parameters."
 msgstr "Šai apakšprogrammai nav nepieciešami parametri."
 
@@ -2575,6 +2577,8 @@ msgstr "Izgūt apakšprogrammu"
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:335
 #: src/Controllers/Database/RoutinesController.php:343
+#: src/Controllers/Database/RoutinesController.php:354
+#: src/Controllers/Database/RoutinesController.php:364
 msgid "Execute routine"
 msgstr "Izpildīt apakšprogrammu"
 
@@ -3276,7 +3280,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/RebuildController.php:56
 #: src/Controllers/Table/Partition/TruncateController.php:56
 #: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:412
-#: src/Message.php:138
+#: src/Message.php:138 src/InsertEdit.php:425
 msgid "Error"
 msgstr "Kļūda"
 
@@ -3347,9 +3351,8 @@ msgid "Template:"
 msgstr "Veidne:"
 
 #: resources/templates/export.twig:53
-#, fuzzy
 msgid "Update"
-msgstr "Atjaunot vaicājumu"
+msgstr "Atjaunināt"
 
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
@@ -3824,7 +3827,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:413
+#: src/InsertEdit.php:413 src/InsertEdit.php:426
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Direktoija, kuru norādīji augšupielādei, nav pieejama."
 
@@ -4910,9 +4913,8 @@ msgstr "Rediģēt privilēģijas:"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:5
 #: resources/templates/server/privileges/user_properties.twig:5
-#, fuzzy
 msgid "User account"
-msgstr "Lietotājs"
+msgstr "Lietotāja konts"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
@@ -5108,6 +5110,7 @@ msgstr "Ļauj lasīt datus."
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
 #: resources/templates/table/search/index.twig:128 src/InsertEdit.php:421
+#: src/InsertEdit.php:434
 msgid "Or"
 msgstr "Vai"
 
@@ -6439,7 +6442,7 @@ msgstr ""
 
 #: resources/templates/setup/home/index.twig:89
 msgid "New server"
-msgstr ""
+msgstr "Jauns serveris"
 
 #: resources/templates/setup/home/index.twig:113
 msgid "Default language"
@@ -6580,7 +6583,7 @@ msgstr "SQL rezultāts"
 #: src/Controllers/Table/Partition/TruncateController.php:50
 #: src/Controllers/Table/RelationController.php:147
 #: src/Database/Routines.php:1002 src/Display/Results.php:2964
-#: src/Message.php:122
+#: src/Message.php:122 src/Database/Routines.php:1033
 msgid "Your SQL query has been executed successfully."
 msgstr "Jūsu SQL vaicājums veiksmīgi izpildīts."
 
@@ -6903,6 +6906,7 @@ msgstr ""
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
 #: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1408
+#: src/InsertEdit.php:1421
 msgid "Ignore"
 msgstr "Ignorēt"
 
@@ -7078,12 +7082,14 @@ msgstr "Nav datubāzu"
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
 #: src/Controllers/Database/StructureController.php:368
+#: src/Controllers/Database/StructureController.php:369
 #, php-format
 msgid "View %s has been dropped."
 msgstr "%s skats dzēsts."
 
 #: resources/templates/table/operations/index.twig:459
 #: src/Controllers/Database/StructureController.php:368
+#: src/Controllers/Database/StructureController.php:369
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "%s tabula dzēsta."
@@ -7397,9 +7403,8 @@ msgstr "Pievienot %s lauku(s)"
 #: resources/templates/table/structure/display_structure.twig:317
 #: resources/templates/table/structure/display_structure.twig:321
 #: resources/templates/table/structure/display_structure.twig:406
-#, fuzzy
 msgid "Move columns"
-msgstr "Pievienot %s lauku(s)"
+msgstr "Pārvietot kolonnas"
 
 #: resources/templates/table/structure/display_structure.twig:322
 msgid "Move the columns by dragging them up and down."
@@ -7952,9 +7957,9 @@ msgstr "Neoptimāla kešatmiņas metode."
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 
 #: src/Advisory/Rules.php:223
@@ -8542,8 +8547,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
@@ -9109,7 +9114,7 @@ msgstr ""
 
 #: src/Config/ConfigFile.php:571
 msgid "key"
-msgstr ""
+msgstr "atslēga"
 
 #: src/Config/ConfigFile.php:571
 #, fuzzy
@@ -9783,9 +9788,9 @@ msgstr ""
 
 #: src/Config/Descriptions.php:355
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 
 #: src/Config/Descriptions.php:359
@@ -11547,46 +11552,47 @@ msgid "Console mode"
 msgstr ""
 
 #: src/Config/Descriptions.php:964
-#, fuzzy
 msgid "Order by"
-msgstr "Cits"
+msgstr "Kārtot pēc"
 
 #: src/Config/Descriptions.php:965
 msgid "Server connection collation"
 msgstr "Servera savienojuma salīdzināšanas/kārtošanas rakstzīmju kodējums"
 
-#: src/Config/FormDisplay.php:582
+#: src/Config/FormDisplay.php:582 src/Config/FormDisplay.php:580
 #, php-format
 msgid "Missing data for %s"
 msgstr ""
 
 #: src/Config/FormDisplay.php:622 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Config/FormDisplay.php:620
 msgid "Incorrect value!"
 msgstr ""
 
-#: src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:768 src/Config/FormDisplay.php:766
 #, fuzzy
 msgid "unavailable"
 msgstr "Mainīgais"
 
-#: src/Config/FormDisplay.php:770
+#: src/Config/FormDisplay.php:770 src/Config/FormDisplay.php:768
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" nepieciešams %s papildinājums"
 
-#: src/Config/FormDisplay.php:792
+#: src/Config/FormDisplay.php:792 src/Config/FormDisplay.php:790
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr ""
 
-#: src/Config/FormDisplay.php:801
+#: src/Config/FormDisplay.php:801 src/Config/FormDisplay.php:799
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr ""
 
 #: src/Config/FormDisplay.php:817 src/Config/FormDisplay.php:818
-#: src/Config/FormDisplay.php:819
+#: src/Config/FormDisplay.php:819 src/Config/FormDisplay.php:815
+#: src/Config/FormDisplay.php:816
 #, php-format
 msgid "maximum %s"
 msgstr ""
@@ -11983,6 +11989,10 @@ msgstr ""
 #: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:68
 #: src/Controllers/View/CreateController.php:73
+#: src/Controllers/Database/RoutinesController.php:80
+#: src/Controllers/Database/RoutinesController.php:98
+#: src/Controllers/Database/StructureController.php:157
+#: src/Controllers/Database/StructureController.php:162
 msgid "No databases selected."
 msgstr "Datubāze nav izvēlēta."
 
@@ -12005,6 +12015,9 @@ msgstr "Nosūtīts"
 #: src/Controllers/Database/RoutinesController.php:284
 #: src/Controllers/Database/RoutinesController.php:350
 #: src/Controllers/Triggers/IndexController.php:207
+#: src/Controllers/Database/RoutinesController.php:273
+#: src/Controllers/Database/RoutinesController.php:303
+#: src/Controllers/Database/RoutinesController.php:371
 msgid "Error in processing request:"
 msgstr "Kļūda, apstrādājot pieprasījumu:"
 
@@ -12103,19 +12116,23 @@ msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 #: src/Controllers/Table/ZoomSearchController.php:114
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
+#: src/Controllers/Database/RoutinesController.php:88
 #, fuzzy
 msgid "No table selected."
 msgstr "Nav izvēlēta tabula."
 
 #: src/Controllers/Database/RoutinesController.php:170
+#: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
 msgstr "Pievienot apakšprogrammu"
 
 #: src/Controllers/Database/RoutinesController.php:174
+#: src/Controllers/Database/RoutinesController.php:177
 msgid "Edit routine"
 msgstr "Rediģēt apakšprogrammu"
 
 #: src/Controllers/Database/RoutinesController.php:257
+#: src/Controllers/Database/RoutinesController.php:276
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12126,16 +12143,20 @@ msgstr ""
 
 #: src/Controllers/Database/RoutinesController.php:286
 #: src/Controllers/Database/RoutinesController.php:352
+#: src/Controllers/Database/RoutinesController.php:305
+#: src/Controllers/Database/RoutinesController.php:373
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Neatrada nevienu apakšprogrammu ar %1$s nosaukumu %2$s datubāzē."
 
 #: src/Controllers/Database/RoutinesController.php:395
+#: src/Controllers/Database/RoutinesController.php:416
 #, php-format
 msgid "Export of routine %s"
 msgstr "%s apakšprogrammas izguve"
 
 #: src/Controllers/Database/RoutinesController.php:414
+#: src/Controllers/Database/RoutinesController.php:435
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12160,6 +12181,7 @@ msgstr ""
 
 #: src/Controllers/Database/StructureController.php:567
 #: src/Display/Results.php:3245
+#: src/Controllers/Database/StructureController.php:568
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12167,6 +12189,7 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:737
 msgid "unknown"
 msgstr "nazināma"
 
@@ -12255,10 +12278,11 @@ msgstr ""
 
 #: src/Controllers/HomeController.php:264
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
 
 #: src/Controllers/HomeController.php:284
@@ -13887,7 +13911,7 @@ msgid "Table %s already exists!"
 msgstr "%s tabula jau pastāv!"
 
 #: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:248
-#: src/Navigation/Nodes/NodeDatabaseChild.php:50
+#: src/Navigation/Nodes/NodeDatabaseChild.php:50 src/InsertEdit.php:245
 msgid "Hide"
 msgstr "Paslēpt"
 
@@ -15081,9 +15105,9 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: src/Controllers/Table/CreateController.php:83
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s already exists!"
-msgstr "Lietotājs %s jau eksistē!"
+msgstr "%s tabula jau pastāv!"
 
 #: src/Controllers/Table/DropColumnConfirmationController.php:44
 #: src/Controllers/Table/DropColumnController.php:40
@@ -15116,7 +15140,7 @@ msgstr ""
 
 #: src/Controllers/Table/GetFieldController.php:109
 #: src/Database/Routines.php:1019 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:904
+#: src/InsertEdit.php:163 src/Sql.php:904 src/Database/Routines.php:1050
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL atgrieza tukšo rezultātu (0 rindas)."
 
@@ -15357,6 +15381,8 @@ msgstr "Nevar ielādēt importētos spraudņus, lūdzu pārbaudi savu instalāci
 #: src/Database/Routines.php:129 src/Database/Routines.php:207
 #: src/Database/Routines.php:979 src/Triggers/Triggers.php:84
 #: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:128
+#: src/Database/Routines.php:106 src/Database/Routines.php:132
+#: src/Database/Routines.php:210 src/Database/Routines.php:1010
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr ""
@@ -15368,6 +15394,9 @@ msgstr ""
 #: src/Database/Routines.php:983 src/Html/Generator.php:800
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
 #: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
+#: src/Database/Routines.php:110 src/Database/Routines.php:136
+#: src/Database/Routines.php:214 src/Database/Routines.php:228
+#: src/Database/Routines.php:1014
 msgid "MySQL said: "
 msgstr "MySQL teica: "
 
@@ -15376,7 +15405,7 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
 #: src/Database/Events.php:117 src/Database/Routines.php:223
-#: src/Triggers/Triggers.php:109
+#: src/Triggers/Triggers.php:109 src/Database/Routines.php:226
 msgid "The backed up query was:"
 msgstr ""
 
@@ -15391,12 +15420,12 @@ msgid "Event %1$s has been created."
 msgstr "%1$s notikums ir izveidots."
 
 #: src/Database/Events.php:157 src/Database/Routines.php:149
-#: src/Triggers/Triggers.php:149
+#: src/Triggers/Triggers.php:149 src/Database/Routines.php:152
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
 #: src/Database/Events.php:267 src/Database/Routines.php:785
-#: src/Triggers/Triggers.php:191
+#: src/Triggers/Triggers.php:191 src/Database/Routines.php:816
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
@@ -15420,40 +15449,41 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: src/Database/Routines.php:84
+#: src/Database/Routines.php:84 src/Database/Routines.php:87
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Nederīgs apakšprogrammas tips: \"%s\""
 
-#: src/Database/Routines.php:136
+#: src/Database/Routines.php:136 src/Database/Routines.php:139
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Izveidota %1$s apakšprogramma."
 
-#: src/Database/Routines.php:222
+#: src/Database/Routines.php:222 src/Database/Routines.php:225
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Atvainojiet, mums neizdevās atjaunot izdzēsto apakšprogrammu."
 
-#: src/Database/Routines.php:271
+#: src/Database/Routines.php:271 src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "%1$s apakšprogramma izmainīta. Privilēģijas pielāgotas."
 
-#: src/Database/Routines.php:276
+#: src/Database/Routines.php:276 src/Database/Routines.php:279
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "%1$s apakšprogramma izmainīta."
 
-#: src/Database/Routines.php:630
+#: src/Database/Routines.php:630 src/Database/Routines.php:661
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Katram apakšprogrammas parametram jāiestata nosaukums un tips."
 
-#: src/Database/Routines.php:648
+#: src/Database/Routines.php:648 src/Database/Routines.php:679
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
 #: src/Database/Routines.php:668 src/Database/Routines.php:733
+#: src/Database/Routines.php:699 src/Database/Routines.php:764
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15461,28 +15491,28 @@ msgstr ""
 "Jāiestata ENUM, SET, VARCHAR un VARBINARY tipa apakšprogrammu parametru "
 "garums/vērtības."
 
-#: src/Database/Routines.php:715
+#: src/Database/Routines.php:715 src/Database/Routines.php:746
 msgid "You must provide a valid return type for the routine."
 msgstr "Apakšprogrammai jāiestata derīgs atgriešanas (gala rezultāta) tips."
 
-#: src/Database/Routines.php:792
+#: src/Database/Routines.php:792 src/Database/Routines.php:823
 msgid "Invalid routine type!"
 msgstr "Nederīgs apakšprogrammas tips!"
 
-#: src/Database/Routines.php:798
+#: src/Database/Routines.php:798 src/Database/Routines.php:829
 msgid "You must provide a routine name!"
 msgstr "Jāievada apakšprogrammas nosaukums!"
 
-#: src/Database/Routines.php:869
+#: src/Database/Routines.php:869 src/Database/Routines.php:892
 msgid "You must provide a routine definition."
 msgstr "Jāiestata apakšprogrammas definīcija."
 
-#: src/Database/Routines.php:995
+#: src/Database/Routines.php:995 src/Database/Routines.php:1026
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Izpildītās %s apakšprogrammas rezultāti"
 
-#: src/Database/Routines.php:1010
+#: src/Database/Routines.php:1010 src/Database/Routines.php:1041
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -15490,7 +15520,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Dbal/DatabaseInterface.php:1076
+#: src/Dbal/DatabaseInterface.php:1076 src/Dbal/DatabaseInterface.php:1075
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15498,7 +15528,7 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/Dbal/DatabaseInterface.php:1117
+#: src/Dbal/DatabaseInterface.php:1117 src/Dbal/DatabaseInterface.php:1116
 msgid "Failed to set configured collation connection!"
 msgstr ""
 
@@ -16100,15 +16130,15 @@ msgid ""
 "removed."
 msgstr ""
 
-#: src/InsertEdit.php:422
+#: src/InsertEdit.php:422 src/InsertEdit.php:435
 msgid "web server upload directory:"
 msgstr "tīmekļa servera augšupielādes mape:"
 
-#: src/InsertEdit.php:831 src/Sql.php:901
+#: src/InsertEdit.php:831 src/Sql.php:901 src/InsertEdit.php:844
 msgid "Showing SQL query"
 msgstr ""
 
-#: src/InsertEdit.php:855 src/Sql.php:881
+#: src/InsertEdit.php:855 src/Sql.php:881 src/InsertEdit.php:868
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -17701,7 +17731,7 @@ msgstr "Privilēģijas tika veiksmīgi pārlādētas."
 #: src/Server/Privileges.php:2225
 #, php-format
 msgid "The user %s already exists!"
-msgstr "Lietotājs %s jau eksistē!"
+msgstr "Lietotājs %s jau pastāv!"
 
 #: src/Server/Privileges.php:2378
 #, php-format
@@ -17788,9 +17818,8 @@ msgid "Flush (close) all tables"
 msgstr ""
 
 #: src/Server/Status/Data.php:153
-#, fuzzy
 msgid "Show open tables"
-msgstr "Rādīt tabulas"
+msgstr "Rādīt atvērtās tabulas"
 
 #: src/Server/Status/Data.php:159
 #, fuzzy
@@ -17997,9 +18026,8 @@ msgid "Delete tracking data row from report"
 msgstr "Dzēst izsekošanas datu rindu no pārskata"
 
 #: src/Tracking/Tracking.php:230
-#, fuzzy
 msgid "No data"
-msgstr "Nav datubāzu"
+msgstr "Nav datu"
 
 #: src/Tracking/Tracking.php:291
 #, php-format
@@ -18025,7 +18053,7 @@ msgstr ""
 #: src/Tracking/Tracking.php:405
 #, php-format
 msgid "Export as %s"
-msgstr ""
+msgstr "Izgūt kā %s"
 
 #: src/Tracking/Tracking.php:560
 #, php-format
