@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-08-30 07:51+0000\n"
+"PO-Revision-Date: 2026-09-01 09:51+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/5-"
 "2/vi/>\n"
@@ -4535,10 +4535,8 @@ msgid "Console height"
 msgstr "Bảng điều khiển"
 
 #: libraries/classes/Config/Descriptions.php:983
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Bảng điều khiển"
+msgstr "Chế độ console"
 
 #: libraries/classes/Config/Descriptions.php:984
 #: templates/console/display.twig:64
@@ -11713,10 +11711,8 @@ msgid "Login using password only."
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:49
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Xác thực kiểu Signon"
+msgstr "Xác thực hai yếu tố đơn giản"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:59
 msgid "For testing purposes only!"
@@ -12735,13 +12731,12 @@ msgstr ""
 "dấu là 0 đến 16,777,215"
 
 #: libraries/classes/Types.php:243
-#, fuzzy
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
-"Số nguyên 4-byte, có ký hiệu phạm vi là từ -2,147,483,648 đến 2,147,483,647, "
-"không ký hiệu phạm vi từ 0 đến 4,294,967,295"
+"Một số nguyên 4 byte, phạm vi có dấu là -2,147,483,648 đến 2,147,483,647, "
+"phạm vi không có dấu là 0 đến 4,294,967,295"
 
 #: libraries/classes/Types.php:250
 #, fuzzy
@@ -12851,22 +12846,21 @@ msgstr ""
 "phép là 70 (1970) đến 69 (2069) hoặc 1901 đến 2555 và 0000"
 
 #: libraries/classes/Types.php:328
-#, fuzzy
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
-"Chuỗi có độ dài cố định (0-255, mặc định 1), luôn luôn được đệm bên phải với "
-"không gian với độ dài đã chỉ định khi được lưu trữ"
+"Một chuỗi có độ dài cố định (0-255, mặc định là 1) luôn được thêm khoảng "
+"trắng vào bên phải để đạt độ dài đã chỉ định khi được lưu trữ."
 
 #: libraries/classes/Types.php:335
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
-"Chuỗi có độ dài thay đổi (%s), độ dài tối đa có hiệu quả phụ thuộc vào kích "
-"thước tối đa của dãy"
+"Chuỗi có độ dài thay đổi (%s), độ dài tối đa hiệu quả phụ thuộc vào kích "
+"thước hàng tối đa."
 
 #: libraries/classes/Types.php:342
 #, fuzzy
