@@ -22,17 +22,17 @@ use function min;
  */
 abstract class RelationStats
 {
-    public mixed $xSrc;
+    public int|float $xSrc;
 
-    public mixed $ySrc;
+    public int|float $ySrc;
 
     public int $srcDir;
 
     public int $destDir;
 
-    public mixed $xDest;
+    public int|float $xDest;
 
-    public mixed $yDest;
+    public int|float $yDest;
 
     public int $wTick = 0;
 

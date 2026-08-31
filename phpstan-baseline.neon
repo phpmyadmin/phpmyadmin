@@ -10132,36 +10132,6 @@ parameters:
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: '#^Binary operation "\+" between mixed and \(float\|int\) results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/Eps/RelationStatsEps.php
-
-		-
-			message: '#^Binary operation "\+" between mixed and float results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 8
-			path: src/Plugins/Schema/Eps/RelationStatsEps.php
-
-		-
-			message: '#^Binary operation "\+" between mixed and int results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 4
-			path: src/Plugins/Schema/Eps/RelationStatsEps.php
-
-		-
-			message: '#^Binary operation "\+\=" between mixed and 10 results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 2
-			path: src/Plugins/Schema/Eps/RelationStatsEps.php
-
-		-
-			message: '#^Binary operation "\-" between mixed and float results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/Eps/RelationStatsEps.php
-
-		-
 			message: '#^Call to an undefined method object\:\:line\(\)\.$#'
 			identifier: method.notFound
 			count: 7
@@ -10774,30 +10744,6 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: '#^Binary operation "\+" between mixed and \(float\|int\) results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
-
-		-
-			message: '#^Binary operation "\+" between mixed and float results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 8
-			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
-
-		-
-			message: '#^Binary operation "\+" between mixed and int results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 4
-			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
-
-		-
-			message: '#^Binary operation "\-" between mixed and float results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
-
-		-
 			message: '#^Call to an undefined method object\:\:lineScale\(\)\.$#'
 			identifier: method.notFound
 			count: 7
@@ -10940,30 +10886,6 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Plugins/Schema/SchemaSvg.php
-
-		-
-			message: '#^Binary operation "\+" between mixed and \(float\|int\) results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/Svg/RelationStatsSvg.php
-
-		-
-			message: '#^Binary operation "\+" between mixed and float results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 8
-			path: src/Plugins/Schema/Svg/RelationStatsSvg.php
-
-		-
-			message: '#^Binary operation "\+" between mixed and int results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 4
-			path: src/Plugins/Schema/Svg/RelationStatsSvg.php
-
-		-
-			message: '#^Binary operation "\-" between mixed and float results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/Svg/RelationStatsSvg.php
 
 		-
 			message: '#^Call to an undefined method object\:\:printElementLine\(\)\.$#'

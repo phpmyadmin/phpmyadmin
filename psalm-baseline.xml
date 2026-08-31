@@ -3506,6 +3506,7 @@
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
+      <code><![CDATA[$lastShownRec]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
     </MixedArgument>
@@ -6311,26 +6312,6 @@
       <code><![CDATA[line]]></code>
       <code><![CDATA[line]]></code>
     </MixedMethodCall>
-    <MixedOperand>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->yDest]]></code>
-      <code><![CDATA[$this->yDest]]></code>
-      <code><![CDATA[$this->yDest]]></code>
-      <code><![CDATA[$this->ySrc]]></code>
-      <code><![CDATA[$this->ySrc]]></code>
-      <code><![CDATA[$this->ySrc]]></code>
-    </MixedOperand>
   </file>
   <file src="src/Plugins/Schema/Eps/TableStatsEps.php">
     <PossiblyUnusedProperty>
@@ -6528,22 +6509,6 @@
       <code><![CDATA[$a]]></code>
       <code><![CDATA[$b]]></code>
       <code><![CDATA[$c]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->yDest]]></code>
-      <code><![CDATA[$this->yDest]]></code>
-      <code><![CDATA[$this->ySrc]]></code>
-      <code><![CDATA[$this->ySrc]]></code>
     </MixedOperand>
   </file>
   <file src="src/Plugins/Schema/Pdf/TableStatsPdf.php">
@@ -6606,24 +6571,6 @@
       <code><![CDATA[printElementLine]]></code>
       <code><![CDATA[printElementLine]]></code>
     </MixedMethodCall>
-    <MixedOperand>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xDest]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->xSrc]]></code>
-      <code><![CDATA[$this->yDest]]></code>
-      <code><![CDATA[$this->yDest]]></code>
-      <code><![CDATA[$this->ySrc]]></code>
-      <code><![CDATA[$this->ySrc]]></code>
-    </MixedOperand>
   </file>
   <file src="src/Plugins/Schema/Svg/Svg.php">
     <PossiblyUnusedMethod>
