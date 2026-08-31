@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-08-30 08:01+0000\n"
+"PO-Revision-Date: 2026-08-31 08:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "lv/>\n"
@@ -1138,7 +1138,7 @@ msgstr "Paroles nesakrīt!"
 
 #: js/messages.php:149
 msgid "Removing Selected Users"
-msgstr "Dzēš izvēlētos lietotājus"
+msgstr "Dzēš atlasītos lietotājus"
 
 #: js/messages.php:150 js/messages.php:217 libraries/classes/Tracking.php:335
 #: libraries/classes/Tracking.php:651
@@ -1781,7 +1781,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
 #: libraries/db_common.inc.php:72 libraries/db_table_exists.inc.php:34
 msgid "No databases selected."
-msgstr "Datubāze nav izvēlēta."
+msgstr "Nav atlasīta neviena datubāze."
 
 #: js/messages.php:374
 msgid "No accounts selected."
@@ -4038,19 +4038,16 @@ msgid "Excel edition"
 msgstr "Excel redakcija"
 
 #: libraries/classes/Config/Descriptions.php:284
-#, fuzzy
 msgid "Database name template"
-msgstr "Faila nosaukuma šablons"
+msgstr "Datubāzes nosaukuma veidne"
 
 #: libraries/classes/Config/Descriptions.php:286
-#, fuzzy
 msgid "Server name template"
-msgstr "Faila nosaukuma šablons"
+msgstr "Servera nosaukuma veidne"
 
 #: libraries/classes/Config/Descriptions.php:288
-#, fuzzy
 msgid "Table name template"
-msgstr "Faila nosaukuma šablons"
+msgstr "Tabulas nosaukuma veidne"
 
 #: libraries/classes/Config/Descriptions.php:296
 #: libraries/classes/Config/Descriptions.php:322
@@ -4122,7 +4119,7 @@ msgstr ""
 #: templates/display/export/options_output_save_dir.twig:13
 #: templates/display/export/options_quick_export.twig:16
 msgid "Overwrite existing file(s)"
-msgstr "Pārrakstīt eksistējošos failus"
+msgstr "Pārrakstīt esošo(-ās) datni(-es)"
 
 #: libraries/classes/Config/Descriptions.php:346
 #, fuzzy
@@ -4378,7 +4375,7 @@ msgstr "Galvenais panelis"
 
 #: libraries/classes/Config/Descriptions.php:496
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Microsoft Office"
 
 #: libraries/classes/Config/Descriptions.php:504
 msgid "Other core settings"
@@ -4410,7 +4407,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:523
 msgid "Basic settings"
-msgstr ""
+msgstr "Pamatiestatījumi"
 
 #: libraries/classes/Config/Descriptions.php:525
 #, fuzzy
@@ -4536,10 +4533,8 @@ msgid "Paper size"
 msgstr "Papīra izmērs"
 
 #: libraries/classes/Config/Descriptions.php:591
-#, fuzzy
-#| msgid "Use text field"
 msgid "Text fields"
-msgstr "Lietot teksta lauku"
+msgstr "Teksta lauki"
 
 #: libraries/classes/Config/Descriptions.php:593
 msgid "Customize text input fields."
@@ -4807,9 +4802,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:766
-#, fuzzy
 msgid "Memory limit"
-msgstr "Resursu ierobežojumi"
+msgstr "Atmiņas ierobežojums"
 
 #: libraries/classes/Config/Descriptions.php:768
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -4840,7 +4834,7 @@ msgstr "Rādīt logotipu navigācijas panelī."
 
 #: libraries/classes/Config/Descriptions.php:782
 msgid "Display logo"
-msgstr ""
+msgstr "Rādīt logotipu"
 
 #: libraries/classes/Config/Descriptions.php:784
 msgid "URL where logo in the navigation panel will point to."
@@ -4928,7 +4922,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:831
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Iespējot izcelšanu"
 
 #: libraries/classes/Config/Descriptions.php:833
 msgid ""
@@ -5197,7 +5191,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "Save directory"
-msgstr ""
+msgstr "Saglabāšanas mape"
 
 #: libraries/classes/Config/Descriptions.php:969
 msgid "Leave blank if not used."
@@ -5353,9 +5347,8 @@ msgid "Hostname where MySQL server is running."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1058
-#, fuzzy
 msgid "Server hostname"
-msgstr "Servera izvēle"
+msgstr "Servera resursdators"
 
 #: libraries/classes/Config/Descriptions.php:1060
 msgid "Logout URL"
@@ -5509,9 +5502,8 @@ msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1151
-#, fuzzy
 msgid "Server socket"
-msgstr "Servera izvēle"
+msgstr "Servera ligzda"
 
 #: libraries/classes/Config/Descriptions.php:1153
 #, fuzzy
@@ -5521,7 +5513,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1155
 msgid "Use SSL"
-msgstr ""
+msgstr "Izmantot SSL"
 
 #: libraries/classes/Config/Descriptions.php:1157
 msgid ""
@@ -5635,10 +5627,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1227
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Users table"
-msgstr "Lietot tabulas"
+msgstr "Lietotāju tabula"
 
 #: libraries/classes/Config/Descriptions.php:1230
 msgid ""
@@ -5770,10 +5760,8 @@ msgid "Whether to show hint or not."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1302
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show hint"
-msgstr "Rādīt režģi"
+msgstr "Rādīt padomu"
 
 #: libraries/classes/Config/Descriptions.php:1305
 msgid ""
@@ -5813,9 +5801,8 @@ msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1323
-#, fuzzy
 msgid "Show statistics"
-msgstr "Rindas statistika"
+msgstr "Rādīt statistiku"
 
 #: libraries/classes/Config/Descriptions.php:1325
 msgid ""
@@ -5918,10 +5905,8 @@ msgid "Title of browser window when nothing is selected."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1372
-#, fuzzy
-#| msgid "Default"
 msgid "Default title"
-msgstr "Noklusēts"
+msgstr "Noklusējuma nosaukums"
 
 #: libraries/classes/Config/Descriptions.php:1374
 msgid "Title of browser window when a server is selected."
@@ -5973,7 +5958,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1393
 msgid "Upload directory"
-msgstr ""
+msgstr "Augšupielādes mape"
 
 #: libraries/classes/Config/Descriptions.php:1395
 msgid "Allow for searching inside the entire database."
@@ -6015,7 +6000,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1417
 msgid "Proxy url"
-msgstr ""
+msgstr "Starpniekservera URL adrese"
 
 #: libraries/classes/Config/Descriptions.php:1420
 msgid ""
@@ -6033,10 +6018,8 @@ msgid "The password for authenticating with the proxy."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1430
-#, fuzzy
-#| msgid "Password"
 msgid "Proxy password"
-msgstr "Parole"
+msgstr "Starpniekservera parole"
 
 #: libraries/classes/Config/Descriptions.php:1433
 msgid "Enable ZIP compression for import and export operations."
@@ -6158,7 +6141,7 @@ msgstr "Nederīgs porta numurs!"
 #: libraries/classes/Config/FormDisplay.php:656
 #: libraries/classes/Config/Validator.php:571
 msgid "Incorrect value!"
-msgstr ""
+msgstr "Nepareiza vērtība!"
 
 #: libraries/classes/Config/FormDisplay.php:103
 #: libraries/classes/Config/Validator.php:587
@@ -6252,16 +6235,12 @@ msgstr "Microsoft Word 2000 dokuments"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:114
 #: libraries/classes/Config/Forms/User/ImportForm.php:46
-#, fuzzy
-#| msgid "Documentation"
 msgid "OpenDocument Spreadsheet"
-msgstr "Dokumentācija"
+msgstr "OpenDocument izklājlapa"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:118
-#, fuzzy
-#| msgid "Documentation"
 msgid "OpenDocument Text"
-msgstr "Dokumentācija"
+msgstr "OpenDocument teksta dokuments"
 
 #: libraries/classes/Config/Forms/User/FeaturesForm.php:82
 msgid "Features"
@@ -6424,12 +6403,12 @@ msgstr ""
 
 #: libraries/classes/Config/Validator.php:435
 msgid "Incorrect value:"
-msgstr ""
+msgstr "Nepareiza vērtība:"
 
 #: libraries/classes/Config/Validator.php:444
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "Nepareiza IP adrese: %s"
 
 #: libraries/classes/Console.php:93
 #, php-format
@@ -6659,10 +6638,8 @@ msgstr "Meklēt"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:804
 #: templates/table/search/selection_form.twig:75
-#, fuzzy
-#| msgid "Hide search criteria"
 msgid "Find and replace"
-msgstr "Slēpt meklēšanas kritērijus"
+msgstr "Atrast un aizstāt"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:185
 #, php-format
@@ -6674,7 +6651,7 @@ msgstr[2] ""
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:273
 msgid "No column selected."
-msgstr "Nav izvēlēta kolonna."
+msgstr "Nav atlasīta neviena kolonna."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:499
 #, fuzzy
@@ -7146,7 +7123,7 @@ msgstr ""
 
 #: libraries/classes/Display/GitRevision.php:79
 msgid "Git revision:"
-msgstr ""
+msgstr "Git revīzija:"
 
 #: libraries/classes/Display/GitRevision.php:82
 #, php-format
@@ -7324,9 +7301,8 @@ msgid "Link not found!"
 msgstr "Saite nav atrasta!"
 
 #: libraries/classes/Engines/Bdb.php:28
-#, fuzzy
 msgid "Version information"
-msgstr "Piekļuves informācija"
+msgstr "Versijas informācija"
 
 #: libraries/classes/Engines/Innodb.php:29
 #, fuzzy
@@ -7338,9 +7314,8 @@ msgid "The common part of the directory path for all InnoDB data files."
 msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:36
-#, fuzzy
 msgid "Data files"
-msgstr "Tikai dati"
+msgstr "Datu datnes"
 
 #: libraries/classes/Engines/Innodb.php:39
 msgid "Autoextend increment"
@@ -7847,6 +7822,8 @@ msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Atsaukt var tikai INSERT, UPDATE, DELETE un REPLACE SQL vaicājumus tabulās, "
+"kuras izmanto dzinēju, kas atbalsta transakcijas."
 
 #: libraries/classes/Index.php:658
 #, fuzzy, php-format
@@ -7933,7 +7910,7 @@ msgstr "Rediģēt/Ievietot"
 
 #: libraries/classes/InsertEdit.php:1770
 msgid "and then"
-msgstr ""
+msgstr "un pēc tam"
 
 #: libraries/classes/InsertEdit.php:1808
 msgid "Insert as new row"
@@ -7941,7 +7918,7 @@ msgstr "Ievietot kā jaunu rindu"
 
 #: libraries/classes/InsertEdit.php:1811
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Ievietot kā jaunu rindu un ignorēt kļūdas"
 
 #: libraries/classes/InsertEdit.php:1814
 msgid "Show insert query"
@@ -7949,7 +7926,7 @@ msgstr ""
 
 #: libraries/classes/InsertEdit.php:1834
 msgid "Go back to previous page"
-msgstr "Atgriezties atpakaļ iepriekšējā lapā"
+msgstr "Doties atpakaļ uz iepriekšējo lapu"
 
 #: libraries/classes/InsertEdit.php:1837
 msgid "Insert another new row"
@@ -7957,11 +7934,11 @@ msgstr "Ievietot vēl vienu rindu"
 
 #: libraries/classes/InsertEdit.php:1842
 msgid "Go back to this page"
-msgstr "Atgriezties šajā lapā"
+msgstr "Doties atpakaļ uz šo lapu"
 
 #: libraries/classes/InsertEdit.php:1865
 msgid "Edit next row"
-msgstr ""
+msgstr "Rediģēt nākamo rindu"
 
 #: libraries/classes/InsertEdit.php:1885
 msgid ""
@@ -7996,7 +7973,7 @@ msgstr ""
 
 #: libraries/classes/LanguageManager.php:936
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ignorē neatbalstīto valodas kodu."
 
 #: libraries/classes/LanguageManager.php:963
 #: libraries/classes/LanguageManager.php:964 setup/frames/index.inc.php:63
@@ -8160,6 +8137,7 @@ msgid "Charsets"
 msgstr "Rakstzīmju kopas"
 
 #: libraries/classes/Menu.php:653 libraries/classes/Util.php:4001
+#, fuzzy
 msgid "Engines"
 msgstr "Tabulas tipi"
 
@@ -8222,10 +8200,8 @@ msgstr "Pievienot ierobežojumus"
 #: libraries/classes/Operations.php:971 libraries/classes/Operations.php:1330
 #: libraries/classes/Rte/Routines.php:1025
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Adjust privileges"
-msgstr "Mainīt privilēģijas"
+msgstr "Pielāgot privilēģijas"
 
 #: libraries/classes/MultSubmits.php:433
 msgid "From"
@@ -8803,7 +8779,7 @@ msgstr "Tabulas parametri"
 #: libraries/classes/Operations.php:1064
 #: templates/server/engines/engines.twig:4
 msgid "Storage Engine"
-msgstr ""
+msgstr "Glabāšanas dzinējs"
 
 #: libraries/classes/Operations.php:1093
 msgid "Change all column collations"
@@ -9784,28 +9760,20 @@ msgstr "Rādīt režģi"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:93
 #: templates/database/structure/print_view_data_dictionary_link.twig:6
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "Datu vārdnīca"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Order of the tables"
-msgstr "Rindu skaits vienā lapā"
+msgstr "Tabulu kārtošanas secība"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:104
-#, fuzzy
-#| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Augošā secībā"
+msgstr "Pēc nosaukuma (augošā secībā)"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
-#, fuzzy
-#| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Dilstošā secībā"
+msgstr "Pēc nosaukuma (dilstošā secībā)"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:69
 msgid "Show color"
@@ -9813,7 +9781,7 @@ msgstr "Rādīt krāsas"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:71
 msgid "Only show keys"
-msgstr ""
+msgstr "Rādīt tikai atslēgas"
 
 #: libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php:29
 msgid ""
@@ -10107,9 +10075,8 @@ msgid "There are no favorite tables."
 msgstr "Serveris neatbild"
 
 #: libraries/classes/RecentFavoriteTable.php:257
-#, fuzzy
 msgid "Recent tables"
-msgstr "Nav tabulu"
+msgstr "Nesenās tabulas"
 
 #: libraries/classes/RecentFavoriteTable.php:259
 #, fuzzy
@@ -11817,7 +11784,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:122
 msgid "Temporary data"
-msgstr ""
+msgstr "Pagaidu dati"
 
 #: libraries/classes/Server/Status/Data.php:123
 #, fuzzy
@@ -12050,15 +12017,12 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Monitor.php:294
 #: libraries/classes/Server/Status/Processes.php:38
-#, fuzzy
 msgid "Refresh rate"
-msgstr "Atjaunot"
+msgstr "Atsvaidzināšanas intervāls"
 
 #: libraries/classes/Server/Status/Monitor.php:303
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
-msgstr "Pievienot/Dzēst laukus (kolonnas)"
+msgstr "Grafika kolonnas"
 
 #: libraries/classes/Server/Status/Monitor.php:315
 msgid "Chart arrangement"
@@ -12741,10 +12705,8 @@ msgstr ""
 
 #: libraries/classes/Server/UserGroups.php:75
 #: libraries/classes/Server/Users.php:38
-#, fuzzy
-#| msgid "User"
 msgid "User groups"
-msgstr "Lietotājs"
+msgstr "Lietotāju grupas"
 
 #: libraries/classes/Server/UserGroups.php:90
 #, fuzzy
@@ -12765,16 +12727,13 @@ msgid "Table level tabs"
 msgstr "Komentārs tabulai"
 
 #: libraries/classes/Server/UserGroups.php:121
-#, fuzzy
 msgid "View users"
-msgstr "Jebkurš lietotājs"
+msgstr "Skatīt lietotājus"
 
 #: libraries/classes/Server/UserGroups.php:159
 #: libraries/classes/Server/UserGroups.php:225
-#, fuzzy
-#| msgid "Add user"
 msgid "Add user group"
-msgstr "Pievienot lietotāju"
+msgstr "Pievienot lietotāju grupu"
 
 #: libraries/classes/Server/UserGroups.php:228
 #, php-format
@@ -12956,13 +12915,13 @@ msgstr "Tikai apskatīt"
 #: libraries/classes/StorageEngine.php:280
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr ""
+msgstr "Šim glabāšanas dzinējam nav pieejama detalizēta statusa informācija."
 
 #: libraries/classes/StorageEngine.php:383
 #: templates/database/structure/body_for_table_summary.twig:48
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s — noklusējuma glabāšanas dzinējs šajā MySQL serverī."
 
 #: libraries/classes/StorageEngine.php:386
 #, php-format
@@ -12977,7 +12936,7 @@ msgstr ""
 #: libraries/classes/StorageEngine.php:394
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "Šis MySQL serveris neatbalsta %s glabāšanas dzinēju."
 
 #: libraries/classes/Table.php:338
 msgid "Unknown table status:"
@@ -13418,10 +13377,8 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/classes/Types.php:371
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "A polygon"
-msgstr "Pievienot %s lauku(s)"
+msgstr "Daudzstūris (poligons)"
 
 #: libraries/classes/Types.php:373
 msgid "A collection of points"
@@ -13936,7 +13893,7 @@ msgstr ""
 
 #: setup/frames/config.inc.php:17 setup/frames/index.inc.php:190
 msgid "Configuration file"
-msgstr ""
+msgstr "Konfigurācijas datne"
 
 #: setup/frames/config.inc.php:34 setup/frames/index.inc.php:253
 msgid "Download"
@@ -15120,7 +15077,7 @@ msgstr "Salīdzināšana/Salīdzinājuma shēma:"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
-msgstr ""
+msgstr "Glabāšanas dzinējs:"
 
 #: templates/columns_definitions/column_definitions_form.twig:82
 msgid "Connection:"
@@ -15239,7 +15196,7 @@ msgstr "Servera mainīgie un konfigurācija"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Storage engines"
-msgstr ""
+msgstr "Glabāšanas dzinēji"
 
 #: templates/server/sub_page_header.twig:2
 #, fuzzy
@@ -16000,10 +15957,8 @@ msgstr "Kolonnu specifiskās privilēģijas"
 
 #: templates/server/databases/create.twig:8
 #: templates/server/databases/create.twig:36
-#, fuzzy
-#| msgid "Create new database"
 msgid "Create database"
-msgstr "Izveidot jaunu datubāzi"
+msgstr "Izveidot datubāzi"
 
 #: templates/database/designer/query_details.twig:6
 msgid "Active options"
@@ -17198,7 +17153,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:365
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB parasti ir labākā tabulu dzinēja izvēle."
 
 #: libraries/advisory_rules_generic.txt:366
 msgid "have_innodb is set to 'value'"
