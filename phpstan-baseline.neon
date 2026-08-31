@@ -10132,12 +10132,6 @@ parameters:
 			path: src/Plugins/Schema/Eps/EpsRelationSchema.php
 
 		-
-			message: '#^Call to an undefined method object\:\:line\(\)\.$#'
-			identifier: method.notFound
-			count: 7
-			path: src/Plugins/Schema/Eps/RelationStatsEps.php
-
-		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 1
@@ -10744,21 +10738,12 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
-			message: '#^Call to an undefined method object\:\:lineScale\(\)\.$#'
-			identifier: method.notFound
-			count: 7
-			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
-
-		-
-			message: '#^Call to an undefined method object\:\:setDrawColor\(\)\.$#'
-			identifier: method.notFound
+			message: '''
+				#^Call to method setDrawColor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
 			count: 3
-			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
-
-		-
-			message: '#^Call to an undefined method object\:\:setLineWidthScale\(\)\.$#'
-			identifier: method.notFound
-			count: 2
 			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
@@ -10886,12 +10871,6 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Plugins/Schema/SchemaSvg.php
-
-		-
-			message: '#^Call to an undefined method object\:\:printElementLine\(\)\.$#'
-			identifier: method.notFound
-			count: 7
-			path: src/Plugins/Schema/Svg/RelationStatsSvg.php
 
 		-
 			message: '#^Parameter \#4 \$masterField of method PhpMyAdmin\\Plugins\\Schema\\Svg\\SvgRelationSchema\:\:addRelation\(\) expects string, \(int\|string\) given\.$#'

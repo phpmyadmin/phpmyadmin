@@ -6286,11 +6286,6 @@
       <code><![CDATA[$pos]]></code>
     </PossiblyFalseOperand>
   </file>
-  <file src="src/Plugins/Schema/Eps/Eps.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[line]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Plugins/Schema/Eps/EpsRelationSchema.php">
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$masterField]]></code>
@@ -6301,17 +6296,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$rel['foreign_field']]]></code>
     </PossiblyNullArgument>
-  </file>
-  <file src="src/Plugins/Schema/Eps/RelationStatsEps.php">
-    <MixedMethodCall>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-    </MixedMethodCall>
   </file>
   <file src="src/Plugins/Schema/Eps/TableStatsEps.php">
     <PossiblyUnusedProperty>
@@ -6387,9 +6371,6 @@
       <code><![CDATA[$w]]></code>
       <code><![CDATA[($w - 2 * $this->cMargin) * 1000]]></code>
     </MixedOperand>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[lineScale]]></code>
-    </PossiblyUnusedMethod>
     <PropertyNotSetInConstructor>
       <code><![CDATA[Pdf]]></code>
       <code><![CDATA[Pdf]]></code>
@@ -6483,6 +6464,11 @@
     <InvalidArrayOffset>
       <code><![CDATA[$case[$d]]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[$a * 255 * $e]]></code>
+      <code><![CDATA[$b * 255 * $e]]></code>
+      <code><![CDATA[$c * 255 * $e]]></code>
+    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$a]]></code>
       <code><![CDATA[$b]]></code>
@@ -6491,20 +6477,6 @@
     <MixedAssignment>
       <code><![CDATA[[$a, $b, $c]]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[lineScale]]></code>
-      <code><![CDATA[lineScale]]></code>
-      <code><![CDATA[lineScale]]></code>
-      <code><![CDATA[lineScale]]></code>
-      <code><![CDATA[lineScale]]></code>
-      <code><![CDATA[lineScale]]></code>
-      <code><![CDATA[lineScale]]></code>
-      <code><![CDATA[setDrawColor]]></code>
-      <code><![CDATA[setDrawColor]]></code>
-      <code><![CDATA[setDrawColor]]></code>
-      <code><![CDATA[setLineWidthScale]]></code>
-      <code><![CDATA[setLineWidthScale]]></code>
-    </MixedMethodCall>
     <MixedOperand>
       <code><![CDATA[$a]]></code>
       <code><![CDATA[$b]]></code>
@@ -6561,21 +6533,7 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="src/Plugins/Schema/Svg/RelationStatsSvg.php">
-    <MixedMethodCall>
-      <code><![CDATA[printElementLine]]></code>
-      <code><![CDATA[printElementLine]]></code>
-      <code><![CDATA[printElementLine]]></code>
-      <code><![CDATA[printElementLine]]></code>
-      <code><![CDATA[printElementLine]]></code>
-      <code><![CDATA[printElementLine]]></code>
-      <code><![CDATA[printElementLine]]></code>
-    </MixedMethodCall>
-  </file>
   <file src="src/Plugins/Schema/Svg/Svg.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[printElementLine]]></code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedProperty>
       <code><![CDATA[$author]]></code>
       <code><![CDATA[$title]]></code>
