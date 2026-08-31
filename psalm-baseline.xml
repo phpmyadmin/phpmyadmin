@@ -4787,12 +4787,10 @@
       <code><![CDATA[$urlParams]]></code>
     </InvalidArgument>
     <InvalidReturnStatement>
-      <code><![CDATA[$_POST['err_url'] ?? Url::getFromRoute('/table/change', $urlParams)]]></code>
       <code><![CDATA[$formParams]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
       <code><![CDATA[array<string, string>]]></code>
-      <code><![CDATA[string]]></code>
     </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[[
