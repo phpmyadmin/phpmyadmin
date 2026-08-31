@@ -3506,6 +3506,7 @@
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
+      <code><![CDATA[$lastShownRec]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
     </MixedArgument>
@@ -4791,12 +4792,10 @@
       <code><![CDATA[$urlParams]]></code>
     </InvalidArgument>
     <InvalidReturnStatement>
-      <code><![CDATA[$_POST['err_url'] ?? Url::getFromRoute('/table/change', $urlParams)]]></code>
       <code><![CDATA[$formParams]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
       <code><![CDATA[array<string, string>]]></code>
-      <code><![CDATA[string]]></code>
     </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[[
