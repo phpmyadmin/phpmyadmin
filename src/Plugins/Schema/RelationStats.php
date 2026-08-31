@@ -22,19 +22,19 @@ use function min;
  */
 abstract class RelationStats
 {
-    public int|float $xSrc;
+    protected int|float $xSrc;
 
-    public int|float $ySrc;
+    protected int|float $ySrc;
 
-    public int $srcDir;
+    protected int $srcDir;
 
-    public int $destDir;
+    protected int $destDir;
 
-    public int|float $xDest;
+    protected int|float $xDest;
 
-    public int|float $yDest;
+    protected int|float $yDest;
 
-    public int $wTick = 0;
+    protected int $wTick = 0;
 
     /**
      * @param TableStats $masterTable  The master table name
