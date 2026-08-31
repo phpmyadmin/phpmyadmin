@@ -1054,11 +1054,6 @@ final class StructureController implements InvocableController
             $openTableNames[] = $tableName;
         }
 
-        // is there at least one "in use" table?
-        if ($openTableNames === []) {
-            return [];
-        }
-
         $tables = [];
         $tblGroupSql = '';
         $whereAdded = false;
