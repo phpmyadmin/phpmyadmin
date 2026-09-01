@@ -4039,31 +4039,6 @@
       <code><![CDATA[$this->storage[self::STORAGE_KEY]]]></code>
     </MixedReturnStatement>
   </file>
-  <file src="src/Font.php">
-    <MixedArgument>
-      <code><![CDATA[$charList['chars']]]></code>
-      <code><![CDATA[$textWidth * $modifier]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$charList['chars']]]></code>
-      <code><![CDATA[$charList['modifier']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$charList]]></code>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$textWidth]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$charList['modifier']]]></code>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$textWidth]]></code>
-      <code><![CDATA[(mb_strlen($text)
-                - mb_strlen(str_replace($charList['chars'], '', $text))
-                ) * $charList['modifier']]]></code>
-    </MixedOperand>
-  </file>
   <file src="src/Footer.php">
     <DeprecatedProperty>
       <code><![CDATA[Routing::$route]]></code>
