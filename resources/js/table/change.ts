@@ -608,7 +608,7 @@ AJAX.registerOnload('table/change.js', function () {
     // @ts-ignore
     $.datepicker.initialized = false;
 
-    const gisEditorModal = document.getElementById('gisEditorModal');
+    const gisEditorModal = document.querySelector('#gisEditorModal.editor-for-change');
     gisEditorModal?.addEventListener('show.bs.modal', event => {
         // @ts-ignore
         const button = $(event.relatedTarget as HTMLButtonElement);

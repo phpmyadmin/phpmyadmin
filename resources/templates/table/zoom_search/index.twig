@@ -144,8 +144,6 @@
           </td>
         </tr>
       </table>
-
-      {{ include('modals/gis_editor.twig') }}
     </div>
 
     <div class="card-footer">
@@ -153,4 +151,7 @@
     </div>
   </div>
 </form>
+
+{% include 'modals/gis_editor.twig' with { 'location': 'search' } only %}
+
 <div id="sqlqueryresultsouter"></div>
