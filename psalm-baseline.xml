@@ -4862,9 +4862,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/ListDatabase.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[usort($databaseList, strnatcasecmp(...))]]></code>
-    </MixedArgumentTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($this->config->selectedServer['hide_db'])]]></code>
     </RiskyTruthyFalsyComparison>
