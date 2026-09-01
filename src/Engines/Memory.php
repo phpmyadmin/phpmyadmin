@@ -17,7 +17,7 @@ class Memory extends StorageEngine
     /**
      * Returns array with variable names dedicated to MEMORY storage engine
      *
-     * @return mixed[]   variable names
+     * @return array<string, array{title?: string, desc?: string, type?: int}> variable names
      */
     public function getVariables(): array
     {
