@@ -2,6 +2,7 @@
   padding: $breadcrumb-navbar-padding-y $breadcrumb-navbar-padding-x;
   margin-bottom: $breadcrumb-navbar-margin-bottom;
   background-color: $breadcrumb-navbar-bg;
+  height: 40px;
 
   .breadcrumb-item {
     + .breadcrumb-comment {
