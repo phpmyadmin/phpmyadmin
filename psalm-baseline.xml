@@ -3506,6 +3506,7 @@
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
+      <code><![CDATA[$lastShownRec]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
     </MixedArgument>
@@ -4037,31 +4038,6 @@
     <MixedReturnStatement>
       <code><![CDATA[$this->storage[self::STORAGE_KEY]]]></code>
     </MixedReturnStatement>
-  </file>
-  <file src="src/Font.php">
-    <MixedArgument>
-      <code><![CDATA[$charList['chars']]]></code>
-      <code><![CDATA[$textWidth * $modifier]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$charList['chars']]]></code>
-      <code><![CDATA[$charList['modifier']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$charList]]></code>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$textWidth]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$charList['modifier']]]></code>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$count]]></code>
-      <code><![CDATA[$textWidth]]></code>
-      <code><![CDATA[(mb_strlen($text)
-                - mb_strlen(str_replace($charList['chars'], '', $text))
-                ) * $charList['modifier']]]></code>
-    </MixedOperand>
   </file>
   <file src="src/Footer.php">
     <DeprecatedProperty>
@@ -4791,12 +4767,10 @@
       <code><![CDATA[$urlParams]]></code>
     </InvalidArgument>
     <InvalidReturnStatement>
-      <code><![CDATA[$_POST['err_url'] ?? Url::getFromRoute('/table/change', $urlParams)]]></code>
       <code><![CDATA[$formParams]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
       <code><![CDATA[array<string, string>]]></code>
-      <code><![CDATA[string]]></code>
     </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[[
@@ -4888,9 +4862,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/ListDatabase.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[usort($databaseList, strnatcasecmp(...))]]></code>
-    </MixedArgumentTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($this->config->selectedServer['hide_db'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -7592,6 +7563,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/StorageEngine.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$details['value']]]></code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -7599,37 +7573,17 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$details['desc']]]></code>
-      <code><![CDATA[$details['title']]]></code>
-      <code><![CDATA[$details['value']]]></code>
-      <code><![CDATA[$details['value']]]></code>
-      <code><![CDATA[$details['value']]]></code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$decodedData['disk_usage']]]></code>
       <code><![CDATA[$decodedData['disk_usage']]]></code>
-      <code><![CDATA[$details['desc']]]></code>
-      <code><![CDATA[$details['title']]]></code>
-      <code><![CDATA[$details['type']]]></code>
-      <code><![CDATA[$details['value']]]></code>
-      <code><![CDATA[$details['value']]]></code>
-      <code><![CDATA[$details['value']]]></code>
       <code><![CDATA[$mroongaData['type']]]></code>
       <code><![CDATA[$mroongaData['type']['id']]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$mysqlVars[$row['Variable_name']]['title']]]></code>
-      <code><![CDATA[$mysqlVars[$row['Variable_name']]['type']]]></code>
-      <code><![CDATA[$mysqlVars[$row['Variable_name']]['value']]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$dataLength]]></code>
       <code><![CDATA[$decodedData]]></code>
-      <code><![CDATA[$details]]></code>
       <code><![CDATA[$indexLength]]></code>
       <code><![CDATA[$mroongaData]]></code>
-      <code><![CDATA[$mysqlVars[$row['Variable_name']]]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$decodedData['disk_usage']]]></code>
@@ -7642,19 +7596,10 @@
       <code><![CDATA[[$dataLength, $indexLength]]]></code>
       <code><![CDATA[int[]]]></code>
     </MixedReturnTypeCoercion>
-    <PossiblyNullArgument>
-      <code><![CDATA[$row['Variable_name']]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$mysqlVars]]></code>
-      <code><![CDATA[$mysqlVars]]></code>
-      <code><![CDATA[$mysqlVars]]></code>
-      <code><![CDATA[$mysqlVars]]></code>
-      <code><![CDATA[$mysqlVars]]></code>
-      <code><![CDATA[$mysqlVars]]></code>
-      <code><![CDATA[$variables]]></code>
-      <code><![CDATA[$variables]]></code>
-    </PossiblyNullArrayOffset>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($details['desc'])]]></code>
+      <code><![CDATA[empty($variableInfo['title'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/SystemDatabase.php">
     <PossiblyNullArgument>
