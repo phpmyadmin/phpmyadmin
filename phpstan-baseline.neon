@@ -12772,12 +12772,6 @@ parameters:
 			path: src/StorageEngine.php
 
 		-
-			message: '#^Cannot access offset ''desc'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/StorageEngine.php
-
-		-
 			message: '#^Cannot access offset ''disk_usage'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -12790,21 +12784,9 @@ parameters:
 			path: src/StorageEngine.php
 
 		-
-			message: '#^Cannot access offset ''title'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/StorageEngine.php
-
-		-
 			message: '#^Cannot access offset ''type'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: src/StorageEngine.php
-
-		-
-			message: '#^Cannot access offset ''value'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 1
 			path: src/StorageEngine.php
 
 		-
@@ -12832,31 +12814,7 @@ parameters:
 			path: src/StorageEngine.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function mb_stripos expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/StorageEngine.php
-
-		-
-			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:showHint\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/StorageEngine.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/StorageEngine.php
-
-		-
-			message: '#^Parameter \#1 \$value of method PhpMyAdmin\\StorageEngine\:\:resolveTypeSize\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/StorageEngine.php
-
-		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|numeric\-string, string given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/StorageEngine.php
