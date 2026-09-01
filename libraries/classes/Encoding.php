@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use function array_filter;
-use function array_intersect;
 use function array_map;
 use function explode;
 use function fclose;
@@ -15,6 +14,7 @@ use function fopen;
 use function function_exists;
 use function fwrite;
 use function iconv;
+use function in_array;
 use function is_string;
 use function mb_convert_encoding;
 use function mb_convert_kana;
@@ -24,6 +24,7 @@ use function preg_replace;
 use function recode_string;
 use function str_contains;
 use function str_starts_with;
+use function strtolower;
 use function strtoupper;
 use function tempnam;
 use function unlink;
@@ -368,9 +369,14 @@ class Encoding
             });
         }
 
-        return array_intersect(
-            array_map('strtolower', mb_list_encodings()),
-            $GLOBALS['cfg']['AvailableCharsets']
+        /* mb_list_encodings() and AvailableCharsets may differ in case (SJIS) */
+        $supportedEncodings = array_map('strtolower', mb_list_encodings());
+
+        return array_filter(
+            $GLOBALS['cfg']['AvailableCharsets'],
+            static function (string $charset) use ($supportedEncodings): bool {
+                return in_array(strtolower($charset), $supportedEncodings, true);
+            }
         );
     }
 }
