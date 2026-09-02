@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-09-01 09:51+0000\n"
+"PO-Revision-Date: 2026-09-02 19:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "lv/>\n"
@@ -3290,10 +3290,8 @@ msgid "Basic settings"
 msgstr "Pamatiestatījumi"
 
 #: libraries/classes/Config/Descriptions.php:780
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication"
-msgstr "Dokumentācija"
+msgstr "Autentifikācija"
 
 #: libraries/classes/Config/Descriptions.php:781
 msgid "Server configuration"
@@ -3748,7 +3746,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:894
 #: templates/setup/home/index.twig:44
 msgid "Authentication type"
-msgstr ""
+msgstr "Autentifikācijas veids"
 
 #: libraries/classes/Config/Descriptions.php:895
 msgid "Bookmark table"
@@ -4679,11 +4677,11 @@ msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:383
 msgid "Key is too short, it should have at least 32 characters."
-msgstr ""
+msgstr "Atslēga pārāk īsa, tai jāsatur vismaz 32 rakstzīmes."
 
 #: libraries/classes/Config/ServerConfigChecks.php:393
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
-msgstr ""
+msgstr "Atslēgai jāsatur burti, cipari [em]un[/em] īpašās rakstzīmes."
 
 #: libraries/classes/Config/ServerConfigChecks.php:428
 #, php-format
@@ -4723,7 +4721,7 @@ msgstr ""
 
 #: libraries/classes/Config/Validator.php:233
 msgid "Could not connect to the database server!"
-msgstr ""
+msgstr "Nevarēja pieslēgties datubāzes serverim!"
 
 #: libraries/classes/Config/Validator.php:268
 msgid "Invalid authentication type!"
@@ -4823,6 +4821,8 @@ msgstr "Šajā datubāzē tabulas nav atrastas."
 #: libraries/classes/Controllers/Table/ExportController.php:111
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
+"Nevarēja ielādēt izgūšanas papildinājumus, lūdzu, pārbaudiet, vai tie ir "
+"pareizi uzstādīti!"
 
 #: libraries/classes/Controllers/Database/ExportController.php:177
 #: libraries/classes/Controllers/Database/StructureController.php:1175
@@ -7033,14 +7033,12 @@ msgid "Show arguments"
 msgstr "Rādīt argumentus"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:692
-#, fuzzy
-#| msgid "Hide search results"
 msgid "Hide arguments"
-msgstr "Slēpt meklēšanas rezultātus"
+msgstr "Slēpt argumentus"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgid "Time taken:"
-msgstr ""
+msgstr "Patērētais laiks:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 msgid ""
@@ -8087,10 +8085,8 @@ msgid "No column selected."
 msgstr "Nav atlasīta neviena kolonna."
 
 #: libraries/classes/Controllers/Table/StructureController.php:709
-#, fuzzy
-#| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
+msgstr "Kolonnas veiksmīgi pārvietotas."
 
 #: libraries/classes/Controllers/Table/StructureController.php:746
 #, php-format
@@ -8371,14 +8367,12 @@ msgstr ""
 #: libraries/classes/Database/Events.php:236
 #: templates/database/events/index.twig:110
 #: templates/database/events/index.twig:114
-#, fuzzy
 msgid "Add event"
-msgstr "Pievienot jaunu lietotāju"
+msgstr "Pievienot notikumu"
 
 #: libraries/classes/Database/Events.php:240
-#, fuzzy
 msgid "Edit event"
-msgstr "Nosūtīts"
+msgstr "Rediģēt notikumu"
 
 #: libraries/classes/Database/Events.php:395
 #: libraries/classes/Database/Routines.php:1244
@@ -8388,7 +8382,7 @@ msgstr ""
 
 #: libraries/classes/Database/Events.php:402
 msgid "You must provide an event name!"
-msgstr ""
+msgstr "Jānorāda notikuma nosaukums!"
 
 #: libraries/classes/Database/Events.php:417
 msgid "You must provide a valid interval value for the event."
@@ -8663,10 +8657,8 @@ msgid "Options"
 msgstr "Parametri"
 
 #: libraries/classes/Database/Routines.php:907
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add parameter"
-msgstr "Pievienot jaunu lauku"
+msgstr "Pievienot parametru"
 
 #: libraries/classes/Database/Routines.php:911
 msgid "Remove last parameter"
@@ -8732,10 +8724,8 @@ msgid "Definer"
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:1001
-#, fuzzy
-#| msgid "Query type"
 msgid "Security type"
-msgstr "Vaicājuma tips"
+msgstr "Drošības tips"
 
 #: libraries/classes/Database/Routines.php:1010
 msgid "SQL data access"
@@ -9534,7 +9524,7 @@ msgstr ""
 
 #: libraries/classes/Html/Generator.php:246
 msgid "SSL is not being used"
-msgstr ""
+msgstr "Netiek izmantots SSL"
 
 #: libraries/classes/Html/Generator.php:251
 msgid "SSL is used with disabled verification"
@@ -9546,7 +9536,7 @@ msgstr ""
 
 #: libraries/classes/Html/Generator.php:256
 msgid "SSL is used"
-msgstr ""
+msgstr "Tiek izmantots SSL"
 
 #: libraries/classes/Html/Generator.php:362
 msgid "The PHP function password_hash() with default options."
@@ -9554,9 +9544,10 @@ msgstr "PHP password_hash() funkcija ar noklusējuma parametriem."
 
 #: libraries/classes/Html/Generator.php:363
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "password_hash() PHP funkcija"
 
 #: libraries/classes/Html/Generator.php:670
+#, fuzzy
 msgid "Skip Explain SQL"
 msgstr "Neizskaidrot SQL"
 
@@ -9572,10 +9563,8 @@ msgstr "Bez PHP koda"
 #: libraries/classes/Html/Generator.php:718
 #: templates/database/multi_table_query/form.twig:170
 #: templates/database/qbe/selection_form.twig:115
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
-msgstr "Izpildīt vaicājumu"
+msgstr "Iesniegt vaicājumu"
 
 #: libraries/classes/Html/Generator.php:764 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
@@ -9834,6 +9823,7 @@ msgstr ""
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
 #: templates/table/structure/display_structure.twig:275
+#, fuzzy
 msgid "Browse"
 msgstr "Apskatīt"
 
@@ -10078,10 +10068,8 @@ msgid "New"
 msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
-#, fuzzy
-#| msgid "Database export options"
 msgid "Database operations"
-msgstr "Datubāzu eksporta opcijas"
+msgstr "Datubāzes darbības"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:709
 #, fuzzy
@@ -10169,7 +10157,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:333
 #: libraries/classes/Normalization.php:370
 msgid "Step 1."
-msgstr ""
+msgstr "1. solis."
 
 #: libraries/classes/Normalization.php:234
 msgid ""
@@ -10272,7 +10260,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:414
 msgid "Step 2."
-msgstr ""
+msgstr "2. solis."
 
 #: libraries/classes/Normalization.php:414
 msgid "Find partial dependencies"
@@ -10922,10 +10910,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:136
-#, fuzzy
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Ievietot virsrakstā komentāru (\\n atdala rindas)"
+msgstr "Papildu pielāgots galvenes komentārs (\\n atdala rindas):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:142
 msgid ""
@@ -11159,7 +11145,7 @@ msgstr "Objekta izveides parametri (ieteicams atlasīt visus)"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:153
 msgid "Export contents"
-msgstr ""
+msgstr "Izgūt saturu"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:217
 #: templates/menu/breadcrumbs.twig:29
@@ -11932,7 +11918,7 @@ msgstr "Kļūda."
 
 #: libraries/classes/ReplicationGui.php:523
 msgid "Unknown error"
-msgstr ""
+msgstr "Nezināma kļūda"
 
 #: libraries/classes/ReplicationGui.php:536
 #, php-format
@@ -13577,10 +13563,8 @@ msgid "Engine"
 msgstr "Dzinējs"
 
 #: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data directory"
-msgstr "Datu vārdnīca"
+msgstr "Datu mape"
 
 #: templates/columns_definitions/partitions.twig:87
 #, fuzzy
@@ -13662,10 +13646,8 @@ msgid "Virtuality"
 msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Move column"
-msgstr "Pievienot/Dzēst laukus (kolonnas)"
+msgstr "Pārvietot kolonnu"
 
 #: templates/columns_definitions/table_fields_definitions.twig:75
 #: templates/columns_definitions/table_fields_definitions.twig:86
@@ -13770,13 +13752,12 @@ msgid "Bookmark"
 msgstr "Meklēt"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
-#, fuzzy
 msgid "Query failed"
-msgstr "Vaicājuma tips"
+msgstr "Vaicājums neizdevās"
 
 #: templates/console/display.twig:42 templates/console/display.twig:184
 msgid "Queried time"
-msgstr ""
+msgstr "Vaicājuma laiks"
 
 #: templates/console/display.twig:47
 msgid "During current session"
@@ -13800,10 +13781,8 @@ msgid "Count"
 msgstr "Skaits"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Execute bookmarked query"
 msgid "Execution order"
-msgstr "Izpildīt iegrāmatoto vaicājumu"
+msgstr "Izpildes secība"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
@@ -13842,9 +13821,8 @@ msgid "Label"
 msgstr "Etiķete"
 
 #: templates/console/display.twig:124
-#, fuzzy
 msgid "Target database"
-msgstr "Meklēt datubāzē"
+msgstr "Mērķa datubāze"
 
 #: templates/console/display.twig:127
 #, fuzzy
@@ -13974,16 +13952,13 @@ msgstr "Darbība"
 #: templates/database/designer/main.twig:87
 #: templates/database/operations/index.twig:29
 #: templates/database/structure/show_create.twig:11
-#, fuzzy
 msgid "Create table"
-msgstr "Izveidot jaunu lapu"
+msgstr "Izveidot tabulu"
 
 #: templates/database/create_table.twig:15
 #: templates/database/operations/index.twig:37
-#, fuzzy
-#| msgid "Number of rows per page"
 msgid "Number of columns"
-msgstr "Rindu skaits vienā lapā"
+msgstr "Kolonnu skaits"
 
 #: templates/database/data_dictionary/index.twig:3
 msgid "Database comment:"
@@ -14135,7 +14110,7 @@ msgstr "Izveidot vaicājumu"
 #: templates/database/designer/main.twig:177
 #: templates/database/designer/main.twig:181
 msgid "Move Menu"
-msgstr ""
+msgstr "Pārvietot izvēlni"
 
 #: templates/database/designer/main.twig:185
 #: templates/database/designer/main.twig:190
@@ -14187,16 +14162,13 @@ msgstr "apakšvaicājums"
 
 #: templates/database/designer/main.twig:496
 #: templates/database/designer/main.twig:712
-#, fuzzy
 msgid "Rename to"
-msgstr "Pārsaukt tabulu uz"
+msgstr "Pārsaukt par"
 
 #: templates/database/designer/main.twig:502
 #: templates/database/designer/main.twig:720
-#, fuzzy
-#| msgid "User name"
 msgid "New name"
-msgstr "Lietotājvārds"
+msgstr "Jaunais nosaukums"
 
 #: templates/database/designer/main.twig:511
 #: templates/database/designer/main.twig:917
@@ -14249,10 +14221,8 @@ msgid "Select Export Relational Type"
 msgstr ""
 
 #: templates/database/events/editor_form.twig:12
-#, fuzzy
-#| msgid "Event type"
 msgid "Event name"
-msgstr "Notikuma tips"
+msgstr "Notikuma nosaukums"
 
 #: templates/database/events/editor_form.twig:28
 #: templates/server/binlog/index.twig:86
@@ -14261,13 +14231,11 @@ msgstr "Notikuma tips"
 
 #: templates/database/events/editor_form.twig:46
 msgid "Execute at"
-msgstr ""
+msgstr "Izpildīt pulksten"
 
 #: templates/database/events/editor_form.twig:52
-#, fuzzy
-#| msgid "Execute bookmarked query"
 msgid "Execute every"
-msgstr "Izpildīt iegrāmatoto vaicājumu"
+msgstr "Izpildīt ik pēc"
 
 #: templates/database/events/editor_form.twig:63
 #, fuzzy
@@ -14288,7 +14256,7 @@ msgstr "Pabeidzot saglabāt"
 
 #: templates/database/events/index.twig:11
 msgid "There are no events to display."
-msgstr ""
+msgstr "Nav neviena notikuma, ko parādīt."
 
 #: templates/database/events/index.twig:87
 #: templates/database/events/index.twig:90
@@ -14307,9 +14275,8 @@ msgstr ""
 #: templates/server/privileges/users_overview.twig:107
 #: templates/table/privileges/index.twig:116
 #: templates/table/privileges/index.twig:119
-#, fuzzy
 msgid "With selected:"
-msgstr "Ar iezīmēto:"
+msgstr "Ar atlasīto:"
 
 #: templates/database/events/index.twig:88
 #: templates/database/events/index.twig:89
@@ -14342,7 +14309,7 @@ msgstr "Iezīmēt visu"
 
 #: templates/database/events/index.twig:121
 msgid "Event scheduler status"
-msgstr ""
+msgstr "Notikumu plānotāja statuss"
 
 #: templates/database/events/index.twig:125
 #: templates/database/tracking/tables.twig:47
@@ -14457,8 +14424,6 @@ msgid "Database comment"
 msgstr "Datubāzes komentārs"
 
 #: templates/database/operations/index.twig:60
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Rename database to"
 msgstr "Pārsaukt datubāzi par"
 
@@ -14479,10 +14444,8 @@ msgstr ""
 "dokumentāciju, lai iegūtu plašāku informāciju."
 
 #: templates/database/operations/index.twig:89
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove database"
-msgstr "Pārsaukt datubāzi par"
+msgstr "Noņemt datubāzi"
 
 #: templates/database/operations/index.twig:95
 #, php-format
@@ -14494,8 +14457,6 @@ msgid "Drop the database (DROP)"
 msgstr "Dzēst datubāzi (DROP)"
 
 #: templates/database/operations/index.twig:124
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy database to"
 msgstr "Kopēt datubāzi uz"
 
@@ -14545,10 +14506,8 @@ msgstr "Lietotājvārds"
 #: templates/server/privileges/login_information_fields.twig:37
 #: templates/server/privileges/users_overview.twig:9
 #: templates/table/privileges/index.twig:20
-#, fuzzy
-#| msgid "Log name"
 msgid "Host name"
-msgstr "Log-faila nosaukums"
+msgstr "Resursdatora nosaukums"
 
 #: templates/database/privileges/index.twig:21
 #: templates/server/privileges/privileges_summary.twig:16
@@ -14790,10 +14749,8 @@ msgid "Check tables having overhead"
 msgstr "Iezīmēt tabulas ar pārtēriņu"
 
 #: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "No tables"
 msgid "Copy table"
-msgstr "Nav tabulu"
+msgstr "Kopēt tabulu"
 
 #: templates/database/structure/check_all_tables.twig:11
 #, fuzzy
@@ -14832,10 +14789,8 @@ msgstr "Pārbaudīt tabulu"
 #: templates/database/structure/check_all_tables.twig:21
 #: templates/table/maintenance/checksum.twig:3
 #: templates/table/operations/index.twig:334
-#, fuzzy
-#| msgid "Check table"
 msgid "Checksum table"
-msgstr "Pārbaudīt tabulu"
+msgstr "Aprēķināt tabulas kontrolsummu"
 
 #: templates/database/structure/check_all_tables.twig:22
 #: templates/table/maintenance/optimize.twig:3
@@ -14847,9 +14802,8 @@ msgstr "Optimizēt tabulu"
 #: templates/database/structure/check_all_tables.twig:23
 #: templates/table/maintenance/repair.twig:3
 #: templates/table/operations/index.twig:371
-#, fuzzy
 msgid "Repair table"
-msgstr "Restaurēt tabulu"
+msgstr "Salabot tabulu"
 
 #: templates/database/structure/check_all_tables.twig:25
 #, fuzzy
@@ -15028,10 +14982,8 @@ msgid "Save edited data"
 msgstr ""
 
 #: templates/display/results/table.twig:38
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
-msgstr "Pievienot/Dzēst laukus (kolonnas)"
+msgstr "Atjaunot kolonnu secību"
 
 #: templates/display/results/table.twig:49 templates/export.twig:110
 #: templates/start_and_number_of_rows_panel.twig:10
@@ -15910,6 +15862,7 @@ msgstr "Slepenais kods/atslēga:"
 
 #: templates/login/twofactor/application_configure.twig:16
 #: templates/login/twofactor/application.twig:2
+#, fuzzy
 msgid "Authentication code:"
 msgstr "Autorizācijas kods:"
 
@@ -16022,6 +15975,7 @@ msgid "Manage your settings"
 msgstr "Pārvaldīt savus iestatījumus"
 
 #: templates/preferences/header.twig:12
+#, fuzzy
 msgid "Two-factor authentication"
 msgstr "Divfaktoru (2FA) autorizācija"
 
@@ -16555,10 +16509,8 @@ msgid "Re-type"
 msgstr "Atkārtojiet"
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication plugin"
-msgstr "Dokumentācija"
+msgstr "Autentifikācijas papildinājums"
 
 #: templates/server/privileges/login_information_fields.twig:70
 #, fuzzy
