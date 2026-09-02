@@ -217,10 +217,6 @@ final class ExportOdsTest extends AbstractTestCase
             ->with('SELECT', ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED)
             ->willReturn($resultStub);
 
-        $resultStub->expects(self::once())
-            ->method('numFields')
-            ->willReturn(8);
-
         $resultStub->expects(self::exactly(2))
             ->method('fetchRow')
             ->willReturn(
@@ -286,10 +282,6 @@ final class ExportOdsTest extends AbstractTestCase
             ->with('SELECT', ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED)
             ->willReturn($resultStub);
 
-        $resultStub->expects(self::once())
-            ->method('numFields')
-            ->willReturn(2);
-
         $resultStub->expects(self::exactly(1))
             ->method('fetchRow')
             ->willReturn([]);
@@ -327,10 +319,6 @@ final class ExportOdsTest extends AbstractTestCase
             ->method('query')
             ->with('SELECT', ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED)
             ->willReturn($resultStub);
-
-        $resultStub->expects(self::once())
-            ->method('numFields')
-            ->willReturn(0);
 
         $resultStub->expects(self::once())
             ->method('fetchRow')

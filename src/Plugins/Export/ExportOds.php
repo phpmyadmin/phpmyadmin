@@ -162,7 +162,6 @@ class ExportOds extends ExportPlugin
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
         // Gets the data from the database
         $result = $this->dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
-        $fieldsCnt = $result->numFields();
         $fieldsMeta = $this->dbi->getFieldsMeta($result);
 
         $this->buffer .= '<table:table table:name="' . htmlspecialchars($tableAlias) . '">';
@@ -187,13 +186,13 @@ class ExportOds extends ExportPlugin
         while ($row = $result->fetchRow()) {
             $this->buffer .= '<table:table-row>';
             /** @infection-ignore-all */
-            for ($j = 0; $j < $fieldsCnt; $j++) {
+            foreach ($row as $j => $field) {
                 if ($fieldsMeta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex
-                    $row[$j] = '0x' . bin2hex($row[$j]);
+                    $field = '0x' . bin2hex($field);
                 }
 
-                if (! isset($row[$j])) {
+                if ($field === null) {
                     $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($this->null)
@@ -207,41 +206,41 @@ class ExportOds extends ExportPlugin
                 } elseif ($fieldsMeta[$j]->isType(FieldMetadata::TYPE_DATE)) {
                     $this->buffer .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
-                        . date('Y-m-d', strtotime($row[$j]))
+                        . date('Y-m-d', strtotime($field))
                         . '" table:style-name="DateCell">'
                         . '<text:p>'
-                        . htmlspecialchars($row[$j])
+                        . htmlspecialchars($field)
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isType(FieldMetadata::TYPE_TIME)) {
                     $this->buffer .= '<table:table-cell office:value-type="time"'
                         . ' office:time-value="'
-                        . date('\P\TH\Hi\Ms\S', strtotime($row[$j]))
+                        . date('\P\TH\Hi\Ms\S', strtotime($field))
                         . '" table:style-name="TimeCell">'
                         . '<text:p>'
-                        . htmlspecialchars($row[$j])
+                        . htmlspecialchars($field)
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isType(FieldMetadata::TYPE_DATETIME)) {
                     $this->buffer .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
-                        . date('Y-m-d\TH:i:s', strtotime($row[$j]))
+                        . date('Y-m-d\TH:i:s', strtotime($field))
                         . '" table:style-name="DateTimeCell">'
                         . '<text:p>'
-                        . htmlspecialchars($row[$j])
+                        . htmlspecialchars($field)
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isNumeric) {
                     $this->buffer .= '<table:table-cell office:value-type="float"'
-                        . ' office:value="' . $row[$j] . '" >'
+                        . ' office:value="' . $field . '" >'
                         . '<text:p>'
-                        . htmlspecialchars($row[$j])
+                        . htmlspecialchars($field)
                         . '</text:p>'
                         . '</table:table-cell>';
                 } else {
                     $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
-                        . htmlspecialchars($row[$j])
+                        . htmlspecialchars($field)
                         . '</text:p>'
                         . '</table:table-cell>';
                 }
