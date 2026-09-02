@@ -545,13 +545,16 @@ class Routines
      * This function will generate the values that are required to complete
      * the "Edit routine" form given the name of a routine.
      *
-     * @param string $name The name of the routine.
-     * @param string $type Type of routine (ROUTINE|PROCEDURE)
-     * @param bool   $all  Whether to return all data or just the info about parameters.
+     * @param string $name           The name of the routine.
+     * @param string $type           Type of routine (ROUTINE|PROCEDURE)
+     * @param bool   $all            Whether to return all data or just the info about parameters.
+     * @param bool   $paramsOnlyData Describe a routine we are not allowed to read from its
+     *                               parameters alone, leaving the body empty. Only safe when
+     *                               executing it: the editor would save that empty body back.
      *
      * @return array|null    Data necessary to create the routine editor.
      */
-    public function getDataFromName($name, $type, $all = true): ?array
+    public function getDataFromName($name, $type, $all = true, $paramsOnlyData = false): ?array
     {
         global $db;
 
@@ -578,6 +581,13 @@ class Routines
         $retval['item_type'] = $routine['ROUTINE_TYPE'];
 
         $definition = $this->dbi->getDefinition($db, $routine['ROUTINE_TYPE'], $routine['SPECIFIC_NAME']);
+
+        if ($definition === null && $paramsOnlyData) {
+            // The routine's source is hidden from this user, but its parameters
+            // are listed separately in INFORMATION_SCHEMA.PARAMETERS, so we can
+            // still build a (bodyless) definition good enough to execute it.
+            $definition = $this->getDefinitionFromParameters($type, $name, (string) $routine['DTD_IDENTIFIER']);
+        }
 
         if ($definition === null) {
             return null;
@@ -669,6 +679,51 @@ class Routines
         $retval['item_comment'] = $routine['ROUTINE_COMMENT'];
 
         return $retval;
+    }
+
+    /**
+     * Rebuilds a bare-bones routine definition (parameters only, empty body) from
+     * INFORMATION_SCHEMA.PARAMETERS, for when SHOW CREATE is hiding the real one.
+     *
+     * @param string $type       Type of routine (PROCEDURE|FUNCTION)
+     * @param string $name       The name of the routine
+     * @param string $returnType The return type, for a function
+     *
+     * @return string|null The definition, or null if it cannot be built
+     */
+    private function getDefinitionFromParameters(string $type, string $name, string $returnType): ?string
+    {
+        global $db;
+
+        if ($type === 'FUNCTION' && $returnType === '') {
+            return null;
+        }
+
+        $query = 'SELECT PARAMETER_MODE, PARAMETER_NAME, DTD_IDENTIFIER'
+            . ' FROM INFORMATION_SCHEMA.PARAMETERS'
+            . ' WHERE SPECIFIC_SCHEMA ' . Util::getCollateForIS() . '='
+            . "'" . $this->dbi->escapeString($db) . "'"
+            . " AND SPECIFIC_NAME='" . $this->dbi->escapeString($name) . "'"
+            . " AND ROUTINE_TYPE='" . $this->dbi->escapeString($type) . "'"
+            // Position 0 holds the return type of a function, not a parameter.
+            . ' AND ORDINAL_POSITION > 0'
+            . ' ORDER BY ORDINAL_POSITION;';
+
+        /** @var array<int, array<string, string>> $rows */
+        $rows = $this->dbi->fetchResult($query);
+
+        $parameters = [];
+        foreach ($rows as $parameter) {
+            $paramName = Util::backquote($parameter['PARAMETER_NAME']);
+            $parameters[] = $parameter['PARAMETER_MODE'] . ' ' . $paramName . ' ' . $parameter['DTD_IDENTIFIER'];
+        }
+
+        $definition = 'CREATE ' . $type . ' ' . Util::backquote($name) . ' (' . implode(', ', $parameters) . ')';
+        if ($type === 'FUNCTION') {
+            $definition .= ' RETURNS ' . $returnType;
+        }
+
+        return $definition . ' BEGIN END';
     }
 
     /**
@@ -1151,7 +1206,7 @@ class Routines
         global $db;
 
         // Build the queries
-        $routine = $this->getDataFromName($_POST['item_name'], $_POST['item_type'], false);
+        $routine = $this->getDataFromName($_POST['item_name'], $_POST['item_type'], false, true);
         if ($routine === null) {
             $message = __('Error in processing request:') . ' ';
             $message .= sprintf(
@@ -1303,7 +1358,7 @@ class Routines
             /**
              * Display the execute form for a routine.
              */
-            $routine = $this->getDataFromName($_GET['item_name'], $_GET['item_type'], true);
+            $routine = $this->getDataFromName($_GET['item_name'], $_GET['item_type'], true, true);
             if ($routine !== null) {
                 $form = $this->getExecuteForm($routine);
                 if ($this->response->isAjax()) {
@@ -1488,27 +1543,29 @@ class Routines
         // it does not detect all kinds of privileges, for example
         // a direct privilege on a specific routine. So, at this point,
         // we show the Execute link, hoping that the user has the correct rights.
-        // Also, information_schema might be hiding the ROUTINE_DEFINITION
-        // but a routine with no input parameters can be nonetheless executed.
 
         // Check if the routine has any input parameters. If it does,
         // we will show a dialog to get values for these parameters,
         // otherwise we can execute it directly.
 
-        $definition = $this->dbi->getDefinition($db, $routine['type'], $routine['name']);
         $executeAction = '';
 
-        if ($definition !== null) {
-            $parser = new Parser('DELIMITER $$' . "\n" . $definition);
+        if ($hasExecutePrivilege) {
+            // Default to the dialog: a user with only the EXECUTE privilege can't
+            // read the routine below, so we won't know if it takes any parameters.
+            $executeAction = 'execute_dialog';
 
-            /**
-             * @var CreateStatement $stmt
-             */
-            $stmt = $parser->statements[0];
+            $definition = $this->dbi->getDefinition($db, $routine['type'], $routine['name']);
+            if ($definition !== null) {
+                $parser = new Parser('DELIMITER $$' . "\n" . $definition);
 
-            $params = Routine::getParameters($stmt);
+                /**
+                 * @var CreateStatement $stmt
+                 */
+                $stmt = $parser->statements[0];
 
-            if ($hasExecutePrivilege) {
+                $params = Routine::getParameters($stmt);
+
                 $executeAction = 'execute_routine';
                 for ($i = 0; $i < $params['num']; $i++) {
                     if ($routine['type'] === 'PROCEDURE' && $params['dir'][$i] === 'OUT') {

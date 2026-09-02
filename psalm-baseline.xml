@@ -5284,7 +5284,8 @@
     <InvalidArrayOffset occurrences="1">
       <code>$retval['item_param_dir'][$key]</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="47">
+    <MixedArgument occurrences="48">
+      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
