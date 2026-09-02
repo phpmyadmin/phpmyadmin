@@ -36,9 +36,9 @@ class Url
      *
      * @see Url::getCommon()
      *
-     * @param string|mixed[]  $db    optional database name (can also be an array of parameters)
-     * @param string          $table optional table name
-     * @param string|string[] $skip  do not generate a hidden field for this parameter (can be an array of strings)
+     * @param string|mixed[] $db    optional database name (can also be an array of parameters)
+     * @param string         $table optional table name
+     * @param string         $skip  do not generate a hidden field for this parameter
      *
      * @return string   string with input fields
      */
@@ -46,10 +46,10 @@ class Url
     public static function getHiddenInputs(
         string|array $db = '',
         string $table = '',
-        string|array $skip = [],
+        string $skip = '',
     ): string {
         if (is_array($db)) {
-            $params =& $db;
+            $params = $db;
         } else {
             $params = [];
             if ($db !== '') {
@@ -70,18 +70,8 @@ class Url
             $params['lang'] = Current::$lang;
         }
 
-        if (! is_array($skip)) {
-            if (isset($params[$skip])) {
-                unset($params[$skip]);
-            }
-        } else {
-            foreach ($skip as $skipping) {
-                if (! isset($params[$skipping])) {
-                    continue;
-                }
-
-                unset($params[$skipping]);
-            }
+        if ($skip !== '') {
+            unset($params[$skip]);
         }
 
         return self::getHiddenFields($params);
