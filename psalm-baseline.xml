@@ -5563,7 +5563,7 @@
   </file>
   <file src="src/Plugins/Export/ExportOds.php">
     <PossiblyNullArgument>
-      <code><![CDATA[$row[$j]]]></code>
+      <code><![CDATA[$field]]></code>
     </PossiblyNullArgument>
   </file>
   <file src="src/Plugins/Export/ExportOdt.php">
@@ -5583,7 +5583,7 @@
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
-      <code><![CDATA[$row[$j]]]></code>
+      <code><![CDATA[$field]]></code>
     </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string]]></code>

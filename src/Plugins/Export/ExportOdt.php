@@ -234,13 +234,13 @@ class ExportOdt extends ExportPlugin
         while ($row = $result->fetchRow()) {
             $this->buffer .= '<table:table-row>';
             /** @infection-ignore-all */
-            for ($j = 0; $j < $fieldsCnt; $j++) {
+            foreach ($row as $j => $field) {
                 if ($fieldsMeta[$j]->isMappedTypeGeometry) {
                     // export GIS types as hex
-                    $row[$j] = '0x' . bin2hex($row[$j]);
+                    $field = '0x' . bin2hex($field);
                 }
 
-                if (! isset($row[$j])) {
+                if ($field === null) {
                     $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($this->null)
@@ -253,15 +253,15 @@ class ExportOdt extends ExportPlugin
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isNumeric) {
                     $this->buffer .= '<table:table-cell office:value-type="float"'
-                        . ' office:value="' . $row[$j] . '" >'
+                        . ' office:value="' . $field . '" >'
                         . '<text:p>'
-                        . htmlspecialchars($row[$j])
+                        . htmlspecialchars($field)
                         . '</text:p>'
                         . '</table:table-cell>';
                 } else {
                     $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
-                        . htmlspecialchars($row[$j])
+                        . htmlspecialchars($field)
                         . '</text:p>'
                         . '</table:table-cell>';
                 }
