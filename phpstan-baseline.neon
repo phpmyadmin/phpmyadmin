@@ -116,11 +116,6 @@ parameters:
 			path: js/messages.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Advisor.php
-
-		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 3
 			path: libraries/classes/Advisor.php
@@ -2678,11 +2673,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'table_info' on mixed\\.$#"
 			count: 3
-			path: libraries/classes/ConfigStorage/Relation.php
-
-		-
-			message: "#^Cannot access offset 'table_name' on mixed\\.$#"
-			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
