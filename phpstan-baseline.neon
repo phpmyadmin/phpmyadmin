@@ -11904,11 +11904,6 @@ parameters:
 			path: libraries/classes/Controllers/View/CreateController.php
 
 		-
-			message: "#^Parameter \\#1 \\$sql_query of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getColumnMapFromSql\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/View/CreateController.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Controllers/View/CreateController.php
@@ -11934,12 +11929,17 @@ parameters:
 			path: libraries/classes/Controllers/View/CreateController.php
 
 		-
-			message: "#^Parameter \\#3 \\$viewName of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$viewSql of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/View/CreateController.php
 
 		-
-			message: "#^Parameter \\#4 \\$db of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$viewName of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/View/CreateController.php
+
+		-
+			message: "#^Parameter \\#5 \\$db of method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/View/CreateController.php
 
@@ -34964,27 +34964,7 @@ parameters:
 			path: libraries/classes/StorageEngine.php
 
 		-
-			message: "#^Cannot access offset 'real_column' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
-			message: "#^Cannot access offset 'refering_column' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
-			message: "#^Cannot access offset 'table_name' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
 			message: "#^Cannot call method escapeString\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/SystemDatabase.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SystemDatabase\\:\\:getNewTransformationDataSql\\(\\) has parameter \\$columnMap with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/SystemDatabase.php
 

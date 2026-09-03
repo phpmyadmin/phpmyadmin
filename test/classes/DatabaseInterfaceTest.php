@@ -186,7 +186,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     public function testPMAGetColumnMap(): void
     {
         $this->dummyDbi->addResult(
-            'PMA_sql_query',
+            'SELECT * FROM (PMA_sql_query) AS tmp LIMIT 0',
             [true],
             [],
             [

@@ -2327,7 +2327,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT * FROM `testdb`.`mytable` LIMIT 1',
+                'query' => 'SELECT * FROM `testdb`.`mytable` LIMIT 0',
                 'columns' => ['aid', '_id'],
                 'result' => [
                     [

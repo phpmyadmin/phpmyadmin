@@ -13133,15 +13133,6 @@
     <MixedArgument occurrences="1">
       <code>$column['real_column'] ?? $column['refering_column']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$column['real_column']</code>
-      <code>$column['refering_column']</code>
-      <code>$column['refering_column']</code>
-      <code>$column['table_name']</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$column</code>
-    </MixedAssignment>
     <PossiblyNullArgument occurrences="4">
       <code>$dataRow['comment']</code>
       <code>$dataRow['mimetype']</code>

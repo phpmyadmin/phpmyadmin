@@ -41,6 +41,14 @@ class SystemDatabaseTest extends AbstractTestCase
 
         $dbi->method('tryQuery')->willReturn($this->createStub(DummyResult::class));
 
+        $column_map = [
+            [
+                'table_name' => 'table_name',
+                'refering_column' => 'column_name',
+            ],
+        ];
+        $dbi->method('getColumnMapFromSql')->willReturn($column_map);
+
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
             'table_coords' => 'table_name',
@@ -88,17 +96,12 @@ class SystemDatabaseTest extends AbstractTestCase
             ]);
 
         $db = 'PMA_db';
-        $column_map = [
-            [
-                'table_name' => 'table_name',
-                'refering_column' => 'column_name',
-            ],
-        ];
         $view_name = 'view_name';
 
         $ret = $this->sysDb->getNewTransformationDataSql(
             $resultStub,
-            $column_map,
+            [],
+            '',
             $view_name,
             $db
         );

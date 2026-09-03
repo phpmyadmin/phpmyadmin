@@ -161,8 +161,6 @@ class CreateController extends AbstractController
                 $view_columns = explode(',', $_POST['view']['column_names']);
             }
 
-            $column_map = $this->dbi->getColumnMapFromSql($_POST['view']['as'], $view_columns);
-
             $systemDb = $this->dbi->getSystemDatabase();
             $pma_transformation_data = $systemDb->getExistingTransformationData($db);
 
@@ -170,7 +168,8 @@ class CreateController extends AbstractController
                 // SQL for store new transformation details of VIEW
                 $new_transformations_sql = $systemDb->getNewTransformationDataSql(
                     $pma_transformation_data,
-                    $column_map,
+                    $view_columns,
+                    $_POST['view']['as'],
                     $_POST['view']['name'],
                     $db
                 );

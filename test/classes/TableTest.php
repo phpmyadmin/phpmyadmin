@@ -1301,7 +1301,7 @@ class TableTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('tryQuery')
-            ->with('SELECT * FROM `db`.`table` LIMIT 1')
+            ->with('SELECT * FROM `db`.`table` LIMIT 0')
             ->willReturn($resultStub);
 
         $dbi->expects($this->once())
