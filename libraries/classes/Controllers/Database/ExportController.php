@@ -90,6 +90,7 @@ final class ExportController extends AbstractController
 
         $tablesForMultiValues = [];
 
+        /** @var array{TABLE_NAME: string} $each_table */
         foreach ($tables as $each_table) {
             if (isset($_POST['table_select']) && is_array($_POST['table_select'])) {
                 $is_checked = $this->export->getCheckedClause($each_table['TABLE_NAME'], $_POST['table_select']);
