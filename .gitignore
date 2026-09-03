@@ -64,6 +64,7 @@ revision-info.php
 /tests/gis/*-actual.pdf
 /tests/gis/*-actual.png
 /tests/gis/*-actual.svg
+.phpunit.result.cache
 
 # Jenkins
 /build/
@@ -94,6 +95,7 @@ infection.json5
 /app/cache/*
 !/app/cache/.gitkeep
 /app/language_stats_inc.php
+libraries/cache/routes.cache.php
 
 # public
 /public/js/*
