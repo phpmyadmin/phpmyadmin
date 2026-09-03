@@ -2174,7 +2174,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `process` DESC',
                 'columns' => ['Id', 'User', 'Host', 'db', 'Command', 'Time', 'State', 'Info'],
-                'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
+                'result' => [['Id1', 'User1', 'Host1:12345', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
             ],
             [
                 'query' => 'SELECT UNIX_TIMESTAMP() - 36000',
