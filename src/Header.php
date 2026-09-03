@@ -335,13 +335,6 @@ class Header
             'Content-Security-Policy' => $this->getCspHeader(),
 
             /**
-             * Re-enable possible disabled XSS filters.
-             *
-             * @see https://developer.mozilla.org/docs/Web/HTTP/Headers/X-XSS-Protection
-             */
-            'X-XSS-Protection' => '1; mode=block',
-
-            /**
              * "nosniff", prevents Internet Explorer and Google Chrome from MIME-sniffing
              * a response away from the declared content-type.
              *
