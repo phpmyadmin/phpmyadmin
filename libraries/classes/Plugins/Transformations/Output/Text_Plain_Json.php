@@ -21,7 +21,8 @@ class Text_Plain_Json extends TransformationsPlugin
 {
     public function __construct()
     {
-        if (empty($GLOBALS['cfg']['CodemirrorEnable'])) {
+        // See #20159, why we need to check for HTTP_USER_AGENT here
+        if (empty($GLOBALS['cfg']['CodemirrorEnable']) || ! isset($_SERVER['HTTP_USER_AGENT'])) {
             return;
         }
 
