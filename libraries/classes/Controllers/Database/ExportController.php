@@ -65,6 +65,7 @@ final class ExportController extends AbstractController
 
         $urlParams['goto'] = Url::getFromRoute('/database/export');
 
+        /** @var list<array{TABLE_NAME: string}> $tables */
         [
             $tables,
             $num_tables,
@@ -90,7 +91,6 @@ final class ExportController extends AbstractController
 
         $tablesForMultiValues = [];
 
-        /** @var list<array{TABLE_NAME: string}> $tables */
         foreach ($tables as $each_table) {
             if (isset($_POST['table_select']) && is_array($_POST['table_select'])) {
                 $is_checked = $this->export->getCheckedClause($each_table['TABLE_NAME'], $_POST['table_select']);

@@ -116,6 +116,11 @@ parameters:
 			path: js/messages.php
 
 		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: libraries/classes/Advisor.php
+
+		-
 			message: "#^Cannot access an offset on mixed\\.$#"
 			count: 3
 			path: libraries/classes/Advisor.php
@@ -2676,6 +2681,11 @@ parameters:
 			path: libraries/classes/ConfigStorage/Relation.php
 
 		-
+			message: "#^Cannot access offset 'table_name' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/ConfigStorage/Relation.php
+
+		-
 			message: "#^Cannot access offset 'table_schema' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/ConfigStorage/Relation.php
@@ -3696,18 +3706,8 @@ parameters:
 			path: libraries/classes/Controllers/Database/EventsController.php
 
 		-
-			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/ExportController.php
-
-		-
 			message: "#^Cannot access offset 'DefaultTabDatabase' on mixed\\.$#"
 			count: 1
-			path: libraries/classes/Controllers/Database/ExportController.php
-
-		-
-			message: "#^Cannot access offset 'TABLE_NAME' on mixed\\.$#"
-			count: 5
 			path: libraries/classes/Controllers/Database/ExportController.php
 
 		-
@@ -4873,6 +4873,11 @@ parameters:
 		-
 			message: "#^Cannot access offset 'DefaultTabDatabase' on mixed\\.$#"
 			count: 1
+			path: libraries/classes/Controllers/Database/Structure/RealRowCountController.php
+
+		-
+			message: "#^Cannot access offset 'TABLE_NAME' on mixed\\.$#"
+			count: 2
 			path: libraries/classes/Controllers/Database/Structure/RealRowCountController.php
 
 		-
