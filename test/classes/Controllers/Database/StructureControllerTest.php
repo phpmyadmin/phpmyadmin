@@ -389,6 +389,10 @@ class StructureControllerTest extends AbstractTestCase
      */
     public function testDisplayTableList(): void
     {
+        $GLOBALS['cfg']['ShowDbStructureCreation'] = true;
+        $GLOBALS['cfg']['ShowDbStructureLastUpdate'] = true;
+        $GLOBALS['cfg']['ShowDbStructureLastCheck'] = true;
+
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('displayTableList');
         if (PHP_VERSION_ID < 80100) {
@@ -425,34 +429,59 @@ class StructureControllerTest extends AbstractTestCase
             $numTables->setAccessible(true);
         }
 
-        $numTables->setValue($controller, 1);
+        $_REQUEST['db'] = 'my_unique_test_db';
 
         //no tables
-        $_REQUEST['db'] = 'my_unique_test_db';
+        $numTables->setValue($controller, 0);
         $tablesProperty->setValue($controller, []);
+        /** @var string $result */
         $result = $method->invoke($controller, ['status' => false]);
         self::assertStringContainsString($_REQUEST['db'], $result);
         self::assertStringNotContainsString('id="overhead"', $result);
 
         //with table
-        $_REQUEST['db'] = 'my_unique_test_db';
+        $tableInfo = [
+            'ENGINE' => 'Maria',
+            'TABLE_TYPE' => 'BASE TABLE',
+            'TABLE_ROWS' => '0',
+            'TABLE_COMMENT' => 'test',
+            'Data_length' => '5000',
+            'Index_length' => '100',
+            'Data_free' => '10000',
+        ];
         $tablesProperty->setValue($controller, [
-            [
-                'TABLE_NAME' => 'my_unique_test_db',
-                'ENGINE' => 'Maria',
-                'TABLE_TYPE' => 'BASE TABLE',
-                'TABLE_ROWS' => 0,
-                'TABLE_COMMENT' => 'test',
-                'Data_length' => 5000,
-                'Index_length' => 100,
-                'Data_free' => 10000,
-            ],
+            'my_unique_test_table_1' => [
+                'TABLE_NAME' => 'my_unique_test_table_1',
+                'Create_time' => '2026-09-04 09:11:00',
+                'Update_time' => '2026-09-04 10:11:00',
+                'Check_time' => '2026-09-04 11:11:00',
+            ] + $tableInfo,
+            'my_unique_test_table_2' => [
+                'TABLE_NAME' => 'my_unique_test_table_2',
+                'Create_time' => '2026-09-04 09:22:00',
+                'Update_time' => '2026-09-04 10:22:00',
+                'Check_time' => '2026-09-04 11:22:00',
+            ] + $tableInfo,
         ]);
+        $numTables->setValue($controller, 2);
+        /** @var string $result */
         $result = $method->invoke($controller, ['status' => false]);
 
         self::assertStringContainsString($_REQUEST['db'], $result);
         self::assertStringContainsString('id="overhead"', $result);
         self::assertStringContainsString('9.8', $result);
+        self::assertStringContainsString(
+            '<th class="value tbl_creation font-monospace text-end">Sep 04, 2026 at 09:11 AM</th>',
+            $result
+        );
+        self::assertStringContainsString(
+            '<th class="value tbl_last_update font-monospace text-end">Sep 04, 2026 at 10:22 AM</th>',
+            $result
+        );
+        self::assertStringContainsString(
+            '<th class="value tbl_last_check font-monospace text-end">Sep 04, 2026 at 11:11 AM</th>',
+            $result
+        );
     }
 
     /**
