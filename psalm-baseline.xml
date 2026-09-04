@@ -14641,10 +14641,8 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Controllers/Database/StructureControllerTest.php">
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="1">
       <code>$currentTable</code>
-      <code>$result</code>
-      <code>$result</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="23">
       <code>$currentTable</code>
@@ -14676,9 +14674,7 @@
       <code>$currentTable['ENGINE']</code>
       <code>$currentTable['ENGINE']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="10">
-      <code>$result</code>
-      <code>$result</code>
+    <MixedAssignment occurrences="8">
       <code>[$currentTable, , , $sumSize]</code>
       <code>[$currentTable, , , $sumSize]</code>
       <code>[$currentTable, , , $sumSize]</code>
