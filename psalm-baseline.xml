@@ -3506,6 +3506,7 @@
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
+      <code><![CDATA[$lastShownRec]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
     </MixedArgument>
@@ -5562,7 +5563,7 @@
   </file>
   <file src="src/Plugins/Export/ExportOds.php">
     <PossiblyNullArgument>
-      <code><![CDATA[$row[$j]]]></code>
+      <code><![CDATA[$field]]></code>
     </PossiblyNullArgument>
   </file>
   <file src="src/Plugins/Export/ExportOdt.php">
@@ -5582,7 +5583,7 @@
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
-      <code><![CDATA[$row[$j]]]></code>
+      <code><![CDATA[$field]]></code>
     </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string]]></code>

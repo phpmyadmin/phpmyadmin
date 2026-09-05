@@ -178,7 +178,7 @@ class ExportCsv extends ExportPlugin
                 }
 
                 if ($fieldsMeta[$j]->isMappedTypeGeometry || $fieldsMeta[$j]->isBinary) {
-                    $insertValues[] = '0x' . bin2hex($row[$j] ?? '');
+                    $insertValues[] = '0x' . bin2hex($field);
                     continue;
                 }
 
