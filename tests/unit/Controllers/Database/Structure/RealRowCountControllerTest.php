@@ -21,7 +21,6 @@ class RealRowCountControllerTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['DisableIS'] = true;
         Current::$database = 'world';
-        $_REQUEST['table'] = 'City';
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('world');
@@ -31,7 +30,8 @@ class RealRowCountControllerTest extends AbstractTestCase
 
         $response = new ResponseStub();
 
-        $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
+        $requestFactory = ServerRequestFactory::create();
+        $request = $requestFactory->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'world', 'table' => 'City', 'ajax_request' => '1']);
 
         (new RealRowCountController($response, $dbi, new DbTableExists($dbi)))($request);
@@ -39,9 +39,15 @@ class RealRowCountControllerTest extends AbstractTestCase
         $json = $response->getJSONResult();
         self::assertSame('4,079', $json['real_row_count']);
 
-        $_REQUEST['real_row_count_all'] = 'on';
+        $requestAll = $requestFactory->createServerRequest('GET', 'http://example.com/')
+            ->withQueryParams([
+                'db' => 'world',
+                'table' => 'City',
+                'ajax_request' => '1',
+                'real_row_count_all' => 'on',
+            ]);
 
-        (new RealRowCountController($response, $dbi, new DbTableExists($dbi)))($request);
+        (new RealRowCountController($response, $dbi, new DbTableExists($dbi)))($requestAll);
 
         $json = $response->getJSONResult();
         $expected = [
