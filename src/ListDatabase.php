@@ -75,7 +75,7 @@ class ListDatabase extends ArrayObject
      *
      * @param string|null $likeDbName usually a db_name containing wildcards
      *
-     * @return mixed[]
+     * @return string[]
      */
     protected function retrieve(UserPrivileges $userPrivileges, string|null $likeDbName = null): array
     {
