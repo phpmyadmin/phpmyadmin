@@ -37,7 +37,6 @@ class GisVisualizationControllerTest extends AbstractTestCase
         $_GET['sql_query'] = null;
         $_POST['sql_query'] = 'SELECT * FROM `gis_all`';
         $_POST['pos'] = 0;
-        $_REQUEST['pos'] = 0;
         $_REQUEST['unlim_num_rows'] = null;
         $_SESSION['tmpval'] = [];
         $_SESSION['tmpval']['max_rows'] = 'all';
@@ -138,7 +137,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
         ]);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
-            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table', 'pos' => 0]);
 
         $response = $controller($request);
 
