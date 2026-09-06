@@ -1082,21 +1082,12 @@ class Results
      */
     private function getOptionsBlock(): array
     {
-        if (
-            isset($_SESSION['tmpval']['possible_as_geometry'])
-            && ! $_SESSION['tmpval']['possible_as_geometry']
-            && $_SESSION['tmpval']['geoOption'] === self::GEOMETRY_DISP_GEOM
-        ) {
-            $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
-        }
-
         return [
             'geo_option' => $_SESSION['tmpval']['geoOption'],
             'hide_transformation' => $_SESSION['tmpval']['hide_transformation'],
             'display_blob' => $_SESSION['tmpval']['display_blob'],
             'display_binary' => $_SESSION['tmpval']['display_binary'],
             'relational_display' => $_SESSION['tmpval']['relational_display'],
-            'possible_as_geometry' => $_SESSION['tmpval']['possible_as_geometry'],
             'pftext' => $_SESSION['tmpval']['pftext'],
         ];
     }
