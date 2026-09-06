@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-30 00:43+0000\n"
+"POT-Creation-Date: 2026-09-06 00:44+0000\n"
 "PO-Revision-Date: 2026-04-27 16:31+0000\n"
 "Last-Translator: Sandra Swift <nolamiller1203+weblate@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -57,7 +57,7 @@ msgstr "ダーク"
 #: resources/templates/base.twig:99
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:479
-#: src/Util.php:1385
+#: src/Util.php:1376
 msgid "Settings"
 msgstr "設定"
 
@@ -202,7 +202,7 @@ msgstr "%s の後へ"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:1983
+#: src/Display/Results.php:933 src/Plugins/Export/ExportSql.php:1983
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "なし"
@@ -276,7 +276,7 @@ msgstr "カラム"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:312
-#: src/Controllers/Server/PrivilegesController.php:321
+#: src/Controllers/Server/PrivilegesController.php:316
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
 msgid "Go"
@@ -585,8 +585,8 @@ msgstr "ノードグループ"
 #: src/Import/Import.php:1160 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1394
-#: src/Util.php:1411
+#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1385
+#: src/Util.php:1402
 msgid "Structure"
 msgstr "構造"
 
@@ -824,7 +824,7 @@ msgstr "入力変換オプション"
 #: resources/templates/components/_preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
-#: src/Controllers/Operations/TableController.php:328
+#: src/Controllers/Operations/TableController.php:334
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289
 msgid "No change"
@@ -848,7 +848,7 @@ msgstr "リセット"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:679 src/Html/MySQLDocumentation.php:51
+#: src/Html/Generator.php:672 src/Html/MySQLDocumentation.php:51
 #: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "ドキュメント"
@@ -911,7 +911,7 @@ msgstr "無効"
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:42
 #: src/Controllers/JavaScriptMessagesController.php:482
-#: src/Controllers/Table/DeleteRowsController.php:34
+#: src/Controllers/Table/DeleteRowsController.php:35
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:474
@@ -1018,8 +1018,8 @@ msgstr "再クエリ"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:380
-#: src/Display/Results.php:1872 src/Html/Generator.php:527
-#: src/Html/Generator.php:784
+#: src/Display/Results.php:1885 src/Html/Generator.php:520
+#: src/Html/Generator.php:777
 msgid "Edit"
 msgstr "編集"
 
@@ -1037,7 +1037,7 @@ msgstr "編集"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:382
-#: src/Display/Results.php:2410 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2423 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "削除"
 
@@ -1115,7 +1115,7 @@ msgstr "EXPLAIN"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:614
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:607
 msgid "Profiling"
 msgstr "プロファイリング"
 
@@ -1197,7 +1197,7 @@ msgstr "所要時間:"
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:927 src/Export/Export.php:697
-#: src/Html/Generator.php:583
+#: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "更新"
 
@@ -1753,7 +1753,7 @@ msgstr "イベント名"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
-#: src/Server/Status/Processes.php:106 src/Util.php:1381
+#: src/Server/Status/Processes.php:106 src/Util.php:1372
 msgid "Status"
 msgstr "状態"
 
@@ -1821,7 +1821,7 @@ msgstr "定義者"
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:990 src/Plugins/Export/ExportXml.php:92
-#: src/Util.php:1403
+#: src/Util.php:1394
 msgid "Events"
 msgstr "イベント"
 
@@ -1883,7 +1883,7 @@ msgstr "すべてチェックする"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
 #: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
-#: src/Util.php:1383 src/Util.php:1398 src/Util.php:1415
+#: src/Util.php:1374 src/Util.php:1389 src/Util.php:1406
 msgid "Export"
 msgstr "エクスポート"
 
@@ -1911,7 +1911,7 @@ msgstr "エクスポート"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:534
+#: resources/templates/triggers/row.twig:58 src/Operations.php:532
 msgid "Drop"
 msgstr "削除"
 
@@ -2066,7 +2066,7 @@ msgid "criteria"
 msgstr "条件"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1643
+#: src/Util.php:1634
 msgid "Sort"
 msgstr "ソート"
 
@@ -2077,8 +2077,8 @@ msgstr "ソート"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1390
-#: src/Display/Results.php:1396 src/Util.php:1651 src/Util.php:1668
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1403
+#: src/Display/Results.php:1409 src/Util.php:1642 src/Util.php:1659
 msgid "Ascending"
 msgstr "昇順"
 
@@ -2089,8 +2089,8 @@ msgstr "昇順"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1385
-#: src/Display/Results.php:1401 src/Util.php:1656 src/Util.php:1673
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1398
+#: src/Display/Results.php:1414 src/Util.php:1647 src/Util.php:1664
 msgid "Descending"
 msgstr "降順"
 
@@ -2130,7 +2130,7 @@ msgid "Copy query"
 msgstr "クエリをコピー"
 
 #: resources/templates/database/multi_table_query/form.twig:176
-#: src/Html/Generator.php:552
+#: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "クエリを実行する"
 
@@ -2278,8 +2278,8 @@ msgstr "ホスト名"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
-#: src/Controllers/Server/PrivilegesController.php:448 src/Menu.php:257
-#: src/Menu.php:369 src/Util.php:1401 src/Util.php:1417
+#: src/Controllers/Server/PrivilegesController.php:443 src/Menu.php:257
+#: src/Menu.php:369 src/Util.php:1392 src/Util.php:1408
 msgid "Privileges"
 msgstr "権限"
 
@@ -2328,7 +2328,7 @@ msgstr "権限を編集"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2052
+#: src/Server/Privileges.php:2054
 msgid "No user found."
 msgstr "ユーザが存在しません。"
 
@@ -2437,7 +2437,7 @@ msgid "This routine does not require any parameters."
 msgstr "このルーチンは引数を必要としません。"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:375
-#: src/Util.php:1402
+#: src/Util.php:1393
 msgid "Routines"
 msgstr "ルーチン"
 
@@ -2450,7 +2450,7 @@ msgstr "ルーチン"
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
 #: src/Menu.php:331 src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1065
-#: src/Util.php:1396 src/Util.php:1413
+#: src/Util.php:1387 src/Util.php:1404
 msgid "Search"
 msgstr "検索"
 
@@ -2563,7 +2563,7 @@ msgstr[0] "%1$s 件の一致 (テーブル <strong>%2$s</strong>)"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1067 src/Util.php:1410
+#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1067 src/Util.php:1401
 msgid "Browse"
 msgstr "表示"
 
@@ -2586,7 +2586,7 @@ msgstr[0] "%s テーブル"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:501
-#: src/Server/Status/Data.php:124 src/Util.php:1387
+#: src/Server/Status/Data.php:124 src/Util.php:1378
 msgid "Replication"
 msgstr "レプリケーション"
 
@@ -2691,7 +2691,7 @@ msgid "Copy table with prefix"
 msgstr "接頭辞を付け替えてテーブルをコピーする"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:409 src/Util.php:1407
+#: src/Menu.php:409 src/Util.php:1398
 msgid "Central columns"
 msgstr "主要カラム"
 
@@ -2765,7 +2765,7 @@ msgstr "データ辞書"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/ExportController.php:72
 #: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:286
 msgid "No tables found in database."
@@ -2807,7 +2807,7 @@ msgstr "ビュー"
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:118
-#: src/Controllers/Operations/TableController.php:312
+#: src/Controllers/Operations/TableController.php:318
 #: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:25
 msgid "View"
@@ -2836,7 +2836,7 @@ msgstr "レプリケーションしている"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1066 src/Util.php:1414
+#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1066 src/Util.php:1405
 msgid "Insert"
 msgstr "挿入"
 
@@ -3046,12 +3046,12 @@ msgid "Extra options"
 msgstr "拡張オプション"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1111
+#: src/Display/Results.php:1124
 msgid "Partial texts"
 msgstr "部分テキスト"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1115
+#: src/Display/Results.php:1128
 msgid "Full texts"
 msgstr "全文"
 
@@ -3092,7 +3092,7 @@ msgstr "空間データをバイナリで表示"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:468
-#: src/Display/Results.php:1873 src/Html/Generator.php:83
+#: src/Display/Results.php:1886 src/Html/Generator.php:82
 msgid "Copy"
 msgstr "コピー"
 
@@ -3129,12 +3129,8 @@ msgstr "全角カナに変換する"
 
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:113
-#: src/Controllers/Table/Partition/DropController.php:56
-#: src/Controllers/Table/Partition/RebuildController.php:56
-#: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:412
-#: src/Message.php:138
+#: src/Controllers/Operations/ViewController.php:109 src/Html/Generator.php:728
+#: src/Import/Import.php:122 src/InsertEdit.php:412 src/Message.php:104
 msgid "Error"
 msgstr "エラー"
 
@@ -3212,7 +3208,7 @@ msgstr "更新"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:135
-#: src/Html/Generator.php:759
+#: src/Html/Generator.php:752
 msgid "SQL query:"
 msgstr "SQL クエリ:"
 
@@ -3479,7 +3475,7 @@ msgstr "一般設定"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:95
+#: src/Controllers/UserPasswordController.php:94
 msgid "Change password"
 msgstr "パスワードを変更する"
 
@@ -3624,7 +3620,7 @@ msgstr "これにする"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:412
-#: src/Export/Export.php:739 src/Html/Generator.php:843
+#: src/Export/Export.php:739 src/Html/Generator.php:836
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "戻る"
@@ -3635,7 +3631,7 @@ msgstr "戻る"
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
 #: src/Config/Forms/User/ImportForm.php:59 src/Menu.php:250 src/Menu.php:357
-#: src/Menu.php:474 src/Util.php:1384 src/Util.php:1399 src/Util.php:1416
+#: src/Menu.php:474 src/Util.php:1375 src/Util.php:1390 src/Util.php:1407
 msgid "Import"
 msgstr "インポート"
 
@@ -3979,7 +3975,7 @@ msgstr "SQL アップロード"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:726
-#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1379
+#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1370
 msgid "Databases"
 msgstr "データベース"
 
@@ -4427,7 +4423,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "更新した設定ファイルを読み込むために phpMyAdmin にログインし直します。"
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:494
-#: src/Server/Status/Data.php:119 src/Util.php:1386
+#: src/Server/Status/Data.php:119 src/Util.php:1377
 msgid "Binary log"
 msgstr "バイナリログ"
 
@@ -4531,7 +4527,7 @@ msgstr "データベース %s 上でクエリを実行する"
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
 #: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1064
-#: src/Util.php:1380 src/Util.php:1395 src/Util.php:1412
+#: src/Util.php:1371 src/Util.php:1386 src/Util.php:1403
 msgid "SQL"
 msgstr "SQL"
 
@@ -4647,7 +4643,7 @@ msgstr "書き込み待ち (%)"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1388
+#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1379
 msgid "Variables"
 msgstr "変数"
 
@@ -4668,7 +4664,7 @@ msgid "Importing into the current server"
 msgstr "現在のサーバへのインポート"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:522
-#: src/Util.php:1390
+#: src/Util.php:1381
 msgid "Plugins"
 msgstr "プラグイン"
 
@@ -5953,7 +5949,7 @@ msgid "Query analyzer"
 msgstr "クエリの解析"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:339
-#: src/Util.php:1397
+#: src/Util.php:1388
 msgid "Query"
 msgstr "クエリ"
 
@@ -6051,7 +6047,7 @@ msgid "Start auto refresh"
 msgstr "自動更新を開始"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2428
+#: src/Display/Results.php:2441
 msgid "Kill"
 msgstr "停止"
 
@@ -6226,7 +6222,7 @@ msgid "No users were found belonging to this user group."
 msgstr "このユーザグループにユーザが存在しません。"
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:451
+#: src/Controllers/Server/PrivilegesController.php:446
 #: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr "ユーザ"
@@ -6414,24 +6410,8 @@ msgid "Pie chart with profiling results."
 msgstr "プロファイリング結果の円グラフ。"
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:110
-#: src/Controllers/Table/DeleteRowsController.php:60
-#: src/Controllers/Table/FindReplaceController.php:119
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:75
-#: src/Controllers/Table/Maintenance/CheckController.php:75
-#: src/Controllers/Table/Maintenance/ChecksumController.php:75
-#: src/Controllers/Table/Maintenance/OptimizeController.php:75
-#: src/Controllers/Table/Maintenance/RepairController.php:75
-#: src/Controllers/Table/Partition/AnalyzeController.php:49
-#: src/Controllers/Table/Partition/CheckController.php:49
-#: src/Controllers/Table/Partition/DropController.php:50
-#: src/Controllers/Table/Partition/OptimizeController.php:49
-#: src/Controllers/Table/Partition/RebuildController.php:50
-#: src/Controllers/Table/Partition/RepairController.php:49
-#: src/Controllers/Table/Partition/TruncateController.php:50
-#: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1002 src/Display/Results.php:2964
-#: src/Message.php:122
+#: src/Controllers/Operations/ViewController.php:109
+#: src/Database/Routines.php:1000 src/Message.php:87
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL は正常に実行されました。"
 
@@ -6740,7 +6720,7 @@ msgstr "ドラッグで並び替えができます"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1408
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1406
 msgid "Ignore"
 msgstr "無視"
 
@@ -6939,7 +6919,7 @@ msgstr "参照整合性の確認"
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:362 src/Util.php:1068 src/Util.php:1400 src/Util.php:1418
+#: src/Menu.php:362 src/Util.php:1068 src/Util.php:1391 src/Util.php:1409
 msgid "Operations"
 msgstr "操作"
 
@@ -7120,32 +7100,32 @@ msgid "Index length"
 msgstr "インデックスの長さ"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:522
+#: src/Operations.php:520
 msgid "Analyze"
 msgstr "分析"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:523
+#: src/Operations.php:521
 msgid "Check"
 msgstr "確認"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:524
+#: src/Operations.php:522
 msgid "Optimize"
 msgstr "最適化"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:525
+#: src/Operations.php:523
 msgid "Rebuild"
 msgstr "再構築"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:526
+#: src/Operations.php:524
 msgid "Repair"
 msgstr "修復"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:527
+#: src/Operations.php:525
 msgid "Truncate"
 msgstr "切り捨て"
 
@@ -7409,7 +7389,7 @@ msgstr "トリガ %s をエクスポートする"
 #: src/Plugins/Export/ExportOdt.php:566 src/Plugins/Export/ExportPdf.php:173
 #: src/Plugins/Export/ExportSql.php:1846
 #: src/Plugins/Export/ExportTexytext.php:408
-#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1404 src/Util.php:1420
+#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1395 src/Util.php:1411
 msgid "Triggers"
 msgstr "トリガ"
 
@@ -10606,12 +10586,12 @@ msgid "Put columns names in the first row"
 msgstr "1 行目にカラム名を追加する"
 
 #: src/Config/Descriptions.php:639 src/Config/Descriptions.php:772
-#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:688
+#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:687
 msgid "Columns enclosed with"
 msgstr "カラム囲み記号"
 
 #: src/Config/Descriptions.php:640 src/Config/Descriptions.php:773
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:699
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:698
 msgid "Columns escaped with"
 msgstr "カラムのエスケープ記号"
 
@@ -10627,12 +10607,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "カラムに含まれている CRLF 文字を取り除く"
 
 #: src/Config/Descriptions.php:643 src/Config/Descriptions.php:777
-#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:673
+#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:672
 msgid "Columns terminated with"
 msgstr "カラムの終端記号"
 
 #: src/Config/Descriptions.php:644 src/Config/Descriptions.php:771
-#: src/Plugins/Import/ImportCsv.php:706
+#: src/Plugins/Import/ImportCsv.php:705
 msgid "Lines terminated with"
 msgstr "行の終端記号"
 
@@ -11466,11 +11446,11 @@ msgstr "統計を表示する"
 msgid "Skip locked tables"
 msgstr "ロックされているテーブルをスキップする"
 
-#: src/Config/Descriptions.php:926 src/Html/Generator.php:492
+#: src/Config/Descriptions.php:926 src/Html/Generator.php:485
 msgid "Explain SQL"
 msgstr "EXPLAIN で確認"
 
-#: src/Config/Descriptions.php:928 src/Html/Generator.php:563
+#: src/Config/Descriptions.php:928 src/Html/Generator.php:556
 msgid "Create PHP code"
 msgstr "PHP コードの作成"
 
@@ -11998,36 +11978,36 @@ msgstr "\"%s\" という名前のページが既にあるので、他の名前�
 #: src/Controllers/Database/TrackingController.php:60
 #: src/Controllers/JavaScriptMessagesController.php:331
 #: src/Controllers/Operations/Database/CollationController.php:54
-#: src/Controllers/Operations/DatabaseController.php:232
-#: src/Controllers/Operations/DatabaseController.php:237
+#: src/Controllers/Operations/DatabaseController.php:230
+#: src/Controllers/Operations/DatabaseController.php:235
 #: src/Controllers/Operations/TableController.php:86
 #: src/Controllers/Operations/TableController.php:91
-#: src/Controllers/Operations/ViewController.php:61
-#: src/Controllers/Operations/ViewController.php:66
+#: src/Controllers/Operations/ViewController.php:62
+#: src/Controllers/Operations/ViewController.php:67
 #: src/Controllers/Server/Databases/DestroyController.php:62
-#: src/Controllers/Table/AddFieldController.php:162
-#: src/Controllers/Table/AddFieldController.php:167
+#: src/Controllers/Table/AddFieldController.php:161
+#: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChangeController.php:75
-#: src/Controllers/Table/ChartController.php:88
-#: src/Controllers/Table/ChartController.php:95
-#: src/Controllers/Table/ChartController.php:122
-#: src/Controllers/Table/ChartController.php:129
-#: src/Controllers/Table/ChartController.php:202
+#: src/Controllers/Table/ChartController.php:86
+#: src/Controllers/Table/ChartController.php:93
+#: src/Controllers/Table/ChartController.php:120
+#: src/Controllers/Table/ChartController.php:127
+#: src/Controllers/Table/ChartController.php:200
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
 #: src/Controllers/Table/DropColumnConfirmationController.php:52
 #: src/Controllers/Table/DropColumnConfirmationController.php:57
-#: src/Controllers/Table/FindReplaceController.php:77
-#: src/Controllers/Table/FindReplaceController.php:82
+#: src/Controllers/Table/FindReplaceController.php:76
+#: src/Controllers/Table/FindReplaceController.php:81
 #: src/Controllers/Table/GisVisualizationController.php:70
 #: src/Controllers/Table/GisVisualizationController.php:75
 #: src/Controllers/Table/ImportController.php:70
 #: src/Controllers/Table/ImportController.php:75
-#: src/Controllers/Table/IndexesController.php:67
-#: src/Controllers/Table/IndexesController.php:74
-#: src/Controllers/Table/IndexRenameController.php:55
-#: src/Controllers/Table/IndexRenameController.php:60
+#: src/Controllers/Table/IndexesController.php:66
+#: src/Controllers/Table/IndexesController.php:73
+#: src/Controllers/Table/IndexRenameController.php:54
+#: src/Controllers/Table/IndexRenameController.php:59
 #: src/Controllers/Table/SearchController.php:171
 #: src/Controllers/Table/SearchController.php:176
 #: src/Controllers/Table/SqlController.php:59
@@ -12085,7 +12065,7 @@ msgstr ""
 "リクエストの処理中にエラーが発生しました：データベース %2$s に %1$s という名"
 "前のイベントはありません。"
 
-#: src/Controllers/Database/ExportController.php:129
+#: src/Controllers/Database/ExportController.php:127
 #: src/Controllers/Server/ExportController.php:57
 #: src/Controllers/Table/ExportController.php:92
 msgid "Could not load export plugins, please check your installation!"
@@ -12101,16 +12081,16 @@ msgstr ""
 "インポートプラグインが読み込めません。正しくインストールされているか確認して"
 "ください！"
 
-#: src/Controllers/Database/PrivilegesController.php:64
-#: src/Controllers/Server/PrivilegesController.php:100
-#: src/Controllers/Server/UserGroupsController.php:47
-#: src/Controllers/Table/PrivilegesController.php:67
+#: src/Controllers/Database/PrivilegesController.php:63
+#: src/Controllers/Server/PrivilegesController.php:99
+#: src/Controllers/Server/UserGroupsController.php:46
+#: src/Controllers/Table/PrivilegesController.php:66
 msgid "No Privileges"
 msgstr "権限がありません"
 
-#: src/Controllers/Database/PrivilegesController.php:73
-#: src/Controllers/Server/PrivilegesController.php:109
-#: src/Controllers/Table/PrivilegesController.php:76
+#: src/Controllers/Database/PrivilegesController.php:70
+#: src/Controllers/Server/PrivilegesController.php:106
+#: src/Controllers/Table/PrivilegesController.php:73
 msgid "You do not have the privileges to administrate the users!"
 msgstr "ユーザを管理する権限がありません!"
 
@@ -12128,32 +12108,32 @@ msgstr "ユーザを管理する権限がありません!"
 #: src/Controllers/JavaScriptMessagesController.php:332
 #: src/Controllers/Operations/TableController.php:98
 #: src/Controllers/Operations/TableController.php:103
-#: src/Controllers/Operations/ViewController.php:73
-#: src/Controllers/Operations/ViewController.php:78
-#: src/Controllers/Table/AddFieldController.php:174
-#: src/Controllers/Table/AddFieldController.php:179
+#: src/Controllers/Operations/ViewController.php:74
+#: src/Controllers/Operations/ViewController.php:79
+#: src/Controllers/Table/AddFieldController.php:173
+#: src/Controllers/Table/AddFieldController.php:178
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
-#: src/Controllers/Table/ChartController.php:103
-#: src/Controllers/Table/ChartController.php:108
-#: src/Controllers/Table/ChartController.php:210
+#: src/Controllers/Table/ChartController.php:101
+#: src/Controllers/Table/ChartController.php:106
+#: src/Controllers/Table/ChartController.php:208
 #: src/Controllers/Table/DeleteConfirmController.php:69
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:89
-#: src/Controllers/Table/FindReplaceController.php:94
+#: src/Controllers/Table/FindReplaceController.php:88
+#: src/Controllers/Table/FindReplaceController.php:93
 #: src/Controllers/Table/ImportController.php:82
 #: src/Controllers/Table/ImportController.php:87
-#: src/Controllers/Table/IndexesController.php:82
-#: src/Controllers/Table/IndexesController.php:87
-#: src/Controllers/Table/IndexRenameController.php:67
-#: src/Controllers/Table/IndexRenameController.php:72
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:46
-#: src/Controllers/Table/Maintenance/CheckController.php:46
-#: src/Controllers/Table/Maintenance/ChecksumController.php:46
-#: src/Controllers/Table/Maintenance/OptimizeController.php:46
-#: src/Controllers/Table/Maintenance/RepairController.php:46
+#: src/Controllers/Table/IndexesController.php:81
+#: src/Controllers/Table/IndexesController.php:86
+#: src/Controllers/Table/IndexRenameController.php:66
+#: src/Controllers/Table/IndexRenameController.php:71
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:45
+#: src/Controllers/Table/Maintenance/CheckController.php:45
+#: src/Controllers/Table/Maintenance/ChecksumController.php:45
+#: src/Controllers/Table/Maintenance/OptimizeController.php:45
+#: src/Controllers/Table/Maintenance/RepairController.php:45
 #: src/Controllers/Table/SearchController.php:183
 #: src/Controllers/Table/SearchController.php:188
 #: src/Controllers/Table/SqlController.php:71
@@ -12222,7 +12202,7 @@ msgid "Success!"
 msgstr "成功！"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3245
+#: src/Display/Results.php:3262
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12299,7 +12279,7 @@ msgstr ""
 "あるサーバからログアウトされました。phpMyAdminから完全にログアウトするために"
 "は、全てのサーバからログアウトする必要があります。"
 
-#: src/Controllers/HomeController.php:194
+#: src/Controllers/HomeController.php:191
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12308,12 +12288,12 @@ msgstr ""
 "phpMyAdmin 環境保管領域が完全に設定されていないため、いくつかの拡張機能が無効"
 "になっています。理由については%sこちら%sをご覧ください。 "
 
-#: src/Controllers/HomeController.php:200
+#: src/Controllers/HomeController.php:197
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "代わりにデータベースの操作タブを使って設定することもできます。"
 
-#: src/Controllers/HomeController.php:264
+#: src/Controllers/HomeController.php:261
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12326,7 +12306,7 @@ msgstr ""
 "のため、phpMyAdmin に設定されているよりも早くログインの期限が切れるかもしれま"
 "せん。"
 
-#: src/Controllers/HomeController.php:284
+#: src/Controllers/HomeController.php:281
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12335,7 +12315,7 @@ msgstr ""
 "りも短くなっています。このため、phpMyAdmin に設定されているよりも早くログイン"
 "の期限が切れます。"
 
-#: src/Controllers/HomeController.php:303
+#: src/Controllers/HomeController.php:300
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12345,7 +12325,7 @@ msgstr ""
 "おり、侵入者に開かれた状態です。 あなたは真剣にこの脆弱なパスワードを変更する"
 "ことによるセキュリティの弱点の修正に取り組むべきです。"
 
-#: src/Controllers/HomeController.php:322
+#: src/Controllers/HomeController.php:319
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12355,7 +12335,7 @@ msgstr ""
 "自動的に作成されました。[doc@cfg_blowfish_secret]ドキュメント[/doc]を参照して"
 "ください。"
 
-#: src/Controllers/HomeController.php:332
+#: src/Controllers/HomeController.php:329
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12366,7 +12346,7 @@ msgstr ""
 "バイトだけです。[doc@cfg_blowfish_secret]ドキュメント[/doc]を参照してくださ"
 "い。"
 
-#: src/Controllers/HomeController.php:352
+#: src/Controllers/HomeController.php:349
 #, fuzzy
 #| msgid ""
 #| "The configuration file needs a valid key for cookie encryption. A "
@@ -12381,7 +12361,7 @@ msgstr ""
 "自動的に作成されました。[doc@cfg_blowfish_secret]ドキュメント[/doc]を参照して"
 "ください。"
 
-#: src/Controllers/HomeController.php:362
+#: src/Controllers/HomeController.php:359
 #, fuzzy, php-format
 #| msgid ""
 #| "The cookie encryption key in the configuration file is longer than "
@@ -12396,7 +12376,7 @@ msgstr ""
 "バイトだけです。[doc@cfg_blowfish_secret]ドキュメント[/doc]を参照してくださ"
 "い。"
 
-#: src/Controllers/HomeController.php:380
+#: src/Controllers/HomeController.php:377
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12408,7 +12388,7 @@ msgstr ""
 "ことを強くお勧めします。削除しない場合、誰でも認証なしでサーバの設定をダウン"
 "ロードすることができるため、サーバのセキュリティが低下します。"
 
-#: src/Controllers/HomeController.php:395
+#: src/Controllers/HomeController.php:392
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12417,7 +12397,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) にアクセスできません。phpMyAdmin はテンプレートをキャッ"
 "シュすることができないため、低速になります。"
 
-#: src/Controllers/HomeController.php:412
+#: src/Controllers/HomeController.php:409
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
@@ -12427,7 +12407,7 @@ msgstr ""
 "あります。発生しうる問題は [doc@faq1-46]documentation[/doc] を参照してくださ"
 "い。"
 
-#: src/Controllers/HomeController.php:465
+#: src/Controllers/HomeController.php:462
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12437,7 +12417,7 @@ msgstr ""
 "いるようですが、mbstring 拡張がないと phpMyAdmin は文字列を正しく分割できない"
 "ため予期しない結果になることがあります。"
 
-#: src/Controllers/HomeController.php:483
+#: src/Controllers/HomeController.php:480
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12455,25 +12435,25 @@ msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。この制限に関する対策に"
 "ついては %sドキュメント%s をご覧ください。"
 
-#: src/Controllers/Import/ImportController.php:190
+#: src/Controllers/Import/ImportController.php:189
 msgid "Incorrect format parameter"
 msgstr "不正なフォーマット引数"
 
-#: src/Controllers/Import/ImportController.php:253
+#: src/Controllers/Import/ImportController.php:252
 msgid "Sorry an unexpected error happened!"
 msgstr "予期しないエラーが発生しました！"
 
-#: src/Controllers/Import/ImportController.php:298
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:297
+#: src/Controllers/Import/ImportController.php:508
 msgid "Showing bookmark"
 msgstr "表示中のブックマーク"
 
-#: src/Controllers/Import/ImportController.php:318
-#: src/Controllers/Import/ImportController.php:505
+#: src/Controllers/Import/ImportController.php:317
+#: src/Controllers/Import/ImportController.php:504
 msgid "The bookmark has been deleted."
 msgstr "ブックマークを削除しました。"
 
-#: src/Controllers/Import/ImportController.php:427
+#: src/Controllers/Import/ImportController.php:426
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12483,13 +12463,13 @@ msgstr ""
 "ファイルサイズが PHP の設定で許可された最大値を超えています。"
 "[doc@faq1-16]FAQ 1.16[/doc] をご覧ください。"
 
-#: src/Controllers/Import/ImportController.php:517
+#: src/Controllers/Import/ImportController.php:516
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "インポートは正常に終了しました。%d 個のクエリを実行しました。"
 
-#: src/Controllers/Import/ImportController.php:554
+#: src/Controllers/Import/ImportController.php:553
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12498,7 +12478,7 @@ msgstr ""
 "スクリプトがタイムアウトしました。インポートを完了させたいのであれば%s同じ"
 "ファイルを再送信%sすればインポートが再開されます。"
 
-#: src/Controllers/Import/ImportController.php:564
+#: src/Controllers/Import/ImportController.php:563
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12506,12 +12486,12 @@ msgstr ""
 "ただし、最後に実行したときはまったくデータを解析できませんでした。通常、PHP "
 "の時間制限を伸ばさない限りこのデータのインポートはできません。"
 
-#: src/Controllers/Import/ImportController.php:635
+#: src/Controllers/Import/ImportController.php:634
 #: src/Controllers/Sql/SqlController.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "DROP DATABASE 文は無効にされています。"
 
-#: src/Controllers/Import/ImportController.php:698 src/Sql.php:918
+#: src/Controllers/Import/ImportController.php:697 src/Sql.php:919
 msgid "[ROLLBACK occurred.]"
 msgstr "[ロールバックが発生しました。]"
 
@@ -12745,12 +12725,12 @@ msgid "The user name is empty!"
 msgstr "ユーザ名が空です!"
 
 #: src/Controllers/JavaScriptMessagesController.php:147
-#: src/Server/Privileges.php:761 src/UserPassword.php:41
+#: src/Server/Privileges.php:761 src/UserPassword.php:33
 msgid "The password is empty!"
 msgstr "パスワードが空です!"
 
 #: src/Controllers/JavaScriptMessagesController.php:148
-#: src/Server/Privileges.php:759 src/UserPassword.php:45
+#: src/Server/Privileges.php:759 src/UserPassword.php:38
 msgid "The passwords aren't the same!"
 msgstr "パスワードが異なっています!"
 
@@ -14387,7 +14367,7 @@ msgstr ""
 "しばらくお待ちください。ファイルがアップロードされています。アップロードに関"
 "する機能は利用できません。"
 
-#: src/Controllers/NavigationController.php:40
+#: src/Controllers/NavigationController.php:39
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "致命的なエラー：ナビゲーションへのアクセスに使用できるのはAjaxだけです"
 
@@ -14408,7 +14388,7 @@ msgid "String"
 msgstr "文字列"
 
 #: src/Controllers/Operations/Database/CollationController.php:42
-#: src/Controllers/Operations/TableController.php:262
+#: src/Controllers/Operations/TableController.php:268
 msgid "No collation provided."
 msgstr "照合順序が提供されていません。"
 
@@ -14423,12 +14403,12 @@ msgstr ""
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "データベース %1$s の名称を %2$s に変更しました。"
 
-#: src/Controllers/Operations/DatabaseController.php:176
+#: src/Controllers/Operations/DatabaseController.php:175
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "データベース %1$s を %2$s にコピーしました。"
 
-#: src/Controllers/Operations/DatabaseController.php:273
+#: src/Controllers/Operations/DatabaseController.php:271
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14448,11 +14428,11 @@ msgstr "これをconfig.inc.phpに貼り付けてください"
 msgid "Could not import configuration"
 msgstr "設定がインポートできませんでした"
 
-#: src/Controllers/Preferences/TwoFactorController.php:49
+#: src/Controllers/Preferences/TwoFactorController.php:48
 msgid "Two-factor authentication has been removed."
 msgstr "二要素認証が削除されました。"
 
-#: src/Controllers/Preferences/TwoFactorController.php:62
+#: src/Controllers/Preferences/TwoFactorController.php:59
 msgid "Two-factor authentication has been configured."
 msgstr "二要素認証が設定されました。"
 
@@ -14483,7 +14463,7 @@ msgstr "アカウント %s@%s がロックされました。"
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "アカウント %s@%s のロックが解除されました。"
 
-#: src/Controllers/Server/PrivilegesController.php:127
+#: src/Controllers/Server/PrivilegesController.php:123
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -15244,15 +15224,15 @@ msgstr "「%s」のデータが間違っているか、検証されていませ�
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
 
-#: src/Controllers/Sql/SqlController.php:225
+#: src/Controllers/Sql/SqlController.php:224
 msgid "Bookmark not created!"
 msgstr "ブックマークが作成されていません!"
 
-#: src/Controllers/Table/AddFieldController.php:137
-#: src/Controllers/Table/IndexesController.php:139
-#: src/Controllers/Table/IndexRenameController.php:123
-#: src/Controllers/Table/Structure/PartitioningController.php:266
-#: src/Controllers/Table/Structure/SaveController.php:228
+#: src/Controllers/Table/AddFieldController.php:136
+#: src/Controllers/Table/IndexesController.php:137
+#: src/Controllers/Table/IndexRenameController.php:122
+#: src/Controllers/Table/Structure/PartitioningController.php:264
+#: src/Controllers/Table/Structure/SaveController.php:227
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "テーブル %1$s は正常に変更されました。"
@@ -15263,17 +15243,17 @@ msgstr "テーブル %1$s は正常に変更されました。"
 msgid "No row selected."
 msgstr "行が選択されていません。"
 
-#: src/Controllers/Table/ChartController.php:60
-#: src/Controllers/Table/GisVisualizationController.php:85
+#: src/Controllers/Table/ChartController.php:59
+#: src/Controllers/Table/GisVisualizationController.php:84
 msgid "No SQL query was set to fetch data."
 msgstr "SQLクエリはデータを取得するために設定されませんでした。"
 
-#: src/Controllers/Table/ChartController.php:166
+#: src/Controllers/Table/ChartController.php:164
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 "テーブルには数字コラムがない理由でチャートを表示するデータポイントないです。"
 
-#: src/Controllers/Table/ChartController.php:237
+#: src/Controllers/Table/ChartController.php:235
 msgid "No data to display"
 msgstr "表示するデータはありません"
 
@@ -15316,38 +15296,38 @@ msgid "There is an issue with your request."
 msgstr "リクエストに問題があります。"
 
 #: src/Controllers/Table/GetFieldController.php:109
-#: src/Database/Routines.php:1019 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:904
+#: src/Database/Routines.php:1017 src/Import/Import.php:138
+#: src/InsertEdit.php:163 src/Sql.php:905
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
-#: src/Controllers/Table/GisVisualizationController.php:96
+#: src/Controllers/Table/GisVisualizationController.php:93
 msgid "No spatial column found for this SQL query."
 msgstr "この SQL クエリの空間カラムが見つかりませんでした。"
 
-#: src/Controllers/Table/GisVisualizationController.php:121
+#: src/Controllers/Table/GisVisualizationController.php:117
 msgid "Invalid file format, expected one of: "
 msgstr ""
 
-#: src/Controllers/Table/GisVisualizationController.php:129
+#: src/Controllers/Table/GisVisualizationController.php:125
 msgid "Failed to create image"
 msgstr "画像を作成出来ませんでした。"
 
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:67
-#: src/Controllers/Table/Maintenance/CheckController.php:67
-#: src/Controllers/Table/Maintenance/ChecksumController.php:67
-#: src/Controllers/Table/Maintenance/OptimizeController.php:67
-#: src/Controllers/Table/Maintenance/RepairController.php:67
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:66
+#: src/Controllers/Table/Maintenance/CheckController.php:66
+#: src/Controllers/Table/Maintenance/ChecksumController.php:66
+#: src/Controllers/Table/Maintenance/OptimizeController.php:66
+#: src/Controllers/Table/Maintenance/RepairController.php:66
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr "複数テーブルの管理の操作は無効です。"
 
-#: src/Controllers/Table/Partition/AnalyzeController.php:36
-#: src/Controllers/Table/Partition/CheckController.php:36
-#: src/Controllers/Table/Partition/DropController.php:36
-#: src/Controllers/Table/Partition/OptimizeController.php:36
-#: src/Controllers/Table/Partition/RebuildController.php:36
-#: src/Controllers/Table/Partition/RepairController.php:36
-#: src/Controllers/Table/Partition/TruncateController.php:36
+#: src/Controllers/Table/Partition/AnalyzeController.php:35
+#: src/Controllers/Table/Partition/CheckController.php:35
+#: src/Controllers/Table/Partition/DropController.php:35
+#: src/Controllers/Table/Partition/OptimizeController.php:35
+#: src/Controllers/Table/Partition/RebuildController.php:35
+#: src/Controllers/Table/Partition/RepairController.php:35
+#: src/Controllers/Table/Partition/TruncateController.php:35
 msgid "The partition name must be a non-empty string."
 msgstr "パーティション名を空文字列にすることはできません。"
 
@@ -15355,11 +15335,11 @@ msgstr "パーティション名を空文字列にすることはできません
 msgid "Invalid database or table name."
 msgstr "データベース名またはテーブル名が不正です。"
 
-#: src/Controllers/Table/RelationController.php:327
+#: src/Controllers/Table/RelationController.php:321
 msgid "Display column was successfully updated."
 msgstr "表示カラムは正常に更新されました。"
 
-#: src/Controllers/Table/RelationController.php:361
+#: src/Controllers/Table/RelationController.php:354
 msgid "Internal relationships were successfully updated."
 msgstr "内部リレーションは正常に更新されました。"
 
@@ -15384,9 +15364,9 @@ msgstr "選択したカラムがテーブル内の列の中に見つかりませ
 msgid "The selected columns are already in the correct order."
 msgstr "選択されたカラムは既に正しい順序で並んでいます。"
 
-#: src/Controllers/Table/Structure/PartitioningController.php:258
-#: src/Controllers/Table/Structure/SaveController.php:278
-#: src/Tracking/Tracking.php:736
+#: src/Controllers/Table/Structure/PartitioningController.php:257
+#: src/Controllers/Table/Structure/SaveController.php:277
+#: src/Tracking/Tracking.php:733
 msgid "Query error"
 msgstr "クエリエラー"
 
@@ -15396,7 +15376,7 @@ msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "'%s'という名前はMySQLの予約語です。"
 
-#: src/Controllers/Table/Structure/SaveController.php:223
+#: src/Controllers/Table/Structure/SaveController.php:222
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -15441,7 +15421,7 @@ msgstr ""
 "リクエストの処理中にエラーが発生しました：データベース %2$s に %1$s という名"
 "前のトリガはありません。"
 
-#: src/Controllers/UserPasswordController.php:48
+#: src/Controllers/UserPasswordController.php:47
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "権限不足でアクセスできません!"
 
@@ -15534,21 +15514,21 @@ msgstr ""
 "ください！"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:103
-#: src/Database/Routines.php:129 src/Database/Routines.php:207
-#: src/Database/Routines.php:979 src/Triggers/Triggers.php:84
-#: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:128
+#: src/Database/Events.php:134 src/Database/Routines.php:103
+#: src/Database/Routines.php:129 src/Database/Routines.php:205
+#: src/Database/Routines.php:977 src/Triggers/Triggers.php:84
+#: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:126
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "クエリの実行に失敗しました：『%s』"
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
-#: src/Database/Events.php:119 src/Database/Events.php:140
+#: src/Database/Events.php:119 src/Database/Events.php:138
 #: src/Database/Routines.php:107 src/Database/Routines.php:133
-#: src/Database/Routines.php:211 src/Database/Routines.php:225
-#: src/Database/Routines.php:983 src/Html/Generator.php:800
+#: src/Database/Routines.php:209 src/Database/Routines.php:223
+#: src/Database/Routines.php:981 src/Html/Generator.php:793
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
-#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
+#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
 msgstr "MySQL のメッセージ: "
 
@@ -15556,7 +15536,7 @@ msgstr "MySQL のメッセージ: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "申し訳ありませんが、削除されたイベントの復元に失敗しました。"
 
-#: src/Database/Events.php:117 src/Database/Routines.php:223
+#: src/Database/Events.php:117 src/Database/Routines.php:221
 #: src/Triggers/Triggers.php:109
 msgid "The backed up query was:"
 msgstr "バックアップされていたクエリ:"
@@ -15566,38 +15546,38 @@ msgstr "バックアップされていたクエリ:"
 msgid "Event %1$s has been modified."
 msgstr "イベント %1$s を変更しました。"
 
-#: src/Database/Events.php:143
+#: src/Database/Events.php:141
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "イベント %1$s を作成しました。"
 
-#: src/Database/Events.php:157 src/Database/Routines.php:149
-#: src/Triggers/Triggers.php:149
+#: src/Database/Events.php:153 src/Database/Routines.php:147
+#: src/Triggers/Triggers.php:145
 msgid "One or more errors have occurred while processing your request:"
 msgstr "リクエストの処理中に 1 つ以上のエラーが発生しました："
 
-#: src/Database/Events.php:267 src/Database/Routines.php:785
-#: src/Triggers/Triggers.php:191
+#: src/Database/Events.php:263 src/Database/Routines.php:783
+#: src/Triggers/Triggers.php:187
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "定義者の指定は「ユーザ名@ホスト名」の形式でなければなりません!"
 
-#: src/Database/Events.php:275
+#: src/Database/Events.php:271
 msgid "You must provide an event name!"
 msgstr "イベント名は必須です!"
 
-#: src/Database/Events.php:289
+#: src/Database/Events.php:285
 msgid "You must provide a valid interval value for the event."
 msgstr "有効な実行間隔を指定してください。"
 
-#: src/Database/Events.php:302
+#: src/Database/Events.php:298
 msgid "You must provide a valid execution time for the event."
 msgstr "有効な実行日時を指定してください。"
 
-#: src/Database/Events.php:305
+#: src/Database/Events.php:301
 msgid "You must provide a valid type for the event."
 msgstr "有効な種別イベントを指定してください。"
 
-#: src/Database/Events.php:331
+#: src/Database/Events.php:327
 msgid "You must provide an event definition."
 msgstr "イベントの定義は必須です。"
 
@@ -15611,30 +15591,30 @@ msgstr "ルーチンタイプが不正です: \"%s\""
 msgid "Routine %1$s has been created."
 msgstr "ルーチン %1$s を作成しました。"
 
-#: src/Database/Routines.php:222
+#: src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "申し訳ありませんが、削除されたルーチンの復元に失敗しました。"
 
-#: src/Database/Routines.php:271
+#: src/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "ルーチン %1$s を変更しました。権限が変更されました。"
 
-#: src/Database/Routines.php:276
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "ルーチン %1$s を変更しました。"
 
-#: src/Database/Routines.php:630
+#: src/Database/Routines.php:628
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "ルーチンの各パラメータに対して、名前とデータ型は必須です。"
 
-#: src/Database/Routines.php:648
+#: src/Database/Routines.php:646
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "パラメータに対して不正な入出力「%s」が与えられています。"
 
-#: src/Database/Routines.php:668 src/Database/Routines.php:733
+#: src/Database/Routines.php:666 src/Database/Routines.php:731
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15642,28 +15622,28 @@ msgstr ""
 "ルーチンパラメータが ENUM、SET、VARCHAR、VARBINARY の場合、長さ/値は必須で"
 "す。"
 
-#: src/Database/Routines.php:715
+#: src/Database/Routines.php:713
 msgid "You must provide a valid return type for the routine."
 msgstr "ルーチンに対して、有効な返り値の種類を指定してください。"
 
-#: src/Database/Routines.php:792
+#: src/Database/Routines.php:790
 msgid "Invalid routine type!"
 msgstr "ルーチンタイプが不正です。"
 
-#: src/Database/Routines.php:798
+#: src/Database/Routines.php:796
 msgid "You must provide a routine name!"
 msgstr "ルーチン名は必須です!"
 
-#: src/Database/Routines.php:869
+#: src/Database/Routines.php:867
 msgid "You must provide a routine definition."
 msgstr "ルーチンの定義は必須です。"
 
-#: src/Database/Routines.php:995
+#: src/Database/Routines.php:993
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "ルーチン %s の実行結果"
 
-#: src/Database/Routines.php:1010
+#: src/Database/Routines.php:1008
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -15693,31 +15673,31 @@ msgstr ""
 "エラー1045：ユーザのアクセスが拒否されました。追加のエラー情報が利用できる場"
 "合がありますが、%s 構成ディレクティブによって隠されています。"
 
-#: src/Display/Results.php:2387 src/Display/Results.php:2402
+#: src/Display/Results.php:2400 src/Display/Results.php:2415
 msgid "The row has been deleted."
 msgstr "行を削除しました。"
 
-#: src/Display/Results.php:2969 src/Display/Results.php:3286 src/Sql.php:910
+#: src/Display/Results.php:2982 src/Display/Results.php:3302 src/Sql.php:911
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "クエリの実行時間： %01.4f 秒。"
 
-#: src/Display/Results.php:3254
+#: src/Display/Results.php:3270
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "行 %1s - %2s の表示"
 
-#: src/Display/Results.php:3268
+#: src/Display/Results.php:3283
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "合計 %1$s, クエリで %2$s"
 
-#: src/Display/Results.php:3273
+#: src/Display/Results.php:3288
 #, php-format
 msgid "%s total"
 msgstr "合計 %s"
 
-#: src/Display/Results.php:3577
+#: src/Display/Results.php:3592
 msgid "Link not found!"
 msgstr "リンクが見つかりません！"
 
@@ -16031,13 +16011,13 @@ msgstr ""
 "%s 秒間、未操作のために自動的にログアウトされました。再度ログインすると、中断"
 "した所から作業を再開できるようになります。"
 
-#: src/Export/OutputHandler.php:84 src/Export/OutputHandler.php:115
-#: src/Export/OutputHandler.php:241
+#: src/Export/OutputHandler.php:84 src/Export/OutputHandler.php:117
+#: src/Export/OutputHandler.php:232
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "空き容量不足でファイル %s を保存できません。"
 
-#: src/Export/OutputHandler.php:195
+#: src/Export/OutputHandler.php:197
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16045,12 +16025,12 @@ msgstr ""
 "サーバ上に既存のファイル %s があります。ファイル名を変更するか、上書きオプ"
 "ションを有効にしてください。"
 
-#: src/Export/OutputHandler.php:206 src/Export/OutputHandler.php:218
+#: src/Export/OutputHandler.php:204 src/Export/OutputHandler.php:212
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "このウェブサーバにはファイル %s を保存する権限がありません。"
 
-#: src/Export/OutputHandler.php:249
+#: src/Export/OutputHandler.php:239
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました。"
@@ -16140,59 +16120,59 @@ msgstr ""
 msgid "Session not found."
 msgstr "セッションが見つかりません。"
 
-#: src/Html/Generator.php:149
+#: src/Html/Generator.php:148
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "データベース「%s」に移動します。"
 
-#: src/Html/Generator.php:216
+#: src/Html/Generator.php:215
 msgid "SSL is not being used"
 msgstr "SSLは使用されていません"
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:220
 msgid "SSL is used with disabled verification"
 msgstr "SSLは無効な検証で使用されます"
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:222
 msgid "SSL is used without certification authority"
 msgstr "SSLはCAなしで使用されます"
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:225
 msgid "SSL is used"
 msgstr "SSLを使用されています"
 
-#: src/Html/Generator.php:326
+#: src/Html/Generator.php:325
 msgid "The PHP function password_hash() with default options."
 msgstr "PHP 関数 password_hash() にデフォルトのオプションを指定します。"
 
-#: src/Html/Generator.php:327
+#: src/Html/Generator.php:326
 msgid "password_hash() PHP function"
 msgstr "password_hash() PHP 関数"
 
-#: src/Html/Generator.php:501
+#: src/Html/Generator.php:494
 msgid "Skip Explain SQL"
 msgstr "SQL の EXPLAIN 解析をスキップ"
 
-#: src/Html/Generator.php:511
+#: src/Html/Generator.php:504
 #, fuzzy
 #| msgid "Skip Validate SQL"
 msgid "Skip Analyze SQL"
 msgstr "SQL の検証をスキップ"
 
-#: src/Html/Generator.php:543
+#: src/Html/Generator.php:536
 msgid "Without PHP code"
 msgstr "PHP コードを省略"
 
-#: src/Html/Generator.php:628
+#: src/Html/Generator.php:621
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "インライン編集"
 
-#: src/Html/Generator.php:742
+#: src/Html/Generator.php:735
 msgid "Static analysis:"
 msgstr "静的解析:"
 
-#: src/Html/Generator.php:745
+#: src/Html/Generator.php:738
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "解析中に %d 個のエラーが見つかりました。"
@@ -16344,11 +16324,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "ウェブサーバ上のアップロードディレクトリ:"
 
-#: src/InsertEdit.php:831 src/Sql.php:901
+#: src/InsertEdit.php:831 src/Sql.php:902
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: src/InsertEdit.php:855 src/Sql.php:881
+#: src/InsertEdit.php:855 src/Sql.php:883
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -16365,7 +16345,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s （もしかして <code>%2$s</code>）"
 
-#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1405 src/Util.php:1419
+#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1396 src/Util.php:1410
 msgid "Tracking"
 msgstr "SQL コマンドの追跡"
 
@@ -16373,7 +16353,7 @@ msgstr "SQL コマンドの追跡"
 msgid "Database seems to be empty!"
 msgstr "データベースが空のようです!"
 
-#: src/Menu.php:402 src/Util.php:1406
+#: src/Menu.php:402 src/Util.php:1397
 msgid "Designer"
 msgstr "デザイナ"
 
@@ -16381,27 +16361,27 @@ msgstr "デザイナ"
 msgid "User accounts"
 msgstr "ユーザアカウント"
 
-#: src/Menu.php:512 src/Util.php:1389
+#: src/Menu.php:512 src/Util.php:1380
 msgid "Charsets"
 msgstr "文字セット"
 
-#: src/Menu.php:517 src/Util.php:1391
+#: src/Menu.php:517 src/Util.php:1382
 msgid "Engines"
 msgstr "エンジン"
 
-#: src/Message.php:185
+#: src/Message.php:151
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d 行変更しました。"
 
-#: src/Message.php:202
+#: src/Message.php:168
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d 行削除しました。"
 
-#: src/Message.php:219
+#: src/Message.php:185
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -16778,39 +16758,39 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "部分的な依存が見つかりませんでした!"
 
-#: src/Operations.php:536
+#: src/Operations.php:534
 msgid "Coalesce"
 msgstr "合体"
 
-#: src/Operations.php:880
+#: src/Operations.php:882
 msgid "Can't move table to same one!"
 msgstr "同じテーブルには移動できません!"
 
-#: src/Operations.php:882
+#: src/Operations.php:884
 msgid "Can't copy table to same one!"
 msgstr "同じテーブルにはコピーできません!"
 
-#: src/Operations.php:918
+#: src/Operations.php:908
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "テーブル %s が %s に移動されました。 権限が変更されました。"
 
-#: src/Operations.php:924
+#: src/Operations.php:914
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "テーブル %s を %s にコピーしました。権限が変更されました。"
 
-#: src/Operations.php:930
+#: src/Operations.php:920
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "テーブル %s を %s に移動しました。"
 
-#: src/Operations.php:934
+#: src/Operations.php:924
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "テーブル %s を %s にコピーしました。"
 
-#: src/Operations.php:957
+#: src/Operations.php:944
 msgid "The table name is empty!"
 msgstr "テーブル名が空です!"
 
@@ -16875,7 +16855,7 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "このMySQL サーバにログインする許可がありません!"
 
-#: src/Plugins/Auth/AuthenticationHttp.php:88
+#: src/Plugins/Auth/AuthenticationHttp.php:87
 msgid "Wrong username/password. Access denied."
 msgstr ""
 "ユーザ名ないしパスワードが間違っています。<br />アクセスは拒否されました。"
@@ -17395,14 +17375,9 @@ msgstr "カラム名: "
 msgid "This plugin does not support compressed imports!"
 msgstr "このプラグインでは圧縮されたファイルのインポートはできません!"
 
-#: src/Plugins/Import/ImportMediawiki.php:59
+#: src/Plugins/Import/ImportMediawiki.php:58
 msgid "MediaWiki Table"
 msgstr "MediaWiki テーブル"
-
-#: src/Plugins/Import/ImportMediawiki.php:276
-#, php-format
-msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "mediawiki 入力の書式が不正です<br>行: %s。"
 
 #: src/Plugins/Import/ImportOds.php:86
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -17425,21 +17400,21 @@ msgstr ""
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "OpenDocument スプレッドシートを解析できませんでした！"
 
-#: src/Plugins/Import/ImportShp.php:74
+#: src/Plugins/Import/ImportShp.php:75
 msgid "ESRI Shape File"
 msgstr "ESRI シェープファイル"
 
-#: src/Plugins/Import/ImportShp.php:110 src/Plugins/Import/ImportShp.php:176
+#: src/Plugins/Import/ImportShp.php:113 src/Plugins/Import/ImportShp.php:179
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ESRI シェープファイルをインポート中にエラーがありました: \"%s\"。"
 
-#: src/Plugins/Import/ImportShp.php:201
+#: src/Plugins/Import/ImportShp.php:204
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL の空間拡張が ESRI タイプをサポートしていません: \"%s\"。"
 
-#: src/Plugins/Import/ImportShp.php:246
+#: src/Plugins/Import/ImportShp.php:249
 msgid "The imported file does not contain any data!"
 msgstr "インポートされたファイルには、データが含まれていません!"
 
@@ -17936,7 +17911,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "エラー 405! リクエストメソッドは許可されていません。"
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3133
+#: src/Server/Privileges.php:3137
 msgid "Native MySQL authentication"
 msgstr "ネイティブMySQL認証"
 
@@ -17995,31 +17970,31 @@ msgstr "権限を再読み込みしています"
 msgid "The selected users have been deleted successfully."
 msgstr "選択されたユーザは正常に削除されました。"
 
-#: src/Server/Privileges.php:1979
+#: src/Server/Privileges.php:1980
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "%s の権限を更新しました。"
 
-#: src/Server/Privileges.php:2129
+#: src/Server/Privileges.php:2131
 #, php-format
 msgid "Deleting %s"
 msgstr "%s を削除中です"
 
-#: src/Server/Privileges.php:2159
+#: src/Server/Privileges.php:2161
 msgid "The privileges were reloaded successfully."
 msgstr "権限を正常に再読み込みしました。"
 
-#: src/Server/Privileges.php:2225
+#: src/Server/Privileges.php:2228
 #, php-format
 msgid "The user %s already exists!"
 msgstr "ユーザ %s は既に存在します!"
 
-#: src/Server/Privileges.php:2378
+#: src/Server/Privileges.php:2382
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s に対する権限"
 
-#: src/Server/Privileges.php:2467
+#: src/Server/Privileges.php:2471
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18032,7 +18007,7 @@ msgstr ""
 "限の内容が一致しなくなることがありますので、作業を続ける前に %s権限の再読み込"
 "み%s をしてください。"
 
-#: src/Server/Privileges.php:2483
+#: src/Server/Privileges.php:2487
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -18045,11 +18020,11 @@ msgstr ""
 "致しなくなることがあります。この場合、権限を再読み込みする必要がありますが、"
 "あなたは RELOAD 権限を持っていません。"
 
-#: src/Server/Privileges.php:2771
+#: src/Server/Privileges.php:2775
 msgid "You have added a new user."
 msgstr "新しいユーザを追加しました。"
 
-#: src/Server/Privileges.php:3225
+#: src/Server/Privileges.php:3229
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18148,16 +18123,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "入手可能な新しい安定バージョンはありません"
 
-#: src/Sql.php:445
+#: src/Sql.php:446
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
-#: src/Sql.php:898
+#: src/Sql.php:899
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: src/Sql.php:1247
+#: src/Sql.php:1245
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18166,7 +18141,7 @@ msgstr ""
 "現在の選択には、ユニークなカラムが含まれていません。グリッド編集、チェック"
 "ボックス、編集、コピー、削除機能は利用できません。%s"
 
-#: src/Sql.php:1261
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18237,24 +18212,24 @@ msgstr "元にするデータベース `%s` が見つかりません！"
 msgid "Target database `%s` was not found!"
 msgstr "対象先のデータベース `%s` が見つかりません！"
 
-#: src/Table/Table.php:841
+#: src/Table/Table.php:839
 msgid "Invalid database:"
 msgstr "不正なデータベースです:"
 
-#: src/Table/Table.php:859
+#: src/Table/Table.php:857
 msgid "Invalid table name:"
 msgstr "不正なテーブル名:"
 
-#: src/Table/Table.php:904
+#: src/Table/Table.php:902
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "テーブル %1$s の名称を %2$s に変更しました。"
 
-#: src/Table/Table.php:1140
+#: src/Table/Table.php:1138
 msgid "Could not save table UI preferences!"
 msgstr "テーブルに対する環境設定が保存できません!"
 
-#: src/Table/Table.php:1162
+#: src/Table/Table.php:1160
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18263,7 +18238,7 @@ msgstr ""
 "テーブルに対する環境設定のクリーンアップに失敗しました (参照 $cfg['Servers']"
 "[$i]['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1280
+#: src/Table/Table.php:1278
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18273,7 +18248,7 @@ msgstr ""
 "環境プロパティ「%s」が保存できません。ページ更新の際、変更箇所が維持されるこ"
 "とはないでしょう。テーブル構造を変更されたのであれば確認してみてください。"
 
-#: src/Table/Table.php:1605
+#: src/Table/Table.php:1603
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -18350,12 +18325,12 @@ msgstr "SQL 文を実行"
 msgid "Export as %s"
 msgstr "上の結果をエクスポートする %s"
 
-#: src/Tracking/Tracking.php:560
+#: src/Tracking/Tracking.php:559
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "世代 %s のスナップショット (SQL コード)"
 
-#: src/Tracking/Tracking.php:795
+#: src/Tracking/Tracking.php:792
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -18363,38 +18338,38 @@ msgstr ""
 "作成された一時的なデータベースを使用してダンプを実行することができます。これ"
 "を実行できる権限を持っていることを確認してください。"
 
-#: src/Tracking/Tracking.php:799
+#: src/Tracking/Tracking.php:796
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 "一時的なデータベースに対して実行しない場合は、この2行をコメントアウトします。"
 
-#: src/Tracking/Tracking.php:810
+#: src/Tracking/Tracking.php:807
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 "SQL 文をエクスポートしました。ダンプしたものをコピーするか実行するかしてくだ"
 "さい。"
 
-#: src/Tracking/Tracking.php:843
+#: src/Tracking/Tracking.php:840
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "テーブル `%s` に対しての追跡レポート"
 
-#: src/Tracking/Tracking.php:866
+#: src/Tracking/Tracking.php:863
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "%1$s に対する SQL コマンド追跡機能は、世代 %2$s でアクティブです。"
 
-#: src/Tracking/Tracking.php:869
+#: src/Tracking/Tracking.php:866
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "%1$s に対する SQL コマンド追跡機能は、世代 %2$s で非アクティブです。"
 
-#: src/Tracking/Tracking.php:964
+#: src/Tracking/Tracking.php:961
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "%2$s に世代 %1$s が削除されました。"
 
-#: src/Tracking/Tracking.php:995
+#: src/Tracking/Tracking.php:992
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
@@ -18409,28 +18384,28 @@ msgstr "申し訳ありませんが、削除されたトリガの復元に失敗
 msgid "Trigger %1$s has been modified."
 msgstr "トリガ %1$s を変更しました。"
 
-#: src/Triggers/Triggers.php:135
+#: src/Triggers/Triggers.php:133
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "トリガ %1$s を作成しました。"
 
-#: src/Triggers/Triggers.php:199
+#: src/Triggers/Triggers.php:195
 msgid "You must provide a trigger name!"
 msgstr "トリガ名は必須です!"
 
-#: src/Triggers/Triggers.php:205
+#: src/Triggers/Triggers.php:201
 msgid "You must provide a valid timing for the trigger!"
 msgstr "トリガの有効なタイミングを指定してください!"
 
-#: src/Triggers/Triggers.php:211
+#: src/Triggers/Triggers.php:207
 msgid "You must provide a valid event for the trigger!"
 msgstr "有効なトリガイベントを指定してください!"
 
-#: src/Triggers/Triggers.php:221
+#: src/Triggers/Triggers.php:217
 msgid "You must provide a valid table name!"
 msgstr "有効なテーブル名を指定してください!"
 
-#: src/Triggers/Triggers.php:228
+#: src/Triggers/Triggers.php:224
 msgid "You must provide a trigger definition."
 msgstr "トリガの定義は必須です。"
 
@@ -18759,13 +18734,13 @@ msgctxt "spatial types"
 msgid "Spatial"
 msgstr "空間データ"
 
-#: src/UserPassword.php:37
-msgid "The profile has been updated."
-msgstr "プロファイルを更新しました。"
-
-#: src/UserPassword.php:49
+#: src/UserPassword.php:43
 msgid "Password is too long!"
 msgstr "パスワードが長すぎます!"
+
+#: src/UserPassword.php:47
+msgid "The profile has been updated."
+msgstr "プロファイルを更新しました。"
 
 #: src/Util.php:132
 #, php-format
@@ -18787,7 +18762,7 @@ msgstr "午前"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s 日 %s 時間 %s 分 %s 秒"
 
-#: src/Util.php:1382
+#: src/Util.php:1373
 msgid "Users"
 msgstr "ユーザ"
 
@@ -18798,6 +18773,10 @@ msgstr "ZIP アーカイブにエラーがあります:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP アーカイブにファイルが含まれていません!"
+
+#, php-format
+#~ msgid "Invalid format of mediawiki input on line: <br>%s."
+#~ msgstr "mediawiki 入力の書式が不正です<br>行: %s。"
 
 #~ msgid ""
 #~ "Disable the default warning that is displayed on the main page if Suhosin "

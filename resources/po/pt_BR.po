@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-30 00:43+0000\n"
+"POT-Creation-Date: 2026-09-06 00:44+0000\n"
 "PO-Revision-Date: 2026-04-11 20:09+0000\n"
 "Last-Translator: Rodrigo Del Bem <rodrigodelbem@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -57,7 +57,7 @@ msgstr "Escuro"
 #: resources/templates/base.twig:99
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:479
-#: src/Util.php:1385
+#: src/Util.php:1376
 msgid "Settings"
 msgstr "Configurações"
 
@@ -202,7 +202,7 @@ msgstr "após %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:1983
+#: src/Display/Results.php:933 src/Plugins/Export/ExportSql.php:1983
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Nenhum"
@@ -276,7 +276,7 @@ msgstr "coluna(s)"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:312
-#: src/Controllers/Server/PrivilegesController.php:321
+#: src/Controllers/Server/PrivilegesController.php:316
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
 msgid "Go"
@@ -585,8 +585,8 @@ msgstr "Grupo de nós"
 #: src/Import/Import.php:1160 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1394
-#: src/Util.php:1411
+#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1385
+#: src/Util.php:1402
 msgid "Structure"
 msgstr "Estrutura"
 
@@ -826,7 +826,7 @@ msgstr "Opções de transformação de dado"
 #: resources/templates/components/_preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
-#: src/Controllers/Operations/TableController.php:328
+#: src/Controllers/Operations/TableController.php:334
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289
 msgid "No change"
@@ -850,7 +850,7 @@ msgstr "Resetar"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:679 src/Html/MySQLDocumentation.php:51
+#: src/Html/Generator.php:672 src/Html/MySQLDocumentation.php:51
 #: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Documentação"
@@ -914,7 +914,7 @@ msgstr "Desabilitado"
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:42
 #: src/Controllers/JavaScriptMessagesController.php:482
-#: src/Controllers/Table/DeleteRowsController.php:34
+#: src/Controllers/Table/DeleteRowsController.php:35
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:474
@@ -1021,8 +1021,8 @@ msgstr "Repetir consulta"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:380
-#: src/Display/Results.php:1872 src/Html/Generator.php:527
-#: src/Html/Generator.php:784
+#: src/Display/Results.php:1885 src/Html/Generator.php:520
+#: src/Html/Generator.php:777
 msgid "Edit"
 msgstr "Editar"
 
@@ -1040,7 +1040,7 @@ msgstr "Editar"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:382
-#: src/Display/Results.php:2410 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2423 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "Remover"
 
@@ -1118,7 +1118,7 @@ msgstr "Demonstrar SQL"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:614
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:607
 msgid "Profiling"
 msgstr "Perfil"
 
@@ -1200,7 +1200,7 @@ msgstr "Tempo gasto:"
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:927 src/Export/Export.php:697
-#: src/Html/Generator.php:583
+#: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "Atualizar"
 
@@ -1756,7 +1756,7 @@ msgstr "Nome do evento"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
-#: src/Server/Status/Processes.php:106 src/Util.php:1381
+#: src/Server/Status/Processes.php:106 src/Util.php:1372
 msgid "Status"
 msgstr "Status"
 
@@ -1824,7 +1824,7 @@ msgstr "Definidor"
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:990 src/Plugins/Export/ExportXml.php:92
-#: src/Util.php:1403
+#: src/Util.php:1394
 msgid "Events"
 msgstr "Eventos"
 
@@ -1886,7 +1886,7 @@ msgstr "Marcar todos"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
 #: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
-#: src/Util.php:1383 src/Util.php:1398 src/Util.php:1415
+#: src/Util.php:1374 src/Util.php:1389 src/Util.php:1406
 msgid "Export"
 msgstr "Exportar"
 
@@ -1914,7 +1914,7 @@ msgstr "Exportar"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:534
+#: resources/templates/triggers/row.twig:58 src/Operations.php:532
 msgid "Drop"
 msgstr "Eliminar"
 
@@ -2075,7 +2075,7 @@ msgid "criteria"
 msgstr "critério"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1643
+#: src/Util.php:1634
 msgid "Sort"
 msgstr "Ordenar"
 
@@ -2086,8 +2086,8 @@ msgstr "Ordenar"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1390
-#: src/Display/Results.php:1396 src/Util.php:1651 src/Util.php:1668
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1403
+#: src/Display/Results.php:1409 src/Util.php:1642 src/Util.php:1659
 msgid "Ascending"
 msgstr "Ascendente"
 
@@ -2098,8 +2098,8 @@ msgstr "Ascendente"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1385
-#: src/Display/Results.php:1401 src/Util.php:1656 src/Util.php:1673
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1398
+#: src/Display/Results.php:1414 src/Util.php:1647 src/Util.php:1664
 msgid "Descending"
 msgstr "Descendente"
 
@@ -2141,7 +2141,7 @@ msgid "Copy query"
 msgstr "Atualizar query"
 
 #: resources/templates/database/multi_table_query/form.twig:176
-#: src/Html/Generator.php:552
+#: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "Pesquisar"
 
@@ -2289,8 +2289,8 @@ msgstr "Nome do Host"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
-#: src/Controllers/Server/PrivilegesController.php:448 src/Menu.php:257
-#: src/Menu.php:369 src/Util.php:1401 src/Util.php:1417
+#: src/Controllers/Server/PrivilegesController.php:443 src/Menu.php:257
+#: src/Menu.php:369 src/Util.php:1392 src/Util.php:1408
 msgid "Privileges"
 msgstr "Privilégios"
 
@@ -2339,7 +2339,7 @@ msgstr "Editar privilégios"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2052
+#: src/Server/Privileges.php:2054
 msgid "No user found."
 msgstr "Nenhum usuário encontrado."
 
@@ -2450,7 +2450,7 @@ msgid "This routine does not require any parameters."
 msgstr "Esta página não contem todas tabelas!"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:375
-#: src/Util.php:1402
+#: src/Util.php:1393
 msgid "Routines"
 msgstr "Rotinas"
 
@@ -2463,7 +2463,7 @@ msgstr "Rotinas"
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
 #: src/Menu.php:331 src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1065
-#: src/Util.php:1396 src/Util.php:1413
+#: src/Util.php:1387 src/Util.php:1404
 msgid "Search"
 msgstr "Procurar"
 
@@ -2581,7 +2581,7 @@ msgstr[1] "%1$s resultados em <strong>%2$s</strong>"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1067 src/Util.php:1410
+#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1067 src/Util.php:1401
 msgid "Browse"
 msgstr "Visualizar"
 
@@ -2608,7 +2608,7 @@ msgstr[1] "%s tabelas"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:501
-#: src/Server/Status/Data.php:124 src/Util.php:1387
+#: src/Server/Status/Data.php:124 src/Util.php:1378
 msgid "Replication"
 msgstr "Replicação"
 
@@ -2713,7 +2713,7 @@ msgid "Copy table with prefix"
 msgstr "Copiar tabelas com prefixo"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:409 src/Util.php:1407
+#: src/Menu.php:409 src/Util.php:1398
 msgid "Central columns"
 msgstr "Colunas centrais"
 
@@ -2792,7 +2792,7 @@ msgstr "Dicionário de dados"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/ExportController.php:72
 #: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:286
 msgid "No tables found in database."
@@ -2834,7 +2834,7 @@ msgstr "Views"
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:118
-#: src/Controllers/Operations/TableController.php:312
+#: src/Controllers/Operations/TableController.php:318
 #: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:25
 msgid "View"
@@ -2863,7 +2863,7 @@ msgstr "Replicado"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1066 src/Util.php:1414
+#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1066 src/Util.php:1405
 msgid "Insert"
 msgstr "Inserir"
 
@@ -3076,12 +3076,12 @@ msgid "Extra options"
 msgstr "Opções extras"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1111
+#: src/Display/Results.php:1124
 msgid "Partial texts"
 msgstr "Textos parciais"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1115
+#: src/Display/Results.php:1128
 msgid "Full texts"
 msgstr "Textos completos"
 
@@ -3122,7 +3122,7 @@ msgstr "Binário bem conhecido"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:468
-#: src/Display/Results.php:1873 src/Html/Generator.php:83
+#: src/Display/Results.php:1886 src/Html/Generator.php:82
 msgid "Copy"
 msgstr "Copiar"
 
@@ -3159,12 +3159,8 @@ msgstr "Converter para Katakana"
 
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:113
-#: src/Controllers/Table/Partition/DropController.php:56
-#: src/Controllers/Table/Partition/RebuildController.php:56
-#: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:412
-#: src/Message.php:138
+#: src/Controllers/Operations/ViewController.php:109 src/Html/Generator.php:728
+#: src/Import/Import.php:122 src/InsertEdit.php:412 src/Message.php:104
 msgid "Error"
 msgstr "Erro"
 
@@ -3244,7 +3240,7 @@ msgstr "Atualizar"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:135
-#: src/Html/Generator.php:759
+#: src/Html/Generator.php:752
 msgid "SQL query:"
 msgstr "Query SQL:"
 
@@ -3514,7 +3510,7 @@ msgstr "Configurações gerais"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:95
+#: src/Controllers/UserPasswordController.php:94
 msgid "Change password"
 msgstr "Alterar a senha"
 
@@ -3661,7 +3657,7 @@ msgstr "Pegue"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:412
-#: src/Export/Export.php:739 src/Html/Generator.php:843
+#: src/Export/Export.php:739 src/Html/Generator.php:836
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Voltar"
@@ -3672,7 +3668,7 @@ msgstr "Voltar"
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
 #: src/Config/Forms/User/ImportForm.php:59 src/Menu.php:250 src/Menu.php:357
-#: src/Menu.php:474 src/Util.php:1384 src/Util.php:1399 src/Util.php:1416
+#: src/Menu.php:474 src/Util.php:1375 src/Util.php:1390 src/Util.php:1407
 msgid "Import"
 msgstr "Importar"
 
@@ -4020,7 +4016,7 @@ msgstr "Envio de SQL"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:726
-#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1379
+#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1370
 msgid "Databases"
 msgstr "Bancos de dados"
 
@@ -4478,7 +4474,7 @@ msgstr ""
 "atualizado."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:494
-#: src/Server/Status/Data.php:119 src/Util.php:1386
+#: src/Server/Status/Data.php:119 src/Util.php:1377
 msgid "Binary log"
 msgstr "Log binário"
 
@@ -4582,7 +4578,7 @@ msgstr "Rodar consulta(s) SQL no banco de dados %s"
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
 #: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1064
-#: src/Util.php:1380 src/Util.php:1395 src/Util.php:1412
+#: src/Util.php:1371 src/Util.php:1386 src/Util.php:1403
 msgid "SQL"
 msgstr "SQL"
 
@@ -4699,7 +4695,7 @@ msgstr "Esperas de escrita em %"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1388
+#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1379
 msgid "Variables"
 msgstr "Variáveis"
 
@@ -4720,7 +4716,7 @@ msgid "Importing into the current server"
 msgstr "Importando para o servidor atual"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:522
-#: src/Util.php:1390
+#: src/Util.php:1381
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -6042,7 +6038,7 @@ msgid "Query analyzer"
 msgstr "Analisador de consulta"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:339
-#: src/Util.php:1397
+#: src/Util.php:1388
 msgid "Query"
 msgstr "Consulta"
 
@@ -6154,7 +6150,7 @@ msgid "Start auto refresh"
 msgstr "Iniciar a Atualização Automática"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2428
+#: src/Display/Results.php:2441
 msgid "Kill"
 msgstr "Finalizar"
 
@@ -6332,7 +6328,7 @@ msgid "No users were found belonging to this user group."
 msgstr "Nenhum usuário pertencente a este grupo foi encontrado."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:451
+#: src/Controllers/Server/PrivilegesController.php:446
 #: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr "Usuário"
@@ -6522,24 +6518,8 @@ msgid "Pie chart with profiling results."
 msgstr "Gráfico de pizza com resultados do perfil."
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:110
-#: src/Controllers/Table/DeleteRowsController.php:60
-#: src/Controllers/Table/FindReplaceController.php:119
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:75
-#: src/Controllers/Table/Maintenance/CheckController.php:75
-#: src/Controllers/Table/Maintenance/ChecksumController.php:75
-#: src/Controllers/Table/Maintenance/OptimizeController.php:75
-#: src/Controllers/Table/Maintenance/RepairController.php:75
-#: src/Controllers/Table/Partition/AnalyzeController.php:49
-#: src/Controllers/Table/Partition/CheckController.php:49
-#: src/Controllers/Table/Partition/DropController.php:50
-#: src/Controllers/Table/Partition/OptimizeController.php:49
-#: src/Controllers/Table/Partition/RebuildController.php:50
-#: src/Controllers/Table/Partition/RepairController.php:49
-#: src/Controllers/Table/Partition/TruncateController.php:50
-#: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1002 src/Display/Results.php:2964
-#: src/Message.php:122
+#: src/Controllers/Operations/ViewController.php:109
+#: src/Database/Routines.php:1000 src/Message.php:87
 msgid "Your SQL query has been executed successfully."
 msgstr "Seu comando SQL foi executado com sucesso."
 
@@ -6847,7 +6827,7 @@ msgstr "Arraste para reordenar"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1408
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1406
 msgid "Ignore"
 msgstr "Ignorar"
 
@@ -7048,7 +7028,7 @@ msgstr "Verificar integridade referencial"
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:362 src/Util.php:1068 src/Util.php:1400 src/Util.php:1418
+#: src/Menu.php:362 src/Util.php:1068 src/Util.php:1391 src/Util.php:1409
 msgid "Operations"
 msgstr "Operações"
 
@@ -7230,32 +7210,32 @@ msgid "Index length"
 msgstr "Comprimento do índice"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:522
+#: src/Operations.php:520
 msgid "Analyze"
 msgstr "Analizar"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:523
+#: src/Operations.php:521
 msgid "Check"
 msgstr "Verificar"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:524
+#: src/Operations.php:522
 msgid "Optimize"
 msgstr "Otimizar"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:525
+#: src/Operations.php:523
 msgid "Rebuild"
 msgstr "Reconstruir"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:526
+#: src/Operations.php:524
 msgid "Repair"
 msgstr "Reparar"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:527
+#: src/Operations.php:525
 msgid "Truncate"
 msgstr "Truncar"
 
@@ -7521,7 +7501,7 @@ msgstr "Exportação do acionador %s"
 #: src/Plugins/Export/ExportOdt.php:566 src/Plugins/Export/ExportPdf.php:173
 #: src/Plugins/Export/ExportSql.php:1846
 #: src/Plugins/Export/ExportTexytext.php:408
-#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1404 src/Util.php:1420
+#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1395 src/Util.php:1411
 msgid "Triggers"
 msgstr "Acionadores"
 
@@ -10797,12 +10777,12 @@ msgid "Put columns names in the first row"
 msgstr "Colocar os nomes das colunas na primeira linha"
 
 #: src/Config/Descriptions.php:639 src/Config/Descriptions.php:772
-#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:688
+#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:687
 msgid "Columns enclosed with"
 msgstr "Colunas delimitadas por"
 
 #: src/Config/Descriptions.php:640 src/Config/Descriptions.php:773
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:699
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:698
 msgid "Columns escaped with"
 msgstr "Campos divididos com"
 
@@ -10818,12 +10798,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "Remover caracteres CRLF em colunas"
 
 #: src/Config/Descriptions.php:643 src/Config/Descriptions.php:777
-#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:673
+#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:672
 msgid "Columns terminated with"
 msgstr "Colunas terminadas com"
 
 #: src/Config/Descriptions.php:644 src/Config/Descriptions.php:771
-#: src/Plugins/Import/ImportCsv.php:706
+#: src/Plugins/Import/ImportCsv.php:705
 msgid "Lines terminated with"
 msgstr "Linhas terminadas com"
 
@@ -11660,11 +11640,11 @@ msgstr "Mostrar estatísticas"
 msgid "Skip locked tables"
 msgstr "Saltar tabelas bloqueadas"
 
-#: src/Config/Descriptions.php:926 src/Html/Generator.php:492
+#: src/Config/Descriptions.php:926 src/Html/Generator.php:485
 msgid "Explain SQL"
 msgstr "Demonstrar SQL"
 
-#: src/Config/Descriptions.php:928 src/Html/Generator.php:563
+#: src/Config/Descriptions.php:928 src/Html/Generator.php:556
 msgid "Create PHP code"
 msgstr "Criar código PHP"
 
@@ -12215,36 +12195,36 @@ msgstr ""
 #: src/Controllers/Database/TrackingController.php:60
 #: src/Controllers/JavaScriptMessagesController.php:331
 #: src/Controllers/Operations/Database/CollationController.php:54
-#: src/Controllers/Operations/DatabaseController.php:232
-#: src/Controllers/Operations/DatabaseController.php:237
+#: src/Controllers/Operations/DatabaseController.php:230
+#: src/Controllers/Operations/DatabaseController.php:235
 #: src/Controllers/Operations/TableController.php:86
 #: src/Controllers/Operations/TableController.php:91
-#: src/Controllers/Operations/ViewController.php:61
-#: src/Controllers/Operations/ViewController.php:66
+#: src/Controllers/Operations/ViewController.php:62
+#: src/Controllers/Operations/ViewController.php:67
 #: src/Controllers/Server/Databases/DestroyController.php:62
-#: src/Controllers/Table/AddFieldController.php:162
-#: src/Controllers/Table/AddFieldController.php:167
+#: src/Controllers/Table/AddFieldController.php:161
+#: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChangeController.php:75
-#: src/Controllers/Table/ChartController.php:88
-#: src/Controllers/Table/ChartController.php:95
-#: src/Controllers/Table/ChartController.php:122
-#: src/Controllers/Table/ChartController.php:129
-#: src/Controllers/Table/ChartController.php:202
+#: src/Controllers/Table/ChartController.php:86
+#: src/Controllers/Table/ChartController.php:93
+#: src/Controllers/Table/ChartController.php:120
+#: src/Controllers/Table/ChartController.php:127
+#: src/Controllers/Table/ChartController.php:200
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
 #: src/Controllers/Table/DropColumnConfirmationController.php:52
 #: src/Controllers/Table/DropColumnConfirmationController.php:57
-#: src/Controllers/Table/FindReplaceController.php:77
-#: src/Controllers/Table/FindReplaceController.php:82
+#: src/Controllers/Table/FindReplaceController.php:76
+#: src/Controllers/Table/FindReplaceController.php:81
 #: src/Controllers/Table/GisVisualizationController.php:70
 #: src/Controllers/Table/GisVisualizationController.php:75
 #: src/Controllers/Table/ImportController.php:70
 #: src/Controllers/Table/ImportController.php:75
-#: src/Controllers/Table/IndexesController.php:67
-#: src/Controllers/Table/IndexesController.php:74
-#: src/Controllers/Table/IndexRenameController.php:55
-#: src/Controllers/Table/IndexRenameController.php:60
+#: src/Controllers/Table/IndexesController.php:66
+#: src/Controllers/Table/IndexesController.php:73
+#: src/Controllers/Table/IndexRenameController.php:54
+#: src/Controllers/Table/IndexRenameController.php:59
 #: src/Controllers/Table/SearchController.php:171
 #: src/Controllers/Table/SearchController.php:176
 #: src/Controllers/Table/SqlController.php:59
@@ -12302,7 +12282,7 @@ msgstr ""
 "Erro ao processar requisição: Nenhum evento com o nome %1$s foi encontrado "
 "no banco de dados %2$s."
 
-#: src/Controllers/Database/ExportController.php:129
+#: src/Controllers/Database/ExportController.php:127
 #: src/Controllers/Server/ExportController.php:57
 #: src/Controllers/Table/ExportController.php:92
 msgid "Could not load export plugins, please check your installation!"
@@ -12314,16 +12294,16 @@ msgstr "Não pôde carregar os plugins de exportação, verifique sua instalaç�
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Não foi possível carregar os plugins, verifique sua instalação!"
 
-#: src/Controllers/Database/PrivilegesController.php:64
-#: src/Controllers/Server/PrivilegesController.php:100
-#: src/Controllers/Server/UserGroupsController.php:47
-#: src/Controllers/Table/PrivilegesController.php:67
+#: src/Controllers/Database/PrivilegesController.php:63
+#: src/Controllers/Server/PrivilegesController.php:99
+#: src/Controllers/Server/UserGroupsController.php:46
+#: src/Controllers/Table/PrivilegesController.php:66
 msgid "No Privileges"
 msgstr "Sem privilégios"
 
-#: src/Controllers/Database/PrivilegesController.php:73
-#: src/Controllers/Server/PrivilegesController.php:109
-#: src/Controllers/Table/PrivilegesController.php:76
+#: src/Controllers/Database/PrivilegesController.php:70
+#: src/Controllers/Server/PrivilegesController.php:106
+#: src/Controllers/Table/PrivilegesController.php:73
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Você não tem privilégios para administrar os usuários!"
 
@@ -12341,32 +12321,32 @@ msgstr "Você não tem privilégios para administrar os usuários!"
 #: src/Controllers/JavaScriptMessagesController.php:332
 #: src/Controllers/Operations/TableController.php:98
 #: src/Controllers/Operations/TableController.php:103
-#: src/Controllers/Operations/ViewController.php:73
-#: src/Controllers/Operations/ViewController.php:78
-#: src/Controllers/Table/AddFieldController.php:174
-#: src/Controllers/Table/AddFieldController.php:179
+#: src/Controllers/Operations/ViewController.php:74
+#: src/Controllers/Operations/ViewController.php:79
+#: src/Controllers/Table/AddFieldController.php:173
+#: src/Controllers/Table/AddFieldController.php:178
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
-#: src/Controllers/Table/ChartController.php:103
-#: src/Controllers/Table/ChartController.php:108
-#: src/Controllers/Table/ChartController.php:210
+#: src/Controllers/Table/ChartController.php:101
+#: src/Controllers/Table/ChartController.php:106
+#: src/Controllers/Table/ChartController.php:208
 #: src/Controllers/Table/DeleteConfirmController.php:69
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:89
-#: src/Controllers/Table/FindReplaceController.php:94
+#: src/Controllers/Table/FindReplaceController.php:88
+#: src/Controllers/Table/FindReplaceController.php:93
 #: src/Controllers/Table/ImportController.php:82
 #: src/Controllers/Table/ImportController.php:87
-#: src/Controllers/Table/IndexesController.php:82
-#: src/Controllers/Table/IndexesController.php:87
-#: src/Controllers/Table/IndexRenameController.php:67
-#: src/Controllers/Table/IndexRenameController.php:72
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:46
-#: src/Controllers/Table/Maintenance/CheckController.php:46
-#: src/Controllers/Table/Maintenance/ChecksumController.php:46
-#: src/Controllers/Table/Maintenance/OptimizeController.php:46
-#: src/Controllers/Table/Maintenance/RepairController.php:46
+#: src/Controllers/Table/IndexesController.php:81
+#: src/Controllers/Table/IndexesController.php:86
+#: src/Controllers/Table/IndexRenameController.php:66
+#: src/Controllers/Table/IndexRenameController.php:71
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:45
+#: src/Controllers/Table/Maintenance/CheckController.php:45
+#: src/Controllers/Table/Maintenance/ChecksumController.php:45
+#: src/Controllers/Table/Maintenance/OptimizeController.php:45
+#: src/Controllers/Table/Maintenance/RepairController.php:45
 #: src/Controllers/Table/SearchController.php:183
 #: src/Controllers/Table/SearchController.php:188
 #: src/Controllers/Table/SqlController.php:71
@@ -12435,7 +12415,7 @@ msgid "Success!"
 msgstr "Sucesso!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3245
+#: src/Display/Results.php:3262
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12520,7 +12500,7 @@ msgstr ""
 "Você foi desconectado de um servidor, para se desconectar completamente do "
 "phpMyAdmin, é necessário que se desconecte de todos os servidores."
 
-#: src/Controllers/HomeController.php:194
+#: src/Controllers/HomeController.php:191
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12530,14 +12510,14 @@ msgstr ""
 "configurado, algumas funções avançadas foram desativadas. %sDescubra "
 "porque%s. "
 
-#: src/Controllers/HomeController.php:200
+#: src/Controllers/HomeController.php:197
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ou, alternativamente, vá à aba 'Operações' de qualquer banco de dados para "
 "configurá-lo lá."
 
-#: src/Controllers/HomeController.php:264
+#: src/Controllers/HomeController.php:261
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12549,7 +12529,7 @@ msgstr ""
 "que a validade de cookies configurada no phpMyAdmin, por isso, o seu login "
 "poderá expirar mais cedo do que o configurado no phpMyAdmin."
 
-#: src/Controllers/HomeController.php:284
+#: src/Controllers/HomeController.php:281
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12558,7 +12538,7 @@ msgstr ""
 "phpMyAdmin, por isso, o seu login expirará mais cedo do que o configurado no "
 "phpMyAdmin."
 
-#: src/Controllers/HomeController.php:303
+#: src/Controllers/HomeController.php:300
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12568,7 +12548,7 @@ msgstr ""
 "(controlpass) e está aberto para intrusão; você realmente deve corrigir essa "
 "falha de segurança alterando a senha para o controluser 'pma'."
 
-#: src/Controllers/HomeController.php:322
+#: src/Controllers/HomeController.php:319
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12578,7 +12558,7 @@ msgstr ""
 "cookies. Uma chave temporária foi gerada automaticamente para você. Por "
 "favor consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
 
-#: src/Controllers/HomeController.php:332
+#: src/Controllers/HomeController.php:329
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12589,7 +12569,7 @@ msgstr ""
 "que o necessário. Ela deve ter apenas %d bytes de comprimento. Por favor "
 "consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
 
-#: src/Controllers/HomeController.php:352
+#: src/Controllers/HomeController.php:349
 #, fuzzy
 #| msgid ""
 #| "The configuration file needs a valid key for cookie encryption. A "
@@ -12604,7 +12584,7 @@ msgstr ""
 "cookies. Uma chave temporária foi gerada automaticamente para você. Por "
 "favor consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
 
-#: src/Controllers/HomeController.php:362
+#: src/Controllers/HomeController.php:359
 #, fuzzy, php-format
 #| msgid ""
 #| "The cookie encryption key in the configuration file is longer than "
@@ -12619,7 +12599,7 @@ msgstr ""
 "que o necessário. Ela deve ter apenas %d bytes de comprimento. Por favor "
 "consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
 
-#: src/Controllers/HomeController.php:380
+#: src/Controllers/HomeController.php:377
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12632,7 +12612,7 @@ msgstr ""
 "servidor pode ser comprometida por indivíduos não autorizados realizando "
 "downloads de suas configurações."
 
-#: src/Controllers/HomeController.php:395
+#: src/Controllers/HomeController.php:392
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12641,14 +12621,14 @@ msgstr ""
 "O $cfg['TempDir'](%s) não está acessível. phpMyAdmin não será capaz de "
 "cachear os modelos e deve ficar mais lento por causa disso."
 
-#: src/Controllers/HomeController.php:412
+#: src/Controllers/HomeController.php:409
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
 
-#: src/Controllers/HomeController.php:465
+#: src/Controllers/HomeController.php:462
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12659,7 +12639,7 @@ msgstr ""
 "será capaz de dividir as strings corretamente e isso pode causar resultados "
 "inesperados."
 
-#: src/Controllers/HomeController.php:483
+#: src/Controllers/HomeController.php:480
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12677,25 +12657,25 @@ msgstr ""
 "Você provavelmente tentou carregar um arquivo muito grande. Veja referências "
 "na %sdocumentação%s para resolver esse problema."
 
-#: src/Controllers/Import/ImportController.php:190
+#: src/Controllers/Import/ImportController.php:189
 msgid "Incorrect format parameter"
 msgstr "Parâmetro de formato incorreto"
 
-#: src/Controllers/Import/ImportController.php:253
+#: src/Controllers/Import/ImportController.php:252
 msgid "Sorry an unexpected error happened!"
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:298
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:297
+#: src/Controllers/Import/ImportController.php:508
 msgid "Showing bookmark"
 msgstr "Exibindo marcadores"
 
-#: src/Controllers/Import/ImportController.php:318
-#: src/Controllers/Import/ImportController.php:505
+#: src/Controllers/Import/ImportController.php:317
+#: src/Controllers/Import/ImportController.php:504
 msgid "The bookmark has been deleted."
 msgstr "O marcador foi removido."
 
-#: src/Controllers/Import/ImportController.php:427
+#: src/Controllers/Import/ImportController.php:426
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12705,14 +12685,14 @@ msgstr ""
 "enviado, ou o tamanho do arquivo excedeu o tamanho máximo permitido pela sua "
 "configuração do PHP. Verifique a [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:517
+#: src/Controllers/Import/ImportController.php:516
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Importação finalizada com sucesso, %d consulta executada."
 msgstr[1] "Importação finalizada com sucesso, %d consultas executadas."
 
-#: src/Controllers/Import/ImportController.php:554
+#: src/Controllers/Import/ImportController.php:553
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12721,7 +12701,7 @@ msgstr ""
 "Script passou do tempo limite, se você deseja terminar a importação, "
 "%sreenvie o mesmo arquivo%s e a importação será resumida."
 
-#: src/Controllers/Import/ImportController.php:564
+#: src/Controllers/Import/ImportController.php:563
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12730,12 +12710,12 @@ msgstr ""
 "dizer que o phpMyAdmin não será capaz de realizar essa importação a menos "
 "que você aumente o tempo limite do PHP."
 
-#: src/Controllers/Import/ImportController.php:635
+#: src/Controllers/Import/ImportController.php:634
 #: src/Controllers/Sql/SqlController.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "O comando \"DROP DATABASE\" está desabilitado."
 
-#: src/Controllers/Import/ImportController.php:698 src/Sql.php:918
+#: src/Controllers/Import/ImportController.php:697 src/Sql.php:919
 msgid "[ROLLBACK occurred.]"
 msgstr "[Ocorreu um ROLLBACK.]"
 
@@ -12975,12 +12955,12 @@ msgid "The user name is empty!"
 msgstr "O nome do usuário está em branco!"
 
 #: src/Controllers/JavaScriptMessagesController.php:147
-#: src/Server/Privileges.php:761 src/UserPassword.php:41
+#: src/Server/Privileges.php:761 src/UserPassword.php:33
 msgid "The password is empty!"
 msgstr "A senha está em branco!"
 
 #: src/Controllers/JavaScriptMessagesController.php:148
-#: src/Server/Privileges.php:759 src/UserPassword.php:45
+#: src/Server/Privileges.php:759 src/UserPassword.php:38
 msgid "The passwords aren't the same!"
 msgstr "As senhas não são iguais!"
 
@@ -14643,7 +14623,7 @@ msgstr ""
 "Por favor aguarde, o arquivo está sendo subido. Detalhes sobre o upload não "
 "estão disponíveis."
 
-#: src/Controllers/NavigationController.php:40
+#: src/Controllers/NavigationController.php:39
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Erro fatal: A navegação somente pode ser acessada via AJAX"
 
@@ -14664,7 +14644,7 @@ msgid "String"
 msgstr "String"
 
 #: src/Controllers/Operations/Database/CollationController.php:42
-#: src/Controllers/Operations/TableController.php:262
+#: src/Controllers/Operations/TableController.php:268
 msgid "No collation provided."
 msgstr "Nenhum agrupamento fornecido."
 
@@ -14679,12 +14659,12 @@ msgstr ""
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "O banco de dados %1$s foi renomeado para %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:176
+#: src/Controllers/Operations/DatabaseController.php:175
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "O banco de dados %1$s foi copiado para %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:273
+#: src/Controllers/Operations/DatabaseController.php:271
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14704,11 +14684,11 @@ msgstr "Cole isso em seu config.inc.php"
 msgid "Could not import configuration"
 msgstr "Não foi possível importar a configuração"
 
-#: src/Controllers/Preferences/TwoFactorController.php:49
+#: src/Controllers/Preferences/TwoFactorController.php:48
 msgid "Two-factor authentication has been removed."
 msgstr "Autenticação por dois fatores removida."
 
-#: src/Controllers/Preferences/TwoFactorController.php:62
+#: src/Controllers/Preferences/TwoFactorController.php:59
 msgid "Two-factor authentication has been configured."
 msgstr "Autenticação por dois fatores configurada."
 
@@ -14740,7 +14720,7 @@ msgstr "A conta %s@%s foi bloqueada com sucesso."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "A conta %s@%s foi desbloqueada com sucesso."
 
-#: src/Controllers/Server/PrivilegesController.php:127
+#: src/Controllers/Server/PrivilegesController.php:123
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -15538,15 +15518,15 @@ msgstr "Valor incorreto ou sem validação para %s"
 msgid "Bookmark %s has been created."
 msgstr "Marcador %s criado."
 
-#: src/Controllers/Sql/SqlController.php:225
+#: src/Controllers/Sql/SqlController.php:224
 msgid "Bookmark not created!"
 msgstr "Marcador não criado!"
 
-#: src/Controllers/Table/AddFieldController.php:137
-#: src/Controllers/Table/IndexesController.php:139
-#: src/Controllers/Table/IndexRenameController.php:123
-#: src/Controllers/Table/Structure/PartitioningController.php:266
-#: src/Controllers/Table/Structure/SaveController.php:228
+#: src/Controllers/Table/AddFieldController.php:136
+#: src/Controllers/Table/IndexesController.php:137
+#: src/Controllers/Table/IndexRenameController.php:122
+#: src/Controllers/Table/Structure/PartitioningController.php:264
+#: src/Controllers/Table/Structure/SaveController.php:227
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "A tabela %1$s foi alterada com sucesso."
@@ -15557,16 +15537,16 @@ msgstr "A tabela %1$s foi alterada com sucesso."
 msgid "No row selected."
 msgstr "Não há linhas selecionadas."
 
-#: src/Controllers/Table/ChartController.php:60
-#: src/Controllers/Table/GisVisualizationController.php:85
+#: src/Controllers/Table/ChartController.php:59
+#: src/Controllers/Table/GisVisualizationController.php:84
 msgid "No SQL query was set to fetch data."
 msgstr "Nenhuma query SQL foi definida para retornar dados."
 
-#: src/Controllers/Table/ChartController.php:166
+#: src/Controllers/Table/ChartController.php:164
 msgid "No numeric columns present in the table to plot."
 msgstr "Nenhuma coluna numérica presente na tabela para calcular."
 
-#: src/Controllers/Table/ChartController.php:237
+#: src/Controllers/Table/ChartController.php:235
 msgid "No data to display"
 msgstr "Sem dados para mostrar"
 
@@ -15610,40 +15590,40 @@ msgid "There is an issue with your request."
 msgstr "Há um problema com sua solicitação."
 
 #: src/Controllers/Table/GetFieldController.php:109
-#: src/Database/Routines.php:1019 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:904
+#: src/Database/Routines.php:1017 src/Import/Import.php:138
+#: src/InsertEdit.php:163 src/Sql.php:905
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "O MySQL retornou um conjunto vazio (ex. zero registros)."
 
-#: src/Controllers/Table/GisVisualizationController.php:96
+#: src/Controllers/Table/GisVisualizationController.php:93
 msgid "No spatial column found for this SQL query."
 msgstr "Nenhuma coluna espacial encontrada para esta consulta SQL."
 
-#: src/Controllers/Table/GisVisualizationController.php:121
+#: src/Controllers/Table/GisVisualizationController.php:117
 msgid "Invalid file format, expected one of: "
 msgstr ""
 
-#: src/Controllers/Table/GisVisualizationController.php:129
+#: src/Controllers/Table/GisVisualizationController.php:125
 #, fuzzy
 #| msgid "Failed to open remote URL"
 msgid "Failed to create image"
 msgstr "Falha ao abrir URL remota"
 
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:67
-#: src/Controllers/Table/Maintenance/CheckController.php:67
-#: src/Controllers/Table/Maintenance/ChecksumController.php:67
-#: src/Controllers/Table/Maintenance/OptimizeController.php:67
-#: src/Controllers/Table/Maintenance/RepairController.php:67
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:66
+#: src/Controllers/Table/Maintenance/CheckController.php:66
+#: src/Controllers/Table/Maintenance/ChecksumController.php:66
+#: src/Controllers/Table/Maintenance/OptimizeController.php:66
+#: src/Controllers/Table/Maintenance/RepairController.php:66
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr "Operações de manutenção em várias tabelas estão desabilitadas."
 
-#: src/Controllers/Table/Partition/AnalyzeController.php:36
-#: src/Controllers/Table/Partition/CheckController.php:36
-#: src/Controllers/Table/Partition/DropController.php:36
-#: src/Controllers/Table/Partition/OptimizeController.php:36
-#: src/Controllers/Table/Partition/RebuildController.php:36
-#: src/Controllers/Table/Partition/RepairController.php:36
-#: src/Controllers/Table/Partition/TruncateController.php:36
+#: src/Controllers/Table/Partition/AnalyzeController.php:35
+#: src/Controllers/Table/Partition/CheckController.php:35
+#: src/Controllers/Table/Partition/DropController.php:35
+#: src/Controllers/Table/Partition/OptimizeController.php:35
+#: src/Controllers/Table/Partition/RebuildController.php:35
+#: src/Controllers/Table/Partition/RepairController.php:35
+#: src/Controllers/Table/Partition/TruncateController.php:35
 msgid "The partition name must be a non-empty string."
 msgstr "O nome da partição deve ser uma string não vazia."
 
@@ -15651,11 +15631,11 @@ msgstr "O nome da partição deve ser uma string não vazia."
 msgid "Invalid database or table name."
 msgstr "Nome de banco de dados ou tabela inválido."
 
-#: src/Controllers/Table/RelationController.php:327
+#: src/Controllers/Table/RelationController.php:321
 msgid "Display column was successfully updated."
 msgstr "A coluna de exibição foi atualizada com sucesso."
 
-#: src/Controllers/Table/RelationController.php:361
+#: src/Controllers/Table/RelationController.php:354
 msgid "Internal relationships were successfully updated."
 msgstr "Os relacionamentos internos foram atualizadas com êxito."
 
@@ -15685,9 +15665,9 @@ msgstr "O usuário selecionado não foi encontrado na tabela de privilégios."
 msgid "The selected columns are already in the correct order."
 msgstr ""
 
-#: src/Controllers/Table/Structure/PartitioningController.php:258
-#: src/Controllers/Table/Structure/SaveController.php:278
-#: src/Tracking/Tracking.php:736
+#: src/Controllers/Table/Structure/PartitioningController.php:257
+#: src/Controllers/Table/Structure/SaveController.php:277
+#: src/Tracking/Tracking.php:733
 msgid "Query error"
 msgstr "Erro de consulta"
 
@@ -15698,7 +15678,7 @@ msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "O nome '%s' é uma palavra-chave reservada do MySQL."
 msgstr[1] "Os nomes '%s' são palavras-chaves reservadas do MySQL."
 
-#: src/Controllers/Table/Structure/SaveController.php:223
+#: src/Controllers/Table/Structure/SaveController.php:222
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -15744,7 +15724,7 @@ msgstr ""
 "Erro ao processar requisição: Nenhum acionador com o nome %1$s foi "
 "encontrado no banco de dados %2$s."
 
-#: src/Controllers/UserPasswordController.php:48
+#: src/Controllers/UserPasswordController.php:47
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Você não tem direitos suficientes para estar aqui agora!"
 
@@ -15844,21 +15824,21 @@ msgstr ""
 "instalação!"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:103
-#: src/Database/Routines.php:129 src/Database/Routines.php:207
-#: src/Database/Routines.php:979 src/Triggers/Triggers.php:84
-#: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:128
+#: src/Database/Events.php:134 src/Database/Routines.php:103
+#: src/Database/Routines.php:129 src/Database/Routines.php:205
+#: src/Database/Routines.php:977 src/Triggers/Triggers.php:84
+#: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:126
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "A seguinte consulta falhou: \"%s\""
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
-#: src/Database/Events.php:119 src/Database/Events.php:140
+#: src/Database/Events.php:119 src/Database/Events.php:138
 #: src/Database/Routines.php:107 src/Database/Routines.php:133
-#: src/Database/Routines.php:211 src/Database/Routines.php:225
-#: src/Database/Routines.php:983 src/Html/Generator.php:800
+#: src/Database/Routines.php:209 src/Database/Routines.php:223
+#: src/Database/Routines.php:981 src/Html/Generator.php:793
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
-#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
+#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
 msgstr "Mensagem do MySQL: "
 
@@ -15866,7 +15846,7 @@ msgstr "Mensagem do MySQL: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Desculpe, mas falhamos em restaurar o evento eliminado."
 
-#: src/Database/Events.php:117 src/Database/Routines.php:223
+#: src/Database/Events.php:117 src/Database/Routines.php:221
 #: src/Triggers/Triggers.php:109
 msgid "The backed up query was:"
 msgstr "A consulta armazenada em backup foi:"
@@ -15876,38 +15856,38 @@ msgstr "A consulta armazenada em backup foi:"
 msgid "Event %1$s has been modified."
 msgstr "O evento %1$s foi modificado."
 
-#: src/Database/Events.php:143
+#: src/Database/Events.php:141
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "O evento %1$s foi criado."
 
-#: src/Database/Events.php:157 src/Database/Routines.php:149
-#: src/Triggers/Triggers.php:149
+#: src/Database/Events.php:153 src/Database/Routines.php:147
+#: src/Triggers/Triggers.php:145
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Um ou mais erros ocorreram durante o processamento da sua solicitação:"
 
-#: src/Database/Events.php:267 src/Database/Routines.php:785
-#: src/Triggers/Triggers.php:191
+#: src/Database/Events.php:263 src/Database/Routines.php:783
+#: src/Triggers/Triggers.php:187
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "O definidor deve estar no formato \"username@hostname\"!"
 
-#: src/Database/Events.php:275
+#: src/Database/Events.php:271
 msgid "You must provide an event name!"
 msgstr "Você deve informar o nome do evento!"
 
-#: src/Database/Events.php:289
+#: src/Database/Events.php:285
 msgid "You must provide a valid interval value for the event."
 msgstr "Você deve informar um valor de intervalo válido para o evento."
 
-#: src/Database/Events.php:302
+#: src/Database/Events.php:298
 msgid "You must provide a valid execution time for the event."
 msgstr "Você deve informar um tempo de execução válido para o evento."
 
-#: src/Database/Events.php:305
+#: src/Database/Events.php:301
 msgid "You must provide a valid type for the event."
 msgstr "Você deve informar um tipo válido para o evento."
 
-#: src/Database/Events.php:331
+#: src/Database/Events.php:327
 msgid "You must provide an event definition."
 msgstr "Você deve informar uma definição do evento."
 
@@ -15921,30 +15901,30 @@ msgstr "Tipo de rotina inválido: \"%s\""
 msgid "Routine %1$s has been created."
 msgstr "A rotina %1$s foi criada."
 
-#: src/Database/Routines.php:222
+#: src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Desculpe, mas falhamos em restaurar a rotina eliminada."
 
-#: src/Database/Routines.php:271
+#: src/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "A rotina %1$s foi modificada. Os privilégios foram ajustados."
 
-#: src/Database/Routines.php:276
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "A rotina %1$s foi modificada."
 
-#: src/Database/Routines.php:630
+#: src/Database/Routines.php:628
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Você deve informar um nome e um tipo para cada parâmetro de rotina."
 
-#: src/Database/Routines.php:648
+#: src/Database/Routines.php:646
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Direção inválida \"%s\" dada para o parâmetro."
 
-#: src/Database/Routines.php:668 src/Database/Routines.php:733
+#: src/Database/Routines.php:666 src/Database/Routines.php:731
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15952,30 +15932,30 @@ msgstr ""
 "Você deve informar tamanhos/comprimentos para os parâmetros de rotina do "
 "tipo ENUM, SET, VARCHAR and VARBINARY."
 
-#: src/Database/Routines.php:715
+#: src/Database/Routines.php:713
 msgid "You must provide a valid return type for the routine."
 msgstr "Você deve informar um tipo de retorno válido para a rotina."
 
-#: src/Database/Routines.php:792
+#: src/Database/Routines.php:790
 #, fuzzy
 #| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
 msgstr "Tipo de rotina inválido: \"%s\""
 
-#: src/Database/Routines.php:798
+#: src/Database/Routines.php:796
 msgid "You must provide a routine name!"
 msgstr "Você deve informar o nome da rotina!"
 
-#: src/Database/Routines.php:869
+#: src/Database/Routines.php:867
 msgid "You must provide a routine definition."
 msgstr "Você deve informar uma definição da rotina."
 
-#: src/Database/Routines.php:995
+#: src/Database/Routines.php:993
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Resultados da execução da rotina %s"
 
-#: src/Database/Routines.php:1010
+#: src/Database/Routines.php:1008
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -16008,31 +15988,31 @@ msgstr ""
 "podem estar disponíveis, mas estão sendo ocultadas pela diretiva de "
 "configuração %s."
 
-#: src/Display/Results.php:2387 src/Display/Results.php:2402
+#: src/Display/Results.php:2400 src/Display/Results.php:2415
 msgid "The row has been deleted."
 msgstr "Registro eliminado."
 
-#: src/Display/Results.php:2969 src/Display/Results.php:3286 src/Sql.php:910
+#: src/Display/Results.php:2982 src/Display/Results.php:3302 src/Sql.php:911
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Consulta levou %01.4f segundos."
 
-#: src/Display/Results.php:3254
+#: src/Display/Results.php:3270
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Mostrando registros %1s - %2s"
 
-#: src/Display/Results.php:3268
+#: src/Display/Results.php:3283
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "%1$s no total, %2$s na consulta"
 
-#: src/Display/Results.php:3273
+#: src/Display/Results.php:3288
 #, php-format
 msgid "%s total"
 msgstr "%s no total"
 
-#: src/Display/Results.php:3577
+#: src/Display/Results.php:3592
 msgid "Link not found!"
 msgstr "Link não encontrado!"
 
@@ -16360,13 +16340,13 @@ msgstr ""
 "Uma vez conectado novamente, deve ser capaz de retomar o trabalho de onde "
 "parou."
 
-#: src/Export/OutputHandler.php:84 src/Export/OutputHandler.php:115
-#: src/Export/OutputHandler.php:241
+#: src/Export/OutputHandler.php:84 src/Export/OutputHandler.php:117
+#: src/Export/OutputHandler.php:232
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Espaço insuficiente para salvar o arquivo %s."
 
-#: src/Export/OutputHandler.php:195
+#: src/Export/OutputHandler.php:197
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16374,12 +16354,12 @@ msgstr ""
 "O arquivo %s já existe no servidor, mude o nome do arquivo ou verifique sua "
 "opção de sobrescrever."
 
-#: src/Export/OutputHandler.php:206 src/Export/OutputHandler.php:218
+#: src/Export/OutputHandler.php:204 src/Export/OutputHandler.php:212
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "O servidor web não tem permissão para salvar o arquivo %s."
 
-#: src/Export/OutputHandler.php:249
+#: src/Export/OutputHandler.php:239
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "O despejo foi salvo no arquivo %s."
@@ -16470,59 +16450,59 @@ msgstr ""
 msgid "Session not found."
 msgstr "Sessão não encontrada."
 
-#: src/Html/Generator.php:149
+#: src/Html/Generator.php:148
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "Ir para o banco de dados “%s”."
 
-#: src/Html/Generator.php:216
+#: src/Html/Generator.php:215
 msgid "SSL is not being used"
 msgstr "O SSL não está sendo usado"
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:220
 msgid "SSL is used with disabled verification"
 msgstr "O SSL é usado com a verificação desativada"
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:222
 msgid "SSL is used without certification authority"
 msgstr "O SSL é usado sem autoridade de certificação"
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:225
 msgid "SSL is used"
 msgstr "O SSL é usado"
 
-#: src/Html/Generator.php:326
+#: src/Html/Generator.php:325
 msgid "The PHP function password_hash() with default options."
 msgstr "A função password_hash() do PHP com opções padrão."
 
-#: src/Html/Generator.php:327
+#: src/Html/Generator.php:326
 msgid "password_hash() PHP function"
 msgstr "função password_hash() do PHP"
 
-#: src/Html/Generator.php:501
+#: src/Html/Generator.php:494
 msgid "Skip Explain SQL"
 msgstr "Pular demonstração do SQL"
 
-#: src/Html/Generator.php:511
+#: src/Html/Generator.php:504
 #, fuzzy
 #| msgid "Skip Validate SQL"
 msgid "Skip Analyze SQL"
 msgstr "Pular validação do SQL"
 
-#: src/Html/Generator.php:543
+#: src/Html/Generator.php:536
 msgid "Without PHP code"
 msgstr "Sem código PHP"
 
-#: src/Html/Generator.php:628
+#: src/Html/Generator.php:621
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Editar em linha"
 
-#: src/Html/Generator.php:742
+#: src/Html/Generator.php:735
 msgid "Static analysis:"
 msgstr "Análise estática:"
 
-#: src/Html/Generator.php:745
+#: src/Html/Generator.php:738
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "%d 1 erros foram encontrados durante a análise."
@@ -16678,11 +16658,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "diretório de upload do servidor web:"
 
-#: src/InsertEdit.php:831 src/Sql.php:901
+#: src/InsertEdit.php:831 src/Sql.php:902
 msgid "Showing SQL query"
 msgstr "Exibindo consulta SQL"
 
-#: src/InsertEdit.php:855 src/Sql.php:881
+#: src/InsertEdit.php:855 src/Sql.php:883
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id da linha inserida: %1$d"
@@ -16699,7 +16679,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (próximo a <code>%2$s</code>)"
 
-#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1405 src/Util.php:1419
+#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1396 src/Util.php:1410
 msgid "Tracking"
 msgstr "Monitoramento"
 
@@ -16707,7 +16687,7 @@ msgstr "Monitoramento"
 msgid "Database seems to be empty!"
 msgstr "O banco de dados parece estar vazio!"
 
-#: src/Menu.php:402 src/Util.php:1406
+#: src/Menu.php:402 src/Util.php:1397
 msgid "Designer"
 msgstr "Designer"
 
@@ -16715,29 +16695,29 @@ msgstr "Designer"
 msgid "User accounts"
 msgstr "Contas de usuário"
 
-#: src/Menu.php:512 src/Util.php:1389
+#: src/Menu.php:512 src/Util.php:1380
 msgid "Charsets"
 msgstr "Charsets"
 
-#: src/Menu.php:517 src/Util.php:1391
+#: src/Menu.php:517 src/Util.php:1382
 msgid "Engines"
 msgstr "Motores"
 
-#: src/Message.php:185
+#: src/Message.php:151
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d linha afetada."
 msgstr[1] "%1$d linhas afetadas."
 
-#: src/Message.php:202
+#: src/Message.php:168
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d linha excluída."
 msgstr[1] "%1$d linhas excluídas."
 
-#: src/Message.php:219
+#: src/Message.php:185
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -17132,39 +17112,39 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "Nenhuma dependência parcial encontrada!"
 
-#: src/Operations.php:536
+#: src/Operations.php:534
 msgid "Coalesce"
 msgstr "Coalescer"
 
-#: src/Operations.php:880
+#: src/Operations.php:882
 msgid "Can't move table to same one!"
 msgstr "Não pode mover a tabela para ela mesma!"
 
-#: src/Operations.php:882
+#: src/Operations.php:884
 msgid "Can't copy table to same one!"
 msgstr "Não pode copiar a tabela para ela mesma!"
 
-#: src/Operations.php:918
+#: src/Operations.php:908
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabela %s movida para %s. Os privilégios foram ajustados."
 
-#: src/Operations.php:924
+#: src/Operations.php:914
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabela %s copiada para %s. Os privilégios foram ajustados."
 
-#: src/Operations.php:930
+#: src/Operations.php:920
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabela %s movida para %s."
 
-#: src/Operations.php:934
+#: src/Operations.php:924
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabela %s copiada para %s."
 
-#: src/Operations.php:957
+#: src/Operations.php:944
 msgid "The table name is empty!"
 msgstr "O nome da tabela está vazio!"
 
@@ -17231,7 +17211,7 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Você não tem permissão para fazer logon no servidor MySQL!"
 
-#: src/Plugins/Auth/AuthenticationHttp.php:88
+#: src/Plugins/Auth/AuthenticationHttp.php:87
 msgid "Wrong username/password. Access denied."
 msgstr "Usuário ou senha incorreta. Acesso negado."
 
@@ -17764,14 +17744,9 @@ msgstr "Nome das colunas: "
 msgid "This plugin does not support compressed imports!"
 msgstr "Esse plugin não suporta importações comprimidas!"
 
-#: src/Plugins/Import/ImportMediawiki.php:59
+#: src/Plugins/Import/ImportMediawiki.php:58
 msgid "MediaWiki Table"
 msgstr "Tabela MediaWiki"
-
-#: src/Plugins/Import/ImportMediawiki.php:276
-#, php-format
-msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "Formato inválido de input mediawiki na linha: <br>%s."
 
 #: src/Plugins/Import/ImportOds.php:86
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -17795,21 +17770,21 @@ msgstr ""
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Não foi possível gerar a planilha do OpenDocument!"
 
-#: src/Plugins/Import/ImportShp.php:74
+#: src/Plugins/Import/ImportShp.php:75
 msgid "ESRI Shape File"
 msgstr "Shapefile ESRI"
 
-#: src/Plugins/Import/ImportShp.php:110 src/Plugins/Import/ImportShp.php:176
+#: src/Plugins/Import/ImportShp.php:113 src/Plugins/Import/ImportShp.php:179
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Ocorreu um erro ao importar o arquivo do tipo ESRI: \"%s\"."
 
-#: src/Plugins/Import/ImportShp.php:201
+#: src/Plugins/Import/ImportShp.php:204
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "Extensão Espacial MySQL não suporta o tipo ESRI \"%s\"."
 
-#: src/Plugins/Import/ImportShp.php:246
+#: src/Plugins/Import/ImportShp.php:249
 msgid "The imported file does not contain any data!"
 msgstr "O arquivo importado não contém nenhum dado!"
 
@@ -18308,7 +18283,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "Erro 405! Método de requisição não permitido."
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3133
+#: src/Server/Privileges.php:3137
 msgid "Native MySQL authentication"
 msgstr "Autenticação nativa do MySQL"
 
@@ -18367,31 +18342,31 @@ msgstr "Recarregando os privilégios"
 msgid "The selected users have been deleted successfully."
 msgstr "Os usuários selecionados foram apagados com sucesso."
 
-#: src/Server/Privileges.php:1979
+#: src/Server/Privileges.php:1980
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Você mudou os privilégios para %s."
 
-#: src/Server/Privileges.php:2129
+#: src/Server/Privileges.php:2131
 #, php-format
 msgid "Deleting %s"
 msgstr "Eliminando %s"
 
-#: src/Server/Privileges.php:2159
+#: src/Server/Privileges.php:2161
 msgid "The privileges were reloaded successfully."
 msgstr "Os privilégios foram recarregados com sucesso."
 
-#: src/Server/Privileges.php:2225
+#: src/Server/Privileges.php:2228
 #, php-format
 msgid "The user %s already exists!"
 msgstr "O usuário %s já existe!"
 
-#: src/Server/Privileges.php:2378
+#: src/Server/Privileges.php:2382
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilégios para %s"
 
-#: src/Server/Privileges.php:2467
+#: src/Server/Privileges.php:2471
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18404,7 +18379,7 @@ msgstr ""
 "privilégios que o servidor usa, se eles foram modificados manualmente. Neste "
 "caso, você deve %srecarregar os privilégios%s antes de continuar."
 
-#: src/Server/Privileges.php:2483
+#: src/Server/Privileges.php:2487
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -18418,11 +18393,11 @@ msgstr ""
 "caso, os privilégios devem ser recarregados, mas atualmente você não tem o "
 "privilégio RELOAD."
 
-#: src/Server/Privileges.php:2771
+#: src/Server/Privileges.php:2775
 msgid "You have added a new user."
 msgstr "Você adicionou um novo usuário."
 
-#: src/Server/Privileges.php:3225
+#: src/Server/Privileges.php:3229
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18521,16 +18496,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Não existe nenhuma versão estável mais nova"
 
-#: src/Sql.php:445
+#: src/Sql.php:446
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Usando marcador \"%s\" como query padrão de navegação."
 
-#: src/Sql.php:898
+#: src/Sql.php:899
 msgid "Showing as PHP code"
 msgstr "Exibindo como código PHP"
 
-#: src/Sql.php:1247
+#: src/Sql.php:1245
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18539,7 +18514,7 @@ msgstr ""
 "A seleção atual não contém uma única coluna. As funções edição em grade, "
 "checkbox, editar, copiar e apagar não estão disponíveis. %s"
 
-#: src/Sql.php:1261
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18612,24 +18587,24 @@ msgstr "O banco de dados fonte `%s` não foi encontrado!"
 msgid "Target database `%s` was not found!"
 msgstr "O banco de dados alvo `%s` não foi encontrado!"
 
-#: src/Table/Table.php:841
+#: src/Table/Table.php:839
 msgid "Invalid database:"
 msgstr "Banco de dados inválido:"
 
-#: src/Table/Table.php:859
+#: src/Table/Table.php:857
 msgid "Invalid table name:"
 msgstr "Nome de tabela inválido:"
 
-#: src/Table/Table.php:904
+#: src/Table/Table.php:902
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "A tabela foi renomeada de %1$s para %2$s."
 
-#: src/Table/Table.php:1140
+#: src/Table/Table.php:1138
 msgid "Could not save table UI preferences!"
 msgstr "Não foi possível salvar as preferências visuais da tabela!"
 
-#: src/Table/Table.php:1162
+#: src/Table/Table.php:1160
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18638,7 +18613,7 @@ msgstr ""
 "Falha ao limpar as preferências visuais da tabela (veja $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1280
+#: src/Table/Table.php:1278
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18649,7 +18624,7 @@ msgstr ""
 "permanecerão depois que você recarregar esta página. Favor cheque se a "
 "estrutura da tabela foi alterada."
 
-#: src/Table/Table.php:1605
+#: src/Table/Table.php:1603
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Erro ao criar chave externa no %1$s (check data types)"
@@ -18723,12 +18698,12 @@ msgstr "Execução SQL"
 msgid "Export as %s"
 msgstr "Exportar como %s"
 
-#: src/Tracking/Tracking.php:560
+#: src/Tracking/Tracking.php:559
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "Instantâneo (código SQL) da versão %s"
 
-#: src/Tracking/Tracking.php:795
+#: src/Tracking/Tracking.php:792
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -18736,35 +18711,35 @@ msgstr ""
 "Você pode executar o despejo criando e usando uma tabela temporária. Favor "
 "certificar-se de ter os privilégios necessários."
 
-#: src/Tracking/Tracking.php:799
+#: src/Tracking/Tracking.php:796
 msgid "Comment out these two lines if you do not need them."
 msgstr "Comente estas duas linhas se você não precisa delas."
 
-#: src/Tracking/Tracking.php:810
+#: src/Tracking/Tracking.php:807
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "Instruções SQL exportadas. Por favor, copie o despejo ou execute-as."
 
-#: src/Tracking/Tracking.php:843
+#: src/Tracking/Tracking.php:840
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "Relatório de rastreamento para tabela `%s`"
 
-#: src/Tracking/Tracking.php:866
+#: src/Tracking/Tracking.php:863
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "Rastreamento para %1$s foi ativado na versão %2$s."
 
-#: src/Tracking/Tracking.php:869
+#: src/Tracking/Tracking.php:866
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "Rastreamento para %1$s foi desativado na versão %2$s."
 
-#: src/Tracking/Tracking.php:964
+#: src/Tracking/Tracking.php:961
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "Versão %1$s de %2$s foi excluída."
 
-#: src/Tracking/Tracking.php:995
+#: src/Tracking/Tracking.php:992
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Versão %1$s foi criada, rastreamento para %2$s está ativado(a)."
@@ -18778,28 +18753,28 @@ msgstr "Desculpe, mas falhamos em restaurar o acionador removido."
 msgid "Trigger %1$s has been modified."
 msgstr "O acionador %1$s foi modificado."
 
-#: src/Triggers/Triggers.php:135
+#: src/Triggers/Triggers.php:133
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "O acionador %1$s foi criado."
 
-#: src/Triggers/Triggers.php:199
+#: src/Triggers/Triggers.php:195
 msgid "You must provide a trigger name!"
 msgstr "Você deve informar o nome do acionador!"
 
-#: src/Triggers/Triggers.php:205
+#: src/Triggers/Triggers.php:201
 msgid "You must provide a valid timing for the trigger!"
 msgstr "Você deve informar um tempo válido para o acionador!"
 
-#: src/Triggers/Triggers.php:211
+#: src/Triggers/Triggers.php:207
 msgid "You must provide a valid event for the trigger!"
 msgstr "Você deve informar um evento válido para o acionador!"
 
-#: src/Triggers/Triggers.php:221
+#: src/Triggers/Triggers.php:217
 msgid "You must provide a valid table name!"
 msgstr "Você precisa colocar um nome de tabela válido!"
 
-#: src/Triggers/Triggers.php:228
+#: src/Triggers/Triggers.php:224
 msgid "You must provide a trigger definition."
 msgstr "Você deve informar uma definição para o acionador."
 
@@ -19146,13 +19121,13 @@ msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Espacial"
 
-#: src/UserPassword.php:37
-msgid "The profile has been updated."
-msgstr "O perfil foi atualizado."
-
-#: src/UserPassword.php:49
+#: src/UserPassword.php:43
 msgid "Password is too long!"
 msgstr "Senha muito longa!"
+
+#: src/UserPassword.php:47
+msgid "The profile has been updated."
+msgstr "O perfil foi atualizado."
 
 #: src/Util.php:132
 #, php-format
@@ -19174,7 +19149,7 @@ msgstr "AM"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dias, %s horas, %s minutos e %s segundos"
 
-#: src/Util.php:1382
+#: src/Util.php:1373
 msgid "Users"
 msgstr "Usuários"
 
@@ -19185,6 +19160,10 @@ msgstr "Erro no arquivo ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Nenhum arquivo encontrado dentro do arquivo ZIP!"
+
+#, php-format
+#~ msgid "Invalid format of mediawiki input on line: <br>%s."
+#~ msgstr "Formato inválido de input mediawiki na linha: <br>%s."
 
 #~ msgid ""
 #~ "Disable the default warning that is displayed on the main page if Suhosin "

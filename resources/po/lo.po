@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-30 00:43+0000\n"
+"POT-Creation-Date: 2026-09-06 00:44+0000\n"
 "PO-Revision-Date: 2026-08-01 23:19+0000\n"
 "Last-Translator: BoneNI <bounkirdni@gmail.com>\n"
 "Language-Team: Lao <https://hosted.weblate.org/projects/phpmyadmin/master/lo/"
@@ -61,7 +61,7 @@ msgstr "ສີເຂັ້ມ"
 #: resources/templates/base.twig:99
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:479
-#: src/Util.php:1385
+#: src/Util.php:1376
 msgid "Settings"
 msgstr "ການຕັ້ງຄ່າ"
 
@@ -204,7 +204,7 @@ msgstr "ຫຼັງຈາກ %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:1983
+#: src/Display/Results.php:933 src/Plugins/Export/ExportSql.php:1983
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "ບໍ່ມີ"
@@ -278,10 +278,9 @@ msgstr "ຄໍລຳ"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:312
-#: src/Controllers/Server/PrivilegesController.php:321
+#: src/Controllers/Server/PrivilegesController.php:316
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
-#: resources/templates/database/routines/execute_form.twig:61
 msgid "Go"
 msgstr "ໄປ"
 
@@ -588,8 +587,8 @@ msgstr "ກຸ່ມ Node"
 #: src/Import/Import.php:1160 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1394
-#: src/Util.php:1411
+#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1385
+#: src/Util.php:1402
 msgid "Structure"
 msgstr "ໂຄງສ້າງ"
 
@@ -640,7 +639,7 @@ msgstr "ຊື່"
 #: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:472
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625 src/InsertEdit.php:261
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
 msgid "Type"
 msgstr "ປະເພດ"
 
@@ -827,7 +826,7 @@ msgstr "ຕົວເລືອກການແປງຂໍ້ມູນຂາເຂ
 #: resources/templates/components/_preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
-#: src/Controllers/Operations/TableController.php:328
+#: src/Controllers/Operations/TableController.php:334
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289
 msgid "No change"
@@ -851,7 +850,7 @@ msgstr "ຕັ້ງຄ່າໃໝ່"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:679 src/Html/MySQLDocumentation.php:51
+#: src/Html/Generator.php:672 src/Html/MySQLDocumentation.php:51
 #: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "ເອກະສານອ້າງອີງ"
@@ -914,7 +913,7 @@ msgstr "ປິດໃຊ້ງານ"
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:42
 #: src/Controllers/JavaScriptMessagesController.php:482
-#: src/Controllers/Table/DeleteRowsController.php:34
+#: src/Controllers/Table/DeleteRowsController.php:35
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:474
@@ -1021,8 +1020,8 @@ msgstr "ລັນຄຳສັ່ງຄືນໃໝ່"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:380
-#: src/Display/Results.php:1872 src/Html/Generator.php:527
-#: src/Html/Generator.php:784
+#: src/Display/Results.php:1885 src/Html/Generator.php:520
+#: src/Html/Generator.php:777
 msgid "Edit"
 msgstr "ແກ້ໄຂ"
 
@@ -1040,7 +1039,7 @@ msgstr "ແກ້ໄຂ"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:382
-#: src/Display/Results.php:2410 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2423 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "ລຶບ"
 
@@ -1118,7 +1117,7 @@ msgstr "ອະທິບາຍ (Explain)"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:614
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:607
 msgid "Profiling"
 msgstr "ການວິເຄາະປະສິດທິພາບ (Profiling)"
 
@@ -1200,7 +1199,7 @@ msgstr "ເວລາທີ່ໃຊ້:"
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:927 src/Export/Export.php:697
-#: src/Html/Generator.php:583
+#: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "ໂຫຼດຄືນໃໝ່"
 
@@ -1756,7 +1755,7 @@ msgstr "ຊື່ Event"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
-#: src/Server/Status/Processes.php:106 src/Util.php:1381
+#: src/Server/Status/Processes.php:106 src/Util.php:1372
 msgid "Status"
 msgstr "ສະຖານະ"
 
@@ -1824,7 +1823,7 @@ msgstr "ຜູ້ກຳນົດ"
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:990 src/Plugins/Export/ExportXml.php:92
-#: src/Util.php:1403
+#: src/Util.php:1394
 msgid "Events"
 msgstr "ອີເວັ້ນ (Events)"
 
@@ -1886,7 +1885,7 @@ msgstr "ເລືອກທັງໝົດ"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
 #: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
-#: src/Util.php:1383 src/Util.php:1398 src/Util.php:1415
+#: src/Util.php:1374 src/Util.php:1389 src/Util.php:1406
 msgid "Export"
 msgstr "ສົ່ງອອກ"
 
@@ -1914,7 +1913,7 @@ msgstr "ສົ່ງອອກ"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:534
+#: resources/templates/triggers/row.twig:58 src/Operations.php:532
 msgid "Drop"
 msgstr "ລຶບ"
 
@@ -2069,7 +2068,7 @@ msgid "criteria"
 msgstr "ເງື່ອນໄຂ"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1643
+#: src/Util.php:1634
 msgid "Sort"
 msgstr "ຈັດລຽງ"
 
@@ -2080,8 +2079,8 @@ msgstr "ຈັດລຽງ"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1390
-#: src/Display/Results.php:1396 src/Util.php:1651 src/Util.php:1668
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1403
+#: src/Display/Results.php:1409 src/Util.php:1642 src/Util.php:1659
 msgid "Ascending"
 msgstr "ຈາກໜ້ອຍຫາຫຼາຍ"
 
@@ -2092,8 +2091,8 @@ msgstr "ຈາກໜ້ອຍຫາຫຼາຍ"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1385
-#: src/Display/Results.php:1401 src/Util.php:1656 src/Util.php:1673
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1398
+#: src/Display/Results.php:1414 src/Util.php:1647 src/Util.php:1664
 msgid "Descending"
 msgstr "ຈາກຫຼາຍຫາໜ້ອຍ"
 
@@ -2133,7 +2132,7 @@ msgid "Copy query"
 msgstr "ກັອບປີ້ Query"
 
 #: resources/templates/database/multi_table_query/form.twig:176
-#: src/Html/Generator.php:552
+#: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "ສົ່ງຄຳສັ່ງ"
 
@@ -2279,8 +2278,8 @@ msgstr "ຊື່ໂຮສ"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
-#: src/Controllers/Server/PrivilegesController.php:448 src/Menu.php:257
-#: src/Menu.php:369 src/Util.php:1401 src/Util.php:1417
+#: src/Controllers/Server/PrivilegesController.php:443 src/Menu.php:257
+#: src/Menu.php:369 src/Util.php:1392 src/Util.php:1408
 msgid "Privileges"
 msgstr "ສິດການໃຊ້ງານ"
 
@@ -2329,7 +2328,7 @@ msgstr "ແກ້ໄຂສິດ"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2052
+#: src/Server/Privileges.php:2054
 msgid "No user found."
 msgstr "ບໍ່ພົບຜູ້ໃຊ້."
 
@@ -2427,17 +2426,16 @@ msgstr "ພາລາມິເຕີຂອງ Routine"
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
 #: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:235
-#: src/Navigation/Nodes/NodeFunction.php:27 src/InsertEdit.php:260
+#: src/Navigation/Nodes/NodeFunction.php:27
 msgid "Function"
 msgstr "ຟັງຊັນ (Function)"
 
 #: resources/templates/database/routines/execute_form.twig:56
-#: resources/templates/database/routines/execute_form.twig:54
 msgid "This routine does not require any parameters."
 msgstr "Routine ນີ້ບໍ່ຕ້ອງການພາຣາມິເຕີໃດໆ."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:375
-#: src/Util.php:1402
+#: src/Util.php:1393
 msgid "Routines"
 msgstr "ຣູທີນ (Routines)"
 
@@ -2450,7 +2448,7 @@ msgstr "ຣູທີນ (Routines)"
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
 #: src/Menu.php:331 src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1065
-#: src/Util.php:1396 src/Util.php:1413
+#: src/Util.php:1387 src/Util.php:1404
 msgid "Search"
 msgstr "ຄົ້ນຫາ"
 
@@ -2477,8 +2475,6 @@ msgstr "ສົ່ງອອກ Routine"
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:335
 #: src/Controllers/Database/RoutinesController.php:343
-#: src/Controllers/Database/RoutinesController.php:354
-#: src/Controllers/Database/RoutinesController.php:364
 msgid "Execute routine"
 msgstr "ປະມວນຜົນ Routine"
 
@@ -2565,7 +2561,7 @@ msgstr[0] "ພົບ %1$s ບ່ອນທີ່ກົງກັນໃນ <strong>
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1067 src/Util.php:1410
+#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1067 src/Util.php:1401
 msgid "Browse"
 msgstr "ເບິ່ງຂໍ້ມູນ (Browse)"
 
@@ -2588,7 +2584,7 @@ msgstr[0] "%s ຕາຕະລາງ"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:501
-#: src/Server/Status/Data.php:124 src/Util.php:1387
+#: src/Server/Status/Data.php:124 src/Util.php:1378
 msgid "Replication"
 msgstr "ການຈຳລອງຂໍ້ມູນ (Replication)"
 
@@ -2693,7 +2689,7 @@ msgid "Copy table with prefix"
 msgstr "ສຳເນົາຕາຕະລາງດ້ວຍຄຳນຳໜ້າ"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:409 src/Util.php:1407
+#: src/Menu.php:409 src/Util.php:1398
 msgid "Central columns"
 msgstr "ຄໍລຳສ່ວນກາງ"
 
@@ -2767,7 +2763,7 @@ msgstr "ພົດຈະນານຸກົມຂໍ້ມູນ (Data dictionary)
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/ExportController.php:72
 #: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:286
 msgid "No tables found in database."
@@ -2809,7 +2805,7 @@ msgstr "ວິວ"
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:118
-#: src/Controllers/Operations/TableController.php:312
+#: src/Controllers/Operations/TableController.php:318
 #: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:25
 msgid "View"
@@ -2838,7 +2834,7 @@ msgstr "ເຮັດສຳເນົາແລ້ວ (Replicated)"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1066 src/Util.php:1414
+#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1066 src/Util.php:1405
 msgid "Insert"
 msgstr "ແຊກ"
 
@@ -3047,12 +3043,12 @@ msgid "Extra options"
 msgstr "ຕົວເລືອກເພີ່ມເຕີມ"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1111
+#: src/Display/Results.php:1124
 msgid "Partial texts"
 msgstr "ຂໍ້ຄວາມບາງສ່ວນ"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1115
+#: src/Display/Results.php:1128
 msgid "Full texts"
 msgstr "ຂໍ້ຄວາມເຕັມ"
 
@@ -3093,7 +3089,7 @@ msgstr "ຂໍ້ມູນບານາຣີມາດຕະຖານ"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:468
-#: src/Display/Results.php:1873 src/Html/Generator.php:83
+#: src/Display/Results.php:1886 src/Html/Generator.php:82
 msgid "Copy"
 msgstr "ສຳເນົາ"
 
@@ -3130,12 +3126,8 @@ msgstr "ແປງເປັນຄານະ (Kana)"
 
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:113
-#: src/Controllers/Table/Partition/DropController.php:56
-#: src/Controllers/Table/Partition/RebuildController.php:56
-#: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:412
-#: src/Message.php:138 src/InsertEdit.php:425
+#: src/Controllers/Operations/ViewController.php:109 src/Html/Generator.php:728
+#: src/Import/Import.php:122 src/InsertEdit.php:412 src/Message.php:104
 msgid "Error"
 msgstr "ຂໍ້ຜິດພາດ"
 
@@ -3212,7 +3204,7 @@ msgstr "ອັບເດດ"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:135
-#: src/Html/Generator.php:759
+#: src/Html/Generator.php:752
 msgid "SQL query:"
 msgstr "ຄຳສັ່ງ SQL:"
 
@@ -3477,7 +3469,7 @@ msgstr "ການຕັ້ງຄ່າທົ່ວໄປ"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:95
+#: src/Controllers/UserPasswordController.php:94
 msgid "Change password"
 msgstr "ປ່ຽນລະຫັດຜ່ານ"
 
@@ -3622,7 +3614,7 @@ msgstr "ເລືອກໃຊ້"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:412
-#: src/Export/Export.php:739 src/Html/Generator.php:843
+#: src/Export/Export.php:739 src/Html/Generator.php:836
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "ກັບຄືນ"
@@ -3633,7 +3625,7 @@ msgstr "ກັບຄືນ"
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
 #: src/Config/Forms/User/ImportForm.php:59 src/Menu.php:250 src/Menu.php:357
-#: src/Menu.php:474 src/Util.php:1384 src/Util.php:1399 src/Util.php:1416
+#: src/Menu.php:474 src/Util.php:1375 src/Util.php:1390 src/Util.php:1407
 msgid "Import"
 msgstr "ນຳເຂົ້າ"
 
@@ -3651,8 +3643,8 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"ຊື່ໄຟລ໌ທີ່ຖືກບີບອັດຕ້ອງລົງທ້າຍດ້ວຍ <strong>.[ຮູບແບບ].[ການບີບອັດ]</strong>. ຕົວຢ່າງ: "
-"<strong>.sql.zip</strong>"
+"ຊື່ໄຟລ໌ທີ່ຖືກບີບອັດຕ້ອງລົງທ້າຍດ້ວຍ <strong>.[ຮູບແບບ].[ການບີບອັດ]</strong>. ຕົວຢ່າງ: <strong>."
+"sql.zip</strong>"
 
 #: resources/templates/import.twig:37
 msgid "Upload a file"
@@ -3672,7 +3664,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "ທ່ານສາມາດລາກແລ້ວວາງໄຟລ໌ໃສ່ໜ້າໃດກໍໄດ້."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:413 src/InsertEdit.php:426
+#: src/InsertEdit.php:413
 msgid "The directory you set for upload work cannot be reached."
 msgstr "ບໍ່ສາມາດເຂົ້າເຖິງໂຟນເດີທີ່ເຈົ້າຕັ້ງໄວ້ສຳລັບການອັບໂຫລດໄດ້."
 
@@ -3962,7 +3954,7 @@ msgstr "ອັບໂຫຼດ SQL"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:726
-#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1379
+#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1370
 msgid "Databases"
 msgstr "ຖານຂໍ້ມູນ"
 
@@ -4396,7 +4388,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "ເຂົ້າສູ່ລະບົບ phpMyAdmin ຄືນໃໝ່ເພື່ອໂຫຼດໄຟລ໌ກຳນົດຄ່າທີ່ອັບເດດແລ້ວ."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:494
-#: src/Server/Status/Data.php:119 src/Util.php:1386
+#: src/Server/Status/Data.php:119 src/Util.php:1377
 msgid "Binary log"
 msgstr "ໄບນາຣີລັອກ (Binary log)"
 
@@ -4499,7 +4491,7 @@ msgstr "ປະຕິບັດ SQL query ໃນຖານຂໍ້ມູນ \"%s\"
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
 #: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1064
-#: src/Util.php:1380 src/Util.php:1395 src/Util.php:1412
+#: src/Util.php:1371 src/Util.php:1386 src/Util.php:1403
 msgid "SQL"
 msgstr "SQL"
 
@@ -4611,7 +4603,7 @@ msgstr "ລໍຖ້າການຂຽນເປັນ %"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1388
+#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1379
 msgid "Variables"
 msgstr "ຕົວປ່ຽນ (Variables)"
 
@@ -4632,7 +4624,7 @@ msgid "Importing into the current server"
 msgstr "ກຳລັງນຳເຂົ້າໄປຫາເຊີເວີປັດຈຸບັນ"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:522
-#: src/Util.php:1390
+#: src/Util.php:1381
 msgid "Plugins"
 msgstr "ປລັກອິນ (Plugins)"
 
@@ -4926,7 +4918,6 @@ msgstr "ອະນຸຍາດໃຫ້ອ່ານຂໍ້ມູນ."
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
 #: resources/templates/table/search/index.twig:128 src/InsertEdit.php:421
-#: src/InsertEdit.php:434
 msgid "Or"
 msgstr "ຫຼື"
 
@@ -5887,7 +5878,7 @@ msgid "Query analyzer"
 msgstr "ຕົວວິເຄາະ Query"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:339
-#: src/Util.php:1397
+#: src/Util.php:1388
 msgid "Query"
 msgstr "ຄຳສັ່ງ (Query)"
 
@@ -5983,7 +5974,7 @@ msgid "Start auto refresh"
 msgstr "ເລີ່ມການໂຫຼດໃໝ່ອັດຕະໂນມັດ"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2428
+#: src/Display/Results.php:2441
 msgid "Kill"
 msgstr "ຢຸດການເຮັດວຽກ (Kill)"
 
@@ -6154,7 +6145,7 @@ msgid "No users were found belonging to this user group."
 msgstr "ບໍ່ພົບຜູ້ໃຊ້ທີ່ຢູ່ໃນກຸ່ມນີ້."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:451
+#: src/Controllers/Server/PrivilegesController.php:446
 #: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr "ຜູ້ໃຊ້"
@@ -6342,24 +6333,8 @@ msgid "Pie chart with profiling results."
 msgstr "ແຜນພູມວົງມົນສະແດງຜົນການວິເຄາະໂປຣໄຟລ໌."
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:110
-#: src/Controllers/Table/DeleteRowsController.php:60
-#: src/Controllers/Table/FindReplaceController.php:119
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:75
-#: src/Controllers/Table/Maintenance/CheckController.php:75
-#: src/Controllers/Table/Maintenance/ChecksumController.php:75
-#: src/Controllers/Table/Maintenance/OptimizeController.php:75
-#: src/Controllers/Table/Maintenance/RepairController.php:75
-#: src/Controllers/Table/Partition/AnalyzeController.php:49
-#: src/Controllers/Table/Partition/CheckController.php:49
-#: src/Controllers/Table/Partition/DropController.php:50
-#: src/Controllers/Table/Partition/OptimizeController.php:49
-#: src/Controllers/Table/Partition/RebuildController.php:50
-#: src/Controllers/Table/Partition/RepairController.php:49
-#: src/Controllers/Table/Partition/TruncateController.php:50
-#: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1002 src/Display/Results.php:2964
-#: src/Message.php:122 src/Database/Routines.php:1033
+#: src/Controllers/Operations/ViewController.php:109
+#: src/Database/Routines.php:1000 src/Message.php:87
 msgid "Your SQL query has been executed successfully."
 msgstr "ປະມວນຜົນຄຳສັ່ງ SQL ຂອງທ່ານສຳເລັດແລ້ວ."
 
@@ -6667,8 +6642,7 @@ msgstr "ລາກເພື່ອຈັດລຽງໃໝ່"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1408
-#: src/InsertEdit.php:1421
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1406
 msgid "Ignore"
 msgstr "ຂ້າມ (Ignore)"
 
@@ -6837,14 +6811,12 @@ msgstr "ລຶບຂໍ້ມູນທັງໝົດໃນຕາຕະລາງ
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
 #: src/Controllers/Database/StructureController.php:368
-#: src/Controllers/Database/StructureController.php:369
 #, php-format
 msgid "View %s has been dropped."
 msgstr "ລຶບ View %s ແລ້ວ."
 
 #: resources/templates/table/operations/index.twig:459
 #: src/Controllers/Database/StructureController.php:368
-#: src/Controllers/Database/StructureController.php:369
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "ລຶບຕາຕະລາງ %s ແລ້ວ."
@@ -6868,7 +6840,7 @@ msgstr "ກວດສອບຄວາມຖືກຕ້ອງຂອງການອ
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:362 src/Util.php:1068 src/Util.php:1400 src/Util.php:1418
+#: src/Menu.php:362 src/Util.php:1068 src/Util.php:1391 src/Util.php:1409
 msgid "Operations"
 msgstr "ການຈັດການ (Operations)"
 
@@ -7045,32 +7017,32 @@ msgid "Index length"
 msgstr "ຄວາມຍາວອິນເດັກ"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:522
+#: src/Operations.php:520
 msgid "Analyze"
 msgstr "ວິເຄາະ"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:523
+#: src/Operations.php:521
 msgid "Check"
 msgstr "ກວດສອບ"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:524
+#: src/Operations.php:522
 msgid "Optimize"
 msgstr "ປັບແຕ່ງ"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:525
+#: src/Operations.php:523
 msgid "Rebuild"
 msgstr "ສ້າງໃໝ່ (Rebuild)"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:526
+#: src/Operations.php:524
 msgid "Repair"
 msgstr "ສ້ອມແປງ"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:527
+#: src/Operations.php:525
 msgid "Truncate"
 msgstr "ລ້າງຂໍ້ມູນ"
 
@@ -7334,7 +7306,7 @@ msgstr "ສົ່ງອອກ Trigger %s"
 #: src/Plugins/Export/ExportOdt.php:566 src/Plugins/Export/ExportPdf.php:173
 #: src/Plugins/Export/ExportSql.php:1846
 #: src/Plugins/Export/ExportTexytext.php:408
-#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1404 src/Util.php:1420
+#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1395 src/Util.php:1411
 msgid "Triggers"
 msgstr "ທຣິກເກີ (Triggers)"
 
@@ -7655,9 +7627,9 @@ msgstr "ວິທີການເຮັດແຄຊຍັງບໍ່ດີເທ
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
-"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
-"especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
+"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
+"cache, especially if you have multiple replicas."
 msgstr ""
 "ເຈົ້າກຳລັງໃຊ້ແຄຊ໌ການສອບຖາມຂອງ MySQL ກັບຖານຂໍ້ມູນທີ່ມີການເຂົ້າເຖິງຂ້ອນຂ້າງສູງ. "
 "ມັນອາດຈະຄຸ້ມຄ່າທີ່ຈະພິຈາລະນາໃຊ້ <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
@@ -7871,9 +7843,9 @@ msgstr ""
 "ການເພີ່ມ {max_heap_table_size} ແລະ {tmp_table_size} ອາດຈະຊ່ວຍໄດ້. ແນວໃດກໍຕາມ "
 "ຕາຕະລາງຊົ່ວຄາວບາງຢ່າງກໍຈະຖືກຂຽນລົງດິສກ໌ສະເໝີ ໂດຍບໍ່ຂຶ້ນກັບຄ່າເຫຼົ່ານີ້. ເພື່ອກຳຈັດບັນຫານີ້ "
 "ທ່ານຈະຕ້ອງຂຽນຄຳສັ່ງສອບຖາມໃໝ່ເພື່ອຫຼີກລ່ຽງເງື່ອນໄຂເຫຼົ່ານັ້ນ (ພາຍໃນຕາຕະລາງຊົ່ວຄາວ: ມີຄໍລຳ BLOB ຫຼື "
-"TEXT ຫຼື ມີຄໍລຳທີ່ມີຂະໜາດໃຫຍ່ກວ່າ 512 ໄບຕ໌) ຕາມທີ່ໄດ້ລະບຸໄວ້ໃນ <a href=\"https://"
-"www.facebook.com/note.php?note_id=10150111255065841&comments\">ບົດຄວາມໂດຍ "
-"Pythian Group</a>"
+"TEXT ຫຼື ມີຄໍລຳທີ່ມີຂະໜາດໃຫຍ່ກວ່າ 512 ໄບຕ໌) ຕາມທີ່ໄດ້ລະບຸໄວ້ໃນ <a href=\"https://www."
+"facebook.com/note.php?note_id=10150111255065841&comments\">ບົດຄວາມໂດຍ Pythian "
+"Group</a>"
 
 #: src/Advisory/Rules.php:362
 #, php-format
@@ -7898,8 +7870,8 @@ msgid ""
 msgstr ""
 "ການເພີ່ມຄ່າ {max_heap_table_size} ແລະ {tmp_table_size} ອາດຈະຊ່ວຍໄດ້. ແນວໃດກໍຕາມ "
 "ຕາຕະລາງຊົ່ວຄາວບາງຢ່າງກໍຖືກຂຽນລົງດິສກ໌ສະເໝີ ໂດຍບໍ່ຂຶ້ນກັບຄ່າເຫຼົ່ານີ້. ເພື່ອແກ້ໄຂບັນຫານີ້ "
-"ເຈົ້າຈະຕ້ອງຂຽນຄຳສັ່ງສອບຖາມໃໝ່ເພື່ອຫຼີກລ່ຽງເງື່ອນໄຂເຫຼົ່ານັ້ນ ຕາມທີ່ລະບຸໄວ້ໃນ <a href=\"https://"
-"dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html\">ຄູ່ມື MySQL</a>"
+"ເຈົ້າຈະຕ້ອງຂຽນຄຳສັ່ງສອບຖາມໃໝ່ເພື່ອຫຼີກລ່ຽງເງື່ອນໄຂເຫຼົ່ານັ້ນ ຕາມທີ່ລະບຸໄວ້ໃນ <a href=\"https://dev."
+"mysql.com/doc/refman/8.0/en/internal-temporary-tables.html\">ຄູ່ມື MySQL</a>"
 
 #: src/Advisory/Rules.php:383
 #, php-format
@@ -8183,9 +8155,9 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"ການເຊື່ອມຕໍ່ໂດຍປົກກະຕິຈະຖືກຍົກເລີກ ເມື່ອບໍ່ສາມາດຢືນຢັນສິດໄດ້.<a href=\"https://"
-"www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
-"aborted_connects/\">ບົດຄວາມນີ້</a> ອາດຊ່ວຍທ່ານຕິດຕາມຫາຕົ້ນຕໍຂອງບັນຫາໄດ້."
+"ການເຊື່ອມຕໍ່ໂດຍປົກກະຕິຈະຖືກຍົກເລີກ ເມື່ອບໍ່ສາມາດຢືນຢັນສິດໄດ້.<a href=\"https://www.percona."
+"com/blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/"
+"\">ບົດຄວາມນີ້</a> ອາດຊ່ວຍທ່ານຕິດຕາມຫາຕົ້ນຕໍຂອງບັນຫາໄດ້."
 
 #: src/Advisory/Rules.php:584
 #, php-format
@@ -8270,8 +8242,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
-"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "ໂດຍສະເພາະໃນລະບົບທີ່ມີການຂຽນລົງໃນຕາຕະລາງ InnoDB ຫຼາຍ, ທ່ານຄວນຕັ້ງຄ່າ "
 "{innodb_log_file_size} ໃຫ້ເປັນ 25% ຂອງ {innodb_buffer_pool_size}. ແຕ່ຢ່າງໃດກໍຕາມ "
@@ -8318,9 +8290,9 @@ msgstr ""
 "href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">ບົດຄວາມນີ້</a>. ເຈົ້າຈຳເປັນຕ້ອງປິດເຊີເວີ, ລຶບໄຟລ໌ລັອກ (log files) "
 "ຂອງ InnoDB ອອກ, ກຳນົດຄ່າໃໝ່ໃນ my.cnf, ເປີດເຊີເວີ, ແລ້ວກວດກາເບິ່ງລັອກຂໍ້ຜິດພາດ (error "
-"logs) ວ່າທຸກຢ່າງຮຽບຮ້ອຍດີຫຼືບໍ່. ເບິ່ງຕື່ມທີ່ <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">ບົດຄວາມໃນບລັອກນີ້</a>"
+"logs) ວ່າທຸກຢ່າງຮຽບຮ້ອຍດີຫຼືບໍ່. ເບິ່ງຕື່ມທີ່ <a href=\"https://mysqldatabaseadministration."
+"blogspot.com/2007/01/increase-innodblogfilesize-proper-way."
+"html\">ບົດຄວາມໃນບລັອກນີ້</a>"
 
 #: src/Advisory/Rules.php:717
 #, php-format
@@ -8385,8 +8357,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "ການຕັ້ງຄ່າ {concurrent_insert} ເປັນ 1 ຈະຊ່ວຍຫຼຸດຜ່ອນການຍາດແຍ່ງລະຫວ່າງຜູ້ອ່ານ ແລະ "
-"ຜູ້ຂຽນຂໍ້ມູນໃນຕາຕະລາງ. ເບິ່ງເພີ່ມເຕີມໄດ້ທີ່ <a href=\"https://dev.mysql.com/doc/refman/"
-"5.5/en/concurrent-inserts.html\">ເອກະສານ MySQL</a>"
+"ຜູ້ຂຽນຂໍ້ມູນໃນຕາຕະລາງ. ເບິ່ງເພີ່ມເຕີມໄດ້ທີ່ <a href=\"https://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">ເອກະສານ MySQL</a>"
 
 #: src/Advisory/Rules.php:757
 msgid "concurrent_insert is set to 0"
@@ -9599,13 +9571,13 @@ msgstr "ພອດສຳຮອງສຳລັບເຊື່ອມຕໍ່ກັ
 
 #: src/Config/Descriptions.php:355
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
-"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-"Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
+"com/19588]MySQL Bugs[/a]"
 msgstr ""
-"ຂໍ້ມູນເພີ່ມເຕີມທີ່ [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
-"8970]phpMyAdmin issue tracker[/a] ແລະ [a@https://bugs.mysql.com/19588]MySQL "
-"Bugs[/a]"
+"ຂໍ້ມູນເພີ່ມເຕີມທີ່ [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]phpMyAdmin issue tracker[/a] ແລະ [a@https://bugs.mysql."
+"com/19588]MySQL Bugs[/a]"
 
 #: src/Config/Descriptions.php:359
 msgid ""
@@ -9859,8 +9831,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"ສະແດງລິ້ງໄປຫາໜ້າຜົນລັບຂອງ [a@https://www.php.net/manual/en/"
-"function.phpinfo.php]phpinfo()[/a]."
+"ສະແດງລິ້ງໄປຫາໜ້າຜົນລັບຂອງ [a@https://www.php.net/manual/en/function.phpinfo."
+"php]phpinfo()[/a]."
 
 #: src/Config/Descriptions.php:484
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -10341,12 +10313,12 @@ msgid "Put columns names in the first row"
 msgstr "ໃສ່ຊື່ຖັນໃນແຖວທຳອິດ"
 
 #: src/Config/Descriptions.php:639 src/Config/Descriptions.php:772
-#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:688
+#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:687
 msgid "Columns enclosed with"
 msgstr "ຖັນຖືກຄອບດ້ວຍ"
 
 #: src/Config/Descriptions.php:640 src/Config/Descriptions.php:773
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:699
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:698
 msgid "Columns escaped with"
 msgstr "ຖັນຖືກ Escape ດ້ວຍ"
 
@@ -10362,12 +10334,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "ລຶບຕົວອັກສອນ CRLF ພາຍໃນຖັນ"
 
 #: src/Config/Descriptions.php:643 src/Config/Descriptions.php:777
-#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:673
+#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:672
 msgid "Columns terminated with"
 msgstr "ຖັນຖືກຂັ້ນດ້ວຍ"
 
 #: src/Config/Descriptions.php:644 src/Config/Descriptions.php:771
-#: src/Plugins/Import/ImportCsv.php:706
+#: src/Plugins/Import/ImportCsv.php:705
 msgid "Lines terminated with"
 msgstr "ແຖວຖືກຂັ້ນດ້ວຍ"
 
@@ -11201,11 +11173,11 @@ msgstr "ສະແດງສະຖິຕິ"
 msgid "Skip locked tables"
 msgstr "ຂ້າມຕາຕະລາງທີ່ຖືກລັອກ"
 
-#: src/Config/Descriptions.php:926 src/Html/Generator.php:492
+#: src/Config/Descriptions.php:926 src/Html/Generator.php:485
 msgid "Explain SQL"
 msgstr "ອະທິບາຍ SQL"
 
-#: src/Config/Descriptions.php:928 src/Html/Generator.php:563
+#: src/Config/Descriptions.php:928 src/Html/Generator.php:556
 msgid "Create PHP code"
 msgstr "ສ້າງລະຫັດ PHP"
 
@@ -11322,39 +11294,37 @@ msgstr "ຈັດລຽງໂດຍ"
 msgid "Server connection collation"
 msgstr "ການຈັດລຽງການເຊື່ອມຕໍ່ເຊີບເວີ (Collation)"
 
-#: src/Config/FormDisplay.php:582 src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:582
 #, php-format
 msgid "Missing data for %s"
 msgstr "ຂໍ້ມູນຂອງ %s ຫາຍໄປ"
 
 #: src/Config/FormDisplay.php:622 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:809
-#: src/Config/FormDisplay.php:620
 msgid "Incorrect value!"
 msgstr "ຄ່າບໍ່ຖືກຕ້ອງ!"
 
-#: src/Config/FormDisplay.php:768 src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:768
 msgid "unavailable"
 msgstr "ບໍ່ພ້ອມໃຊ້ງານ"
 
-#: src/Config/FormDisplay.php:770 src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:770
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" ຕ້ອງການສ່ວນເສີມ %s"
 
-#: src/Config/FormDisplay.php:792 src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:792
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr "ການນຳເຂົ້າແບບບີບອັດຈະບໍ່ວຽກຍ້ອນບໍ່ມີຟັງຊັນ %s."
 
-#: src/Config/FormDisplay.php:801 src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:801
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "ການສົ່ງອອກແບບບີບອັດຈະບໍ່ວຽກຍ້ອນບໍ່ມີຟັງຊັນ %s."
 
 #: src/Config/FormDisplay.php:817 src/Config/FormDisplay.php:818
-#: src/Config/FormDisplay.php:819 src/Config/FormDisplay.php:815
-#: src/Config/FormDisplay.php:816
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr "ສູງສຸດ %s"
@@ -11555,8 +11525,8 @@ msgid ""
 "may go to 'Operations' tab of any database to set up the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"ເຈົ້າບໍ່ມີສິດທີ່ຈຳເປັນໃນການສ້າງຖານຂໍ້ມູນທີ່ມີຊື່ວ່າ '%s'. ເຈົ້າສາມາດໄປທີ່ແທັບ 'ການຈັດການ' "
-"(Operations) ຂອງຖານຂໍ້ມູນໃດໜຶ່ງ ເພື່ອຕັ້ງຄ່າບ່ອນເກັບການຕັ້ງຄ່າ phpMyAdmin ຢູ່ທີ່ນັ້ນ."
+"ເຈົ້າບໍ່ມີສິດທີ່ຈຳເປັນໃນການສ້າງຖານຂໍ້ມູນທີ່ມີຊື່ວ່າ '%s'. ເຈົ້າສາມາດໄປທີ່ແທັບ "
+"'ການຈັດການ' (Operations) ຂອງຖານຂໍ້ມູນໃດໜຶ່ງ ເພື່ອຕັ້ງຄ່າບ່ອນເກັບການຕັ້ງຄ່າ phpMyAdmin ຢູ່ທີ່ນັ້ນ."
 
 #: src/ConfigStorage/UserGroups.php:106
 msgid "View users"
@@ -11715,36 +11685,36 @@ msgstr "ມີໜ້າຊື່ \"%s\" ຢູ່ແລ້ວ, ກະລຸນ�
 #: src/Controllers/Database/TrackingController.php:60
 #: src/Controllers/JavaScriptMessagesController.php:331
 #: src/Controllers/Operations/Database/CollationController.php:54
-#: src/Controllers/Operations/DatabaseController.php:232
-#: src/Controllers/Operations/DatabaseController.php:237
+#: src/Controllers/Operations/DatabaseController.php:230
+#: src/Controllers/Operations/DatabaseController.php:235
 #: src/Controllers/Operations/TableController.php:86
 #: src/Controllers/Operations/TableController.php:91
-#: src/Controllers/Operations/ViewController.php:61
-#: src/Controllers/Operations/ViewController.php:66
+#: src/Controllers/Operations/ViewController.php:62
+#: src/Controllers/Operations/ViewController.php:67
 #: src/Controllers/Server/Databases/DestroyController.php:62
-#: src/Controllers/Table/AddFieldController.php:162
-#: src/Controllers/Table/AddFieldController.php:167
+#: src/Controllers/Table/AddFieldController.php:161
+#: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChangeController.php:75
-#: src/Controllers/Table/ChartController.php:88
-#: src/Controllers/Table/ChartController.php:95
-#: src/Controllers/Table/ChartController.php:122
-#: src/Controllers/Table/ChartController.php:129
-#: src/Controllers/Table/ChartController.php:202
+#: src/Controllers/Table/ChartController.php:86
+#: src/Controllers/Table/ChartController.php:93
+#: src/Controllers/Table/ChartController.php:120
+#: src/Controllers/Table/ChartController.php:127
+#: src/Controllers/Table/ChartController.php:200
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
 #: src/Controllers/Table/DropColumnConfirmationController.php:52
 #: src/Controllers/Table/DropColumnConfirmationController.php:57
-#: src/Controllers/Table/FindReplaceController.php:77
-#: src/Controllers/Table/FindReplaceController.php:82
+#: src/Controllers/Table/FindReplaceController.php:76
+#: src/Controllers/Table/FindReplaceController.php:81
 #: src/Controllers/Table/GisVisualizationController.php:70
 #: src/Controllers/Table/GisVisualizationController.php:75
 #: src/Controllers/Table/ImportController.php:70
 #: src/Controllers/Table/ImportController.php:75
-#: src/Controllers/Table/IndexesController.php:67
-#: src/Controllers/Table/IndexesController.php:74
-#: src/Controllers/Table/IndexRenameController.php:55
-#: src/Controllers/Table/IndexRenameController.php:60
+#: src/Controllers/Table/IndexesController.php:66
+#: src/Controllers/Table/IndexesController.php:73
+#: src/Controllers/Table/IndexRenameController.php:54
+#: src/Controllers/Table/IndexRenameController.php:59
 #: src/Controllers/Table/SearchController.php:171
 #: src/Controllers/Table/SearchController.php:176
 #: src/Controllers/Table/SqlController.php:59
@@ -11761,10 +11731,6 @@ msgstr "ມີໜ້າຊື່ \"%s\" ຢູ່ແລ້ວ, ກະລຸນ�
 #: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:68
 #: src/Controllers/View/CreateController.php:73
-#: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:98
-#: src/Controllers/Database/StructureController.php:157
-#: src/Controllers/Database/StructureController.php:162
 msgid "No databases selected."
 msgstr "ບໍ່ມີຖານຂໍ້ມູນທີ່ຖືກເລືອກ."
 
@@ -11785,9 +11751,6 @@ msgstr "ແກ້ໄຂ Event"
 #: src/Controllers/Database/RoutinesController.php:284
 #: src/Controllers/Database/RoutinesController.php:350
 #: src/Controllers/Triggers/IndexController.php:207
-#: src/Controllers/Database/RoutinesController.php:273
-#: src/Controllers/Database/RoutinesController.php:303
-#: src/Controllers/Database/RoutinesController.php:371
 msgid "Error in processing request:"
 msgstr "ເກີດຂໍ້ຜິດພາດໃນການປະມວນຜົນຄຳຮ້ອງຂໍ:"
 
@@ -11807,7 +11770,7 @@ msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "ຂໍ້ຜິດພາດ: ບໍ່ພົບ event ຊື່ %1$s ໃນຖານຂໍ້ມູນ %2$s."
 
-#: src/Controllers/Database/ExportController.php:129
+#: src/Controllers/Database/ExportController.php:127
 #: src/Controllers/Server/ExportController.php:57
 #: src/Controllers/Table/ExportController.php:92
 msgid "Could not load export plugins, please check your installation!"
@@ -11819,16 +11782,16 @@ msgstr "ບໍ່ສາມາດໂຫຼດປລັກອິນສົ່ງອ
 msgid "Could not load import plugins, please check your installation!"
 msgstr "ບໍ່ສາມາດໂຫຼດປລັກອິນສຳລັບການນຳເຂົ້າໄດ້, ກະລຸນາກວດສອບການຕິດຕັ້ງຂອງທ່ານ!"
 
-#: src/Controllers/Database/PrivilegesController.php:64
-#: src/Controllers/Server/PrivilegesController.php:100
-#: src/Controllers/Server/UserGroupsController.php:47
-#: src/Controllers/Table/PrivilegesController.php:67
+#: src/Controllers/Database/PrivilegesController.php:63
+#: src/Controllers/Server/PrivilegesController.php:99
+#: src/Controllers/Server/UserGroupsController.php:46
+#: src/Controllers/Table/PrivilegesController.php:66
 msgid "No Privileges"
 msgstr "ບໍ່ມີສິດ"
 
-#: src/Controllers/Database/PrivilegesController.php:73
-#: src/Controllers/Server/PrivilegesController.php:109
-#: src/Controllers/Table/PrivilegesController.php:76
+#: src/Controllers/Database/PrivilegesController.php:70
+#: src/Controllers/Server/PrivilegesController.php:106
+#: src/Controllers/Table/PrivilegesController.php:73
 msgid "You do not have the privileges to administrate the users!"
 msgstr "ທ່ານບໍ່ມີສິດໃນການບໍລິຫານຜູ້ໃຊ້!"
 
@@ -11846,32 +11809,32 @@ msgstr "ທ່ານບໍ່ມີສິດໃນການບໍລິຫານ
 #: src/Controllers/JavaScriptMessagesController.php:332
 #: src/Controllers/Operations/TableController.php:98
 #: src/Controllers/Operations/TableController.php:103
-#: src/Controllers/Operations/ViewController.php:73
-#: src/Controllers/Operations/ViewController.php:78
-#: src/Controllers/Table/AddFieldController.php:174
-#: src/Controllers/Table/AddFieldController.php:179
+#: src/Controllers/Operations/ViewController.php:74
+#: src/Controllers/Operations/ViewController.php:79
+#: src/Controllers/Table/AddFieldController.php:173
+#: src/Controllers/Table/AddFieldController.php:178
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
-#: src/Controllers/Table/ChartController.php:103
-#: src/Controllers/Table/ChartController.php:108
-#: src/Controllers/Table/ChartController.php:210
+#: src/Controllers/Table/ChartController.php:101
+#: src/Controllers/Table/ChartController.php:106
+#: src/Controllers/Table/ChartController.php:208
 #: src/Controllers/Table/DeleteConfirmController.php:69
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:89
-#: src/Controllers/Table/FindReplaceController.php:94
+#: src/Controllers/Table/FindReplaceController.php:88
+#: src/Controllers/Table/FindReplaceController.php:93
 #: src/Controllers/Table/ImportController.php:82
 #: src/Controllers/Table/ImportController.php:87
-#: src/Controllers/Table/IndexesController.php:82
-#: src/Controllers/Table/IndexesController.php:87
-#: src/Controllers/Table/IndexRenameController.php:67
-#: src/Controllers/Table/IndexRenameController.php:72
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:46
-#: src/Controllers/Table/Maintenance/CheckController.php:46
-#: src/Controllers/Table/Maintenance/ChecksumController.php:46
-#: src/Controllers/Table/Maintenance/OptimizeController.php:46
-#: src/Controllers/Table/Maintenance/RepairController.php:46
+#: src/Controllers/Table/IndexesController.php:81
+#: src/Controllers/Table/IndexesController.php:86
+#: src/Controllers/Table/IndexRenameController.php:66
+#: src/Controllers/Table/IndexRenameController.php:71
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:45
+#: src/Controllers/Table/Maintenance/CheckController.php:45
+#: src/Controllers/Table/Maintenance/ChecksumController.php:45
+#: src/Controllers/Table/Maintenance/OptimizeController.php:45
+#: src/Controllers/Table/Maintenance/RepairController.php:45
 #: src/Controllers/Table/SearchController.php:183
 #: src/Controllers/Table/SearchController.php:188
 #: src/Controllers/Table/SqlController.php:71
@@ -11883,22 +11846,18 @@ msgstr "ທ່ານບໍ່ມີສິດໃນການບໍລິຫານ
 #: src/Controllers/Table/ZoomSearchController.php:114
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
-#: src/Controllers/Database/RoutinesController.php:88
 msgid "No table selected."
 msgstr "ບໍ່ໄດ້ເລືອກຕາຕະລາງ."
 
 #: src/Controllers/Database/RoutinesController.php:170
-#: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
 msgstr "ເພີ່ມ Routine"
 
 #: src/Controllers/Database/RoutinesController.php:174
-#: src/Controllers/Database/RoutinesController.php:177
 msgid "Edit routine"
 msgstr "ແກ້ໄຂ Routine"
 
 #: src/Controllers/Database/RoutinesController.php:257
-#: src/Controllers/Database/RoutinesController.php:276
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -11908,20 +11867,16 @@ msgstr ""
 
 #: src/Controllers/Database/RoutinesController.php:286
 #: src/Controllers/Database/RoutinesController.php:352
-#: src/Controllers/Database/RoutinesController.php:305
-#: src/Controllers/Database/RoutinesController.php:373
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "ບໍ່ພົບ Routine ທີ່ມີຊື່ %1$s ໃນຖານຂໍ້ມູນ %2$s."
 
 #: src/Controllers/Database/RoutinesController.php:395
-#: src/Controllers/Database/RoutinesController.php:416
 #, php-format
 msgid "Export of routine %s"
 msgstr "ສົ່ງອອກ Routine %s"
 
 #: src/Controllers/Database/RoutinesController.php:414
-#: src/Controllers/Database/RoutinesController.php:435
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -11944,8 +11899,7 @@ msgid "Success!"
 msgstr "ສຳເລັດແລ້ວ!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3245
-#: src/Controllers/Database/StructureController.php:568
+#: src/Display/Results.php:3262
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -11953,7 +11907,6 @@ msgid ""
 msgstr "View ນີ້ມີຈຳນວນແຖວຢ່າງໜ້ອຍເທົ່ານີ້. ກະລຸນາເບິ່ງ %sເອກະສານ%s."
 
 #: src/Controllers/Database/StructureController.php:736
-#: src/Controllers/Database/StructureController.php:737
 msgid "unknown"
 msgstr "ບໍ່ຮູ້ຈັກ"
 
@@ -12021,7 +11974,7 @@ msgstr ""
 "ທ່ານໄດ້ອອກຈາກລະບົບຂອງເຊີບເວີໜຶ່ງແລ້ວ, ເພື່ອອອກຈາກ phpMyAdmin ຢ່າງສົມບູນ "
 "ທ່ານຈຳເປັນຕ້ອງອອກຈາກລະບົບຂອງທຸກເຊີບເວີ."
 
-#: src/Controllers/HomeController.php:194
+#: src/Controllers/HomeController.php:191
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12030,25 +11983,24 @@ msgstr ""
 "ບ່ອນເກັບຂໍ້ມູນການຕັ້ງຄ່າ phpMyAdmin ຍັງຕັ້ງຄ່າບໍ່ຄົບຖ້ວນ, ຄຸນສົມບັດເພີ່ມເຕີມບາງຢ່າງຈຶ່ງຖືກປິດໄວ້. "
 "%sກວດສອບສາເຫດ%s. "
 
-#: src/Controllers/HomeController.php:200
+#: src/Controllers/HomeController.php:197
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "ຫຼື ໄປທີ່ແຖບ 'ການຈັດການ (Operations)' ຂອງຖານຂໍ້ມູນໃດໜຶ່ງເພື່ອຕັ້ງຄ່າຢູ່ທີ່ນັ້ນ."
 
-#: src/Controllers/HomeController.php:264
+#: src/Controllers/HomeController.php:261
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/"
-"session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
-"configured in phpMyAdmin, because of this, your login might expire sooner "
-"than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
+"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
+"than cookie validity configured in phpMyAdmin, because of this, your login "
+"might expire sooner than configured in phpMyAdmin."
 msgstr ""
-"ຄ່າພາຣາມິເຕີ PHP [a@https://www.php.net/manual/en/"
-"session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] ຕຳ່ກວ່າອາຍຸຂອງຄຸກກີ້ທີ່ຕັ້ງໄວ້ໃນ "
-"phpMyAdmin, ເຊິ່ງອາດເຮັດໃຫ້ການເຂົ້າລະບົບຂອງທ່ານໝົດອາຍຸໄວກວ່າທີ່ກຳນົດໄວ້."
+"ຄ່າພາຣາມິເຕີ PHP [a@https://www.php.net/manual/en/session.configuration.php#ini."
+"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] "
+"ຕຳ່ກວ່າອາຍຸຂອງຄຸກກີ້ທີ່ຕັ້ງໄວ້ໃນ phpMyAdmin, "
+"ເຊິ່ງອາດເຮັດໃຫ້ການເຂົ້າລະບົບຂອງທ່ານໝົດອາຍຸໄວກວ່າທີ່ກຳນົດໄວ້."
 
-#: src/Controllers/HomeController.php:284
+#: src/Controllers/HomeController.php:281
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12056,7 +12008,7 @@ msgstr ""
 "ບ່ອນເກັບຄຸກກີ້ການເຂົ້າລະບົບມີຄ່າຕ່ຳກວ່າອາຍຸຄຸກກີ້ທີ່ຕັ້ງໄວ້ໃນ phpMyAdmin, "
 "ເຮັດໃຫ້ການເຂົ້າລະບົບຂອງທ່ານໝົດອາຍຸໄວກວ່າທີ່ກຳນົດໄວ້."
 
-#: src/Controllers/HomeController.php:303
+#: src/Controllers/HomeController.php:300
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12066,7 +12018,7 @@ msgstr ""
 "ເຊິ່ງມີຄວາມສ່ຽງຕໍ່ການຖືກບຸກລຸກ; ທ່ານຄວນແກ້ໄຂຈຸດອ່ອນນີ້ໂດຍການປ່ຽນລະຫັດຜ່ານສຳລັບ controluser "
 "'pma'."
 
-#: src/Controllers/HomeController.php:322
+#: src/Controllers/HomeController.php:319
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12076,7 +12028,7 @@ msgstr ""
 "ຄີຊົ່ວຄາວໄດ້ຖືກສ້າງຂຶ້ນໃຫ້ທ່ານໂດຍອັດຕະໂນມັດແລ້ວ. ກະລຸນາເບິ່ງລາຍລະອຽດທີ່ "
 "[doc@cfg_blowfish_secret]ເອກະສານແນະນຳ[/doc]."
 
-#: src/Controllers/HomeController.php:332
+#: src/Controllers/HomeController.php:329
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12086,7 +12038,7 @@ msgstr ""
 "ຄີເຂົ້າລະຫັດຄຸກກີ້ໃນໄຟລ໌ຕັ້ງຄ່າມີຄວາມຍາວເກີນຄວາມຈຳເປັນ. ມັນຄວນຈະມີຄວາມຍາວພຽງ %d ໄບຕ໌. "
 "ກະລຸນາເບິ່ງລາຍລະອຽດທີ່ [doc@cfg_blowfish_secret]ເອກະສານແນະນຳ[/doc]."
 
-#: src/Controllers/HomeController.php:352
+#: src/Controllers/HomeController.php:349
 msgid ""
 "The configuration file needs a valid key for query encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12096,7 +12048,7 @@ msgstr ""
 "ຄີຊົ່ວຄາວໄດ້ຖືກສ້າງຂຶ້ນໃຫ້ທ່ານໂດຍອັດຕະໂນມັດແລ້ວ. ກະລຸນາເບິ່ງລາຍລະອຽດທີ່ "
 "[doc@cfg_URLQueryEncryptionSecretKey]ເອກະສານແນະນຳ[/doc]."
 
-#: src/Controllers/HomeController.php:362
+#: src/Controllers/HomeController.php:359
 #, php-format
 msgid ""
 "The query encryption key in the configuration file is longer than necessary. "
@@ -12106,7 +12058,7 @@ msgstr ""
 "ຄີເຂົ້າລະຫັດຄຳສັ່ງສອບຖາມໃນໄຟລ໌ຕັ້ງຄ່າມີຄວາມຍາວເກີນຄວາມຈຳເປັນ. ມັນຄວນຈະມີຄວາມຍາວພຽງ %d ໄບຕ໌. "
 "ກະລຸນາເບິ່ງລາຍລະອຽດທີ່ [doc@cfg_URLQueryEncryptionSecretKey]ເອກະສານແນະນຳ[/doc]."
 
-#: src/Controllers/HomeController.php:380
+#: src/Controllers/HomeController.php:377
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12116,7 +12068,7 @@ msgstr ""
 "ໂຟນເດີ [code]config[/code] ທີ່ໃຊ້ສຳລັບການຕິດຕັ້ງຍັງຄົງມີຢູ່ໃນໄດເຣັກທໍຣີ phpMyAdmin ຂອງທ່ານ. "
 "ແນະນຳໃຫ້ລຶບມັນອອກທັນທີຫຼັງຈາກຕັ້ງຄ່າສຳເລັດ ເພື່ອຄວາມປອດໄພຂອງເຊີບເວີ."
 
-#: src/Controllers/HomeController.php:395
+#: src/Controllers/HomeController.php:392
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12125,7 +12077,7 @@ msgstr ""
 "ບໍ່ສາມາດເຂົ້າເຖິງ $cfg['TempDir'] (%s) ໄດ້. phpMyAdmin ບໍ່ສາມາດເກັບ cache ຂອງແມ່ແບບ "
 "(templates) ໄດ້ ເຊິ່ງຈະເຮັດໃຫ້ການເຮັດວຽກຊ້າລົງ."
 
-#: src/Controllers/HomeController.php:412
+#: src/Controllers/HomeController.php:409
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
@@ -12134,7 +12086,7 @@ msgstr ""
 "ຕົວປ່ຽນ [code]HTTP_HOST[/code] ຂາດຫາຍໄປ, ເຊິ່ງອາດຈະເຮັດໃຫ້ phpMyAdmin "
 "ເຮັດວຽກບໍ່ຖືກຕ້ອງ. ກະລຸນາເບິ່ງ [doc@faq1-46]ເອກະສານແນະນຳ[/doc] ສຳລັບບັນຫາທີ່ອາດຈະເກີດຂຶ້ນ."
 
-#: src/Controllers/HomeController.php:465
+#: src/Controllers/HomeController.php:462
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12143,7 +12095,7 @@ msgstr ""
 "ບໍ່ພົບສ່ວນເສີມ mbstring ຂອງ PHP ແລະ ເບິ່ງຄືວ່າທ່ານກຳລັງໃຊ້ຊຸດຕົວອັກສອນແບບ multibyte. ຫາກບໍ່ມີ "
 "mbstring, phpMyAdmin ຈະບໍ່ສາມາດແຍກຂໍ້ຄວາມໄດ້ຢ່າງຖືກຕ້ອງ ແລະ ອາດເຮັດໃຫ້ເກີດຜົນລັບທີ່ບໍ່ຄາດຄິດ."
 
-#: src/Controllers/HomeController.php:483
+#: src/Controllers/HomeController.php:480
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12160,25 +12112,25 @@ msgstr ""
 "ທ່ານອາດຈະພະຍາຍາມອັບໂຫຼດໄຟລ໌ທີ່ມີຂະໜາດໃຫຍ່ເກີນໄປ. ກະລຸນາເບິ່ງ %sເອກະສານອ້າງອີງ%s "
 "ເພື່ອຫາວິທີແກ້ໄຂຂໍ້ຈຳກັດນີ້."
 
-#: src/Controllers/Import/ImportController.php:190
+#: src/Controllers/Import/ImportController.php:189
 msgid "Incorrect format parameter"
 msgstr "ພາຣາມີເຕີຮູບແບບບໍ່ຖືກຕ້ອງ"
 
-#: src/Controllers/Import/ImportController.php:253
+#: src/Controllers/Import/ImportController.php:252
 msgid "Sorry an unexpected error happened!"
 msgstr "ຂໍອະໄພ ເກີດຂໍ້ຜິດພາດທີ່ບໍ່ຄາດຄິດ!"
 
-#: src/Controllers/Import/ImportController.php:298
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:297
+#: src/Controllers/Import/ImportController.php:508
 msgid "Showing bookmark"
 msgstr "ກຳລັງສະແດງ Bookmark"
 
-#: src/Controllers/Import/ImportController.php:318
-#: src/Controllers/Import/ImportController.php:505
+#: src/Controllers/Import/ImportController.php:317
+#: src/Controllers/Import/ImportController.php:504
 msgid "The bookmark has been deleted."
 msgstr "Bookmark ຖືກລຶບແລ້ວ."
 
-#: src/Controllers/Import/ImportController.php:427
+#: src/Controllers/Import/ImportController.php:426
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12187,13 +12139,13 @@ msgstr ""
 "ບໍ່ໄດ້ຮັບຂໍ້ມູນເພື່ອການນຳເຂົ້າ. ອາດເປັນຍ້ອນບໍ່ໄດ້ລະບຸຊື່ໄຟລ໌ ຫຼື ຂະໜາດໄຟລ໌ເກີນຂີດຈຳກັດທີ່ກຳນົດໄວ້ໃນ PHP. "
 "ເບິ່ງ [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:517
+#: src/Controllers/Import/ImportController.php:516
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "ນຳເຂົ້າສຳເລັດແລ້ວ, ປະມວນຜົນໄປ %d ຄຳສັ່ງ."
 
-#: src/Controllers/Import/ImportController.php:554
+#: src/Controllers/Import/ImportController.php:553
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12202,7 +12154,7 @@ msgstr ""
 "ໝົດເວລາການເຮັດວຽກຂອງສະຄຣິບ, ຫາກທ່ານຕ້ອງການນຳເຂົ້າໃຫ້ສຳເລັດ, ກະລຸນາ %sສົ່ງໄຟລ໌ເດີມອີກຄັ້ງ%s "
 "ເພື່ອເຮັດວຽກຕໍ່."
 
-#: src/Controllers/Import/ImportController.php:564
+#: src/Controllers/Import/ImportController.php:563
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12210,12 +12162,12 @@ msgstr ""
 "ແນວໃດກໍຕາມ ໃນການເຮັດວຽກຄັ້ງຫຼ້າສຸດບໍ່ມີຂໍ້ມູນໃດຖືກປະມວນຜົນ, ເຊິ່ງໝາຍຄວາມວ່າ phpMyAdmin "
 "ຈະບໍ່ສາມາດນຳເຂົ້າຂໍ້ມູນໃຫ້ສຳເລັດໄດ້ ນອກຈາກທ່ານຈະເພີ່ມກຳນົດເວລາຂອງ php."
 
-#: src/Controllers/Import/ImportController.php:635
+#: src/Controllers/Import/ImportController.php:634
 #: src/Controllers/Sql/SqlController.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "ຄຳສັ່ງ \"DROP DATABASE\" ຖືກປິດການໃຊ້ງານ."
 
-#: src/Controllers/Import/ImportController.php:698 src/Sql.php:918
+#: src/Controllers/Import/ImportController.php:697 src/Sql.php:919
 msgid "[ROLLBACK occurred.]"
 msgstr "[ເກີດການ ROLLBACK.]"
 
@@ -12443,12 +12395,12 @@ msgid "The user name is empty!"
 msgstr "ຊື່ຜູ້ໃຊ້ຫວ່າງເປົ່າ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:147
-#: src/Server/Privileges.php:761 src/UserPassword.php:41
+#: src/Server/Privileges.php:761 src/UserPassword.php:33
 msgid "The password is empty!"
 msgstr "ລະຫັດຜ່ານຫວ່າງເປົ່າ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:148
-#: src/Server/Privileges.php:759 src/UserPassword.php:45
+#: src/Server/Privileges.php:759 src/UserPassword.php:38
 msgid "The passwords aren't the same!"
 msgstr "ລະຫັດຜ່ານບໍ່ກົງກັນ!"
 
@@ -13658,7 +13610,7 @@ msgid "Table %s already exists!"
 msgstr "ຕາຕະລາງ %s ມີຢູ່ແລ້ວ!"
 
 #: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:248
-#: src/Navigation/Nodes/NodeDatabaseChild.php:50 src/InsertEdit.php:245
+#: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "ເຊື່ອງ"
 
@@ -14048,7 +14000,7 @@ msgid ""
 "not available."
 msgstr "ກະລຸນາລໍຖ້າ, ໄຟລ໌ກຳລັງຖືກອັບໂຫຼດ. ບໍ່ມີຂໍ້ມູນລະອຽດກ່ຽວກັບການອັບໂຫຼດໃນເວລານີ້."
 
-#: src/Controllers/NavigationController.php:40
+#: src/Controllers/NavigationController.php:39
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "ຂໍ້ຜິດພາດຮ້າຍແຮງ: ການນຳທາງ (navigation) ສາມາດເຂົ້າເຖິງໄດ້ຜ່ານ AJAX ເທົ່ານັ້ນ"
 
@@ -14069,7 +14021,7 @@ msgid "String"
 msgstr "ຂໍ້ຄວາມ (String)"
 
 #: src/Controllers/Operations/Database/CollationController.php:42
-#: src/Controllers/Operations/TableController.php:262
+#: src/Controllers/Operations/TableController.php:268
 msgid "No collation provided."
 msgstr "ບໍ່ມີການລະບຸການຈັດລຽງຕົວອັກສອນ (Collation)."
 
@@ -14082,12 +14034,12 @@ msgstr "ບໍ່ສາມາດສຳເນົາຖານຂໍ້ມູນໂ
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "ຖານຂໍ້ມູນ %1$s ຖືກປ່ຽນຊື່ເປັນ %2$s ແລ້ວ."
 
-#: src/Controllers/Operations/DatabaseController.php:176
+#: src/Controllers/Operations/DatabaseController.php:175
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "ຖານຂໍ້ມູນ %1$s ຖືກສຳເນົາໄປທີ່ %2$s ແລ້ວ."
 
-#: src/Controllers/Operations/DatabaseController.php:273
+#: src/Controllers/Operations/DatabaseController.php:271
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14105,11 +14057,11 @@ msgstr "ວາງມັນລົງໃນ config.inc.php ຂອງທ່ານ"
 msgid "Could not import configuration"
 msgstr "ບໍ່ສາມາດນຳເຂົ້າການກຳນົດຄ່າໄດ້"
 
-#: src/Controllers/Preferences/TwoFactorController.php:49
+#: src/Controllers/Preferences/TwoFactorController.php:48
 msgid "Two-factor authentication has been removed."
 msgstr "ການຢືນຢັນຕົວຕົນສອງຊັ້ນຖືກຍົກເລີກແລ້ວ."
 
-#: src/Controllers/Preferences/TwoFactorController.php:62
+#: src/Controllers/Preferences/TwoFactorController.php:59
 msgid "Two-factor authentication has been configured."
 msgstr "ການຢືນຢັນຕົວຕົນສອງຊັ້ນຖືກຕັ້ງຄ່າແລ້ວ."
 
@@ -14140,7 +14092,7 @@ msgstr "ລັອກບັນຊີ %s@%s ສຳເລັດແລ້ວ."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "ປົດລັອກບັນຊີ %s@%s ສຳເລັດແລ້ວ."
 
-#: src/Controllers/Server/PrivilegesController.php:127
+#: src/Controllers/Server/PrivilegesController.php:123
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -14834,15 +14786,15 @@ msgstr "ຂໍ້ມູນບໍ່ຖືກຕ້ອງ ຫຼື ບໍ່ມ�
 msgid "Bookmark %s has been created."
 msgstr "ສ້າງ Bookmark %s ແລ້ວ."
 
-#: src/Controllers/Sql/SqlController.php:225
+#: src/Controllers/Sql/SqlController.php:224
 msgid "Bookmark not created!"
 msgstr "ບໍ່ສາມາດສ້າງບຸກມາກໄດ້!"
 
-#: src/Controllers/Table/AddFieldController.php:137
-#: src/Controllers/Table/IndexesController.php:139
-#: src/Controllers/Table/IndexRenameController.php:123
-#: src/Controllers/Table/Structure/PartitioningController.php:266
-#: src/Controllers/Table/Structure/SaveController.php:228
+#: src/Controllers/Table/AddFieldController.php:136
+#: src/Controllers/Table/IndexesController.php:137
+#: src/Controllers/Table/IndexRenameController.php:122
+#: src/Controllers/Table/Structure/PartitioningController.php:264
+#: src/Controllers/Table/Structure/SaveController.php:227
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "ແກ້ໄຂໂຄງສ້າງຕາຕະລາງ %1$s ສຳເລັດແລ້ວ."
@@ -14853,16 +14805,16 @@ msgstr "ແກ້ໄຂໂຄງສ້າງຕາຕະລາງ %1$s ສຳເ
 msgid "No row selected."
 msgstr "ບໍ່ມີແຖວທີ່ຖືກເລືອກ."
 
-#: src/Controllers/Table/ChartController.php:60
-#: src/Controllers/Table/GisVisualizationController.php:85
+#: src/Controllers/Table/ChartController.php:59
+#: src/Controllers/Table/GisVisualizationController.php:84
 msgid "No SQL query was set to fetch data."
 msgstr "ບໍ່ມີຄຳສັ່ງ SQL ຖືກກຳນົດເພື່ອດຶງຂໍ້ມູນ."
 
-#: src/Controllers/Table/ChartController.php:166
+#: src/Controllers/Table/ChartController.php:164
 msgid "No numeric columns present in the table to plot."
 msgstr "ບໍ່ມີຄໍລຳຕົວເລກໃນຕາຕະລາງທີ່ຈະນຳມາສ້າງແຜນພູມ."
 
-#: src/Controllers/Table/ChartController.php:237
+#: src/Controllers/Table/ChartController.php:235
 msgid "No data to display"
 msgstr "ບໍ່ມີຂໍ້ມູນທີ່ຈະສະແດງ"
 
@@ -14905,38 +14857,38 @@ msgid "There is an issue with your request."
 msgstr "ມີບັນຫາກັບການຮ້ອງຂໍຂອງທ່ານ."
 
 #: src/Controllers/Table/GetFieldController.php:109
-#: src/Database/Routines.php:1019 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:904 src/Database/Routines.php:1050
+#: src/Database/Routines.php:1017 src/Import/Import.php:138
+#: src/InsertEdit.php:163 src/Sql.php:905
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ສົ່ງຄ່າຜົນລັດຫວ່າງເປົ່າ (ຄື: ສູນແຖວ)."
 
-#: src/Controllers/Table/GisVisualizationController.php:96
+#: src/Controllers/Table/GisVisualizationController.php:93
 msgid "No spatial column found for this SQL query."
 msgstr "ບໍ່ພົບຄໍລຳທາງພື້ນທີ່ (Spatial) ສຳລັບຄຳສັ່ງ SQL ນີ້."
 
-#: src/Controllers/Table/GisVisualizationController.php:121
+#: src/Controllers/Table/GisVisualizationController.php:117
 msgid "Invalid file format, expected one of: "
 msgstr "ຮູບແບບໄຟລ໌ບໍ່ຖືກຕ້ອງ, ຕ້ອງແມ່ນໜຶ່ງໃນ: "
 
-#: src/Controllers/Table/GisVisualizationController.php:129
+#: src/Controllers/Table/GisVisualizationController.php:125
 msgid "Failed to create image"
 msgstr "ສ້າງຮູບພາບລົ້ມເຫຼວ"
 
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:67
-#: src/Controllers/Table/Maintenance/CheckController.php:67
-#: src/Controllers/Table/Maintenance/ChecksumController.php:67
-#: src/Controllers/Table/Maintenance/OptimizeController.php:67
-#: src/Controllers/Table/Maintenance/RepairController.php:67
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:66
+#: src/Controllers/Table/Maintenance/CheckController.php:66
+#: src/Controllers/Table/Maintenance/ChecksumController.php:66
+#: src/Controllers/Table/Maintenance/OptimizeController.php:66
+#: src/Controllers/Table/Maintenance/RepairController.php:66
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr "ການບຳລຸງຮັກສາຫຼາຍຕາຕະລາງພ້ອມກັນຖືກປິດໄວ້."
 
-#: src/Controllers/Table/Partition/AnalyzeController.php:36
-#: src/Controllers/Table/Partition/CheckController.php:36
-#: src/Controllers/Table/Partition/DropController.php:36
-#: src/Controllers/Table/Partition/OptimizeController.php:36
-#: src/Controllers/Table/Partition/RebuildController.php:36
-#: src/Controllers/Table/Partition/RepairController.php:36
-#: src/Controllers/Table/Partition/TruncateController.php:36
+#: src/Controllers/Table/Partition/AnalyzeController.php:35
+#: src/Controllers/Table/Partition/CheckController.php:35
+#: src/Controllers/Table/Partition/DropController.php:35
+#: src/Controllers/Table/Partition/OptimizeController.php:35
+#: src/Controllers/Table/Partition/RebuildController.php:35
+#: src/Controllers/Table/Partition/RepairController.php:35
+#: src/Controllers/Table/Partition/TruncateController.php:35
 msgid "The partition name must be a non-empty string."
 msgstr "ຊື່ພາທິຊັນ (Partition) ຕ້ອງບໍ່ເປັນຄ່າວ່າງ."
 
@@ -14944,11 +14896,11 @@ msgstr "ຊື່ພາທິຊັນ (Partition) ຕ້ອງບໍ່ເປ�
 msgid "Invalid database or table name."
 msgstr "ຊື່ຖານຂໍ້ມູນ ຫຼື ຊື່ຕາຕະລາງບໍ່ຖືກຕ້ອງ."
 
-#: src/Controllers/Table/RelationController.php:327
+#: src/Controllers/Table/RelationController.php:321
 msgid "Display column was successfully updated."
 msgstr "ອັບເດດຄໍລຳການສະແດງຜົນສຳເລັດແລ້ວ."
 
-#: src/Controllers/Table/RelationController.php:361
+#: src/Controllers/Table/RelationController.php:354
 msgid "Internal relationships were successfully updated."
 msgstr "ອັບເດດຄວາມສຳພັນພາຍໃນສຳເລັດແລ້ວ."
 
@@ -14973,9 +14925,9 @@ msgstr "ຄໍລຳທີ່ເລືອກບໍ່ກົງກັບຄໍລ
 msgid "The selected columns are already in the correct order."
 msgstr "ຄໍລຳທີ່ເລືອກຖືກຈັດລຽງຖືກຕ້ອງແລ້ວ."
 
-#: src/Controllers/Table/Structure/PartitioningController.php:258
-#: src/Controllers/Table/Structure/SaveController.php:278
-#: src/Tracking/Tracking.php:736
+#: src/Controllers/Table/Structure/PartitioningController.php:257
+#: src/Controllers/Table/Structure/SaveController.php:277
+#: src/Tracking/Tracking.php:733
 msgid "Query error"
 msgstr "ຂໍ້ຜິດພາດຂອງຄຳສັ່ງ"
 
@@ -14985,7 +14937,7 @@ msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] "ຊື່ '%s' ເປັນຄຳສະຫງວນຂອງ MySQL."
 
-#: src/Controllers/Table/Structure/SaveController.php:223
+#: src/Controllers/Table/Structure/SaveController.php:222
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -15028,7 +14980,7 @@ msgid ""
 "%2$s."
 msgstr "ຂໍ້ຜິດພາດ: ບໍ່ພົບ trigger ຊື່ %1$s ໃນຖານຂໍ້ມູນ %2$s."
 
-#: src/Controllers/UserPasswordController.php:48
+#: src/Controllers/UserPasswordController.php:47
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "ທ່ານບໍ່ມີສິດພຽງພໍທີ່ຈະເຂົ້າເຖິງບ່ອນນີ້ໃນເວລານີ້!"
 
@@ -15119,26 +15071,21 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "ບໍ່ສາມາດໂຫຼດປລັກອິນ schema ໄດ້!"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:103
-#: src/Database/Routines.php:129 src/Database/Routines.php:207
-#: src/Database/Routines.php:979 src/Triggers/Triggers.php:84
-#: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:128
-#: src/Database/Routines.php:106 src/Database/Routines.php:132
-#: src/Database/Routines.php:210 src/Database/Routines.php:1010
+#: src/Database/Events.php:134 src/Database/Routines.php:103
+#: src/Database/Routines.php:129 src/Database/Routines.php:205
+#: src/Database/Routines.php:977 src/Triggers/Triggers.php:84
+#: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:126
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "ຄຳສັ່ງ Query ຕໍ່ໄປນີ້ລົ້ມເຫຼວ: \"%s\""
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
-#: src/Database/Events.php:119 src/Database/Events.php:140
+#: src/Database/Events.php:119 src/Database/Events.php:138
 #: src/Database/Routines.php:107 src/Database/Routines.php:133
-#: src/Database/Routines.php:211 src/Database/Routines.php:225
-#: src/Database/Routines.php:983 src/Html/Generator.php:800
+#: src/Database/Routines.php:209 src/Database/Routines.php:223
+#: src/Database/Routines.php:981 src/Html/Generator.php:793
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
-#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
-#: src/Database/Routines.php:110 src/Database/Routines.php:136
-#: src/Database/Routines.php:214 src/Database/Routines.php:228
-#: src/Database/Routines.php:1014
+#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
 msgstr "MySQL ແຈ້ງວ່າ: "
 
@@ -15146,8 +15093,8 @@ msgstr "MySQL ແຈ້ງວ່າ: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "ຂໍໂທດ, ບໍ່ສາມາດກູ້ຄືນ Event ທີ່ຖືກລຶບໄປໄດ້."
 
-#: src/Database/Events.php:117 src/Database/Routines.php:223
-#: src/Triggers/Triggers.php:109 src/Database/Routines.php:226
+#: src/Database/Events.php:117 src/Database/Routines.php:221
+#: src/Triggers/Triggers.php:109
 msgid "The backed up query was:"
 msgstr "Query ທີ່ສຳຮອງໄວ້ຄື:"
 
@@ -15156,76 +15103,75 @@ msgstr "Query ທີ່ສຳຮອງໄວ້ຄື:"
 msgid "Event %1$s has been modified."
 msgstr "Event %1$s ຖືກແກ້ໄຂແລ້ວ."
 
-#: src/Database/Events.php:143
+#: src/Database/Events.php:141
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "Event %1$s ຖືກສ້າງແລ້ວ."
 
-#: src/Database/Events.php:157 src/Database/Routines.php:149
-#: src/Triggers/Triggers.php:149 src/Database/Routines.php:152
+#: src/Database/Events.php:153 src/Database/Routines.php:147
+#: src/Triggers/Triggers.php:145
 msgid "One or more errors have occurred while processing your request:"
 msgstr "ເກີດຂໍ້ຜິດພາດໜຶ່ງຢ່າງ ຫຼື ຫຼາຍຢ່າງໃນຂະນະທີ່ກຳລັງປະມວນຜົນຄຳຮ້ອງຂໍຂອງທ່ານ:"
 
-#: src/Database/Events.php:267 src/Database/Routines.php:785
-#: src/Triggers/Triggers.php:191 src/Database/Routines.php:816
+#: src/Database/Events.php:263 src/Database/Routines.php:783
+#: src/Triggers/Triggers.php:187
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "ຜູ້ກຳນົດຕ້ອງຢູ່ໃນຮູບແບບ \"ຊື່ຜູ້ໃຊ້@ຊື່ໂຮສ\"!"
 
-#: src/Database/Events.php:275
+#: src/Database/Events.php:271
 msgid "You must provide an event name!"
 msgstr "ທ່ານຕ້ອງລະບຸຊື່ Event!"
 
-#: src/Database/Events.php:289
+#: src/Database/Events.php:285
 msgid "You must provide a valid interval value for the event."
 msgstr "ທ່ານຕ້ອງລະບຸຄ່າຊ່ວງເວລາ (Interval) ທີ່ຖືກຕ້ອງໃຫ້ກັບ Event."
 
-#: src/Database/Events.php:302
+#: src/Database/Events.php:298
 msgid "You must provide a valid execution time for the event."
 msgstr "ທ່ານຕ້ອງລະບຸເວລາປະມວນຜົນທີ່ຖືກຕ້ອງໃຫ້ກັບ Event."
 
-#: src/Database/Events.php:305
+#: src/Database/Events.php:301
 msgid "You must provide a valid type for the event."
 msgstr "ທ່ານຕ້ອງລະບຸປະເພດທີ່ຖືກຕ້ອງໃຫ້ກັບ Event."
 
-#: src/Database/Events.php:331
+#: src/Database/Events.php:327
 msgid "You must provide an event definition."
 msgstr "ທ່ານຕ້ອງລະບຸຄຳນິຍາມ (Definition) ໃຫ້ກັບ Event."
 
-#: src/Database/Routines.php:84 src/Database/Routines.php:87
+#: src/Database/Routines.php:84
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "ປະເພດ Routine ບໍ່ຖືກຕ້ອງ: \"%s\""
 
-#: src/Database/Routines.php:136 src/Database/Routines.php:139
+#: src/Database/Routines.php:136
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Routine %1$s ຖືກສ້າງແລ້ວ."
 
-#: src/Database/Routines.php:222 src/Database/Routines.php:225
+#: src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "ຂໍໂທດ, ບໍ່ສາມາດກູ້ຄືນ Routine ທີ່ຖືກລຶບໄປໄດ້."
 
-#: src/Database/Routines.php:271 src/Database/Routines.php:274
+#: src/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Routine %1$s ຖືກແກ້ໄຂແລ້ວ. ສິດການໃຊ້ງານໄດ້ຖືກປັບປຸງແລ້ວ."
 
-#: src/Database/Routines.php:276 src/Database/Routines.php:279
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Routine %1$s ຖືກແກ້ໄຂແລ້ວ."
 
-#: src/Database/Routines.php:630 src/Database/Routines.php:661
+#: src/Database/Routines.php:628
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "ທ່ານຕ້ອງລະບຸຊື່ ແລະ ປະເພດໃຫ້ກັບແຕ່ລະພາລາມິເຕີຂອງ Routine."
 
-#: src/Database/Routines.php:648 src/Database/Routines.php:679
+#: src/Database/Routines.php:646
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "ທິດທາງ \"%s\" ທີ່ລະບຸໃຫ້ພາລາມິເຕີບໍ່ຖືກຕ້ອງ."
 
-#: src/Database/Routines.php:668 src/Database/Routines.php:733
-#: src/Database/Routines.php:699 src/Database/Routines.php:764
+#: src/Database/Routines.php:666 src/Database/Routines.php:731
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15233,45 +15179,45 @@ msgstr ""
 "ທ່ານຕ້ອງລະບຸ ຄວາມຍາວ/ຄ່າ ໃຫ້ກັບພາລາມິເຕີຂອງ Routine ທີ່ເປັນປະເພດ ENUM, SET, VARCHAR ແລະ "
 "VARBINARY."
 
-#: src/Database/Routines.php:715 src/Database/Routines.php:746
+#: src/Database/Routines.php:713
 msgid "You must provide a valid return type for the routine."
 msgstr "ທ່ານຕ້ອງລະບຸປະເພດການສົ່ງຄ່າກັບ (Return type) ທີ່ຖືກຕ້ອງໃຫ້ກັບ Routine."
 
-#: src/Database/Routines.php:792 src/Database/Routines.php:823
+#: src/Database/Routines.php:790
 msgid "Invalid routine type!"
 msgstr "ປະເພດຣູທີນບໍ່ຖືກຕ້ອງ!"
 
-#: src/Database/Routines.php:798 src/Database/Routines.php:829
+#: src/Database/Routines.php:796
 msgid "You must provide a routine name!"
 msgstr "ທ່ານຕ້ອງລະບຸຊື່ Routine!"
 
-#: src/Database/Routines.php:869 src/Database/Routines.php:892
+#: src/Database/Routines.php:867
 msgid "You must provide a routine definition."
 msgstr "ທ່ານຕ້ອງລະບຸຄຳນິຍາມໃຫ້ກັບ Routine."
 
-#: src/Database/Routines.php:995 src/Database/Routines.php:1026
+#: src/Database/Routines.php:993
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "ຜົນການປະມວນຜົນຂອງ Routine %s"
 
-#: src/Database/Routines.php:1010 src/Database/Routines.php:1041
+#: src/Database/Routines.php:1008
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "ມີ %d ແຖວທີ່ໄດ້ຮັບຜົນກະທົບຈາກຄຳສັ່ງສຸດທ້າຍພາຍໃນ Procedure."
 
-#: src/Dbal/DatabaseInterface.php:1076 src/Dbal/DatabaseInterface.php:1075
+#: src/Dbal/DatabaseInterface.php:1076
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"ບໍ່ສາມາດໃຊ້ເຂດເວລາ \\\"%1$s\\\" ສຳລັບເຊີເວີ %2$d. ກະລຸນາກວດສອບການຕັ້ງຄ່າຂອງທ່ານສຳລັບ [em]"
-"$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. ປັດຈຸບັນ phpMyAdmin "
+"ບໍ່ສາມາດໃຊ້ເຂດເວລາ \\\"%1$s\\\" ສຳລັບເຊີເວີ %2$d. ກະລຸນາກວດສອບການຕັ້ງຄ່າຂອງທ່ານສຳລັບ "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. ປັດຈຸບັນ phpMyAdmin "
 "ແມ່ນກຳລັງໃຊ້ເຂດເວລາເລີ່ມຕົ້ນຂອງຖານຂໍ້ມູນເຊີເວີ."
 
-#: src/Dbal/DatabaseInterface.php:1117 src/Dbal/DatabaseInterface.php:1116
+#: src/Dbal/DatabaseInterface.php:1117
 msgid "Failed to set configured collation connection!"
 msgstr "ກຳນົດຄ່າການສົມທຽບ (collation) ບໍ່ສຳເລັດ!"
 
@@ -15282,31 +15228,31 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr "ຂໍ້ຜິດພາດ 1045: ບໍ່ອະນຸຍາດໃຫ້ຜູ້ໃຊ້ເຂົ້າເຖິງ. ຂໍ້ມູນເພີ່ມເຕີມຖືກເຊື່ອງໄວ້ໂດຍ %s."
 
-#: src/Display/Results.php:2387 src/Display/Results.php:2402
+#: src/Display/Results.php:2400 src/Display/Results.php:2415
 msgid "The row has been deleted."
 msgstr "ລຶບແຖວແລ້ວ."
 
-#: src/Display/Results.php:2969 src/Display/Results.php:3286 src/Sql.php:910
+#: src/Display/Results.php:2982 src/Display/Results.php:3302 src/Sql.php:911
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "ຄຳສັ່ງໃຊ້ເວລາ %01.4f ວິນາທີ."
 
-#: src/Display/Results.php:3254
+#: src/Display/Results.php:3270
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "ກຳລັງສະແດງແຖວທີ %1s - %2s"
 
-#: src/Display/Results.php:3268
+#: src/Display/Results.php:3283
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "ທັງໝົດ %1$s, ໃນຄຳສັ່ງສອບຖາມ %2$s"
 
-#: src/Display/Results.php:3273
+#: src/Display/Results.php:3288
 #, php-format
 msgid "%s total"
 msgstr "ທັງໝົດ %s"
 
-#: src/Display/Results.php:3577
+#: src/Display/Results.php:3592
 msgid "Link not found!"
 msgstr "ບໍ່ພົບລິ້ງ!"
 
@@ -15574,24 +15520,24 @@ msgstr ""
 "ທ່ານຖືກອອກຈາກລະບົບໂດຍອັດຕະໂນມັດເນື່ອງຈາກບໍ່ມີການເຄື່ອນໄຫວເປັນເວລາ %s ວິນາທີ. "
 "ເມື່ອທ່ານເຂົ້າສູ່ລະບົບອີກຄັ້ງ, ທ່ານຈະສາມາດເຮັດວຽກຕໍ່ຈາກບ່ອນທີ່ຄ້າງໄວ້ໄດ້."
 
-#: src/Export/OutputHandler.php:84 src/Export/OutputHandler.php:115
-#: src/Export/OutputHandler.php:241
+#: src/Export/OutputHandler.php:84 src/Export/OutputHandler.php:117
+#: src/Export/OutputHandler.php:232
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "ພື້ນທີ່ບໍ່ພຽງພໍເພື່ອບັນທຶກໄຟລ໌ %s."
 
-#: src/Export/OutputHandler.php:195
+#: src/Export/OutputHandler.php:197
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr "ໄຟລ໌ %s ມີຢູ່ແລ້ວໃນເຊີເວີ, ກະລຸນາປ່ຽນຊື່ໄຟລ໌ ຫຼື ກວດເບິ່ງຕົວເລືອກການຂຽນທັບ."
 
-#: src/Export/OutputHandler.php:206 src/Export/OutputHandler.php:218
+#: src/Export/OutputHandler.php:204 src/Export/OutputHandler.php:212
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "ເວັບເຊີເວີບໍ່ມີສິດໃນການບັນທຶກໄຟລ໌ %s."
 
-#: src/Export/OutputHandler.php:249
+#: src/Export/OutputHandler.php:239
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "ຂໍ້ມູນ (Dump) ໄດ້ຖືກບັນທຶກລົງໃນໄຟລ໌ %s ແລ້ວ."
@@ -15675,57 +15621,57 @@ msgstr ""
 msgid "Session not found."
 msgstr "ບໍ່ພົບເຊດຊັນ (Session)."
 
-#: src/Html/Generator.php:149
+#: src/Html/Generator.php:148
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "ໄປທີ່ຖານຂໍ້ມູນ “%s”."
 
-#: src/Html/Generator.php:216
+#: src/Html/Generator.php:215
 msgid "SSL is not being used"
 msgstr "ບໍ່ໄດ້ໃຊ້ SSL"
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:220
 msgid "SSL is used with disabled verification"
 msgstr "ໃຊ້ SSL ໂດຍປິດການກວດສອບ (verification)"
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:222
 msgid "SSL is used without certification authority"
 msgstr "ໃຊ້ SSL ໂດຍບໍ່ມີໃບຢັ້ງຢືນ (CA)"
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:225
 msgid "SSL is used"
 msgstr "ມີການໃຊ້ SSL"
 
-#: src/Html/Generator.php:326
+#: src/Html/Generator.php:325
 msgid "The PHP function password_hash() with default options."
 msgstr "ຟັງຊັນ PHP password_hash() ພ້ອມຕົວເລືອກເລີ່ມຕົ້ນ."
 
-#: src/Html/Generator.php:327
+#: src/Html/Generator.php:326
 msgid "password_hash() PHP function"
 msgstr "ຟັງຊັນ PHP password_hash()"
 
-#: src/Html/Generator.php:501
+#: src/Html/Generator.php:494
 msgid "Skip Explain SQL"
 msgstr "ຂ້າມການອະທິບາຍ SQL (Explain SQL)"
 
-#: src/Html/Generator.php:511
+#: src/Html/Generator.php:504
 msgid "Skip Analyze SQL"
 msgstr "ຂ້າມການວິເຄາະ SQL"
 
-#: src/Html/Generator.php:543
+#: src/Html/Generator.php:536
 msgid "Without PHP code"
 msgstr "ບໍ່ເອົາໂຄ້ດ PHP"
 
-#: src/Html/Generator.php:628
+#: src/Html/Generator.php:621
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "ແກ້ໄຂໃນແຖວ"
 
-#: src/Html/Generator.php:742
+#: src/Html/Generator.php:735
 msgid "Static analysis:"
 msgstr "ການວິເຄາະຄົງທີ່ (Static analysis):"
 
-#: src/Html/Generator.php:745
+#: src/Html/Generator.php:738
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "ພົບຂໍ້ຜິດພາດ %d ລາຍການລະຫວ່າງການວິເຄາະ."
@@ -15870,15 +15816,15 @@ msgid ""
 "removed."
 msgstr "ອິນເດັກ %1$s ແລະ %2$s ເບິ່ງຄືວ່າຈະຄືກັນ ແລະ ຄວນຈະລຶບອັນໃດອັນໜຶ່ງອອກ."
 
-#: src/InsertEdit.php:422 src/InsertEdit.php:435
+#: src/InsertEdit.php:422
 msgid "web server upload directory:"
 msgstr "ໂຟນເດີອັບໂຫລດຂອງເວັບເຊີເວີ:"
 
-#: src/InsertEdit.php:831 src/Sql.php:901 src/InsertEdit.php:844
+#: src/InsertEdit.php:831 src/Sql.php:902
 msgid "Showing SQL query"
 msgstr "ກຳລັງສະແດງຄຳສັ່ງ SQL"
 
-#: src/InsertEdit.php:855 src/Sql.php:881 src/InsertEdit.php:868
+#: src/InsertEdit.php:855 src/Sql.php:883
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ໄອດີຂອງແຖວທີ່ແຊກເຂົ້າໄປ: %1$d"
@@ -15893,7 +15839,7 @@ msgstr "ການກວດສອບໄວຍາກອນ (Linting) ຖືກປ�
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (ໃກ້ກັບ <code>%2$s</code>)"
 
-#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1405 src/Util.php:1419
+#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1396 src/Util.php:1410
 msgid "Tracking"
 msgstr "ການຕິດຕາມ (Tracking)"
 
@@ -15901,7 +15847,7 @@ msgstr "ການຕິດຕາມ (Tracking)"
 msgid "Database seems to be empty!"
 msgstr "ເບິ່ງຄືວ່າຖານຂໍ້ມູນຈະຫວ່າງເປົ່າ!"
 
-#: src/Menu.php:402 src/Util.php:1406
+#: src/Menu.php:402 src/Util.php:1397
 msgid "Designer"
 msgstr "ຕົວອອກແບບ (Designer)"
 
@@ -15909,27 +15855,27 @@ msgstr "ຕົວອອກແບບ (Designer)"
 msgid "User accounts"
 msgstr "ບັນຊີຜູ້ໃຊ້"
 
-#: src/Menu.php:512 src/Util.php:1389
+#: src/Menu.php:512 src/Util.php:1380
 msgid "Charsets"
 msgstr "ຊຸດຕົວອັກສອນ (Charsets)"
 
-#: src/Menu.php:517 src/Util.php:1391
+#: src/Menu.php:517 src/Util.php:1382
 msgid "Engines"
 msgstr "ເອນຈິນ (Engines)"
 
-#: src/Message.php:185
+#: src/Message.php:151
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] "%1$d ແຖວໄດ້ຮັບຜົນກະທົບ."
 
-#: src/Message.php:202
+#: src/Message.php:168
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d ແຖວຖືກລຶບແລ້ວ."
 
-#: src/Message.php:219
+#: src/Message.php:185
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -16292,39 +16238,39 @@ msgstr "ລາຍຊື່ນີ້ອີງຕາມສ່ວນໜຶ່ງຂ
 msgid "No partial dependencies found!"
 msgstr "ບໍ່ພົບການຂຶ້ນຕໍ່ກັນບາງສ່ວນ!"
 
-#: src/Operations.php:536
+#: src/Operations.php:534
 msgid "Coalesce"
 msgstr "ລວມຂໍ້ມູນ (Coalesce)"
 
-#: src/Operations.php:880
+#: src/Operations.php:882
 msgid "Can't move table to same one!"
 msgstr "ບໍ່ສາມາດຍ້າຍຕາຕະລາງໄປຫາໂຕມັນເອງໄດ້!"
 
-#: src/Operations.php:882
+#: src/Operations.php:884
 msgid "Can't copy table to same one!"
 msgstr "ບໍ່ສາມາດສຳເນົາຕາຕະລາງໄປຫາໂຕມັນເອງໄດ້!"
 
-#: src/Operations.php:918
+#: src/Operations.php:908
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "ຕາຕະລາງ %s ໄດ້ຖືກຍ້າຍໄປທີ່ %s ແລ້ວ. ສິດການໃຊ້ງານໄດ້ຖືກປັບປຸງແລ້ວ."
 
-#: src/Operations.php:924
+#: src/Operations.php:914
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "ຕາຕະລາງ %s ໄດ້ຖືກສຳເນົາໄປທີ່ %s ແລ້ວ. ສິດການໃຊ້ງານໄດ້ຖືກປັບປຸງແລ້ວ."
 
-#: src/Operations.php:930
+#: src/Operations.php:920
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "ຕາຕະລາງ %s ໄດ້ຖືກຍ້າຍໄປທີ່ %s ແລ້ວ."
 
-#: src/Operations.php:934
+#: src/Operations.php:924
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "ຕາຕະລາງ %s ໄດ້ຖືກສຳເນົາໄປທີ່ %s ແລ້ວ."
 
-#: src/Operations.php:957
+#: src/Operations.php:944
 msgid "The table name is empty!"
 msgstr "ຊື່ຕາຕະລາງຫວ່າງເປົ່າ!"
 
@@ -16387,7 +16333,7 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "ເຈົ້າບໍ່ໄດ້ຮັບອະນຸຍາດໃຫ້ເຂົ້າສູ່ລະບົບເຊີເວີ MySQL ນີ້!"
 
-#: src/Plugins/Auth/AuthenticationHttp.php:88
+#: src/Plugins/Auth/AuthenticationHttp.php:87
 msgid "Wrong username/password. Access denied."
 msgstr "ຊື່ຜູ້ໃຊ້ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ. ການເຂົ້າເຖິງຖືກປະຕິເສດ."
 
@@ -16901,14 +16847,9 @@ msgstr "ຊື່ຄໍລຳ: "
 msgid "This plugin does not support compressed imports!"
 msgstr "ປລັກອິນນີ້ບໍ່ຮອງຮັບການນຳເຂົ້າແບບບີບອັດ!"
 
-#: src/Plugins/Import/ImportMediawiki.php:59
+#: src/Plugins/Import/ImportMediawiki.php:58
 msgid "MediaWiki Table"
 msgstr "ຕາຕະລາງ MediaWiki"
-
-#: src/Plugins/Import/ImportMediawiki.php:276
-#, php-format
-msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "ຮູບແບບຂອງຂໍ້ມູນ mediawiki ບໍ່ຖືກຕ້ອງໃນແຖວ: <br>%s."
 
 #: src/Plugins/Import/ImportOds.php:86
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -16929,21 +16870,21 @@ msgstr "ໄຟລ໌ XML ທີ່ລະບຸມີຮູບແບບບໍ່�
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "ບໍ່ສາມາດປະມວນຜົນ (Parse) OpenDocument Spreadsheet ໄດ້!"
 
-#: src/Plugins/Import/ImportShp.php:74
+#: src/Plugins/Import/ImportShp.php:75
 msgid "ESRI Shape File"
 msgstr "ໄຟລ໌ ESRI Shape"
 
-#: src/Plugins/Import/ImportShp.php:110 src/Plugins/Import/ImportShp.php:176
+#: src/Plugins/Import/ImportShp.php:113 src/Plugins/Import/ImportShp.php:179
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "ເກີດຂໍ້ຜິດພາດໃນການນຳເຂົ້າໄຟລ໌ ESRI shape: \"%s\"."
 
-#: src/Plugins/Import/ImportShp.php:201
+#: src/Plugins/Import/ImportShp.php:204
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial Extension ບໍ່ຮອງຮັບປະເພດ ESRI \"%s\"."
 
-#: src/Plugins/Import/ImportShp.php:246
+#: src/Plugins/Import/ImportShp.php:249
 msgid "The imported file does not contain any data!"
 msgstr "ໄຟລ໌ທີ່ນຳເຂົ້າບໍ່ມີຂໍ້ມູນໃດໆ!"
 
@@ -17219,8 +17160,8 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"ສະແດງລິ້ງ; ໂດຍທີ່ຄໍລຳນັ້ນຈະເກັບຊື່ໄຟລ໌. ຕົວເລືອກທຳອິດແມ່ນ URL ນຳໜ້າ ເຊັ່ນ \"https://"
-"www.example.com/\". ຕົວເລືອກທີສອງແມ່ນຫົວຂໍ້ຂອງລິ້ງ."
+"ສະແດງລິ້ງ; ໂດຍທີ່ຄໍລຳນັ້ນຈະເກັບຊື່ໄຟລ໌. ຕົວເລືອກທຳອິດແມ່ນ URL ນຳໜ້າ ເຊັ່ນ \"https://www."
+"example.com/\". ຕົວເລືອກທີສອງແມ່ນຫົວຂໍ້ຂອງລິ້ງ."
 
 #: src/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:31
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
@@ -17420,7 +17361,7 @@ msgid "Error 405! Request method not allowed."
 msgstr "ຂໍ້ຜິດພາດ 405! ວິທີການຮ້ອງຂໍ (Method) ບໍ່ໄດ້ຮັບອະນຸຍາດ."
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3133
+#: src/Server/Privileges.php:3137
 msgid "Native MySQL authentication"
 msgstr "ການຢືນຢັນຕົວຕົນແບບດັ້ງເດີມຂອງ MySQL"
 
@@ -17479,31 +17420,31 @@ msgstr "ກຳລັງໂຫຼດສິດຄືນໃໝ່"
 msgid "The selected users have been deleted successfully."
 msgstr "ລຶບຜູ້ໃຊ້ທີ່ເລືອກສຳເລັດແລ້ວ."
 
-#: src/Server/Privileges.php:1979
+#: src/Server/Privileges.php:1980
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "ທ່ານໄດ້ອັບເດດສິດສຳລັບ %s ແລ້ວ."
 
-#: src/Server/Privileges.php:2129
+#: src/Server/Privileges.php:2131
 #, php-format
 msgid "Deleting %s"
 msgstr "ກຳລັງລຶບ %s"
 
-#: src/Server/Privileges.php:2159
+#: src/Server/Privileges.php:2161
 msgid "The privileges were reloaded successfully."
 msgstr "ໂຫຼດສິດຄືນໃໝ່ສຳເລັດແລ້ວ."
 
-#: src/Server/Privileges.php:2225
+#: src/Server/Privileges.php:2228
 #, php-format
 msgid "The user %s already exists!"
 msgstr "ມີຜູ້ໃຊ້ %s ຢູ່ແລ້ວ!"
 
-#: src/Server/Privileges.php:2378
+#: src/Server/Privileges.php:2382
 #, php-format
 msgid "Privileges for %s"
 msgstr "ສິດສຳລັບ %s"
 
-#: src/Server/Privileges.php:2467
+#: src/Server/Privileges.php:2471
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17515,7 +17456,7 @@ msgstr ""
 "ຂໍ້ມູນໃນຕາຕະລາງເຫຼົ່ານີ້ອາດຈະຕ່າງຈາກສິດທີ່ເຊີເວີກຳລັງໃຊ້ຢູ່ ຫາກມີການແກ້ໄຂດ້ວຍຕົນເອງ. ໃນກໍລະນີນີ້, "
 "ທ່ານຄວນ %sໂຫຼດສິດຄືນໃໝ່%s ກ່ອນທີ່ຈະດຳເນີນການຕໍ່."
 
-#: src/Server/Privileges.php:2483
+#: src/Server/Privileges.php:2487
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -17527,11 +17468,11 @@ msgstr ""
 "ຂໍ້ມູນໃນຕາຕະລາງເຫຼົ່ານີ້ອາດຈະຕ່າງຈາກສິດທີ່ເຊີເວີກຳລັງໃຊ້ຢູ່ ຫາກມີການແກ້ໄຂດ້ວຍຕົນເອງ. ໃນກໍລະນີນີ້, "
 "ຈຳເປັນຕ້ອງໂຫຼດສິດຄືນໃໝ່ ແຕ່ຕອນນີ້ທ່ານບໍ່ມີສິດ RELOAD."
 
-#: src/Server/Privileges.php:2771
+#: src/Server/Privileges.php:2775
 msgid "You have added a new user."
 msgstr "ທ່ານໄດ້ເພີ່ມຜູ້ໃຊ້ໃໝ່ແລ້ວ."
 
-#: src/Server/Privileges.php:3225
+#: src/Server/Privileges.php:3229
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -17627,16 +17568,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "ຍັງບໍ່ມີເວີຊັນໃໝ່ທີ່ຄົງທີ່ກວ່າ"
 
-#: src/Sql.php:445
+#: src/Sql.php:446
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "ໃຊ້ບຸກມາກ \"%s\" ເປັນຄຳສັ່ງເລີ່ມຕົ້ນໃນການເບິ່ງຂໍ້ມູນ."
 
-#: src/Sql.php:898
+#: src/Sql.php:899
 msgid "Showing as PHP code"
 msgstr "ສະແດງເປັນໂຄ້ດ PHP"
 
-#: src/Sql.php:1247
+#: src/Sql.php:1245
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -17645,7 +17586,7 @@ msgstr ""
 "ສ່ວນທີ່ເລືອກໃນຕອນນີ້ບໍ່ມີຄໍລຳທີ່ບໍ່ຊ້ຳກັນ (unique column). ຟີເຈີການແກ້ໄຂໃນຕາຕະລາງ, ກ່ອງເລືອກ, "
 "ການແກ້ໄຂ, ການສຳເນົາ ແລະ ການລຶບ ແມ່ນບໍ່ສາມາດໃຊ້ງານໄດ້. %s"
 
-#: src/Sql.php:1261
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -17716,24 +17657,24 @@ msgstr "ບໍ່ພົບຖານຂໍ້ມູນຕົ້ນທາງ `%s`!
 msgid "Target database `%s` was not found!"
 msgstr "ບໍ່ພົບຖານຂໍ້ມູນປາຍທາງ `%s`!"
 
-#: src/Table/Table.php:841
+#: src/Table/Table.php:839
 msgid "Invalid database:"
 msgstr "ຖານຂໍ້ມູນບໍ່ຖືກຕ້ອງ:"
 
-#: src/Table/Table.php:859
+#: src/Table/Table.php:857
 msgid "Invalid table name:"
 msgstr "ຊື່ຕາຕະລາງບໍ່ຖືກຕ້ອງ:"
 
-#: src/Table/Table.php:904
+#: src/Table/Table.php:902
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "ຕາຕະລາງ %1$s ຖືກປ່ຽນຊື່ເປັນ %2$s ແລ້ວ."
 
-#: src/Table/Table.php:1140
+#: src/Table/Table.php:1138
 msgid "Could not save table UI preferences!"
 msgstr "ບໍ່ສາມາດບັນທຶກການຕັ້ງຄ່າ UI ຂອງຕາຕະລາງໄດ້!"
 
-#: src/Table/Table.php:1162
+#: src/Table/Table.php:1160
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -17742,7 +17683,7 @@ msgstr ""
 "ລ້າງຂໍ້ມູນການຕັ້ງຄ່າ UI ຂອງຕາຕະລາງບໍ່ສຳເລັດ (ເບິ່ງ $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1280
+#: src/Table/Table.php:1278
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -17752,7 +17693,7 @@ msgstr ""
 "ບໍ່ສາມາດບັນທຶກຄຸນສົມບັດ UI \"%s\" ໄດ້. ການປ່ຽນແປງຈະບໍ່ຖືກບັນທຶກຫຼັງຈາກໂຫຼດໜ້ານີ້ໃໝ່. "
 "ກະລຸນາກວດສອບວ່າໂຄງສ້າງຕາຕະລາງມີການປ່ຽນແປງຫຼືບໍ່."
 
-#: src/Table/Table.php:1605
+#: src/Table/Table.php:1603
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "ເກີດຂໍ້ຜິດພາດໃນການສ້າງຄີນອກ (Foreign key) ໃນ %1$s (ກວດສອບປະເພດຂໍ້ມູນ)"
@@ -17826,12 +17767,12 @@ msgstr "ການປະມວນຜົນ SQL"
 msgid "Export as %s"
 msgstr "ສົ່ງອອກເປັນ %s"
 
-#: src/Tracking/Tracking.php:560
+#: src/Tracking/Tracking.php:559
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr "ພາບຖ່າຍເວີຊັນ %s (ໂຄ້ດ SQL)"
 
-#: src/Tracking/Tracking.php:795
+#: src/Tracking/Tracking.php:792
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
@@ -17839,35 +17780,35 @@ msgstr ""
 "ທ່ານສາມາດປະມວນຜົນໄຟລ໌ດຳໄດ້ໂດຍການສ້າງ ແລະ ໃຊ້ຖານຂໍ້ມູນຊົ່ວຄາວ. "
 "ກະລຸນາກວດສອບວ່າທ່ານມີສິດໃນການເຮັດສິ່ງນີ້."
 
-#: src/Tracking/Tracking.php:799
+#: src/Tracking/Tracking.php:796
 msgid "Comment out these two lines if you do not need them."
 msgstr "ໃສ່ເຄື່ອງໝາຍຄອມເມັ້ນ (Comment) ສອງແຖວນີ້ຖ້າທ່ານບໍ່ຕ້ອງການ."
 
-#: src/Tracking/Tracking.php:810
+#: src/Tracking/Tracking.php:807
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr "ສົ່ງອອກຄຳສັ່ງ SQL ແລ້ວ. ກະລຸນາສຳເນົາໄຟລ໌ດຳ ຫຼື ປະມວນຜົນມັນ."
 
-#: src/Tracking/Tracking.php:843
+#: src/Tracking/Tracking.php:840
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr "ລາຍງານການຕິດຕາມສຳລັບຕາຕະລາງ `%s`"
 
-#: src/Tracking/Tracking.php:866
+#: src/Tracking/Tracking.php:863
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr "ການຕິດຕາມສຳລັບ %1$s ຖືກເປີດໃຊ້ງານໃນເວີຊັນ %2$s."
 
-#: src/Tracking/Tracking.php:869
+#: src/Tracking/Tracking.php:866
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr "ການຕິດຕາມສຳລັບ %1$s ຖືກປິດໃຊ້ງານໃນເວີຊັນ %2$s."
 
-#: src/Tracking/Tracking.php:964
+#: src/Tracking/Tracking.php:961
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "ເວີຊັນ %1$s ຂອງ %2$s ຖືກລຶບແລ້ວ."
 
-#: src/Tracking/Tracking.php:995
+#: src/Tracking/Tracking.php:992
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "ເວີຊັນ %1$s ຖືກສ້າງແລ້ວ, ການຕິດຕາມສຳລັບ %2$s ກຳລັງເຮັດວຽກ."
@@ -17881,28 +17822,28 @@ msgstr "ຂໍໂທດ, ບໍ່ສາມາດກູ້ຄືນ Trigger ທ�
 msgid "Trigger %1$s has been modified."
 msgstr "Trigger %1$s ຖືກແກ້ໄຂແລ້ວ."
 
-#: src/Triggers/Triggers.php:135
+#: src/Triggers/Triggers.php:133
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "Trigger %1$s ຖືກສ້າງແລ້ວ."
 
-#: src/Triggers/Triggers.php:199
+#: src/Triggers/Triggers.php:195
 msgid "You must provide a trigger name!"
 msgstr "ທ່ານຕ້ອງລະບຸຊື່ Trigger!"
 
-#: src/Triggers/Triggers.php:205
+#: src/Triggers/Triggers.php:201
 msgid "You must provide a valid timing for the trigger!"
 msgstr "ທ່ານຕ້ອງລະບຸເວລາ (Timing) ທີ່ຖືກຕ້ອງໃຫ້ກັບ Trigger!"
 
-#: src/Triggers/Triggers.php:211
+#: src/Triggers/Triggers.php:207
 msgid "You must provide a valid event for the trigger!"
 msgstr "ທ່ານຕ້ອງລະບຸ Event ທີ່ຖືກຕ້ອງໃຫ້ກັບ Trigger!"
 
-#: src/Triggers/Triggers.php:221
+#: src/Triggers/Triggers.php:217
 msgid "You must provide a valid table name!"
 msgstr "ທ່ານຕ້ອງລະບຸຊື່ຕາຕະລາງທີ່ຖືກຕ້ອງ!"
 
-#: src/Triggers/Triggers.php:228
+#: src/Triggers/Triggers.php:224
 msgid "You must provide a trigger definition."
 msgstr "ທ່ານຕ້ອງລະບຸຄຳນິຍາມໃຫ້ກັບ Trigger."
 
@@ -18208,13 +18149,13 @@ msgctxt "spatial types"
 msgid "Spatial"
 msgstr "ຂໍ້ມູນທາງພື້ນທີ່"
 
-#: src/UserPassword.php:37
-msgid "The profile has been updated."
-msgstr "ອັບເດດໂປຣໄຟລ໌ສຳເລັດແລ້ວ."
-
-#: src/UserPassword.php:49
+#: src/UserPassword.php:43
 msgid "Password is too long!"
 msgstr "ລະຫັດຜ່ານຍາວເກີນໄປ!"
+
+#: src/UserPassword.php:47
+msgid "The profile has been updated."
+msgstr "ອັບເດດໂປຣໄຟລ໌ສຳເລັດແລ້ວ."
 
 #: src/Util.php:132
 #, php-format
@@ -18236,7 +18177,7 @@ msgstr "ເຊົ້າ"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s ມື້, %s ຊົ່ວໂມງ, %s ນາທີ ແລະ %s ວິນາທີ"
 
-#: src/Util.php:1382
+#: src/Util.php:1373
 msgid "Users"
 msgstr "ຜູ້ໃຊ້"
 
@@ -18247,3 +18188,7 @@ msgstr "ຂໍ້ຜິດພາດໃນ ZIP archive:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ບໍ່ພົບໄຟລ໌ພາຍໃນ ZIP archive!"
+
+#, php-format
+#~ msgid "Invalid format of mediawiki input on line: <br>%s."
+#~ msgstr "ຮູບແບບຂອງຂໍ້ມູນ mediawiki ບໍ່ຖືກຕ້ອງໃນແຖວ: <br>%s."

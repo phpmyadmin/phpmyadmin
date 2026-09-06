@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-08-30 00:43+0000\n"
+"POT-Creation-Date: 2026-09-06 00:44+0000\n"
 "PO-Revision-Date: 2026-09-02 19:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -57,7 +57,7 @@ msgstr "Tumšs"
 #: resources/templates/base.twig:99
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:479
-#: src/Util.php:1385
+#: src/Util.php:1376
 msgid "Settings"
 msgstr "Iestatījumi"
 
@@ -204,7 +204,7 @@ msgstr "aiz/pēc %s kolonnas"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:1983
+#: src/Display/Results.php:933 src/Plugins/Export/ExportSql.php:1983
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Nav"
@@ -278,10 +278,9 @@ msgstr "kolonna(s)"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:312
-#: src/Controllers/Server/PrivilegesController.php:321
+#: src/Controllers/Server/PrivilegesController.php:316
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
-#: resources/templates/database/routines/execute_form.twig:61
 msgid "Go"
 msgstr "Aiziet"
 
@@ -596,8 +595,8 @@ msgstr "Lietotājs"
 #: src/Import/Import.php:1160 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1394
-#: src/Util.php:1411
+#: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1385
+#: src/Util.php:1402
 msgid "Structure"
 msgstr "Struktūra"
 
@@ -648,7 +647,7 @@ msgstr "Nosaukums"
 #: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:472
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625 src/InsertEdit.php:261
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
 msgid "Type"
 msgstr "Tips"
 
@@ -844,7 +843,7 @@ msgstr "Ievades pārveidošanas parametri"
 #: resources/templates/components/_preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:43
-#: src/Controllers/Operations/TableController.php:328
+#: src/Controllers/Operations/TableController.php:334
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289
 msgid "No change"
@@ -868,7 +867,7 @@ msgstr "Atiestatīt"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:679 src/Html/MySQLDocumentation.php:51
+#: src/Html/Generator.php:672 src/Html/MySQLDocumentation.php:51
 #: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Dokumentācija"
@@ -931,7 +930,7 @@ msgstr "Izslēgts"
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:42
 #: src/Controllers/JavaScriptMessagesController.php:482
-#: src/Controllers/Table/DeleteRowsController.php:34
+#: src/Controllers/Table/DeleteRowsController.php:35
 #: src/Controllers/Table/DropColumnController.php:46
 #: src/Controllers/Table/Structure/PrimaryController.php:101
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:474
@@ -1038,8 +1037,8 @@ msgstr "Pārvaicāt"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:380
-#: src/Display/Results.php:1872 src/Html/Generator.php:527
-#: src/Html/Generator.php:784
+#: src/Display/Results.php:1885 src/Html/Generator.php:520
+#: src/Html/Generator.php:777
 msgid "Edit"
 msgstr "Labot"
 
@@ -1057,7 +1056,7 @@ msgstr "Labot"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:382
-#: src/Display/Results.php:2410 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2423 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "Dzēst"
 
@@ -1140,7 +1139,7 @@ msgstr "Izskaidrot"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:614
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:607
 msgid "Profiling"
 msgstr ""
 
@@ -1225,7 +1224,7 @@ msgstr "Patērētais laiks:"
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:927 src/Export/Export.php:697
-#: src/Html/Generator.php:583
+#: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "Atjaunot"
 
@@ -1807,7 +1806,7 @@ msgstr "Notikuma nosaukums"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
-#: src/Server/Status/Processes.php:106 src/Util.php:1381
+#: src/Server/Status/Processes.php:106 src/Util.php:1372
 msgid "Status"
 msgstr "Statuss"
 
@@ -1878,7 +1877,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:990 src/Plugins/Export/ExportXml.php:92
-#: src/Util.php:1403
+#: src/Util.php:1394
 msgid "Events"
 msgstr "Notikumi"
 
@@ -1941,7 +1940,7 @@ msgstr "Iezīmēt visu"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
 #: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
-#: src/Util.php:1383 src/Util.php:1398 src/Util.php:1415
+#: src/Util.php:1374 src/Util.php:1389 src/Util.php:1406
 msgid "Export"
 msgstr "Izgūt"
 
@@ -1969,7 +1968,7 @@ msgstr "Izgūt"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:534
+#: resources/templates/triggers/row.twig:58 src/Operations.php:532
 #, fuzzy
 msgid "Drop"
 msgstr "Likvidēt"
@@ -2130,7 +2129,7 @@ msgid "criteria"
 msgstr "kritērijs"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1643
+#: src/Util.php:1634
 msgid "Sort"
 msgstr "Kārtot"
 
@@ -2141,8 +2140,8 @@ msgstr "Kārtot"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1390
-#: src/Display/Results.php:1396 src/Util.php:1651 src/Util.php:1668
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1403
+#: src/Display/Results.php:1409 src/Util.php:1642 src/Util.php:1659
 msgid "Ascending"
 msgstr "Augošā secībā"
 
@@ -2153,8 +2152,8 @@ msgstr "Augošā secībā"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1385
-#: src/Display/Results.php:1401 src/Util.php:1656 src/Util.php:1673
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1398
+#: src/Display/Results.php:1414 src/Util.php:1647 src/Util.php:1664
 msgid "Descending"
 msgstr "Dilstošā secībā"
 
@@ -2197,7 +2196,7 @@ msgid "Copy query"
 msgstr "Atjaunot vaicājumu"
 
 #: resources/templates/database/multi_table_query/form.twig:176
-#: src/Html/Generator.php:552
+#: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "Iesniegt vaicājumu"
 
@@ -2347,8 +2346,8 @@ msgstr "Resursdatora nosaukums"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
-#: src/Controllers/Server/PrivilegesController.php:448 src/Menu.php:257
-#: src/Menu.php:369 src/Util.php:1401 src/Util.php:1417
+#: src/Controllers/Server/PrivilegesController.php:443 src/Menu.php:257
+#: src/Menu.php:369 src/Util.php:1392 src/Util.php:1408
 msgid "Privileges"
 msgstr "Privilēģijas"
 
@@ -2397,7 +2396,7 @@ msgstr "Rediģēt privilēģijas"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2052
+#: src/Server/Privileges.php:2054
 #, fuzzy
 msgid "No user found."
 msgstr "Lietotāji netika atrasti."
@@ -2499,17 +2498,16 @@ msgstr "Apakšprogrammas parametri"
 #: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
 #: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:235
-#: src/Navigation/Nodes/NodeFunction.php:27 src/InsertEdit.php:260
+#: src/Navigation/Nodes/NodeFunction.php:27
 msgid "Function"
 msgstr "Funkcija"
 
 #: resources/templates/database/routines/execute_form.twig:56
-#: resources/templates/database/routines/execute_form.twig:54
 msgid "This routine does not require any parameters."
 msgstr "Šai apakšprogrammai nav nepieciešami parametri."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:375
-#: src/Util.php:1402
+#: src/Util.php:1393
 msgid "Routines"
 msgstr "Apakšprogrammas"
 
@@ -2522,7 +2520,7 @@ msgstr "Apakšprogrammas"
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
 #: src/Menu.php:331 src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1065
-#: src/Util.php:1396 src/Util.php:1413
+#: src/Util.php:1387 src/Util.php:1404
 msgid "Search"
 msgstr "Meklēt"
 
@@ -2550,8 +2548,6 @@ msgstr "Izgūt apakšprogrammu"
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:335
 #: src/Controllers/Database/RoutinesController.php:343
-#: src/Controllers/Database/RoutinesController.php:354
-#: src/Controllers/Database/RoutinesController.php:364
 msgid "Execute routine"
 msgstr "Izpildīt apakšprogrammu"
 
@@ -2647,7 +2643,7 @@ msgstr[2] "%1$s atbilstību <strong>%2$s</strong> tabulā"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1067 src/Util.php:1410
+#: src/Navigation/Nodes/NodeTable.php:243 src/Util.php:1067 src/Util.php:1401
 #, fuzzy
 msgid "Browse"
 msgstr "Apskatīt"
@@ -2676,7 +2672,7 @@ msgstr[2] "%s tabulu"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:501
-#: src/Server/Status/Data.php:124 src/Util.php:1387
+#: src/Server/Status/Data.php:124 src/Util.php:1378
 #, fuzzy
 msgid "Replication"
 msgstr "Relācijas"
@@ -2786,7 +2782,7 @@ msgid "Copy table with prefix"
 msgstr "Aizvietot tabulas datus ar datiem no faila"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:409 src/Util.php:1407
+#: src/Menu.php:409 src/Util.php:1398
 #, fuzzy
 msgid "Central columns"
 msgstr "Pievienot/Dzēst laukus (kolonnas)"
@@ -2867,7 +2863,7 @@ msgstr "Datu vārdnīca"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:73
+#: src/Controllers/Database/ExportController.php:72
 #: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:286
 msgid "No tables found in database."
@@ -2910,7 +2906,7 @@ msgstr ""
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:118
-#: src/Controllers/Operations/TableController.php:312
+#: src/Controllers/Operations/TableController.php:318
 #: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:25
 msgid "View"
@@ -2941,7 +2937,7 @@ msgstr "Relācijas"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1066 src/Util.php:1414
+#: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1066 src/Util.php:1405
 #, fuzzy
 msgid "Insert"
 msgstr "Pievienot"
@@ -3155,13 +3151,13 @@ msgid "Extra options"
 msgstr "Papildu parametri"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1111
+#: src/Display/Results.php:1124
 #, fuzzy
 msgid "Partial texts"
 msgstr "Daļēji teksti"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1115
+#: src/Display/Results.php:1128
 #, fuzzy
 msgid "Full texts"
 msgstr "Pilni teksti"
@@ -3206,7 +3202,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:468
-#: src/Display/Results.php:1873 src/Html/Generator.php:83
+#: src/Display/Results.php:1886 src/Html/Generator.php:82
 msgid "Copy"
 msgstr "Kopēt"
 
@@ -3244,12 +3240,8 @@ msgstr ""
 
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:113
-#: src/Controllers/Table/Partition/DropController.php:56
-#: src/Controllers/Table/Partition/RebuildController.php:56
-#: src/Controllers/Table/Partition/TruncateController.php:56
-#: src/Html/Generator.php:735 src/Import/Import.php:122 src/InsertEdit.php:412
-#: src/Message.php:138 src/InsertEdit.php:425
+#: src/Controllers/Operations/ViewController.php:109 src/Html/Generator.php:728
+#: src/Import/Import.php:122 src/InsertEdit.php:412 src/Message.php:104
 msgid "Error"
 msgstr "Kļūda"
 
@@ -3326,7 +3318,7 @@ msgstr "Atjaunināt"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:135
-#: src/Html/Generator.php:759
+#: src/Html/Generator.php:752
 msgid "SQL query:"
 msgstr "SQL vaicājums:"
 
@@ -3594,7 +3586,7 @@ msgstr "Galvenie iestatījumi"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:95
+#: src/Controllers/UserPasswordController.php:94
 msgid "Change password"
 msgstr "Mainīt paroli"
 
@@ -3740,7 +3732,7 @@ msgstr "izmantot šo stilu"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:412
-#: src/Export/Export.php:739 src/Html/Generator.php:843
+#: src/Export/Export.php:739 src/Html/Generator.php:836
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Atpakaļ"
@@ -3751,7 +3743,7 @@ msgstr "Atpakaļ"
 #: resources/templates/server/status/monitor/index.twig:53
 #: resources/templates/server/status/monitor/index.twig:69
 #: src/Config/Forms/User/ImportForm.php:59 src/Menu.php:250 src/Menu.php:357
-#: src/Menu.php:474 src/Util.php:1384 src/Util.php:1399 src/Util.php:1416
+#: src/Menu.php:474 src/Util.php:1375 src/Util.php:1390 src/Util.php:1407
 msgid "Import"
 msgstr "Ievietot"
 
@@ -3789,7 +3781,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:413 src/InsertEdit.php:426
+#: src/InsertEdit.php:413
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Direktoija, kuru norādīji augšupielādei, nav pieejama."
 
@@ -4075,7 +4067,7 @@ msgstr "SQL rezultāts"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:726
-#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1379
+#: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1370
 msgid "Databases"
 msgstr "Datubāzes"
 
@@ -4523,7 +4515,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:494
-#: src/Server/Status/Data.php:119 src/Util.php:1386
+#: src/Server/Status/Data.php:119 src/Util.php:1377
 #, fuzzy
 msgid "Binary log"
 msgstr "Binārais log-fails"
@@ -4635,7 +4627,7 @@ msgstr "Palaist SQL vaicājumus \"%s\" datubāzē."
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
 #: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1064
-#: src/Util.php:1380 src/Util.php:1395 src/Util.php:1412
+#: src/Util.php:1371 src/Util.php:1386 src/Util.php:1403
 msgid "SQL"
 msgstr "SQL"
 
@@ -4749,7 +4741,7 @@ msgstr ""
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1388
+#: src/Menu.php:507 src/Server/Status/Data.php:186 src/Util.php:1379
 msgid "Variables"
 msgstr "Mainīgie"
 
@@ -4770,7 +4762,7 @@ msgid "Importing into the current server"
 msgstr "Ievieto pašreizējā serverī"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:522
-#: src/Util.php:1390
+#: src/Util.php:1381
 msgid "Plugins"
 msgstr "Papildinājumi"
 
@@ -5073,7 +5065,6 @@ msgstr "Ļauj lasīt datus."
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
 #: resources/templates/table/search/index.twig:128 src/InsertEdit.php:421
-#: src/InsertEdit.php:434
 msgid "Or"
 msgstr "Vai"
 
@@ -6053,7 +6044,7 @@ msgid "Query analyzer"
 msgstr "Vaicājumu analizētājs"
 
 #: resources/templates/server/status/monitor/index.twig:273 src/Menu.php:339
-#: src/Util.php:1397
+#: src/Util.php:1388
 msgid "Query"
 msgstr "Vaicājums"
 
@@ -6146,7 +6137,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2428
+#: src/Display/Results.php:2441
 msgid "Kill"
 msgstr "Pārtraukt"
 
@@ -6322,7 +6313,7 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:451
+#: src/Controllers/Server/PrivilegesController.php:446
 #: src/Server/Status/Processes.php:101
 msgid "User"
 msgstr "Lietotājs"
@@ -6519,24 +6510,8 @@ msgid "Pie chart with profiling results."
 msgstr "SQL rezultāts"
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:110
-#: src/Controllers/Table/DeleteRowsController.php:60
-#: src/Controllers/Table/FindReplaceController.php:119
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:75
-#: src/Controllers/Table/Maintenance/CheckController.php:75
-#: src/Controllers/Table/Maintenance/ChecksumController.php:75
-#: src/Controllers/Table/Maintenance/OptimizeController.php:75
-#: src/Controllers/Table/Maintenance/RepairController.php:75
-#: src/Controllers/Table/Partition/AnalyzeController.php:49
-#: src/Controllers/Table/Partition/CheckController.php:49
-#: src/Controllers/Table/Partition/DropController.php:50
-#: src/Controllers/Table/Partition/OptimizeController.php:49
-#: src/Controllers/Table/Partition/RebuildController.php:50
-#: src/Controllers/Table/Partition/RepairController.php:49
-#: src/Controllers/Table/Partition/TruncateController.php:50
-#: src/Controllers/Table/RelationController.php:147
-#: src/Database/Routines.php:1002 src/Display/Results.php:2964
-#: src/Message.php:122 src/Database/Routines.php:1033
+#: src/Controllers/Operations/ViewController.php:109
+#: src/Database/Routines.php:1000 src/Message.php:87
 msgid "Your SQL query has been executed successfully."
 msgstr "Jūsu SQL vaicājums veiksmīgi izpildīts."
 
@@ -6855,8 +6830,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1408
-#: src/InsertEdit.php:1421
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1406
 msgid "Ignore"
 msgstr "Ignorēt"
 
@@ -7032,14 +7006,12 @@ msgstr "Nav datubāzu"
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
 #: src/Controllers/Database/StructureController.php:368
-#: src/Controllers/Database/StructureController.php:369
 #, php-format
 msgid "View %s has been dropped."
 msgstr "%s skats dzēsts."
 
 #: resources/templates/table/operations/index.twig:459
 #: src/Controllers/Database/StructureController.php:368
-#: src/Controllers/Database/StructureController.php:369
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "%s tabula dzēsta."
@@ -7065,7 +7037,7 @@ msgstr "Pārbaudīt referenciālo integritāti:"
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:362 src/Util.php:1068 src/Util.php:1400 src/Util.php:1418
+#: src/Menu.php:362 src/Util.php:1068 src/Util.php:1391 src/Util.php:1409
 msgid "Operations"
 msgstr "Darbības"
 
@@ -7261,32 +7233,32 @@ msgid "Index length"
 msgstr "Rindas garums"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:522
+#: src/Operations.php:520
 msgid "Analyze"
 msgstr "Analizēt"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:523
+#: src/Operations.php:521
 msgid "Check"
 msgstr "Pārbaudīt"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:524
+#: src/Operations.php:522
 msgid "Optimize"
 msgstr "Optimizēt"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:525
+#: src/Operations.php:523
 msgid "Rebuild"
 msgstr "Pārbūvēt"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:526
+#: src/Operations.php:524
 msgid "Repair"
 msgstr "Salabot"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:527
+#: src/Operations.php:525
 msgid "Truncate"
 msgstr ""
 
@@ -7561,7 +7533,7 @@ msgstr "%s palaidēja izgūtie dati"
 #: src/Plugins/Export/ExportOdt.php:566 src/Plugins/Export/ExportPdf.php:173
 #: src/Plugins/Export/ExportSql.php:1846
 #: src/Plugins/Export/ExportTexytext.php:408
-#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1404 src/Util.php:1420
+#: src/Plugins/Export/ExportXml.php:112 src/Util.php:1395 src/Util.php:1411
 msgid "Triggers"
 msgstr "Palaidēji"
 
@@ -7904,9 +7876,9 @@ msgstr "Neoptimāla kešatmiņas metode."
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
-"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
-"especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
+"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
+"cache, especially if you have multiple replicas."
 msgstr ""
 
 #: src/Advisory/Rules.php:223
@@ -8494,8 +8466,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
-"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
@@ -9735,9 +9707,9 @@ msgstr ""
 
 #: src/Config/Descriptions.php:355
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
-"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-"Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
+"com/19588]MySQL Bugs[/a]"
 msgstr ""
 
 #: src/Config/Descriptions.php:359
@@ -10461,13 +10433,13 @@ msgid "Put columns names in the first row"
 msgstr "Likt kolonnu nosaukumus pirmajā rindā"
 
 #: src/Config/Descriptions.php:639 src/Config/Descriptions.php:772
-#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:688
+#: src/Config/Descriptions.php:779 src/Plugins/Import/ImportCsv.php:687
 #, fuzzy
 msgid "Columns enclosed with"
 msgstr "Lauki iekļauti iekš"
 
 #: src/Config/Descriptions.php:640 src/Config/Descriptions.php:773
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:699
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:698
 #, fuzzy
 msgid "Columns escaped with"
 msgstr "Glābjoša (escape) rakstzīme ir"
@@ -10485,13 +10457,13 @@ msgid "Remove CRLF characters within columns"
 msgstr ""
 
 #: src/Config/Descriptions.php:643 src/Config/Descriptions.php:777
-#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:673
+#: src/Config/Descriptions.php:784 src/Plugins/Import/ImportCsv.php:672
 #, fuzzy
 msgid "Columns terminated with"
 msgstr "Rindas atdalītas ar"
 
 #: src/Config/Descriptions.php:644 src/Config/Descriptions.php:771
-#: src/Plugins/Import/ImportCsv.php:706
+#: src/Plugins/Import/ImportCsv.php:705
 #, fuzzy
 msgid "Lines terminated with"
 msgstr "Rindas atdalītas ar"
@@ -11369,11 +11341,11 @@ msgstr "Rādīt statistiku"
 msgid "Skip locked tables"
 msgstr ""
 
-#: src/Config/Descriptions.php:926 src/Html/Generator.php:492
+#: src/Config/Descriptions.php:926 src/Html/Generator.php:485
 msgid "Explain SQL"
 msgstr "Izskaidrot SQL"
 
-#: src/Config/Descriptions.php:928 src/Html/Generator.php:563
+#: src/Config/Descriptions.php:928 src/Html/Generator.php:556
 #, fuzzy
 msgid "Create PHP code"
 msgstr "Izveidot PHP kodu"
@@ -11493,40 +11465,38 @@ msgstr "Kārtot pēc"
 msgid "Server connection collation"
 msgstr "Servera savienojuma salīdzināšanas/kārtošanas rakstzīmju kodējums"
 
-#: src/Config/FormDisplay.php:582 src/Config/FormDisplay.php:580
+#: src/Config/FormDisplay.php:582
 #, php-format
 msgid "Missing data for %s"
 msgstr ""
 
 #: src/Config/FormDisplay.php:622 src/Config/Validator.php:589
 #: src/Controllers/JavaScriptMessagesController.php:809
-#: src/Config/FormDisplay.php:620
 msgid "Incorrect value!"
 msgstr "Nepareiza vērtība!"
 
-#: src/Config/FormDisplay.php:768 src/Config/FormDisplay.php:766
+#: src/Config/FormDisplay.php:768
 #, fuzzy
 msgid "unavailable"
 msgstr "Mainīgais"
 
-#: src/Config/FormDisplay.php:770 src/Config/FormDisplay.php:768
+#: src/Config/FormDisplay.php:770
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr "\"%s\" nepieciešams %s papildinājums"
 
-#: src/Config/FormDisplay.php:792 src/Config/FormDisplay.php:790
+#: src/Config/FormDisplay.php:792
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr ""
 
-#: src/Config/FormDisplay.php:801 src/Config/FormDisplay.php:799
+#: src/Config/FormDisplay.php:801
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr ""
 
 #: src/Config/FormDisplay.php:817 src/Config/FormDisplay.php:818
-#: src/Config/FormDisplay.php:819 src/Config/FormDisplay.php:815
-#: src/Config/FormDisplay.php:816
+#: src/Config/FormDisplay.php:819
 #, php-format
 msgid "maximum %s"
 msgstr ""
@@ -11874,36 +11844,36 @@ msgstr ""
 #: src/Controllers/Database/TrackingController.php:60
 #: src/Controllers/JavaScriptMessagesController.php:331
 #: src/Controllers/Operations/Database/CollationController.php:54
-#: src/Controllers/Operations/DatabaseController.php:232
-#: src/Controllers/Operations/DatabaseController.php:237
+#: src/Controllers/Operations/DatabaseController.php:230
+#: src/Controllers/Operations/DatabaseController.php:235
 #: src/Controllers/Operations/TableController.php:86
 #: src/Controllers/Operations/TableController.php:91
-#: src/Controllers/Operations/ViewController.php:61
-#: src/Controllers/Operations/ViewController.php:66
+#: src/Controllers/Operations/ViewController.php:62
+#: src/Controllers/Operations/ViewController.php:67
 #: src/Controllers/Server/Databases/DestroyController.php:62
-#: src/Controllers/Table/AddFieldController.php:162
-#: src/Controllers/Table/AddFieldController.php:167
+#: src/Controllers/Table/AddFieldController.php:161
+#: src/Controllers/Table/AddFieldController.php:166
 #: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChangeController.php:75
-#: src/Controllers/Table/ChartController.php:88
-#: src/Controllers/Table/ChartController.php:95
-#: src/Controllers/Table/ChartController.php:122
-#: src/Controllers/Table/ChartController.php:129
-#: src/Controllers/Table/ChartController.php:202
+#: src/Controllers/Table/ChartController.php:86
+#: src/Controllers/Table/ChartController.php:93
+#: src/Controllers/Table/ChartController.php:120
+#: src/Controllers/Table/ChartController.php:127
+#: src/Controllers/Table/ChartController.php:200
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
 #: src/Controllers/Table/DropColumnConfirmationController.php:52
 #: src/Controllers/Table/DropColumnConfirmationController.php:57
-#: src/Controllers/Table/FindReplaceController.php:77
-#: src/Controllers/Table/FindReplaceController.php:82
+#: src/Controllers/Table/FindReplaceController.php:76
+#: src/Controllers/Table/FindReplaceController.php:81
 #: src/Controllers/Table/GisVisualizationController.php:70
 #: src/Controllers/Table/GisVisualizationController.php:75
 #: src/Controllers/Table/ImportController.php:70
 #: src/Controllers/Table/ImportController.php:75
-#: src/Controllers/Table/IndexesController.php:67
-#: src/Controllers/Table/IndexesController.php:74
-#: src/Controllers/Table/IndexRenameController.php:55
-#: src/Controllers/Table/IndexRenameController.php:60
+#: src/Controllers/Table/IndexesController.php:66
+#: src/Controllers/Table/IndexesController.php:73
+#: src/Controllers/Table/IndexRenameController.php:54
+#: src/Controllers/Table/IndexRenameController.php:59
 #: src/Controllers/Table/SearchController.php:171
 #: src/Controllers/Table/SearchController.php:176
 #: src/Controllers/Table/SqlController.php:59
@@ -11920,10 +11890,6 @@ msgstr ""
 #: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:68
 #: src/Controllers/View/CreateController.php:73
-#: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:98
-#: src/Controllers/Database/StructureController.php:157
-#: src/Controllers/Database/StructureController.php:162
 msgid "No databases selected."
 msgstr "Nav atlasīta neviena datubāze."
 
@@ -11944,9 +11910,6 @@ msgstr "Rediģēt notikumu"
 #: src/Controllers/Database/RoutinesController.php:284
 #: src/Controllers/Database/RoutinesController.php:350
 #: src/Controllers/Triggers/IndexController.php:207
-#: src/Controllers/Database/RoutinesController.php:273
-#: src/Controllers/Database/RoutinesController.php:303
-#: src/Controllers/Database/RoutinesController.php:371
 msgid "Error in processing request:"
 msgstr "Kļūda, apstrādājot pieprasījumu:"
 
@@ -11968,7 +11931,7 @@ msgstr ""
 "Kļūda, apstrādājot pieprasījumu: %2$s datubāzē neatrasta nevienu notikumu ar "
 "%1$s nosaukumu."
 
-#: src/Controllers/Database/ExportController.php:129
+#: src/Controllers/Database/ExportController.php:127
 #: src/Controllers/Server/ExportController.php:57
 #: src/Controllers/Table/ExportController.php:92
 msgid "Could not load export plugins, please check your installation!"
@@ -11982,16 +11945,16 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nevar ielādēt importētos spraudņus, lūdzu pārbaudiet savu instalāciju!"
 
-#: src/Controllers/Database/PrivilegesController.php:64
-#: src/Controllers/Server/PrivilegesController.php:100
-#: src/Controllers/Server/UserGroupsController.php:47
-#: src/Controllers/Table/PrivilegesController.php:67
+#: src/Controllers/Database/PrivilegesController.php:63
+#: src/Controllers/Server/PrivilegesController.php:99
+#: src/Controllers/Server/UserGroupsController.php:46
+#: src/Controllers/Table/PrivilegesController.php:66
 msgid "No Privileges"
 msgstr "Nav privilēģiju"
 
-#: src/Controllers/Database/PrivilegesController.php:73
-#: src/Controllers/Server/PrivilegesController.php:109
-#: src/Controllers/Table/PrivilegesController.php:76
+#: src/Controllers/Database/PrivilegesController.php:70
+#: src/Controllers/Server/PrivilegesController.php:106
+#: src/Controllers/Table/PrivilegesController.php:73
 #, fuzzy
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
@@ -12010,32 +11973,32 @@ msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 #: src/Controllers/JavaScriptMessagesController.php:332
 #: src/Controllers/Operations/TableController.php:98
 #: src/Controllers/Operations/TableController.php:103
-#: src/Controllers/Operations/ViewController.php:73
-#: src/Controllers/Operations/ViewController.php:78
-#: src/Controllers/Table/AddFieldController.php:174
-#: src/Controllers/Table/AddFieldController.php:179
+#: src/Controllers/Operations/ViewController.php:74
+#: src/Controllers/Operations/ViewController.php:79
+#: src/Controllers/Table/AddFieldController.php:173
+#: src/Controllers/Table/AddFieldController.php:178
 #: src/Controllers/Table/ChangeController.php:82
 #: src/Controllers/Table/ChangeController.php:87
-#: src/Controllers/Table/ChartController.php:103
-#: src/Controllers/Table/ChartController.php:108
-#: src/Controllers/Table/ChartController.php:210
+#: src/Controllers/Table/ChartController.php:101
+#: src/Controllers/Table/ChartController.php:106
+#: src/Controllers/Table/ChartController.php:208
 #: src/Controllers/Table/DeleteConfirmController.php:69
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:89
-#: src/Controllers/Table/FindReplaceController.php:94
+#: src/Controllers/Table/FindReplaceController.php:88
+#: src/Controllers/Table/FindReplaceController.php:93
 #: src/Controllers/Table/ImportController.php:82
 #: src/Controllers/Table/ImportController.php:87
-#: src/Controllers/Table/IndexesController.php:82
-#: src/Controllers/Table/IndexesController.php:87
-#: src/Controllers/Table/IndexRenameController.php:67
-#: src/Controllers/Table/IndexRenameController.php:72
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:46
-#: src/Controllers/Table/Maintenance/CheckController.php:46
-#: src/Controllers/Table/Maintenance/ChecksumController.php:46
-#: src/Controllers/Table/Maintenance/OptimizeController.php:46
-#: src/Controllers/Table/Maintenance/RepairController.php:46
+#: src/Controllers/Table/IndexesController.php:81
+#: src/Controllers/Table/IndexesController.php:86
+#: src/Controllers/Table/IndexRenameController.php:66
+#: src/Controllers/Table/IndexRenameController.php:71
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:45
+#: src/Controllers/Table/Maintenance/CheckController.php:45
+#: src/Controllers/Table/Maintenance/ChecksumController.php:45
+#: src/Controllers/Table/Maintenance/OptimizeController.php:45
+#: src/Controllers/Table/Maintenance/RepairController.php:45
 #: src/Controllers/Table/SearchController.php:183
 #: src/Controllers/Table/SearchController.php:188
 #: src/Controllers/Table/SqlController.php:71
@@ -12047,22 +12010,18 @@ msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 #: src/Controllers/Table/ZoomSearchController.php:114
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:74
-#: src/Controllers/Database/RoutinesController.php:88
 msgid "No table selected."
 msgstr "Nav atlasīta neviena tabula."
 
 #: src/Controllers/Database/RoutinesController.php:170
-#: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
 msgstr "Pievienot apakšprogrammu"
 
 #: src/Controllers/Database/RoutinesController.php:174
-#: src/Controllers/Database/RoutinesController.php:177
 msgid "Edit routine"
 msgstr "Rediģēt apakšprogrammu"
 
 #: src/Controllers/Database/RoutinesController.php:257
-#: src/Controllers/Database/RoutinesController.php:276
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12073,20 +12032,16 @@ msgstr ""
 
 #: src/Controllers/Database/RoutinesController.php:286
 #: src/Controllers/Database/RoutinesController.php:352
-#: src/Controllers/Database/RoutinesController.php:305
-#: src/Controllers/Database/RoutinesController.php:373
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Neatrada nevienu apakšprogrammu ar %1$s nosaukumu %2$s datubāzē."
 
 #: src/Controllers/Database/RoutinesController.php:395
-#: src/Controllers/Database/RoutinesController.php:416
 #, php-format
 msgid "Export of routine %s"
 msgstr "%s apakšprogrammas izguve"
 
 #: src/Controllers/Database/RoutinesController.php:414
-#: src/Controllers/Database/RoutinesController.php:435
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12110,8 +12065,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3245
-#: src/Controllers/Database/StructureController.php:568
+#: src/Display/Results.php:3262
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12119,7 +12073,6 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:736
-#: src/Controllers/Database/StructureController.php:737
 msgid "unknown"
 msgstr "nazināma"
 
@@ -12192,7 +12145,7 @@ msgstr ""
 "Jūs atslēdzāties no viena servera. Lai atslēgtos no phpMyAdmin pilnībā, "
 "jāatslēdzas no visiem serveriem."
 
-#: src/Controllers/HomeController.php:194
+#: src/Controllers/HomeController.php:191
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12201,21 +12154,20 @@ msgstr ""
 "phpMyAdmin konfigurācijas krātuve nav pilnībā nokonfigurēta, un dažas "
 "paplašinātās funkcijas ir deaktivizētas. %sNoskaidrot iemeslu%s. "
 
-#: src/Controllers/HomeController.php:200
+#: src/Controllers/HomeController.php:197
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: src/Controllers/HomeController.php:264
+#: src/Controllers/HomeController.php:261
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/"
-"session.configuration.php#ini.session.gc-"
-"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
-"configured in phpMyAdmin, because of this, your login might expire sooner "
-"than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
+"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
+"than cookie validity configured in phpMyAdmin, because of this, your login "
+"might expire sooner than configured in phpMyAdmin."
 msgstr ""
 
-#: src/Controllers/HomeController.php:284
+#: src/Controllers/HomeController.php:281
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12224,21 +12176,21 @@ msgstr ""
 "phpMyAdmin. Tā dēļ, Jūsu pieteikšanās beigsies ātrāk nekā konfigurēts caur "
 "phpMyAdmin."
 
-#: src/Controllers/HomeController.php:303
+#: src/Controllers/HomeController.php:300
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:322
+#: src/Controllers/HomeController.php:319
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:332
+#: src/Controllers/HomeController.php:329
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12246,14 +12198,14 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:352
+#: src/Controllers/HomeController.php:349
 msgid ""
 "The configuration file needs a valid key for query encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:362
+#: src/Controllers/HomeController.php:359
 #, php-format
 msgid ""
 "The query encryption key in the configuration file is longer than necessary. "
@@ -12261,7 +12213,7 @@ msgid ""
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:380
+#: src/Controllers/HomeController.php:377
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12273,21 +12225,21 @@ msgstr ""
 "ticis konfigurēts. Citādāk, Jūsu servera drošība var būt kompromitēta ar "
 "brīvu pieeju Jūsu konfigurācijas faila lejupielādei."
 
-#: src/Controllers/HomeController.php:395
+#: src/Controllers/HomeController.php:392
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: src/Controllers/HomeController.php:412
+#: src/Controllers/HomeController.php:409
 msgid ""
 "The [code]HTTP_HOST[/code] variable is missing, which might cause phpMyAdmin "
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
 
-#: src/Controllers/HomeController.php:465
+#: src/Controllers/HomeController.php:462
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12298,7 +12250,7 @@ msgstr ""
 "paplašinājuma phpMyAdmin nebūs spējīgs pareizi sadalīt simbolu virknes un "
 "tas var novest pie negaidītiem rezultātiem."
 
-#: src/Controllers/HomeController.php:483
+#: src/Controllers/HomeController.php:480
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12316,26 +12268,26 @@ msgstr ""
 "Visticamāk jūs mēģinājāt augšupielādēt failu, kas ir par lielu. Risinājumu "
 "droši vien var atrast %sdokumentācijā%s."
 
-#: src/Controllers/Import/ImportController.php:190
+#: src/Controllers/Import/ImportController.php:189
 #, fuzzy
 msgid "Incorrect format parameter"
 msgstr "Pārsaukt datubāzi par"
 
-#: src/Controllers/Import/ImportController.php:253
+#: src/Controllers/Import/ImportController.php:252
 msgid "Sorry an unexpected error happened!"
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:298
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:297
+#: src/Controllers/Import/ImportController.php:508
 msgid "Showing bookmark"
 msgstr "Rāda grāmatzīmi"
 
-#: src/Controllers/Import/ImportController.php:318
-#: src/Controllers/Import/ImportController.php:505
+#: src/Controllers/Import/ImportController.php:317
+#: src/Controllers/Import/ImportController.php:504
 msgid "The bookmark has been deleted."
 msgstr "Ieraksts tika dzēsts."
 
-#: src/Controllers/Import/ImportController.php:427
+#: src/Controllers/Import/ImportController.php:426
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12345,7 +12297,7 @@ msgstr ""
 "vai arī faila izmērs pārsniedza maksimālo izmēru, ko pieļauj jūsu PHP "
 "configurācija. Skatīt [doc@faq1-16]BUJ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:517
+#: src/Controllers/Import/ImportController.php:516
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -12353,7 +12305,7 @@ msgstr[0] "Importēšana pabeigta veiksmīgi, izpildīts %d vaicājums."
 msgstr[1] "Importēšana pabeigta veiksmīgi, izpildīti %d vaicājumi."
 msgstr[2] "Importēšana pabeigta veiksmīgi, izpildīti %d vaicājumi."
 
-#: src/Controllers/Import/ImportController.php:554
+#: src/Controllers/Import/ImportController.php:553
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12362,7 +12314,7 @@ msgstr ""
 "Ir iestājies skripta noilgums, ja vēlaties pabeigt importu līdz galam, tad "
 "%sizvēlieties vēlreiz to pašu failu%s un importēšana turpināsies."
 
-#: src/Controllers/Import/ImportController.php:564
+#: src/Controllers/Import/ImportController.php:563
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12371,12 +12323,12 @@ msgstr ""
 "ka phpMyAdmin nebūs spējīgs pabeigt importu, ja vien nepalielināsiet php "
 "izpildes laika ierobežojumus."
 
-#: src/Controllers/Import/ImportController.php:635
+#: src/Controllers/Import/ImportController.php:634
 #: src/Controllers/Sql/SqlController.php:138
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" (dzēst datubāzi) izteiksme ir atspējota."
 
-#: src/Controllers/Import/ImportController.php:698 src/Sql.php:918
+#: src/Controllers/Import/ImportController.php:697 src/Sql.php:919
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -12616,12 +12568,12 @@ msgid "The user name is empty!"
 msgstr "Nav norādīts lietotāja vārds!"
 
 #: src/Controllers/JavaScriptMessagesController.php:147
-#: src/Server/Privileges.php:761 src/UserPassword.php:41
+#: src/Server/Privileges.php:761 src/UserPassword.php:33
 msgid "The password is empty!"
 msgstr "Nav norādīta parole!"
 
 #: src/Controllers/JavaScriptMessagesController.php:148
-#: src/Server/Privileges.php:759 src/UserPassword.php:45
+#: src/Server/Privileges.php:759 src/UserPassword.php:38
 msgid "The passwords aren't the same!"
 msgstr "Paroles nesakrīt!"
 
@@ -13833,7 +13785,7 @@ msgid "Table %s already exists!"
 msgstr "%s tabula jau pastāv!"
 
 #: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:248
-#: src/Navigation/Nodes/NodeDatabaseChild.php:50 src/InsertEdit.php:245
+#: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Paslēpt"
 
@@ -14223,7 +14175,7 @@ msgstr ""
 "Lūdzu, esiet pacietīgi, datne tiek augšupielādēta. Informācija par "
 "augšupielādi nav pieejama."
 
-#: src/Controllers/NavigationController.php:40
+#: src/Controllers/NavigationController.php:39
 msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
@@ -14244,7 +14196,7 @@ msgid "String"
 msgstr "Rakstzīmju virkne"
 
 #: src/Controllers/Operations/Database/CollationController.php:42
-#: src/Controllers/Operations/TableController.php:262
+#: src/Controllers/Operations/TableController.php:268
 msgid "No collation provided."
 msgstr ""
 
@@ -14259,12 +14211,12 @@ msgstr ""
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Datubāze %1$s tika pārsaukta par %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:176
+#: src/Controllers/Operations/DatabaseController.php:175
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Datubāze %1$s tika pārkopēta uz %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:273
+#: src/Controllers/Operations/DatabaseController.php:271
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14284,11 +14236,11 @@ msgstr "Ielīmējiet to savā config.inc.php datnē"
 msgid "Could not import configuration"
 msgstr ""
 
-#: src/Controllers/Preferences/TwoFactorController.php:49
+#: src/Controllers/Preferences/TwoFactorController.php:48
 msgid "Two-factor authentication has been removed."
 msgstr "Divfaktoru autorizācija noņemta."
 
-#: src/Controllers/Preferences/TwoFactorController.php:62
+#: src/Controllers/Preferences/TwoFactorController.php:59
 msgid "Two-factor authentication has been configured."
 msgstr "Divfaktoru autorizācija iestatīta."
 
@@ -14321,7 +14273,7 @@ msgstr "Konts %s@%s veiksmīgi bloķēts."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Konts %s@%s veiksmīgi atbloķēts."
 
-#: src/Controllers/Server/PrivilegesController.php:127
+#: src/Controllers/Server/PrivilegesController.php:123
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -14987,15 +14939,15 @@ msgstr ""
 msgid "Bookmark %s has been created."
 msgstr "Grāmatzīme %s ir izveidota."
 
-#: src/Controllers/Sql/SqlController.php:225
+#: src/Controllers/Sql/SqlController.php:224
 msgid "Bookmark not created!"
 msgstr "Grāmatzīme nav izveidota!"
 
-#: src/Controllers/Table/AddFieldController.php:137
-#: src/Controllers/Table/IndexesController.php:139
-#: src/Controllers/Table/IndexRenameController.php:123
-#: src/Controllers/Table/Structure/PartitioningController.php:266
-#: src/Controllers/Table/Structure/SaveController.php:228
+#: src/Controllers/Table/AddFieldController.php:136
+#: src/Controllers/Table/IndexesController.php:137
+#: src/Controllers/Table/IndexRenameController.php:122
+#: src/Controllers/Table/Structure/PartitioningController.php:264
+#: src/Controllers/Table/Structure/SaveController.php:227
 #, fuzzy, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "%1$s tabula veiksmīgi izmainīta."
@@ -15006,16 +14958,16 @@ msgstr "%1$s tabula veiksmīgi izmainīta."
 msgid "No row selected."
 msgstr "Nav atlasīta neviena ierakstu rinda."
 
-#: src/Controllers/Table/ChartController.php:60
-#: src/Controllers/Table/GisVisualizationController.php:85
+#: src/Controllers/Table/ChartController.php:59
+#: src/Controllers/Table/GisVisualizationController.php:84
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: src/Controllers/Table/ChartController.php:166
+#: src/Controllers/Table/ChartController.php:164
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: src/Controllers/Table/ChartController.php:237
+#: src/Controllers/Table/ChartController.php:235
 #, fuzzy
 msgid "No data to display"
 msgstr "Dati netika atrasti"
@@ -15061,40 +15013,40 @@ msgid "There is an issue with your request."
 msgstr ""
 
 #: src/Controllers/Table/GetFieldController.php:109
-#: src/Database/Routines.php:1019 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:904 src/Database/Routines.php:1050
+#: src/Database/Routines.php:1017 src/Import/Import.php:138
+#: src/InsertEdit.php:163 src/Sql.php:905
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL atgrieza tukšo rezultātu (0 rindas)."
 
-#: src/Controllers/Table/GisVisualizationController.php:96
+#: src/Controllers/Table/GisVisualizationController.php:93
 #, fuzzy
 msgid "No spatial column found for this SQL query."
 msgstr "Nedarbojas šajā MySQL versijā."
 
-#: src/Controllers/Table/GisVisualizationController.php:121
+#: src/Controllers/Table/GisVisualizationController.php:117
 msgid "Invalid file format, expected one of: "
 msgstr ""
 
-#: src/Controllers/Table/GisVisualizationController.php:129
+#: src/Controllers/Table/GisVisualizationController.php:125
 #, fuzzy
 msgid "Failed to create image"
 msgstr "Rindas nav iezīmētas"
 
-#: src/Controllers/Table/Maintenance/AnalyzeController.php:67
-#: src/Controllers/Table/Maintenance/CheckController.php:67
-#: src/Controllers/Table/Maintenance/ChecksumController.php:67
-#: src/Controllers/Table/Maintenance/OptimizeController.php:67
-#: src/Controllers/Table/Maintenance/RepairController.php:67
+#: src/Controllers/Table/Maintenance/AnalyzeController.php:66
+#: src/Controllers/Table/Maintenance/CheckController.php:66
+#: src/Controllers/Table/Maintenance/ChecksumController.php:66
+#: src/Controllers/Table/Maintenance/OptimizeController.php:66
+#: src/Controllers/Table/Maintenance/RepairController.php:66
 msgid "Maintenance operations on multiple tables are disabled."
 msgstr ""
 
-#: src/Controllers/Table/Partition/AnalyzeController.php:36
-#: src/Controllers/Table/Partition/CheckController.php:36
-#: src/Controllers/Table/Partition/DropController.php:36
-#: src/Controllers/Table/Partition/OptimizeController.php:36
-#: src/Controllers/Table/Partition/RebuildController.php:36
-#: src/Controllers/Table/Partition/RepairController.php:36
-#: src/Controllers/Table/Partition/TruncateController.php:36
+#: src/Controllers/Table/Partition/AnalyzeController.php:35
+#: src/Controllers/Table/Partition/CheckController.php:35
+#: src/Controllers/Table/Partition/DropController.php:35
+#: src/Controllers/Table/Partition/OptimizeController.php:35
+#: src/Controllers/Table/Partition/RebuildController.php:35
+#: src/Controllers/Table/Partition/RepairController.php:35
+#: src/Controllers/Table/Partition/TruncateController.php:35
 #, fuzzy
 msgid "The partition name must be a non-empty string."
 msgstr "Tabulas nosaukums nav norādīts!"
@@ -15103,12 +15055,12 @@ msgstr "Tabulas nosaukums nav norādīts!"
 msgid "Invalid database or table name."
 msgstr "Nederīgs datubāzes vai tabulas nosaukums."
 
-#: src/Controllers/Table/RelationController.php:327
+#: src/Controllers/Table/RelationController.php:321
 #, fuzzy
 msgid "Display column was successfully updated."
 msgstr "Process %s tika veiksmīgi nogalināts."
 
-#: src/Controllers/Table/RelationController.php:361
+#: src/Controllers/Table/RelationController.php:354
 #, fuzzy
 msgid "Internal relationships were successfully updated."
 msgstr "Iekšējās relācijas"
@@ -15135,9 +15087,9 @@ msgstr "Izvēlētais lietotājs nav atrasts privilēģiju tabulā."
 msgid "The selected columns are already in the correct order."
 msgstr ""
 
-#: src/Controllers/Table/Structure/PartitioningController.php:258
-#: src/Controllers/Table/Structure/SaveController.php:278
-#: src/Tracking/Tracking.php:736
+#: src/Controllers/Table/Structure/PartitioningController.php:257
+#: src/Controllers/Table/Structure/SaveController.php:277
+#: src/Tracking/Tracking.php:733
 msgid "Query error"
 msgstr "Vaicājuma kļūda"
 
@@ -15149,7 +15101,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Controllers/Table/Structure/SaveController.php:223
+#: src/Controllers/Table/Structure/SaveController.php:222
 #, fuzzy, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -15195,7 +15147,7 @@ msgstr ""
 "Kļūda, apstrādājot pieprasījumu: Palaidējs ar %1$s nosaukumu nav atrasts "
 "%2$s datubāzē."
 
-#: src/Controllers/UserPasswordController.php:48
+#: src/Controllers/UserPasswordController.php:47
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Jums nav pietiekoši tiesību, lai atrastos šeit tagad!"
 
@@ -15298,26 +15250,21 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "Nevar ielādēt importētos spraudņus, lūdzu pārbaudi savu instalāciju!"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:103
-#: src/Database/Routines.php:129 src/Database/Routines.php:207
-#: src/Database/Routines.php:979 src/Triggers/Triggers.php:84
-#: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:128
-#: src/Database/Routines.php:106 src/Database/Routines.php:132
-#: src/Database/Routines.php:210 src/Database/Routines.php:1010
+#: src/Database/Events.php:134 src/Database/Routines.php:103
+#: src/Database/Routines.php:129 src/Database/Routines.php:205
+#: src/Database/Routines.php:977 src/Triggers/Triggers.php:84
+#: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:126
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr ""
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
-#: src/Database/Events.php:119 src/Database/Events.php:140
+#: src/Database/Events.php:119 src/Database/Events.php:138
 #: src/Database/Routines.php:107 src/Database/Routines.php:133
-#: src/Database/Routines.php:211 src/Database/Routines.php:225
-#: src/Database/Routines.php:983 src/Html/Generator.php:800
+#: src/Database/Routines.php:209 src/Database/Routines.php:223
+#: src/Database/Routines.php:981 src/Html/Generator.php:793
 #: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
-#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:132
-#: src/Database/Routines.php:110 src/Database/Routines.php:136
-#: src/Database/Routines.php:214 src/Database/Routines.php:228
-#: src/Database/Routines.php:1014
+#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
 msgstr "MySQL teica: "
 
@@ -15325,8 +15272,8 @@ msgstr "MySQL teica: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
-#: src/Database/Events.php:117 src/Database/Routines.php:223
-#: src/Triggers/Triggers.php:109 src/Database/Routines.php:226
+#: src/Database/Events.php:117 src/Database/Routines.php:221
+#: src/Triggers/Triggers.php:109
 msgid "The backed up query was:"
 msgstr ""
 
@@ -15335,76 +15282,75 @@ msgstr ""
 msgid "Event %1$s has been modified."
 msgstr "%1$s notikums ir mainīts."
 
-#: src/Database/Events.php:143
+#: src/Database/Events.php:141
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "%1$s notikums ir izveidots."
 
-#: src/Database/Events.php:157 src/Database/Routines.php:149
-#: src/Triggers/Triggers.php:149 src/Database/Routines.php:152
+#: src/Database/Events.php:153 src/Database/Routines.php:147
+#: src/Triggers/Triggers.php:145
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
-#: src/Database/Events.php:267 src/Database/Routines.php:785
-#: src/Triggers/Triggers.php:191 src/Database/Routines.php:816
+#: src/Database/Events.php:263 src/Database/Routines.php:783
+#: src/Triggers/Triggers.php:187
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
-#: src/Database/Events.php:275
+#: src/Database/Events.php:271
 msgid "You must provide an event name!"
 msgstr "Jānorāda notikuma nosaukums!"
 
-#: src/Database/Events.php:289
+#: src/Database/Events.php:285
 msgid "You must provide a valid interval value for the event."
 msgstr ""
 
-#: src/Database/Events.php:302
+#: src/Database/Events.php:298
 msgid "You must provide a valid execution time for the event."
 msgstr ""
 
-#: src/Database/Events.php:305
+#: src/Database/Events.php:301
 msgid "You must provide a valid type for the event."
 msgstr ""
 
-#: src/Database/Events.php:331
+#: src/Database/Events.php:327
 msgid "You must provide an event definition."
 msgstr ""
 
-#: src/Database/Routines.php:84 src/Database/Routines.php:87
+#: src/Database/Routines.php:84
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Nederīgs apakšprogrammas tips: \"%s\""
 
-#: src/Database/Routines.php:136 src/Database/Routines.php:139
+#: src/Database/Routines.php:136
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Izveidota %1$s apakšprogramma."
 
-#: src/Database/Routines.php:222 src/Database/Routines.php:225
+#: src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Atvainojiet, mums neizdevās atjaunot izdzēsto apakšprogrammu."
 
-#: src/Database/Routines.php:271 src/Database/Routines.php:274
+#: src/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "%1$s apakšprogramma izmainīta. Privilēģijas pielāgotas."
 
-#: src/Database/Routines.php:276 src/Database/Routines.php:279
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "%1$s apakšprogramma izmainīta."
 
-#: src/Database/Routines.php:630 src/Database/Routines.php:661
+#: src/Database/Routines.php:628
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Katram apakšprogrammas parametram jāiestata nosaukums un tips."
 
-#: src/Database/Routines.php:648 src/Database/Routines.php:679
+#: src/Database/Routines.php:646
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: src/Database/Routines.php:668 src/Database/Routines.php:733
-#: src/Database/Routines.php:699 src/Database/Routines.php:764
+#: src/Database/Routines.php:666 src/Database/Routines.php:731
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15412,28 +15358,28 @@ msgstr ""
 "Jāiestata ENUM, SET, VARCHAR un VARBINARY tipa apakšprogrammu parametru "
 "garums/vērtības."
 
-#: src/Database/Routines.php:715 src/Database/Routines.php:746
+#: src/Database/Routines.php:713
 msgid "You must provide a valid return type for the routine."
 msgstr "Apakšprogrammai jāiestata derīgs atgriešanas (gala rezultāta) tips."
 
-#: src/Database/Routines.php:792 src/Database/Routines.php:823
+#: src/Database/Routines.php:790
 msgid "Invalid routine type!"
 msgstr "Nederīgs apakšprogrammas tips!"
 
-#: src/Database/Routines.php:798 src/Database/Routines.php:829
+#: src/Database/Routines.php:796
 msgid "You must provide a routine name!"
 msgstr "Jāievada apakšprogrammas nosaukums!"
 
-#: src/Database/Routines.php:869 src/Database/Routines.php:892
+#: src/Database/Routines.php:867
 msgid "You must provide a routine definition."
 msgstr "Jāiestata apakšprogrammas definīcija."
 
-#: src/Database/Routines.php:995 src/Database/Routines.php:1026
+#: src/Database/Routines.php:993
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Izpildītās %s apakšprogrammas rezultāti"
 
-#: src/Database/Routines.php:1010 src/Database/Routines.php:1041
+#: src/Database/Routines.php:1008
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -15441,7 +15387,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Dbal/DatabaseInterface.php:1076 src/Dbal/DatabaseInterface.php:1075
+#: src/Dbal/DatabaseInterface.php:1076
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15449,7 +15395,7 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/Dbal/DatabaseInterface.php:1117 src/Dbal/DatabaseInterface.php:1116
+#: src/Dbal/DatabaseInterface.php:1117
 msgid "Failed to set configured collation connection!"
 msgstr ""
 
@@ -15460,31 +15406,31 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2387 src/Display/Results.php:2402
+#: src/Display/Results.php:2400 src/Display/Results.php:2415
 msgid "The row has been deleted."
 msgstr "Ierakstu rinda dzēsta."
 
-#: src/Display/Results.php:2969 src/Display/Results.php:3286 src/Sql.php:910
+#: src/Display/Results.php:2982 src/Display/Results.php:3302 src/Sql.php:911
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Vaicājums ilga %01.4f sekundes."
 
-#: src/Display/Results.php:3254
+#: src/Display/Results.php:3270
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Rāda %1s - %2s rindas ierakstus"
 
-#: src/Display/Results.php:3268
+#: src/Display/Results.php:3283
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3273
+#: src/Display/Results.php:3288
 #, php-format
 msgid "%s total"
 msgstr "%s kopā"
 
-#: src/Display/Results.php:3577
+#: src/Display/Results.php:3592
 msgid "Link not found!"
 msgstr "Saite nav atrasta!"
 
@@ -15752,13 +15698,13 @@ msgid ""
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: src/Export/OutputHandler.php:84 src/Export/OutputHandler.php:115
-#: src/Export/OutputHandler.php:241
+#: src/Export/OutputHandler.php:84 src/Export/OutputHandler.php:117
+#: src/Export/OutputHandler.php:232
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Nepietiek vietas, lai saglabātu failu %s."
 
-#: src/Export/OutputHandler.php:195
+#: src/Export/OutputHandler.php:197
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -15766,12 +15712,12 @@ msgstr ""
 "%s datne jau eksistē serverī. Nomainiet datnes nosaukumu vai pārbaudiet "
 "datnes pārrakstīšanas tiesības."
 
-#: src/Export/OutputHandler.php:206 src/Export/OutputHandler.php:218
+#: src/Export/OutputHandler.php:204 src/Export/OutputHandler.php:212
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Web serverim nav tiesību rakstīt failā %s."
 
-#: src/Export/OutputHandler.php:249
+#: src/Export/OutputHandler.php:239
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Damps tika saglabāts failā %s."
@@ -15858,60 +15804,60 @@ msgstr ""
 msgid "Session not found."
 msgstr "Sesija nav atrasta."
 
-#: src/Html/Generator.php:149
+#: src/Html/Generator.php:148
 #, fuzzy, php-format
 msgid "Jump to database “%s”."
 msgstr "pāriet pie datubāzes \"%s\"."
 
-#: src/Html/Generator.php:216
+#: src/Html/Generator.php:215
 msgid "SSL is not being used"
 msgstr "Netiek izmantots SSL"
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:220
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:222
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:225
 msgid "SSL is used"
 msgstr "Tiek izmantots SSL"
 
-#: src/Html/Generator.php:326
+#: src/Html/Generator.php:325
 msgid "The PHP function password_hash() with default options."
 msgstr "PHP password_hash() funkcija ar noklusējuma parametriem."
 
-#: src/Html/Generator.php:327
+#: src/Html/Generator.php:326
 msgid "password_hash() PHP function"
 msgstr "password_hash() PHP funkcija"
 
-#: src/Html/Generator.php:501
+#: src/Html/Generator.php:494
 #, fuzzy
 msgid "Skip Explain SQL"
 msgstr "Neizskaidrot SQL"
 
-#: src/Html/Generator.php:511
+#: src/Html/Generator.php:504
 #, fuzzy
 msgid "Skip Analyze SQL"
 msgstr "Nepārbaudīt SQL"
 
-#: src/Html/Generator.php:543
+#: src/Html/Generator.php:536
 msgid "Without PHP code"
 msgstr "Bez PHP koda"
 
-#: src/Html/Generator.php:628
+#: src/Html/Generator.php:621
 #, fuzzy
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Pievienot jaunu lauku"
 
-#: src/Html/Generator.php:742
+#: src/Html/Generator.php:735
 msgid "Static analysis:"
 msgstr ""
 
-#: src/Html/Generator.php:745
+#: src/Html/Generator.php:738
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -16051,15 +15997,15 @@ msgid ""
 "removed."
 msgstr ""
 
-#: src/InsertEdit.php:422 src/InsertEdit.php:435
+#: src/InsertEdit.php:422
 msgid "web server upload directory:"
 msgstr "tīmekļa servera augšupielādes mape:"
 
-#: src/InsertEdit.php:831 src/Sql.php:901 src/InsertEdit.php:844
+#: src/InsertEdit.php:831 src/Sql.php:902
 msgid "Showing SQL query"
 msgstr ""
 
-#: src/InsertEdit.php:855 src/Sql.php:881 src/InsertEdit.php:868
+#: src/InsertEdit.php:855 src/Sql.php:883
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -16074,7 +16020,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1405 src/Util.php:1419
+#: src/Menu.php:284 src/Menu.php:395 src/Util.php:1396 src/Util.php:1410
 msgid "Tracking"
 msgstr "Izsekošana"
 
@@ -16082,7 +16028,7 @@ msgstr "Izsekošana"
 msgid "Database seems to be empty!"
 msgstr "Izskatās, ka datubāze tukša!"
 
-#: src/Menu.php:402 src/Util.php:1406
+#: src/Menu.php:402 src/Util.php:1397
 msgid "Designer"
 msgstr ""
 
@@ -16090,23 +16036,23 @@ msgstr ""
 msgid "User accounts"
 msgstr "Lietotāju konti"
 
-#: src/Menu.php:512 src/Util.php:1389
+#: src/Menu.php:512 src/Util.php:1380
 msgid "Charsets"
 msgstr "Rakstzīmju kopas"
 
-#: src/Menu.php:517 src/Util.php:1391
+#: src/Menu.php:517 src/Util.php:1382
 #, fuzzy
 msgid "Engines"
 msgstr "Tabulas tipi"
 
-#: src/Message.php:185
+#: src/Message.php:151
 #, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Message.php:202
+#: src/Message.php:168
 #, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
@@ -16114,7 +16060,7 @@ msgstr[0] "%1$d rinda dzēsta."
 msgstr[1] "%1$d rindas dzēstas."
 msgstr[2] "%1$d rindas dzēstas."
 
-#: src/Message.php:219
+#: src/Message.php:185
 #, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
@@ -16464,39 +16410,39 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: src/Operations.php:536
+#: src/Operations.php:534
 msgid "Coalesce"
 msgstr "Apvienot"
 
-#: src/Operations.php:880
+#: src/Operations.php:882
 msgid "Can't move table to same one!"
 msgstr "Nevar pārvietot tabulu uz viņu pašu!"
 
-#: src/Operations.php:882
+#: src/Operations.php:884
 msgid "Can't copy table to same one!"
 msgstr "Nevar nokopēt tabulu uz viņu pašu!"
 
-#: src/Operations.php:918
+#: src/Operations.php:908
 #, fuzzy, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabula %s tika pārvietota uz %s."
 
-#: src/Operations.php:924
+#: src/Operations.php:914
 #, fuzzy, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabula %s tika pārkopēta uz %s."
 
-#: src/Operations.php:930
+#: src/Operations.php:920
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabula %s tika pārvietota uz %s."
 
-#: src/Operations.php:934
+#: src/Operations.php:924
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabula %s tika pārkopēta uz %s."
 
-#: src/Operations.php:957
+#: src/Operations.php:944
 msgid "The table name is empty!"
 msgstr "Tabulas nosaukums nav norādīts!"
 
@@ -16557,7 +16503,7 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Jums nav piekļuves tiesību šim MySQL serverim!"
 
-#: src/Plugins/Auth/AuthenticationHttp.php:88
+#: src/Plugins/Auth/AuthenticationHttp.php:87
 #, fuzzy
 msgid "Wrong username/password. Access denied."
 msgstr "Kļūdains lietotājvārds/parole. Pieeja aizliegta."
@@ -17066,14 +17012,9 @@ msgstr "Kolonnu nosaukumi: "
 msgid "This plugin does not support compressed imports!"
 msgstr ""
 
-#: src/Plugins/Import/ImportMediawiki.php:59
+#: src/Plugins/Import/ImportMediawiki.php:58
 msgid "MediaWiki Table"
 msgstr "MediaWiki tabula"
-
-#: src/Plugins/Import/ImportMediawiki.php:276
-#, php-format
-msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr ""
 
 #: src/Plugins/Import/ImportOds.php:86
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -17094,21 +17035,21 @@ msgstr ""
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Nevarēja parsēt OpenDocument izklājlapu!"
 
-#: src/Plugins/Import/ImportShp.php:74
+#: src/Plugins/Import/ImportShp.php:75
 msgid "ESRI Shape File"
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:110 src/Plugins/Import/ImportShp.php:176
+#: src/Plugins/Import/ImportShp.php:113 src/Plugins/Import/ImportShp.php:179
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:201
+#: src/Plugins/Import/ImportShp.php:204
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial papildinājums neatbalsta \"%s\" ESRI tipu."
 
-#: src/Plugins/Import/ImportShp.php:246
+#: src/Plugins/Import/ImportShp.php:249
 msgid "The imported file does not contain any data!"
 msgstr ""
 
@@ -17566,7 +17507,7 @@ msgid "Error 405! Request method not allowed."
 msgstr ""
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3133
+#: src/Server/Privileges.php:3137
 #, fuzzy
 msgid "Native MySQL authentication"
 msgstr "Dokumentācija"
@@ -17630,31 +17571,31 @@ msgstr "Pārlādējam privilēģijas"
 msgid "The selected users have been deleted successfully."
 msgstr "Izvēlētie lietotāji tika veiksmīgi dzēsti."
 
-#: src/Server/Privileges.php:1979
+#: src/Server/Privileges.php:1980
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Jūs modificējāt privilēģijas objektam %s."
 
-#: src/Server/Privileges.php:2129
+#: src/Server/Privileges.php:2131
 #, php-format
 msgid "Deleting %s"
 msgstr "Dzēšam %s"
 
-#: src/Server/Privileges.php:2159
+#: src/Server/Privileges.php:2161
 msgid "The privileges were reloaded successfully."
 msgstr "Privilēģijas tika veiksmīgi pārlādētas."
 
-#: src/Server/Privileges.php:2225
+#: src/Server/Privileges.php:2228
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Lietotājs %s jau pastāv!"
 
-#: src/Server/Privileges.php:2378
+#: src/Server/Privileges.php:2382
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s privilēģijas"
 
-#: src/Server/Privileges.php:2467
+#: src/Server/Privileges.php:2471
 #, fuzzy, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17667,7 +17608,7 @@ msgstr ""
 "lieto serveris, ja tur tika veikti labojumi. Šajā gadījumā ir nepieciešams "
 "%spārlādēt privilēģijas%s pirms Jūs turpināt."
 
-#: src/Server/Privileges.php:2483
+#: src/Server/Privileges.php:2487
 #, fuzzy
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -17681,11 +17622,11 @@ msgstr ""
 "lieto serveris, ja tur tika veikti labojumi. Šajā gadījumā ir nepieciešams "
 "%spārlādēt privilēģijas%s pirms Jūs turpināt."
 
-#: src/Server/Privileges.php:2771
+#: src/Server/Privileges.php:2775
 msgid "You have added a new user."
 msgstr "Jūs pievienojāt jaunu lietotāju."
 
-#: src/Server/Privileges.php:3225
+#: src/Server/Privileges.php:3229
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -17780,23 +17721,23 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: src/Sql.php:445
+#: src/Sql.php:446
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:898
+#: src/Sql.php:899
 msgid "Showing as PHP code"
 msgstr ""
 
-#: src/Sql.php:1247
+#: src/Sql.php:1245
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: src/Sql.php:1261
+#: src/Sql.php:1259
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -17865,31 +17806,31 @@ msgstr "Avota datubāze `%s` netika atrasta!"
 msgid "Target database `%s` was not found!"
 msgstr "Mērķa datubāze `%s` netika atrasta!"
 
-#: src/Table/Table.php:841
+#: src/Table/Table.php:839
 msgid "Invalid database:"
 msgstr "Nederīga datubāze:"
 
-#: src/Table/Table.php:859
+#: src/Table/Table.php:857
 msgid "Invalid table name:"
 msgstr "Nederīgs tabulas nosaukums:"
 
-#: src/Table/Table.php:904
+#: src/Table/Table.php:902
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tabula pārdēvēta par %2$s."
 
-#: src/Table/Table.php:1140
+#: src/Table/Table.php:1138
 msgid "Could not save table UI preferences!"
 msgstr ""
 
-#: src/Table/Table.php:1162
+#: src/Table/Table.php:1160
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1280
+#: src/Table/Table.php:1278
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -17897,7 +17838,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1605
+#: src/Table/Table.php:1603
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -17971,46 +17912,46 @@ msgstr ""
 msgid "Export as %s"
 msgstr "Izgūt kā %s"
 
-#: src/Tracking/Tracking.php:560
+#: src/Tracking/Tracking.php:559
 #, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
-#: src/Tracking/Tracking.php:795
+#: src/Tracking/Tracking.php:792
 msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
 
-#: src/Tracking/Tracking.php:799
+#: src/Tracking/Tracking.php:796
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
 
-#: src/Tracking/Tracking.php:810
+#: src/Tracking/Tracking.php:807
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
-#: src/Tracking/Tracking.php:843
+#: src/Tracking/Tracking.php:840
 #, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
-#: src/Tracking/Tracking.php:866
+#: src/Tracking/Tracking.php:863
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr ""
 
-#: src/Tracking/Tracking.php:869
+#: src/Tracking/Tracking.php:866
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
-#: src/Tracking/Tracking.php:964
+#: src/Tracking/Tracking.php:961
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "%2$s %1$s versija tika dzēsta."
 
-#: src/Tracking/Tracking.php:995
+#: src/Tracking/Tracking.php:992
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
@@ -18024,28 +17965,28 @@ msgstr "Atvainojiet, mums neizdevās atjaunot izdzēsto palaidēju."
 msgid "Trigger %1$s has been modified."
 msgstr "%1$s palaidējs mainīts."
 
-#: src/Triggers/Triggers.php:135
+#: src/Triggers/Triggers.php:133
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "%1$s palaidējs izveidots."
 
-#: src/Triggers/Triggers.php:199
+#: src/Triggers/Triggers.php:195
 msgid "You must provide a trigger name!"
 msgstr "Jāievada palaidēja nosaukums!"
 
-#: src/Triggers/Triggers.php:205
+#: src/Triggers/Triggers.php:201
 msgid "You must provide a valid timing for the trigger!"
 msgstr "Jāievada derīgs palaidēja izpildes laiks!"
 
-#: src/Triggers/Triggers.php:211
+#: src/Triggers/Triggers.php:207
 msgid "You must provide a valid event for the trigger!"
 msgstr "Jāievada derīgs palaidēja notikums!"
 
-#: src/Triggers/Triggers.php:221
+#: src/Triggers/Triggers.php:217
 msgid "You must provide a valid table name!"
 msgstr ""
 
-#: src/Triggers/Triggers.php:228
+#: src/Triggers/Triggers.php:224
 msgid "You must provide a trigger definition."
 msgstr "Jāievada palaidēja definīcija."
 
@@ -18329,13 +18270,13 @@ msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Kopā"
 
-#: src/UserPassword.php:37
-msgid "The profile has been updated."
-msgstr "Profils tika modificēts."
-
-#: src/UserPassword.php:49
+#: src/UserPassword.php:43
 msgid "Password is too long!"
 msgstr "Parole ir pārāk gara!"
+
+#: src/UserPassword.php:47
+msgid "The profile has been updated."
+msgstr "Profils tika modificēts."
 
 #: src/Util.php:132
 #, php-format
@@ -18357,7 +18298,7 @@ msgstr ""
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dienas, %s stundas, %s minūtes un %s sekundes"
 
-#: src/Util.php:1382
+#: src/Util.php:1373
 msgid "Users"
 msgstr "Lietotāji"
 
