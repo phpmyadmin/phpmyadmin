@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-09-02 19:51+0000\n"
+"PO-Revision-Date: 2026-09-07 01:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.9.dev0\n"
+"X-Generator: Weblate 2026.9.1.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1598,7 +1598,7 @@ msgstr "Vjetnamiešu"
 #: libraries/classes/Config/Descriptions.php:59
 #: libraries/classes/Config/Descriptions.php:60
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Lietotāji nevar iestatīt lielāku vērtību"
 
 #: libraries/classes/Config/Descriptions.php:68
 msgid ""
@@ -3836,10 +3836,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:914
 #: templates/database/operations/index.twig:128
 #: templates/server/databases/index.twig:37
-#, fuzzy
-#| msgid "Database"
 msgid "Database name"
-msgstr "Datubāze"
+msgstr "Datubāzes nosaukums"
 
 #: libraries/classes/Config/Descriptions.php:915
 msgid "Server port"
@@ -4297,7 +4295,7 @@ msgstr "Nepareiza vērtība!"
 #: libraries/classes/Config/Validator.php:598
 #, php-format
 msgid "Value must be less than or equal to %s!"
-msgstr ""
+msgstr "Vērtībai jābūt mazākai par vai vienādai ar %s!"
 
 #: libraries/classes/Config/FormDisplay.php:675
 #, php-format
@@ -4431,7 +4429,7 @@ msgstr "Nē"
 #: libraries/classes/Config/FormDisplayTemplate.php:350
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "Iestatītā vērtība: %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:355
 msgid "Restore default value"
@@ -4439,7 +4437,7 @@ msgstr "Atjaunot noklusējuma vērtību"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:368
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "Ļaut lietotājiem pielāgot šo vērtību"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:37
 msgid "Config authentication"
@@ -7848,7 +7846,7 @@ msgstr "Ar diapazoniem veikto kārtošanas reižu skaits."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:642
 msgid "The number of sorted rows."
-msgstr ""
+msgstr "Sakārtoto rindu skaits."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:645
 msgid "The number of sorts that were done by scanning the table."
@@ -7875,7 +7873,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:662
 msgid "The number of currently open connections."
-msgstr ""
+msgstr "Pašlaik atvērto savienojumu skaits."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:665
 msgid ""
@@ -7936,7 +7934,7 @@ msgstr "Noklusējuma serveris"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:158
 msgid "End of line"
-msgstr ""
+msgstr "Rindas beigas"
 
 #: libraries/classes/Controllers/SqlController.php:396
 msgid "Bookmark not created!"
@@ -7975,7 +7973,7 @@ msgstr "Dati netika atrasti"
 #: libraries/classes/Controllers/Table/GetFieldController.php:54
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "'%s' datubāze nepastāv."
 
 #: libraries/classes/Controllers/Table/CreateController.php:98
 #, php-format
@@ -8006,7 +8004,7 @@ msgstr "Jūsu SQL vaicājums veiksmīgi izpildīts."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:62
 msgid "Invalid table name"
-msgstr ""
+msgstr "Nederīgs tabulas nosaukums"
 
 #. l10n: In case a SQL query did not pass a security check
 #: libraries/classes/Controllers/Table/GetFieldController.php:70
@@ -8152,7 +8150,7 @@ msgstr "Nav atlasīta neviena versija."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:185
 msgid "SQL statements executed."
-msgstr ""
+msgstr "SQL izteiksmes izpildītas."
 
 #: libraries/classes/Controllers/ThemesController.php:20
 #: templates/themes.twig:1
@@ -13312,15 +13310,15 @@ msgstr "Svētdiena"
 
 #: libraries/config.values.php:200
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Jautāt pirms nosūta kļūdu ziņojumus"
 
 #: libraries/config.values.php:201
 msgid "Always send error reports"
-msgstr ""
+msgstr "Vienmēr sūtīt kļūdu ziņojumus"
 
 #: libraries/config.values.php:202
 msgid "Never send error reports"
-msgstr ""
+msgstr "Nekad nesūtīt kļūdu ziņojumus"
 
 #: libraries/config.values.php:205
 #, fuzzy
@@ -14120,9 +14118,8 @@ msgid "Pin text"
 msgstr "Daļēji teksti"
 
 #: templates/database/designer/main.twig:202
-#, fuzzy
 msgid "Hide/Show all"
-msgstr "Rādīt visu"
+msgstr "Paslēpt/rādīt visas tabulas"
 
 #: templates/database/designer/main.twig:212
 #, fuzzy
@@ -14336,10 +14333,9 @@ msgid "Exporting a raw query"
 msgstr ""
 
 #: templates/database/export/index.twig:7
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "Izveidot jaunu tabulu datubāzē %s"
+msgstr "Izgūst \"%s\" datubāzes tabulas"
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -14697,10 +14693,8 @@ msgid "Unselect all"
 msgstr "Neiezīmēt neko"
 
 #: templates/database/search/main.twig:67
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Inside column:"
-msgstr "Tabulā(s):"
+msgstr "Kolonnā:"
 
 #: templates/database/search/results.twig:12
 #, php-format
@@ -15611,15 +15605,13 @@ msgstr "Nav"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
-#, fuzzy
-#| msgid "Previous"
 msgid "Prev"
-msgstr "Iepriekšējie"
+msgstr "Iepriekšējais"
 
 #. l10n: Next month. Display text for next month link in calendar
 #: templates/javascript/variables.twig:17
 msgid "Next"
-msgstr "Nākamie"
+msgstr "Nākamais"
 
 #. l10n: Display text for current month link in calendar
 #: templates/javascript/variables.twig:18
@@ -16312,10 +16304,8 @@ msgid "deleting"
 msgstr "dzēš"
 
 #: templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Dzēst"
+msgstr "izdzēsts"
 
 #: templates/server/privileges/add_user.twig:12
 #, fuzzy
@@ -16326,15 +16316,16 @@ msgstr "Datubāzu eksporta opcijas"
 #: templates/server/privileges/add_user.twig:15
 msgid "Create database with same name and grant all privileges."
 msgstr ""
+"Izveidot datubāzi ar tādu pašu nosaukumu un piešķirt tai visas privilēģijas."
 
 #: templates/server/privileges/add_user.twig:19
 msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
 #: templates/server/privileges/add_user.twig:24
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Pārbaudīt privilēģijas uz datubāzi \"%s\"."
+msgstr "Piešķirt visas privilēģijas %s datubāzei."
 
 #: templates/server/privileges/change_password.twig:15
 msgid "No Password"
@@ -16464,10 +16455,8 @@ msgstr "Lokāls"
 
 #: templates/server/privileges/login_information_fields.twig:30
 #: templates/server/replication/master_add_slave_user.twig:37
-#, fuzzy
-#| msgid "This Host"
 msgid "This host"
-msgstr "Šis hosts"
+msgstr "Šis resursdators"
 
 #: templates/server/privileges/login_information_fields.twig:32
 #: templates/server/replication/master_add_slave_user.twig:39
