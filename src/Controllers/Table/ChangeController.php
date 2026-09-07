@@ -276,7 +276,7 @@ class ChangeController implements InvocableController
 
         $htmlOutput .= '</form>';
 
-        $htmlOutput .= $this->template->render('modals/gis_editor');
+        $htmlOutput .= $this->template->render('modals/gis_editor', ['location' => 'change']);
         // end Insert/Edit form
 
         if ($insertMode) {
