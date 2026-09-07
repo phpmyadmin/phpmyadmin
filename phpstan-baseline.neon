@@ -1531,18 +1531,6 @@ parameters:
 			path: src/Controllers/Database/Structure/DropTableController.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyTableController.php
-
-		-
-			message: '#^Parameter \#3 \$pos of method PhpMyAdmin\\Sql\:\:calculatePosForLastPage\(\) expects int\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyTableController.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 1
@@ -2533,27 +2521,33 @@ parameters:
 			path: src/Controllers/Table/ChangeRowsController.php
 
 		-
-			message: '#^Binary operation "\+" between int\|string and mixed results in an error\.$#'
+			message: '#^Binary operation "\+" between int\|string and int results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Controllers/Table/ChartController.php
 
 		-
-			message: '#^Binary operation "\-" between int\|string and mixed results in an error\.$#'
+			message: '#^Binary operation "\-" between int\|string and int results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
+			path: src/Controllers/Table/ChartController.php
+
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 3
 			path: src/Controllers/Table/ChartController.php
 
 		-
 			message: '#^Parameter \#1 \$rowCount of class PhpMyAdmin\\SqlParser\\Components\\Limit constructor expects int\|string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Controllers/Table/ChartController.php
 
 		-
 			message: '#^Parameter \#2 \$offset of class PhpMyAdmin\\SqlParser\\Components\\Limit constructor expects int\|string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Controllers/Table/ChartController.php
 
 		-
@@ -2607,18 +2601,6 @@ parameters:
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
-			message: '#^Parameter \#3 \$pos of method PhpMyAdmin\\Sql\:\:calculatePosForLastPage\(\) expects int\|null, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
 
@@ -2736,7 +2718,7 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 3
+			count: 4
 			path: src/Controllers/Table/GisVisualizationController.php
 
 		-
@@ -6933,7 +6915,7 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 5
+			count: 4
 			path: src/Html/Generator.php
 
 		-
@@ -12562,12 +12544,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Binary operation "\*" between int and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: '#^Binary operation "\+" between int\<min, \-1\>\|int\<1, max\> and int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -12604,12 +12580,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Binary operation "/" between int and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
 			identifier: function.strict
 			count: 1
@@ -12618,13 +12588,13 @@ parameters:
 		-
 			message: '#^Cannot access offset ''max_rows'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 3
 			path: src/Sql.php
 
 		-
 			message: '#^Cannot access offset ''pos'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
+			count: 2
 			path: src/Sql.php
 
 		-
@@ -12654,7 +12624,7 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 3
+			count: 2
 			path: src/Sql.php
 
 		-
@@ -12665,12 +12635,6 @@ parameters:
 
 		-
 			message: '#^Method PhpMyAdmin\\Sql\:\:countQueryResults\(\) should return int\|numeric\-string but returns float\|int\|numeric\-string\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Sql.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Sql\:\:getStartPosToDisplayRow\(\) should return int but returns \(float\|int\)\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Sql.php

@@ -38,7 +38,6 @@ use function array_sum;
 use function arsort;
 use function assert;
 use function bin2hex;
-use function ceil;
 use function count;
 use function defined;
 use function htmlspecialchars;
@@ -1632,46 +1631,6 @@ class Sql
         }
 
         return $htmlOutput;
-    }
-
-    /**
-     * Function to define pos to display a row
-     *
-     * @param int $numberOfLine Number of the line to display
-     *
-     * @return int Start position to display the line
-     */
-    private function getStartPosToDisplayRow(int $numberOfLine): int
-    {
-        $maxRows = $_SESSION['tmpval']['max_rows'];
-
-        return @((int) ceil($numberOfLine / $maxRows) - 1) * $maxRows;
-    }
-
-    /**
-     * Function to calculate new pos if pos is higher than number of rows
-     * of displayed table
-     *
-     * @param string   $db    Database name
-     * @param string   $table Table name
-     * @param int|null $pos   Initial position
-     *
-     * @return int Number of pos to display last page
-     */
-    public function calculatePosForLastPage(string $db, string $table, int|null $pos): int
-    {
-        if ($pos === null) {
-            $pos = (int) $_SESSION['tmpval']['pos'];
-        }
-
-        $tableObject = new Table($table, $db, $this->dbi);
-        $unlimNumRows = $tableObject->countRecords(true);
-        //If position is higher than number of rows
-        if ($unlimNumRows <= $pos && $pos !== 0) {
-            return $this->getStartPosToDisplayRow($unlimNumRows);
-        }
-
-        return $pos;
     }
 
     private function getIndexList(string $table, string $db): string

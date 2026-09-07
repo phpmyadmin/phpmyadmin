@@ -922,15 +922,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/EmptyTableController.php">
-    <InvalidArgument>
-      <code><![CDATA[$_REQUEST['pos']]]></code>
-    </InvalidArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_REQUEST['pos'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Database/Structure/FavoriteTableController.php">
     <MixedAssignment>
@@ -1939,18 +1933,13 @@
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$sqlQuery]]></code>
     </MixedArgument>
+    <MixedAssignment>
+      <code><![CDATA[$pos]]></code>
+    </MixedAssignment>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
     </MixedPropertyTypeCoercion>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_REQUEST['pos']]]></code>
-      <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
-      <code><![CDATA[$rows]]></code>
-      <code><![CDATA[$start]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidOperand>
-      <code><![CDATA[$_REQUEST['pos']]]></code>
-      <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$statement->limit->offset]]></code>
       <code><![CDATA[$statement->limit->rowCount]]></code>
     </PossiblyInvalidOperand>
@@ -2007,9 +1996,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/DeleteRowsController.php">
-    <InvalidArgument>
-      <code><![CDATA[$_REQUEST['pos']]]></code>
-    </InvalidArgument>
     <MixedArgument>
       <code><![CDATA[$row]]></code>
     </MixedArgument>
@@ -2022,9 +2008,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_REQUEST['pos'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/DropColumnConfirmationController.php">
     <PossiblyUnusedReturnValue>
@@ -2116,6 +2099,9 @@
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
     </MixedArrayAccess>
+    <MixedAssignment>
+      <code><![CDATA[$pos]]></code>
+    </MixedAssignment>
     <RiskyCast>
       <code><![CDATA[$_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_POST['session_max_rows'] ?? $_GET['session_max_rows']]]></code>
@@ -4547,7 +4533,6 @@
       <code><![CDATA[$parts[1]]]></code>
     </PossiblyUndefinedArrayOffset>
     <RiskyCast>
-      <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
       <code><![CDATA[$_REQUEST['unlim_num_rows']]]></code>
     </RiskyCast>
@@ -7490,7 +7475,6 @@
   </file>
   <file src="src/Sql.php">
     <MixedArgument>
-      <code><![CDATA[$numberOfLine / $maxRows]]></code>
       <code><![CDATA[$request->getQueryParam('label')]]></code>
       <code><![CDATA[$sortCol]]></code>
     </MixedArgument>
@@ -7498,8 +7482,6 @@
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$statementInfo->statement->where[0]]]></code>
@@ -7508,7 +7490,6 @@
       <code><![CDATA[$_SESSION['tmpval']['possible_as_geometry']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$maxRows]]></code>
       <code><![CDATA[$sortCol]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
     </MixedAssignment>
@@ -7516,8 +7497,6 @@
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
-      <code><![CDATA[$maxRows]]></code>
-      <code><![CDATA[$maxRows]]></code>
     </MixedOperand>
     <MixedPropertyFetch>
       <code><![CDATA[$statementInfo->statement->where[0]->expr]]></code>
@@ -7525,7 +7504,6 @@
     <MixedReturnStatement>
       <code><![CDATA[$unlimNumRows]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
-      <code><![CDATA[@((int) ceil($numberOfLine / $maxRows) - 1) * $maxRows]]></code>
     </MixedReturnStatement>
     <NoValue>
       <code><![CDATA[$statementInfo->statement->where]]></code>

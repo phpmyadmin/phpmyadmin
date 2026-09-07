@@ -48,14 +48,6 @@ final readonly class DeleteRowsController implements InvocableController
                 $this->dbi->query($query);
             }
 
-            if (! empty($_REQUEST['pos'])) {
-                $_REQUEST['pos'] = $this->sql->calculatePosForLastPage(
-                    Current::$database,
-                    Current::$table,
-                    $_REQUEST['pos'],
-                );
-            }
-
             ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
             Current::$displayMessage = Message::success();
