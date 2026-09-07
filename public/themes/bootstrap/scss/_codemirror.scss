@@ -1,6 +1,25 @@
 $textarea-cols: 40;
 $textarea-rows: 15;
 
+// Restore monospace font size to match 5.2 default (~14px)
+// See: https://github.com/phpmyadmin/phpmyadmin/issues/19489
+:root {
+  --font-size-monospace: 14px;
+}
+
+.cm-editor,
+.CodeMirror,
+.cm-scroller,
+code,
+pre,
+textarea.monospace,
+.sql,
+pre.sql,
+.result_query .sql,
+.result_query pre {
+  font-size: var(--font-size-monospace, 14px) !important;
+}
+
 .CodeMirror {
   height: 20rem;
   border: $card-border-width solid $card-border-color;
@@ -12,7 +31,7 @@ $textarea-rows: 15;
 
 .CodeMirror-gutters {
   border-right-color: var(--#{$prefix}border-color);
-  background-color: rgba(var(--#{$prefix}body-color-rgb), .03);
+  background-color: rgba(var(--#{$prefix}body-color-rgb), 0.03);
 }
 
 // Code mirror default style (do not affect the console style)
