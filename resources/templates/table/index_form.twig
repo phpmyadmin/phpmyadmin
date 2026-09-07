@@ -127,6 +127,22 @@
                     value="{{ index.getComment() }}">
             </div>
 
+            <div>
+                <div class="label">
+                    <strong>
+                        <label for="select_index_visible">
+                            {{ t('Visibility:') }}
+                            {{ show_mysql_docu('invisible-indexes') }}
+                        </label>
+                    </strong>
+                </div>
+
+                <select name="index[Visible]" id="select_index_visible">
+                    <option value="YES"{{ index.isVisible() ? ' selected' }}>{{ t('Visible') }}</option>
+                    <option value="NO"{{ not index.isVisible() ? ' selected' }}>{{ t('Invisible') }}</option>
+                </select>
+            </div>
+
             {% if default_sliders_state != 'disabled' %}
             </div>
             {% endif %}

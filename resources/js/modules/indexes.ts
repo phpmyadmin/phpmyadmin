@@ -163,6 +163,7 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
     const keyBlockSize = $('input[name="index[Key_block_size]"]').val();
     const parser = $('input[name="index[Parser]"]').val();
     const indexType = $('select[name="index[Index_type]"]').val();
+    const indexVisible = $('select[name="index[Visible]"]').val();
     const columns = [];
     $('#index_columns').find('tbody').find('tr').each(function () {
         // Get columns in particular order.
@@ -182,6 +183,7 @@ function addColumnToIndex (sourceArray, arrayIndex, indexChoice, colIndex): void
         'Key_block_size': keyBlockSize,
         'Parser': parser,
         'Index_type': indexType,
+        'Visible': indexVisible,
         'columns': columns
     };
 

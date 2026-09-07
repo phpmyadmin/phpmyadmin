@@ -91,7 +91,7 @@ class IndexRenameControllerTest extends AbstractTestCase
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
         <div class="preview_sql">
-              <pre><code class="sql" dir="ltr">ALTER TABLE `test_db`.`test_table_index_rename` DROP INDEX `old_name`, ADD INDEX `new_name` (`name`) USING BTREE;</code></pre>
+              <pre><code class="sql" dir="ltr">ALTER TABLE `test_db`.`test_table_index_rename` DROP INDEX `old_name`, ADD INDEX `new_name` (`name`) USING BTREE; ALTER TABLE `test_db`.`test_table_index_rename` ALTER INDEX `new_name` VISIBLE;</code></pre>
           </div>
 
         HTML;
