@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-09-07 01:51+0000\n"
+"PO-Revision-Date: 2026-09-08 03:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "lv/>\n"
@@ -3899,7 +3899,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:927
 #: templates/database/structure/copy_form.twig:34
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Pievienot DROP TABLE"
 
 #: libraries/classes/Config/Descriptions.php:928
 msgid "Add DROP VIEW"
@@ -5749,11 +5749,11 @@ msgstr "slow_query_log un general_log parametri atspējoti."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:213
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output nav iestatīts uz TABLE."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:214
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output iestatīts uz TABLE."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:216
 #, php-format
@@ -6309,7 +6309,7 @@ msgstr "Brīvā atmiņa"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:408
 msgid "Are you sure?"
-msgstr ""
+msgstr "Vai esiet pārliecināti?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:410
 msgid ""
@@ -12298,10 +12298,8 @@ msgstr "Jūs modificējāt privilēģijas objektam %s."
 #: libraries/classes/Server/Privileges.php:2498
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
-#, fuzzy
-#| msgid "No user(s) found."
 msgid "No user found."
-msgstr "Lietotāji netika atrasti."
+msgstr "Neviens lietotājs nav atrasts."
 
 #: libraries/classes/Server/Privileges.php:2579
 #, php-format
@@ -14680,10 +14678,8 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Vārdi ir atdalīti ar tukšumu (\" \")."
 
 #: templates/database/search/main.twig:40
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Tabulā(s):"
+msgstr "Tabulās:"
 
 #: templates/database/search/main.twig:46 templates/server/export/index.twig:16
 #: templates/server/replication/database_multibox.twig:8
@@ -14973,7 +14969,7 @@ msgstr "Kārtot pēc atslēgas:"
 
 #: templates/display/results/table.twig:32
 msgid "Save edited data"
-msgstr ""
+msgstr "Saglabāt rediģētos datus"
 
 #: templates/display/results/table.twig:38
 msgid "Restore column order"
@@ -17318,10 +17314,8 @@ msgid "Edit user group: '%s'"
 msgstr ""
 
 #: templates/server/user_groups/edit_user_groups.twig:9
-#, fuzzy
-#| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Nav privilēģiju."
+msgstr "Lietotāju grupas izvēlnes piešķīrumi"
 
 #: templates/server/user_groups/edit_user_groups.twig:14
 msgid "Group name:"
@@ -17348,7 +17342,7 @@ msgstr "Komentārs tabulai"
 #: templates/server/user_groups/user_listings.twig:1
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "'%s' lietotāju grupas lietotāji"
 
 #: templates/server/user_groups/user_listings.twig:3
 msgid "No users were found belonging to this user group."
@@ -17360,7 +17354,7 @@ msgstr "Servera mainīgie un konfigurācija"
 
 #: templates/server/variables/index.twig:43
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Šis mainīgais ir tikai lasāms, un to nevar izmainīt"
 
 #: templates/server/variables/index.twig:69
 msgid "Session value"
@@ -17404,10 +17398,8 @@ msgid "Show form"
 msgstr "Rādīt veidlapu"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show hidden messages"
-msgstr "Rādīt režģi"
+msgstr "Rādīt paslēptos ziņojumus"
 
 #: templates/setup/home/index.twig:73
 msgid "There are no configured servers"
@@ -17629,10 +17621,8 @@ msgid "Value Column:"
 msgstr "Vērtības kolonna:"
 
 #: templates/table/chart/tbl_chart.twig:148
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Saglabāt kā failu"
+msgstr "Saglabāt grafiku kā attēlu"
 
 #: templates/table/export/index.twig:12
 msgid ""
@@ -17641,10 +17631,9 @@ msgid ""
 msgstr ""
 
 #: templates/table/export/index.twig:7
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "Izveidot jaunu tabulu datubāzē %s"
+msgstr "Izgūst \"%s\" tabulas ierakstu rindas"
 
 #: templates/table/find_replace/index.twig:4
 #: templates/table/search/index.twig:4 templates/table/zoom_search/index.twig:4
@@ -17742,7 +17731,7 @@ msgstr "Papildu parametri"
 
 #: templates/table/index_form.twig:59
 msgid "Key block size:"
-msgstr ""
+msgstr "Atslēgas bloka izmērs:"
 
 #: templates/table/index_form.twig:76
 msgid "Index type:"
