@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-09-06 00:44+0000\n"
-"PO-Revision-Date: 2026-09-07 01:51+0000\n"
+"PO-Revision-Date: 2026-09-08 03:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -2393,9 +2393,8 @@ msgstr "Rediģēt privilēģijas"
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
 #: src/Server/Privileges.php:2054
-#, fuzzy
 msgid "No user found."
-msgstr "Lietotāji netika atrasti."
+msgstr "Neviens lietotājs nav atrasts."
 
 #: resources/templates/database/privileges/index.twig:111
 #: resources/templates/database/privileges/index.twig:114
@@ -2610,9 +2609,8 @@ msgid "include hex matches"
 msgstr ""
 
 #: resources/templates/database/search/main.twig:45
-#, fuzzy
 msgid "Inside tables:"
-msgstr "Tabulā(s):"
+msgstr "Tabulās:"
 
 #: resources/templates/database/search/main.twig:49
 #: resources/templates/server/export/index.twig:11
@@ -2798,7 +2796,7 @@ msgstr "Pievienot %s lauku(s)"
 
 #: resources/templates/database/structure/check_all_tables.twig:50
 msgid "Are you sure?"
-msgstr ""
+msgstr "Vai esiet pārliecināti?"
 
 #: resources/templates/database/structure/check_all_tables.twig:54
 msgid ""
@@ -2816,7 +2814,7 @@ msgstr "Datubāze:"
 #: resources/templates/database/structure/copy_form.twig:31
 #: src/Config/Descriptions.php:897
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Pievienot DROP TABLE"
 
 #: resources/templates/database/structure/copy_form.twig:35
 #, fuzzy
@@ -3120,7 +3118,7 @@ msgstr "Rādīt visu"
 
 #: resources/templates/display/results/table.twig:104
 msgid "Save edited data"
-msgstr ""
+msgstr "Saglabāt rediģētos datus"
 
 #: resources/templates/display/results/table.twig:110
 msgid "Restore column order"
@@ -6269,9 +6267,8 @@ msgid "Edit user group: '%s'"
 msgstr ""
 
 #: resources/templates/server/user_groups/edit_user_groups.twig:10
-#, fuzzy
 msgid "User group menu assignments"
-msgstr "Nav privilēģiju."
+msgstr "Lietotāju grupas izvēlnes piešķīrumi"
 
 #: resources/templates/server/user_groups/edit_user_groups.twig:15
 msgid "Group name:"
@@ -6300,7 +6297,7 @@ msgstr "Pievienot lietotāju"
 #: resources/templates/server/user_groups/user_listings.twig:1
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "'%s' lietotāju grupas lietotāji"
 
 #: resources/templates/server/user_groups/user_listings.twig:3
 msgid "No users were found belonging to this user group."
@@ -6318,7 +6315,7 @@ msgstr "Servera mainīgie un konfigurācija"
 
 #: resources/templates/server/variables/index.twig:43
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Šis mainīgais ir tikai lasāms, un to nevar izmainīt"
 
 #: resources/templates/server/variables/index.twig:69
 msgid "Session value"
@@ -6367,9 +6364,8 @@ msgid "Show form"
 msgstr "Rādīt veidlapu"
 
 #: resources/templates/setup/home/index.twig:23
-#, fuzzy
 msgid "Show hidden messages"
-msgstr "Rādīt režģi"
+msgstr "Rādīt paslēptos ziņojumus"
 
 #: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:865
 msgid "Authentication type"
@@ -6593,9 +6589,8 @@ msgid "Use this value"
 msgstr "Lietot šo vērtību"
 
 #: resources/templates/table/chart/tbl_chart.twig:10
-#, fuzzy
 msgid "Chart type"
-msgstr "Importēt failus"
+msgstr "Grafika tips"
 
 #: resources/templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
@@ -6689,9 +6684,8 @@ msgid "The generated chart"
 msgstr ""
 
 #: resources/templates/table/chart/tbl_chart.twig:148
-#, fuzzy
 msgid "Save chart as image"
-msgstr "Saglabāt kā failu"
+msgstr "Saglabāt grafiku kā attēlu"
 
 #: resources/templates/table/export/index.twig:12
 msgid ""
@@ -6700,9 +6694,9 @@ msgid ""
 msgstr ""
 
 #: resources/templates/table/export/index.twig:7
-#, fuzzy, php-format
+#, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "Izveidot jaunu tabulu datubāzē %s"
+msgstr "Izgūst \"%s\" tabulas ierakstu rindas"
 
 #: resources/templates/table/find_replace/index.twig:4
 #: resources/templates/table/search/index.twig:4
@@ -6801,7 +6795,7 @@ msgstr "Papildu parametri"
 
 #: resources/templates/table/index_form.twig:67
 msgid "Key block size:"
-msgstr ""
+msgstr "Atslēgas bloka izmērs:"
 
 #: resources/templates/table/index_form.twig:84
 msgid "Index type:"
@@ -12771,11 +12765,11 @@ msgstr "slow_query_log un general_log parametri atspējoti."
 
 #: src/Controllers/JavaScriptMessagesController.php:231
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output nav iestatīts uz TABLE."
 
 #: src/Controllers/JavaScriptMessagesController.php:232
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output iestatīts uz TABLE."
 
 #: src/Controllers/JavaScriptMessagesController.php:234
 #, php-format
