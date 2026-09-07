@@ -23,7 +23,7 @@ build:
     analysis:
       environment:
         php: 8.2
-        node: 24 # Scrutinizer uses nvm
+        node: 23 # Scrutinizer uses nvm (v24 was not available on 07/09/2026)
       dependencies:
         before:
           - composer config --unset repositories.0
