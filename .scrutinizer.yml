@@ -42,3 +42,8 @@ build:
               analysis:
                   file: 'cs-data'                 # The reporter filename
                   format: 'php-cs-checkstyle'     # The supported format by Scrutinizer
+          -
+              command: php -d memory_limit=1G ./vendor/bin/phpstan analyze --error-format=checkstyle | sed '/^\s*$/d' > phpstan-checkstyle.xml
+              analysis:
+                  file: phpstan-checkstyle.xml
+                  format: 'general-checkstyle'
