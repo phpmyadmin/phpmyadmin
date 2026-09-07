@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-09-07 01:51+0000\n"
+"PO-Revision-Date: 2026-09-08 03:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "lv/>\n"
@@ -1391,11 +1391,11 @@ msgstr "slow_query_log un general_log parametri atspējoti."
 
 #: js/messages.php:230
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output nav iestatīts uz TABLE."
 
 #: js/messages.php:231
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output iestatīts uz TABLE."
 
 #: js/messages.php:233
 #, php-format
@@ -2000,7 +2000,7 @@ msgstr "Brīvā atmiņa"
 
 #: js/messages.php:438
 msgid "Are you sure?"
-msgstr ""
+msgstr "Vai esiet pārliecināti?"
 
 #: js/messages.php:440
 msgid ""
@@ -5554,7 +5554,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:1187
 #: libraries/classes/MultSubmits.php:405
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "Pievienot DROP TABLE"
 
 #: libraries/classes/Config/Descriptions.php:1190
 msgid ""
@@ -7123,7 +7123,7 @@ msgstr "autorizēja %2$s %1$s"
 
 #: libraries/classes/Display/Results.php:911
 msgid "Save edited data"
-msgstr ""
+msgstr "Saglabāt rediģētos datus"
 
 #: libraries/classes/Display/Results.php:917
 msgid "Restore column order"
@@ -11430,10 +11430,8 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2619
 #: libraries/classes/Server/Privileges.php:3993
-#, fuzzy
-#| msgid "No user(s) found."
 msgid "No user found."
-msgstr "Lietotāji netika atrasti."
+msgstr "Neviens lietotājs nav atrasts."
 
 #: libraries/classes/Server/Privileges.php:2650
 #: libraries/classes/Server/Privileges.php:2986
@@ -12647,7 +12645,7 @@ msgstr ""
 #: libraries/classes/Server/UserGroups.php:32
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "'%s' lietotāju grupas lietotāji"
 
 #: libraries/classes/Server/UserGroups.php:45
 msgid "No users were found belonging to this user group."
@@ -12691,10 +12689,8 @@ msgid "Edit user group: '%s'"
 msgstr ""
 
 #: libraries/classes/Server/UserGroups.php:244
-#, fuzzy
-#| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "Nav privilēģiju."
+msgstr "Lietotāju grupas izvēlnes piešķīrumi"
 
 #: libraries/classes/Server/UserGroups.php:252
 msgid "Group name:"
@@ -14555,10 +14551,8 @@ msgid "Value Column:"
 msgstr "Vērtības kolonna:"
 
 #: templates/table/chart/tbl_chart.twig:153
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save chart as image"
-msgstr "Saglabāt kā failu"
+msgstr "Saglabāt grafiku kā attēlu"
 
 #: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
@@ -14628,10 +14622,9 @@ msgid "Exporting tables from \"%s\" database"
 msgstr "Izgūst \"%s\" datubāzes tabulas"
 
 #: templates/display/export/option_header.twig:9
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "Izveidot jaunu tabulu datubāzē %s"
+msgstr "Izgūst \"%s\" tabulas ierakstu rindas"
 
 #: templates/prefs_twofactor.twig:3
 msgid "Two-factor authentication status"
@@ -15570,7 +15563,7 @@ msgstr ""
 
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "Šis mainīgais ir tikai lasāms, un to nevar izmainīt"
 
 #: templates/database/designer/side_menu.twig:13
 #: templates/database/designer/side_menu.twig:19
@@ -15687,10 +15680,8 @@ msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Vārdi vai vērtības meklēšanai (aizstājējzīme: \"%\"):"
 
 #: templates/database/search/selection_form.twig:29
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "Tabulā(s):"
+msgstr "Tabulās:"
 
 #: templates/database/search/selection_form.twig:51
 msgid "Inside column:"
@@ -16078,7 +16069,7 @@ msgstr "Papildu parametri"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
-msgstr ""
+msgstr "Atslēgas bloka izmērs:"
 
 #: templates/table/index_form.twig:65
 msgid "Index type:"
