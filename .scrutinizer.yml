@@ -37,4 +37,8 @@ build:
       tests:
         override:
           - php-scrutinizer-run
-          - phpcs-run
+          -
+              command: php -d memory_limit=512M ./vendor/bin/phpcs --report=checkstyle --report-file=cs-data
+              analysis:
+                  file: 'cs-data'                 # The reporter filename
+                  format: 'php-cs-checkstyle'     # The supported format by Scrutinizer
