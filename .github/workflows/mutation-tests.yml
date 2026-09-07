@@ -58,11 +58,11 @@ jobs:
             --ignore-msi-with-no-mutations \
             --filter=$CHANGED_FILES
         env:
-          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+          INFECTION_DASHBOARD_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
 
       - name: Infection
         if: ${{ github.base_ref == '' }}
         run: |
           infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --coverage=build/logs
         env:
-          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+          INFECTION_DASHBOARD_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
