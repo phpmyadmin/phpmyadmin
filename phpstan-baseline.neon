@@ -41704,6 +41704,16 @@ parameters:
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
 		-
+			message: "#^Cannot access offset 'ShowDbStructureCrea…' on mixed\\.$#"
+			count: 1
+			path: test/classes/Controllers/Database/StructureControllerTest.php
+
+		-
+			message: "#^Cannot access offset 'ShowDbStructureLast…' on mixed\\.$#"
+			count: 2
+			path: test/classes/Controllers/Database/StructureControllerTest.php
+
+		-
 			message: "#^Cannot access offset 'ShowStats' on mixed\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/StructureControllerTest.php
@@ -41730,16 +41740,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess, mixed given\\.$#"
-			count: 1
-			path: test/classes/Controllers/Database/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\) expects string, mixed given\\.$#"
-			count: 4
-			path: test/classes/Controllers/Database/StructureControllerTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$haystack of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringNotContainsString\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: test/classes/Controllers/Database/StructureControllerTest.php
 
