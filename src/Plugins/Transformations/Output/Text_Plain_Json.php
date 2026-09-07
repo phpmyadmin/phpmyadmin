@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -22,7 +23,8 @@ class Text_Plain_Json extends TransformationsPlugin
 {
     public function __construct()
     {
-        if (! Config::getInstance()->config->CodemirrorEnable) {
+        // See #20159, why we need to check for HTTP_USER_AGENT here
+        if (! Config::getInstance()->config->CodemirrorEnable || Core::getEnv('HTTP_USER_AGENT') === '') {
             return;
         }
 

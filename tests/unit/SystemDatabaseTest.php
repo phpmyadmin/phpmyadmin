@@ -112,7 +112,7 @@ class SystemDatabaseTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
         $dummyDbi->addResult(
-            'PMA_sql_query',
+            'SELECT * FROM (PMA_sql_query) AS tmp LIMIT 0',
             true,
             [],
             [
