@@ -33,7 +33,7 @@ class RelationStatsSvg extends RelationStats
      * @param string     $foreignField The relation field in the foreign table
      */
     public function __construct(
-        Svg $diagram,
+        private Svg $diagram,
         TableStats $masterTable,
         string $masterField,
         TableStats $foreignTable,
@@ -41,7 +41,7 @@ class RelationStatsSvg extends RelationStats
     ) {
         $this->wTick = 10;
 
-        parent::__construct($diagram, $masterTable, $masterField, $foreignTable, $foreignField);
+        parent::__construct($masterTable, $masterField, $foreignTable, $foreignField);
     }
 
     /**

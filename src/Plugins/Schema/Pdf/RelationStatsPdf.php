@@ -34,7 +34,7 @@ class RelationStatsPdf extends RelationStats
      * @param string     $foreignField The relation field in the foreign table
      */
     public function __construct(
-        Pdf $diagram,
+        private Pdf $diagram,
         TableStats $masterTable,
         string $masterField,
         TableStats $foreignTable,
@@ -42,7 +42,7 @@ class RelationStatsPdf extends RelationStats
     ) {
         $this->wTick = 5;
 
-        parent::__construct($diagram, $masterTable, $masterField, $foreignTable, $foreignField);
+        parent::__construct($masterTable, $masterField, $foreignTable, $foreignField);
     }
 
     /**
