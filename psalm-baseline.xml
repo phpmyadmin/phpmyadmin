@@ -3127,11 +3127,6 @@
       <code><![CDATA[$value['foreign_table']]]></code>
     </PossiblyNullOperand>
   </file>
-  <file src="src/Database/Designer/DesignerTable.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getTableEngine]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Database/Events.php">
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['item_comment']]]></code>
