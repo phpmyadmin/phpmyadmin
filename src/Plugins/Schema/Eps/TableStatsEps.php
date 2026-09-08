@@ -21,8 +21,6 @@ use function sprintf;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in EPS.
  *
- * @see     Eps
- *
  * @property Eps $diagram
  */
 class TableStatsEps extends TableStats
@@ -32,10 +30,6 @@ class TableStatsEps extends TableStats
     public int $currentCell = 0;
 
     /**
-     * @see Eps
-     * @see TableStatsEps::setWidthTable
-     * @see TableStatsEps::setHeightTable
-     *
      * @param Eps    $diagram        The EPS diagram
      * @param string $db             The database name
      * @param string $tableName      The table name
@@ -82,8 +76,6 @@ class TableStatsEps extends TableStats
     /**
      * Sets the width of the table
      *
-     * @see Eps
-     *
      * @param string $font     The font name
      * @param int    $fontSize The font size
      */
@@ -116,10 +108,6 @@ class TableStatsEps extends TableStats
 
     /**
      * Draw the table
-     *
-     * @see Eps
-     * @see Eps::line
-     * @see Eps::rect
      */
     public function tableDraw(): void
     {

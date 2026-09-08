@@ -35,8 +35,6 @@ class RelationStatsDia
     public string $referenceColor = '#000000';
 
     /**
-     * @see Relation_Stats_Dia::getXy
-     *
      * @param Dia           $diagram      The DIA diagram
      * @param TableStatsDia $masterTable  The master table name
      * @param string        $masterField  The relation field in the master table
@@ -92,8 +90,6 @@ class RelationStatsDia
      * Dia object is used to generate the XML of Dia Document.
      * Database reference Object and their attributes are involved
      * in the combination of displaying Database - reference on Dia Document.
-     *
-     * @see    PDF
      *
      * @param bool $showColor Whether to use one color per relation or not
      *                        if showColor is true then an array of $listOfColors
