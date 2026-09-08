@@ -1,17 +1,17 @@
 {% for designerTable in tables %}
     {% set i = loop.index0 %}
     {% set t_n_url = designerTable.getDbTableString()|escape('url') %}
-    {% set db = designerTable.getDatabaseName() %}
+    {% set db = designerTable.databaseName %}
     {% set db_url = db|escape('url') %}
     {% set t_n = designerTable.getDbTableString() %}
-    {% set table_name = designerTable.getTableName()|escape('html') %}
+    {% set table_name = designerTable.tableName|escape('html') %}
     <input name="t_x[{{ t_n_url }}]" type="hidden" id="t_x_{{ t_n_url }}_" />
     <input name="t_y[{{ t_n_url }}]" type="hidden" id="t_y_{{ t_n_url }}_" />
     <input name="t_v[{{ t_n_url }}]" type="hidden" id="t_v_{{ t_n_url }}_" />
     <input name="t_h[{{ t_n_url }}]" type="hidden" id="t_h_{{ t_n_url }}_" />
     <table id="{{ t_n_url }}"
-        db_url="{{ designerTable.getDatabaseName()|escape('url') }}"
-        table_name_url="{{ designerTable.getTableName()|escape('url') }}"
+        db_url="{{ designerTable.databaseName|escape('url') }}"
+        table_name_url="{{ designerTable.tableName|escape('url') }}"
         cellpadding="0"
         cellspacing="0"
         class="table table-sm table-striped table-hover w-auto designer_tab"
@@ -38,10 +38,10 @@
                     id="id_hide_tbody_{{ t_n_url }}"
                     table_name="{{ t_n_url }}">{{ tab_pos[t_n] is not defined or tab_pos[t_n]['V'] is not empty ? 'v' : '&gt;' }}</td>
                 <td class="small_tab_pref small_tab_pref_1"
-                    db="{{ designerTable.getDatabaseName() }}"
-                    db_url="{{ designerTable.getDatabaseName()|escape('url') }}"
-                    table_name="{{ designerTable.getTableName() }}"
-                    table_name_url="{{ designerTable.getTableName()|escape('url') }}">
+                    db="{{ designerTable.databaseName }}"
+                    db_url="{{ designerTable.databaseName|escape('url') }}"
+                    table_name="{{ designerTable.tableName }}"
+                    table_name_url="{{ designerTable.tableName|escape('url') }}">
                     <img src="{{ image('designer/exec_small.png') }}"
                         title="{{ t('See table structure') }}">
                 </td>
@@ -49,8 +49,8 @@
                     class="tab_zag text-nowrap tab_zag_noquery"
                     table_name="{{ t_n_url }}"
                     query_set="{{ has_query ? 1 : 0 }}">
-                    <span class="owner">{{ designerTable.getDatabaseName() }}</span>
-                    {{ designerTable.getTableName() }}
+                    <span class="owner">{{ designerTable.databaseName }}</span>
+                    {{ designerTable.tableName }}
                 </td>
                 {% if has_query %}
                     <td class="tab_zag tab_zag_query"
@@ -62,12 +62,12 @@
         </thead>
         <tbody id="id_tbody_{{ t_n_url }}"
             {{- tab_pos[t_n] is defined and tab_pos[t_n]['V'] is empty ? ' style="display: none"' }}>
-            {% set display_field = designerTable.getDisplayField() %}
+            {% set display_field = designerTable.displayField %}
             {% for j in 0..tab_column[t_n]|length - 1 %}
                 {% set col_name = tab_column[t_n][j].name %}
                 {% set tmp_column = t_n ~ '.' ~ tab_column[t_n][j].name %}
                 {% set click_field_param = [
-                    designerTable.getTableName()|escape('url'),
+                    designerTable.tableName|escape('url'),
                     tab_column[t_n][j].name|url_encode
                 ] %}
                 {% if tables_all_keys[tmp_column] is defined %}
@@ -80,7 +80,7 @@
                     {% endif %}
                 {% endif %}
                 {% set click_field_param = click_field_param|merge([db]) %}
-                <tr id="id_tr_{{ designerTable.getTableName()|escape('url') }}.{{ tab_column[t_n][j].name }}" class="tab_field
+                <tr id="id_tr_{{ designerTable.tableName|escape('url') }}.{{ tab_column[t_n][j].name }}" class="tab_field
                     {{- display_field == tab_column[t_n][j].name ? '_3' }}" click_field_param="
                     {{- click_field_param|join(',') }}">
                     {% if has_query %}

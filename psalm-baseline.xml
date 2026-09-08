@@ -3127,11 +3127,6 @@
       <code><![CDATA[$value['foreign_table']]]></code>
     </PossiblyNullOperand>
   </file>
-  <file src="src/Database/Designer/DesignerTable.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getTableEngine]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Database/Events.php">
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['item_comment']]]></code>
@@ -6360,9 +6355,6 @@
     <PossiblyNullOperand>
       <code><![CDATA[$nameRow[0]]]></code>
     </PossiblyNullOperand>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[isOffline]]></code>
-    </PossiblyUnusedMethod>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['page_number']]]></code>
     </RiskyCast>
@@ -6487,9 +6479,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$rel['foreign_field']]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[isWithDataDictionary]]></code>
-    </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$foreigner]]></code>
       <code><![CDATA[$foreigner]]></code>

@@ -192,14 +192,6 @@ class ExportRelationSchema
     }
 
     /**
-     * Returns whether the client side database is used
-     */
-    public function isOffline(): bool
-    {
-        return $this->offline;
-    }
-
-    /**
      * Get the table names from the request
      *
      * @return string[] an array of table names
