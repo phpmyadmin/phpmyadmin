@@ -18,6 +18,8 @@ use const PHP_OS;
  */
 class SysInfo
 {
+    private static Base|null $instance = null;
+
     /**
      * Returns OS type used for sysinfo class
      *
@@ -38,7 +40,7 @@ class SysInfo
      */
     public static function get(): Base
     {
-        return match (self::getOs()) {
+        return self::$instance ??= match (self::getOs()) {
             'Linux' => Linux::isSupported() ? new Linux() : new Base(),
             'WINNT' => WindowsNt::isSupported() ? new WindowsNt() : new Base(),
             'SunOS' => SunOs::isSupported() ? new SunOs() : new Base(),
