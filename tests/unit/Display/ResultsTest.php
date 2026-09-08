@@ -49,6 +49,7 @@ use const MYSQLI_TYPE_BLOB;
 use const MYSQLI_TYPE_DATE;
 use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_DECIMAL;
+use const MYSQLI_TYPE_GEOMETRY;
 use const MYSQLI_TYPE_LONG;
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_TYPE_TIME;
@@ -805,6 +806,77 @@ class ResultsTest extends AbstractTestCase
         self::assertSame('P', $_SESSION['tmpval']['pftext']);
     }
 
+    public function testNonEditableGeometryResultKeepsCompactDisplay(): void
+    {
+        $_SESSION['tmpval'] = [
+            'geoOption' => DisplayResults::GEOMETRY_DISP_GEOM,
+            'hide_transformation' => false,
+            'display_blob' => false,
+            'display_binary' => true,
+            'relational_display' => DisplayResults::RELATIONAL_KEY,
+            'possible_as_geometry' => false,
+            'pftext' => DisplayResults::DISPLAY_PARTIAL_TEXT,
+        ];
+
+        $options = (new ReflectionMethod(DisplayResults::class, 'getOptionsBlock'))->invoke($this->object);
+
+        self::assertSame(DisplayResults::GEOMETRY_DISP_GEOM, $options['geo_option']);
+        self::assertArrayNotHasKey('possible_as_geometry', $options);
+
+        $geometry = (string) hex2bin('000000000101000000000000000000f03f000000000000f03f');
+        $meta = FieldHelper::fromArray([
+            'type' => MYSQLI_TYPE_GEOMETRY,
+            'name' => 'location',
+            'orgname' => 'location',
+            'orgtable' => 'locations',
+        ]);
+        [$statementInfo] = ParseAnalyze::sqlQuery(
+            'SELECT locations.location FROM locations JOIN owners ON owners.id = locations.owner_id',
+            'test_db',
+            false,
+        );
+        $getDataCell = new ReflectionMethod(DisplayResults::class, 'getDataCellForGeometryColumns');
+
+        $output = $getDataCell->invokeArgs(
+            $this->object,
+            [$geometry, 'data', $meta, [], [], false, null, [], $statementInfo],
+        );
+
+        self::assertStringContainsString('[GEOMETRY - 25 B]', $output);
+        self::assertStringNotContainsString('POINT(1 1)', $output);
+
+        Config::getInstance()->set('LimitChars', 7);
+        $_SESSION['tmpval']['geoOption'] = DisplayResults::GEOMETRY_DISP_WKT;
+        $output = $getDataCell->invokeArgs(
+            $this->object,
+            [$geometry, 'data', $meta, [], [], false, null, [], $statementInfo],
+        );
+
+        self::assertStringContainsString('POINT(1...', $output);
+        self::assertStringNotContainsString('POINT(1 1)', $output);
+
+        $_SESSION['tmpval']['geoOption'] = DisplayResults::GEOMETRY_DISP_WKB;
+        $output = $getDataCell->invokeArgs(
+            $this->object,
+            [$geometry, 'data', $meta, [], [], false, null, [], $statementInfo],
+        );
+
+        self::assertStringContainsString('0101000...', $output);
+
+        $_SESSION['tmpval']['geoOption'] = DisplayResults::GEOMETRY_DISP_GEOM;
+        $nullOutput = $getDataCell->invokeArgs(
+            $this->object,
+            [null, 'data', $meta, [], [], false, null, [], $statementInfo],
+        );
+        $emptyOutput = $getDataCell->invokeArgs(
+            $this->object,
+            ['', 'data', $meta, [], [], false, null, [], $statementInfo],
+        );
+
+        self::assertStringContainsString('<em>NULL</em>', $nullOutput);
+        self::assertStringContainsString('class="data text-nowrap"', $emptyOutput);
+    }
+
     /**
      * @param array<string, array<string, array<string, array<string, bool|int|string>>>|string> $session
      * @param array<string, string>                                                              $queryParams
@@ -1108,7 +1180,6 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['display_blob'] = '';
         $_SESSION['tmpval']['display_binary'] = '';
         $_SESSION['tmpval']['relational_display'] = '';
-        $_SESSION['tmpval']['possible_as_geometry'] = '';
         $_SESSION['tmpval']['pftext'] = '';
         $_SESSION['tmpval']['max_rows'] = 25;
         $_SESSION['tmpval']['pos'] = 0;
@@ -1284,7 +1355,6 @@ class ResultsTest extends AbstractTestCase
                     'display_blob' => null,
                     'display_binary' => null,
                     'relational_display' => null,
-                    'possible_as_geometry' => null,
                     'pftext' => null,
                 ],
                 'has_bulk_actions_form' => false,
@@ -1399,7 +1469,6 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['display_blob'] = '';
         $_SESSION['tmpval']['display_binary'] = '';
         $_SESSION['tmpval']['relational_display'] = '';
-        $_SESSION['tmpval']['possible_as_geometry'] = '';
         $_SESSION['tmpval']['pftext'] = '';
         $_SESSION['tmpval']['max_rows'] = 25;
         $_SESSION['tmpval']['pos'] = 0;
@@ -1520,7 +1589,6 @@ class ResultsTest extends AbstractTestCase
                     'display_blob' => null,
                     'display_binary' => null,
                     'relational_display' => null,
-                    'possible_as_geometry' => null,
                     'pftext' => null,
                 ],
                 'has_bulk_actions_form' => false,
