@@ -42,7 +42,9 @@ class ServerSettingsTest extends TestBase
             . " and contains(@class, 'active')]//input[@value='Apply']",
         )->click();
 
-        $success = $this->waitUntilElementIsPresent('cssSelector', '.alert-success', 5000);
+        $this->waitAjax();
+
+        $success = $this->waitUntilElementIsPresent('cssSelector', '.alert-success', 5);
         self::assertStringContainsString('Configuration has been saved', $success->getText());
     }
 
