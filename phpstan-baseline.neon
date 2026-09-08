@@ -12232,24 +12232,6 @@ parameters:
 			path: src/Server/Status/Monitor.php
 
 		-
-			message: '#^Cannot access offset ''busy'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
-			message: '#^Cannot access offset ''idle'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
-			message: '#^Cannot access offset ''loadavg'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
 			message: '#^Cannot access offset ''name'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 3
@@ -12280,24 +12262,6 @@ parameters:
 			path: src/Server/Status/Monitor.php
 
 		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
-			message: '#^Cannot call method loadavg\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
-			message: '#^Cannot call method memory\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Server\\Status\\Monitor\:\:getJsonForLogDataTypeGeneral\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -12316,12 +12280,6 @@ parameters:
 			path: src/Server/Status/Monitor.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 4
-			path: src/Server/Status/Monitor.php
-
-		-
 			message: '#^Parameter \#1 \$haystack of function mb_strpos expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -12335,12 +12293,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$ret of method PhpMyAdmin\\Server\\Status\\Monitor\:\:getJsonForChartingDataGet\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
-			message: '#^Parameter \#1 \$ret of method PhpMyAdmin\\Server\\Status\\Monitor\:\:getJsonForChartingDataSet\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Server/Status/Monitor.php
@@ -12370,12 +12322,6 @@ parameters:
 			path: src/Server/Status/Monitor.php
 
 		-
-			message: '#^Parameter \#2 \$array of function implode expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Server/Status/Monitor.php
-
-		-
 			message: '#^Parameter \#2 \$pName of method PhpMyAdmin\\Server\\Status\\Monitor\:\:getJsonForChartingDataSwitch\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -12388,7 +12334,7 @@ parameters:
 			path: src/Server/Status/Monitor.php
 
 		-
-			message: '#^Parameter \#5 \$ret of method PhpMyAdmin\\Server\\Status\\Monitor\:\:getJsonForChartingDataSwitch\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#5 \$ret of method PhpMyAdmin\\Server\\Status\\Monitor\:\:getJsonForChartingDataSwitch\(\) expects array\{idle\?\: int, busy\?\: int, value\?\: int\|numeric\-string\}, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Server/Status/Monitor.php
