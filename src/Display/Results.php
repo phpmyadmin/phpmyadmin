@@ -487,8 +487,6 @@ class Results
      * Defines the parts to display for the results of a SQL query
      * and the total number of rows
      *
-     * @see     getTable()
-     *
      * @return array{DisplayParts, int} the first element is a {@see DisplayParts} object
      *               the second element is the total number of rows returned
      *               by the SQL query without any programmatically appended
@@ -547,8 +545,6 @@ class Results
     /**
      * Return true if we are executing a query in the form of
      * "SELECT * FROM <a table> ..."
-     *
-     * @see getTableHeaders(), getColumnParams()
      */
     private function isSelect(StatementInfo $statementInfo): bool
     {
@@ -598,8 +594,6 @@ class Results
 
     /**
      * Get a navigation bar to browse among the results of a SQL query
-     *
-     * @see getTable()
      *
      * @param int     $posNext       the offset for the "next" page
      * @param int     $posPrevious   the offset for the "previous" page
@@ -681,8 +675,6 @@ class Results
 
     /**
      * Get the headers of the results table, for all of the columns
-     *
-     * @see getTableHeaders()
      *
      * @param list<SortExpression> $sortExpressions
      * @param bool                 $isLimitedDisplay with limited operations or not
@@ -774,8 +766,6 @@ class Results
     /**
      * Get the headers of the results table
      *
-     * @see getTable()
-     *
      * @param list<SortExpression> $sortExpressions
      * @param bool                 $isLimitedDisplay with limited operations or not
      *
@@ -851,8 +841,6 @@ class Results
 
     /**
      * Prepare sort by key dropdown - html code segment
-     *
-     * @see getTableHeaders()
      *
      * @param string[] $sortExpression   the sort expression
      * @param string   $unsortedSqlQuery the unsorted sql query
@@ -939,8 +927,6 @@ class Results
      * Set column span, row span and prepare html with full/partial
      * text button or link
      *
-     * @see getTableHeaders()
-     *
      * @param string $fullOrPartialTextLink full/partial link or text button
      * @param string $colspan               column span of table header
      *
@@ -995,8 +981,6 @@ class Results
     /**
      * Get table comments as array
      *
-     * @see getTableHeaders()
-     *
      * @return string[][] table comments
      */
     private function getTableCommentsArray(Statement|null $statement): array
@@ -1026,8 +1010,6 @@ class Results
 
     /**
      * Set global array for store highlighted header fields
-     *
-     * @see getTableHeaders()
      */
     private function setHighlightedColumnGlobalField(Statement|null $statement): void
     {
@@ -1049,8 +1031,6 @@ class Results
 
     /**
      * Prepare data for column restoring and show/hide
-     *
-     * @see getTableHeaders()
      *
      * @return mixed[]
      */
@@ -1075,8 +1055,6 @@ class Results
 
     /**
      * Prepare option fields block
-     *
-     * @see getTableHeaders()
      *
      * @return mixed[]
      */
@@ -1103,8 +1081,6 @@ class Results
 
     /**
      * Get full/partial text button or link
-     *
-     * @see getTableHeaders()
      *
      * @return string html content
      */
@@ -1141,8 +1117,6 @@ class Results
     /**
      * Get comment for row
      *
-     * @see getTableHeaders()
-     *
      * @param string[][]    $commentsMap comments array
      * @param FieldMetadata $fieldsMeta  set of field properties
      *
@@ -1160,8 +1134,6 @@ class Results
 
     /**
      * Prepare parameters and html for sorted table header fields
-     *
-     * @see getTableHeaders()
      *
      * @param FieldMetadata        $fieldsMeta      set of field properties
      * @param list<SortExpression> $sortExpressions
@@ -1359,8 +1331,6 @@ class Results
     /**
      * Check whether the column is sorted
      *
-     * @see getTableHeaders()
-     *
      * @param list<SortExpression> $sortExpressions
      */
     private function isInSorted(
@@ -1387,8 +1357,6 @@ class Results
 
     /**
      * Get sort url parameters - sort order and order image
-     *
-     * @see     getSingleAndMultiSortUrls()
      */
     private function getSortingUrlParams(string $sortDirection): string
     {
@@ -1421,8 +1389,6 @@ class Results
 
     /**
      * Get sort order link
-     *
-     * @see getTableHeaders()
      *
      * @param string                         $orderImg            the sort order image
      * @param FieldMetadata                  $fieldsMeta          set of field properties
@@ -1513,8 +1479,6 @@ class Results
     /**
      * Prepare column to show at right side - check boxes or empty column
      *
-     * @see getTableHeaders()
-     *
      * @param string $fullOrPartialTextLink full/partial link or text button
      * @param string $colspan               column span of table header
      *
@@ -1564,9 +1528,6 @@ class Results
     /**
      * Prepares the display for a value
      *
-     * @see     getDataCellForGeometryColumns(),
-     *          getDataCellForNonNumericColumns()
-     *
      * @param string $class          class of table cell
      * @param bool   $conditionField whether to add CSS class condition
      * @param string $value          value to display
@@ -1584,10 +1545,6 @@ class Results
 
     /**
      * Prepares the display for a null value
-     *
-     * @see     getDataCellForNumericColumns(),
-     *          getDataCellForGeometryColumns(),
-     *          getDataCellForNonNumericColumns()
      *
      * @param string        $class          class of table cell
      * @param bool          $conditionField whether to add CSS class condition
@@ -1609,10 +1566,6 @@ class Results
     /**
      * Prepares the display for an empty value
      *
-     * @see     getDataCellForNumericColumns(),
-     *          getDataCellForGeometryColumns(),
-     *          getDataCellForNonNumericColumns()
-     *
      * @param string        $class          class of table cell
      * @param bool          $conditionField whether to add CSS class condition
      * @param FieldMetadata $meta           the meta-information about this field
@@ -1628,8 +1581,6 @@ class Results
 
     /**
      * Adds the relevant classes.
-     *
-     * @see buildNullDisplay(), getRowData()
      *
      * @param string        $class            class of table cell
      * @param bool          $conditionField   whether to add CSS class condition
@@ -1691,8 +1642,6 @@ class Results
 
     /**
      * Prepare the body of the results table
-     *
-     * @see     getTable()
      *
      * @param ResultInterface          $dtResult         the link id associated to the query
      *                                                                     which results have to be displayed
@@ -1984,8 +1933,6 @@ class Results
     /**
      * Get the values for one data row
      *
-     * @see     getTableBody()
-     *
      * @param list<string|null>        $row         current row data
      * @param int                      $rowNumber   the index of current row
      * @param mixed[]|false            $colOrder    the column order false when
@@ -2262,8 +2209,6 @@ class Results
     /**
      * Get url sql query without conditions to shorten URLs
      *
-     * @see     getTableBody()
-     *
      * @return string analyzed sql query
      */
     private function getUrlSqlQuery(StatementInfo $statementInfo): string
@@ -2289,8 +2234,6 @@ class Results
 
     /**
      * Get column order and column visibility
-     *
-     * @see    getTableBody()
      *
      * @return mixed[] 2 element array - $col_order, $col_visib
      */
@@ -2330,8 +2273,6 @@ class Results
 
     /**
      * Get HTML for repeating headers
-     *
-     * @see    getTableBody()
      *
      * @return string html content
      */
@@ -2377,8 +2318,6 @@ class Results
 
     /**
      * Get delete and kill links
-     *
-     * @see     getTableBody()
      *
      * @param string $whereClause    the where clause of the sql
      * @param bool   $clauseIsUnique the unique condition of clause
@@ -2448,8 +2387,6 @@ class Results
     /**
      * Get content inside the table row action links (Edit/Copy/Delete)
      *
-     * @see     getDeleteAndKillLinks()
-     *
      * @param string $icon        The name of the file to get
      * @param string $displayText The text displaying after the image icon
      */
@@ -2470,8 +2407,6 @@ class Results
 
     /**
      * Get class for datetime related fields
-     *
-     * @see    getTableBody()
      *
      * @param FieldMetadata $meta the type of the column field
      *
@@ -2496,8 +2431,6 @@ class Results
 
     /**
      * Prepare data cell for numeric type fields
-     *
-     * @see    getTableBody()
      *
      * @param string|null              $column           the column's value
      * @param string                   $class            the html class for column
@@ -2545,8 +2478,6 @@ class Results
 
     /**
      * Get data cell for geometry type fields
-     *
-     * @see     getTableBody()
      *
      * @param string|null              $column           the relevant column in data row
      * @param string                   $class            the html class for column
@@ -2653,8 +2584,6 @@ class Results
 
     /**
      * Get data cell for non numeric type fields
-     *
-     * @see    getTableBody()
      *
      * @param string|null              $column           the relevant column in data row
      * @param string                   $class            the html class for column
@@ -3106,8 +3035,6 @@ class Results
     /**
      * Prepare sorted column message
      *
-     * @see     getTable()
-     *
      * @param ResultInterface $dtResult                  the link id associated to the query
      *                                                   which results have to be displayed
      * @param string|null     $sortExpressionNoDirection sort expression without direction
@@ -3211,8 +3138,6 @@ class Results
 
     /**
      * Set the content that needs to be shown in message
-     *
-     * @see     getTable()
      *
      * @param string $sortedColumnMessage the message for sorted column
      * @param int    $total               the total number of rows returned by
@@ -3353,8 +3278,6 @@ class Results
     /**
      * Prepare multi field edit/delete links
      *
-     * @see     getTable()
-     *
      * @param ResultInterface $dtResult the link id associated to the query which results have to be displayed
      */
     private function isClauseUnique(
@@ -3395,8 +3318,6 @@ class Results
 
     /**
      * Get operations that are available on results.
-     *
-     * @see     getTable()
      *
      * @psalm-return array{
      *   has_export_link: bool,
@@ -3478,8 +3399,6 @@ class Results
     /**
      * Verifies what to do with non-printable contents (binary or BLOB)
      * in Browse mode.
-     *
-     * @see getDataCellForGeometryColumns(), getDataCellForNonNumericColumns(), getSortedColumnMessage()
      *
      * @param string                $category         BLOB|BINARY|GEOMETRY
      * @param string|null           $content          the binary content
@@ -3603,9 +3522,6 @@ class Results
     /**
      * Prepares the displayable content of a data cell in Browse mode,
      * taking into account foreign key description field and transformations
-     *
-     * @see     getDataCellForNumericColumns(), getDataCellForGeometryColumns(),
-     *          getDataCellForNonNumericColumns(),
      *
      * @param string                   $class            css classes for the td element
      * @param bool                     $conditionField   whether the column is a part of the where clause
@@ -3747,8 +3663,6 @@ class Results
      * Truncates given string based on LimitChars configuration
      * and Session pftext variable
      * (string is truncated only if necessary)
-     *
-     * @see handleNonPrintableContents(), getDataCellForGeometryColumns(), getDataCellForNonNumericColumns
      *
      * @param string $str string to be truncated
      */
