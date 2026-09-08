@@ -726,7 +726,7 @@ Server connection settings
     Regular expression for hiding some databases from unprivileged users.
     This only hides them from listing, but a user is still able to access
     them (using, for example, the SQL query area). To limit access, use
-    the MySQL privilege system.  For example, to hide all databases
+    the MySQL privilege system. For example, to hide all databases
     starting with the letter "a", use
 
     .. code-block:: php
@@ -897,7 +897,7 @@ Server connection settings
     permits visually managing the relations. To do this it needs two tables
     "``pdf_pages``" (storing information about the available :term:`PDF` pages)
     and "``table_coords``" (storing coordinates where each table will be placed on
-    a :term:`PDF` schema output).  You must be using the "relation" feature.
+    a :term:`PDF` schema output). You must be using the "relation" feature.
 
     To allow the usage of this functionality:
 
@@ -1627,7 +1627,7 @@ Generic settings
 
     The url of the proxy to be used when phpmyadmin needs to access the outside
     internet such as when retrieving the latest version info or submitting error
-    reports.  You need this if the server where phpMyAdmin is installed does not
+    reports. You need this if the server where phpMyAdmin is installed does not
     have direct access to the internet.
     The format is: "hostname:portnumber"
 
@@ -1804,7 +1804,7 @@ Generic settings
     :default: true
 
     Defines whether to use a Javascript code editor for SQL query boxes.
-    CodeMirror provides syntax highlighting and line numbers.  However,
+    CodeMirror provides syntax highlighting and line numbers. However,
     middle-clicking for pasting the clipboard contents in some Linux
     distributions (such as Ubuntu) is not supported by all browsers.
 
@@ -1845,7 +1845,7 @@ Generic settings
 
     This limitation of :term:`SQL` queries is not as strict as when using MySQL
     privileges. This is due to nature of :term:`SQL` queries which might be
-    quite complicated.  So this choice should be viewed as help to avoid
+    quite complicated. So this choice should be viewed as help to avoid
     accidental dropping rather than strict privilege limitation.
 
 .. config:option:: $cfg['Confirm']
@@ -2212,7 +2212,7 @@ Navigation panel setup
 
     Defines a string to be used to nest table spaces. This means if you have
     tables like ``first__second__third`` this will be shown as a three-level
-    hierarchy like: first > second > third.  If set to false or empty, the
+    hierarchy like: first > second > third. If set to false or empty, the
     feature is disabled. NOTE: You should not use this separator at the
     beginning or end of a table name or multiple times after another without
     any other characters in between.
@@ -3085,9 +3085,9 @@ Web server settings
     :type: integer
     :default: 1000
 
-    Limit for length of :term:`URL` in links.  When length would be above this
+    Limit for length of :term:`URL` in links. When length would be above this
     limit, it is replaced by form with button. This is required as some web
-    servers (:term:`IIS`) have problems with long :term:`URL` .
+    servers (:term:`IIS`) have problems with long :term:`URL`.
 
 .. config:option:: $cfg['CSPAllow']
 
