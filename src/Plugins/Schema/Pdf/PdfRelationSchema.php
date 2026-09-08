@@ -257,14 +257,6 @@ class PdfRelationSchema extends ExportRelationSchema
     }
 
     /**
-     * Return whether to show selected database data dictionary or not
-     */
-    public function isWithDataDictionary(): bool
-    {
-        return $this->withDoc;
-    }
-
-    /**
      * Sets the order of the table in data dictionary
      *
      * @param string $value table order

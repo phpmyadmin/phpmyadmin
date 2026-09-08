@@ -6360,9 +6360,6 @@
     <PossiblyNullOperand>
       <code><![CDATA[$nameRow[0]]]></code>
     </PossiblyNullOperand>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[isOffline]]></code>
-    </PossiblyUnusedMethod>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['page_number']]]></code>
     </RiskyCast>
@@ -6487,9 +6484,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$rel['foreign_field']]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[isWithDataDictionary]]></code>
-    </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$foreigner]]></code>
       <code><![CDATA[$foreigner]]></code>
