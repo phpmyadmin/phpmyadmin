@@ -11,7 +11,7 @@ system wide settings.
 
 On top of this there are user settings which can be persistently stored in
 :ref:`linked-tables`, possibly automatically configured through
-:ref:`zeroconf`.  If the :ref:`linked-tables` are not configured, the settings
+:ref:`zeroconf`. If the :ref:`linked-tables` are not configured, the settings
 are temporarily stored in the session data; these are valid only until you
 logout.
 

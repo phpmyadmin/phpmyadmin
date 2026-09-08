@@ -405,7 +405,7 @@ From Wikipedia, the free encyclopedia
 
     unique key
       A unique key is an index over one or more fields in a table which has a
-      unique value for each row.  The first unique key will be treated as
+      unique value for each row. The first unique key will be treated as
       :term:`primary key` if there is no *primary key* defined.
 
     URL
