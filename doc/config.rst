@@ -4067,7 +4067,7 @@ reCaptcha using hCaptcha
 
 .. code-block:: php
 
-    $cfg['CaptchaApi'] = 'https://www.hcaptcha.com/1/api.js';
+    $cfg['CaptchaApi'] = 'https://js.hcaptcha.com/1/api.js';
     $cfg['CaptchaCsp'] = 'https://hcaptcha.com https://*.hcaptcha.com';
     $cfg['CaptchaRequestParam'] = 'h-captcha';
     $cfg['CaptchaResponseParam'] = 'h-captcha-response';
