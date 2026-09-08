@@ -1688,8 +1688,7 @@ Generic settings
     :type: boolean
     :default: false
 
-    Whether `persistent connections <https://www.php.net/manual/en/features
-    .persistent-connections.php>`_ should be used or not.
+    Whether `persistent connections <https://www.php.net/manual/en/features.persistent-connections.php>`_ should be used or not.
 
 .. seealso::
 
