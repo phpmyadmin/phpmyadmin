@@ -18,8 +18,6 @@ use const PHP_OS;
  */
 class SysInfo
 {
-    public const MEMORY_REGEXP = '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im';
-
     /**
      * Returns OS type used for sysinfo class
      *
@@ -37,34 +35,14 @@ class SysInfo
 
     /**
      * Gets SysInfo class matching current OS
-     *
-     * @return Base sysinfo class
      */
     public static function get(): Base
     {
-        $phpOs = self::getOs();
-
-        switch ($phpOs) {
-            case 'Linux':
-                if (Linux::isSupported()) {
-                    return new Linux();
-                }
-
-                break;
-            case 'WINNT':
-                if (WindowsNt::isSupported()) {
-                    return new WindowsNt();
-                }
-
-                break;
-            case 'SunOS':
-                if (SunOs::isSupported()) {
-                    return new SunOs();
-                }
-
-                break;
-        }
-
-        return new Base();
+        return match (self::getOs()) {
+            'Linux' => Linux::isSupported() ? new Linux() : new Base(),
+            'WINNT' => WindowsNt::isSupported() ? new WindowsNt() : new Base(),
+            'SunOS' => SunOs::isSupported() ? new SunOs() : new Base(),
+            default => new Base(),
+        };
     }
 }
