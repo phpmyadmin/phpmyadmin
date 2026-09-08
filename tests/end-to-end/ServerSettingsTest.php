@@ -44,7 +44,7 @@ class ServerSettingsTest extends TestBase
 
         $this->waitAjax();
 
-        $success = $this->waitUntilElementIsPresent('cssSelector', '.alert-success', 5000);
+        $success = $this->waitUntilElementIsPresent('cssSelector', '.alert-success', 5);
         self::assertStringContainsString('Configuration has been saved', $success->getText());
     }
 
