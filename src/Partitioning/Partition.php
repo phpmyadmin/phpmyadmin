@@ -141,37 +141,37 @@ class Partition extends SubPartition
      */
     public static function getPartitions(string $db, string $table): array
     {
-        if (self::havePartitioning()) {
-            $dbi = DatabaseInterface::getInstance();
-            $result = $dbi->fetchResultSimple(
-                'SELECT * FROM `information_schema`.`PARTITIONS`'
-                . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
-                . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
-            );
-            if ($result === []) {
-                return [];
-            }
-
-            $partitionMap = [];
-            foreach ($result as $row) {
-                $partitionName = $row['PARTITION_NAME'] ?? '';
-                if ($partitionName === '') {
-                    continue;
-                }
-
-                $partitionMap[$partitionName] ??= new Partition($row);
-
-                if (empty($row['SUBPARTITION_NAME'])) {
-                    continue;
-                }
-
-                $partitionMap[$partitionName]->addSubPartition(new SubPartition($row));
-            }
-
-            return array_values($partitionMap);
+        if (! self::havePartitioning()) {
+            return [];
         }
 
-        return [];
+        $dbi = DatabaseInterface::getInstance();
+        $result = $dbi->fetchResultSimple(
+            'SELECT * FROM `information_schema`.`PARTITIONS`'
+            . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
+            . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
+        );
+        if ($result === []) {
+            return [];
+        }
+
+        $partitionMap = [];
+        foreach ($result as $row) {
+            $partitionName = $row['PARTITION_NAME'] ?? '';
+            if ($partitionName === '') {
+                continue;
+            }
+
+            $partitionMap[$partitionName] ??= new Partition($row);
+
+            if (empty($row['SUBPARTITION_NAME'])) {
+                continue;
+            }
+
+            $partitionMap[$partitionName]->addSubPartition(new SubPartition($row));
+        }
+
+        return array_values($partitionMap);
     }
 
     /**
