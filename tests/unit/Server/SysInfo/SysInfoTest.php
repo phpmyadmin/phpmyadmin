@@ -43,14 +43,7 @@ class SysInfoTest extends AbstractTestCase
      */
     public function testGetSysInfo(): void
     {
-        self::assertInstanceOf(Base::class, SysInfo::get());
-    }
-
-    /**
-     * Test for getting supported sysinfo object.
-     */
-    public function testGetSysInfoSupported(): void
-    {
-        self::assertTrue(SysInfo::get()::isSupported());
+        $sysInfo = SysInfo::get();
+        self::assertNotSame(Base::class, $sysInfo::class);
     }
 }

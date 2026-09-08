@@ -17557,12 +17557,6 @@ parameters:
 			path: tests/unit/Server/SelectTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''PhpMyAdmin\\\\Server\\\\SysInfo\\\\Base'' and PhpMyAdmin\\Server\\SysInfo\\Base will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/Server/SysInfo/SysInfoTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
