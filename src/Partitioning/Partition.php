@@ -148,25 +148,27 @@ class Partition extends SubPartition
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
             );
-            if ($result !== []) {
-                $partitionMap = [];
-                foreach ($result as $row) {
-                    if (empty($row['PARTITION_NAME'])) {
-                        continue;
-                    }
+            if ($result === []) {
+                return [];
+            }
 
-                    $partition = $partitionMap[$row['PARTITION_NAME']] ?? new Partition($row);
-                    $partitionMap[$row['PARTITION_NAME']] = $partition;
-
-                    if (empty($row['SUBPARTITION_NAME'])) {
-                        continue;
-                    }
-
-                    $partition->addSubPartition(new SubPartition($row));
+            $partitionMap = [];
+            foreach ($result as $row) {
+                $partitionName = $row['PARTITION_NAME'] ?? '';
+                if ($partitionName === '') {
+                    continue;
                 }
 
-                return array_values($partitionMap);
+                $partitionMap[$partitionName] ??= new Partition($row);
+
+                if (empty($row['SUBPARTITION_NAME'])) {
+                    continue;
+                }
+
+                $partitionMap[$partitionName]->addSubPartition(new SubPartition($row));
             }
+
+            return array_values($partitionMap);
         }
 
         return [];

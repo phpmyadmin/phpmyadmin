@@ -5256,7 +5256,6 @@
     </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$dbi->fetchValue('SELECT @@have_partitioning;')]]></code>
-      <code><![CDATA[empty($row['PARTITION_NAME'])]]></code>
       <code><![CDATA[empty($row['SUBPARTITION_NAME'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
