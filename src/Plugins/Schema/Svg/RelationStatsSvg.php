@@ -20,8 +20,6 @@ use function sqrt;
  * and helps in generating the Table references and then connects
  * master table's master field to foreign table's foreign key
  * in SVG XML document.
- *
- * @see     Svg::printElementLine
  */
 class RelationStatsSvg extends RelationStats
 {
@@ -46,8 +44,6 @@ class RelationStatsSvg extends RelationStats
 
     /**
      * draws relation links and arrows shows foreign key relations
-     *
-     * @see    PMA_SVG
      *
      * @param bool $showColor Whether to use one color per relation or not
      */

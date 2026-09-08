@@ -19,8 +19,6 @@ use function sqrt;
  * and helps in generating the Table references and then connects
  * master table's master field to foreign table's foreign key
  * in EPS document.
- *
- * @see     Eps
  */
 class RelationStatsEps extends RelationStats
 {
@@ -49,8 +47,6 @@ class RelationStatsEps extends RelationStats
     /**
      * draws relation links and arrows
      * shows foreign key relations
-     *
-     * @see Eps
      */
     public function relationDraw(): void
     {

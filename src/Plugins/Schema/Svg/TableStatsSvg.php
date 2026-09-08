@@ -22,8 +22,6 @@ use function sprintf;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in SVG XML document.
  *
- * @see     Svg
- *
  * @property Svg $diagram
  */
 class TableStatsSvg extends TableStats
@@ -33,10 +31,6 @@ class TableStatsSvg extends TableStats
     public int $currentCell = 0;
 
     /**
-     * @see Svg
-     * @see TableStatsSvg::setWidthTable
-     * @see TableStatsSvg::setHeightTable
-     *
      * @param Svg    $diagram        The current SVG image document
      * @param string $db             The database name
      * @param string $tableName      The table name
@@ -82,8 +76,6 @@ class TableStatsSvg extends TableStats
     /**
      * Sets the width of the table
      *
-     * @see    PMA_SVG
-     *
      * @param string $font     The font size
      * @param int    $fontSize The font size
      */
@@ -117,8 +109,6 @@ class TableStatsSvg extends TableStats
 
     /**
      * draw the table
-     *
-     * @see Svg::printElement
      *
      * @param bool $showColor Whether to display color
      */
