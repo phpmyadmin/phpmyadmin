@@ -975,9 +975,9 @@ Server connection settings
       .. code-block:: mysql
 
            ALTER TABLE `pma__column_comments`
-           ADD `mimetype` VARCHAR( 255 ) NOT NULL,
-           ADD `transformation` VARCHAR( 255 ) NOT NULL,
-           ADD `transformation_options` VARCHAR( 255 ) NOT NULL;
+           ADD `mimetype` VARCHAR(255) NOT NULL,
+           ADD `transformation` VARCHAR(255) NOT NULL,
+           ADD `transformation_options` VARCHAR(255) NOT NULL;
     * to update your PRE-4.3.0 ``column_info`` table manually use this
       ``./sql/upgrade_column_info_4_3_0+.sql`` SQL script.
 
