@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2022-02-17 10:34+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2026-09-11 15:51+0000\n"
+"Last-Translator: st0rmsetter <st0rmsetter@proton.me>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "sq/>\n"
 "Language: sq\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -3583,7 +3583,7 @@ msgstr "Kontrollet e çelësit të huaj"
 
 #: libraries/classes/Config/Descriptions.php:756
 msgid "First day of calendar"
-msgstr ""
+msgstr "Dita e parë e kalendarit"
 
 #: libraries/classes/Config/Descriptions.php:757
 #: libraries/classes/Config/Descriptions.php:768 libraries/classes/Menu.php:530
@@ -7061,6 +7061,8 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"Funksioni HEX do e trajtoj integerin si string duke llogaritur vlerën "
+"hexadecimal"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:509
 msgid ""
@@ -8797,6 +8799,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"Funksionet ini_get dhe/ose ini_set janë çaktivizuar në php.ini. phpMyAdmin "
+"kërkon këto funksione!"
 
 #: libraries/classes/Core.php:1275
 msgid "GLOBALS overwrite attempt"
@@ -10180,11 +10184,11 @@ msgstr "SSL është përdorur"
 
 #: libraries/classes/Html/Generator.php:362
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "Funksioni PHP password_hash() me opsione të parazgjedhura."
 
 #: libraries/classes/Html/Generator.php:363
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "Funksioni PHP password_hash()"
 
 #: libraries/classes/Html/Generator.php:670
 msgid "Skip Explain SQL"
