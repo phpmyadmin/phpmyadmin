@@ -543,7 +543,7 @@ Using docker-compose
 --------------------
 
 Alternatively, you can also use docker-compose with the docker-compose.yml from
-<https://github.com/phpmyadmin/docker>.  This will run phpMyAdmin with an
+<https://github.com/phpmyadmin/docker>. This will run phpMyAdmin with an
 arbitrary server - allowing you to specify MySQL/MariaDB server on the login page.
 
 .. code-block:: sh
@@ -870,8 +870,8 @@ in the key:
     gpg:          There is no indication that the signature belongs to the owner.
     Primary key fingerprint: 3D06 A59E CE73 0EB7 1B51  1C17 CE75 2F17 8259 BD92
 
-The problem here is that anybody could issue the key with this name.  You need to
-ensure that the key is actually owned by the mentioned person.  The GNU Privacy
+The problem here is that anybody could issue the key with this name. You need to
+ensure that the key is actually owned by the mentioned person. The GNU Privacy
 Handbook covers this topic in the chapter `Validating other keys on your public
 keyring`_. The most reliable method is to meet the developer in person and
 exchange key fingerprints, however, you can also rely on the web of trust. This way
@@ -914,7 +914,7 @@ phpMyAdmin configuration storage
 
 For a whole set of additional features (:ref:`bookmarks`, comments, :term:`SQL`-history,
 tracking mechanism, :term:`PDF`-generation, :ref:`transformations`, :ref:`relations`
-etc.) you need to create a set of special tables.  Those tables can be located
+etc.) you need to create a set of special tables. Those tables can be located
 in your own database, or in a central database for a multi-user installation
 (this database would then be accessed by the controluser, so no other user
 should have rights to it).

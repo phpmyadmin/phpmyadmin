@@ -971,7 +971,7 @@ differences in how :term:`SQL` is structured (see
 quote-character (") is interpreted as an identifier quote character and not as
 a string quote character, which makes many internal phpMyAdmin operations into
 invalid :term:`SQL` statements. There is no
-workaround to this behaviour.  News to this item will be posted in `issue
+workaround to this behaviour. News to this item will be posted in `issue
 #7383 <https://github.com/phpmyadmin/phpmyadmin/issues/7383>`_.
 
 .. _faq3_10:
@@ -1050,7 +1050,7 @@ tables.
 Currently, the import type-detection system can only assign these
 MySQL types to columns. In future, more will likely be added but for
 the time being you will have to edit the structure to your liking
-post-import.  Also, you should note the fact that phpMyAdmin will use
+post-import. Also, you should note the fact that phpMyAdmin will use
 the size of the largest item in any given column as the column size
 for the appropriate type. If you know you will be adding larger items
 to that column then you should manually adjust the column sizes
@@ -1217,7 +1217,7 @@ Browsers or client OS
 ------------------------------------------------------------------------------------------------------------------------------
 
 We could reproduce this problem only under Win98/98SE. Testing under
-WinNT4 or Win2K, we could easily create more than 60 columns.  A
+WinNT4 or Win2K, we could easily create more than 60 columns. A
 workaround is to create a smaller number of columns, then come back to
 your table properties and add the other columns.
 
@@ -1459,8 +1459,8 @@ literal NULL in the column, and not a NULL value (this works in PHP4).
 Click on a database or table name in the navigation panel, the properties will
 be displayed. Then on the menu, click "Export", you can dump the structure, the
 data, or both. This will generate standard :term:`SQL` statements that can be
-used to recreate your database/table.  You will need to choose "Save as file",
-so that phpMyAdmin can transmit the resulting dump to your station.  Depending
+used to recreate your database/table. You will need to choose "Save as file",
+so that phpMyAdmin can transmit the resulting dump to your station. Depending
 on your PHP configuration, you will see options to compress the dump. See also
 the :config:option:`$cfg['ExecTimeLimit']` configuration variable. For
 additional help on this subject, look for the word "dump" in this document.
@@ -1475,9 +1475,9 @@ be displayed. Select "Import" from the list of tabs in the right–hand
 frame (or ":term:`SQL`" if your phpMyAdmin
 version is previous to 2.7.0). In the "Location of the text file"
 section, type in the path to your dump filename, or use the Browse
-button. Then click Go.  With version 2.7.0, the import engine has been
+button. Then click Go. With version 2.7.0, the import engine has been
 re–written, if possible it is suggested that you upgrade to take
-advantage of the new features.  For additional help on this subject,
+advantage of the new features. For additional help on this subject,
 look for the word "upload" in this document.
 
 Note: For errors while importing of dumps exported from older MySQL versions to newer MySQL versions,
@@ -1555,7 +1555,7 @@ Then test like this:
 
 Starting from the previous example, create the ``pma__table_info`` as
 explained in the configuration section, then browse your persons
-table, and move the mouse over a town code or country code.  See also
+table, and move the mouse over a town code or country code. See also
 :ref:`faq6_21` for an additional feature that "display column"
 enables: drop-down list of possible values.
 

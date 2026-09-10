@@ -10,11 +10,11 @@ Configuration
 -------------
 
 Themes are configured with :config:option:`$cfg['ThemeManager']` and
-:config:option:`$cfg['ThemeDefault']`.  Under :file:`./public/themes/`, you should not
+:config:option:`$cfg['ThemeDefault']`. Under :file:`./public/themes/`, you should not
 delete the directory ``pmahomme`` or its underlying structure, because this is
 the system theme used by phpMyAdmin. ``pmahomme`` contains all images and
 styles, for backwards compatibility and for all themes that would not include
-images or css-files.  If :config:option:`$cfg['ThemeManager']` is enabled, you
+images or css-files. If :config:option:`$cfg['ThemeManager']` is enabled, you
 can select your favorite theme on the main page. Your selected theme will be
 stored in a cookie.
 
