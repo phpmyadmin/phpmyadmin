@@ -1,8 +1,8 @@
 <form class="rte_form{{ not is_ajax ? ' disableAjax' }}" action="{{ url('/database/routines') }}" method="post">
   <input name="{{ is_edit_mode ? 'edit_item' : 'add_item' }}" type="hidden" value="1">
   {% if is_edit_mode %}
-    <input name="item_original_name" type="hidden" value="{{ routine.item_original_name }}">
-    <input name="item_original_type" type="hidden" value="{{ routine.item_original_type }}">
+    <input name="item_original_name" type="hidden" value="{{ routine.originalName }}">
+    <input name="item_original_type" type="hidden" value="{{ routine.originalType.value }}">
   {% endif %}
   {{ get_hidden_inputs(db) }}
 
@@ -24,7 +24,7 @@
         <tr>
           <td class="text-nowrap">{{ t('Routine name') }}</td>
           <td>
-            <input type="text" name="item_name" maxlength="64" value="{{ routine.item_name }}">
+            <input type="text" name="item_name" maxlength="64" value="{{ routine.name }}">
           </td>
         </tr>
         <tr>
@@ -32,15 +32,15 @@
           <td>
             {% if is_ajax %}
               <select name="item_type">
-                <option value="PROCEDURE"{{ routine.item_type == 'PROCEDURE' ? ' selected' }}>PROCEDURE</option>
-                <option value="FUNCTION"{{ routine.item_type == 'FUNCTION' ? ' selected' }}>FUNCTION</option>
+                <option value="PROCEDURE"{{ routine.type.value == 'PROCEDURE' ? ' selected' }}>PROCEDURE</option>
+                <option value="FUNCTION"{{ routine.type.value == 'FUNCTION' ? ' selected' }}>FUNCTION</option>
               </select>
             {% else %}
-              <input name="item_type" type="hidden" value="{{ routine.item_type }}">
+              <input name="item_type" type="hidden" value="{{ routine.type.value }}">
               <div class="fw-bold text-center w-50">
-                {{ routine['item_type'] }}
+                {{ routine.type.value }}
               </div>
-              <input type="submit" class="btn btn-secondary" name="routine_changetype" value="{{ t('Change to %s')|format(routine.item_type_toggle) }}">
+              <input type="submit" class="btn btn-secondary" name="routine_changetype" value="{{ t('Change to %s')|format(routine.type.getOpposite().value) }}">
             {% endif %}
           </td>
         </tr>
@@ -51,7 +51,7 @@
               <thead>
                 <tr>
                   <td></td>
-                  <th class="routine_direction_cell{{ routine.item_type == 'FUNCTION' ? ' hide' }}">{{ t('Direction') }}</th>
+                  <th class="routine_direction_cell{{ routine.type.value == 'FUNCTION' ? ' hide' }}">{{ t('Direction') }}</th>
                   <th>{{ t('Name') }}</th>
                   <th>{{ t('Type') }}</th>
                   <th>{{ t('Length/Values') }}</th>
@@ -72,26 +72,26 @@
               <button type="button" class="btn btn-primary" id="addRoutineParameterButton">{{ t('Add parameter') }}</button>
             {% else %}
               <input type="submit" class="btn btn-primary" name="routine_addparameter" value="{{ t('Add parameter') }}">
-              <input type="submit" class="btn btn-secondary"  name="routine_removeparameter" value="{{ t('Remove last parameter') }}"{{ not routine.item_num_params ? ' disabled' }}>
+              <input type="submit" class="btn btn-secondary"  name="routine_removeparameter" value="{{ t('Remove last parameter') }}"{{ not routine.numParams ? ' disabled' }}>
             {% endif %}
           </td>
         </tr>
-        <tr class="routine_return_row{{ routine.item_type == 'PROCEDURE' ? ' hide' }}">
+        <tr class="routine_return_row{{ routine.type.value == 'PROCEDURE' ? ' hide' }}">
           <td class="text-nowrap">{{ t('Return type') }}</td>
           <td>
             <select name="item_returntype">
-              {{ get_supported_datatypes(routine.item_returntype) }}
+              {{ get_supported_datatypes(routine.returnType) }}
             </select>
           </td>
         </tr>
-        <tr class="routine_return_row{{ routine.item_type == 'PROCEDURE' ? ' hide' }}">
+        <tr class="routine_return_row{{ routine.type.value == 'PROCEDURE' ? ' hide' }}">
           <td class="text-nowrap">{{ t('Return length/values') }}</td>
           <td>
-            <input type="text" name="item_returnlength" value="{{ routine.item_returnlength }}">
+            <input type="text" name="item_returnlength" value="{{ routine.returnLength }}">
           </td>
           <td class="hide no_len">---</td>
         </tr>
-        <tr class="routine_return_row{{ routine.item_type == 'PROCEDURE' ? ' hide' }}">
+        <tr class="routine_return_row{{ routine.type.value == 'PROCEDURE' ? ' hide' }}">
           <td class="text-nowrap">{{ t('Return options') }}</td>
           <td>
             <div>
@@ -99,7 +99,7 @@
                 <option value="">{{ t('Charset') }}</option>
                 <option value=""></option>
                 {% for charset in charsets %}
-                  <option value="{{ charset.getName() }}" title="{{ charset.getDescription() }}"{{ routine.item_returnopts_text|lower == charset.getName() ? ' selected' }}>{{ charset.getName() }}</option>
+                  <option value="{{ charset.getName() }}" title="{{ charset.getDescription() }}"{{ routine.returnOptsText|lower == charset.getName() ? ' selected' }}>{{ charset.getName() }}</option>
                 {% endfor %}
               </select>
             </div>
@@ -107,7 +107,7 @@
               <select name="item_returnopts_num">
                 <option value=""></option>
                 {% for numeric_option in numeric_options %}
-                  <option value="{{ numeric_option }}"{{ routine.item_returnopts_num == numeric_option ? ' selected' }}>{{ numeric_option }}</option>
+                  <option value="{{ numeric_option }}"{{ routine.returnOptsNum == numeric_option ? ' selected' }}>{{ numeric_option }}</option>
                 {% endfor %}
               </select>
             </div>
@@ -117,14 +117,14 @@
         <tr>
           <td class="text-nowrap">{{ t('Definition') }}</td>
           <td>
-            <textarea name="item_definition" rows="15" cols="40">{{ routine.item_definition }}</textarea><br>
+            <textarea name="item_definition" rows="15" cols="40">{{ routine.definition }}</textarea><br>
             <input type="button" value="{{ t('Format') }}" id="format" class="btn btn-secondary button sqlbutton">
           </td>
         </tr>
         <tr>
           <td class="text-nowrap">{{ t('Is deterministic') }}</td>
           <td>
-            <input type="checkbox" name="item_isdeterministic"{{ routine.item_isdeterministic|raw }}>
+            <input type="checkbox" name="item_isdeterministic"{{ (routine.isDeterministic ? " checked='checked'" : '')|raw }}>
           </td>
         </tr>
 
@@ -147,15 +147,15 @@
         <tr>
           <td class="text-nowrap">{{ t('Definer') }}</td>
           <td>
-            <input type="text" name="item_definer" value="{{ routine.item_definer }}">
+            <input type="text" name="item_definer" value="{{ routine.definer }}">
           </td>
         </tr>
         <tr>
           <td class="text-nowrap">{{ t('Security type') }}</td>
           <td>
             <select name="item_securitytype">
-              <option value="DEFINER"{{ routine.item_securitytype_definer|raw }}>DEFINER</option>
-              <option value="INVOKER"{{ routine.item_securitytype_invoker|raw }}>INVOKER</option>
+              <option value="DEFINER"{{ (routine.securityTypeDefiner ? " selected='selected'" : '')|raw }}>DEFINER</option>
+              <option value="INVOKER"{{ (routine.securityTypeInvoker ? " selected='selected'" : '')|raw }}>INVOKER</option>
             </select>
           </td>
         </tr>
@@ -164,7 +164,7 @@
           <td>
             <select name="item_sqldataaccess">
               {% for value in sql_data_access %}
-                <option value="{{ value }}"{{ routine.item_sqldataaccess == value ? ' selected' }}>{{ value }}</option>
+                <option value="{{ value }}"{{ routine.sqlDataAccess == value ? ' selected' }}>{{ value }}</option>
               {% endfor %}
             </select>
           </td>
@@ -172,7 +172,7 @@
         <tr>
           <td class="text-nowrap">{{ t('Comment') }}</td>
           <td>
-            <input type="text" name="item_comment" value="{{ routine.item_comment }}">
+            <input type="text" name="item_comment" value="{{ routine.comment }}">
           </td>
         </tr>
       </table>

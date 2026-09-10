@@ -79,12 +79,12 @@ class HttpRequest
     /**
      * Creates HTTP request using curl
      *
-     * @param mixed $response         HTTP response
-     * @param int   $httpStatus       HTTP response status code
-     * @param bool  $returnOnlyStatus If set to true, the method would only return response status
+     * @param string|bool $response         HTTP response
+     * @param int         $httpStatus       HTTP response status code
+     * @param bool        $returnOnlyStatus If set to true, the method would only return response status
      */
     private function response(
-        mixed $response,
+        string|bool $response,
         int $httpStatus,
         bool $returnOnlyStatus,
     ): string|bool|null {
@@ -109,14 +109,14 @@ class HttpRequest
      * @param string        $url              Url to send the request
      * @param RequestMethod $method           HTTP request method (GET, POST, PUT, DELETE, etc)
      * @param bool          $returnOnlyStatus If set to true, the method would only return response status
-     * @param mixed         $content          Content to be sent with HTTP request
+     * @param string|null   $content          Content to be sent with HTTP request
      * @param string        $header           Header to be set for the HTTP request
      */
     private function curl(
         string $url,
         RequestMethod $method,
         bool $returnOnlyStatus = false,
-        mixed $content = null,
+        string|null $content = null,
         string $header = '',
     ): string|bool|null {
         $curlHandle = curl_init($url);
@@ -186,14 +186,14 @@ class HttpRequest
      * @param string        $url              Url to send the request
      * @param RequestMethod $method           HTTP request method (GET, POST, PUT, DELETE, etc)
      * @param bool          $returnOnlyStatus If set to true, the method would only return response status
-     * @param mixed         $content          Content to be sent with HTTP request
+     * @param string|null   $content          Content to be sent with HTTP request
      * @param string        $header           Header to be set for the HTTP request
      */
     private function fopen(
         string $url,
         RequestMethod $method,
         bool $returnOnlyStatus = false,
-        mixed $content = null,
+        string|null $content = null,
         string $header = '',
     ): string|bool|null {
         $context = [
@@ -257,14 +257,14 @@ class HttpRequest
      * @param string        $url              Url to send the request
      * @param RequestMethod $method           HTTP request method (GET, POST, PUT, DELETE, etc)
      * @param bool          $returnOnlyStatus If set to true, the method would only return response status
-     * @param mixed         $content          Content to be sent with HTTP request
+     * @param string|null   $content          Content to be sent with HTTP request
      * @param string        $header           Header to be set for the HTTP request
      */
     public function create(
         string $url,
         RequestMethod $method,
         bool $returnOnlyStatus = false,
-        mixed $content = null,
+        string|null $content = null,
         string $header = '',
     ): string|bool|null {
         if (function_exists('curl_init') && function_exists('curl_exec')) {

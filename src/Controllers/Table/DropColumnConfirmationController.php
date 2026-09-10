@@ -89,6 +89,6 @@ final readonly class DropColumnConfirmationController implements InvocableContro
             return;
         }
 
-        $this->response->addHTML(Message::error($message)->getDisplay());
+        $this->response->addHTML(Message::error($message));
     }
 }

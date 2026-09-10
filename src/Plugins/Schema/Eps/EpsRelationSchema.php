@@ -44,8 +44,6 @@ class EpsRelationSchema extends ExportRelationSchema
     /**
      * Upon instantiation This starts writing the EPS document
      * user will be prompted for download as .eps extension
-     *
-     * @see Eps
      */
     public function __construct(Relation $relation, DatabaseName $db)
     {
@@ -154,10 +152,6 @@ class EpsRelationSchema extends ExportRelationSchema
     /**
      * Defines relation objects
      *
-     * @see _setMinMax
-     * @see TableStatsEps::__construct()
-     * @see RelationStatsEps::__construct
-     *
      * @param string $masterTable    The master table name
      * @param string $font           The font
      * @param int    $fontSize       The font size
@@ -215,8 +209,6 @@ class EpsRelationSchema extends ExportRelationSchema
     /**
      * Draws relation arrows and lines connects master table's master field to
      * foreign table's foreign field
-     *
-     * @see RelationStatsEps::relationDraw()
      */
     private function drawRelations(): void
     {
@@ -225,9 +217,6 @@ class EpsRelationSchema extends ExportRelationSchema
         }
     }
 
-    /**
-     * Draws tables
-     */
     private function drawTables(): void
     {
         foreach ($this->tables as $table) {

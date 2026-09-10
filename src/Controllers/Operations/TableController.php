@@ -147,7 +147,13 @@ final readonly class TableController implements InvocableController
          * If the table has to be moved to some other database
          */
         if ($request->hasBodyParam('submit_move') || $request->hasBodyParam('submit_copy')) {
-            $message = $this->operations->moveOrCopyTable($userPrivileges, Current::$database, Current::$table);
+            $message = $this->operations->moveOrCopyTable(
+                $userPrivileges,
+                Current::$database,
+                Current::$table,
+                $request->getParsedBodyParamAsString('target_db', ''),
+                $request->getParsedBodyParamAsString('new_name', ''),
+            );
 
             if (! $request->isAjax()) {
                 return $this->response->response();
@@ -338,7 +344,7 @@ final readonly class TableController implements InvocableController
                     if (Current::$sqlQuery !== '') {
                         $this->response->addJSON(
                             'sql_query',
-                            Generator::getMessage('', Current::$sqlQuery),
+                            Generator::getMessage(new Message(), Current::$sqlQuery),
                         );
                     }
 
@@ -360,7 +366,7 @@ final readonly class TableController implements InvocableController
                     if (Current::$sqlQuery !== '') {
                         $this->response->addJSON(
                             'sql_query',
-                            Generator::getMessage('', Current::$sqlQuery),
+                            Generator::getMessage(new Message(), Current::$sqlQuery),
                         );
                     }
 
@@ -369,9 +375,7 @@ final readonly class TableController implements InvocableController
             }
 
             if (Current::$sqlQuery === '') {
-                $this->response->addHTML(
-                    $newMessage->getDisplay(),
-                );
+                $this->response->addHTML($newMessage);
             } else {
                 $this->response->addHTML(
                     Generator::getMessage($newMessage, Current::$sqlQuery),

@@ -59,8 +59,8 @@ class ColumnsDefinitionTest extends AbstractTestCase
         );
         // phpcs:enable
         $dummyDbi->addResult(
-            'SELECT * FROM `sakila`.`actor` LIMIT 1',
-            [['1', 'PENELOPE', 'GUINESS', '2006-02-15 04:34:33']],
+            'SELECT * FROM `sakila`.`actor` LIMIT 0',
+            [],
             ['actor_id', 'first_name', 'last_name', 'last_update'],
         );
         $createTable = <<<'SQL'

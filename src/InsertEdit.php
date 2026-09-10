@@ -160,7 +160,7 @@ class InsertEdit
             if ($rows[$keyId] === []) {
                 $this->responseRenderer->addHTML(
                     Generator::getMessage(
-                        __('MySQL returned an empty result set (i.e. zero rows).'),
+                        new Message(__('MySQL returned an empty result set (i.e. zero rows).')),
                         $localQuery,
                     ),
                 );
@@ -209,7 +209,7 @@ class InsertEdit
     /**
      * Show type information or function selectors in Insert/Edit
      *
-     * @param string                         $which     function|type
+     * @param 'function'|'type'              $which     function|type
      * @param array<string, bool|int|string> $urlParams containing url parameters
      * @param bool                           $isShow    whether to show the element in $which
      *
@@ -217,50 +217,37 @@ class InsertEdit
      */
     public function showTypeOrFunction(string $which, array $urlParams, bool $isShow): string
     {
-        $params = [];
-
-        switch ($which) {
-            case 'function':
-                $params['ShowFunctionFields'] = $isShow ? 0 : 1;
-                $params['ShowFieldTypesInDataEditView'] = $this->config->config->ShowFieldTypesInDataEditView;
-                break;
-            case 'type':
-                $params['ShowFieldTypesInDataEditView'] = $isShow ? 0 : 1;
-                $params['ShowFunctionFields'] = $this->config->config->ShowFunctionFields;
-                break;
-        }
+        $params = match ($which) {
+            'function' => [
+                'ShowFunctionFields' => $isShow ? 0 : 1,
+                'ShowFieldTypesInDataEditView' => $this->config->config->ShowFieldTypesInDataEditView,
+            ],
+            'type' => [
+                'ShowFieldTypesInDataEditView' => $isShow ? 0 : 1,
+                'ShowFunctionFields' => $this->config->config->ShowFunctionFields,
+            ],
+        };
 
         $params['goto'] = Url::getFromRoute('/sql');
         $thisUrlParams = array_merge($urlParams, $params);
 
+        $label = match ($which) {
+            'function' => __('Function'),
+            'type' => __('Type'),
+        };
+
         if (! $isShow) {
             return ' : <a href="' . Url::getFromRoute('/table/change') . '" data-post="'
                 . Url::getCommon($thisUrlParams, '', false) . '">'
-                . $this->showTypeOrFunctionLabel($which)
+                . $label
                 . '</a>';
         }
 
         return '<th><a href="' . Url::getFromRoute('/table/change') . '" data-post="'
             . Url::getCommon($thisUrlParams, '', false)
             . '" title="' . __('Hide') . '">'
-            . $this->showTypeOrFunctionLabel($which)
+            . $label
             . '</a></th>';
-    }
-
-    /**
-     * Show type information or function selectors labels in Insert/Edit
-     *
-     * @param string $which function|type
-     *
-     * @return string an HTML snippet
-     */
-    private function showTypeOrFunctionLabel(string $which): string
-    {
-        return match ($which) {
-            'function' => __('Function'),
-            'type' => __('Type'),
-            default => '',
-        };
     }
 
     /**
@@ -865,9 +852,7 @@ class InsertEdit
                         $insertId += $totalAffectedRows - 1;
                     }
 
-                    $lastMessage = Message::notice(__('Inserted row id: %1$d'));
-                    $lastMessage->addParam($insertId);
-                    $lastMessages[] = $lastMessage;
+                    $lastMessages[] = Message::notice(__('Inserted row id: %1$d'), [$insertId]);
                 }
             }
 

@@ -884,8 +884,8 @@ class Privileges
 
             $message = Message::success(
                 __('The password for %s was changed successfully.'),
+                ['\'' . $username . '\'@\'' . $hostname . '\''],
             );
-            $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
             if (isset($origValue)) {
                 $this->dbi->tryQuery('SET `old_passwords` = ' . $origValue . ';');
             }
@@ -932,8 +932,8 @@ class Privileges
         $sqlQuery = $sqlQuery0 . ' ' . $sqlQuery1;
         $message = Message::success(
             __('You have revoked the privileges for %s.'),
+            ['\'' . $username . '\'@\'' . $hostname . '\''],
         );
-        $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
         return [$message, $sqlQuery];
     }
@@ -1362,7 +1362,7 @@ class Privileges
 
         $extraData = [];
         if ($sqlQuery !== '') {
-            $extraData['sql_query'] = Generator::getMessage('', $sqlQuery);
+            $extraData['sql_query'] = Generator::getMessage(new Message(), $sqlQuery);
         }
 
         if ($isChangeCopyUser) {
@@ -1976,8 +1976,10 @@ class Privileges
         }
 
         $sqlQuery = $sqlQuery0 . ' ' . $sqlQuery1 . ' ' . $grantBackQuery . ' ' . $alterUserQuery;
-        $message = Message::success(__('You have updated the privileges for %s.'));
-        $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
+        $message = Message::success(
+            __('You have updated the privileges for %s.'),
+            ['\'' . $username . '\'@\'' . $hostname . '\''],
+        );
 
         return [$sqlQuery, $message];
     }
@@ -2222,8 +2224,10 @@ class Privileges
         }
 
         if ($this->userExists($username, $hostname)) {
-            $message = Message::error(__('The user %s already exists!'));
-            $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
+            $message = Message::error(
+                __('The user %s already exists!'),
+                ['[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'],
+            );
             $_GET['adduser'] = true;
 
             return [

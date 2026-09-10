@@ -210,11 +210,16 @@ class ErrorReport
      */
     public function send(array $report): string|bool|null
     {
+        $content = json_encode($report);
+        if ($content === false) {
+            return false;
+        }
+
         return $this->httpRequest->create(
             $this->submissionUrl,
             RequestMethod::Post,
             false,
-            json_encode($report),
+            $content,
             'Content-Type: application/json',
         );
     }

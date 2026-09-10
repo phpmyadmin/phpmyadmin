@@ -503,7 +503,7 @@ class GeneratorTest extends AbstractTestCase
             HTML;
         // phpcs:enable
 
-        self::assertSame($expected, Generator::getMessage('Message [em]one[/em].'));
+        self::assertSame($expected, Generator::getMessage(new Message('Message [em]one[/em].')));
         SessionCache::remove('profiling_supported');
     }
 

@@ -616,12 +616,6 @@ parameters:
 			path: src/Config/FormDisplay.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\\FormDisplay\:\:\$userprefsKeys type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -640,7 +634,7 @@ parameters:
 			path: src/Config/Forms/BaseForm.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Config\\Forms\\BaseForm\:\:getFields\(\) should return array\<string\> but returns list\<mixed\>\.$#'
+			message: '#^Method PhpMyAdmin\\Config\\Forms\\BaseForm\:\:getFields\(\) should return list\<string\> but returns list\<mixed\>\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Config/Forms/BaseForm.php
@@ -1432,44 +1426,8 @@ parameters:
 			path: src/Controllers/Database/ImportController.php
 
 		-
-			message: '#^Binary operation "\-" between mixed and 1 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 6
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Cannot access an offset on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Cannot access offset \(float\|int\) on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Cannot use \+\+ on mixed\.$#'
-			identifier: postInc.type
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Cannot use \-\- on mixed\.$#'
-			identifier: postDec.type
 			count: 1
 			path: src/Controllers/Database/RoutinesController.php
 
@@ -1493,12 +1451,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$name of method PhpMyAdmin\\Database\\Routines\:\:getDataFromName\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlentities expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
 			path: src/Controllers/Database/RoutinesController.php
@@ -1621,15 +1573,9 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Binary operation "\." between mixed and array\<string\>\|string\|false results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Binary operation "\." between non\-empty\-string and array\<string\>\|string\|false results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
+			count: 2
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -1642,6 +1588,12 @@ parameters:
 			message: '#^Cannot access offset ''table_limit_offset_db'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
+			path: src/Controllers/Database/StructureController.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -2275,7 +2227,7 @@ parameters:
 			path: src/Controllers/Server/ReplicationController.php
 
 		-
-			message: '#^Static property PhpMyAdmin\\UrlParams\:\:\$params \(array\<string, bool\|int\|string\>\) does not accept array\<mixed, mixed\>\.$#'
+			message: '#^Static property PhpMyAdmin\\UrlParams\:\:\$params \(array\<string, bool\|int\|string\>\) does not accept array\<mixed, string\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Controllers/Server/ReplicationController.php
@@ -2551,12 +2503,6 @@ parameters:
 			path: src/Controllers/Table/AddFieldController.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#1 \$rowId of method PhpMyAdmin\\InsertEdit\:\:getHtmlForIgnoreOption\(\) expects int, \(int\<1, max\>\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2581,7 +2527,7 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept list\<mixed\>\.$#'
+			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|null\) does not accept list\<mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Controllers/Table/ChangeRowsController.php
@@ -2731,7 +2677,7 @@ parameters:
 			path: src/Controllers/Table/ExportController.php
 
 		-
-			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept list\<mixed\>\.$#'
+			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|null\) does not accept list\<mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Controllers/Table/ExportRowsController.php
@@ -2765,6 +2711,15 @@ parameters:
 			identifier: cast.string
 			count: 3
 			path: src/Controllers/Table/GetFieldController.php
+
+		-
+			message: '''
+				#^Access to constant on deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 1
+			path: src/Controllers/Table/GisVisualizationController.php
 
 		-
 			message: '#^Cannot access offset ''max_rows'' on mixed\.$#'
@@ -4432,15 +4387,9 @@ parameters:
 			path: src/Database/Events.php
 
 		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 2
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Binary operation "\." between ''\('' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 2
+			count: 1
 			path: src/Database/Routines.php
 
 		-
@@ -4450,21 +4399,9 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
+			message: '#^Cannot access offset string on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 15
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Cannot access offset mixed on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 9
 			path: src/Database/Routines.php
 
 		-
@@ -4489,12 +4426,6 @@ parameters:
 			message: '#^Cannot access property \$parameters on PhpMyAdmin\\SqlParser\\Components\\DataType\|null\.$#'
 			identifier: property.nonObject
 			count: 2
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Cannot assign new offset to list\<string\>\|string\|null\.$#'
-			identifier: offsetAssign.dimType
-			count: 1
 			path: src/Database/Routines.php
 
 		-
@@ -4540,51 +4471,27 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
+			message: '#^Method PhpMyAdmin\\Database\\Routines\:\:getParameters\(\) should return array\{item_num_params\: int, item_param_dir\: array\<string\>, item_param_name\: array\<string\>, item_param_type\: array\<string\>, item_param_length\: array\<string\>, item_param_length_arr\: array\<array\<string\>\>, item_param_opts_num\: array\<string\>\} but returns array\{item_num_params\: int\<0, max\>, item_param_dir\: array\{\}, item_param_name\: array\{\}, item_param_type\: array\{\}, item_param_length\: array\{\}, item_param_length_arr\: array\{\}, item_param_opts_num\: array\{\}\}\|array\{item_num_params\: int\<0, max\>, item_param_dir\: non\-empty\-array\<int\<0, max\>, string\|null\>, item_param_name\: non\-empty\-array\<int\<0, max\>, string\|null\>, item_param_type\: non\-empty\-array\<int\<0, max\>, string\|null\>, item_param_length\: non\-empty\-array\<int\<0, max\>, string\>, item_param_length_arr\: non\-empty\-array\<int\<0, max\>, array\<int\|string\>\>, item_param_opts_num\: non\-empty\-array\<int\<0, max\>, list\<string\|null\>\|string\>\}\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Database/Routines.php
+
+		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 4
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#1 \$alias of method PhpMyAdmin\\Types\:\:mapAliasToMysqlType\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function stripos expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 8
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#1 \$itemParamName of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects array\<string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#1 \$quotedString of static method PhpMyAdmin\\Util\:\:unQuote\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
+			count: 3
 			path: src/Database/Routines.php
 
 		-
 			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 6
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlentities expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
 			path: src/Database/Routines.php
 
 		-
@@ -4596,25 +4503,25 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function mb_strtolower expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 5
+			count: 1
 			path: src/Database/Routines.php
 
 		-
 			message: '#^Parameter \#1 \$string of function mb_strtoupper expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Database/Routines.php
 
 		-
 			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeClass\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 4
+			count: 2
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
+			message: '#^Parameter \#18 \$returnType of class PhpMyAdmin\\Database\\RoutineItem constructor expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 1
 			path: src/Database/Routines.php
 
 		-
@@ -4624,15 +4531,9 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#2 \$itemParamDir of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects array\<string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#2 \$subject of function preg_match expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 4
+			count: 2
 			path: src/Database/Routines.php
 
 		-
@@ -4648,25 +4549,13 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Routines\:\:getFunctionDefinition\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Routines\:\:getProcedureDefinition\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Routines\:\:getProcedureDefinition\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#7 \$itemType of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects PhpMyAdmin\\Database\\RoutineType, PhpMyAdmin\\Database\\RoutineType\|null given\.$#'
+			message: '#^Parameter \#8 \$definer of class PhpMyAdmin\\Database\\RoutineItem constructor expects string, PhpMyAdmin\\SqlParser\\Components\\Expression\|string given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Database/Routines.php
@@ -4769,12 +4658,6 @@ parameters:
 
 		-
 			message: '#^Method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getCurrentUser\(\) should return string but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getCurrentUser\(\) should return string but returns string\|null\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
@@ -4921,43 +4804,19 @@ parameters:
 			path: src/Dbal/MysqliResult.php
 
 		-
-			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$expr\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$from\.$#'
-			identifier: property.notFound
-			count: 2
-			path: src/Display/Results.php
-
-		-
-			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$limit\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$where\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 4
-			path: src/Display/Results.php
-
-		-
 			message: '#^Binary operation "%%" between int\<1, max\> and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Display/Results.php
 
 		-
-			message: '#^Binary operation "\+" between mixed and int results in an error\.$#'
+			message: '#^Binary operation "\+" between int\|string and int results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Display/Results.php
+
+		-
+			message: '#^Binary operation "\+" between int\|string and int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Display/Results.php
@@ -4969,15 +4828,9 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Binary operation "\+" between mixed and mixed results in an error\.$#'
+			message: '#^Binary operation "\-" between mixed and 1 results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Binary operation "\-" between \(array\|float\|int\) and 1 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
+			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -5071,12 +4924,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Cannot access offset 0 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -5089,12 +4936,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Cannot access property \$alias on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Cannot access property \$column on PhpMyAdmin\\SqlParser\\Components\\Expression\|null\.$#'
 			identifier: property.nonObject
 			count: 1
@@ -5104,30 +4945,6 @@ parameters:
 			message: '#^Cannot access property \$expr on PhpMyAdmin\\SqlParser\\Components\\Expression\|null\.$#'
 			identifier: property.nonObject
 			count: 3
-			path: src/Display/Results.php
-
-		-
-			message: '#^Cannot access property \$identifiers on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Cannot access property \$offset on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Cannot access property \$rowCount on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Cannot access property \$table on mixed\.$#'
-			identifier: property.nonObject
-			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -5145,13 +4962,13 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 6
+			count: 7
 			path: src/Display/Results.php
 
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 23
+			count: 18
 			path: src/Display/Results.php
 
 		-
@@ -5221,19 +5038,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Only numeric types are allowed in \-, \(array\|float\|int\) given on the left side\.$#'
-			identifier: minus.leftNonNumeric
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#1 \$array of function array_shift expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getComments\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -5271,7 +5076,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Display/Results.php
 
 		-
@@ -5294,18 +5099,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$rows of static method PhpMyAdmin\\Util\:\:pageselector\(\) expects int, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#2 \$string2 of function strcasecmp expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getComments\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -5349,13 +5142,7 @@ parameters:
 		-
 			message: '#^Possibly invalid array key type mixed\.$#'
 			identifier: offsetAccess.invalidOffset
-			count: 16
-			path: src/Display/Results.php
-
-		-
-			message: '#^Property PhpMyAdmin\\FieldMetadata\:\:\$name \(string\) does not accept mixed\.$#'
-			identifier: assign.propertyType
-			count: 1
+			count: 15
 			path: src/Display/Results.php
 
 		-
@@ -6079,6 +5866,15 @@ parameters:
 			path: src/Gis/GisGeometry.php
 
 		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisGeometry\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisGeometry.php
+
+		-
 			message: '#^Cannot access offset ''data_length'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -6095,6 +5891,51 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Gis/GisGeometryCollection.php
+
+		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisGeometryCollection\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisGeometryCollection.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisLineString.php
+
+		-
+			message: '''
+				#^Call to method PolyLine\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisLineString.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisLineString.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisLineString.php
 
 		-
 			message: '#^Cannot access offset ''LINESTRING'' on mixed\.$#'
@@ -6121,12 +5962,6 @@ parameters:
 			path: src/Gis/GisLineString.php
 
 		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisLineString.php
-
-		-
 			message: '#^Parameter \#5 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:line\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6135,6 +5970,15 @@ parameters:
 		-
 			message: '#^Parameter \#5 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:string\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
+			count: 1
+			path: src/Gis/GisLineString.php
+
+		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisLineString\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
 			count: 1
 			path: src/Gis/GisLineString.php
 
@@ -6153,6 +5997,42 @@ parameters:
 		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
+			count: 1
+			path: src/Gis/GisMultiLineString.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiLineString.php
+
+		-
+			message: '''
+				#^Call to method PolyLine\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiLineString.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiLineString.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
 			count: 1
 			path: src/Gis/GisMultiLineString.php
 
@@ -6205,12 +6085,6 @@ parameters:
 			path: src/Gis/GisMultiLineString.php
 
 		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisMultiLineString.php
-
-		-
 			message: '#^Parameter \#5 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:line\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6223,6 +6097,15 @@ parameters:
 			path: src/Gis/GisMultiLineString.php
 
 		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisMultiLineString\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiLineString.php
+
+		-
 			message: '#^Binary operation "\." between mixed and '' '' results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -6231,6 +6114,42 @@ parameters:
 		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
+			count: 1
+			path: src/Gis/GisMultiPoint.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPoint.php
+
+		-
+			message: '''
+				#^Call to method Circle\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPoint.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPoint.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
 			count: 1
 			path: src/Gis/GisMultiPoint.php
 
@@ -6271,12 +6190,6 @@ parameters:
 			path: src/Gis/GisMultiPoint.php
 
 		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisMultiPoint.php
-
-		-
 			message: '#^Parameter \#5 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:string\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6285,6 +6198,15 @@ parameters:
 		-
 			message: '#^Parameter \#7 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:arc\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
+			count: 1
+			path: src/Gis/GisMultiPoint.php
+
+		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisMultiPoint\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
 			count: 1
 			path: src/Gis/GisMultiPoint.php
 
@@ -6304,6 +6226,42 @@ parameters:
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
+			path: src/Gis/GisMultiPolygon.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPolygon.php
+
+		-
+			message: '''
+				#^Call to method Polygon\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPolygon.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisMultiPolygon.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
 			path: src/Gis/GisMultiPolygon.php
 
 		-
@@ -6409,12 +6367,6 @@ parameters:
 			path: src/Gis/GisMultiPolygon.php
 
 		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisMultiPolygon.php
-
-		-
 			message: '#^Parameter \#2 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:filledPolygon\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6423,6 +6375,15 @@ parameters:
 		-
 			message: '#^Parameter \#5 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:string\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
+			count: 1
+			path: src/Gis/GisMultiPolygon.php
+
+		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisMultiPolygon\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
 			count: 1
 			path: src/Gis/GisMultiPolygon.php
 
@@ -6445,6 +6406,42 @@ parameters:
 			path: src/Gis/GisPoint.php
 
 		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPoint.php
+
+		-
+			message: '''
+				#^Call to method Circle\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPoint.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPoint.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPoint.php
+
+		-
 			message: '#^Cannot access offset ''POINT'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -6452,12 +6449,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$point of method PhpMyAdmin\\Gis\\GisGeometry\:\:getWktCoord\(\) expects array\{x\: float\|int\|string, y\: float\|int\|string\}\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisPoint.php
-
-		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Gis/GisPoint.php
@@ -6473,6 +6464,51 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Gis/GisPoint.php
+
+		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisPoint\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Gis/GisPoint.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPolygon.php
+
+		-
+			message: '''
+				#^Call to method Polygon\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPolygon.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPolygon.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisPolygon.php
 
 		-
 			message: '#^Cannot access offset ''POLYGON'' on mixed\.$#'
@@ -6511,12 +6547,6 @@ parameters:
 			path: src/Gis/GisPolygon.php
 
 		-
-			message: '#^Parameter \#1 \$red of method PhpMyAdmin\\Image\\ImageWrapper\:\:colorAllocate\(\) expects int\<0, 255\>, int given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Gis/GisPolygon.php
-
-		-
 			message: '#^Parameter \#2 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:filledPolygon\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6525,6 +6555,15 @@ parameters:
 		-
 			message: '#^Parameter \#5 \$color of method PhpMyAdmin\\Image\\ImageWrapper\:\:string\(\) expects int, int\|false given\.$#'
 			identifier: argument.type
+			count: 1
+			path: src/Gis/GisPolygon.php
+
+		-
+			message: '''
+				#^Parameter \$pdf of method PhpMyAdmin\\Gis\\GisPolygon\:\:prepareRowAsPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
 			count: 1
 			path: src/Gis/GisPolygon.php
 
@@ -6547,6 +6586,60 @@ parameters:
 			path: src/Gis/GisVisualization.php
 
 		-
+			message: '''
+				#^Call to method AddPage\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Call to method Output\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Call to method __construct\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Call to method setAutoPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Call to method setPrintFooter\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Call to method setPrintHeader\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 1
@@ -6555,6 +6648,15 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
+			count: 1
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Instantiation of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: new.deprecatedClass
 			count: 1
 			path: src/Gis/GisVisualization.php
 
@@ -6571,8 +6673,20 @@ parameters:
 			path: src/Gis/GisVisualization.php
 
 		-
-			message: '#^Strict comparison using \=\=\= between \(T of ''ol''\)\|T of ''ol'' and ''ol'' will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
+			message: '''
+				#^Parameter \$renderer of method PhpMyAdmin\\Gis\\GisVisualization\:\:prepareDataSet\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 2
+			path: src/Gis/GisVisualization.php
+
+		-
+			message: '''
+				#^Return type of method PhpMyAdmin\\Gis\\GisVisualization\:\:createEmptyPdf\(\) has typehint with deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: return.deprecatedClass
 			count: 1
 			path: src/Gis/GisVisualization.php
 
@@ -7507,18 +7621,6 @@ parameters:
 			path: src/Message.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Message.php
-
-		-
-			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Message.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 3
@@ -7529,12 +7631,6 @@ parameters:
 			identifier: if.condNotBoolean
 			count: 1
 			path: src/Navigation/Navigation.php
-
-		-
-			message: '#^Access to an undefined property PhpMyAdmin\\Navigation\\Nodes\\Node\:\:\$secondIcon\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Navigation/NavigationTree.php
 
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
@@ -7921,12 +8017,6 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 3
-			path: src/Operations.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 8
@@ -8170,9 +8260,153 @@ parameters:
 			path: src/Partitioning/TablePartitionDefinition.php
 
 		-
+			message: '''
+				#^Access to property \$CurrentFont of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$page of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$pages of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 3
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method AddFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method UTF8ToUTF16BE\(\) of deprecated class TCPDF_FONTS\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: staticMethod.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method __construct\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method _putpages\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method getAliasNbPages\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method getAliasNumPage\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setAuthor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFooterFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setLanguageArray\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Pdf.php
+
+		-
 			message: '#^Cannot access offset int\<1, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
+			path: src/Pdf.php
+
+		-
+			message: '''
+				#^Class PhpMyAdmin\\Pdf extends deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: class.extendsDeprecatedClass
+			count: 1
 			path: src/Pdf.php
 
 		-
@@ -8602,6 +8836,33 @@ parameters:
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
+			message: '''
+				#^Access to constant on deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/ExportPdf.php
+
+		-
+			message: '''
+				#^Call to method Open\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/ExportPdf.php
+
+		-
+			message: '''
+				#^Call to method getPDFData\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/ExportPdf.php
+
+		-
 			message: '#^Class PhpMyAdmin\\Plugins\\Export\\ExportPdf has an uninitialized property \$pdf\. Give it default value or assign it in the constructor\.$#'
 			identifier: property.uninitialized
 			count: 1
@@ -8682,7 +8943,7 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\Plugins\\Export\\ExportSql\:\:setMaxQuerySize\(\) should return int\<0, max\> but returns int\.$#'
 			identifier: return.type
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -8800,6 +9061,150 @@ parameters:
 			path: src/Plugins/Export/ExportXml.php
 
 		-
+			message: '''
+				#^Access to property \$CurOrientation of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$FontSizePt of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 11
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$InFooter of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$PageBreakTrigger of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$bMargin of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 3
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$h of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 3
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$k of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$lMargin of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 13
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$page of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 46
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$pagedim of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 4
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$rMargin of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$rtl of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$tMargin of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 14
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$w of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$x of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 5
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$y of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
 			message: '#^Binary operation "\+" between \(float\|int\) and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 6
@@ -8881,6 +9286,123 @@ parameters:
 			message: '#^Binary operation "/" between mixed and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method AcceptPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method AddPage\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 4
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method GetStringWidth\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method GetY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 7
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Line\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 12
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method MultiCell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method empty_string\(\) of deprecated class TCPDF_STATIC\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: staticMethod.deprecatedClass
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setAutoPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFillColor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 7
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -9673,6 +10195,51 @@ parameters:
 			path: src/Plugins/Schema/ExportRelationSchema.php
 
 		-
+			message: '''
+				#^Access to property \$CurrentFont of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$FontSize of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$rMargin of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$w of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Access to property \$x of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: property.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
 			message: '#^Binary operation "\+" between float and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -9714,6 +10281,141 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
+			count: 2
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method GetX\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method GetY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Line\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Link\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Ln\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method MultiCell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method Rect\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method checkPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method getPDFData\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setLineWidth\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setX\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/Pdf.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
 			count: 2
 			path: src/Plugins/Schema/Pdf/Pdf.php
 
@@ -9811,8 +10513,179 @@ parameters:
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
 		-
+			message: '''
+				#^Call to method AddLink\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method AddPage\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method Bookmark\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 31
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method Line\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method Ln\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method Open\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method PageNo\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
 			message: '#^Call to method TCPDF\:\:Line\(\) with incorrect case\: line$#'
 			identifier: method.nameCase
+			count: 2
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method getPageHeight\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method getPageWidth\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setAutoPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 4
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setDrawColor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setFontSize\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setLink\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setMargins\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setTitle\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setX\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
+
+		-
+			message: '''
+				#^Call to method setXY\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
 			count: 2
 			path: src/Plugins/Schema/Pdf/PdfRelationSchema.php
 
@@ -9943,6 +10816,51 @@ parameters:
 			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
+			message: '''
+				#^Call to method GetStringWidth\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: '''
+				#^Call to method setFillColor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 5
+			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 4
+			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: '''
+				#^Call to method setLink\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
+			message: '''
+				#^Call to method setTextColor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
+
+		-
 			message: '#^Cannot access offset ''\-'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 3
@@ -9995,6 +10913,15 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Plugins/Schema/SchemaEps.php
+
+		-
+			message: '''
+				#^Access to constant on deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 1
+			path: src/Plugins/Schema/SchemaPdf.php
 
 		-
 			message: '''
@@ -10322,12 +11249,6 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Plugins\\Transformations\\Output\\Text_Plain_Binarytoip\:\:applyTransformation\(\) should return string but returns string\|false\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Plugins/Transformations/Output/Text_Plain_Binarytoip.php
 
 		-
 			message: '''
@@ -11749,12 +12670,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Sql\:\:getFullValuesForSetColumn\(\) should return string but returns string\|null\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Sql\:\:getStartPosToDisplayRow\(\) should return int but returns \(float\|int\)\.$#'
 			identifier: return.type
 			count: 1
@@ -13048,18 +13963,6 @@ parameters:
 			path: src/Util.php
 
 		-
-			message: '#^Parameter \#2 \$array of function implode expects array\<string\>, list given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Variable static method call on PhpMyAdmin\\Util\.$#'
-			identifier: staticMethod.dynamicName
-			count: 1
-			path: src/Util.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -13090,42 +13993,6 @@ parameters:
 			path: src/Utils/ForeignKey.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Utils\\FormatConverter\:\:binaryToIp\(\) should return string\|false but returns mixed\.$#'
-			identifier: return.type
-			count: 2
-			path: src/Utils/FormatConverter.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Utils\\FormatConverter\:\:ipToBinary\(\) should return string but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Utils/FormatConverter.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function str_starts_with expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Utils/FormatConverter.php
-
-		-
-			message: '#^Parameter \#1 \$ip of function inet_pton expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Utils/FormatConverter.php
-
-		-
-			message: '#^Parameter \#1 \$string of function bin2hex expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Utils/FormatConverter.php
-
-		-
-			message: '#^Parameter \#1 \$string of function substr expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Utils/FormatConverter.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -13150,12 +14017,6 @@ parameters:
 			path: src/Utils/HttpRequest.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Utils\\HttpRequest\:\:response\(\) should return bool\|string\|null but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Utils/HttpRequest.php
-
-		-
 			message: '#^Offset 1 might not exist on array\{\}\|array\{non\-falsy\-string, numeric\-string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
@@ -13174,7 +14035,7 @@ parameters:
 			path: src/Utils/HttpRequest.php
 
 		-
-			message: '#^Parameter \#3 \$value of function curl_setopt expects array\|string, mixed given\.$#'
+			message: '#^Parameter \#3 \$value of function curl_setopt expects array\|string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Utils/HttpRequest.php
@@ -13336,18 +14197,6 @@ parameters:
 			'''
 			identifier: method.deprecatedClass
 			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '#^Call to static method Webmozart\\Assert\\Assert\:\:isInstanceOf\(\) with Webauthn\\PublicKeyCredentialCreationOptions and ''Webauthn\\\\PublicKeyCredentialCreationOptions'' will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '#^Call to static method Webmozart\\Assert\\Assert\:\:isInstanceOf\(\) with Webauthn\\PublicKeyCredentialRequestOptions and ''Webauthn\\\\PublicKeyCredentialRequestOptions'' will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
 			path: src/WebAuthn/WebauthnLibServer.php
 
 		-
@@ -13611,12 +14460,6 @@ parameters:
 		-
 			message: '#^Property PhpMyAdmin\\Tests\\Selenium\\TestBase\:\:\$sqlWindowHandle \(string\|null\) does not accept mixed\.$#'
 			identifier: assign.propertyType
-			count: 1
-			path: tests/end-to-end/TestBase.php
-
-		-
-			message: '#^Strict comparison using \=\=\= between Facebook\\WebDriver\\Remote\\RemoteWebDriver and null will always evaluate to false\.$#'
-			identifier: identical.alwaysFalse
 			count: 1
 			path: tests/end-to-end/TestBase.php
 
@@ -15244,30 +16087,6 @@ parameters:
 			path: tests/unit/Database/EventsTest.php
 
 		-
-			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
-			identifier: attribute.notFound
-			count: 1
-			path: tests/unit/Database/RoutinesTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: tests/unit/Database/RoutinesTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: tests/unit/Database/RoutinesTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -15593,6 +16412,51 @@ parameters:
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: tests/unit/Gis/GisPolygonTest.php
+
+		-
+			message: '''
+				#^Access to constant on deprecated class TCPDF_STATIC\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 2
+			path: tests/unit/Gis/GisVisualizationTest.php
+
+		-
+			message: '''
+				#^Call to method Output\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/Gis/GisVisualizationTest.php
+
+		-
+			message: '''
+				#^Call to method setCompression\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/Gis/GisVisualizationTest.php
+
+		-
+			message: '''
+				#^Call to method setDocCreationTimestamp\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/Gis/GisVisualizationTest.php
+
+		-
+			message: '''
+				#^Call to method setDocModificationTimestamp\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/Gis/GisVisualizationTest.php
 
 		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''author'' and array\{hash\: ''97b9895908f281b62c9…'', branch\: ''QA_5_2'', message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
@@ -16075,6 +16939,114 @@ parameters:
 			path: tests/unit/Partitioning/TablePartitionDefinitionTest.php
 
 		-
+			message: '''
+				#^Call to method AddPage\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method Bookmark\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method Cell\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method Line\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method Ln\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method Open\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method getPDFData\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 3
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method setAutoPageBreak\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method setDrawColor\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method setFont\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method setMargins\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
+			message: '''
+				#^Call to method setTitle\(\) of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: tests/unit/PdfTest.php
+
+		-
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
@@ -16400,15 +17372,6 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Plugins/Schema/SvgRelationSchemaTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: tests/unit/Plugins/Transformations/TransformationPluginsTest.php
 
 		-
 			message: '#^Method PhpMyAdmin\\Tests\\Plugins\\Transformations\\TransformationPluginsTest\:\:testTransformation\(\) has parameter \$applyArgs with no value type specified in iterable type array\.$#'
@@ -16942,16 +17905,10 @@ parameters:
 			path: tests/unit/Utils/ForeignKeyTest.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Tests\\Utils\\FormatConverterTest\:\:providerBinaryToIp\(\) should return array\<array\{string, string, bool\}\> but returns array\{array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', false\}, array\{''my ip'', ''my ip'', false\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''6d79206970'', ''my ip'', true\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''666566'', ''fef'', true\}, array\{''0ded'', string\|false, true\}, array\{''127\.0\.0\.1'', string\|false, true\}\}\.$#'
+			message: '#^Method PhpMyAdmin\\Tests\\Utils\\FormatConverterTest\:\:providerBinaryToIp\(\) should return array\<array\{string, string, bool\}\> but returns array\{array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', false\}, array\{''my ip'', ''my ip'', false\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''6d79206970'', ''my ip'', true\}, array\{''10\.11\.12\.13'', ''0x0a0b0c0d'', true\}, array\{''666566'', ''fef'', true\}, array\{''0ded'', string\|false, true\}, array\{''127\.0\.0\.1'', string\|false, true\}, \.\.\.\}\.$#'
 			identifier: return.type
 			count: 1
 			path: tests/unit/Utils/FormatConverterTest.php
-
-		-
-			message: '#^Binary operation "\." between ''Not supported in…'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: tests/unit/Utils/HttpRequestTest.php
 
 		-
 			message: '#^Only booleans are allowed in a negated boolean, string\|false given\.$#'
@@ -16960,15 +17917,9 @@ parameters:
 			path: tests/unit/Utils/HttpRequestTest.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function stripos expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: tests/unit/Utils/HttpRequestTest.php
-
-		-
 			message: '#^Parameter \#1 \$result of method PhpMyAdmin\\Tests\\Utils\\HttpRequestTest\:\:validateHttp\(\) expects bool\|string\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 4
+			count: 2
 			path: tests/unit/Utils/HttpRequestTest.php
 
 		-

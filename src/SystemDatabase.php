@@ -129,7 +129,9 @@ class SystemDatabase
      */
     public function getColumnMapFromSql(string $sqlQuery, array $viewColumns): array
     {
-        $result = $this->dbi->tryQuery($sqlQuery);
+        // Wrap the query so that only the column metadata is fetched and no row
+        // is ever materialized, otherwise a large VIEW can exhaust the memory.
+        $result = $this->dbi->tryQuery('SELECT * FROM (' . $sqlQuery . ') AS tmp LIMIT 0');
 
         if ($result === false) {
             return [];

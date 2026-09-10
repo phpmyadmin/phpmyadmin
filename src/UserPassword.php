@@ -26,32 +26,25 @@ class UserPassword
     ) {
     }
 
-    /**
-     * Generate the message
-     *
-     * @return array{error: bool, msg: Message} error value and message
-     */
-    public function setChangePasswordMsg(string $pmaPw, string $pmaPw2, bool $skipPassword): array
+    public function setChangePasswordMsg(string $pmaPw, string $pmaPw2, bool $skipPassword): Message
     {
-        $error = false;
-        $message = Message::success(__('The profile has been updated.'));
-
         if ($skipPassword === false) {
             if ($pmaPw === '' || $pmaPw2 === '') {
-                $message = Message::error(__('The password is empty!'));
-                $error = true;
-            } elseif ($pmaPw !== $pmaPw2) {
-                $message = Message::error(
+                return Message::error(__('The password is empty!'));
+            }
+
+            if ($pmaPw !== $pmaPw2) {
+                return Message::error(
                     __('The passwords aren\'t the same!'),
                 );
-                $error = true;
-            } elseif (strlen($pmaPw) > 256) {
-                $message = Message::error(__('Password is too long!'));
-                $error = true;
+            }
+
+            if (strlen($pmaPw) > 256) {
+                return Message::error(__('Password is too long!'));
             }
         }
 
-        return ['error' => $error, 'msg' => $message];
+        return Message::success(__('The profile has been updated.'));
     }
 
     /**

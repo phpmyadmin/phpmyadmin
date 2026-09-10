@@ -35,11 +35,9 @@ final readonly class NavigationController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
-            $this->response->addHTML(
-                Message::error(
-                    __('Fatal error: The navigation can only be accessed via AJAX'),
-                )->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(
+                __('Fatal error: The navigation can only be accessed via AJAX'),
+            ));
 
             return $this->response->response();
         }

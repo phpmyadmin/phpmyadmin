@@ -677,9 +677,6 @@ abstract class TestBase extends TestCase
         $screenshotDir = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR
             . '..' . DIRECTORY_SEPARATOR . 'build' . DIRECTORY_SEPARATOR
             . 'selenium';
-        if ($this->webDriver === null) {
-            return;
-        }
 
         $key = time();
 
@@ -736,13 +733,12 @@ abstract class TestBase extends TestCase
     /**
      * Wait for an element to be present on the page or timeout
      *
-     * @param string $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
-     * @param string $arg     Selector
-     * @param int    $timeout Timeout in seconds
+     * @param string $func Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
+     * @param string $arg  Selector
      */
-    public function waitUntilElementIsPresent(string $func, string $arg, int $timeout): RemoteWebElement
+    public function waitUntilElementIsPresent(string $func, string $arg, int $timeoutInSeconds): RemoteWebElement
     {
-        $element = $this->webDriver->wait($timeout, 500)->until(
+        $element = $this->webDriver->wait($timeoutInSeconds, 500)->until(
             WebDriverExpectedCondition::presenceOfElementLocated(WebDriverBy::$func($arg)),
         );
         self::assertInstanceOf(RemoteWebElement::class, $element);
@@ -753,13 +749,12 @@ abstract class TestBase extends TestCase
     /**
      * Wait for an element to be visible on the page or timeout
      *
-     * @param string $func    Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
-     * @param string $arg     Selector
-     * @param int    $timeout Timeout in seconds
+     * @param string $func Locate using - cssSelector, xpath, tagName, partialLinkText, linkText, name, id, className
+     * @param string $arg  Selector
      */
-    public function waitUntilElementIsVisible(string $func, string $arg, int $timeout = 10): WebDriverElement
+    public function waitUntilElementIsVisible(string $func, string $arg, int $timeoutInSeconds = 10): WebDriverElement
     {
-        $element = $this->webDriver->wait($timeout, 500)->until(
+        $element = $this->webDriver->wait($timeoutInSeconds, 500)->until(
             WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::$func($arg)),
         );
         self::assertInstanceOf(WebDriverElement::class, $element);
@@ -933,7 +928,7 @@ abstract class TestBase extends TestCase
             $ele->click();
             $this->waitForElement('cssSelector', 'li.dropdown.show > a');
 
-            $this->waitUntilElementIsPresent('cssSelector', 'li.nav-item.dropdown.show > ul', 5000);
+            $this->waitUntilElementIsPresent('cssSelector', 'li.nav-item.dropdown.show > ul', 5);
         } catch (WebDriverException) {
             return;
         }

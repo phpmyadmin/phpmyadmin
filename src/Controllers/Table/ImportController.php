@@ -98,7 +98,7 @@ final readonly class ImportController implements InvocableController
         if ($importList === []) {
             $this->response->addHTML(Message::error(__(
                 'Could not load import plugins, please check your installation!',
-            ))->getDisplay());
+            )));
 
             return $this->response->response();
         }

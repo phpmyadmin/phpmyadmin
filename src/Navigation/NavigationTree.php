@@ -1104,7 +1104,7 @@ class NavigationTree
             'li_classes' => $liClasses,
             'control_buttons' => $controlButtons,
             'node_is_container' => $nodeIsContainer,
-            'has_second_icon' => isset($node->secondIcon),
+            'has_second_icon' => $node instanceof NodeTable && $node->secondIcon !== null,
             'recursive' => ['html' => $recursiveHtml ?? '', 'has_wrapper' => $wrap, 'is_hidden' => ! $node->visible],
             'icon_links' => $iconLinks,
             'text_link' => $textLink,

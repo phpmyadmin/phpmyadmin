@@ -29,11 +29,10 @@ final readonly class ImageWrapper
     }
 
     /**
-     * @param int<1, max>                                                         $width
-     * @param int<1, max>                                                         $height
-     * @param array{red: int<0, 255>, green: int<0, 255>, blue: int<0, 255>}|null $background
+     * @param int<1, max> $width
+     * @param int<1, max> $height
      */
-    public static function create(int $width, int $height, array|null $background = null): self|null
+    public static function create(int $width, int $height, Color|null $background = null): self|null
     {
         if (! extension_loaded('gd')) {
             return null; // @codeCoverageIgnore
@@ -48,7 +47,7 @@ final readonly class ImageWrapper
             return new self($image);
         }
 
-        $backgroundColor = imagecolorallocate($image, $background['red'], $background['green'], $background['blue']);
+        $backgroundColor = imagecolorallocate($image, $background->red, $background->green, $background->blue);
         if ($backgroundColor === false) {
             return null; // @codeCoverageIgnore
         }
@@ -86,14 +85,9 @@ final readonly class ImageWrapper
         return imagearc($this->image, $centerX, $centerY, $width, $height, $startAngle, $endAngle, $color);
     }
 
-    /**
-     * @param int<0, 255> $red
-     * @param int<0, 255> $green
-     * @param int<0, 255> $blue
-     */
-    public function colorAllocate(int $red, int $green, int $blue): int|false
+    public function colorAllocate(Color $color): int|false
     {
-        return imagecolorallocate($this->image, $red, $green, $blue);
+        return imagecolorallocate($this->image, $color->red, $color->green, $color->blue);
     }
 
     public function copyResampled(

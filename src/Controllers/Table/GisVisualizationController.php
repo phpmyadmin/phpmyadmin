@@ -81,9 +81,7 @@ final readonly class GisVisualizationController implements InvocableController
         // Throw error if no sql query is set
         if ($sqlQuery === null) {
             $this->response->setRequestStatus(false);
-            $this->response->addHTML(
-                Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(__('No SQL query was set to fetch data.')));
 
             return $this->response->response();
         }
@@ -92,9 +90,7 @@ final readonly class GisVisualizationController implements InvocableController
 
         if ($spatialCandidates === []) {
             $this->response->setRequestStatus(false);
-            $this->response->addHTML(
-                Message::error(__('No spatial column found for this SQL query.'))->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(__('No spatial column found for this SQL query.')));
 
             return $this->response->response();
         }

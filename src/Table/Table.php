@@ -260,11 +260,9 @@ class Table implements Stringable
      * Returns full table status info, or specific if $info provided
      * this info is collected from information_schema
      *
-     * @param T $info specific information to be fetched
+     * @param string|null $info specific information to be fetched
      *
-     * @return (T is null ? (string|int|null)[]|null : (string|int|null))
-     *
-     * @template T of string|null
+     * @return ($info is null ? (string|int|null)[]|null : (string|int|null))
      */
     public function getStatusInfo(string|null $info = null): array|string|int|null
     {
@@ -1037,7 +1035,7 @@ class Table implements Stringable
     public function getColumnsMeta(): array
     {
         $moveColumnsSqlQuery = sprintf(
-            'SELECT * FROM %s.%s LIMIT 1',
+            'SELECT * FROM %s.%s LIMIT 0',
             Util::backquote($this->dbName),
             Util::backquote($this->name),
         );
@@ -1604,8 +1602,8 @@ class Table implements Stringable
                             __(
                                 'Error creating foreign key on %1$s (check data types)',
                             ),
+                            [implode(', ', $masterField)],
                         );
-                        $message->addParam(implode(', ', $masterField));
                         $htmlOutput .= $message->getDisplay();
                     } else {
                         $htmlOutput .= Generator::mysqlDie($tmpErrorCreate, $createQuery, false);

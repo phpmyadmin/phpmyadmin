@@ -9,15 +9,13 @@ use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\I18n\TextDirection;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Twig\PmaGlobalVariable;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
-use RuntimeException;
 use Twig\Error\RuntimeError;
 use Twig\Loader\FilesystemLoader;
 
-#[CoversClass(PmaGlobalVariable::class)]
+#[CoversClass(Template::class)]
 final class PmaGlobalVariableTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -36,32 +34,13 @@ final class PmaGlobalVariableTest extends AbstractTestCase
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
     }
 
-    public function testUndefinedVariable(): void
-    {
-        self::expectException(RuntimeException::class);
-        self::expectExceptionMessage('The "pma.undefined_variable" variable is not available.');
-        /**
-         * @psalm-suppress UndefinedMagicMethod
-         * @phpstan-ignore-next-line
-         */
-        (new PmaGlobalVariable())->undefined_variable();
-    }
-
-    public function testVersion(): void
-    {
-        self::assertSame(Version::VERSION, (new PmaGlobalVariable())->version());
-    }
-
-    public function testTextDir(): void
-    {
-        LanguageManager::$textDirection = TextDirection::LeftToRight;
-        self::assertSame('ltr', (new PmaGlobalVariable())->text_dir());
-    }
-
     public function testUndefinedVariableFromTwig(): void
     {
         self::expectException(RuntimeError::class);
-        self::expectExceptionMessage('The "pma.undefined_variable" variable is not available.');
+        self::expectExceptionMessage(
+            'Key "undefined_variable" for sequence/mapping with keys "version, text_dir" does not exist'
+            . ' in "pma_global_variable/undefined_variable.twig" at line 1.',
+        );
         (new Template(new Config()))->render('pma_global_variable/undefined_variable', []);
     }
 

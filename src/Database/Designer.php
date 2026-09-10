@@ -245,11 +245,11 @@ class Designer
 
         $displayedFields = [];
         foreach ($designerTables as $designerTable) {
-            if ($designerTable->getDisplayField() === null) {
+            if ($designerTable->displayField === null) {
                 continue;
             }
 
-            $displayedFields[$designerTable->getTableName()] = $designerTable->getDisplayField();
+            $displayedFields[$designerTable->tableName] = $designerTable->displayField;
         }
 
         $designerConfig = new stdClass();

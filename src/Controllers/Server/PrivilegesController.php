@@ -96,10 +96,7 @@ final readonly class PrivilegesController implements InvocableController
 
         if (! $this->dbi->isSuperUser() && ! $isGrantUser && ! $isCreateUser) {
             $this->response->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
-            $this->response->addHTML(
-                Message::error(__('No Privileges'))
-                    ->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(__('No Privileges')));
 
             return $this->response->response();
         }
@@ -107,7 +104,7 @@ final readonly class PrivilegesController implements InvocableController
         if (! $isGrantUser && ! $isCreateUser) {
             $this->response->addHTML(Message::notice(
                 __('You do not have the privileges to administrate the users!'),
-            )->getDisplay());
+            ));
         }
 
         $isChangeCopyUser = $request->hasBodyParam('change_copy');
@@ -121,15 +118,13 @@ final readonly class PrivilegesController implements InvocableController
             && $serverPrivileges->username === $request->getParsedBodyParam('old_username')
             && $serverPrivileges->hostname === $request->getParsedBodyParam('old_hostname')
         ) {
-            $this->response->addHTML(
-                Message::error(
-                    __(
-                        "Username and hostname didn't change. "
-                        . 'If you only want to change the password, '
-                        . "'Change password' tab should be used.",
-                    ),
-                )->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(
+                __(
+                    "Username and hostname didn't change. "
+                    . 'If you only want to change the password, '
+                    . "'Change password' tab should be used.",
+                ),
+            ));
             $this->response->setRequestStatus(false);
 
             return $this->response->response();
@@ -143,7 +138,7 @@ final readonly class PrivilegesController implements InvocableController
                 $request->getParsedBodyParamAsString('old_hostname', ''),
             );
             if ($password instanceof Message) {
-                $this->response->addHTML($password->getDisplay());
+                $this->response->addHTML($password);
                 $password = null;
                 $isChangeCopyUser = false;
             }

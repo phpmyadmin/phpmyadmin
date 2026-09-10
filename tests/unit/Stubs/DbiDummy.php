@@ -1499,7 +1499,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `process` DESC',
                 'columns' => ['Id', 'User', 'Host', 'db', 'Command', 'Time', 'State', 'Info'],
-                'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
+                'result' => [['Id1', 'User1', 'Host1:12345', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
             ],
             ['query' => 'SELECT UNIX_TIMESTAMP() - 36000', 'result' => []],
             [
@@ -1623,7 +1623,7 @@ class DbiDummy implements DbiExtension
                     ],
                 ],
             ],
-            ['query' => 'SELECT * FROM `testdb`.`mytable` LIMIT 1', 'columns' => ['aid','_id'], 'result' => [[1,1]]],
+            ['query' => 'SELECT * FROM `testdb`.`mytable` LIMIT 0', 'columns' => ['aid','_id'], 'result' => [[1,1]]],
             [
                 'query' => 'SHOW CREATE TABLE `test_db`.`test_table`',
                 'columns' => ['Table', 'Create Table'],
@@ -2303,6 +2303,11 @@ class DbiDummy implements DbiExtension
                     ['utf8_bin', 'utf8', '83', '', 'Yes', '1'],
                     ['latin1_swedish_ci', 'latin1', '8', 'Yes', 'Yes', '1'],
                 ],
+            ],
+            [
+                'query' => 'SELECT `COLUMN_NAME`, `COLUMN_TYPE` FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'database\' AND `TABLE_NAME` COLLATE utf8_bin = \'table\' ORDER BY `ORDINAL_POSITION`',
+                'columns' => ['COLUMN_NAME', 'COLUMN_TYPE'],
+                'result' => [['id<>', 'int(11)'], ['name', 'varchar(255)'], ['email', 'varchar(255)']],
             ],
         ];
     }

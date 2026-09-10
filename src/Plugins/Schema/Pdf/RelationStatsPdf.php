@@ -19,10 +19,6 @@ use function sqrt;
  * and helps in generating the Table references and then connects
  * master table's master field to foreign table's foreign key
  * in PDF document.
- *
- * @see Pdf::setDrawColor
- * @see Pdf::setLineWidthScale
- * @see Pdf::lineScale
  */
 class RelationStatsPdf extends RelationStats
 {
@@ -47,8 +43,6 @@ class RelationStatsPdf extends RelationStats
 
     /**
      * draws relation links and arrows shows foreign key relations
-     *
-     * @see    Pdf
      *
      * @param bool $showColor Whether to use one color per relation or not
      * @param int  $i         The id of the link to draw

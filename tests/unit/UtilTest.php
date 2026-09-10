@@ -188,6 +188,7 @@ class UtilTest extends AbstractTestCase
             ['@TABLE@', 'table'],
             ['@IGNORE@', '@IGNORE@'],
             ['@PHPMYADMIN@', 'phpMyAdmin ' . Version::VERSION],
+            ['@COLUMNS@', 'id<>,name,email'],
         ];
     }
 

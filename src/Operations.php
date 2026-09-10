@@ -25,8 +25,6 @@ use function array_merge;
 use function count;
 use function explode;
 use function in_array;
-use function is_scalar;
-use function is_string;
 use function mb_strtolower;
 use function str_replace;
 use function strtolower;
@@ -855,8 +853,13 @@ class Operations
      * @param string $db    current database name
      * @param string $table current table name
      */
-    public function moveOrCopyTable(UserPrivileges $userPrivileges, string $db, string $table): Message
-    {
+    public function moveOrCopyTable(
+        UserPrivileges $userPrivileges,
+        string $db,
+        string $table,
+        string $targetDb,
+        string $newName,
+    ): Message {
         /**
          * Selects the database to work with
          */
@@ -866,16 +869,15 @@ class Operations
          * $_POST['target_db'] could be empty in case we came from an input field
          * (when there are many databases, no drop-down)
          */
-        $targetDb = $db;
-        if (isset($_POST['target_db']) && is_string($_POST['target_db']) && $_POST['target_db'] !== '') {
-            $targetDb = $_POST['target_db'];
+        if ($targetDb === '') {
+            $targetDb = $db;
         }
 
         /**
          * A target table name has been sent to this script -> do the work
          */
-        if (isset($_POST['new_name']) && is_scalar($_POST['new_name']) && (string) $_POST['new_name'] !== '') {
-            if ($db === $targetDb && $table === $_POST['new_name']) {
+        if ($newName !== '') {
+            if ($db === $targetDb && $table === $newName) {
                 if (isset($_POST['submit_move'])) {
                     $message = Message::error(__('Can\'t move table to same one!'));
                 } else {
@@ -887,7 +889,7 @@ class Operations
                     $db,
                     $table,
                     $targetDb,
-                    (string) $_POST['new_name'],
+                    $newName,
                     $move ? MoveScope::Move : MoveScope::from($_POST['what']),
                     MoveMode::SingleTable,
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
@@ -895,21 +897,9 @@ class Operations
 
                 if (! empty($_POST['adjust_privileges'])) {
                     if (isset($_POST['submit_move'])) {
-                        $this->adjustPrivilegesRenameOrMoveTable(
-                            $userPrivileges,
-                            $db,
-                            $table,
-                            $targetDb,
-                            (string) $_POST['new_name'],
-                        );
+                        $this->adjustPrivilegesRenameOrMoveTable($userPrivileges, $db, $table, $targetDb, $newName);
                     } else {
-                        $this->adjustPrivilegesCopyTable(
-                            $userPrivileges,
-                            $db,
-                            $table,
-                            $targetDb,
-                            (string) $_POST['new_name'],
-                        );
+                        $this->adjustPrivilegesCopyTable($userPrivileges, $db, $table, $targetDb, $newName);
                     }
 
                     if (isset($_POST['submit_move'])) {
@@ -935,19 +925,16 @@ class Operations
                     );
                 }
 
-                $old = Util::backquote($db) . '.'
-                    . Util::backquote($table);
+                $old = Util::backquote($db) . '.' . Util::backquote($table);
                 $message->addParam($old);
 
-                $newName = (string) $_POST['new_name'];
                 if ($this->dbi->getLowerCaseNames() === 1) {
                     $newName = strtolower($newName);
                 }
 
                 Current::$table = $newName;
 
-                $new = Util::backquote($targetDb) . '.'
-                    . Util::backquote($newName);
+                $new = Util::backquote($targetDb) . '.' . Util::backquote($newName);
                 $message->addParam($new);
             }
         } else {

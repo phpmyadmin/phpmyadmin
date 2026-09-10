@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
-use PhpMyAdmin\Config;
+use Closure;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Plugins\Transformations\Abs\DateFormatTransformationsPlugin;
@@ -47,7 +47,6 @@ use PhpMyAdmin\Tests\FieldHelper;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
-use ReflectionMethod;
 
 use function date_default_timezone_set;
 use function function_exists;
@@ -109,280 +108,292 @@ class TransformationPluginsTest extends AbstractTestCase
         date_default_timezone_set('UTC');
     }
 
-    /** @return array<array{0: TransformationsPlugin, 1: string, 2: mixed, 3?: mixed[]}> */
-    public static function multiDataProvider(): array
+    /** @return iterable<array-key, array{0: Closure, 1: mixed, 2?: mixed[]}> */
+    public static function multiDataProvider(): iterable
     {
-        // TODO: Figure out why this is needed here
-        Config::getInstance()->set('CodemirrorEnable', false);
+        // Test data for PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload plugin
+        yield [Image_JPEG_Upload::getName(...), 'Image upload'];
+        yield [
+            Image_JPEG_Upload::getInfo(...),
+            'Image upload functionality which also displays a thumbnail.'
+            . ' The options are the width and height of the thumbnail'
+            . ' in pixels. Defaults to 100 X 100.',
+        ];
 
-        return [
-            // Test data for PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload plugin
-            [new Image_JPEG_Upload(), 'getName', 'Image upload'],
+        yield [Image_JPEG_Upload::getMIMEType(...), 'Image'];
+        yield [Image_JPEG_Upload::getMIMESubtype(...), 'JPEG'];
+        yield [(new Image_JPEG_Upload())->getScripts(...), ['transformations/image_upload.js']];
+        yield [
+            (new Image_JPEG_Upload())->getInputHtml(...),
+            '<img src="" width="150" height="100" '
+            . 'alt="Image preview here"><br><input type="file" '
+            . 'name="fields_uploadtest" accept="image/*" class="image-upload">',
+            ['test', ['150'], '', 0, 0],
+        ];
+
+        yield [
+            (new Image_JPEG_Upload())->getInputHtml(...),
+            '<input type="hidden" name="fields_prev2ndtest" '
+            . 'value="736f6d657468696e67"><input type="hidden" '
+            . 'name="fields2ndtest" value="736f6d657468696e67">'
+            . '<img src="index.php?route=/transformation/wrapper&key=value&lang=en" width="100" '
+            . 'height="100" alt="Image preview here"><br><input type="file" '
+            . 'name="fields_upload2ndtest" accept="image/*" '
+            . 'class="image-upload">',
             [
-                new Image_JPEG_Upload(),
-                'getInfo',
-                'Image upload functionality which also displays a thumbnail.'
-                . ' The options are the width and height of the thumbnail'
-                . ' in pixels. Defaults to 100 X 100.',
+                '2ndtest',
+                ['wrapper_link' => '?table=a', 'wrapper_params' => ['key' => 'value']],
+                'something',
+                0,
+                0,
             ],
-            [new Image_JPEG_Upload(), 'getMIMEType', 'Image'],
-            [new Image_JPEG_Upload(), 'getMIMESubtype', 'JPEG'],
-            [new Image_JPEG_Upload(), 'getScripts', ['transformations/image_upload.js']],
-            [
-                new Image_JPEG_Upload(),
-                'getInputHtml',
-                '<img src="" width="150" height="100" '
-                . 'alt="Image preview here"><br><input type="file" '
-                . 'name="fields_uploadtest" accept="image/*" class="image-upload">',
-                ['test', ['150'], '', 0, 0],
-            ],
-            [
-                new Image_JPEG_Upload(),
-                'getInputHtml',
-                '<input type="hidden" name="fields_prev2ndtest" '
-                . 'value="736f6d657468696e67"><input type="hidden" '
-                . 'name="fields2ndtest" value="736f6d657468696e67">'
-                . '<img src="index.php?route=/transformation/wrapper&key=value&lang=en" width="100" '
-                . 'height="100" alt="Image preview here"><br><input type="file" '
-                . 'name="fields_upload2ndtest" accept="image/*" '
-                . 'class="image-upload">',
-                [
-                    '2ndtest',
-                    ['wrapper_link' => '?table=a', 'wrapper_params' => ['key' => 'value']],
-                    'something',
-                    0,
-                    0,
-                ],
-            ],
-            // Test data for TextPlainFileupload plugin
-            [new Text_Plain_FileUpload(), 'getName', 'Text file upload'],
-            [
-                new Text_Plain_FileUpload(),
-                'getInfo',
-                'File upload functionality for TEXT columns. It does not have a textarea for input.',
-            ],
-            [new Text_Plain_FileUpload(), 'getMIMEType', 'Text'],
-            [new Text_Plain_FileUpload(), 'getMIMESubtype', 'Plain'],
-            [new Text_Plain_FileUpload(), 'getScripts', []],
-            [
-                new Text_Plain_FileUpload(),
-                'getInputHtml',
-                '<input type="file" name="fields_uploadtest">',
-                ['test', [], '', 0, 0],
-            ],
-            [
-                new Text_Plain_FileUpload(),
-                'getInputHtml',
-                '<input type="hidden" name="fields_prev2ndtest" '
-                . 'value="something"><input type="hidden" name="fields2ndtest" '
-                . 'value="something"><input type="file" '
-                . 'name="fields_upload2ndtest">',
-                ['2ndtest', [], 'something', 0, 0],
-            ],
-            // Test data for Text_Plain_Regexvalidation plugin
-            [new Text_Plain_RegexValidation(), 'getName', 'Regex Validation'],
-            [
-                new Text_Plain_RegexValidation(),
-                'getInfo',
-                'Validates the string using regular expression '
-                . 'and performs insert only if string matches it. '
-                . 'The first option is the Regular Expression.',
-            ],
-            [new Text_Plain_RegexValidation(), 'getMIMEType', 'Text'],
-            [new Text_Plain_RegexValidation(), 'getMIMESubtype', 'Plain'],
-            [new Text_Plain_RegexValidation(), 'getInputHtml', '', ['', [], '', 0, 0]],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download plugin
-            [new Application_Octetstream_Download(), 'getName', 'Download'],
-            [
-                new Application_Octetstream_Download(),
-                'getInfo',
-                'Displays a link to download the binary data of the column.'
-                . ' You can use the option to specify the filename.',
-            ],
-            [new Application_Octetstream_Download(), 'getMIMEType', 'Application'],
-            [new Application_Octetstream_Download(), 'getMIMESubtype', 'OctetStream'],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Hex plugin
-            [new Application_Octetstream_Hex(), 'getName', 'Hex'],
-            [
-                new Application_Octetstream_Hex(),
-                'getInfo',
-                'Displays hexadecimal representation of data. Optional first'
-                . ' parameter specifies how often space will be added (defaults'
-                . ' to 2 nibbles).',
-            ],
-            [new Application_Octetstream_Hex(), 'getMIMEType', 'Application'],
-            [new Application_Octetstream_Hex(), 'getMIMESubtype', 'OctetStream'],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Inline plugin
-            [new Image_JPEG_Inline(), 'getName', 'Inline'],
-            [
-                new Image_JPEG_Inline(),
-                'getInfo',
-                'Displays a clickable thumbnail. The options are the maximum width'
-                . ' and height in pixels. The original aspect ratio is preserved.',
-            ],
-            [new Image_JPEG_Inline(), 'getMIMEType', 'Image'],
-            [new Image_JPEG_Inline(), 'getMIMESubtype', 'JPEG'],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Link plugin
-            [new Image_JPEG_Link(), 'getName', 'ImageLink'],
-            [new Image_JPEG_Link(), 'getInfo', 'Displays a link to download this image.'],
-            [new Image_JPEG_Link(), 'getMIMEType', 'Image'],
-            [new Image_JPEG_Link(), 'getMIMESubtype', 'JPEG'],
-            [new Image_JPEG_Link(), 'applyTransformationNoWrap', false],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline plugin
-            [new Image_PNG_Inline(), 'getName', 'Inline'],
-            [
-                new Image_PNG_Inline(),
-                'getInfo',
-                'Displays a clickable thumbnail. The options are the maximum width'
-                . ' and height in pixels. The original aspect ratio is preserved.',
-            ],
-            [new Image_PNG_Inline(), 'getMIMEType', 'Image'],
-            [new Image_PNG_Inline(), 'getMIMESubtype', 'PNG'],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Dateformat plugin
-            [new Text_Plain_Dateformat(), 'getName', 'Date Format'],
-            [
-                new Text_Plain_Dateformat(),
-                'getInfo',
-                'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp'
-                . ' column as formatted date. The first option is the offset (in'
-                . ' hours) which will be added to the timestamp (Default: 0). Use'
-                . ' second option to specify a different date/time format string.'
-                . ' Third option determines whether you want to see local date or'
-                . ' UTC one (use "local" or "utc" strings) for that. According to'
-                . ' that, date format has different value - for "local" see the'
-                . ' documentation for PHP\'s strftime() function and for "utc" it'
-                . ' is done using gmdate() function.',
-            ],
-            [new Text_Plain_Dateformat(), 'getMIMEType', 'Text'],
-            [new Text_Plain_Dateformat(), 'getMIMESubtype', 'Plain'],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External plugin
-            [new Text_Plain_External(), 'getName', 'External'],
-            [
-                new Text_Plain_External(),
-                'getInfo',
-                'LINUX ONLY:'
-                . ' Launches an external application and feeds it the column'
-                . ' data via standard input. Returns the standard output of the'
-                . ' application. The default is Tidy, to pretty-print HTML code.'
-                . ' For security reasons, you have to manually edit the file'
-                . ' src/Plugins/Transformations/Abs/ExternalTransformationsPlugin'
-                . '.php and list the tools you want to make available.'
-                . ' The first option is then the number of the program you want to'
-                . ' use. The second option should be blank for historical reasons.'
-                . ' The third option, if set to 1, will convert the output using'
-                . ' htmlspecialchars() (Default 1). The fourth option, if set to 1,'
-                . ' will prevent wrapping and ensure that the output appears all on'
-                . ' one line (Default 1).',
-            ],
-            [new Text_Plain_External(), 'getMIMEType', 'Text'],
-            [new Text_Plain_External(), 'getMIMESubtype', 'Plain'],
-            [
-                new Text_Plain_External(),
-                'applyTransformationNoWrap',
-                true,
-                [['/dev/null -i -wrap -q', '/dev/null -i -wrap -q']],
-            ],
-            [
-                new Text_Plain_External(),
-                'applyTransformationNoWrap',
-                true,
-                [['/dev/null -i -wrap -q', '/dev/null -i -wrap -q', '/dev/null -i -wrap -q', 1]],
-            ],
-            [
-                new Text_Plain_External(),
-                'applyTransformationNoWrap',
-                true,
-                [['/dev/null -i -wrap -q', '/dev/null -i -wrap -q', '/dev/null -i -wrap -q', '1']],
-            ],
-            [
-                new Text_Plain_External(),
-                'applyTransformationNoWrap',
-                false,
-                [['/dev/null -i -wrap -q', '/dev/null -i -wrap -q', '/dev/null -i -wrap -q', 2]],
-            ],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Formatted plugin
-            [new Text_Plain_Formatted(), 'getName', 'Formatted'],
-            [
-                new Text_Plain_Formatted(),
-                'getInfo',
-                'Displays the contents of the column as-is, without running it'
-                . ' through htmlspecialchars(). That is, the column is assumed'
-                . ' to contain valid HTML.',
-            ],
-            [new Text_Plain_Formatted(), 'getMIMEType', 'Text'],
-            [new Text_Plain_Formatted(), 'getMIMESubtype', 'Plain'],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Imagelink plugin
-            [new Text_Plain_Imagelink(), 'getName', 'Image Link'],
-            [
-                new Text_Plain_Imagelink(),
-                'getInfo',
-                'Displays an image and a link; '
-                . 'the column contains the filename. The first option'
-                . ' is a URL prefix like "https://www.example.com/". '
-                . 'The second and third options'
-                . ' are the width and the height in pixels.',
-            ],
-            [new Text_Plain_Imagelink(), 'getMIMEType', 'Text'],
-            [new Text_Plain_Imagelink(), 'getMIMESubtype', 'Plain'],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql plugin
-            [new Text_Plain_Sql(), 'getName', 'SQL'],
-            [new Text_Plain_Sql(), 'getInfo', 'Formats text as SQL query with syntax highlighting.'],
-            [new Text_Plain_Sql(), 'getMIMEType', 'Text'],
-            [new Text_Plain_Sql(), 'getMIMESubtype', 'Plain'],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Link plugin
-            [new Text_Plain_Link(), 'getName', 'TextLink'],
-            [
-                new Text_Plain_Link(),
-                'getInfo',
-                'Displays a link; the column contains the filename. The first option'
-                . ' is a URL prefix like "https://www.example.com/".'
-                . ' The second option is a title for the link.',
-            ],
-            [new Text_Plain_Link(), 'getMIMEType', 'Text'],
-            [new Text_Plain_Link(), 'getMIMESubtype', 'Plain'],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4 plugin
-            [new Text_Plain_Longtoipv4(), 'getName', 'Long To IPv4'],
-            [
-                new Text_Plain_Longtoipv4(),
-                'getInfo',
-                'Converts an (IPv4) Internet network address stored as a BIGINT'
-                . ' into a string in Internet standard dotted format.',
-            ],
-            [new Text_Plain_Longtoipv4(), 'getMIMEType', 'Text'],
-            [new Text_Plain_Longtoipv4(), 'getMIMESubtype', 'Plain'],
-            // Test data for Text_Plain_PreApPend plugin
-            [new Text_Plain_PreApPend(), 'getName', 'PreApPend'],
-            [
-                new Text_Plain_PreApPend(),
-                'getInfo',
-                'Prepends and/or Appends text to a string. First option is text'
-                . ' to be prepended, second is appended (enclosed in single'
-                . ' quotes, default empty string).',
-            ],
-            [new Text_Plain_PreApPend(), 'getMIMEType', 'Text'],
-            [new Text_Plain_PreApPend(), 'getMIMESubtype', 'Plain'],
-            // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring plugin
-            [new Text_Plain_Substring(), 'getName', 'Substring'],
-            [
-                new Text_Plain_Substring(),
-                'getInfo',
-                'Displays a part of a string. The first option is the number '
-                . 'of characters to skip from the beginning of the string '
-                . '(Default 0). The second option is the number of characters '
-                . 'to return (Default: until end of string). The third option is '
-                . 'the string to append and/or prepend when truncation occurs '
-                . '(Default: "…").',
-            ],
-            [new Text_Plain_Substring(), 'getMIMEType', 'Text'],
-            [new Text_Plain_Substring(), 'getMIMESubtype', 'Plain'],
-            [new Text_Plain_Substring(), 'getOptions', ['foo', 'bar', 'baz'], [[], ['foo', 'bar', 'baz']]],
-            [
-                new Text_Plain_Substring(),
-                'getOptions',
-                ['foo', 'bar', 'baz'],
-                [['foo', 'bar', 'baz'], ['foo', 'bar', 'baz']],
-            ],
-            [new Text_Plain_Substring(), 'getOptions', ['foo','bar','baz'], [['foo','bar','baz'],[1,2,3]]],
+        ];
+
+        // Test data for TextPlainFileupload plugin
+        yield [Text_Plain_FileUpload::getName(...), 'Text file upload'];
+        yield [
+            Text_Plain_FileUpload::getInfo(...),
+            'File upload functionality for TEXT columns. It does not have a textarea for input.',
+        ];
+
+        yield [Text_Plain_FileUpload::getMIMEType(...), 'Text'];
+        yield [Text_Plain_FileUpload::getMIMESubtype(...), 'Plain'];
+        yield [(new Text_Plain_FileUpload())->getScripts(...), []];
+        yield [
+            (new Text_Plain_FileUpload())->getInputHtml(...),
+            '<input type="file" name="fields_uploadtest">',
+            ['test', [], '', 0, 0],
+        ];
+
+        yield [
+            (new Text_Plain_FileUpload())->getInputHtml(...),
+            '<input type="hidden" name="fields_prev2ndtest" '
+            . 'value="something"><input type="hidden" name="fields2ndtest" '
+            . 'value="something"><input type="file" '
+            . 'name="fields_upload2ndtest">',
+            ['2ndtest', [], 'something', 0, 0],
+        ];
+
+        // Test data for Text_Plain_Regexvalidation plugin
+        yield [Text_Plain_RegexValidation::getName(...), 'Regex Validation'];
+        yield [
+            Text_Plain_RegexValidation::getInfo(...),
+            'Validates the string using regular expression '
+            . 'and performs insert only if string matches it. '
+            . 'The first option is the Regular Expression.',
+        ];
+
+        yield [Text_Plain_RegexValidation::getMIMEType(...), 'Text'];
+        yield [Text_Plain_RegexValidation::getMIMESubtype(...), 'Plain'];
+        yield [(new Text_Plain_RegexValidation())->getInputHtml(...), '', ['', [], '', 0, 0]];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download plugin
+        yield [Application_Octetstream_Download::getName(...), 'Download'];
+        yield [
+            Application_Octetstream_Download::getInfo(...),
+            'Displays a link to download the binary data of the column.'
+            . ' You can use the option to specify the filename.',
+        ];
+
+        yield [Application_Octetstream_Download::getMIMEType(...), 'Application'];
+        yield [Application_Octetstream_Download::getMIMESubtype(...), 'OctetStream'];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Hex plugin
+        yield [Application_Octetstream_Hex::getName(...), 'Hex'];
+        yield [
+            Application_Octetstream_Hex::getInfo(...),
+            'Displays hexadecimal representation of data. Optional first'
+            . ' parameter specifies how often space will be added (defaults'
+            . ' to 2 nibbles).',
+        ];
+
+        yield [Application_Octetstream_Hex::getMIMEType(...), 'Application'];
+        yield [Application_Octetstream_Hex::getMIMESubtype(...), 'OctetStream'];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Inline plugin
+        yield [Image_JPEG_Inline::getName(...), 'Inline'];
+        yield [
+            Image_JPEG_Inline::getInfo(...),
+            'Displays a clickable thumbnail. The options are the maximum width'
+            . ' and height in pixels. The original aspect ratio is preserved.',
+        ];
+
+        yield [Image_JPEG_Inline::getMIMEType(...), 'Image'];
+        yield [Image_JPEG_Inline::getMIMESubtype(...), 'JPEG'];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Link plugin
+        yield [Image_JPEG_Link::getName(...), 'ImageLink'];
+        yield [Image_JPEG_Link::getInfo(...), 'Displays a link to download this image.'];
+        yield [Image_JPEG_Link::getMIMEType(...), 'Image'];
+        yield [Image_JPEG_Link::getMIMESubtype(...), 'JPEG'];
+        yield [(new Image_JPEG_Link())->applyTransformationNoWrap(...), false];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline plugin
+        yield [Image_PNG_Inline::getName(...), 'Inline'];
+        yield [
+            Image_PNG_Inline::getInfo(...),
+            'Displays a clickable thumbnail. The options are the maximum width'
+            . ' and height in pixels. The original aspect ratio is preserved.',
+        ];
+
+        yield [Image_PNG_Inline::getMIMEType(...), 'Image'];
+        yield [Image_PNG_Inline::getMIMESubtype(...), 'PNG'];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Dateformat plugin
+        yield [Text_Plain_Dateformat::getName(...), 'Date Format'];
+        yield [
+            Text_Plain_Dateformat::getInfo(...),
+            'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp'
+            . ' column as formatted date. The first option is the offset (in'
+            . ' hours) which will be added to the timestamp (Default: 0). Use'
+            . ' second option to specify a different date/time format string.'
+            . ' Third option determines whether you want to see local date or'
+            . ' UTC one (use "local" or "utc" strings) for that. According to'
+            . ' that, date format has different value - for "local" see the'
+            . ' documentation for PHP\'s strftime() function and for "utc" it'
+            . ' is done using gmdate() function.',
+        ];
+
+        yield [Text_Plain_Dateformat::getMIMEType(...), 'Text'];
+        yield [Text_Plain_Dateformat::getMIMESubtype(...), 'Plain'];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External plugin
+        yield [Text_Plain_External::getName(...), 'External'];
+        yield [
+            Text_Plain_External::getInfo(...),
+            'LINUX ONLY:'
+            . ' Launches an external application and feeds it the column'
+            . ' data via standard input. Returns the standard output of the'
+            . ' application. The default is Tidy, to pretty-print HTML code.'
+            . ' For security reasons, you have to manually edit the file'
+            . ' src/Plugins/Transformations/Abs/ExternalTransformationsPlugin'
+            . '.php and list the tools you want to make available.'
+            . ' The first option is then the number of the program you want to'
+            . ' use. The second option should be blank for historical reasons.'
+            . ' The third option, if set to 1, will convert the output using'
+            . ' htmlspecialchars() (Default 1). The fourth option, if set to 1,'
+            . ' will prevent wrapping and ensure that the output appears all on'
+            . ' one line (Default 1).',
+        ];
+
+        yield [Text_Plain_External::getMIMEType(...), 'Text'];
+        yield [Text_Plain_External::getMIMESubtype(...), 'Plain'];
+        yield [
+            (new Text_Plain_External())->applyTransformationNoWrap(...),
+            true,
+            [['/dev/null -i -wrap -q', '/dev/null -i -wrap -q']],
+        ];
+
+        yield [
+            (new Text_Plain_External())->applyTransformationNoWrap(...),
+            true,
+            [['/dev/null -i -wrap -q', '/dev/null -i -wrap -q', '/dev/null -i -wrap -q', 1]],
+        ];
+
+        yield [
+            (new Text_Plain_External())->applyTransformationNoWrap(...),
+            true,
+            [['/dev/null -i -wrap -q', '/dev/null -i -wrap -q', '/dev/null -i -wrap -q', '1']],
+        ];
+
+        yield [
+            (new Text_Plain_External())->applyTransformationNoWrap(...),
+            false,
+            [['/dev/null -i -wrap -q', '/dev/null -i -wrap -q', '/dev/null -i -wrap -q', 2]],
+        ];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Formatted plugin
+        yield [Text_Plain_Formatted::getName(...), 'Formatted'];
+        yield [
+            Text_Plain_Formatted::getInfo(...),
+            'Displays the contents of the column as-is, without running it'
+            . ' through htmlspecialchars(). That is, the column is assumed'
+            . ' to contain valid HTML.',
+        ];
+
+        yield [Text_Plain_Formatted::getMIMEType(...), 'Text'];
+        yield [Text_Plain_Formatted::getMIMESubtype(...), 'Plain'];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Imagelink plugin
+        yield [Text_Plain_Imagelink::getName(...), 'Image Link'];
+        yield [
+            Text_Plain_Imagelink::getInfo(...),
+            'Displays an image and a link; '
+            . 'the column contains the filename. The first option'
+            . ' is a URL prefix like "https://www.example.com/". '
+            . 'The second and third options'
+            . ' are the width and the height in pixels.',
+        ];
+
+        yield [Text_Plain_Imagelink::getMIMEType(...), 'Text'];
+        yield [Text_Plain_Imagelink::getMIMESubtype(...), 'Plain'];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql plugin
+        yield [Text_Plain_Sql::getName(...), 'SQL'];
+        yield [Text_Plain_Sql::getInfo(...), 'Formats text as SQL query with syntax highlighting.'];
+        yield [Text_Plain_Sql::getMIMEType(...), 'Text'];
+        yield [Text_Plain_Sql::getMIMESubtype(...), 'Plain'];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Link plugin
+        yield [Text_Plain_Link::getName(...), 'TextLink'];
+        yield [
+            Text_Plain_Link::getInfo(...),
+            'Displays a link; the column contains the filename. The first option'
+            . ' is a URL prefix like "https://www.example.com/".'
+            . ' The second option is a title for the link.',
+        ];
+
+        yield [Text_Plain_Link::getMIMEType(...), 'Text'];
+        yield [Text_Plain_Link::getMIMESubtype(...), 'Plain'];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4 plugin
+        yield [Text_Plain_Longtoipv4::getName(...), 'Long To IPv4'];
+        yield [
+            Text_Plain_Longtoipv4::getInfo(...),
+            'Converts an (IPv4) Internet network address stored as a BIGINT'
+            . ' into a string in Internet standard dotted format.',
+        ];
+
+        yield [Text_Plain_Longtoipv4::getMIMEType(...), 'Text'];
+        yield [Text_Plain_Longtoipv4::getMIMESubtype(...), 'Plain'];
+
+        // Test data for Text_Plain_PreApPend plugin
+        yield [Text_Plain_PreApPend::getName(...), 'PreApPend'];
+        yield [
+            Text_Plain_PreApPend::getInfo(...),
+            'Prepends and/or Appends text to a string. First option is text'
+            . ' to be prepended, second is appended (enclosed in single'
+            . ' quotes, default empty string).',
+        ];
+
+        yield [Text_Plain_PreApPend::getMIMEType(...), 'Text'];
+        yield [Text_Plain_PreApPend::getMIMESubtype(...), 'Plain'];
+
+        // Test data for PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring plugin
+        yield [Text_Plain_Substring::getName(...), 'Substring'];
+        yield [
+            Text_Plain_Substring::getInfo(...),
+            'Displays a part of a string. The first option is the number '
+            . 'of characters to skip from the beginning of the string '
+            . '(Default 0). The second option is the number of characters '
+            . 'to return (Default: until end of string). The third option is '
+            . 'the string to append and/or prepend when truncation occurs '
+            . '(Default: "…").',
+        ];
+
+        yield [Text_Plain_Substring::getMIMEType(...), 'Text'];
+        yield [Text_Plain_Substring::getMIMESubtype(...), 'Plain'];
+        yield [(new Text_Plain_Substring())->getOptions(...), ['foo', 'bar', 'baz'], [[], ['foo', 'bar', 'baz']]];
+        yield [
+            (new Text_Plain_Substring())->getOptions(...),
+            ['foo', 'bar', 'baz'],
+            [['foo', 'bar', 'baz'], ['foo', 'bar', 'baz']],
+        ];
+
+        yield [
+            (new Text_Plain_Substring())->getOptions(...),
+            ['foo', 'bar', 'baz'],
+            [['foo', 'bar', 'baz'], [1, 2, 3]],
         ];
     }
 
@@ -390,19 +401,14 @@ class TransformationPluginsTest extends AbstractTestCase
      * Tests for getInfo, getName, getMIMEType, getMIMESubtype
      * getScripts, applyTransformationNoWrap, getOptions
      *
-     * @param object  $object   instance of the plugin
-     * @param string  $method   the method name
+     * @param Closure $callable the plugin method callable
      * @param mixed   $expected the expected output
      * @param mixed[] $args     the array of arguments
      */
     #[DataProvider('multiDataProvider')]
-    public function testGetMulti(object $object, string $method, mixed $expected, array $args = []): void
+    public function testGetMulti(Closure $callable, mixed $expected, array $args = []): void
     {
-        $reflectionMethod = new ReflectionMethod($object, $method);
-        self::assertSame(
-            $expected,
-            $reflectionMethod->invokeArgs($object, $args),
-        );
+        self::assertSame($expected, $callable(...$args));
     }
 
     /**

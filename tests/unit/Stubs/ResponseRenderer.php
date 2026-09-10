@@ -87,9 +87,9 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     /**
      * Append HTML code to the response stub
      */
-    public function addHTML(string $content): void
+    public function addHTML(string|Message $content): void
     {
-        $this->htmlString .= $content;
+        $this->htmlString .= $content instanceof Message ? $content->getDisplay($this->template) : $content;
     }
 
     /**
@@ -106,7 +106,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
                 $this->addJSON($key, $value);
             }
         } elseif ($value instanceof Message) {
-            $this->json[$json] = $value->getDisplay();
+            $this->json[$json] = $value->getDisplay($this->template);
         } else {
             $this->json[$json] = $value;
         }

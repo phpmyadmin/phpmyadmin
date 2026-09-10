@@ -65,7 +65,7 @@ final readonly class SearchController implements InvocableController
             $errorMessage .= MySQLDocumentation::showDocumentation('config', 'cfg_UseDbSearch');
             $this->response->setRequestStatus(false);
             if ($request->isAjax()) {
-                $this->response->addJSON('message', Message::error($errorMessage)->getDisplay());
+                $this->response->addJSON('message', Message::error($errorMessage));
 
                 return $this->response->response();
             }

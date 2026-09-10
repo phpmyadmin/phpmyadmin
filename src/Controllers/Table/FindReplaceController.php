@@ -15,7 +15,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
@@ -114,13 +113,7 @@ final class FindReplaceController implements InvocableController
         if ($request->hasBodyParam('replace')) {
             $findString = $request->getParsedBodyParamAsString('findString', '');
             $this->replace($columnIndex, $findString, $replaceWith, $useRegex, $connectionCharSet);
-            $this->response->addHTML(
-                Generator::getMessage(
-                    __('Your SQL query has been executed successfully.'),
-                    null,
-                    MessageType::Success,
-                ),
-            );
+            $this->response->addHTML(Generator::getMessage(Message::success()));
         }
 
         // Displays the find and replace form

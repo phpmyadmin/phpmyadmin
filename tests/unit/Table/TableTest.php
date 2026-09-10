@@ -1321,7 +1321,7 @@ class TableTest extends AbstractTestCase
 
         $dbi->expects(self::once())
             ->method('tryQuery')
-            ->with('SELECT * FROM `db`.`table` LIMIT 1')
+            ->with('SELECT * FROM `db`.`table` LIMIT 0')
             ->willReturn($resultStub);
 
         $dummyFieldMetadata = FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING]);

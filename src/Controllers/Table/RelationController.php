@@ -15,7 +15,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Indexes\Index;
-use PhpMyAdmin\MessageType;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Utils\ForeignKey as ForeignKeyObject;
@@ -142,13 +142,7 @@ final readonly class RelationController implements InvocableController
 
         if ($displayQuery !== '' && ! $seenError) {
             Current::$displayQuery = $displayQuery;
-            $this->response->addHTML(
-                Generator::getMessage(
-                    __('Your SQL query has been executed successfully.'),
-                    null,
-                    MessageType::Success,
-                ),
-            );
+            $this->response->addHTML(Generator::getMessage(Message::success()));
         }
 
         // Updates for display field
@@ -324,9 +318,8 @@ final readonly class RelationController implements InvocableController
 
         $this->response->addHTML(
             Generator::getMessage(
-                __('Display column was successfully updated.'),
+                Message::success(__('Display column was successfully updated.')),
                 '',
-                MessageType::Success,
             ),
         );
     }
@@ -358,9 +351,8 @@ final readonly class RelationController implements InvocableController
 
         $this->response->addHTML(
             Generator::getMessage(
-                __('Internal relationships were successfully updated.'),
+                Message::success(__('Internal relationships were successfully updated.')),
                 '',
-                MessageType::Success,
             ),
         );
     }

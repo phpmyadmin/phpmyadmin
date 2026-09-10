@@ -74,5 +74,5 @@ jobs:
       - name: Run Infection for all files
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
-          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+          INFECTION_DASHBOARD_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
         run: infection --threads=max --no-interaction --log-verbosity=none --logger-github=false

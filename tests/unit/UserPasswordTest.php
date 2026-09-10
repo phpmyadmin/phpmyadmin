@@ -54,14 +54,9 @@ class UserPasswordTest extends AbstractTestCase
         string $password,
         string $passwordConfirmation,
     ): void {
-        self::assertEquals(
-            ['error' => $error, 'msg' => $message],
-            $this->object->setChangePasswordMsg(
-                $password,
-                $passwordConfirmation,
-                $noPassword,
-            ),
-        );
+        $actualMessage = $this->object->setChangePasswordMsg($password, $passwordConfirmation, $noPassword);
+        self::assertSame($error, $actualMessage->isError());
+        self::assertSame($message->getMessage(), $actualMessage->getMessage());
     }
 
     /** @return array{0: bool, 1: Message, 2: bool, 3: string, 4: string}[] */

@@ -320,11 +320,11 @@ abstract class ExportPlugin implements Plugin
 
     protected function setStructureOrData(
         mixed $valueFromRequest,
-        mixed $valueFromConfig,
+        string $valueFromConfig,
         StructureOrData $defaultValue,
     ): StructureOrData {
         return StructureOrData::tryFrom(is_string($valueFromRequest) ? $valueFromRequest : '')
-            ?? StructureOrData::tryFrom(is_string($valueFromConfig) ? $valueFromConfig : '')
+            ?? StructureOrData::tryFrom($valueFromConfig)
             ?? $defaultValue;
     }
 

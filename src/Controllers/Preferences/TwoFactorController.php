@@ -45,9 +45,7 @@ final readonly class TwoFactorController implements InvocableController
             }
 
             $twoFactor->configure($request, '');
-            $this->response->addHTML(
-                Message::rawNotice(__('Two-factor authentication has been removed.'))->getDisplay(),
-            );
+            $this->response->addHTML(Message::rawNotice(__('Two-factor authentication has been removed.')));
         } elseif ($request->hasBodyParam('2fa_configure')) {
             if (! $twoFactor->configure($request, $request->getParsedBodyParamAsString('2fa_configure'))) {
                 $this->response->render('preferences/two_factor/configure', [
@@ -58,9 +56,7 @@ final readonly class TwoFactorController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->addHTML(
-                Message::rawNotice(__('Two-factor authentication has been configured.'))->getDisplay(),
-            );
+            $this->response->addHTML(Message::rawNotice(__('Two-factor authentication has been configured.')));
         }
 
         $backend = $twoFactor->getBackend();

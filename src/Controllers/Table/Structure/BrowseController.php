@@ -77,7 +77,7 @@ final readonly class BrowseController implements InvocableController
                 '', // message_to_show
                 $goto, // goto
                 null, // disp_query
-                '', // disp_message
+                null, // disp_message
                 $sqlQuery, // sql_query
                 $sqlQuery, // complete_query
             ),

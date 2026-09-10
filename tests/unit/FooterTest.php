@@ -78,7 +78,7 @@ class FooterTest extends AbstractTestCase
         $object->childIterator = new ArrayIterator();
         $object->child->parent = $object;
 
-        (new ReflectionMethod(Footer::class, 'removeRecursion'))->invokeArgs($this->object, [&$object]);
+        (new ReflectionMethod(Footer::class, 'removeRecursion'))->invokeArgs(null, [&$object]);
         self::assertSame(
             '{"child":{"parent":"***RECURSION***"},"childIterator":"***ITERATOR***"}',
             json_encode($object),

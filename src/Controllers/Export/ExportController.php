@@ -117,7 +117,7 @@ final readonly class ExportController implements InvocableController
         // Check export type
         if (! $exportPlugin instanceof ExportPlugin) {
             $this->response->setRequestStatus(false);
-            $this->response->addHTML(Message::error(__('Bad type!'))->getDisplay());
+            $this->response->addHTML(Message::error(__('Bad type!')));
 
             return $this->response->response();
         }

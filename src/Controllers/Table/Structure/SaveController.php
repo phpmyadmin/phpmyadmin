@@ -15,7 +15,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Table;
@@ -232,7 +231,7 @@ final class SaveController implements InvocableController
                 $message->addParam(Current::$table);
 
                 $this->response->addHTML(
-                    Generator::getMessage($message, $sqlQuery, MessageType::Success),
+                    Generator::getMessage($message, $sqlQuery),
                 );
             } else {
                 // An error happened while inserting/updating a table definition
@@ -278,7 +277,7 @@ final class SaveController implements InvocableController
                     __('Query error') . ':<br>' . $origError,
                 );
                 $this->response->addHTML(
-                    Generator::getMessage($message, $sqlQuery, MessageType::Error),
+                    Generator::getMessage($message, $sqlQuery),
                 );
                 $regenerate = true;
             }

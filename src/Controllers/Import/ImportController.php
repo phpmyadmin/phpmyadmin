@@ -164,9 +164,8 @@ final readonly class ImportController implements InvocableController
                     'You probably tried to upload a file that is too large. Please refer ' .
                     'to %sdocumentation%s for a workaround for this limit.',
                 ),
+                ['[doc@faq1-16]', '[/doc]'],
             );
-            Current::$message->addParam('[doc@faq1-16]');
-            Current::$message->addParam('[/doc]');
 
             // so we can obtain the message
             $_SESSION['Import_message']['message'] = Current::$message->getDisplay();
@@ -187,7 +186,7 @@ final readonly class ImportController implements InvocableController
         $importFormat = ImportFormat::tryFrom($format);
         if ($importFormat === null) {
             $this->response->setRequestStatus(false);
-            $this->response->addHTML(Message::error(__('Incorrect format parameter'))->getDisplay());
+            $this->response->addHTML(Message::error(__('Incorrect format parameter')));
 
             return $this->response->response();
         }
@@ -401,8 +400,8 @@ final readonly class ImportController implements InvocableController
                 $_SESSION['Import_message']['message'] = $errorMessage->getDisplay();
 
                 $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $errorMessage->getDisplay());
-                $this->response->addHTML($errorMessage->getDisplay());
+                $this->response->addJSON('message', $errorMessage);
+                $this->response->addHTML($errorMessage);
 
                 return $this->response->response();
             }
@@ -416,8 +415,8 @@ final readonly class ImportController implements InvocableController
                 $_SESSION['Import_message']['message'] = $errorMessage->getDisplay();
 
                 $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $errorMessage->getDisplay());
-                $this->response->addHTML($errorMessage->getDisplay());
+                $this->response->addJSON('message', $errorMessage);
+                $this->response->addHTML($errorMessage);
 
                 return $this->response->response();
             }
@@ -433,8 +432,8 @@ final readonly class ImportController implements InvocableController
             $_SESSION['Import_message']['message'] = Current::$message->getDisplay();
 
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', Current::$message->getDisplay());
-            $this->response->addHTML(Current::$message->getDisplay());
+            $this->response->addJSON('message', Current::$message);
+            $this->response->addHTML(Current::$message);
 
             return $this->response->response();
         }
@@ -519,8 +518,8 @@ final readonly class ImportController implements InvocableController
                         ImportSettings::$executedQueries,
                     )
                     . '</em>',
+                    [ImportSettings::$executedQueries],
                 );
-                Current::$message->addParam(ImportSettings::$executedQueries);
 
                 if (ImportSettings::$importNotice !== '') {
                     Current::$message->addHtml(ImportSettings::$importNotice);
@@ -665,7 +664,7 @@ final readonly class ImportController implements InvocableController
                     '', // message_to_show
                     UrlParams::$goto, // goto
                     null, // disp_query
-                    '', // disp_message
+                    null, // disp_message
                     Current::$sqlQuery,
                     Current::$sqlQuery, // complete_query
                 );
@@ -715,7 +714,7 @@ final readonly class ImportController implements InvocableController
             $this->response->addJSON('message', Message::success(ImportSettings::$message));
             $this->response->addJSON(
                 'sql_query',
-                Generator::getMessage(ImportSettings::$message, Current::$sqlQuery, MessageType::Success),
+                Generator::getMessage(new Message(ImportSettings::$message, MessageType::Success), Current::$sqlQuery),
             );
         } elseif (Import::$result === false) {
             $this->response->setRequestStatus(false);

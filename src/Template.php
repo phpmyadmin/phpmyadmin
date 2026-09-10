@@ -7,10 +7,10 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
-use PhpMyAdmin\Twig\PmaGlobalVariable;
 use PhpMyAdmin\Utils\Gis;
 use RuntimeException;
 use Throwable;
@@ -61,7 +61,10 @@ class Template
             $twig->disableStrictVariables();
         }
 
-        $twig->addGlobal('pma', new PmaGlobalVariable());
+        $twig->addGlobal('pma', [
+            'version' => Version::VERSION,
+            'text_dir' => LanguageManager::$textDirection->value,
+        ]);
         $twig->addExtension(new AttributeExtension(Core::class));
         $twig->addExtension(new AttributeExtension(FlashMessenger::class));
         $twig->addExtension(new AttributeExtension(Generator::class));
