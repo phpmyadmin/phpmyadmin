@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:36+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2026-09-11 14:51+0000\n"
+"Last-Translator: st0rmsetter <st0rmsetter@proton.me>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "sq/>\n"
 "Language: sq\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -546,15 +546,11 @@ msgid "Output"
 msgstr "Rezultat"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Zgjedh  \"GeomFromText\" nga kolona \"Function\" dhe ngjite vargun më poshtë "
+"Zgjidh \"GeomFromText\" nga kolona \"Function\" dhe ngjite vargun më poshtë "
 "në fushën \"Value\"."
 
 #: import.php:73
@@ -966,6 +962,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Po përpiqesh të reduktosh numrin e rreshtave, por ke futur tashmë të dhëna "
+"në ato rreshta që do të humbasin. Dëshiron të vazhdosh?"
 
 #: js/messages.php:74
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2028,7 +2026,7 @@ msgid ""
 "database %s has columns that are not present in the current table."
 msgstr ""
 "Nuk ka kolona në listën qendrore. Sigurohu që lista Qendrore e kolonave për "
-"databazën  %s ka kolona, të cilat nuk janë të pranishme në tabelën e aktuale."
+"databazën %s ka kolona, të cilat nuk janë të pranishme në tabelën e aktuale."
 
 #: js/messages.php:437
 msgid "See more"
@@ -2751,7 +2749,7 @@ msgstr "Forte"
 
 #: js/messages.php:751
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Koha ka skaduar duke pritur aktivizimin e çelësit të sigurisë."
 
 #: js/messages.php:752
 #, php-format
@@ -5308,8 +5306,8 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Lëre të zbrazët për asnjë mbështetje  [doc@bookmarks@]të faqeruajtësit[/"
-"doc], sugjerohet: [kbd] 3pma__bookmark[/kbd]"
+"Lëre të zbrazët për asnjë mbështetje [doc@bookmarks@]të faqeruajtësit[/doc], "
+"sugjerohet: [kbd] 3pma__bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1001
 msgid "Bookmark table"
@@ -6152,9 +6150,9 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
-"Emri i përdoruesit për autentifikimin me prokxy. Si standard, nuk është "
-"kryer autentifikimi. Nëse një emër nuk mbështetet,  Autentifikimi bazë do të "
-"kryhet. Asnjë lloj tjetër  autentifikimi nuk mbështetet aktualisht."
+"Emri i përdoruesit për verifikimin me proxy. Si standard, nuk është kryer "
+"verifikimi. Nëse një emër nuk mbështetet, Autentifikimi bazë do të kryhet. "
+"Asnjë lloj tjetër autentifikimi nuk mbështetet aktualisht."
 
 #: libraries/classes/Config/Descriptions.php:1426
 msgid "Proxy username"
@@ -7017,11 +7015,11 @@ msgstr "Gabim: Marrëdhënia e brendshme nuk mund të shtohej!"
 
 #: libraries/classes/Database/Designer/Common.php:693
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "Relacioni FOREIGN KEY  është hequr."
+msgstr "Relacioni FOREIGN KEY është hequr."
 
 #: libraries/classes/Database/Designer/Common.php:699
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Gabim: Relacioni i FOREIGN KEY  nuk mund të hiqet!"
+msgstr "Gabim: Relacioni i FOREIGN KEY nuk mund të hiqet!"
 
 #: libraries/classes/Database/Designer/Common.php:726
 msgid "Error: Internal relationship could not be removed!"
@@ -7222,6 +7220,8 @@ msgid ""
 "Please disable mysql.allow_local_infile in your PHP configuration or install "
 "the mysqli extension."
 msgstr ""
+"Ju lutemi çaktivizoni mysql.allow_local_infile në konfigurimin tuaj PHP ose "
+"instaloni shtesën mysqli."
 
 #: libraries/classes/Dbi/DbiMysqli.php:178
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9300,6 +9300,7 @@ msgstr "Nuk mund të hyjë në MySQL server"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:338
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"Ti ke aktivizuar verifikimin me dy faktorë, ju lutem vërtetoni hyrjen tuaj."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
 #: templates/display/import/import.twig:168
@@ -10293,6 +10294,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"Shtesa GD e PHP-së mungon. Kodi QR nuk mund të shfaqet pa shtesën GD të PHP-"
+"së."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 #, fuzzy
@@ -10323,7 +10326,7 @@ msgstr "Autentifikimi i hyrjes"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Vetëm për arsye testimi!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
 #, fuzzy, php-format
@@ -10343,7 +10346,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
-msgstr ""
+msgstr "Hyni vetëm me fjalëkalim."
 
 #: libraries/classes/RecentFavoriteTable.php:145
 msgid "Could not save recent table!"
@@ -10506,8 +10509,8 @@ msgid ""
 "phpMyAdmin configuration storage there."
 msgstr ""
 "Ju nuk keni privilegjet e nevojshme për të krijuar një databazë me emrin "
-"'phpmyadmin'. Ju mund të shkoni në tabelorin 'Veprimet'  të çdo databaze, "
-"për të rregulluar ruajtjen e konfigurimit phpMyAdmin atje."
+"'phpmyadmin'. Ju mund të shkoni në tabelorin 'Veprimet' të çdo databaze, për "
+"të rregulluar ruajtjen e konfigurimit phpMyAdmin atje."
 
 #: libraries/classes/Relation.php:2056
 #, php-format
@@ -13995,6 +13998,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Nuk arritëm të vendosnim cookie-n e seancës. Ndoshta po përdorni HTTP në "
+"vend të HTTPS për të hyrë në phpMyAdmin."
 
 #: libraries/common.inc.php:344
 msgid "Invalid authentication method set in configuration:"
@@ -14917,7 +14922,7 @@ msgstr "Ruaj në server në drejtorinë <strong>%s</strong>"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "Verifikohuni"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -15088,7 +15093,7 @@ msgstr ""
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Paketat e mëposhtme të composer mungojnë:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
@@ -15577,8 +15582,8 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
-"Fili që ngarkohet ka mundësi të jetë më i madh se madhësia maksimale e "
-"lejuar, ose kjo është një defekt i njohur në bazën webkit të shfletuesve  "
+"Dokumenti që ngarkohet ka mundësi të jetë më i madh se madhësia maksimale e "
+"lejuar, ose kjo është një defekt i njohur në shfletues të bazuar në WebKit "
 "(Safari, Google Chrome, Arora etj.)."
 
 #: templates/display/import/javascript.twig:16
@@ -16291,7 +16296,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "Sekreti/çelësi:"
 
 #: templates/database/designer/table_list.twig:4
 msgid "Hide/Show all"
@@ -17488,7 +17493,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.txt:352
 msgid "Rate of aborted clients"
-msgstr "Norma  e klientëve të abortuar"
+msgstr "Norma e klientëve të abortuar"
 
 #: libraries/advisory_rules_generic.txt:357
 #, php-format
