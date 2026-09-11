@@ -762,6 +762,13 @@ abstract class TestBase extends TestCase
         return $element;
     }
 
+    public function waitUntilElementIsStale(WebDriverElement $element, int $timeoutInSeconds = 30): void
+    {
+        $this->webDriver->wait($timeoutInSeconds, 500)->until(
+            WebDriverExpectedCondition::stalenessOf($element),
+        );
+    }
+
     /**
      * Wait for an element to disappear
      *
