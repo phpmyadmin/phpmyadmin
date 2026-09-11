@@ -1130,23 +1130,6 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getErrorUrl
-     */
-    public function testGetErrorUrl(): void
-    {
-        self::assertSame(
-            'index.php?route=/table/change&lang=en',
-            $this->insertEdit->getErrorUrl([]),
-        );
-
-        $_POST['err_url'] = 'localhost';
-        self::assertSame(
-            'localhost',
-            $this->insertEdit->getErrorUrl([]),
-        );
-    }
-
-    /**
      * Test for executeSqlQuery
      */
     public function testExecuteSqlQuery(): void

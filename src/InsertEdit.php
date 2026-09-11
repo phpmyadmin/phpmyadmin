@@ -796,18 +796,6 @@ class InsertEdit
     }
 
     /**
-     * Defines the url to return in case of failure of the query
-     *
-     * @param mixed[] $urlParams url parameters
-     *
-     * @return string           error url for query failure
-     */
-    public function getErrorUrl(array $urlParams): string
-    {
-        return $_POST['err_url'] ?? Url::getFromRoute('/table/change', $urlParams);
-    }
-
-    /**
      * Executes the sql query and get the result, then move back to the calling page
      *
      * @param string[] $query built query from buildSqlQuery()
