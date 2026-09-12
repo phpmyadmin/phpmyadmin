@@ -63,18 +63,11 @@ class CreateTest extends TestBase
         ];
 
         foreach ($columnDropdownDetails as $selector => $value) {
-            $this->waitForElement(
-                'xpath',
-                '//select[@id=\'' . $selector . '\']//option[contains(text(), \'' . $value . '\')]',
-            )->click();
+            $this->selectSearchableOption($selector, $value);
         }
 
-        // click to load select options
-        $this->byId('field_1_5')->click();
-        $this->waitForElement(
-            'xpath',
-            '//select[@id=\'field_1_5\']//option[contains(text(), \'utf8mb4_general_ci\')]',
-        )->click();
+        // opening the widget triggers a focus event on the underlying select, which lazily loads its options
+        $this->selectSearchableOption('field_1_5', 'utf8mb4_general_ci');
 
         $this->byName('field_default_value[1]')->sendKeys('def');
 
