@@ -21,6 +21,8 @@ use function preg_split;
  */
 class Linux extends Base
 {
+    private const MEMORY_REGEXP = '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im';
+
     /**
      * Gets load information
      *
@@ -74,7 +76,7 @@ class Linux extends Base
             return [];
         }
 
-        preg_match_all(SysInfo::MEMORY_REGEXP, $content, $matches);
+        preg_match_all(self::MEMORY_REGEXP, $content, $matches);
 
         $mem = array_combine($matches[1], $matches[2]);
 

@@ -7260,28 +7260,23 @@
       <code><![CDATA[$dataPoint['name']]]></code>
       <code><![CDATA[$dataPoint['type']]]></code>
       <code><![CDATA[$ret]]></code>
-      <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId][$pointId]]]></code>
-      <code><![CDATA[$serverVars]]></code>
-      <code><![CDATA[$statusVars]]></code>
       <code><![CDATA[$temp[strlen($temp) - 1]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$cpuload['busy']]]></code>
-      <code><![CDATA[$cpuload['idle']]]></code>
-      <code><![CDATA[$cpuload['loadavg']]]></code>
       <code><![CDATA[$dataPoint['name']]]></code>
       <code><![CDATA[$dataPoint['name']]]></code>
       <code><![CDATA[$dataPoint['name']]]></code>
       <code><![CDATA[$dataPoint['type']]]></code>
       <code><![CDATA[$dataPoint['type']]]></code>
-      <code><![CDATA[$memory[$pName]]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId]]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId][$pointId]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$ret[$chartId][$nodeId]]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId]]]></code>
+      <code><![CDATA[$ret[$chartId][$nodeId]]]></code>
+      <code><![CDATA[$ret[$chartId][$nodeId][$pointId]]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId][$pointId]]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId][$pointId]]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId][$pointId]['value']]]></code>
@@ -7291,6 +7286,8 @@
       <code><![CDATA[$ret[$chartId][$nodeId]]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId]]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId]]]></code>
+      <code><![CDATA[$ret[$chartId][$nodeId]]]></code>
+      <code><![CDATA[$ret[$chartId][$nodeId][$pointId]]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId][$pointId]]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId][$pointId]]]></code>
       <code><![CDATA[$ret[$chartId][$nodeId][$pointId]]]></code>
@@ -7300,10 +7297,8 @@
     <MixedAssignment>
       <code><![CDATA[$chartNodes]]></code>
       <code><![CDATA[$chartNodes]]></code>
-      <code><![CDATA[$cpuload]]></code>
       <code><![CDATA[$dataPoint]]></code>
       <code><![CDATA[$dataPoint]]></code>
-      <code><![CDATA[$memory]]></code>
       <code><![CDATA[$nodeDataPoints]]></code>
       <code><![CDATA[$nodeDataPoints]]></code>
       <code><![CDATA[$nodeId]]></code>
@@ -7311,15 +7306,7 @@
       <code><![CDATA[$pointId]]></code>
       <code><![CDATA[$pointId]]></code>
       <code><![CDATA[$ret]]></code>
-      <code><![CDATA[$ret['busy']]]></code>
-      <code><![CDATA[$ret['idle']]]></code>
-      <code><![CDATA[$ret['value']]]></code>
-      <code><![CDATA[$ret['value']]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[loadavg]]></code>
-      <code><![CDATA[memory]]></code>
-    </MixedMethodCall>
     <PossiblyInvalidArgument>
       <code><![CDATA[$temp]]></code>
     </PossiblyInvalidArgument>

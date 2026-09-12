@@ -138,8 +138,7 @@ class Advisor
         $globalStatus = $this->dbi->fetchResult('SHOW GLOBAL STATUS', 0, 1);
         $globalVariables = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES', 0, 1);
 
-        $sysInfo = SysInfo::get();
-        $memory = $sysInfo->memory();
+        $memory = SysInfo::get()->memory();
         $systemMemory = ['system_memory' => $memory['MemTotal'] ?? 0];
 
         $this->variables = array_merge($globalStatus, $globalVariables, $systemMemory);
