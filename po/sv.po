@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-05-03 16:53+0000\n"
-"Last-Translator: Erik Fornander <erik@iccmediasport.com>\n"
+"PO-Revision-Date: 2026-09-14 15:51+0000\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "sv/>\n"
 "Language: sv\n"
@@ -13,11 +13,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12.1\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
-msgstr "Dålig typ!"
+msgstr "Felaktig typ!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -696,10 +696,8 @@ msgid "Server type:"
 msgstr "Servertyp:"
 
 #: index.php:351
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
-msgstr "Huvudanslutning:"
+msgstr "Serveranslutning:"
 
 #: index.php:355 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
@@ -863,6 +861,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$cfg['TempDir'] (%s) är inte åtkomlig. phpMyAdmin kan inte mellanlagra "
+"mallar och kommer därför att vara långsamt."
 
 #: js/messages.php:42
 msgid "Confirm"
@@ -1582,22 +1582,16 @@ msgid "Chart"
 msgstr "Diagram"
 
 #: js/messages.php:299 libraries/classes/Display/Export.php:579
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Databas"
 
 #: js/messages.php:300 libraries/classes/Display/Export.php:591
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabell"
 
 #: js/messages.php:301 libraries/classes/Display/Export.php:602
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Kolumn"
@@ -1787,6 +1781,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Anslutningen till servern verkar ha brutits. Kontrollera "
+"nätverksanslutningen och serverns status."
 
 #: js/messages.php:373
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
@@ -2299,14 +2295,12 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "värdet/underfrågan är tom"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Inga tabeller funna i databasen."
+msgstr "Lägg till tabeller från andra databaser"
 
 #: js/messages.php:566
 msgid "Page name"
@@ -2365,8 +2359,6 @@ msgid "%d object(s) created."
 msgstr "%d objekt skapade."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Column names"
 msgid "Column name"
 msgstr "Kolumnnamn"
 
@@ -2714,8 +2706,7 @@ msgid "Failed security key activation (%s)."
 msgstr ""
 
 #: js/messages.php:755
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3295,50 +3286,36 @@ msgid "Unknown"
 msgstr "Okänd"
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binär"
 
 #: libraries/classes/Charsets.php:365 libraries/classes/Charsets.php:604
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/classes/Charsets.php:375 libraries/classes/Charsets.php:551
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Västeuropeisk"
 
 #: libraries/classes/Charsets.php:382
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Centraleuropeisk"
 
 #: libraries/classes/Charsets.php:387 libraries/classes/Charsets.php:558
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rysk"
 
 #: libraries/classes/Charsets.php:392
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Förenklad kinesiska"
 
 #: libraries/classes/Charsets.php:395
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Traditionell kinesiska"
@@ -3349,99 +3326,71 @@ msgid "Chinese"
 msgstr "Kinesisk"
 
 #: libraries/classes/Charsets.php:406 libraries/classes/Charsets.php:522
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japansk"
 
 #: libraries/classes/Charsets.php:411
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltisk"
 
 #: libraries/classes/Charsets.php:416
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armenisk"
 
 #: libraries/classes/Charsets.php:419
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Kyrillisk"
 
 #: libraries/classes/Charsets.php:422
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabisk"
 
 #: libraries/classes/Charsets.php:425 libraries/classes/Charsets.php:537
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Koreansk"
 
 #: libraries/classes/Charsets.php:428
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebreisk"
 
 #: libraries/classes/Charsets.php:431
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgisk"
 
 #: libraries/classes/Charsets.php:434
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Grekisk"
 
 #: libraries/classes/Charsets.php:437
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Tjeckisk-Slovakisk"
+msgstr "Tjeckisk-slovakisk"
 
 #: libraries/classes/Charsets.php:440 libraries/classes/Charsets.php:596
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrainska"
 
 #: libraries/classes/Charsets.php:443 libraries/classes/Charsets.php:592
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turkisk"
 
 #: libraries/classes/Charsets.php:446 libraries/classes/Charsets.php:584
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Svensk"
 
 #: libraries/classes/Charsets.php:449 libraries/classes/Charsets.php:588
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thailändsk"
@@ -3452,50 +3401,36 @@ msgid "Unknown"
 msgstr "Okänd"
 
 #: libraries/classes/Charsets.php:468
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgarisk"
 
 #: libraries/classes/Charsets.php:479
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Kroatisk"
 
 #: libraries/classes/Charsets.php:483
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tjeckisk"
 
 #: libraries/classes/Charsets.php:487
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dansk"
 
 #: libraries/classes/Charsets.php:491
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Engelsk"
 
 #: libraries/classes/Charsets.php:495
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/classes/Charsets.php:499
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estnisk"
@@ -3511,18 +3446,14 @@ msgid "German (phone book order)"
 msgstr "Tysk (telefonboksordning)"
 
 #: libraries/classes/Charsets.php:514
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Ungersk"
 
 #: libraries/classes/Charsets.php:518
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
-msgstr "Isländska"
+msgstr "Isländsk"
 
 #: libraries/classes/Charsets.php:525
 msgctxt "Collation"
@@ -3530,15 +3461,11 @@ msgid "Classical Latin"
 msgstr "Klassisk latin"
 
 #: libraries/classes/Charsets.php:529
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
-msgstr "Lettiska"
+msgstr "Lettisk"
 
 #: libraries/classes/Charsets.php:533
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litauisk"
@@ -3549,46 +3476,34 @@ msgid "Burmese"
 msgstr "Burmesisk"
 
 #: libraries/classes/Charsets.php:544
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
-msgstr "Persiska"
+msgstr "Persisk"
 
 #: libraries/classes/Charsets.php:548
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
-msgstr "Polska"
+msgstr "Polsk"
 
 #: libraries/classes/Charsets.php:555
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
-msgstr "Rumänska"
+msgstr "Rumänsk"
 
 #: libraries/classes/Charsets.php:562
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr "Singalesiska"
+msgstr "Singalesisk"
 
 #: libraries/classes/Charsets.php:566
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
-msgstr "Slovakiska"
+msgstr "Slovakisk"
 
 #: libraries/classes/Charsets.php:570
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
-msgstr "Slovenska"
+msgstr "Slovensk"
 
 #: libraries/classes/Charsets.php:573 libraries/classes/Charsets.php:634
 #, fuzzy
@@ -3603,11 +3518,9 @@ msgid "Spanish (traditional)"
 msgstr ""
 
 #: libraries/classes/Charsets.php:600
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr "Vietnamesiska"
+msgstr "Vietnamesisk"
 
 #: libraries/classes/Charsets.php:667
 #, fuzzy
@@ -3617,8 +3530,6 @@ msgid "case-insensitive"
 msgstr "skiftlägesokänslig"
 
 #: libraries/classes/Charsets.php:670
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "skiftlägeskänslig"
@@ -3661,7 +3572,7 @@ msgstr "Binär"
 #: libraries/classes/Charsets.php:689
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "no-pad"
 
 #: libraries/classes/Config.php:1132
 #, php-format
@@ -3948,10 +3859,8 @@ msgid "Hide table structure actions"
 msgstr "Dölj åtgärder för tabellstruktur"
 
 #: libraries/classes/Config/Descriptions.php:195
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Förvald sorteringsordning"
+msgstr "Standardomvandlingar för hexadecimala värden"
 
 #: libraries/classes/Config/Descriptions.php:197
 #: libraries/classes/Config/Descriptions.php:201
@@ -3966,54 +3875,40 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"Värden för alternativlistan för standardtransformeringar. De skrivs över om "
+"transformering anges på tabellstruktursidan."
 
 #: libraries/classes/Config/Descriptions.php:199
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
-msgstr "Inmatningsalternativ"
+msgstr "Standardomvandlingar för delsträngar"
 
 #: libraries/classes/Config/Descriptions.php:203
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Förvald sorteringsordning"
+msgstr "Standardomvandlingar för Bool2Text"
 
 #: libraries/classes/Config/Descriptions.php:207
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Förvald sorteringsordning"
+msgstr "Standardomvandlingar för External"
 
 #: libraries/classes/Config/Descriptions.php:211
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Inmatningsalternativ"
+msgstr "Standardomvandlingar för PreApPend"
 
 #: libraries/classes/Config/Descriptions.php:215
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Förvald sorteringsordning"
+msgstr "Standardomvandlingar för DateFormat"
 
 #: libraries/classes/Config/Descriptions.php:219
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
-msgstr "Inmatningsalternativ"
+msgstr "Standardomvandlingar för Inline"
 
 #: libraries/classes/Config/Descriptions.php:223
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Inmatningsalternativ"
+msgstr "Standardomvandlingar för TextImageLink"
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Inmatningsalternativ"
+msgstr "Standardomvandlingar för TextLink"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Show server listing as a list instead of a drop down."
@@ -4194,8 +4089,6 @@ msgstr "MIME-typ"
 #: libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Config/Descriptions.php:338
 #: libraries/classes/Config/Descriptions.php:403
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Relationer"
 
@@ -4923,16 +4816,12 @@ msgid "Show databases navigation as tree"
 msgstr "Visa databasnavigering som träd"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Navigationspanel"
+msgstr "Navigationspanelens bredd"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Visa logotyp i navigationspanelens."
+msgstr "Ange 0 för att fälla ihop navigeringspanelen."
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
@@ -5429,18 +5318,14 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Dölj databaser som matchar reguljärt uttryck (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Mer information på [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] och [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Mer information finns i [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmins ärendehanterare[/a] och [a@https://bugs.mysql.com/"
+"19588]MySQL Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5888,16 +5773,12 @@ msgid "Show last check timestamp"
 msgstr "Visa senaste tidpunkt för kontroll"
 
 #: libraries/classes/Config/Descriptions.php:1285
-#, fuzzy
-#| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr "Visa eller dölja en kolumn som visar kommentarer för alla tabeller."
+msgstr "Visa eller dölj en kolumn som visar teckenkodningen för alla tabeller."
 
 #: libraries/classes/Config/Descriptions.php:1287
-#, fuzzy
-#| msgid "Show table comments"
 msgid "Show table charset"
-msgstr "Visa tabellkommentarer"
+msgstr "Visa tabellens teckenkodning"
 
 #: libraries/classes/Config/Descriptions.php:1290
 msgid ""
@@ -6292,16 +6173,12 @@ msgid "Switch to dark theme"
 msgstr "Växla till mörkt tema"
 
 #: libraries/classes/Config/Descriptions.php:1476
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Konsol"
+msgstr "Konsolens höjd"
 
 #: libraries/classes/Config/Descriptions.php:1478
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Konsol"
+msgstr "Konsolläge"
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
@@ -6313,10 +6190,8 @@ msgid "Order"
 msgstr "Ordning"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Sorteringsordning:"
+msgstr "Sortera efter"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:528
@@ -6447,10 +6322,8 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV med LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/MainForm.php:32
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
-msgstr "Transformation av indata"
+msgstr "Standardomvandlingar"
 
 #: libraries/classes/Config/PageSettings.php:141
 msgid "Cannot save settings, submitted configuration form contains errors!"
@@ -6503,13 +6376,7 @@ msgstr ""
 "tusentals användare, inklusive dig, är anslutna till."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6517,11 +6384,11 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Du valde [kbd]config[/kbd]-autentisering och inkluderade användarnamn och "
-"lösenord för autoinloggning, vilket inte är en önskvärd inställning för "
-"värdar i skarp drift. Vem som helst som vet eller gissar din phpMyAdmin-URL "
-"kan direkt komma åt ditt phpMyAdmin-verktyg. Sätt %sauthentication type%s "
-"till [kbd]cookie[/kbd] eller [kbd]http[/kbd]."
+"Du har valt autentiseringstypen [kbd]config[/kbd] och angett användarnamn "
+"och lösenord för automatisk inloggning, vilket inte lämpar sig för "
+"produktionsservrar. Alla som känner till eller gissar din phpMyAdmin-URL kan "
+"komma åt din phpMyAdmin-panel direkt. Ange %1$sautentiseringstyp%2$s till "
+"[kbd]cookie[/kbd] eller [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
 msgid "You allow for connecting to the server without a password."
@@ -6564,19 +6431,15 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "Nyckeln ska innehålla bokstäver, siffror [em]och[/em] specialtecken."
 
 #: libraries/classes/Config/ServerConfigChecks.php:418
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sLogin cookie validity%s på mer än %ssession.gc_maxlifetime%s kan orsaka "
-"slumpmässigt ogiltigförklarande av session (session.gc_maxlifetime är för "
-"närvarande %d)."
+"%1$sGiltighetstid för inloggningskakan%2$s som är längre än "
+"%3$ssession.gc_maxlifetime%4$s kan leda till att sessioner ogiltigförklaras "
+"slumpmässigt (session.gc_maxlifetime är för närvarande %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:442
 #, php-format
@@ -6599,28 +6462,22 @@ msgstr ""
 "eller lika med den."
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sBzip2 komprimering och dekomprimering%s kräver funktioner (%s) som inte är "
-"tillgängliga på detta system."
+"%1$sKomprimering och dekomprimering med Bzip2%2$s kräver funktioner (%3$s) "
+"som inte är tillgängliga på systemet."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sGZip komprimering och dekomprimering%s kräver funktioner (%s) som inte är "
-"tillgängliga på detta system."
+"%1$sKomprimering och dekomprimering med GZip%2$s kräver funktioner (%3$s) "
+"som inte är tillgängliga på systemet."
 
 #: libraries/classes/Config/Validator.php:214
 #: libraries/classes/Config/Validator.php:221
@@ -6873,10 +6730,8 @@ msgid "Your SQL query has been executed successfully."
 msgstr "Din SQL-fråga utfördes korrekt."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:304
-#, fuzzy
-#| msgid "Internal relations were successfully updated."
 msgid "Internal relationships were successfully updated."
-msgstr "Intern relation har uppdaterats."
+msgstr "Interna relationer har uppdaterats."
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:792
 msgid "Table search"
@@ -7028,24 +6883,18 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "Kunde inte läsa in insticksprogram, kontrollera din installation!"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Konfigurationen lagring är inte redo för den centrala listan över kolumner "
-"funktionen."
+"phpMyAdmins konfigurationslagring är inte konfigurerad för "
+"\"visningsfunktioner\"."
 
 #: libraries/classes/Database/Designer/Common.php:565
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
-msgstr "Fel: Relation finns redan."
+msgstr "Fel: relationen finns redan."
 
 #: libraries/classes/Database/Designer/Common.php:611
 msgid "FOREIGN KEY relationship has been added."
@@ -7064,16 +6913,12 @@ msgid "Error: Relational features are disabled!"
 msgstr "Fel: Relationella funktioner är inaktiverade!"
 
 #: libraries/classes/Database/Designer/Common.php:649
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
-msgstr "Intern relation har lagts till."
+msgstr "En intern relation har lagts till."
 
 #: libraries/classes/Database/Designer/Common.php:655
-#, fuzzy
-#| msgid "Error: Internal relation could not be added!"
 msgid "Error: Internal relationship could not be added!"
-msgstr "Fel: Interna relationen kunde inte läggas till!"
+msgstr "Fel: den interna relationen kunde inte läggas till!"
 
 #: libraries/classes/Database/Designer/Common.php:693
 msgid "FOREIGN KEY relationship has been removed."
@@ -7084,16 +6929,12 @@ msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "Fel: Främmande nyckel-relation kunde inte tas bort!"
 
 #: libraries/classes/Database/Designer/Common.php:726
-#, fuzzy
-#| msgid "Error: Internal relation could not be removed!"
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Fel: Intern relationen kunde inte läggas till!"
+msgstr "Fel: den interna relationen kunde inte tas bort!"
 
 #: libraries/classes/Database/Designer/Common.php:730
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Internal relationship has been removed."
-msgstr "Inre relation har tagits bort."
+msgstr "En intern relation har tagits bort."
 
 #: libraries/classes/Database/Qbe.php:456
 #: templates/table/search/search_and_replace.twig:6
@@ -7193,22 +7034,16 @@ msgid "at least one of the words"
 msgstr "minst ett av orden"
 
 #: libraries/classes/Database/Search.php:94
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "minst ett av orden"
+msgstr "alla ord"
 
 #: libraries/classes/Database/Search.php:95
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "den exakta frasen"
+msgstr "den exakta frasen som delsträng"
 
 #: libraries/classes/Database/Search.php:96
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "den exakta frasen"
+msgstr "den exakta frasen som helt fält"
 
 #: libraries/classes/Database/Search.php:97
 msgid "as regular expression"
@@ -7220,21 +7055,16 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Ord separeras av ett mellanslag (\" \")."
 
 #: libraries/classes/DatabaseInterface.php:1503
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Det går inte att använda tidszon %1$s för servern %2$d. Vänligen kontrollera "
-"din konfigurationsinställning för [em]$cfg['Servers'][%3$d]"
-"['SessionTimeZone'][/em]. phpMyAdmin för närvarande används "
-"standardtidszonen på databasservern."
+"Det går inte att använda tidszonen \"%1$s\" för server %2$d. Kontrollera "
+"konfigurationsinställningen för "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin använder för "
+"närvarande databasserverns standardtidszon."
 
 #: libraries/classes/DatabaseInterface.php:1550
 msgid "Failed to set configured collation connection!"
@@ -7254,7 +7084,7 @@ msgstr "Servern svarar inte."
 
 #: libraries/classes/DatabaseInterface.php:2186
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "Logga ut och försök som en annan användare."
 
 #: libraries/classes/DatabaseInterface.php:2192
 msgid "Please check privileges of directory containing database."
@@ -7314,7 +7144,7 @@ msgstr "Lösenord:"
 
 #: libraries/classes/Display/ChangePassword.php:79
 msgid "Enter:"
-msgstr ""
+msgstr "Ange:"
 
 #: libraries/classes/Display/ChangePassword.php:87
 #: libraries/classes/ReplicationGui.php:878
@@ -7363,7 +7193,7 @@ msgstr ""
 
 #: libraries/classes/Display/Export.php:571
 msgid "Defined aliases"
-msgstr ""
+msgstr "Definierade alias"
 
 #: libraries/classes/Display/Export.php:627
 #: templates/display/export/options_output.twig:7
@@ -8722,6 +8552,8 @@ msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
+"Välj en kolumn som kan delas upp i fler än en kolumn (om ”ingen sådan kolumn"
+"” väljs går du vidare till nästa steg)."
 
 #: libraries/classes/Normalization.php:206 normalization.php:19
 msgid "Select one…"
@@ -9043,16 +8875,12 @@ msgid "Switch to copied database"
 msgstr "Byt till den kopierade databasen"
 
 #: libraries/classes/Operations.php:320
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "Ändra alla kolumners sortering"
+msgstr "Ändra sorteringsordning för alla tabeller"
 
 #: libraries/classes/Operations.php:326
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "Ändra alla kolumners sortering"
+msgstr "Ändra sorteringsordning för alla tabellkolumner"
 
 #: libraries/classes/Operations.php:799
 msgid "Alter table order by"
@@ -9303,10 +9131,8 @@ msgid "Server Choice:"
 msgstr "Serverval:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:313
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Kunde inte ansluta till databasservern!"
+msgstr "Det gick inte att ansluta till reCAPTCHA-tjänsten!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:315
 msgid "Entered captcha is wrong, try again!"
@@ -9347,7 +9173,7 @@ msgstr "Kan ej logga in på MySQL-servern"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:338
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr ""
+msgstr "Du har aktiverat tvåfaktorsautentisering. Bekräfta inloggningen."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
 #: templates/display/import/import.twig:168
@@ -9486,7 +9312,7 @@ msgstr "Utformat 'pretty-tryckt JSON' (Använd läsbar formatering)"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:95
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "Skriv ut Unicode-tecken utan escape-sekvenser"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:51
 msgid "Content of table @TABLE@"
@@ -9748,10 +9574,8 @@ msgstr ""
 "laddas mellan servrar i olika tidszoner)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:520
-#, fuzzy
-#| msgid "It appears your database uses functions;"
 msgid "It appears your database uses routines;"
-msgstr "Det verkar som om  databasen använder följande funktioner;"
+msgstr "Databasen verkar använda rutiner;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:523
 #: libraries/classes/Plugins/Export/ExportSql.php:1550
@@ -9764,16 +9588,14 @@ msgid "Metadata"
 msgstr "Metadata"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1080
-#, fuzzy, php-format
-#| msgid "Metadata for %s"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "Metadata för %s"
+msgstr "Metadata för tabellen %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1087
-#, fuzzy, php-format
-#| msgid "Metadata for %s"
+#, php-format
 msgid "Metadata for database %s"
-msgstr "Metadata för %s"
+msgstr "Metadata för databasen %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1419
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:603
@@ -9791,10 +9613,9 @@ msgid "Last check:"
 msgstr "Senaste kontroll:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1493
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Tabellstruktur"
+msgstr "Fel vid läsning av strukturen för tabellen %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
@@ -9829,8 +9650,6 @@ msgid "MIME TYPES FOR TABLE"
 msgstr "MIME-TYPER FÖR TABELL"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1888
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELATIONER FÖR TABELL"
 
@@ -9845,13 +9664,12 @@ msgstr "Struktur för vy %s exporterad som en tabell"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2130
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Se nedan för den faktiska vyn)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Fel vid läsning av data:"
+msgstr "Fel vid läsning av data för tabellen %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 msgid "Object creation options (all are recommended)"
@@ -10184,6 +10002,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"Du använder fältet för kommandoradsalternativ för extern transformering, "
+"vilket har fasats ut av säkerhetsskäl. Lägg till alla kommandoradsalternativ "
+"direkt i definitionen i %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
@@ -10279,6 +10100,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Filuppladdningsfunktion för TEXT-kolumner. Det finns inget textområde för "
+"inmatning."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:33
 msgid ""
@@ -10311,7 +10134,7 @@ msgstr "Syntax CodeMirror editerare för JSON."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Syntaxmarkerad CodeMirror-redigerare för SQL."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
@@ -10340,20 +10163,20 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Insticksmodul-verifiering"
+msgstr "Autentiseringsprogram (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:156
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Tillhandahåller autentisering med HOTP- och TOTP-appar som FreeOTP, Google "
+"Authenticator eller Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Maskinvarusäkerhetsnyckel (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:196
 msgid ""
@@ -10361,26 +10184,21 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Signon-autentisering"
+msgstr "Enkel tvåfaktorsautentisering"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Endast för teständamål."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Hårdvaruverifieringen misslyckades!"
+msgstr "Tvåfaktorsautentiseringen misslyckades: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Hårdvaruverifieringen misslyckades!"
+msgstr "Tvåfaktorsautentiseringen misslyckades."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
@@ -10388,7 +10206,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:137
 msgid "Login using password only."
-msgstr ""
+msgstr "Logga bara in med lösenord."
 
 #: libraries/classes/RecentFavoriteTable.php:145
 msgid "Could not save recent table!"
@@ -10880,6 +10698,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"Anslutning till servern är inaktiverad. Aktivera "
+"$cfg['AllowArbitraryServer'] i phpMyAdmins konfiguration."
 
 #: libraries/classes/ReplicationGui.php:927
 msgid "Replication started successfully."
@@ -11294,6 +11114,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"Ingen rutin med namnet %1$s hittades i databasen %2$s. Du kanske saknar "
+"behörighet att redigera den här rutinen."
 
 #: libraries/classes/Rte/Words.php:44
 #, php-format
@@ -11303,10 +11125,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:47
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Ingen rutin med namnet %1$s finns i databasen %2$s"
+msgstr "Ingen rutin med namnet %1$s hittades i databasen %2$s."
 
 #: libraries/classes/Rte/Words.php:48
 msgid "There are no routines to display."
@@ -11332,10 +11153,9 @@ msgid "You do not have the necessary privileges to create a trigger."
 msgstr "Du har inte den nödvändiga behörigheten att skapa en trigger"
 
 #: libraries/classes/Rte/Words.php:61
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Ingen trigger med namnet %1$s finns i databasen %2$s"
+msgstr "Ingen trigger med namnet %1$s hittades i databasen %2$s."
 
 #: libraries/classes/Rte/Words.php:62
 msgid "There are no triggers to display."
@@ -11361,10 +11181,9 @@ msgid "You do not have the necessary privileges to create an event."
 msgstr "Du har inte tillräcklig behörighet för att skapa en händelse"
 
 #: libraries/classes/Rte/Words.php:75
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Ingen händelse med namnet %1$s hittades i databasen %2$s"
+msgstr "Ingen händelse med namnet %1$s hittades i databasen %2$s."
 
 #: libraries/classes/Rte/Words.php:76
 msgid "There are no events to display."
@@ -11553,10 +11372,8 @@ msgid "Allows executing stored routines."
 msgstr "Tillåter utförande av lagrade rutiner."
 
 #: libraries/classes/Server/Privileges.php:738
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Does not require SSL-encrypted connections."
-msgstr "Bestående anslutningar"
+msgstr "Kräver inte SSL-krypterade anslutningar."
 
 #: libraries/classes/Server/Privileges.php:754
 msgid "Requires SSL-encrypted connections."
@@ -11604,28 +11421,24 @@ msgstr "Begränsar antalet samtidiga förbindelser som användaren kan ha."
 #: libraries/classes/Server/Privileges.php:3373
 #: libraries/classes/Server/Privileges.php:4596
 #: templates/privileges/edit_routine_privileges.twig:11
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine"
-msgstr "Rutiner"
+msgstr "Rutin"
 
 #: libraries/classes/Server/Privileges.php:948
 msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"Tillåter att användaren ger andra användare eller tar bort från andra "
+"användare de behörigheter som användaren har för denna rutin."
 
 #: libraries/classes/Server/Privileges.php:955
-#, fuzzy
-#| msgid "Allows altering and dropping stored routines."
 msgid "Allows altering and dropping this routine."
-msgstr "Tillåter ändring och borttagning av lagrade rutiner."
+msgstr "Tillåter att den här rutinen ändras eller tas bort."
 
 #: libraries/classes/Server/Privileges.php:960
-#, fuzzy
-#| msgid "Allows executing stored routines."
 msgid "Allows executing this routine."
-msgstr "Tillåter utförande av lagrade rutiner."
+msgstr "Tillåter att den här rutinen körs."
 
 #: libraries/classes/Server/Privileges.php:1010
 #: libraries/classes/Server/Privileges.php:1182
@@ -11679,6 +11492,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Tillåter att användaren ger andra användare eller tar bort från andra "
+"användare de behörigheter som användaren själv har."
 
 #: libraries/classes/Server/Privileges.php:1440
 #: libraries/classes/Server/Privileges.php:1471
@@ -11760,10 +11575,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Bevilja alla privilegier till namn med jokertecken (username\\_%)."
 
 #: libraries/classes/Server/Privileges.php:2214
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Bevilja alla privilegier för databas \"%s\"."
+msgstr "Bevilja alla behörigheter för databasen ”%s”."
 
 #: libraries/classes/Server/Privileges.php:2388
 #: libraries/classes/Server/Privileges.php:2462
@@ -11856,10 +11670,8 @@ msgstr "Skapa ett nytt användarkonto med samma privilegier och…"
 
 #: libraries/classes/Server/Privileges.php:3372
 #: templates/privileges/edit_routine_privileges.twig:12
-#, fuzzy
-#| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "Kolumnspecifika privilegier"
+msgstr "Rutinspecifika behörigheter"
 
 #: libraries/classes/Server/Privileges.php:3568
 #: libraries/classes/Server/UserGroups.php:89
@@ -11947,31 +11759,19 @@ msgstr ""
 "värddelen av deras konto tillåter anslutning från alla värddatorer (%)."
 
 #: libraries/classes/Server/Privileges.php:4758
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Anm: phpMyAdmin hämtar användarnas behörigheter direkt från MySQL's "
-"behörighetstabeller. Innehållet i dessa tabeller kan skilja sig från de "
-"behörigheter servern använder, om manuella ändringar har gjorts. Är så "
-"fallet bör du %sladda om behörigheterna%s innan du fortsätter."
+"Obs! phpMyAdmin hämtar användarnas behörigheter direkt från MySQLs "
+"privilegietabeller. Innehållet i dessa tabeller kan skilja sig från de "
+"behörigheter som servern använder, om de har ändrats manuellt. I så fall bör "
+"du %släsa in behörigheterna på nytt%s innan du fortsätter."
 
 #: libraries/classes/Server/Privileges.php:4775
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, the privileges have to be reloaded but currently, you don't have "
-#| "the RELOAD privilege."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -11979,11 +11779,11 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Anm: phpMyAdmin hämtar användarnas behörigheter direkt från MySQL's "
-"behörighetstabeller. Innehållet i dessa tabeller kan skilja sig från de "
-"behörigheter servern använder, om manuella ändringar har gjorts. Är så "
-"fallet bör du ladda om behörigheterna innan du fortsätter, du har dock inte "
-"privilegierna för detta."
+"Obs! phpMyAdmin hämtar användarnas behörigheter direkt från MySQLs "
+"privilegietabeller. Innehållet i dessa tabeller kan skilja sig från de "
+"behörigheter som servern använder, om de har ändrats manuellt. I så fall "
+"måste behörigheterna läsas in på nytt, men du har för närvarande inte "
+"behörigheten RELOAD."
 
 #: libraries/classes/Server/Privileges.php:5060
 msgid "You have added a new user."
@@ -13275,10 +13075,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr "Problem med index för tabell `%s`"
 
 #: libraries/classes/SqlQueryForm.php:140
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Kör SQL-fråga/frågor på servern %s"
+msgstr "Kör SQL-fråga/frågor på servern ”%s”"
 
 #: libraries/classes/SqlQueryForm.php:157
 #, php-format
@@ -13895,10 +13694,8 @@ msgid "The profile has been updated."
 msgstr "Profilen har uppdaterats."
 
 #: libraries/classes/UserPassword.php:74
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "Hashning av lösenord:"
+msgstr "Lösenordet är för långt!"
 
 #: libraries/classes/UserPreferences.php:157
 msgid "Could not save configuration"
@@ -13950,12 +13747,12 @@ msgstr "Sön"
 #: libraries/classes/Util.php:1543
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "em"
 
 #: libraries/classes/Util.php:1545
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "fm"
 
 #: libraries/classes/Util.php:1847
 #, php-format
@@ -13967,10 +13764,9 @@ msgid "Missing parameter:"
 msgstr "Saknade parametrar:"
 
 #: libraries/classes/Util.php:2440
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
-msgstr "Hoppa till databas \"%s\"."
+msgstr "Hoppa till databasen ”%s”."
 
 #: libraries/classes/Util.php:2465
 #, php-format
@@ -14001,19 +13797,19 @@ msgstr "Utför"
 
 #: libraries/classes/Util.php:3861
 msgid "SSL is not being used"
-msgstr ""
+msgstr "SSL används inte"
 
 #: libraries/classes/Util.php:3866
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "SSL används med inaktiverad verifiering"
 
 #: libraries/classes/Util.php:3868
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "SSL används utan certifikatutfärdare"
 
 #: libraries/classes/Util.php:3871
 msgid "SSL is used"
-msgstr ""
+msgstr "SSL används"
 
 #: libraries/classes/Util.php:3992
 msgid "Users"
@@ -14037,6 +13833,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Det gick inte att ange sessionscookien. Du använder kanske HTTP i stället "
+"för HTTPS för att öppna phpMyAdmin."
 
 #: libraries/common.inc.php:344
 msgid "Invalid authentication method set in configuration:"
@@ -14161,7 +13959,7 @@ msgstr "ingen av ovanstående"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr ""
+msgstr "Ingen sorteringsordning angavs."
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
@@ -14172,10 +13970,8 @@ msgid "Manage your settings"
 msgstr "Hantera dina inställningar"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Config-autentisering"
+msgstr "Tvåfaktorsautentisering"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
 msgid "Configuration has been saved."
@@ -14196,21 +13992,19 @@ msgstr "Oåterkalleligt fel: Navigering kan endast nås via AJAX"
 
 #: prefs_forms.php:30 setup/frames/form.inc.php:21
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Felaktigt formulär angavs."
 
 #: prefs_forms.php:82
 msgid "Cannot save settings, submitted form contains errors!"
 msgstr "Kan inte spara inställningar, sänt formulär innehåller fel!"
 
 #: prefs_manage.php:52
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Saknade phpMyAdmin konfiguration lagringstabeller"
+msgstr "phpMyAdmin-konfigurationssnutt"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Klistra in den i din config.inc.php"
 
 #: prefs_manage.php:93
 msgid "Could not import configuration"
@@ -14262,16 +14056,12 @@ msgstr ""
 "genom att använda %sSetup script%s."
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Spara som fil"
+msgstr "Spara som JSON-fil"
 
 #: prefs_manage.php:314
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "Spara som fil"
+msgstr "Spara som PHP-fil"
 
 #: prefs_manage.php:319
 msgid "Save to browser's storage"
@@ -14291,26 +14081,20 @@ msgstr ""
 "Du kan återställa alla inställningar och återföra dem till standardvärdena."
 
 #: prefs_twofactor.php:29
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Inre relation har tagits bort."
+msgstr "Tvåfaktorsautentisering har tagits bort."
 
 #: prefs_twofactor.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Ogiltig metod för verifiering angiven i konfiguration:"
+msgstr "Tvåfaktorsautentisering har konfigurerats."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
 msgstr "Visa dump (schema) för databaser"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Tillåter borttagning av data."
+msgstr "Tillåter borttagning av historiska rader."
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
@@ -14376,16 +14160,12 @@ msgstr ""
 "känslig information, som lösenord) överförs okrypterat!"
 
 #: setup/frames/index.inc.php:54
-#, fuzzy
-#| msgid ""
-#| "If your server is also configured to accept HTTPS requests follow [a@"
-#| "%s]this link[/a] to use a secure connection."
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Om din server även är konfigurerad för att acceptera HTTPS-förfrågningar, "
-"följ [a@%s]denna länk[/a] för att använda en säker anslutning."
+"Om servern även är konfigurerad för att acceptera HTTPS-begäranden följer du "
+"den här länken för att använda en säker anslutning."
 
 #: setup/frames/index.inc.php:58
 msgid "Insecure connection"
@@ -14482,7 +14262,7 @@ msgstr "Lägg till en ny server"
 
 #: setup/index.php:18
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "Konfigurationen finns redan, installation är inaktiverad."
 
 #: setup/index.php:28
 msgid "Wrong GET file attribute value"
@@ -14544,7 +14324,7 @@ msgstr "Felaktigt data"
 #: setup/validate.php:32
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Felaktiga data eller ingen validering för %s"
 
 #: tbl_create.php:36 tbl_get_field.php:31
 #, php-format
@@ -14566,10 +14346,8 @@ msgstr "Ogiltigt tabellnamn"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46 transformation_wrapper.php:69
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Det finns för många JOINS som saknar index."
+msgstr "Det är ett problem med din begäran."
 
 #: tbl_replace.php:258
 #, php-format
@@ -14864,16 +14642,16 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"Du använder inte HTTPS för att komma åt phpMyAdmin, så FIDO U2F-enheten "
+"kommer troligen att vägra autentisera dig."
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
 msgstr "Kontrollera tabeller med overhead"
 
 #: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy table"
-msgstr "Kopiera"
+msgstr "Kopiera tabell"
 
 #: templates/database/structure/check_all_tables.twig:11
 msgid "Show create"
@@ -14946,10 +14724,9 @@ msgid "See table structure"
 msgstr "Se tabellstruktur"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Välj alla"
+msgstr "Välj ”%s”"
 
 #: templates/database/designer/database_tables.twig:126
 #, php-format
@@ -14958,10 +14735,9 @@ msgstr "Lägg till ett alternativ för kolumnen \"%s\"."
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Spara på servern i katalogen <b>%s</b>"
+msgstr "Spara på servern i katalogen <strong>%s</strong>"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
@@ -15012,8 +14788,6 @@ msgid "Stacked"
 msgstr "Staplade"
 
 #: templates/table/chart/tbl_chart.twig:51
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart title:"
 msgstr "Diagramtitel"
 
@@ -15087,6 +14861,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Anslut FIDO U2F-enheten till datorns USB-port. Bekräfta sedan inloggningen "
+"på enheten."
 
 #: templates/display/export/options_output_compression.twig:4
 msgid "Compression:"
@@ -15125,54 +14901,53 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Exportera rader från tabellen \"%s\""
 
 #: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Autentiseringsinställningar."
+msgstr "Status för tvåfaktorsautentisering"
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Tvåfaktorsautentisering är inte tillgänglig. Installera valfria beroenden "
+"för att aktivera autentiseringsbakändar."
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Följande Composer-paket saknas:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"Tvåfaktorsautentisering är tillgänglig och konfigurerad för det här kontot."
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"Tvåfaktorsautentisering är tillgänglig men inte konfigurerad för det här "
+"kontot."
 
 #: templates/prefs_twofactor.twig:24
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "%sCreate%s saknade phpMyAdmin konfiguration lagringstabeller."
+msgstr ""
+"Tvåfaktorsautentisering är inte tillgänglig. Aktivera phpMyAdmins "
+"konfigurationslagring för att använda den."
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Du har aktiverat tvåfaktorsautentisering."
 
 #: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Config-autentisering"
+msgstr "Inaktivera tvåfaktorsautentisering"
 
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Config-autentisering"
+msgstr "Konfigurera tvåfaktorsautentisering"
 
 #: templates/privileges/add_privileges_database.twig:1
 msgid "Add privileges on the following database(s):"
@@ -15218,16 +14993,16 @@ msgstr "Ytterligare sökkriterier"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:21
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Verifiering"
+msgstr "Autentiseringskod:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Öppna tvåfaktorsautentiseringsappen på enheten för att visa "
+"autentiseringskoden och verifiera din identitet."
 
 #: templates/database/tracking/untracked_tables.twig:1
 msgid "Untracked tables"
@@ -15244,10 +15019,8 @@ msgid "View output as text"
 msgstr "Visa utdata som text"
 
 #: templates/table/structure/display_partitions.twig:8
-#, fuzzy
-#| msgid "No index defined!"
 msgid "No partitioning defined!"
-msgstr "Inga index är definierade!"
+msgstr "Ingen partitionering har definierats."
 
 #: templates/table/structure/display_partitions.twig:11
 msgid "Partitioned by:"
@@ -15259,10 +15032,8 @@ msgstr "Underpartitionerade av:"
 
 #: templates/table/structure/display_partitions.twig:24
 #: templates/columns_definitions/partitions.twig:76
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition"
-msgstr "Partition %s"
+msgstr "Partition"
 
 #: templates/table/structure/display_partitions.twig:29
 msgid "Data length"
@@ -15273,17 +15044,13 @@ msgid "Index length"
 msgstr "Index längd"
 
 #: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition table"
-msgstr "partitionerad"
+msgstr "Partitionera tabell"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Edit partitioning"
-msgstr "Ta bort partitionering"
+msgstr "Redigera partitionering"
 
 #: templates/columns_definitions/move_column.twig:7
 msgid "first"
@@ -15379,8 +15146,6 @@ msgid "Aggregate"
 msgstr "Aggregera"
 
 #: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Delete relation"
 msgid "Delete relationship"
 msgstr "Ta bort relation"
 
@@ -15394,10 +15159,9 @@ msgid "As defined:"
 msgstr "Som definierat:"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Gå till databas"
+msgstr "Gå till databas ”%s”"
 
 #: templates/server/databases/table_row.twig:63
 #, php-format
@@ -15461,10 +15225,8 @@ msgid "Table name"
 msgstr "Tabellnamn"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Add column(s)"
 msgid "column(s)"
-msgstr "Lägg till kolumn(er)"
+msgstr "kolumn(er)"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 msgid "Collation:"
@@ -15483,16 +15245,16 @@ msgid "PARTITION definition:"
 msgstr "Partitionsdefinition:"
 
 #: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Config-autentisering"
+msgstr "Bekräfta inaktivering av tvåfaktorsautentisering"
 
 #: templates/prefs_twofactor_confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"När du inaktiverar tvåfaktorsautentisering kan du åter logga in enbart med "
+"lösenord."
 
 #: templates/table/structure/row_stats_table.twig:2
 msgid "Row statistics"
@@ -15589,16 +15351,12 @@ msgid "Server variables and settings"
 msgstr "Servervariabler och inställningar"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Lagringsmotorer"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Teckenuppsättningar och kollationeringar"
+msgstr "Teckenuppsättningar och sorteringsordningar"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -15688,32 +15446,29 @@ msgstr "Flytta kolumner"
 
 #: templates/table/structure/optional_action_links.twig:25
 msgid "Normalize"
-msgstr ""
+msgstr "Normalisera"
 
 #: templates/table/structure/optional_action_links.twig:31
 msgid "Track view"
 msgstr "Spårvisning"
 
 #: templates/error/report_form.twig:6
-#, fuzzy
-#| msgid ""
-#| "phpMyAdmin has encountered an error. We have collected data about this "
-#| "error as well as information about relevant configuration settings to "
-#| "send to the phpMyAdmin team to help us in debugging the problem."
 msgid ""
 "This report automatically includes data about the error and information "
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
-"phpMyAdmin har stött på ett fel. Vi har samlat data om detta fel liksom "
-"information om relevanta inställningar för sändning till phpMyAdmin-teamet "
-"för att hjälpa oss felsöka problemet."
+"Den här rapporten innehåller automatiskt data om felet och information om "
+"relevanta konfigurationsinställningar. Den skickas till phpMyAdmin-teamet "
+"för felsökning av felet."
 
 #: templates/error/report_form.twig:12
 msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Kan du beskriva stegen som ledde till felet? Det hjälper avgörande vid "
+"felsökningen:"
 
 #: templates/error/report_form.twig:19
 msgid "You may examine the data in the error report:"
@@ -15792,16 +15547,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Filen kan vara komprimerad (%s) eller okomprimerad."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"En komprimerad fils namn måste sluta med <b>.[format].[komprimering]</b>. "
-"Exempel: <b>.sql.zip</b>"
+"En komprimerad fils namn måste sluta med <strong>.[format].[komprimering]</"
+"strong>. Exempel: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -15868,6 +15619,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Anslut FIDO U2F-enheten till datorns USB-port. Bekräfta sedan registreringen "
+"på enheten."
 
 #: templates/server/databases/databases_footer.twig:67
 msgid ""
@@ -15919,8 +15672,6 @@ msgstr "Uppdatera"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -16020,10 +15771,8 @@ msgid "Relational key"
 msgstr "Besläktad nyckel"
 
 #: templates/display/results/options_block.twig:30
-#, fuzzy
-#| msgid "Display column for relations"
 msgid "Display column for relationships"
-msgstr "Visa kolumnen för förbindelserna"
+msgstr "Visningskolumn för relationer"
 
 #: templates/display/results/options_block.twig:46
 msgid "Show binary contents"
@@ -16079,8 +15828,6 @@ msgstr "Ta bort sidor"
 #: templates/database/designer/side_menu.twig:85
 #: templates/database/designer/side_menu.twig:88
 #: templates/database/designer/new_relation_panel.twig:22
-#, fuzzy
-#| msgid "Create relation"
 msgid "Create relationship"
 msgstr "Skapa relation"
 
@@ -16121,10 +15868,8 @@ msgstr "Växla liten/stor"
 
 #: templates/database/designer/side_menu.twig:146
 #: templates/database/designer/side_menu.twig:149
-#, fuzzy
-#| msgid "Toggle relation lines"
 msgid "Toggle relationship lines"
-msgstr "Växla mellan relaterade linjer"
+msgstr "Visa/dölj relationslinjer"
 
 #: templates/database/designer/side_menu.twig:154
 #: templates/database/designer/side_menu.twig:157
@@ -16163,10 +15908,8 @@ msgid "Inside column:"
 msgstr "Inuti kolumnen:"
 
 #: templates/privileges/add_privileges_routine.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
-msgstr "Lägg till privilegier till följande tabell:"
+msgstr "Lägg till behörigheter för följande rutin:"
 
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
@@ -16174,8 +15917,6 @@ msgstr "Flytta kolumner genom att dra dem uppåt och nedåt."
 
 #: templates/database/designer/options_panel.twig:34
 #: templates/database/designer/options_panel.twig:199
-#, fuzzy
-#| msgid "Relation operator"
 msgid "Relationship operator"
 msgstr "Relationsoperator"
 
@@ -16192,22 +15933,20 @@ msgid "Reset zoom"
 msgstr "Återställ zoom"
 
 #: templates/export/alias_item.twig:8
-#, fuzzy
-#| msgid "Remote server"
 msgid "Remove"
-msgstr "Fjärrserver"
+msgstr "Ta bort"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
 msgstr "Använd detta värde"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
-msgstr "%sCreate%s saknade phpMyAdmin konfiguration lagringstabeller."
+msgstr ""
+"Den konfigurerade tvåfaktorsautentiseringen är inte tillgänglig. Installera "
+"saknade beroenden."
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -16229,10 +15968,8 @@ msgid "None"
 msgstr "Inget"
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Config-autentisering"
+msgstr "Aktivera tvåfaktorsautentisering"
 
 #: templates/encoding/kanji_encoding_form.twig:6
 msgctxt "None encoding conversion"
@@ -16244,89 +15981,61 @@ msgid "Convert to Kana"
 msgstr "Konvertera till Kana"
 
 #: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "partitioned"
 msgid "Partition by:"
-msgstr "partitionerad"
+msgstr "Partitionera efter:"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Expression or column list"
-msgstr "Värden för kolumn %s"
+msgstr "Uttryck eller kolumnlista"
 
 #: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions:"
-msgstr "Partition %s"
+msgstr "Partitioner:"
 
 #: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition by:"
-msgstr "partitionerad"
+msgstr "Underpartitionera efter:"
 
 #: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartitions:"
-msgstr "partitionerad"
+msgstr "Underpartitioner:"
 
 #: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
 msgid "Values"
-msgstr "Värde"
+msgstr "Värden"
 
 #: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "partitioned"
 msgid "Subpartition"
-msgstr "partitionerad"
+msgstr "Underpartition"
 
 #: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
 msgid "Engine"
-msgstr "Motorer"
+msgstr "Motor"
 
 #: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
 msgid "Data directory"
-msgstr "Hemkatalog för data"
+msgstr "Datakatalog"
 
 #: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Save directory"
 msgid "Index directory"
-msgstr "Sparningskatalog"
+msgstr "Indexkatalog"
 
 #: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Affected rows:"
 msgid "Max rows"
-msgstr "Påverkade rader:"
+msgstr "Max. antal rader"
 
 #: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
 msgid "Min rows"
-msgstr "Visa"
+msgstr "Min. antal rader"
 
 #: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Table Search"
 msgid "Table space"
-msgstr "Tabellsök"
+msgstr "Tabellutrymme"
 
 #: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "User group"
 msgid "Node group"
-msgstr "Användargrupp"
+msgstr "Nodgrupp"
 
 #: templates/table/structure/actions_in_table_structure.twig:15
 #, php-format
@@ -16394,6 +16103,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Skanna följande QR-kod i tvåfaktorsautentiseringsappen på enheten och ange "
+"autentiseringskoden som den genererar."
 
 #: templates/login/twofactor/application_configure.twig:11
 msgid ""
@@ -16407,15 +16118,13 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "Hemlighet/nyckel:"
 
 #: templates/database/designer/table_list.twig:4
 msgid "Hide/Show all"
 msgstr "Dölj/Visa alla"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relation"
 msgid "Hide/Show tables with no relationship"
 msgstr "Dölj/visa tabeller utan relationer"
 
@@ -16429,67 +16138,47 @@ msgstr "Sökfönster"
 
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
-#, fuzzy
-#| msgid "Select table"
 msgid "select table"
-msgstr "Välj tabell"
+msgstr "välj tabell"
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
-#, fuzzy
-#| msgid "Select a column."
 msgid "select column"
-msgstr "Välj en kolumn."
+msgstr "välj kolumn"
 
 #: templates/database/multi_table_query/form.twig:46
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Tabeller"
+msgstr "Tabellalias"
 
 #: templates/database/multi_table_query/form.twig:47
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Kolumnnamn"
+msgstr "Kolumnalias"
 
 #: templates/database/multi_table_query/form.twig:50
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Använd denna kolumn för att markera varje punkt"
+msgstr "Använd den här kolumnen i kriterier"
 
 #: templates/database/multi_table_query/form.twig:53
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Kriterier:"
+msgstr "kriterier"
 
 #: templates/database/multi_table_query/form.twig:67
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Lägg till %s"
+msgstr "Lägg till som"
 
 #: templates/database/multi_table_query/form.twig:112
-#, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
-msgstr "Ändra kolumn(er)"
+msgstr "En annan kolumn"
 
 #: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Ange kriterier som fritext"
 
 #: templates/database/multi_table_query/form.twig:148
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "﻿Ta bort överflödiga kolumner"
+msgstr "Ta bort den här kolumnen"
 
 #: templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "Uppdatera fråga"
 
@@ -16507,33 +16196,27 @@ msgstr "Spårning är inaktiv."
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
-msgstr ""
+msgstr "Definiera nya alias"
 
 #: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "Välj databas"
+msgstr "Välj databas:"
 
 #: templates/export/alias_add.twig:15
 msgid "New database name"
 msgstr "Nytt Databasnamn"
 
 #: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "Välj tabell"
+msgstr "Välj tabell:"
 
 #: templates/export/alias_add.twig:29
 msgid "New table name"
 msgstr "Nytt tabellnamn"
 
 #: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "Välj en kolumn."
+msgstr "Välj kolumn:"
 
 #: templates/export/alias_add.twig:43
 msgid "New column name"
@@ -16544,10 +16227,8 @@ msgid "No preview available."
 msgstr "Ingen förhandsgranskning tillgänglig."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "använd detta"
+msgstr "Använd det"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -16558,10 +16239,8 @@ msgstr ""
 "importera den för nuvarande session?"
 
 #: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings"
-msgstr "Ta bort spårning"
+msgstr "Ta bort inställningar"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
@@ -16630,6 +16309,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Att skapa en främmande nyckel för en oindexerad kolumn skapar automatiskt "
+"ett index för den. Alternativt kan du definiera ett index nedan innan du "
+"skapar den främmande nyckeln."
 
 #: templates/table/relation/common_form.twig:20
 msgid ""
@@ -16646,8 +16328,6 @@ msgstr "+ Lägg till villkor"
 
 #: templates/table/relation/common_form.twig:99
 #: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "Interna relationer"
 
@@ -16677,7 +16357,7 @@ msgstr "Du har inte tillräcklig behörighet för att vara här nu!"
 
 #: view_create.php:46
 msgid "View name can not be empty!"
-msgstr ""
+msgstr "Vynamnet får inte vara tomt."
 
 #: view_operations.php:105
 msgid "Rename view to"
@@ -17485,22 +17165,16 @@ msgid "Slow launch time"
 msgstr "Långsam uppstartstid"
 
 #: libraries/advisory_rules_generic.txt:318
-#, fuzzy
-#| msgid "Slow_launch_time is above 2s"
 msgid "Slow_launch_time is above 2s."
-msgstr "Slow_launch_time är över 2s"
+msgstr "slow_launch_time är över 2 s."
 
 #: libraries/advisory_rules_generic.txt:319
-#, fuzzy
-#| msgid ""
-#| "Set {slow_launch_time} to 1s or 2s to correctly count threads that are "
-#| "slow to launch"
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
-"Sätt {slow_launch_time} till 1s eller 2s för att korrekt räkna de trådar som "
-"tar lång tid att starta"
+"Ange {slow_launch_time} till 1 s eller 2 s för att räkna trådar som startar "
+"långsamt korrekt."
 
 #: libraries/advisory_rules_generic.txt:320
 #, php-format
