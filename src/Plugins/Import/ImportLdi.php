@@ -36,6 +36,28 @@ class ImportLdi extends AbstractImportCsv
     private string $escaped = '';
     private string $newLine = '';
     private string $columns = '';
+    private const CHARSET_MAP = [
+        'iso-8859-1' => 'latin1',
+        'iso-8859-2' => 'latin2',
+        'iso-8859-7' => 'greek',
+        'iso-8859-8' => 'hebrew',
+        'iso-8859-9' => 'latin5',
+        'iso-8859-13' => 'latin7',
+        'koi8-r' => 'koi8r',
+        'windows-1250' => 'cp1250',
+        'windows-1251' => 'cp1251',
+        'windows-1252' => 'latin1',
+        'windows-1256' => 'cp1256',
+        'windows-1257' => 'cp1257',
+        'tis-620' => 'tis620',
+        'SHIFT_JIS' => 'sjis',
+        'SJIS' => 'sjis',
+        'SJIS-win' => 'cp932',
+        'big5' => 'big5',
+        'gb2312' => 'gb2312',
+        'euc-jp' => 'ujis',
+        'ks_c_5601-1987' => 'euckr',
+    ];
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -116,7 +138,7 @@ class ImportLdi extends AbstractImportCsv
             $compression = $importHandle->getCompression();
         }
 
-        if (ImportSettings::$importFile === 'none' || $compression !== 'none' || ImportSettings::$charsetConversion) {
+        if (ImportSettings::$importFile === 'none' || $compression !== 'none') {
             // We handle only some kind of data!
             Current::$message = Message::error(
                 __('This plugin does not support compressed imports!'),
@@ -139,6 +161,22 @@ class ImportLdi extends AbstractImportCsv
         }
 
         $sql .= ' INTO TABLE ' . Util::backquote(Current::$table);
+
+        // UTF-8 charset imports don't get routed here since it is presumed ImportSettings::$charsetConversion is falsy
+        if (ImportSettings::$charsetConversion) {
+            $charset = $this->getDBCharset(ImportSettings::$charsetOfFile);
+
+            if ($charset === null) {
+                Current::$message = Message::error(
+                    __('The selected character set is not supported by the database system!'),
+                );
+                Import::$hasError = true;
+
+                return [];
+            }
+
+            $sql .= ' CHARACTER SET ' . $charset;
+        }
 
         if ($this->terminated !== '') {
             $sql .= ' FIELDS TERMINATED BY \'' . $this->terminated . '\'';
@@ -215,5 +253,18 @@ class ImportLdi extends AbstractImportCsv
         }
 
         $this->config->settings['Import']['ldi_local_option'] = true;
+    }
+
+    /**
+     * Returns the database charset name for a file charset, or null if
+     * the charset is not supported by LOAD DATA.
+     */
+    private function getDBCharset(string $charset): string|null
+    {
+        if ($charset === 'utf-16' && $this->dbi->isMariaDB()) {
+            return 'utf16';
+        }
+
+        return self::CHARSET_MAP[$charset] ?? null;
     }
 }
