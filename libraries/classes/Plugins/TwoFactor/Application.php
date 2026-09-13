@@ -16,6 +16,10 @@ use PragmaRX\Google2FAQRCode\Google2FA;
 
 use function __;
 use function extension_loaded;
+use function restore_error_handler;
+use function set_error_handler;
+
+use const E_DEPRECATED;
 
 /**
  * HOTP and TOTP based two-factor authentication
@@ -89,11 +93,20 @@ class Application extends TwoFactorPlugin
     public function setup()
     {
         $secret = $this->twofactor->config['settings']['secret'];
-        $inlineUrl = $this->google2fa->getQRCodeInline(
-            'phpMyAdmin (' . $this->getAppId(false) . ')',
-            $this->twofactor->user,
-            $secret
-        );
+
+        // Suppress PHP 8.4 deprecation from third-party package
+        set_error_handler(static function (int $level): bool {
+            return $level === E_DEPRECATED;
+        });
+        try {
+            $inlineUrl = $this->google2fa->getQRCodeInline(
+                'phpMyAdmin (' . $this->getAppId(false) . ')',
+                $this->twofactor->user,
+                $secret
+            );
+        } finally {
+            restore_error_handler();
+        }
 
         return $this->template->render('login/twofactor/application_configure', [
             'image' => $inlineUrl,
