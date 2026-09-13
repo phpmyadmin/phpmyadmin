@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-09-06 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:43+0000\n"
 "PO-Revision-Date: 2024-07-03 07:27+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -208,7 +208,7 @@ msgstr "於 %s 之後"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:933 src/Plugins/Export/ExportSql.php:1983
+#: src/Display/Results.php:921 src/Plugins/Export/ExportSql.php:1983
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "無"
@@ -291,7 +291,7 @@ msgstr "執行"
 #: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:5
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:555
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:529
 msgid "Table comments:"
 msgstr "資料表備註："
 
@@ -488,8 +488,8 @@ msgstr "此為外鍵。"
 #: src/Plugins/Export/ExportTexytext.php:240
 #: src/Plugins/Export/ExportTexytext.php:300
 #: src/Plugins/Export/Helpers/Pdf.php:470
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:598
 msgid "Column"
 msgstr "欄位"
 
@@ -640,8 +640,8 @@ msgstr "名稱"
 #: src/Plugins/Export/ExportTexytext.php:241
 #: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:472
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:599
 msgid "Type"
 msgstr "類型"
 
@@ -677,8 +677,8 @@ msgstr ""
 #: src/Plugins/Export/ExportTexytext.php:243
 #: src/Plugins/Export/ExportTexytext.php:303
 #: src/Plugins/Export/Helpers/Pdf.php:476
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Default"
 msgstr "預設值"
 
@@ -715,8 +715,8 @@ msgstr "編碼與排序"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:39
 #: resources/templates/database/central_columns/edit.twig:13
 #: resources/templates/table/structure/display_structure.twig:24
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:578
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:600
 msgid "Attributes"
 msgstr "屬性"
 
@@ -740,8 +740,8 @@ msgstr "屬性"
 #: src/Plugins/Export/ExportTexytext.php:242
 #: src/Plugins/Export/ExportTexytext.php:302
 #: src/Plugins/Export/Helpers/Pdf.php:474
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:579
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
 msgid "Null"
 msgstr "無值(Null)"
 
@@ -764,8 +764,8 @@ msgstr "調整權限"
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:409
 #: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:592
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 msgid "Comments"
 msgstr "備註"
 
@@ -918,7 +918,7 @@ msgstr "已關閉"
 #: src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:644
 msgid "Yes"
 msgstr "是"
 
@@ -954,7 +954,7 @@ msgstr "是"
 #: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:644
 msgid "No"
 msgstr "否"
 
@@ -1018,7 +1018,7 @@ msgstr "重新查詢"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:380
-#: src/Display/Results.php:1885 src/Html/Generator.php:520
+#: src/Display/Results.php:1834 src/Html/Generator.php:520
 #: src/Html/Generator.php:777
 msgid "Edit"
 msgstr "編輯"
@@ -1037,7 +1037,7 @@ msgstr "編輯"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:382
-#: src/Display/Results.php:2423 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2362 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "刪除"
 
@@ -1059,7 +1059,7 @@ msgstr "刪除"
 #: src/Config/Descriptions.php:932 src/Plugins/Export/ExportHtmlword.php:145
 #: src/Plugins/Export/ExportOdt.php:182
 #: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1561
-#: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:103
+#: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:107
 msgid "Database"
 msgstr "資料庫"
 
@@ -1417,8 +1417,8 @@ msgstr "列印"
 #: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:403
 #: src/Plugins/Export/ExportTexytext.php:305
 #: src/Plugins/Export/Helpers/Pdf.php:485
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:582
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
 msgid "Links to"
 msgstr "連結到"
 
@@ -1753,7 +1753,7 @@ msgstr "事件名稱"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
-#: src/Server/Status/Processes.php:106 src/Util.php:1372
+#: src/Server/Status/Processes.php:110 src/Util.php:1372
 msgid "Status"
 msgstr "狀態"
 
@@ -2087,8 +2087,8 @@ msgstr "排序"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1403
-#: src/Display/Results.php:1409 src/Util.php:1642 src/Util.php:1659
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1371
+#: src/Display/Results.php:1377 src/Util.php:1642 src/Util.php:1659
 msgid "Ascending"
 msgstr "遞增"
 
@@ -2099,8 +2099,8 @@ msgstr "遞增"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1398
-#: src/Display/Results.php:1414 src/Util.php:1647 src/Util.php:1664
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1366
+#: src/Display/Results.php:1382 src/Util.php:1647 src/Util.php:1664
 msgid "Descending"
 msgstr "遞減"
 
@@ -2611,7 +2611,7 @@ msgid "Sum"
 msgstr "總計"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:409
+#: src/StorageEngine.php:408
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "此 MySQL 伺服器的預設儲存引擎是 %s。"
@@ -3065,12 +3065,12 @@ msgid "Extra options"
 msgstr "更多選項"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1124
+#: src/Display/Results.php:1100
 msgid "Partial texts"
 msgstr "部分內容"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1128
+#: src/Display/Results.php:1104
 msgid "Full texts"
 msgstr "完整內容"
 
@@ -3111,7 +3111,7 @@ msgstr "易懂的二進位檔"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:468
-#: src/Display/Results.php:1886 src/Html/Generator.php:82
+#: src/Display/Results.php:1835 src/Html/Generator.php:82
 msgid "Copy"
 msgstr "複製"
 
@@ -3649,7 +3649,7 @@ msgstr "使用"
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:412
 #: src/Export/Export.php:739 src/Html/Generator.php:836
-#: src/Plugins/Schema/ExportRelationSchema.php:266
+#: src/Plugins/Schema/ExportRelationSchema.php:258
 msgid "Back"
 msgstr "返回"
 
@@ -3778,8 +3778,8 @@ msgstr "帶您至目標網站。"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
 #: src/Pdf.php:72 src/Pdf.php:92
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:459
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:484
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:433
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 msgid "Page number:"
 msgstr "頁碼："
 
@@ -5439,7 +5439,7 @@ msgstr "使用文字欄位："
 #: resources/templates/server/replication/primary_add_replica_user.twig:32
 #: resources/templates/server/replication/primary_add_replica_user.twig:43
 #: resources/templates/server/replication/primary_replication.twig:25
-#: src/Server/Status/Processes.php:102
+#: src/Server/Status/Processes.php:106
 msgid "Host"
 msgstr "主機"
 
@@ -6110,7 +6110,7 @@ msgid "Start auto refresh"
 msgstr "開始自動更新"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2441
+#: src/Display/Results.php:2380
 msgid "Kill"
 msgstr "中止"
 
@@ -6294,7 +6294,7 @@ msgstr "這個使用者群組為空的。"
 
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:446
-#: src/Server/Status/Processes.php:101
+#: src/Server/Status/Processes.php:105
 msgid "User"
 msgstr "使用者"
 
@@ -6453,7 +6453,7 @@ msgstr "狀態"
 #: src/Plugins/Export/ExportHtmlword.php:395
 #: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
-#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:105
+#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:109
 msgid "Time"
 msgstr "時間"
 
@@ -6491,7 +6491,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "SQL 查詢已順利執行。"
 
 #: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
-#: src/Server/Status/Processes.php:113
+#: src/Server/Status/Processes.php:117
 msgid "SQL query"
 msgstr "SQL 查詢"
 
@@ -6795,7 +6795,7 @@ msgstr "使用滑鼠拖曳來重新排序"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1406
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1394
 msgid "Ignore"
 msgstr "略過"
 
@@ -7215,8 +7215,8 @@ msgstr "編輯分區"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:13
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:581
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 msgid "Extra"
 msgstr "額外資訊"
 
@@ -7500,44 +7500,44 @@ msgstr "檢視(VIEW)名稱"
 msgid "Column names"
 msgstr "欄位名稱"
 
-#: src/Advisory/Advisor.php:207
+#: src/Advisory/Advisor.php:206
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "評估此項目時發生錯誤：%s"
 
-#: src/Advisory/Advisor.php:232
+#: src/Advisory/Advisor.php:231
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "在檢查預先狀況時，條件「%s」失敗。"
 
-#: src/Advisory/Advisor.php:252
+#: src/Advisory/Advisor.php:251
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "在計算值時，條件「%s」失敗。"
 
-#: src/Advisory/Advisor.php:271
+#: src/Advisory/Advisor.php:270
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "在執行測試時，條件「%s」失敗。"
 
-#: src/Advisory/Advisor.php:301
+#: src/Advisory/Advisor.php:300
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "無法產生規則「%s」的格式化文字。"
 
-#: src/Advisory/Advisor.php:401
+#: src/Advisory/Advisor.php:400
 msgid "per second"
 msgstr "每秒"
 
-#: src/Advisory/Advisor.php:404
+#: src/Advisory/Advisor.php:403
 msgid "per minute"
 msgstr "每分鐘"
 
-#: src/Advisory/Advisor.php:407
+#: src/Advisory/Advisor.php:406
 msgid "per hour"
 msgstr "每小時"
 
-#: src/Advisory/Advisor.php:410
+#: src/Advisory/Advisor.php:409
 msgid "per day"
 msgstr "每天"
 
@@ -12074,7 +12074,7 @@ msgid "Success!"
 msgstr "成功！"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3262
+#: src/Display/Results.php:3187
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -15548,31 +15548,31 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr "錯誤1045：使用者被拒絕。可能有其他錯誤訊息，但被%s設定隱藏。"
 
-#: src/Display/Results.php:2400 src/Display/Results.php:2415
+#: src/Display/Results.php:2339 src/Display/Results.php:2354
 msgid "The row has been deleted."
 msgstr "已刪除該行。"
 
-#: src/Display/Results.php:2982 src/Display/Results.php:3302 src/Sql.php:911
+#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:911
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查詢用了 %01.4f 秒。"
 
-#: src/Display/Results.php:3270
+#: src/Display/Results.php:3195
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "顯示第 %1s - %2s 列"
 
-#: src/Display/Results.php:3283
+#: src/Display/Results.php:3208
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "總計 %1$s 筆，目前查詢 %2$s 筆"
 
-#: src/Display/Results.php:3288
+#: src/Display/Results.php:3213
 #, php-format
 msgid "%s total"
 msgstr "總計 %s 筆"
 
-#: src/Display/Results.php:3592
+#: src/Display/Results.php:3511
 msgid "Link not found!"
 msgstr "無此連結！"
 
@@ -16174,11 +16174,11 @@ msgstr "索引 %1$s 和 %2$s 看來是相同的，其中一個可能會被移除
 msgid "web server upload directory:"
 msgstr "網頁伺服器上傳資料夾："
 
-#: src/InsertEdit.php:831 src/Sql.php:902
+#: src/InsertEdit.php:819 src/Sql.php:902
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: src/InsertEdit.php:855 src/Sql.php:883
+#: src/InsertEdit.php:843 src/Sql.php:883
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 ID：%1$d"
@@ -17089,17 +17089,17 @@ msgid "Error reading data for table %s:"
 msgstr "讀取資料表 %s 的資料時出現錯誤："
 
 #: src/Plugins/Export/ExportSql.php:2522
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:540
 msgid "Creation:"
 msgstr "建立時間："
 
 #: src/Plugins/Export/ExportSql.php:2530
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:551
 msgid "Last update:"
 msgstr "最後更新："
 
 #: src/Plugins/Export/ExportSql.php:2538
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:562
 msgid "Last check:"
 msgstr "最後檢查："
 
@@ -17252,20 +17252,20 @@ msgid "This format has no options"
 msgstr "該格式沒有選項"
 
 #: src/Plugins/Schema/Dia/TableStatsDia.php:66
-#: src/Plugins/Schema/Eps/TableStatsEps.php:78
-#: src/Plugins/Schema/Pdf/TableStatsPdf.php:78
-#: src/Plugins/Schema/Svg/TableStatsSvg.php:78
+#: src/Plugins/Schema/Eps/TableStatsEps.php:72
+#: src/Plugins/Schema/Pdf/TableStatsPdf.php:72
+#: src/Plugins/Schema/Svg/TableStatsSvg.php:72
 #, php-format
 msgid "The %s table doesn't exist!"
 msgstr "沒有 %s 資料表！"
 
-#: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
-#: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
+#: src/Plugins/Schema/Eps/EpsRelationSchema.php:62
+#: src/Plugins/Schema/Svg/SvgRelationSchema.php:70
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "%s 資料庫綱要 - 第 %s 頁"
 
-#: src/Plugins/Schema/ExportRelationSchema.php:252
+#: src/Plugins/Schema/ExportRelationSchema.php:244
 msgid "SCHEMA ERROR: "
 msgstr "綱要錯誤： "
 
@@ -17273,17 +17273,17 @@ msgstr "綱要錯誤： "
 msgid "PDF export page"
 msgstr "PDF 匯出頁面"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:118
 #, php-format
 msgid "Schema of the %s database"
 msgstr "%s 資料庫綱要"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:495
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:146
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:469
 msgid "Relational schema"
 msgstr "關聯綱要"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:449
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:423
 msgid "Table of contents"
 msgstr "目錄"
 
@@ -17528,15 +17528,15 @@ msgid ""
 "integer."
 msgstr "將使用 (IPv4/IPv6) 格式的網際網路位址，轉換為長整數。"
 
-#: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
 msgstr "以 JSON 語法凸顯標示的 CodeMirror 編輯器。"
 
-#: src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for SQL."
 msgstr "以 SQL 語法凸顯標示的 CodeMirror 編輯器。"
 
-#: src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "以 XML (與 HTML) 語法凸顯標示的 CodeMirror 編輯器。"
 
@@ -17547,11 +17547,11 @@ msgid ""
 msgstr ""
 "將使用二進位字串儲存的網際網路位址，轉換為網際網路標準 (IPv4/IPv6) 格式字串。"
 
-#: src/Plugins/Transformations/Output/Text_Plain_Json.php:43
+#: src/Plugins/Transformations/Output/Text_Plain_Json.php:45
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "將文字以 JSON 語法凸顯標示。"
 
-#: src/Plugins/Transformations/Output/Text_Plain_Xml.php:43
+#: src/Plugins/Transformations/Output/Text_Plain_Xml.php:45
 msgid "Formats text as XML with syntax highlighting."
 msgstr "將文字以 XML 語法凸顯標示。"
 
@@ -17912,15 +17912,15 @@ msgstr "顯示次要伺服器狀態"
 msgid "Flush query cache"
 msgstr "強制更新查詢快取"
 
-#: src/Server/Status/Processes.php:100
+#: src/Server/Status/Processes.php:104
 msgid "ID"
 msgstr "ID"
 
-#: src/Server/Status/Processes.php:104
+#: src/Server/Status/Processes.php:108
 msgid "Command"
 msgstr "指令"
 
-#: src/Server/Status/Processes.php:110
+#: src/Server/Status/Processes.php:114
 msgid "Progress"
 msgstr "進度"
 
@@ -17990,17 +17990,17 @@ msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "沒有該儲存引擎的詳細狀態資訊。"
 
-#: src/StorageEngine.php:410
+#: src/StorageEngine.php:409
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "此 MySQL 伺服器可使用 %s。"
 
-#: src/StorageEngine.php:411
+#: src/StorageEngine.php:410
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "此 MySQL 伺服器已停用 %s。"
 
-#: src/StorageEngine.php:412
+#: src/StorageEngine.php:411
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "此 MySQL 伺服器不支援 %s 儲存引擎。"

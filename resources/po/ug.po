@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-09-06 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:43+0000\n"
 "PO-Revision-Date: 2026-03-03 23:09+0000\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -205,7 +205,7 @@ msgstr "%s دىن كېيىن"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:933 src/Plugins/Export/ExportSql.php:1983
+#: src/Display/Results.php:921 src/Plugins/Export/ExportSql.php:1983
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "يوق"
@@ -288,7 +288,7 @@ msgstr "ئىجرا قىلىش"
 #: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:5
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:555
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:529
 msgid "Table comments:"
 msgstr "جەدۋەل ئىزاھى:"
 
@@ -487,8 +487,8 @@ msgstr "سىرتقى ئاچقۇچ."
 #: src/Plugins/Export/ExportTexytext.php:240
 #: src/Plugins/Export/ExportTexytext.php:300
 #: src/Plugins/Export/Helpers/Pdf.php:470
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:598
 msgid "Column"
 msgstr "سۆزلەم"
 
@@ -653,8 +653,8 @@ msgstr "ئىسمى"
 #: src/Plugins/Export/ExportTexytext.php:241
 #: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:472
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:599
 msgid "Type"
 msgstr "تۈرى"
 
@@ -692,8 +692,8 @@ msgstr ""
 #: src/Plugins/Export/ExportTexytext.php:243
 #: src/Plugins/Export/ExportTexytext.php:303
 #: src/Plugins/Export/Helpers/Pdf.php:476
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Default"
 msgstr "ئەندىز"
 
@@ -732,8 +732,8 @@ msgstr "تاسقاش"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:39
 #: resources/templates/database/central_columns/edit.twig:13
 #: resources/templates/table/structure/display_structure.twig:24
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:578
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:600
 msgid "Attributes"
 msgstr "خاسلىقى"
 
@@ -757,8 +757,8 @@ msgstr "خاسلىقى"
 #: src/Plugins/Export/ExportTexytext.php:242
 #: src/Plugins/Export/ExportTexytext.php:302
 #: src/Plugins/Export/Helpers/Pdf.php:474
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:579
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
 msgid "Null"
 msgstr "بوش"
 
@@ -783,8 +783,8 @@ msgstr "ھۇقۇقى"
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:409
 #: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:592
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 msgid "Comments"
 msgstr "ئىزاھلار"
 
@@ -946,7 +946,7 @@ msgstr "تاقالدى"
 #: src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:644
 msgid "Yes"
 msgstr "بولدى"
 
@@ -982,7 +982,7 @@ msgstr "بولدى"
 #: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:644
 msgid "No"
 msgstr "يوق"
 
@@ -1048,7 +1048,7 @@ msgstr "تەكشۈرۈش"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:380
-#: src/Display/Results.php:1885 src/Html/Generator.php:520
+#: src/Display/Results.php:1834 src/Html/Generator.php:520
 #: src/Html/Generator.php:777
 msgid "Edit"
 msgstr "تەھىرلەش"
@@ -1067,7 +1067,7 @@ msgstr "تەھىرلەش"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:382
-#: src/Display/Results.php:2423 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2362 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "ئۆچۈرۈش"
 
@@ -1089,7 +1089,7 @@ msgstr "ئۆچۈرۈش"
 #: src/Config/Descriptions.php:932 src/Plugins/Export/ExportHtmlword.php:145
 #: src/Plugins/Export/ExportOdt.php:182
 #: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1561
-#: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:103
+#: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:107
 msgid "Database"
 msgstr "ساندان"
 
@@ -1509,8 +1509,8 @@ msgstr "يازدۇر"
 #: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:403
 #: src/Plugins/Export/ExportTexytext.php:305
 #: src/Plugins/Export/Helpers/Pdf.php:485
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:582
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
 msgid "Links to"
 msgstr "ئۇلانما"
 
@@ -1912,7 +1912,7 @@ msgstr "قىممەت ئىسمى"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
-#: src/Server/Status/Processes.php:106 src/Util.php:1372
+#: src/Server/Status/Processes.php:110 src/Util.php:1372
 msgid "Status"
 msgstr "ھالەت"
 
@@ -2276,8 +2276,8 @@ msgstr "تۈرلەش"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1403
-#: src/Display/Results.php:1409 src/Util.php:1642 src/Util.php:1659
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1371
+#: src/Display/Results.php:1377 src/Util.php:1642 src/Util.php:1659
 msgid "Ascending"
 msgstr "ئارتىش"
 
@@ -2288,8 +2288,8 @@ msgstr "ئارتىش"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1398
-#: src/Display/Results.php:1414 src/Util.php:1647 src/Util.php:1664
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1366
+#: src/Display/Results.php:1382 src/Util.php:1647 src/Util.php:1664
 msgid "Descending"
 msgstr "كېمىيىش"
 
@@ -2871,7 +2871,7 @@ msgid "Sum"
 msgstr "جەمئىي"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:409
+#: src/StorageEngine.php:408
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s بولسا MySQL مۇلازىمىتېرنىڭ ساقلاش ئەندىزە موتۇرى."
@@ -3381,14 +3381,14 @@ msgid "Extra options"
 msgstr "ئامال"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1124
+#: src/Display/Results.php:1100
 #, fuzzy
 #| msgid "Partial import"
 msgid "Partial texts"
 msgstr "بۆلۈپ كىرگۈزىش"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1128
+#: src/Display/Results.php:1104
 msgid "Full texts"
 msgstr "تولۇق تېكىستلەر"
 
@@ -3431,7 +3431,7 @@ msgstr "ياخشى بىلىنگەن ئىككىلىك"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:468
-#: src/Display/Results.php:1886 src/Html/Generator.php:82
+#: src/Display/Results.php:1835 src/Html/Generator.php:82
 msgid "Copy"
 msgstr "كۆچۈرۈڭ"
 
@@ -4066,7 +4066,7 @@ msgstr "ئېلىش"
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:412
 #: src/Export/Export.php:739 src/Html/Generator.php:836
-#: src/Plugins/Schema/ExportRelationSchema.php:266
+#: src/Plugins/Schema/ExportRelationSchema.php:258
 msgid "Back"
 msgstr "قايتىش"
 
@@ -4207,8 +4207,8 @@ msgstr "ئىزلاش خاتىرىسى"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
 #: src/Pdf.php:72 src/Pdf.php:92
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:459
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:484
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:433
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 msgid "Page number:"
 msgstr "بەت نومۇرى:"
 
@@ -6080,7 +6080,7 @@ msgstr "تېكىست مەيدانىنى ئىشلىتىڭ:"
 #: resources/templates/server/replication/primary_add_replica_user.twig:32
 #: resources/templates/server/replication/primary_add_replica_user.twig:43
 #: resources/templates/server/replication/primary_replication.twig:25
-#: src/Server/Status/Processes.php:102
+#: src/Server/Status/Processes.php:106
 msgid "Host"
 msgstr "ئاساسىي ماشىنا"
 
@@ -6792,7 +6792,7 @@ msgid "Start auto refresh"
 msgstr "ئاپتوماتىك يېڭىلاشنى باشلاڭ"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2441
+#: src/Display/Results.php:2380
 msgid "Kill"
 msgstr "Kill"
 
@@ -6986,7 +6986,7 @@ msgstr "بۇ ئىشلەتكۈچى توپىغا تەۋە ھېچقانداق ئى�
 
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:446
-#: src/Server/Status/Processes.php:101
+#: src/Server/Status/Processes.php:105
 msgid "User"
 msgstr "ئىشلەتكۈچى"
 
@@ -7157,7 +7157,7 @@ msgstr "شەنبە"
 #: src/Plugins/Export/ExportHtmlword.php:395
 #: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
-#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:105
+#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:109
 msgid "Time"
 msgstr "ۋاقىت"
 
@@ -7203,7 +7203,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "SQL بۇيرىقى غەلبىلىك بىجىرىلدى"
 
 #: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
-#: src/Server/Status/Processes.php:113
+#: src/Server/Status/Processes.php:117
 msgid "SQL query"
 msgstr "SQL سورىقى"
 
@@ -7569,7 +7569,7 @@ msgstr "قايتا تەرتىپكە سېلىش"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1406
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1394
 msgid "Ignore"
 msgstr "پەرۋا قىلماڭ"
 
@@ -8062,8 +8062,8 @@ msgstr "بېسىپ كۆرسىتىش"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:13
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:581
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 msgid "Extra"
 msgstr "قوشۇمچە"
 
@@ -8380,44 +8380,44 @@ msgstr "VIEW name"
 msgid "Column names"
 msgstr "ستون ئىسمى"
 
-#: src/Advisory/Advisor.php:207
+#: src/Advisory/Advisor.php:206
 #, fuzzy, php-format
 msgid "Error when evaluating: %s"
 msgstr "ھۆججەت يۈكلەشتە ئېنىقسىز خاتالىق كۆرۈلدى."
 
-#: src/Advisory/Advisor.php:232
+#: src/Advisory/Advisor.php:231
 #, fuzzy, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr "«% S» قائىدىسىنىڭ ئالدىنقى شەرتىنى باھالاش مەغلۇب بولدى."
 
-#: src/Advisory/Advisor.php:252
+#: src/Advisory/Advisor.php:251
 #, fuzzy, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "«% S» قائىدىسىنىڭ قىممىتىنى ھېسابلاش مەغلۇب بولدى."
 
-#: src/Advisory/Advisor.php:271
+#: src/Advisory/Advisor.php:270
 #, fuzzy, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "«% S» قائىدىسىنى ئىجرا قىلىش سىنىقى مەغلۇپ بولدى."
 
-#: src/Advisory/Advisor.php:301
+#: src/Advisory/Advisor.php:300
 #, fuzzy, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "'% S' قائىدىسىدە فورماتلاش مەغلۇب بولدى."
 
-#: src/Advisory/Advisor.php:401
+#: src/Advisory/Advisor.php:400
 msgid "per second"
 msgstr "سېكۇنت"
 
-#: src/Advisory/Advisor.php:404
+#: src/Advisory/Advisor.php:403
 msgid "per minute"
 msgstr "ھەر مىنۇتتا"
 
-#: src/Advisory/Advisor.php:407
+#: src/Advisory/Advisor.php:406
 msgid "per hour"
 msgstr "سائىتىگە"
 
-#: src/Advisory/Advisor.php:410
+#: src/Advisory/Advisor.php:409
 msgid "per day"
 msgstr "كۈنىگە"
 
@@ -13513,7 +13513,7 @@ msgid "Success!"
 msgstr "مۇۋەپپەقىيەت!"
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3262
+#: src/Display/Results.php:3187
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -17423,34 +17423,34 @@ msgstr ""
 "خاتالىق 1045: ئىشلەتكۈچىگە كىرىش رەت قىلىندى. قوشۇمچە خاتالىق ئۇچۇرى بولۇشى "
 "مۇمكىن ، ئەمما% s سەپلىمە كۆرسەتمىسى تەرىپىدىن يوشۇرۇلىدۇ."
 
-#: src/Display/Results.php:2400 src/Display/Results.php:2415
+#: src/Display/Results.php:2339 src/Display/Results.php:2354
 #, fuzzy
 #| msgid "The bookmark has been deleted."
 msgid "The row has been deleted."
 msgstr "خەتكۈچ ئۆچۈرۈلدى."
 
-#: src/Display/Results.php:2982 src/Display/Results.php:3302 src/Sql.php:911
+#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:911
 #, fuzzy, php-format
 msgid "Query took %01.4f seconds."
 msgstr "سۈرۈشتۈرۈش% 01.4f سېكۇنت."
 
-#: src/Display/Results.php:3270
+#: src/Display/Results.php:3195
 #, fuzzy, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "قۇرلارنى كۆرسىتىش% 1s -% 2s"
 
-#: src/Display/Results.php:3283
+#: src/Display/Results.php:3208
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3288
+#: src/Display/Results.php:3213
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "ئۇمۇمىي"
 
-#: src/Display/Results.php:3592
+#: src/Display/Results.php:3511
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -18116,11 +18116,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "مۇلازىمىتېردىكى يۈكلەش مۇندەرىجىسى"
 
-#: src/InsertEdit.php:831 src/Sql.php:902
+#: src/InsertEdit.php:819 src/Sql.php:902
 msgid "Showing SQL query"
 msgstr "SQL سوئالنى كۆرسىتىش"
 
-#: src/InsertEdit.php:855 src/Sql.php:883
+#: src/InsertEdit.php:843 src/Sql.php:883
 #, fuzzy, php-format
 msgid "Inserted row id: %1$d"
 msgstr "قىستۇرما قۇر id:% 1 $ d"
@@ -19175,21 +19175,21 @@ msgid "Error reading data for table %s:"
 msgstr "سانلىق مەلۇماتنى ئىزقوغلاپ ئۈچۈرۈش"
 
 #: src/Plugins/Export/ExportSql.php:2522
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:540
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "قۇرۇش"
 
 #: src/Plugins/Export/ExportSql.php:2530
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:551
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "ئاخىرقى يېڭلىنىش"
 
 #: src/Plugins/Export/ExportSql.php:2538
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:562
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
@@ -19365,20 +19365,20 @@ msgid "This format has no options"
 msgstr "بۇ فورماتنىڭ تاللىشى يوق"
 
 #: src/Plugins/Schema/Dia/TableStatsDia.php:66
-#: src/Plugins/Schema/Eps/TableStatsEps.php:78
-#: src/Plugins/Schema/Pdf/TableStatsPdf.php:78
-#: src/Plugins/Schema/Svg/TableStatsSvg.php:78
+#: src/Plugins/Schema/Eps/TableStatsEps.php:72
+#: src/Plugins/Schema/Pdf/TableStatsPdf.php:72
+#: src/Plugins/Schema/Svg/TableStatsSvg.php:72
 #, fuzzy, php-format
 msgid "The %s table doesn't exist!"
 msgstr "% S جەدۋىلى مەۋجۇت ئەمەس!"
 
-#: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
-#: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
+#: src/Plugins/Schema/Eps/EpsRelationSchema.php:62
+#: src/Plugins/Schema/Svg/SvgRelationSchema.php:70
 #, fuzzy, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "% S سانداننىڭ سىخېمىسى - بەت% s"
 
-#: src/Plugins/Schema/ExportRelationSchema.php:252
+#: src/Plugins/Schema/ExportRelationSchema.php:244
 msgid "SCHEMA ERROR: "
 msgstr "SCHEMA خاتالىق: "
 
@@ -19388,18 +19388,18 @@ msgstr "SCHEMA خاتالىق: "
 msgid "PDF export page"
 msgstr "چىقىرىش"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:118
 #, fuzzy, php-format
 #| msgid "Search in database"
 msgid "Schema of the %s database"
 msgstr "سانداندىن ئىزدەش"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:495
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:146
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:469
 msgid "Relational schema"
 msgstr "مۇناسىۋەتلىك لايىھە"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:449
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:423
 msgid "Table of contents"
 msgstr "مەزمۇن جەدۋىلى"
 
@@ -19651,15 +19651,15 @@ msgstr ""
 "(IPv4 / IPv6) فورماتىدىكى ئىنتېرنېت تورى ئادرېسىنى ئۇزۇن پۈتۈن سانغا "
 "ئايلاندۇرىدۇ."
 
-#: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
 msgstr "گرامماتىكىسى JSON نىڭ CodeMirror تەھرىرىنى گەۋدىلەندۈردى."
 
-#: src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for SQL."
 msgstr "گرامماتىكىسى SQL نىڭ CodeMirror تەھرىرىنى گەۋدىلەندۈردى."
 
-#: src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "گرامماتىكىسى XML (ۋە HTML) نىڭ CodeMirror تەھرىرىنى گەۋدىلەندۈردى."
 
@@ -19671,11 +19671,11 @@ msgstr ""
 "ئىككىلىك تىزما سۈپىتىدە ساقلانغان ئىنتېرنېت تورى ئادرېسىنى ئىنتېرنېت ئۆلچىمى "
 "(IPv4 / IPv6) فورماتىغا ئايلاندۇرىدۇ."
 
-#: src/Plugins/Transformations/Output/Text_Plain_Json.php:43
+#: src/Plugins/Transformations/Output/Text_Plain_Json.php:45
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "تېكىستنى JSON قىلىپ فورماتلاش ئارقىلىق فورماتلايدۇ."
 
-#: src/Plugins/Transformations/Output/Text_Plain_Xml.php:43
+#: src/Plugins/Transformations/Output/Text_Plain_Xml.php:45
 msgid "Formats text as XML with syntax highlighting."
 msgstr "تېكىستنى گرامماتىكىلىق يورۇتۇش ئارقىلىق XML قىلىپ فورماتلايدۇ."
 
@@ -20052,15 +20052,15 @@ msgstr "دوكلات تېمىسى"
 msgid "Flush query cache"
 msgstr "Flush query cache"
 
-#: src/Server/Status/Processes.php:100
+#: src/Server/Status/Processes.php:104
 msgid "ID"
 msgstr "كىملىك"
 
-#: src/Server/Status/Processes.php:104
+#: src/Server/Status/Processes.php:108
 msgid "Command"
 msgstr "بۇيرۇق"
 
-#: src/Server/Status/Processes.php:110
+#: src/Server/Status/Processes.php:114
 msgid "Progress"
 msgstr "ئىلگىرىلەش"
 
@@ -20135,17 +20135,17 @@ msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "بۇ ساقلىغۇچقا مۇناسىۋەتلىك باشقا ئۇچۇرلار مەۋجۇت ئەمەس."
 
-#: src/StorageEngine.php:410
+#: src/StorageEngine.php:409
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s نى بۇ MySQL مۇلازىمىتېرىدا ئىشلىتىشكە بولىدۇ."
 
-#: src/StorageEngine.php:411
+#: src/StorageEngine.php:410
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s نى بۇ MySQL مۇلازىمىتېرىدا ئىشلىتىشكە بولمايدۇ."
 
-#: src/StorageEngine.php:412
+#: src/StorageEngine.php:411
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "بۇ MySQL مۇلازىمىتېرى %s نى قوللىمايدۇ."

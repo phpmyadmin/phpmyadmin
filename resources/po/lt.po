@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-09-06 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:43+0000\n"
 "PO-Revision-Date: 2022-07-05 15:20+0000\n"
 "Last-Translator: Ugnius Vaičeskas <ugninis.vai@gmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -223,7 +223,7 @@ msgstr "Po %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:933 src/Plugins/Export/ExportSql.php:1983
+#: src/Display/Results.php:921 src/Plugins/Export/ExportSql.php:1983
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Ne"
@@ -310,7 +310,7 @@ msgstr "Vykdyti"
 #: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:5
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:555
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:529
 msgid "Table comments:"
 msgstr "Lentelės komentarai:"
 
@@ -524,8 +524,8 @@ msgstr "Pasirinkti Foreign Key"
 #: src/Plugins/Export/ExportTexytext.php:240
 #: src/Plugins/Export/ExportTexytext.php:300
 #: src/Plugins/Export/Helpers/Pdf.php:470
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:598
 msgid "Column"
 msgstr "Stulpelis"
 
@@ -708,8 +708,8 @@ msgstr "Pavadinimas"
 #: src/Plugins/Export/ExportTexytext.php:241
 #: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:472
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:599
 msgid "Type"
 msgstr "Tipas"
 
@@ -748,8 +748,8 @@ msgstr ""
 #: src/Plugins/Export/ExportTexytext.php:243
 #: src/Plugins/Export/ExportTexytext.php:303
 #: src/Plugins/Export/Helpers/Pdf.php:476
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Default"
 msgstr "Nutylint"
 
@@ -788,8 +788,8 @@ msgstr "Palyginimas"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:39
 #: resources/templates/database/central_columns/edit.twig:13
 #: resources/templates/table/structure/display_structure.twig:24
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:578
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:600
 msgid "Attributes"
 msgstr "Atributai"
 
@@ -813,8 +813,8 @@ msgstr "Atributai"
 #: src/Plugins/Export/ExportTexytext.php:242
 #: src/Plugins/Export/ExportTexytext.php:302
 #: src/Plugins/Export/Helpers/Pdf.php:474
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:579
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
 msgid "Null"
 msgstr "Null"
 
@@ -839,8 +839,8 @@ msgstr "Redaguoti privilegijas"
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:409
 #: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:592
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 msgid "Comments"
 msgstr "Komentarai"
 
@@ -1016,7 +1016,7 @@ msgstr "Išjungta"
 #: src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:644
 msgid "Yes"
 msgstr "Taip"
 
@@ -1052,7 +1052,7 @@ msgstr "Taip"
 #: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:644
 msgid "No"
 msgstr "Ne"
 
@@ -1118,7 +1118,7 @@ msgstr "SQL užklausa"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:380
-#: src/Display/Results.php:1885 src/Html/Generator.php:520
+#: src/Display/Results.php:1834 src/Html/Generator.php:520
 #: src/Html/Generator.php:777
 msgid "Edit"
 msgstr "Redaguoti"
@@ -1137,7 +1137,7 @@ msgstr "Redaguoti"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:382
-#: src/Display/Results.php:2423 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2362 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "Trinti"
 
@@ -1159,7 +1159,7 @@ msgstr "Trinti"
 #: src/Config/Descriptions.php:932 src/Plugins/Export/ExportHtmlword.php:145
 #: src/Plugins/Export/ExportOdt.php:182
 #: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1561
-#: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:103
+#: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:107
 msgid "Database"
 msgstr "Duomenų bazė"
 
@@ -1587,8 +1587,8 @@ msgstr "Spausdinti"
 #: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:403
 #: src/Plugins/Export/ExportTexytext.php:305
 #: src/Plugins/Export/Helpers/Pdf.php:485
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:582
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
 msgid "Links to"
 msgstr "Sąryšis su"
 
@@ -1978,7 +1978,7 @@ msgstr "Įvykio tipas"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
-#: src/Server/Status/Processes.php:106 src/Util.php:1372
+#: src/Server/Status/Processes.php:110 src/Util.php:1372
 msgid "Status"
 msgstr "Būsena"
 
@@ -2338,8 +2338,8 @@ msgstr "Rūšiuoti"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1403
-#: src/Display/Results.php:1409 src/Util.php:1642 src/Util.php:1659
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1371
+#: src/Display/Results.php:1377 src/Util.php:1642 src/Util.php:1659
 msgid "Ascending"
 msgstr "Didėjimo tvarka"
 
@@ -2350,8 +2350,8 @@ msgstr "Didėjimo tvarka"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1398
-#: src/Display/Results.php:1414 src/Util.php:1647 src/Util.php:1664
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1366
+#: src/Display/Results.php:1382 src/Util.php:1647 src/Util.php:1664
 msgid "Descending"
 msgstr "Mažėjimo tvarka"
 
@@ -2914,7 +2914,7 @@ msgid "Sum"
 msgstr "Sumos"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:409
+#: src/StorageEngine.php:408
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s yra standartinis saugojimo variklis šiame MySQL serveryje."
@@ -3413,12 +3413,12 @@ msgid "Extra options"
 msgstr "Grąžinimo parametrai"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1124
+#: src/Display/Results.php:1100
 msgid "Partial texts"
 msgstr "Tekstus rodyti dalinai"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1128
+#: src/Display/Results.php:1104
 msgid "Full texts"
 msgstr "Tekstus rodyti pilnai"
 
@@ -3463,7 +3463,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:468
-#: src/Display/Results.php:1886 src/Html/Generator.php:82
+#: src/Display/Results.php:1835 src/Html/Generator.php:82
 msgid "Copy"
 msgstr "Kopijuoti"
 
@@ -4072,7 +4072,7 @@ msgstr "pasirinkti"
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:412
 #: src/Export/Export.php:739 src/Html/Generator.php:836
-#: src/Plugins/Schema/ExportRelationSchema.php:266
+#: src/Plugins/Schema/ExportRelationSchema.php:258
 msgid "Back"
 msgstr "Atgal"
 
@@ -4231,8 +4231,8 @@ msgstr "Sekimo ataskaita"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
 #: src/Pdf.php:72 src/Pdf.php:92
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:459
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:484
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:433
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 msgid "Page number:"
 msgstr "Puslapis:"
 
@@ -6113,7 +6113,7 @@ msgstr "Naudokite teksto įvedimo lauką"
 #: resources/templates/server/replication/primary_add_replica_user.twig:32
 #: resources/templates/server/replication/primary_add_replica_user.twig:43
 #: resources/templates/server/replication/primary_replication.twig:25
-#: src/Server/Status/Processes.php:102
+#: src/Server/Status/Processes.php:106
 msgid "Host"
 msgstr "Darbinė stotis"
 
@@ -6802,7 +6802,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2441
+#: src/Display/Results.php:2380
 msgid "Kill"
 msgstr "Stabdyti procesą"
 
@@ -7008,7 +7008,7 @@ msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:446
-#: src/Server/Status/Processes.php:101
+#: src/Server/Status/Processes.php:105
 msgid "User"
 msgstr "Naudotojas"
 
@@ -7181,7 +7181,7 @@ msgstr "Paleisti"
 #: src/Plugins/Export/ExportHtmlword.php:395
 #: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
-#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:105
+#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:109
 msgid "Time"
 msgstr "Laikas"
 
@@ -7229,7 +7229,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "Jūsų SQL užklausa sėkmingai įvykdyta"
 
 #: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
-#: src/Server/Status/Processes.php:113
+#: src/Server/Status/Processes.php:117
 msgid "SQL query"
 msgstr "SQL užklausa"
 
@@ -7592,7 +7592,7 @@ msgstr "Vilkite, kad pertvarkytumėte"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1406
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1394
 msgid "Ignore"
 msgstr "Ignoruoti"
 
@@ -8091,8 +8091,8 @@ msgstr "Pašalinti skaidymą"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:13
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:581
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 msgid "Extra"
 msgstr "Papildomai"
 
@@ -8415,44 +8415,44 @@ msgstr "VIEW pavadinimas"
 msgid "Column names"
 msgstr "Stulpelių vardai"
 
-#: src/Advisory/Advisor.php:207
+#: src/Advisory/Advisor.php:206
 #, php-format
 msgid "Error when evaluating: %s"
 msgstr "Klaida vertinant: %s"
 
-#: src/Advisory/Advisor.php:232
+#: src/Advisory/Advisor.php:231
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr ""
 
-#: src/Advisory/Advisor.php:252
+#: src/Advisory/Advisor.php:251
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr "Nepavyko apskaičiuoti reikšmės taisyklei „%s“."
 
-#: src/Advisory/Advisor.php:271
+#: src/Advisory/Advisor.php:270
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr "Nepavyko paleisti testo taisyklei „%s“."
 
-#: src/Advisory/Advisor.php:301
+#: src/Advisory/Advisor.php:300
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr "Nepavyko suformuoti eilutės taisyklei „%s“."
 
-#: src/Advisory/Advisor.php:401
+#: src/Advisory/Advisor.php:400
 msgid "per second"
 msgstr "per sekundę"
 
-#: src/Advisory/Advisor.php:404
+#: src/Advisory/Advisor.php:403
 msgid "per minute"
 msgstr "per minutę"
 
-#: src/Advisory/Advisor.php:407
+#: src/Advisory/Advisor.php:406
 msgid "per hour"
 msgstr "per valandą"
 
-#: src/Advisory/Advisor.php:410
+#: src/Advisory/Advisor.php:409
 msgid "per day"
 msgstr "per dieną"
 
@@ -13690,7 +13690,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3262
+#: src/Display/Results.php:3187
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -17393,36 +17393,36 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2400 src/Display/Results.php:2415
+#: src/Display/Results.php:2339 src/Display/Results.php:2354
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Eilutė buvo ištrinta"
 
-#: src/Display/Results.php:2982 src/Display/Results.php:3302 src/Sql.php:911
+#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:911
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Užklausa užtruko %01.4f sek."
 
-#: src/Display/Results.php:3270
+#: src/Display/Results.php:3195
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Rodomi įrašai"
 
-#: src/Display/Results.php:3283
+#: src/Display/Results.php:3208
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3288
+#: src/Display/Results.php:3213
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "iš viso"
 
-#: src/Display/Results.php:3592
+#: src/Display/Results.php:3511
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -18059,11 +18059,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "web serverio katalogas atsiuntimams"
 
-#: src/InsertEdit.php:831 src/Sql.php:902
+#: src/InsertEdit.php:819 src/Sql.php:902
 msgid "Showing SQL query"
 msgstr "Rodoma SQL užklausa"
 
-#: src/InsertEdit.php:855 src/Sql.php:883
+#: src/InsertEdit.php:843 src/Sql.php:883
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Įterpto įrašo id: %1$d"
@@ -19091,17 +19091,17 @@ msgid "Error reading data for table %s:"
 msgstr "Klaida skaitant duomenis:"
 
 #: src/Plugins/Export/ExportSql.php:2522
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:540
 msgid "Creation:"
 msgstr "Kūrimas:"
 
 #: src/Plugins/Export/ExportSql.php:2530
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:551
 msgid "Last update:"
 msgstr "Paskutinis atnaujinimas:"
 
 #: src/Plugins/Export/ExportSql.php:2538
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:562
 msgid "Last check:"
 msgstr "Paskutinis patikrinimas:"
 
@@ -19266,20 +19266,20 @@ msgid "This format has no options"
 msgstr "Šis formatas neturi nustatymų"
 
 #: src/Plugins/Schema/Dia/TableStatsDia.php:66
-#: src/Plugins/Schema/Eps/TableStatsEps.php:78
-#: src/Plugins/Schema/Pdf/TableStatsPdf.php:78
-#: src/Plugins/Schema/Svg/TableStatsSvg.php:78
+#: src/Plugins/Schema/Eps/TableStatsEps.php:72
+#: src/Plugins/Schema/Pdf/TableStatsPdf.php:72
+#: src/Plugins/Schema/Svg/TableStatsSvg.php:72
 #, php-format
 msgid "The %s table doesn't exist!"
 msgstr "Lentelė %s neegzistuoja!"
 
-#: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
-#: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
+#: src/Plugins/Schema/Eps/EpsRelationSchema.php:62
+#: src/Plugins/Schema/Svg/SvgRelationSchema.php:70
 #, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr "Duomenų bazės %s schema - %s puslapis"
 
-#: src/Plugins/Schema/ExportRelationSchema.php:252
+#: src/Plugins/Schema/ExportRelationSchema.php:244
 msgid "SCHEMA ERROR: "
 msgstr "SCHEMOS KLAIDA: "
 
@@ -19289,18 +19289,18 @@ msgstr "SCHEMOS KLAIDA: "
 msgid "PDF export page"
 msgstr "Neteisingas eksportavimo tipas"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:118
 #, fuzzy, php-format
 #| msgid "Schema of the %s database - Page %s"
 msgid "Schema of the %s database"
 msgstr "Duomenų bazės %s schema - %s puslapis"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:495
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:146
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:469
 msgid "Relational schema"
 msgstr "Ryšių schema"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:449
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:423
 msgid "Table of contents"
 msgstr "Turinys"
 
@@ -19565,15 +19565,15 @@ msgid ""
 msgstr ""
 "Konvertuoja (IPv4) interneto tinklo adresą į įprastą formatą su taškais."
 
-#: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
 msgstr ""
 
-#: src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for SQL."
 msgstr ""
 
-#: src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr ""
 
@@ -19588,13 +19588,13 @@ msgid ""
 msgstr ""
 "Konvertuoja (IPv4) interneto tinklo adresą į įprastą formatą su taškais."
 
-#: src/Plugins/Transformations/Output/Text_Plain_Json.php:43
+#: src/Plugins/Transformations/Output/Text_Plain_Json.php:45
 #, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "Suformuoja tekstą kaip SQL užklausą su sintaksės paryškinimais."
 
-#: src/Plugins/Transformations/Output/Text_Plain_Xml.php:43
+#: src/Plugins/Transformations/Output/Text_Plain_Xml.php:45
 #, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
@@ -19989,15 +19989,15 @@ msgstr "Rodyti pavaldinio būklę"
 msgid "Flush query cache"
 msgstr ""
 
-#: src/Server/Status/Processes.php:100
+#: src/Server/Status/Processes.php:104
 msgid "ID"
 msgstr "ID"
 
-#: src/Server/Status/Processes.php:104
+#: src/Server/Status/Processes.php:108
 msgid "Command"
 msgstr "Komanda"
 
-#: src/Server/Status/Processes.php:110
+#: src/Server/Status/Processes.php:114
 msgid "Progress"
 msgstr ""
 
@@ -20067,17 +20067,17 @@ msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Apie šio Saugojimo Variklio būseną nėra išsamios informacijos."
 
-#: src/StorageEngine.php:410
+#: src/StorageEngine.php:409
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s galimas šiame MySQL serveryje."
 
-#: src/StorageEngine.php:411
+#: src/StorageEngine.php:410
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s šiame MySQL serveryje yra išjungtas."
 
-#: src/StorageEngine.php:412
+#: src/StorageEngine.php:411
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Šis MySQL serveris nepalaiko %s saugojimo variklio."

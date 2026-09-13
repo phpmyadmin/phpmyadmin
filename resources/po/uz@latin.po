@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-09-06 00:44+0000\n"
+"POT-Creation-Date: 2026-09-13 00:43+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -227,7 +227,7 @@ msgstr "\"%s\" dan keyin"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:219
-#: src/Display/Results.php:933 src/Plugins/Export/ExportSql.php:1983
+#: src/Display/Results.php:921 src/Plugins/Export/ExportSql.php:1983
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Yo‘q"
@@ -314,7 +314,7 @@ msgstr "OK"
 #: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:5
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:555
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:529
 msgid "Table comments:"
 msgstr "Jadval izohi:"
 
@@ -528,8 +528,8 @@ msgstr "Tashqi kalitni tanlang"
 #: src/Plugins/Export/ExportTexytext.php:240
 #: src/Plugins/Export/ExportTexytext.php:300
 #: src/Plugins/Export/Helpers/Pdf.php:470
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:598
 msgid "Column"
 msgstr "Ustun nomlari"
 
@@ -712,8 +712,8 @@ msgstr "Nomi"
 #: src/Plugins/Export/ExportTexytext.php:241
 #: src/Plugins/Export/ExportTexytext.php:301
 #: src/Plugins/Export/Helpers/Pdf.php:472
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:599
 msgid "Type"
 msgstr "Tur"
 
@@ -757,8 +757,8 @@ msgstr ""
 #: src/Plugins/Export/ExportTexytext.php:243
 #: src/Plugins/Export/ExportTexytext.php:303
 #: src/Plugins/Export/Helpers/Pdf.php:476
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:606
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:628
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Default"
 msgstr "Andoza"
 
@@ -797,8 +797,8 @@ msgstr "Taqqoslash"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:39
 #: resources/templates/database/central_columns/edit.twig:13
 #: resources/templates/table/structure/display_structure.twig:24
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:578
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:600
 msgid "Attributes"
 msgstr "Atributlar"
 
@@ -822,8 +822,8 @@ msgstr "Atributlar"
 #: src/Plugins/Export/ExportTexytext.php:242
 #: src/Plugins/Export/ExportTexytext.php:302
 #: src/Plugins/Export/Helpers/Pdf.php:474
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:579
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
 msgid "Null"
 msgstr "Null"
 
@@ -848,8 +848,8 @@ msgstr "Privilegiyalarni tahrirlash"
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:409
 #: src/Plugins/Export/ExportTexytext.php:309
 #: src/Plugins/Export/Helpers/Pdf.php:493
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:618
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:631
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:592
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 msgid "Comments"
 msgstr "Izohlar"
 
@@ -1024,7 +1024,7 @@ msgstr "Faolsizlantirilgan"
 #: src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:644
 msgid "Yes"
 msgstr "Ha"
 
@@ -1060,7 +1060,7 @@ msgstr "Ha"
 #: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:670
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:644
 msgid "No"
 msgstr "Yo‘q"
 
@@ -1126,7 +1126,7 @@ msgstr "so‘rov bo‘yicha"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:380
-#: src/Display/Results.php:1885 src/Html/Generator.php:520
+#: src/Display/Results.php:1834 src/Html/Generator.php:520
 #: src/Html/Generator.php:777
 msgid "Edit"
 msgstr "Tahrirlash"
@@ -1145,7 +1145,7 @@ msgstr "Tahrirlash"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:382
-#: src/Display/Results.php:2423 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2362 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "O‘chirish"
 
@@ -1167,7 +1167,7 @@ msgstr "O‘chirish"
 #: src/Config/Descriptions.php:932 src/Plugins/Export/ExportHtmlword.php:145
 #: src/Plugins/Export/ExportOdt.php:182
 #: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1561
-#: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:103
+#: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:107
 msgid "Database"
 msgstr "Ma`lumotlar bazasi"
 
@@ -1598,8 +1598,8 @@ msgstr "Chop etish"
 #: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:403
 #: src/Plugins/Export/ExportTexytext.php:305
 #: src/Plugins/Export/Helpers/Pdf.php:485
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:608
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:582
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
 msgid "Links to"
 msgstr "Aloqalar"
 
@@ -2007,7 +2007,7 @@ msgstr "Hodisa turi"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
-#: src/Server/Status/Processes.php:106 src/Util.php:1372
+#: src/Server/Status/Processes.php:110 src/Util.php:1372
 msgid "Status"
 msgstr "Holat"
 
@@ -2378,8 +2378,8 @@ msgstr "Sortirovka qilish"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1403
-#: src/Display/Results.php:1409 src/Util.php:1642 src/Util.php:1659
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1371
+#: src/Display/Results.php:1377 src/Util.php:1642 src/Util.php:1659
 msgid "Ascending"
 msgstr "O‘sish tartibida"
 
@@ -2390,8 +2390,8 @@ msgstr "O‘sish tartibida"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1398
-#: src/Display/Results.php:1414 src/Util.php:1647 src/Util.php:1664
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1366
+#: src/Display/Results.php:1382 src/Util.php:1647 src/Util.php:1664
 msgid "Descending"
 msgstr "Kamayish tartibida"
 
@@ -2991,7 +2991,7 @@ msgid "Sum"
 msgstr "Jami"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:409
+#: src/StorageEngine.php:408
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "\"%s\" - MySQL serveridagi andozaviy ma`lumotlar jadvali turi."
@@ -3512,14 +3512,14 @@ msgid "Extra options"
 msgstr "Jadval parametrlari"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1124
+#: src/Display/Results.php:1100
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Ma`lumotlarni qisqartirib ko‘rsatish"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1128
+#: src/Display/Results.php:1104
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
@@ -3566,7 +3566,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:468
-#: src/Display/Results.php:1886 src/Html/Generator.php:82
+#: src/Display/Results.php:1835 src/Html/Generator.php:82
 msgid "Copy"
 msgstr ""
 
@@ -4223,7 +4223,7 @@ msgstr "Tadbiq qilish"
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:412
 #: src/Export/Export.php:739 src/Html/Generator.php:836
-#: src/Plugins/Schema/ExportRelationSchema.php:266
+#: src/Plugins/Schema/ExportRelationSchema.php:258
 msgid "Back"
 msgstr "Orqaga"
 
@@ -4377,8 +4377,8 @@ msgstr "Kuzatish hisoboti"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
 #: src/Pdf.php:72 src/Pdf.php:92
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:459
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:484
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:433
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 msgid "Page number:"
 msgstr "Sahifa raqami:"
 
@@ -6319,7 +6319,7 @@ msgstr "Matnmaydonini ishlatish"
 #: resources/templates/server/replication/primary_add_replica_user.twig:32
 #: resources/templates/server/replication/primary_add_replica_user.twig:43
 #: resources/templates/server/replication/primary_replication.twig:25
-#: src/Server/Status/Processes.php:102
+#: src/Server/Status/Processes.php:106
 msgid "Host"
 msgstr "Xost"
 
@@ -7052,7 +7052,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2441
+#: src/Display/Results.php:2380
 msgid "Kill"
 msgstr "Tugatish"
 
@@ -7261,7 +7261,7 @@ msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:9
 #: src/Controllers/Server/PrivilegesController.php:446
-#: src/Server/Status/Processes.php:101
+#: src/Server/Status/Processes.php:105
 msgid "User"
 msgstr "Foydalanuvchi"
 
@@ -7431,7 +7431,7 @@ msgstr "Boshlang‘ich"
 #: src/Plugins/Export/ExportHtmlword.php:395
 #: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
-#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:105
+#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:109
 msgid "Time"
 msgstr "Vaqt"
 
@@ -7479,7 +7479,7 @@ msgid "Your SQL query has been executed successfully."
 msgstr "SQL so‘rovi muvaffaqiyatli bajarildi"
 
 #: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
-#: src/Server/Status/Processes.php:113
+#: src/Server/Status/Processes.php:117
 msgid "SQL query"
 msgstr "SQL so‘rovi"
 
@@ -7855,7 +7855,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:466
 #: src/Controllers/JavaScriptMessagesController.php:618
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1406
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1394
 msgid "Ignore"
 msgstr "E`tibor bermaslik"
 
@@ -8368,8 +8368,8 @@ msgstr "Bo‘laklarni (PARTITIONS) o‘chirish"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:13
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:581
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 msgid "Extra"
 msgstr "Qo‘shimcha"
 
@@ -8707,45 +8707,45 @@ msgstr "Nom ko‘rinishi"
 msgid "Column names"
 msgstr "Maydon nomlari"
 
-#: src/Advisory/Advisor.php:207
+#: src/Advisory/Advisor.php:206
 #, fuzzy, php-format
 #| msgid "Allows reading data."
 msgid "Error when evaluating: %s"
 msgstr "Ma`lumotlarni chaqirishga ruxsat beradi"
 
-#: src/Advisory/Advisor.php:232
+#: src/Advisory/Advisor.php:231
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr ""
 
-#: src/Advisory/Advisor.php:252
+#: src/Advisory/Advisor.php:251
 #, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr ""
 
-#: src/Advisory/Advisor.php:271
+#: src/Advisory/Advisor.php:270
 #, php-format
 msgid "Failed running test for rule '%s'."
 msgstr ""
 
-#: src/Advisory/Advisor.php:301
+#: src/Advisory/Advisor.php:300
 #, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr ""
 
-#: src/Advisory/Advisor.php:401
+#: src/Advisory/Advisor.php:400
 msgid "per second"
 msgstr "sekundiga"
 
-#: src/Advisory/Advisor.php:404
+#: src/Advisory/Advisor.php:403
 msgid "per minute"
 msgstr "minutiga"
 
-#: src/Advisory/Advisor.php:407
+#: src/Advisory/Advisor.php:406
 msgid "per hour"
 msgstr "soatiga"
 
-#: src/Advisory/Advisor.php:410
+#: src/Advisory/Advisor.php:409
 msgid "per day"
 msgstr ""
 
@@ -14216,7 +14216,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:567
-#: src/Display/Results.php:3262
+#: src/Display/Results.php:3187
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -18200,36 +18200,36 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2400 src/Display/Results.php:2415
+#: src/Display/Results.php:2339 src/Display/Results.php:2354
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Yozuv o‘chirildi"
 
-#: src/Display/Results.php:2982 src/Display/Results.php:3302 src/Sql.php:911
+#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:911
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "So‘rov %01.4f sekund vaqt oldi"
 
-#: src/Display/Results.php:3270
+#: src/Display/Results.php:3195
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Yozuvlarni ko‘rsatish"
 
-#: src/Display/Results.php:3283
+#: src/Display/Results.php:3208
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3288
+#: src/Display/Results.php:3213
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "jami"
 
-#: src/Display/Results.php:3592
+#: src/Display/Results.php:3511
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -18907,11 +18907,11 @@ msgstr "%1$s va %2$s indekslari bir xil, ulardan birini o‘chirish mumkin."
 msgid "web server upload directory:"
 msgstr "Yuklash katalogidan"
 
-#: src/InsertEdit.php:831 src/Sql.php:902
+#: src/InsertEdit.php:819 src/Sql.php:902
 msgid "Showing SQL query"
 msgstr "SQL-so‘rovni ko‘rsatish"
 
-#: src/InsertEdit.php:855 src/Sql.php:883
+#: src/InsertEdit.php:843 src/Sql.php:883
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Kiritilgan qator identifikatori: %1$d"
@@ -19931,21 +19931,21 @@ msgid "Error reading data for table %s:"
 msgstr "Ma`lumotlarni chaqirishga ruxsat beradi"
 
 #: src/Plugins/Export/ExportSql.php:2522
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:566
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:540
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "Tuzish"
 
 #: src/Plugins/Export/ExportSql.php:2530
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:551
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Oxirgi yangilanish"
 
 #: src/Plugins/Export/ExportSql.php:2538
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:588
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:562
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
@@ -20122,22 +20122,22 @@ msgid "This format has no options"
 msgstr "Ushbu format uchun sozlanadigan parametr mavjud emas"
 
 #: src/Plugins/Schema/Dia/TableStatsDia.php:66
-#: src/Plugins/Schema/Eps/TableStatsEps.php:78
-#: src/Plugins/Schema/Pdf/TableStatsPdf.php:78
-#: src/Plugins/Schema/Svg/TableStatsSvg.php:78
+#: src/Plugins/Schema/Eps/TableStatsEps.php:72
+#: src/Plugins/Schema/Pdf/TableStatsPdf.php:72
+#: src/Plugins/Schema/Svg/TableStatsSvg.php:72
 #, fuzzy, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "\"%s\" jadvali mavjud emas!"
 
-#: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
-#: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
+#: src/Plugins/Schema/Eps/EpsRelationSchema.php:62
+#: src/Plugins/Schema/Svg/SvgRelationSchema.php:70
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "\"%s\" ma`lumotlar bazasi tuzilishi - \"%s\" sahifa"
 
-#: src/Plugins/Schema/ExportRelationSchema.php:252
+#: src/Plugins/Schema/ExportRelationSchema.php:244
 msgid "SCHEMA ERROR: "
 msgstr ""
 
@@ -20147,18 +20147,18 @@ msgstr ""
 msgid "PDF export page"
 msgstr "Jadvallarni eksport qilish"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:119
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:118
 #, fuzzy, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database"
 msgstr "\"%s\" ma`lumotlar bazasi tuzilishi - \"%s\" sahifa"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:147
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:495
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:146
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:469
 msgid "Relational schema"
 msgstr "Aloqalar sxemasi"
 
-#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:449
+#: src/Plugins/Schema/Pdf/PdfRelationSchema.php:423
 msgid "Table of contents"
 msgstr "Mundarija"
 
@@ -20441,15 +20441,15 @@ msgid ""
 "integer."
 msgstr ""
 
-#: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
 msgstr ""
 
-#: src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for SQL."
 msgstr ""
 
-#: src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:25
+#: src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr ""
 
@@ -20459,14 +20459,14 @@ msgid ""
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
 
-#: src/Plugins/Transformations/Output/Text_Plain_Json.php:43
+#: src/Plugins/Transformations/Output/Text_Plain_Json.php:45
 #, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
 msgstr ""
 "Matnni sintaksisi rang bilan belgilangan SQL so‘rov sifatida formatlaydi."
 
-#: src/Plugins/Transformations/Output/Text_Plain_Xml.php:43
+#: src/Plugins/Transformations/Output/Text_Plain_Xml.php:45
 #, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
@@ -20863,15 +20863,15 @@ msgstr "Replikatsiya serveri ahvoli haqida ma`lumot"
 msgid "Flush query cache"
 msgstr "So‘rovlar keshini defragmentatsiya qilish"
 
-#: src/Server/Status/Processes.php:100
+#: src/Server/Status/Processes.php:104
 msgid "ID"
 msgstr "ID"
 
-#: src/Server/Status/Processes.php:104
+#: src/Server/Status/Processes.php:108
 msgid "Command"
 msgstr "Buyruq"
 
-#: src/Server/Status/Processes.php:110
+#: src/Server/Status/Processes.php:114
 msgid "Progress"
 msgstr ""
 
@@ -20944,17 +20944,17 @@ msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Ushbu turdagi jadvallar haqida qo‘shimcha ma`lumot mavjud emas."
 
-#: src/StorageEngine.php:410
+#: src/StorageEngine.php:409
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "Ushbu MySQL serveri \"%s\" turdagi jadvallar bilan ishlay oladi."
 
-#: src/StorageEngine.php:411
+#: src/StorageEngine.php:410
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "\"%s\" turidagi jadvallar ushbu MySQL serverda faolsizlantirilgan."
 
-#: src/StorageEngine.php:412
+#: src/StorageEngine.php:411
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ushbu MySQL serveri \"%s\" turdagi jadvallar bilan ishlay olmaydi."
