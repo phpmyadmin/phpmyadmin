@@ -48,8 +48,6 @@ final readonly class AddController implements InvocableController
 
         Current::$message = $error instanceof Message ? $error : Message::success(__('Success!'));
 
-        unset($_POST['submit_mult']);
-
         return ($this->structureController)($request);
     }
 }
