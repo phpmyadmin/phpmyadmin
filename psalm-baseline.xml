@@ -1762,7 +1762,7 @@
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="41">
+    <MixedArgument occurrences="40">
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
       <code>$createTime</code>
@@ -1773,7 +1773,6 @@
       <code>$currentTable['Data_free']</code>
       <code>$currentTable['Name']</code>
       <code>$currentTable['TABLE_COMMENT']</code>
-      <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_NAME']</code>
@@ -1829,7 +1828,7 @@
     <MixedArrayAssignment occurrences="1">
       <code>$currentTable['TABLE_ROWS']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="28">
+    <MixedAssignment occurrences="27">
       <code>$charset</code>
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
@@ -1842,7 +1841,6 @@
       <code>$currentTable['TABLE_ROWS']</code>
       <code>$dbTable</code>
       <code>$overheadSize</code>
-      <code>$quotesLength</code>
       <code>$searchDb</code>
       <code>$searchDoDBInDB</code>
       <code>$searchDoDBInTruename</code>
@@ -1862,7 +1860,7 @@
     <MixedMethodCall occurrences="1">
       <code>getCharset</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="9">
+    <MixedOperand occurrences="7">
       <code>$currentTable['Data_free']</code>
       <code>$currentTable['Data_length']</code>
       <code>$currentTable['Data_length']</code>
@@ -1870,12 +1868,7 @@
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_ROWS']</code>
       <code>$currentTable['TABLE_ROWS']</code>
-      <code>$dataLength + $quotesLength</code>
-      <code>$quotesLength</code>
     </MixedOperand>
-    <PossiblyFalseOperand occurrences="1">
-      <code>$columnNames</code>
-    </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$_POST['primary_connection'] ?? null</code>
     </PossiblyInvalidArgument>
@@ -1891,9 +1884,6 @@
       <code>$unit</code>
       <code>$unit</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullOperand occurrences="1">
-      <code>$columnNames</code>
-    </PossiblyNullOperand>
     <PropertyNotSetInConstructor occurrences="6">
       <code>$dbIsSystemSchema</code>
       <code>$isShowStats</code>
