@@ -22,29 +22,27 @@ use function min;
  */
 abstract class RelationStats
 {
-    public mixed $xSrc;
+    protected int|float $xSrc;
 
-    public mixed $ySrc;
+    protected int|float $ySrc;
 
-    public int $srcDir;
+    protected int $srcDir;
 
-    public int $destDir;
+    protected int $destDir;
 
-    public mixed $xDest;
+    protected int|float $xDest;
 
-    public mixed $yDest;
+    protected int|float $yDest;
 
-    public int $wTick = 0;
+    protected int $wTick = 0;
 
     /**
-     * @param object     $diagram      The diagram
      * @param TableStats $masterTable  The master table name
      * @param string     $masterField  The relation field in the master table
      * @param TableStats $foreignTable The foreign table name
      * @param string     $foreignField The relation field in the foreign table
      */
     public function __construct(
-        protected object $diagram,
         TableStats $masterTable,
         string $masterField,
         TableStats $foreignTable,

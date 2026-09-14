@@ -30,7 +30,7 @@ class RelationStatsEps extends RelationStats
      * @param string     $foreignField The relation field in the foreign table
      */
     public function __construct(
-        Eps $diagram,
+        private Eps $diagram,
         TableStats $masterTable,
         string $masterField,
         TableStats $foreignTable,
@@ -38,7 +38,7 @@ class RelationStatsEps extends RelationStats
     ) {
         $this->wTick = 10;
 
-        parent::__construct($diagram, $masterTable, $masterField, $foreignTable, $foreignField);
+        parent::__construct($masterTable, $masterField, $foreignTable, $foreignField);
 
         $this->ySrc += 10;
         $this->yDest += 10;
