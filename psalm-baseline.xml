@@ -1230,13 +1230,9 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
-    <MixedArgument occurrences="11">
+    <MixedArgument occurrences="7">
       <code>$db</code>
       <code>$db</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
       <code>$num_tables</code>
       <code>$sql_query</code>
       <code>$table</code>
@@ -1246,19 +1242,11 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$urlParams['goto']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$GLOBALS['single_table']</code>
-      <code>$each_table</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/ImportController.php">
