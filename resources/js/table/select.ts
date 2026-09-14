@@ -266,7 +266,7 @@ AJAX.registerOnload('table/select.js', function () {
         }
     });
 
-    const gisEditorModal = document.getElementById('gisEditorModal');
+    const gisEditorModal = document.querySelector('#gisEditorModal.editor-for-search');
     gisEditorModal?.addEventListener('show.bs.modal', event => {
         // @ts-ignore
         const button = $(event.relatedTarget as HTMLButtonElement);
