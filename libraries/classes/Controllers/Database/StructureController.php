@@ -326,14 +326,14 @@ class StructureController extends AbstractController
 
             if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
                 $updateTime = $currentTable['Update_time'] ?? '';
-                if ($updateTime && (! $updateTimeAll || $updateTime < $updateTimeAll)) {
+                if ($updateTime && (! $updateTimeAll || $updateTime > $updateTimeAll)) {
                     $updateTimeAll = $updateTime;
                 }
             }
 
             if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
                 $checkTime = $currentTable['Check_time'] ?? '';
-                if ($checkTime && (! $checkTimeAll || $checkTime < $checkTimeAll)) {
+                if ($checkTime && (! $checkTimeAll || $checkTime > $checkTimeAll)) {
                     $checkTimeAll = $checkTime;
                 }
             }
