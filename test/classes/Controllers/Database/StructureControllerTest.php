@@ -479,7 +479,7 @@ class StructureControllerTest extends AbstractTestCase
             $result
         );
         self::assertStringContainsString(
-            '<th class="value tbl_last_check font-monospace text-end">Sep 04, 2026 at 11:11 AM</th>',
+            '<th class="value tbl_last_check font-monospace text-end">Sep 04, 2026 at 11:22 AM</th>',
             $result
         );
     }

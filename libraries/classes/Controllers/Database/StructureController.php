@@ -331,7 +331,7 @@ class StructureController extends AbstractController
 
             if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
                 $checkTime = $currentTable['Check_time'] ?? '';
-                if ($checkTime && (! $checkTimeAll || $checkTime < $checkTimeAll)) {
+                if ($checkTime && (! $checkTimeAll || $checkTime > $checkTimeAll)) {
                     $checkTimeAll = $checkTime;
                 }
             }
