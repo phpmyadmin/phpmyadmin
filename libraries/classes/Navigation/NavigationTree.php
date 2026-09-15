@@ -1100,7 +1100,7 @@ class NavigationTree
             $linkHasAjaxClass = $parent[0]->type == Node::CONTAINER
                 && (in_array($parent[0]->realName, $haveAjax) || $isNewView);
 
-            if (! $node->isGroup) {
+            if (! $node->isGroup || $node->links['text']['route']) {
                 $args = [];
                 $parents = $node->parents(true);
                 foreach ($parents as $parent) {
