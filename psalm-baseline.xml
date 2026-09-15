@@ -6008,9 +6008,6 @@
     <MixedArgument>
       <code><![CDATA[ImportSettings::$importFile]]></code>
     </MixedArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[string[]]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportMediawiki.php">
     <InvalidNullableReturnType>
@@ -6214,11 +6211,6 @@
     <UnusedClass>
       <code><![CDATA[UploadSession]]></code>
     </UnusedClass>
-  </file>
-  <file src="src/Plugins/ImportPlugin.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[string[]]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Schema/Dia/DiaRelationSchema.php">
     <MixedArgumentTypeCoercion>
