@@ -12,10 +12,11 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Dbal\TableType;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
-use PhpMyAdmin\Favorites\TableType;
+use PhpMyAdmin\Favorites\TableType as FavoriteTableType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -38,7 +39,9 @@ use PhpMyAdmin\Util;
 use Throwable;
 
 use function __;
+use function array_reverse;
 use function array_search;
+use function array_slice;
 use function ceil;
 use function count;
 use function implode;
@@ -62,9 +65,6 @@ final class StructureController implements InvocableController
 {
     /** @var int Number of tables */
     private int $numTables = 0;
-
-    /** @var int Current position in the list */
-    private int $position = 0;
 
     /** @var bool DB is information_schema */
     private bool $dbIsSystemSchema = false;
@@ -101,14 +101,15 @@ final class StructureController implements InvocableController
     /**
      * Retrieves database information for further use.
      */
-    private function getDatabaseInfo(ServerRequest $request): void
+    private function getDatabaseInfo(ServerRequest $request, int $position): void
     {
-        $this->position = $this->getTableListPosition($request->getParam('pos'), Current::$database);
-
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
         if ($this->config->config->SkipLockedTables) {
-            $tables = $this->getTablesWhenOpen(Current::$database, (string) $request->getParam('tbl_group'));
-            $totalNumTables = count($tables);
+            [$tables, $totalNumTables] = $this->getTablesWhenOpen(
+                Current::$database,
+                (string) $request->getParam('tbl_group'),
+                $request->getParam('tbl_type'),
+            );
         } else {
             [$tables, $totalNumTables] = $this->getDbInfo(
                 Current::$database,
@@ -116,12 +117,13 @@ final class StructureController implements InvocableController
                 $request->getParam('sort_order'),
                 $request->getParam('tbl_group'),
                 $request->getParam('tbl_type'),
+                $position,
             );
         }
 
         $this->tables = $tables;
         $this->numTables = count($tables);
-        $this->totalNumTables = $totalNumTables ?? count($tables);
+        $this->totalNumTables = $totalNumTables;
 
         /**
          * whether to display extended stats
@@ -163,13 +165,15 @@ final class StructureController implements InvocableController
 
         $this->response->addScriptFiles(['database/structure.js', 'table/change.js']);
 
+        $position = $this->getTableListPosition($request->getParam('pos'), Current::$database);
+
         // Gets the database structure
-        $this->getDatabaseInfo($request);
+        $this->getDatabaseInfo($request, $position);
 
         // Checks if there are any tables to be shown on current page.
         // If there are no tables, the user is redirected to the last page
         // having any.
-        if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
+        if ($this->totalNumTables > 0 && $position >= $this->totalNumTables) {
             return $this->response->redirectToRoute('/database/structure', [
                 'db' => Current::$database,
                 'pos' => max(0, $this->totalNumTables - $this->config->config->MaxTableList),
@@ -185,7 +189,7 @@ final class StructureController implements InvocableController
         $this->response->addHTML($this->pageSettings->getHTML());
 
         if ($this->numTables > 0) {
-            $urlParams = ['pos' => $this->position, 'db' => Current::$database];
+            $urlParams = ['pos' => $position, 'db' => Current::$database];
             if (isset($parameters['sort'])) {
                 $urlParams['sort'] = $parameters['sort'];
             }
@@ -196,7 +200,7 @@ final class StructureController implements InvocableController
 
             $listNavigator = Generator::getListNavigator(
                 $this->totalNumTables,
-                $this->position,
+                $position,
                 $urlParams,
                 Url::getFromRoute('/database/structure'),
                 'frame_content',
@@ -247,7 +251,7 @@ final class StructureController implements InvocableController
         $overallApproxRows = false;
         $structureTableRows = [];
         $trackedTables = $this->trackingChecker->getTrackedTables(Current::$database);
-        $recentFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite);
+        $recentFavoriteTables = RecentFavoriteTables::getInstance(FavoriteTableType::Favorite);
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -933,7 +937,7 @@ final class StructureController implements InvocableController
     /**
      * Gets the list of tables in the current db and information about these tables if possible.
      *
-     * @return array{(string|int|null)[][], int|null}
+     * @return array{(string|int|null)[][], int}
      */
     public function getDbInfo(
         string $db,
@@ -941,106 +945,86 @@ final class StructureController implements InvocableController
         mixed $sortOrderParam,
         mixed $tableGroupParam,
         mixed $tableTypeParam,
+        int $position,
     ): array {
-        /**
-         * information about tables in db
-         */
-        $tables = [];
-        $totalNumTables = null;
+        $sort = match ($sortParam) {
+            'table' => 'Name',
+            'records' => 'Rows',
+            'type' => 'Engine',
+            'collation' => 'Collation',
+            'size' => 'Data_length',
+            'overhead' => 'Data_free',
+            'creation' => 'Create_time',
+            'last_update' => 'Update_time',
+            'last_check' => 'Check_time',
+            'comment' => 'Comment',
+            default => null,
+        };
+        // the sort order is only honored for an implemented sort type
+        $sortOrder = $sort !== null && $sortOrderParam === 'DESC' ? 'DESC' : 'ASC';
+        $sort ??= 'Name';
 
-        // Set some sorting defaults
-        $sort = 'Name';
-        $sortOrder = 'ASC';
+        $tableGroup = is_string($tableGroupParam) && $tableGroupParam !== '' ? $tableGroupParam : null;
+        $tableType = is_string($tableTypeParam) ? TableType::tryFrom($tableTypeParam) : null;
 
-        if (is_string($sortParam)) {
-            $sortableNameMappings = [
-                'table' => 'Name',
-                'records' => 'Rows',
-                'type' => 'Engine',
-                'collation' => 'Collation',
-                'size' => 'Data_length',
-                'overhead' => 'Data_free',
-                'creation' => 'Create_time',
-                'last_update' => 'Update_time',
-                'last_check' => 'Check_time',
-                'comment' => 'Comment',
-            ];
-
-            // Make sure the sort type is implemented
-            if (isset($sortableNameMappings[$sortParam])) {
-                $sort = $sortableNameMappings[$sortParam];
-                if ($sortOrderParam === 'DESC') {
-                    $sortOrder = 'DESC';
-                }
-            }
-        }
-
-        $groupWithSeparator = false;
-        $tableType = null;
-        $limitOffset = 0;
-        $limitCount = false;
-        $groupTable = [];
-
-        if (
-            is_string($tableGroupParam) && $tableGroupParam !== ''
-            || is_string($tableTypeParam) && $tableTypeParam !== ''
-        ) {
-            if (is_string($tableTypeParam) && $tableTypeParam !== '') {
-                // only tables for selected type
-                $tableType = $tableTypeParam;
-            }
-
-            if (is_string($tableGroupParam) && $tableGroupParam !== '') {
-                // only tables for selected group
-                // include the table with the exact name of the group if such exists
-                $groupTable = $this->dbi->getTablesFull(
-                    $db,
-                    $tableGroupParam,
-                    false,
-                    0,
-                    false,
-                    $sort,
-                    $sortOrder,
-                    $tableType,
-                );
-                $groupWithSeparator = $tableGroupParam . $this->config->config->NavigationTreeTableSeparator;
-            }
-        } else {
+        if ($tableGroup === null && $tableType === null) {
             // all tables in db
             // - get the total number of tables
             //  (needed for proper working of the MaxTableList feature)
-            $tables = $this->dbi->getTables($db);
-            $totalNumTables = count($tables);
-            // fetch the details for a possible limited subset
-            $limitOffset = $this->position;
-            $limitCount = true;
+            $tableNames = $this->dbi->getTables($db);
+            $limitCount = $this->config->config->MaxTableList;
+            $totalNumberOfTables = count($tableNames);
+            if ($sort === 'Name') {
+                $tableNames = array_slice(
+                    $sortOrder === 'DESC' ? array_reverse($tableNames) : $tableNames,
+                    $position,
+                    $limitCount,
+                );
+                $limitCount = 0;
+            }
+
+            $tables = $this->dbi->getTablesFull(
+                $db,
+                $tableNames,
+                limitOffset: $position,
+                limitCount: $limitCount,
+                sortBy: $sort,
+                sortOrder: $sortOrder,
+            );
+
+            return [$tables, $totalNumberOfTables];
         }
 
-        // We must use union operator here instead of array_merge to preserve numerical keys
-        $tables = $groupTable + $this->dbi->getTablesFull(
+        if ($tableGroup === null) {
+            // only tables for selected type
+            $tables = $this->dbi->getTablesFull($db, [], sortBy: $sort, sortOrder: $sortOrder, tableType: $tableType);
+
+            return [$tables, count($tables)];
+        }
+
+        // only tables for selected group (and type, if any):
+        // the table with the exact name of the group if such exists, plus the tables
+        // with the group prefix; we must use the union operator here instead of
+        // array_merge to preserve numerical keys
+        $tables = $this->dbi->getTablesFull(
             $db,
-            $groupWithSeparator !== false ? $groupWithSeparator : $tables,
-            $groupWithSeparator !== false,
-            $limitOffset,
-            $limitCount,
-            $sort,
-            $sortOrder,
-            $tableType,
+            $tableGroup,
+            $tableGroup . $this->config->config->NavigationTreeTableSeparator,
+            sortBy: $sort,
+            sortOrder: $sortOrder,
+            tableType: $tableType,
         );
 
-        return [
-            $tables,
-            $totalNumTables, // needed for proper working of the MaxTableList feature
-        ];
+        return [$tables, count($tables)];
     }
 
     /**
      * Gets the list of tables in the current db, taking into account
      * that they might be "in use"
      *
-     * @return (string|int|null)[][] list of tables
+     * @return array{(string|int|null)[][], int}
      */
-    private function getTablesWhenOpen(string $db, string $tableGroupParam): array
+    private function getTablesWhenOpen(string $db, string $tableGroupParam, mixed $tableTypeParam): array
     {
         $openTables = $this->dbi->query(
             'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ' WHERE In_use > 0;',
@@ -1056,7 +1040,7 @@ final class StructureController implements InvocableController
 
         // is there at least one "in use" table?
         if ($openTableNames === []) {
-            return [];
+            return [[], 0];
         }
 
         $tables = [];
@@ -1076,13 +1060,13 @@ final class StructureController implements InvocableController
             $whereAdded = true;
         }
 
-        if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'], true)) {
+        $tableType = is_string($tableTypeParam) ? TableType::tryFrom($tableTypeParam) : null;
+        if ($tableType !== null) {
             $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
-            if ($_REQUEST['tbl_type'] === 'view') {
-                $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            } else {
-                $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            }
+            $tblGroupSql .= match ($tableType) {
+                TableType::View => " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')",
+                TableType::Table => " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')",
+            };
         }
 
         $dbInfoResult = $this->dbi->query('SHOW FULL TABLES FROM ' . Util::backquote($db) . $tblGroupSql);
@@ -1112,7 +1096,7 @@ final class StructureController implements InvocableController
             }
         }
 
-        return $tables;
+        return [$tables, count($tables)];
     }
 
     public function getTableListPosition(string|null $posParam, string $db): int
@@ -1126,7 +1110,7 @@ final class StructureController implements InvocableController
         }
 
         if (is_numeric($posParam)) {
-            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
+            $_SESSION['tmpval']['table_limit_offset'] = max(0, (int) $posParam);
         }
 
         return $_SESSION['tmpval']['table_limit_offset'];
