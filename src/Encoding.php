@@ -22,6 +22,7 @@ use function mb_list_encodings;
 use function preg_replace;
 use function str_contains;
 use function str_starts_with;
+use function strcasecmp;
 use function strtolower;
 use function strtoupper;
 use function tempnam;
@@ -150,11 +151,31 @@ class Encoding
             $iconvExtraParams = $config->config->IconvExtraParams;
         }
 
+        if (self::$engine === self::ENGINE_ICONV) {
+            $srcCharset = self::normalizeIconvCharset($srcCharset);
+            $destCharset = self::normalizeIconvCharset($destCharset);
+        }
+
         return match (self::$engine) {
             self::ENGINE_ICONV => iconv($srcCharset, $destCharset . $iconvExtraParams, $what),
             self::ENGINE_MBSTRING => mb_convert_encoding($what, $destCharset, $srcCharset),
             default => $what,
         };
+    }
+
+    /**
+     * Maps charset aliases that some iconv implementations reject.
+     *
+     * SJIS-win is offered in the default charset list and is accepted by
+     * mbstring and libiconv, but glibc iconv requires the CP932 name.
+     */
+    private static function normalizeIconvCharset(string $charset): string
+    {
+        if (strcasecmp($charset, 'SJIS-win') === 0) {
+            return 'CP932';
+        }
+
+        return $charset;
     }
 
     /**
