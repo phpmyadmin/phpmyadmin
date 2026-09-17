@@ -37,7 +37,7 @@ class Footer
 
     public function __construct(Template $template, private readonly Config $config)
     {
-        $this->scripts = new Scripts($template);
+        $this->scripts = new Scripts($template, $config);
     }
 
     /**
