@@ -15,6 +15,7 @@ use function fopen;
 use function function_exists;
 use function fwrite;
 use function iconv;
+use function in_array;
 use function mb_convert_encoding;
 use function mb_convert_kana;
 use function mb_detect_encoding;
@@ -68,6 +69,13 @@ class Encoding
      * Kanji encodings list
      */
     private static string $kanjiEncodings = 'ASCII,SJIS,EUC-JP,JIS';
+
+    /**
+     * Whether native mbstring lists SJIS-win (Windows CP932).
+     *
+     * Cached because convertString() is called per exported line.
+     */
+    private static bool|null $mbstringSupportsSjisWin = null;
 
     /**
      * Initializes encoding engine detecting available backends.
@@ -152,15 +160,33 @@ class Encoding
         }
 
         if (self::$engine === self::ENGINE_ICONV) {
+            if (
+                (self::isSjisWinCharset($srcCharset) || self::isSjisWinCharset($destCharset))
+                && self::canConvertSjisWinWithMbstring()
+            ) {
+                // Prefer mbstring for SJIS-win: it natively implements Windows
+                // CP932. glibc iconv accepts the CP932 alias, but CP932 with
+                // //TRANSLIT or //IGNORE can fail to consume any input for an
+                // unconvertible sequence and spin until max_execution_time.
+                $converted = mb_convert_encoding($what, $destCharset, $srcCharset);
+
+                return $converted === false ? $what : $converted;
+            }
+
             $srcCharset = self::normalizeIconvCharset($srcCharset);
             $destCharset = self::normalizeIconvCharset($destCharset);
+            if ($srcCharset === 'CP932' || $destCharset === 'CP932') {
+                $iconvExtraParams = '';
+            }
         }
 
-        return match (self::$engine) {
+        $converted = match (self::$engine) {
             self::ENGINE_ICONV => iconv($srcCharset, $destCharset . $iconvExtraParams, $what),
             self::ENGINE_MBSTRING => mb_convert_encoding($what, $destCharset, $srcCharset),
             default => $what,
         };
+
+        return $converted === false ? $what : $converted;
     }
 
     /**
@@ -171,11 +197,24 @@ class Encoding
      */
     private static function normalizeIconvCharset(string $charset): string
     {
-        if (strcasecmp($charset, 'SJIS-win') === 0) {
+        if (self::isSjisWinCharset($charset)) {
             return 'CP932';
         }
 
         return $charset;
+    }
+
+    private static function isSjisWinCharset(string $charset): bool
+    {
+        return strcasecmp($charset, 'SJIS-win') === 0;
+    }
+
+    /**
+     * True when mbstring itself implements SJIS-win (not the iconv-backed polyfill).
+     */
+    private static function canConvertSjisWinWithMbstring(): bool
+    {
+        return self::$mbstringSupportsSjisWin ??= in_array('SJIS-win', mb_list_encodings(), true);
     }
 
     /**
