@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-09-18 06:55+0000\n"
+"PO-Revision-Date: 2026-09-18 06:56+0000\n"
 "Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "sv/>\n"
@@ -1430,7 +1430,7 @@ msgstr "Tysk (ordlisteordning)"
 #: libraries/classes/Charsets/Collation.php:577
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Spanska (traditionell)"
 
 #: libraries/classes/Charsets/Collation.php:220
 #: libraries/classes/Charsets/Collation.php:570
@@ -6637,12 +6637,16 @@ msgstr "Bläddra bland främmande värden"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"Ingen tidigare automatiskt sparad fråga är tillgänglig. Läser in "
+"standardfrågan."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:394
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Du har en tidigare sparad fråga. Klicka på Hämta automatiskt sparad fråga "
+"för att läsa in frågan."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 #, php-format
@@ -9072,7 +9076,7 @@ msgstr ""
 
 #: libraries/classes/Dbal/DbiMysqli.php:153
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "SSL-anslutning krävs av servern och aktiveras automatiskt."
 
 #: libraries/classes/Dbal/DbiMysqli.php:165
 #, php-format
@@ -9576,7 +9580,7 @@ msgstr "Dump har sparats till filen %s."
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:997
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "Export av en rå fråga stöds inte av denna exportmetod."
 
 #: libraries/classes/File.php:231
 msgid "File was not an uploaded file."
@@ -10694,6 +10698,7 @@ msgstr "Din session har gått ut. Vänligen logga in igen."
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:248
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
+"reCAPTCHA-verifiering saknas; den kan ha blockerats av en annonsblockerare."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:283
 msgid "Failed to connect to the reCAPTCHA service!"
