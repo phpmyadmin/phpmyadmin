@@ -57,7 +57,7 @@
             {% endif %}
             <tr class="noclick">
               <th>
-                <select name="criteriaColumnNames[]" id="tableid_{{ i }}">
+                <select name="criteriaColumnNames[]" id="tableid_{{ i }}" class="search">
                   <option value="pma_null">
                     {{ t('None') }}
                   </option>
@@ -115,7 +115,7 @@
             </label>
           </td>
           <td>
-            <select name="dataLabel" id="dataLabel">
+            <select name="dataLabel" id="dataLabel" class="search">
               <option value="">
                 {{ t('None') }}
               </option>

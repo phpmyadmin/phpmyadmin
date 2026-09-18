@@ -3,7 +3,7 @@
 
   <div class="mb-3">
     <label for="databaseNameSelect" class="form-label">{{ t('Database:') }}</label>
-    <select class="form-select" id="databaseNameSelect" name="target_db">
+    <select class="form-select search" id="databaseNameSelect" name="target_db">
       {% for each_db in options %}
         <option value="{{ each_db.name }}"{{ each_db.is_selected ? ' selected' }}>{{ each_db.name }}</option>
       {% endfor %}
