@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-09-14 16:51+0000\n"
+"PO-Revision-Date: 2026-09-18 06:54+0000\n"
 "Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "sv/>\n"
@@ -208,10 +208,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Version lägre än 5.5.8 (den första GA utgåvan av 5.5)."
 
 #: libraries/advisory_rules_generic.php:137
-#, fuzzy
-#| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Du bör uppgradera till en stabil version av MySQL 5.5"
+msgstr "Du bör uppgradera till en stabil version av MySQL 5.5."
 
 #: libraries/advisory_rules_generic.php:143
 #: libraries/advisory_rules_generic.php:156
@@ -285,22 +283,16 @@ msgid "Suboptimal caching method."
 msgstr "Ej optimal cache-metod."
 
 #: libraries/advisory_rules_generic.php:190
-#, fuzzy
-#| msgid ""
-#| "You are using the MySQL Query cache with a fairly high traffic database. "
-#| "It might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-#| "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
-"Du använder MySQL:s frågecache med en ganska högbelastad databas. Det kan "
-"vara värt att överväga att använda <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> istället för frågecachen, "
-"speciellt om du har flera slavar."
+"Du använder MySQL:s frågecache med en databas med ganska hög trafik. Överväg "
+"att använda <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> i stället för MySQL:s frågecache, särskilt om "
+"du har flera repliker."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -322,16 +314,12 @@ msgstr "Alltför många sorteringar orsakar temporära tabeller."
 
 #: libraries/advisory_rules_generic.php:210
 #: libraries/advisory_rules_generic.php:223
-#, fuzzy
-#| msgid ""
-#| "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-#| "depending on your system memory limits"
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
 "Överväg att öka {sort_buffer_size} och/eller {read_rnd_buffer_size}, "
-"beroende på ditt systems minnesbegränsning"
+"beroende på systemets minnesgränser."
 
 #: libraries/advisory_rules_generic.php:213
 #, php-format
@@ -363,21 +351,15 @@ msgid "There are lots of rows being sorted."
 msgstr "Det är många rader som blir sorterade."
 
 #: libraries/advisory_rules_generic.php:236
-#, fuzzy
-#| msgid ""
-#| "While there is nothing wrong with a high amount of row sorting, you might "
-#| "want to make sure that the queries which require a lot of sorting use "
-#| "indexed columns in the ORDER BY clause, as this will result in much "
-#| "faster sorting"
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
-"Även om det inte är fel med en hög andel av radsorteringar, bör du se till "
-"att frågor som kräver mycket sortering använder de indexerade fälten i ORDER "
-"BY-satsen, då detta kommer resultera i mycket snabbare sortering"
+"Även om en stor mängd radsortering inte är fel bör du se till att frågor som "
+"kräver mycket sortering använder indexerade kolumner i ORDER BY-satsen. Det "
+"ger betydligt snabbare sortering."
 
 #: libraries/advisory_rules_generic.php:240
 #, php-format
@@ -393,18 +375,13 @@ msgid "There are too many joins without indexes."
 msgstr "Det finns för många JOINS som saknar index."
 
 #: libraries/advisory_rules_generic.php:251
-#, fuzzy
-#| msgid ""
-#| "This means that joins are doing full table scans. Adding indexes for the "
-#| "columns being used in the join conditions will greatly speed up table "
-#| "joins"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
-"Detta innebär att joins gör fullständiga tabellsökningar. Att lägga till "
-"index för de fält som använder join-villkoren kommer avsevärt snabba upp "
-"tabellkopplingen"
+"Detta innebär att sammanfogningar gör fullständiga tabellsökningar. Att "
+"lägga till index för kolumnerna som används i sammanfogningsvillkoren "
+"snabbar upp tabellsammanfogningar avsevärt."
 
 #: libraries/advisory_rules_generic.php:254
 #, php-format
@@ -1298,10 +1275,9 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit är satt till 1 Mb"
 
 #: libraries/classes/Advisor.php:234
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Fel vid skapande av PDF:"
+msgstr "Fel vid utvärdering: %s"
 
 #: libraries/classes/Advisor.php:261
 #, php-format
@@ -1435,9 +1411,6 @@ msgstr "Visa alla"
 
 #: libraries/classes/Charsets/Collation.php:170
 #: libraries/classes/Charsets.php:191 libraries/classes/Charsets.php:192
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "Okänd"
 
@@ -1461,57 +1434,41 @@ msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:220
 #: libraries/classes/Charsets/Collation.php:570
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Spanska"
+msgstr "Spanska (modern)"
 
 #: libraries/classes/Charsets/Collation.php:298
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "skiftlägesokänslig"
+msgstr "Skiftlägesokänslig"
 
 #: libraries/classes/Charsets/Collation.php:301
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "skiftlägeskänslig"
+msgstr "Skiftlägeskänslig"
 
 #: libraries/classes/Charsets/Collation.php:304
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "skiftlägesokänslig"
+msgstr "Accentokänslig"
 
 #: libraries/classes/Charsets/Collation.php:307
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "skiftlägeskänslig"
+msgstr "Accentkänslig"
 
 #: libraries/classes/Charsets/Collation.php:310
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "skiftlägeskänslig"
+msgstr "Kanakänslig"
 
 #: libraries/classes/Charsets/Collation.php:314
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "flerspråkig"
+msgstr "Flernivå"
 
 #: libraries/classes/Charsets/Collation.php:317
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Binär"
@@ -8552,10 +8509,9 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rad: %1$s, kolumn: %2$s, fel: %3$s"
 
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:91
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Det gick inte att få riktiga radantal."
+msgstr "Det gick inte att hämta beskrivningen av kolumnen %s!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:220
 #: templates/columns_definitions/column_attributes.twig:112
@@ -8865,10 +8821,8 @@ msgid "Failed to set configured collation connection!"
 msgstr "Kunde inte applicera den konfigurerade sorteringsanslutningen!"
 
 #: libraries/classes/DatabaseInterface.php:1975
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Saknade parametrar:"
+msgstr "Anslutningsparametrar saknas!"
 
 #: libraries/classes/DatabaseInterface.php:2000
 msgid "Connection for controluser as defined in your configuration failed."
@@ -10156,10 +10110,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Ogiltigt klassnamn \"%1$s\", använder standard \"Node\""
 
 #: libraries/classes/Navigation/NodeFactory.php:75
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "Kunde inte lägga till kolumner!"
+msgstr "Kunde inte läsa in klassen ”%1$s”"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
@@ -12790,10 +12743,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fel vid skapande av främmande nyckel för %1$s (kontrollera datatyper)"
 
 #: libraries/classes/Template.php:135
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Fel då sökningen lästes in."
+msgstr "Fel vid arbete med mallcachen: %s"
 
 #: libraries/classes/ThemeManager.php:84
 #, php-format
@@ -14581,17 +14533,13 @@ msgstr "Importera till databasen \"%s \""
 
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simulera körning"
+msgstr "Fråga över flera tabeller"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Query misslyckades"
+msgstr "Fråga genom exempel"
 
 #: templates/database/multi_table_query/form.twig:17
 msgid "Query window"
@@ -14821,10 +14769,8 @@ msgid "Ins:"
 msgstr "Infoga:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "Och:"
+msgstr "Och"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -14860,21 +14806,15 @@ msgid "Modify:"
 msgstr "Ändra:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "Lägg till/Ta bort villkorsrader"
+msgstr "Lägg till/ta bort villkorsrader:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "Lägg till/Ta bort kolumner"
+msgstr "Lägg till/ta bort kolumner:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
 msgstr "Använd tabeller"
 
@@ -15009,13 +14949,10 @@ msgstr[0] "%1$s träff i <strong>%2$s</strong>"
 msgstr[1] "%1$s träffar i <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Totalt:</b> <i>%s</i> träff"
-msgstr[1] "<b>Totalt:</b> <i>%s</i> träffar"
+msgstr[0] "<strong>Totalt:</strong> <em>%count%</em> träff"
+msgstr[1] "<strong>Totalt:</strong> <em>%count%</em> träffar"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -15637,10 +15574,9 @@ msgstr "Punkt:"
 #: templates/gis_data_editor_form.twig:106
 #: templates/gis_data_editor_form.twig:151
 #: templates/gis_data_editor_form.twig:207
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Punkt %d"
+msgstr "Punkt %d:"
 
 #: templates/gis_data_editor_form.twig:130
 #, php-format
@@ -16004,23 +15940,16 @@ msgstr "Index %s har tagits bort."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
-msgstr "none"
+msgstr "ingen"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
-#, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
 msgstr "Föregående"
 
@@ -17395,10 +17324,8 @@ msgid "Save changes"
 msgstr "Spara ändringar"
 
 #: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Slave configuration"
 msgid "Replica configuration"
-msgstr "Slavkonfiguration"
+msgstr "Replikakonfiguration"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
@@ -17722,33 +17649,27 @@ msgstr "Uppdateringsfrekvens"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:40
-#, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
+#, php-format
 msgid "%d second"
 msgstr "%d sekund"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:42
-#, fuzzy, php-format
-#| msgid "%d second"
-#| msgid_plural "%d seconds"
+#, php-format
 msgid "%d seconds"
-msgstr "%d sekund"
+msgstr "%d sekunder"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:46
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "per minut"
+msgstr "%d minut"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:48
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minutes"
-msgstr "per minut"
+msgstr "%d minuter"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
