@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-09-14 15:51+0000\n"
+"PO-Revision-Date: 2026-09-19 07:51+0000\n"
 "Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "sv/>\n"
@@ -333,16 +333,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Du måste välja minst en kolumn som ska visas!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simulera körning"
+msgstr "Fråga över flera tabeller"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Query misslyckades"
+msgstr "Fråga genom exempel"
 
 #: db_qbe.php:168
 #, php-format
@@ -2948,7 +2944,6 @@ msgstr "Vecka"
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:899
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
@@ -3050,10 +3045,9 @@ msgid "Error"
 msgstr "Fel"
 
 #: libraries/classes/Advisor.php:259
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Fel vid skapande av PDF:"
+msgstr "Fel vid utvärdering: %s"
 
 #: libraries/classes/Advisor.php:290
 #, php-format
@@ -3279,9 +3273,6 @@ msgid "Charset"
 msgstr "Teckenuppsättning"
 
 #: libraries/classes/Charsets.php:339
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Unknown"
 msgid "Unknown"
 msgstr "Okänd"
 
@@ -3506,16 +3497,14 @@ msgid "Slovenian"
 msgstr "Slovensk"
 
 #: libraries/classes/Charsets.php:573 libraries/classes/Charsets.php:634
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Spanska"
+msgstr "Spanska (modern)"
 
 #: libraries/classes/Charsets.php:580 libraries/classes/Charsets.php:631
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Spanska (traditionell)"
 
 #: libraries/classes/Charsets.php:600
 msgctxt "Collation"
@@ -3523,48 +3512,36 @@ msgid "Vietnamese"
 msgstr "Vietnamesisk"
 
 #: libraries/classes/Charsets.php:667
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "skiftlägesokänslig"
+msgstr "Skiftlägesokänslig"
 
 #: libraries/classes/Charsets.php:670
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "skiftlägeskänslig"
+msgstr "Skiftlägeskänslig"
 
 #: libraries/classes/Charsets.php:673
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "skiftlägesokänslig"
+msgstr "Accentokänslig"
 
 #: libraries/classes/Charsets.php:676
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "skiftlägeskänslig"
+msgstr "Accentkänslig"
 
 #: libraries/classes/Charsets.php:679
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "skiftlägeskänslig"
+msgstr "Kanakänslig"
 
 #: libraries/classes/Charsets.php:683
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "flerspråkig"
+msgstr "Flernivå"
 
 #: libraries/classes/Charsets.php:686
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Binär"
@@ -6762,10 +6739,9 @@ msgid "The columns have been moved successfully."
 msgstr "Kolumnerna har flyttats framgångsrikt."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:535
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Det gick inte att få riktiga radantal."
+msgstr "Det gick inte att hämta beskrivningen av kolumnen %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:771
 #: libraries/classes/Controllers/Table/TableStructureController.php:1067
@@ -7095,10 +7071,8 @@ msgid "Details…"
 msgstr "Detaljer…"
 
 #: libraries/classes/DatabaseInterface.php:2507
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Saknade parametrar:"
+msgstr "Anslutningsparametrar saknas!"
 
 #: libraries/classes/DatabaseInterface.php:2532
 msgid "Connection for controluser as defined in your configuration failed."
@@ -7126,7 +7100,7 @@ msgstr ""
 
 #: libraries/classes/Dbi/DbiMysqli.php:178
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "SSL-anslutning krävs av servern och aktiveras automatiskt."
 
 #: libraries/classes/Display/ChangePassword.php:68
 #: libraries/classes/ReplicationGui.php:867
@@ -8424,10 +8398,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr "Ogiltigt klassnamn \"%1$s\", använder standard \"Node\""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "Kunde inte lägga till kolumner!"
+msgstr "Kunde inte läsa in klassen ”%1$s”"
 
 #: libraries/classes/Navigation/Nodes/Node.php:802
 msgid "Expand/Collapse"
@@ -9141,6 +9114,7 @@ msgstr "Angivet captcha är fel, försök igen!"
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
+"reCAPTCHA-verifiering saknas; den kan ha blockerats av en annonsblockerare."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
 msgid "You are not allowed to log in to this MySQL server!"
@@ -9961,18 +9935,6 @@ msgstr ""
 "tomma strängen."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/"
-#| "Text_Plain_External.class.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use and the second option is the parameters for the program. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -9985,15 +9947,16 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"ENDAST LINUX: Startar en extern applikation och sänder den kolumndata via "
-"standard in. Returnerar standard ut från applikationen. Standard är Tidy, "
-"för att pretty-print HTML-kod. Av säkerhetsskäl måste du manuellt redigera "
-"filen libraries/plugins/transformationer/Text_Plain_External.class.php och "
-"lista de verktyg du vill göra tillgängliga. Den första flaggan är antalet "
-"program du vill använda och den andra flaggan är parametrarna för "
-"programmet. Den tredje flaggan, om den är 1, kommer omvandla utdata via "
-"htmlspecialchars() (Standard 1). Den fjärde flaggan, om 1, kommer förhindra "
-"radbrytning och se till att utskriften sker på en rad (Standard 1)."
+"ENDAST LINUX: Startar ett externt program och skickar kolumndata till dess "
+"standardindata. Returnerar programmets standardutdata. Standardprogrammet är "
+"Tidy, som formaterar HTML-kod. Av säkerhetsskäl måste du manuellt redigera "
+"filen libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php och lista verktygen som ska göras "
+"tillgängliga. Det första alternativet är numret på programmet som ska "
+"användas. Det andra ska av historiska skäl vara tomt. Det tredje "
+"alternativet konverterar utdata med htmlspecialchars() när det är 1 "
+"(standard: 1). Det fjärde förhindrar radbrytning och visar utdata på en rad "
+"när det är 1 (standard: 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:114
 #, php-format
@@ -13232,10 +13195,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fel vid skapande av främmande nyckel för %1$s (kontrollera datatyper)"
 
 #: libraries/classes/Template.php:127
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "Fel då sökningen lästes in."
+msgstr "Fel vid arbete med mallcachen: %s"
 
 #: libraries/classes/Theme.php:186
 #, php-format
@@ -15692,13 +15654,10 @@ msgstr[0] "%1$s träff i <strong>%2$s</strong>"
 msgstr[1] "%1$s träffar i <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Totalt:</b> <i>%s</i> träff"
-msgstr[1] "<b>Totalt:</b> <i>%s</i> träffar"
+msgstr[0] "<strong>Totalt:</strong> <em>%count%</em> träff"
+msgstr[1] "<strong>Totalt:</strong> <em>%count%</em> träffar"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
 #, fuzzy
@@ -16560,10 +16519,8 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Version lägre än 5.5.8 (den första GA utgåvan av 5.5)."
 
 #: libraries/advisory_rules_generic.txt:118
-#, fuzzy
-#| msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "Du bör uppgradera till en stabil version av MySQL 5.5"
+msgstr "Du bör uppgradera till en stabil version av MySQL 5.5."
 
 #: libraries/advisory_rules_generic.txt:121
 #: libraries/advisory_rules_generic.txt:128
@@ -16668,16 +16625,12 @@ msgstr "Alltför många sorteringar orsakar temporära tabeller."
 
 #: libraries/advisory_rules_generic.txt:158
 #: libraries/advisory_rules_generic.txt:165
-#, fuzzy
-#| msgid ""
-#| "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
-#| "depending on your system memory limits"
 msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
 "Överväg att öka {sort_buffer_size} och/eller {read_rnd_buffer_size}, "
-"beroende på ditt systems minnesbegränsning"
+"beroende på systemets minnesgränser."
 
 #: libraries/advisory_rules_generic.txt:159
 #, php-format
@@ -16709,21 +16662,15 @@ msgid "There are lots of rows being sorted."
 msgstr "Det är många rader som blir sorterade."
 
 #: libraries/advisory_rules_generic.txt:172
-#, fuzzy
-#| msgid ""
-#| "While there is nothing wrong with a high amount of row sorting, you might "
-#| "want to make sure that the queries which require a lot of sorting use "
-#| "indexed columns in the ORDER BY clause, as this will result in much "
-#| "faster sorting"
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
-"Även om det inte är fel med en hög andel av radsorteringar, bör du se till "
-"att frågor som kräver mycket sortering använder de indexerade fälten i ORDER "
-"BY-satsen, då detta kommer resultera i mycket snabbare sortering"
+"Även om en stor mängd radsortering inte är fel bör du se till att frågor som "
+"kräver mycket sortering använder indexerade kolumner i ORDER BY-satsen. Det "
+"ger betydligt snabbare sortering."
 
 #: libraries/advisory_rules_generic.txt:173
 #, php-format
@@ -16739,18 +16686,13 @@ msgid "There are too many joins without indexes."
 msgstr "Det finns för många JOINS som saknar index."
 
 #: libraries/advisory_rules_generic.txt:180
-#, fuzzy
-#| msgid ""
-#| "This means that joins are doing full table scans. Adding indexes for the "
-#| "columns being used in the join conditions will greatly speed up table "
-#| "joins"
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
-"Detta innebär att joins gör fullständiga tabellsökningar. Att lägga till "
-"index för de fält som använder join-villkoren kommer avsevärt snabba upp "
-"tabellkopplingen"
+"Detta innebär att sammanfogningar gör fullständiga tabellsökningar. Att "
+"lägga till index för kolumnerna som används i sammanfogningsvillkoren "
+"snabbar upp tabellsammanfogningar avsevärt."
 
 #: libraries/advisory_rules_generic.txt:181
 #, php-format
