@@ -8169,7 +8169,7 @@
             'timeout' => 60000,
         ])]]></code>
       <code><![CDATA[PublicKeyCredentialSource::createFromArray($data)]]></code>
-      <code><![CDATA[PublicKeyCredentialSource::createFromArray($data[base64_encode($publicKeyCredentialId)])]]></code>
+      <code><![CDATA[PublicKeyCredentialSource::createFromArray($data[Base64::encode($publicKeyCredentialId)])]]></code>
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$assertionResponseDecoded['response']['authenticatorData']]]></code>

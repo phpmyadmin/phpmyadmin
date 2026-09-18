@@ -71,7 +71,7 @@ jobs:
         php-version: ['8.2', '8.3', '8.4', '8.5']
         os: [ubuntu-latest]
         composer-dependency: [locked, highest]
-        php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
+        php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2, xdebug-3.5']
         include:
           - php-version: '8.6'
             os: ubuntu-latest
@@ -159,7 +159,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          extensions: ${{ matrix.extension }}, mbstring, iconv, mysqli, zip, gd
+          extensions: ${{ matrix.extension }}, mbstring, iconv, mysqli, zip, gd, xdebug-3.5
           coverage: xdebug
 
       - name: Install Composer dependencies
