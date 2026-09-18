@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-09-13 00:43+0000\n"
-"PO-Revision-Date: 2026-09-14 16:51+0000\n"
+"PO-Revision-Date: 2026-09-19 07:51+0000\n"
 "Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sv/>\n"
@@ -7434,7 +7434,7 @@ msgstr "Kolumnnamn"
 #: src/Advisory/Advisor.php:206
 #, php-format
 msgid "Error when evaluating: %s"
-msgstr "Fel vid utvärdering:%s"
+msgstr "Fel vid utvärdering: %s"
 
 #: src/Advisory/Advisor.php:231
 #, php-format
@@ -7740,10 +7740,10 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
-"Du använder MySQL:s frågecache med en ganska högbelastad databas. Det kan "
-"vara värt att överväga att använda <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> istället för frågecachen, "
-"speciellt om du har flera slavar."
+"Du använder MySQL:s frågecache med en databas med ganska hög trafik. Överväg "
+"att använda <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> i stället för MySQL:s frågecache, särskilt om "
+"du har flera repliker."
 
 #: src/Advisory/Rules.php:223
 #, php-format
@@ -7768,7 +7768,7 @@ msgid ""
 "depending on your system memory limits."
 msgstr ""
 "Överväg att öka {sort_buffer_size} och/eller {read_rnd_buffer_size}, "
-"beroende på ditt systems minnesbegränsning."
+"beroende på systemets minnesgränser."
 
 #: src/Advisory/Rules.php:241
 #, php-format
@@ -7806,9 +7806,9 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting."
 msgstr ""
-"Även om det inte är fel med en hög andel av radsorteringar, bör du se till "
-"att frågor som kräver mycket sortering använder de indexerade fälten i ORDER "
-"BY-satsen, då detta kommer resultera i mycket snabbare sortering."
+"Även om en stor mängd radsortering inte är fel bör du se till att frågor som "
+"kräver mycket sortering använder indexerade kolumner i ORDER BY-satsen. Det "
+"ger betydligt snabbare sortering."
 
 #: src/Advisory/Rules.php:269
 #, php-format
@@ -7828,9 +7828,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
-"Detta innebär att joins gör fullständiga tabellsökningar. Att lägga till "
-"index för de fält som använder join-villkoren kommer avsevärt snabba upp "
-"tabellkopplingen."
+"Detta innebär att sammanfogningar gör fullständiga tabellsökningar. Att "
+"lägga till index för kolumnerna som används i sammanfogningsvillkoren "
+"snabbar upp tabellsammanfogningar avsevärt."
 
 #: src/Advisory/Rules.php:283
 #, php-format
@@ -8730,42 +8730,42 @@ msgstr "Tysk (ordlisteordning)"
 #: src/Charsets/Collation.php:157 src/Charsets/Collation.php:482
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr "spanska (traditionell)"
+msgstr "Spanska (traditionell)"
 
 #: src/Charsets/Collation.php:161 src/Charsets/Collation.php:475
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "Spanska (modernt)"
+msgstr "Spanska (modern)"
 
 #: src/Charsets/Collation.php:225
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "skiftlägesokänslig"
+msgstr "Skiftlägesokänslig"
 
 #: src/Charsets/Collation.php:226
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "skiftlägeskänslig"
+msgstr "Skiftlägeskänslig"
 
 #: src/Charsets/Collation.php:227
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "accentokänslig"
+msgstr "Accentokänslig"
 
 #: src/Charsets/Collation.php:228
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "accentkänslig"
+msgstr "Accentkänslig"
 
 #: src/Charsets/Collation.php:229
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "kanakänslig"
+msgstr "Kanakänslig"
 
 #: src/Charsets/Collation.php:230
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "flernivå"
+msgstr "Flernivå"
 
 #: src/Charsets/Collation.php:231
 msgctxt "Collation variant"
