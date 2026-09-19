@@ -326,6 +326,10 @@ return [
         'class' => Database\Structure\ShowCreateController::class,
         'arguments' => [ResponseRenderer::class, Template::class, DatabaseInterface::class],
     ],
+    Database\Structure\CopyStructureController::class => [
+        'class' => Database\Structure\CopyStructureController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, DbTableExists::class],
+    ],
     Database\StructureController::class => [
         'class' => Database\StructureController::class,
         'arguments' => [
@@ -1130,6 +1134,10 @@ return [
             Table\StructureController::class,
             DbTableExists::class,
         ],
+    ],
+    Table\Structure\CopyStructureController::class => [
+        'class' => Table\Structure\CopyStructureController::class,
+        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, DbTableExists::class],
     ],
     Table\Structure\ReservedWordCheckController::class => [
         'class' => Table\Structure\ReservedWordCheckController::class,
