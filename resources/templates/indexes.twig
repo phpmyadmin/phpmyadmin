@@ -18,6 +18,7 @@
             <th>{{ t('Type') }}</th>
             <th>{{ t('Unique') }}</th>
             <th>{{ t('Packed') }}</th>
+            <th>{{ t('Visible') }}</th>
             <th>{{ t('Column') }}</th>
             <th>{{ t('Cardinality') }}</th>
             <th>{{ t('Collation') }}</th>
@@ -65,6 +66,7 @@
               <td rowspan="{{ columns_count }}">{{ index.getType()|default(index.getChoice()) }}</td>
               <td rowspan="{{ columns_count }}">{{ index.isUnique() ? t('Yes') : t('No') }}</td>
               <td rowspan="{{ columns_count }}">{{ index.isPacked()|raw }}</td>
+              <td rowspan="{{ columns_count }}">{{ index.isVisible() ? t('Yes') : t('No') }}</td>
 
               {% for column in index.getColumns() %}
                 {% if column.getSeqInIndex() > 1 %}
