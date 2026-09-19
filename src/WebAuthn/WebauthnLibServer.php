@@ -8,6 +8,7 @@ use Cose\Algorithm\ManagerFactory;
 use Cose\Algorithm\Signature\ECDSA;
 use Cose\Algorithm\Signature\EdDSA;
 use Cose\Algorithm\Signature\RSA;
+use PhpMyAdmin\Crypto\Base64;
 use PhpMyAdmin\TwoFactor;
 use Psr\Http\Message\ServerRequestInterface;
 use Webauthn\AttestationStatement\AttestationObjectLoader;
@@ -34,18 +35,13 @@ use Webauthn\TrustPath\EmptyTrustPath;
 use Webmozart\Assert\Assert;
 
 use function array_map;
-use function base64_encode;
 use function json_decode;
 use function json_encode;
 use function random_bytes;
 use function rtrim;
-use function sodium_base642bin;
-use function sodium_bin2base64;
 use function str_ends_with;
 
 use const JSON_THROW_ON_ERROR;
-use const SODIUM_BASE64_VARIANT_ORIGINAL;
-use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 final class WebauthnLibServer implements Server
 {
@@ -114,10 +110,7 @@ final class WebauthnLibServer implements Server
          *   attestation: non-empty-string
          * } $creationOptions */
         $creationOptions = $this->normalize($publicKeyCredentialCreationOptions);
-        $creationOptions['challenge'] = sodium_bin2base64(
-            sodium_base642bin($creationOptions['challenge'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-            SODIUM_BASE64_VARIANT_ORIGINAL,
-        );
+        $creationOptions['challenge'] = Base64::encode(Base64::decodeUrlSafeNoPadding($creationOptions['challenge']));
         Assert::stringNotEmpty($creationOptions['challenge']);
 
         return $creationOptions;
@@ -158,15 +151,11 @@ final class WebauthnLibServer implements Server
          * } $requestOptions
          */
         $requestOptions = $this->normalize($publicKeyCredentialRequestOptions);
-        $requestOptions['challenge'] = sodium_bin2base64(
-            sodium_base642bin($requestOptions['challenge'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-            SODIUM_BASE64_VARIANT_ORIGINAL,
-        );
+        $requestOptions['challenge'] = Base64::encode(Base64::decodeUrlSafeNoPadding($requestOptions['challenge']));
         if (isset($requestOptions['allowCredentials'])) {
             foreach ($requestOptions['allowCredentials'] as $key => $credential) {
-                $requestOptions['allowCredentials'][$key]['id'] = sodium_bin2base64(
-                    sodium_base642bin($credential['id'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-                    SODIUM_BASE64_VARIANT_ORIGINAL,
+                $requestOptions['allowCredentials'][$key]['id'] = Base64::encode(
+                    Base64::decodeUrlSafeNoPadding($credential['id']),
                 );
             }
         }
@@ -182,10 +171,7 @@ final class WebauthnLibServer implements Server
         ServerRequestInterface $request,
     ): void {
         Assert::string($this->twofactor->config['settings']['userHandle']);
-        $userHandle = sodium_base642bin(
-            $this->twofactor->config['settings']['userHandle'],
-            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
-        );
+        $userHandle = Base64::decodeUrlSafeNoPadding($this->twofactor->config['settings']['userHandle']);
         $userEntity = new PublicKeyCredentialUserEntity($this->twofactor->user, $userHandle, $this->twofactor->user);
         $host = $request->getUri()->getHost();
         $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
@@ -202,19 +188,11 @@ final class WebauthnLibServer implements Server
         $publicKeyCredentialLoader = PublicKeyCredentialLoader::create($attestationObjectLoader);
 
         $assertionResponseDecoded = json_decode($assertionResponseJson, true, flags: JSON_THROW_ON_ERROR);
-        $assertionResponseDecoded['response']['authenticatorData'] = sodium_bin2base64(
-            sodium_base642bin(
-                $assertionResponseDecoded['response']['authenticatorData'],
-                SODIUM_BASE64_VARIANT_ORIGINAL,
-            ),
-            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
+        $assertionResponseDecoded['response']['authenticatorData'] = Base64::encodeUrlSafeNoPadding(
+            Base64::decode($assertionResponseDecoded['response']['authenticatorData']),
         );
-        $assertionResponseDecoded['response']['clientDataJSON'] = sodium_bin2base64(
-            sodium_base642bin(
-                $assertionResponseDecoded['response']['clientDataJSON'],
-                SODIUM_BASE64_VARIANT_ORIGINAL,
-            ),
-            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
+        $assertionResponseDecoded['response']['clientDataJSON'] = Base64::encodeUrlSafeNoPadding(
+            Base64::decode($assertionResponseDecoded['response']['clientDataJSON']),
         );
 
         $publicKeyCredential = $publicKeyCredentialLoader->load(
@@ -289,12 +267,8 @@ final class WebauthnLibServer implements Server
         $publicKeyCredentialLoader = PublicKeyCredentialLoader::create($attestationObjectLoader);
 
         $attestationResponseDecoded = json_decode($attestationResponse, true, flags: JSON_THROW_ON_ERROR);
-        $attestationResponseDecoded['response']['clientDataJSON'] = sodium_bin2base64(
-            sodium_base642bin(
-                $attestationResponseDecoded['response']['clientDataJSON'],
-                SODIUM_BASE64_VARIANT_ORIGINAL,
-            ),
-            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
+        $attestationResponseDecoded['response']['clientDataJSON'] = Base64::encodeUrlSafeNoPadding(
+            Base64::decode($attestationResponseDecoded['response']['clientDataJSON']),
         );
 
         $publicKeyCredential = $publicKeyCredentialLoader->load(
@@ -334,8 +308,8 @@ final class WebauthnLibServer implements Server
             public function findOneByCredentialId(string $publicKeyCredentialId): PublicKeyCredentialSource|null
             {
                 $data = $this->read();
-                if (isset($data[base64_encode($publicKeyCredentialId)])) {
-                    return PublicKeyCredentialSource::createFromArray($data[base64_encode($publicKeyCredentialId)]);
+                if (isset($data[Base64::encode($publicKeyCredentialId)])) {
+                    return PublicKeyCredentialSource::createFromArray($data[Base64::encode($publicKeyCredentialId)]);
                 }
 
                 return null;
@@ -364,7 +338,7 @@ final class WebauthnLibServer implements Server
                 $encoded = json_encode($publicKeyCredentialSource, JSON_THROW_ON_ERROR);
                 $normalized = json_decode($encoded, true, flags: JSON_THROW_ON_ERROR);
                 Assert::isArray($normalized);
-                $data[base64_encode($id)] = $normalized;
+                $data[Base64::encode($id)] = $normalized;
                 $this->write($data);
             }
 
