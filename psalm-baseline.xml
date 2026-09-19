@@ -1031,14 +1031,12 @@
       <code><![CDATA[list{(string|int|null)[], string, string, string, string, int, bool, int}]]></code>
     </MoreSpecificReturnType>
     <PossiblyFalseOperand>
-      <code><![CDATA[$columnNames]]></code>
       <code><![CDATA[$this->config->config->NavigationTreeTableSeparator]]></code>
       <code><![CDATA[$this->config->config->NavigationTreeTableSeparator]]></code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$currentTable['Collation']]]></code>
       <code><![CDATA[$currentTable['Name']]]></code>
-      <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
@@ -1068,7 +1066,6 @@
       <code><![CDATA[$trackedTables]]></code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
-      <code><![CDATA[$columnNames]]></code>
       <code><![CDATA[$currentTable['Data_length']]]></code>
       <code><![CDATA[$currentTable['Data_length']]]></code>
       <code><![CDATA[$currentTable['Data_length']]]></code>
@@ -8697,8 +8694,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -8709,8 +8704,6 @@
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$currentTable]]></code>
-      <code><![CDATA[$result]]></code>
-      <code><![CDATA[$result]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$currentTable]]></code>
@@ -8743,7 +8736,6 @@
       <code><![CDATA[$currentTable['ENGINE']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
       <code><![CDATA[[$currentTable, , , $sumSize]]]></code>
       <code><![CDATA[[$currentTable, , , $sumSize]]]></code>

@@ -97,7 +97,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           extensions: ${{ matrix.php-extensions }}
-          coverage: xdebug
+          coverage: pcov
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v4
@@ -160,7 +160,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           extensions: ${{ matrix.extension }}, mbstring, iconv, mysqli, zip, gd
-          coverage: xdebug
+          coverage: pcov
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v4
@@ -218,6 +218,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
+          coverage: none
 
       - name: Update composer.json
         shell: bash

@@ -39,6 +39,8 @@ use PhpMyAdmin\Util;
 use Throwable;
 
 use function __;
+use function array_map;
+use function array_reduce;
 use function array_reverse;
 use function array_search;
 use function array_slice;
@@ -326,7 +328,7 @@ final class StructureController implements InvocableController
             $updateTime = null;
             if ($this->config->config->ShowDbStructureLastUpdate && isset($currentTable['Update_time'])) {
                 $updateTime = $this->createDateTime($currentTable['Update_time']);
-                if ($updateTime !== null && ($updateTimeAll === null || $updateTime < $updateTimeAll)) {
+                if ($updateTime !== null && ($updateTimeAll === null || $updateTime > $updateTimeAll)) {
                     $updateTimeAll = $updateTime;
                 }
             }
@@ -334,7 +336,7 @@ final class StructureController implements InvocableController
             $checkTime = null;
             if ($this->config->config->ShowDbStructureLastCheck && isset($currentTable['Check_time'])) {
                 $checkTime = $this->createDateTime($currentTable['Check_time']);
-                if ($checkTime !== null && ($checkTimeAll === null || $checkTime < $checkTimeAll)) {
+                if ($checkTime !== null && ($checkTimeAll === null || $checkTime > $checkTimeAll)) {
                     $checkTimeAll = $checkTime;
                 }
             }
@@ -859,35 +861,45 @@ final class StructureController implements InvocableController
             ->countRecords(true);
 
         if ($this->isShowStats) {
-            // Only count columns that have double quotes
-            $columnCount = (int) $this->dbi->fetchValue(
-                'SELECT COUNT(COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '
-                . $this->dbi->quoteString(Current::$database) . ' AND TABLE_NAME = '
-                . $this->dbi->quoteString($currentTable['TABLE_NAME']) . ' AND NUMERIC_SCALE IS NULL;',
-            );
-
             // Get column names
-            $columnNames = $this->dbi->fetchValue(
-                'SELECT GROUP_CONCAT(COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '
+            /** @var list<array{COLUMN_NAME: string, HAS_QUOTES: numeric-string}> $columns */
+            $columns = $this->dbi->fetchValue(
+                'SELECT COLUMN_NAME, NUMERIC_SCALE IS NULL AS HAS_QUOTES'
+                . ' FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '
                 . $this->dbi->quoteString(Current::$database) . ' AND TABLE_NAME = '
                 . $this->dbi->quoteString($currentTable['TABLE_NAME']) . ';',
             );
 
-            // 10Mb buffer for CONCAT_WS
-            // not sure if is needed
+            $columnsString = implode(',', array_map(
+                static function (array $column): string {
+                    return Util::backquote($column['COLUMN_NAME']);
+                },
+                $columns,
+            ));
+
+            // 10Mb buffer for CONCAT not sure if is needed
             $this->dbi->query('SET SESSION group_concat_max_len = 10 * 1024 * 1024');
 
             // Calculate data length
+            // literal new line, double quote and backslash characters are escaped in csv
+            // and use up two bytes instead of one.
             $dataLength = (int) $this->dbi->fetchValue('
-                SELECT SUM(CHAR_LENGTH(REPLACE(REPLACE(REPLACE(
-                    CONCAT_WS(\',\', ' . $columnNames . '),
-                    UNHEX(\'0A\'), \'nn\'), UNHEX(\'22\'), \'nn\'), UNHEX(\'5C\'), \'nn\'
-                ))) FROM ' . Util::backquote(Current::$database) . '.' . Util::backquote($currentTable['TABLE_NAME']));
+                SELECT SUM(LENGTH(REPLACE(
+                    REPLACE(
+                        REPLACE(CONCAT(' . $columnsString . "), '\\n', 'nl'),
+                        '\"',
+                        'qu'
+                    ),
+                    '\\\\',
+                    'bs'
+                ))) FROM " . Util::backquote(Current::$database) . '.' . Util::backquote($currentTable['TABLE_NAME']));
 
-            // Calculate quotes length
-            $quotesLength = $currentTable['TABLE_ROWS'] * $columnCount * 2;
+            $quotedColumns = array_reduce($columns, static function (int $sum, array $column): int {
+                return $sum + (int) $column['HAS_QUOTES'];
+            }, 0);
+            $separatorsAndNewLine = count($columns);
 
-            $tblsize = $dataLength + $quotesLength + $currentTable['TABLE_ROWS'];
+            $tblsize = $dataLength + $currentTable['TABLE_ROWS'] * ($quotedColumns * 2 + $separatorsAndNewLine);
 
             $sumSize += $tblsize;
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);

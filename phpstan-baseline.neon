@@ -1639,6 +1639,12 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
+			message: '#^PHPDoc tag @var with type list\<array\{COLUMN_NAME\: string, HAS_QUOTES\: numeric\-string\}\> is not subtype of native type string\|false\|null\.$#'
+			identifier: varTag.nativeType
+			count: 1
+			path: src/Controllers/Database/StructureController.php
+
+		-
 			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:hasTable\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 2
@@ -1665,7 +1671,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, int\|string\|null given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -14862,7 +14868,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 9
+			count: 7
 			path: tests/unit/Controllers/Database/StructureControllerTest.php
 
 		-
@@ -14911,19 +14917,13 @@ parameters:
 			path: tests/unit/Controllers/Database/StructureControllerTest.php
 
 		-
+			message: '#^Parameter \#1 \$needle of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/unit/Controllers/Database/StructureControllerTest.php
+
+		-
 			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: tests/unit/Controllers/Database/StructureControllerTest.php
-
-		-
-			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 4
-			path: tests/unit/Controllers/Database/StructureControllerTest.php
-
-		-
-			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringNotContainsString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: tests/unit/Controllers/Database/StructureControllerTest.php

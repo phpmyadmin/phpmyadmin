@@ -49,7 +49,8 @@ class StructureControllerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->config = Config::getInstance();
+        $this->config = new Config();
+        Config::$instance = $this->config;
         $this->config->selectedServer['DisableIS'] = false;
         Current::$table = 'table';
         Current::$database = 'db';
@@ -262,6 +263,10 @@ class StructureControllerTest extends AbstractTestCase
     /** @throws ReflectionException */
     public function testDisplayTableList(): void
     {
+        $this->config->set('ShowDbStructureCreation', true);
+        $this->config->set('ShowDbStructureLastUpdate', true);
+        $this->config->set('ShowDbStructureLastCheck', true);
+
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('displayTableList');
 
@@ -275,7 +280,7 @@ class StructureControllerTest extends AbstractTestCase
             self::createStub(TrackingChecker::class),
             self::createStub(PageSettings::class),
             new DbTableExists($dbi),
-            Config::getInstance(),
+            $this->config,
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);
@@ -285,34 +290,62 @@ class StructureControllerTest extends AbstractTestCase
         $tablesProperty = $class->getProperty('tables');
 
         $numTables = $class->getProperty('numTables');
-        $numTables->setValue($controller, 1);
+
+        $_REQUEST['db'] = 'my_unique_test_db';
+
+        $numTables->setValue($controller, 0);
 
         //no tables
         $_REQUEST['db'] = 'my_unique_test_db';
         $tablesProperty->setValue($controller, []);
         $result = $method->invoke($controller, ['status' => false]);
+        self::assertIsString($result);
         self::assertStringContainsString($_REQUEST['db'], $result);
         self::assertStringNotContainsString('id="overhead"', $result);
 
         //with table
-        $_REQUEST['db'] = 'my_unique_test_db';
+        $tableInfo = [
+            'ENGINE' => 'Maria',
+            'TABLE_TYPE' => 'BASE TABLE',
+            'TABLE_ROWS' => '0',
+            'TABLE_COMMENT' => 'test',
+            'Data_length' => '5000',
+            'Index_length' => '100',
+            'Data_free' => '10000',
+        ];
         $tablesProperty->setValue($controller, [
-            [
-                'TABLE_NAME' => 'my_unique_test_db',
-                'ENGINE' => 'Maria',
-                'TABLE_TYPE' => 'BASE TABLE',
-                'TABLE_ROWS' => 0,
-                'TABLE_COMMENT' => 'test',
-                'Data_length' => 5000,
-                'Index_length' => 100,
-                'Data_free' => 10000,
-            ],
+            'my_unique_test_table_1' => [
+                'TABLE_NAME' => 'my_unique_test_table_1',
+                'Create_time' => '2026-09-04 09:11:00',
+                'Update_time' => '2026-09-04 10:11:00',
+                'Check_time' => '2026-09-04 11:11:00',
+            ] + $tableInfo,
+            'my_unique_test_table_2' => [
+                'TABLE_NAME' => 'my_unique_test_table_2',
+                'Create_time' => '2026-09-04 09:22:00',
+                'Update_time' => '2026-09-04 10:22:00',
+                'Check_time' => '2026-09-04 11:22:00',
+            ] + $tableInfo,
         ]);
+        $numTables->setValue($controller, 2);
         $result = $method->invoke($controller, ['status' => false]);
+        self::assertIsString($result);
 
         self::assertStringContainsString($_REQUEST['db'], $result);
         self::assertStringContainsString('id="overhead"', $result);
         self::assertStringContainsString('9.8', $result);
+        self::assertStringContainsString(
+            '<th class="value tbl_creation font-monospace text-end">Sep 04, 2026 at 09:11 AM</th>',
+            $result,
+        );
+        self::assertStringContainsString(
+            '<th class="value tbl_last_update font-monospace text-end">Sep 04, 2026 at 10:22 AM</th>',
+            $result,
+        );
+        self::assertStringContainsString(
+            '<th class="value tbl_last_check font-monospace text-end">Sep 04, 2026 at 11:22 AM</th>',
+            $result,
+        );
     }
 
     /**
