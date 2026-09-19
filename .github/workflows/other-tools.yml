@@ -44,6 +44,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
           extensions: mbstring, iconv, mysqli, zip, gd
           tools: composer:v2
+          coverage: none
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v4
