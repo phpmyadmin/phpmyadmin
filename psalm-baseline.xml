@@ -8146,13 +8146,7 @@
       <code><![CDATA[PublicKeyCredentialLoader::create($attestationObjectLoader)]]></code>
       <code><![CDATA[PublicKeyCredentialLoader::create($attestationObjectLoader)]]></code>
       <code><![CDATA[PublicKeyCredentialLoader::create($attestationObjectLoader)]]></code>
-      <code><![CDATA[new IgnoreTokenBindingHandler()]]></code>
-      <code><![CDATA[new IgnoreTokenBindingHandler()]]></code>
     </DeprecatedClass>
-    <DeprecatedInterface>
-      <code><![CDATA[PublicKeyCredentialSourceRepository]]></code>
-      <code><![CDATA[class ($this->twofactor) implements PublicKeyCredentialSourceRepository {]]></code>
-    </DeprecatedInterface>
     <DeprecatedMethod>
       <code><![CDATA[AuthenticatorSelectionCriteria::createFromArray([
             'authenticatorAttachment' => 'cross-platform',

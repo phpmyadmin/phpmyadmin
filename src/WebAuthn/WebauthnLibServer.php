@@ -15,12 +15,12 @@ use Webauthn\AttestationStatement\AttestationObjectLoader;
 use Webauthn\AttestationStatement\AttestationStatementSupportManager;
 use Webauthn\AttestationStatement\NoneAttestationStatementSupport;
 use Webauthn\AuthenticationExtensions\AuthenticationExtensions;
-use Webauthn\AuthenticationExtensions\ExtensionOutputCheckerHandler;
 use Webauthn\AuthenticatorAssertionResponse;
 use Webauthn\AuthenticatorAssertionResponseValidator;
 use Webauthn\AuthenticatorAttestationResponse;
 use Webauthn\AuthenticatorAttestationResponseValidator;
 use Webauthn\AuthenticatorSelectionCriteria;
+use Webauthn\CeremonyStep\CeremonyStepManagerFactory;
 use Webauthn\PublicKeyCredentialCreationOptions;
 use Webauthn\PublicKeyCredentialDescriptor;
 use Webauthn\PublicKeyCredentialLoader;
@@ -28,9 +28,7 @@ use Webauthn\PublicKeyCredentialParameters;
 use Webauthn\PublicKeyCredentialRequestOptions;
 use Webauthn\PublicKeyCredentialRpEntity;
 use Webauthn\PublicKeyCredentialSource;
-use Webauthn\PublicKeyCredentialSourceRepository;
 use Webauthn\PublicKeyCredentialUserEntity;
-use Webauthn\TokenBinding\IgnoreTokenBindingHandler;
 use Webauthn\TrustPath\EmptyTrustPath;
 use Webmozart\Assert\Assert;
 
@@ -125,8 +123,7 @@ final class WebauthnLibServer implements Server
     ): array {
         $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
         $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $relyingPartyId . ')', $relyingPartyId);
-        $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
-        $credentialSources = $publicKeyCredentialSourceRepository->findAllForUserEntity($userEntity);
+        $credentialSources = $this->findCredentialsForUserEntity($userEntity);
         $allowedCredentials = array_map(
             static fn (
                 PublicKeyCredentialSource $credential,
@@ -174,7 +171,6 @@ final class WebauthnLibServer implements Server
         $userHandle = Base64::decodeUrlSafeNoPadding($this->twofactor->config['settings']['userHandle']);
         $userEntity = new PublicKeyCredentialUserEntity($this->twofactor->user, $userHandle, $this->twofactor->user);
         $host = $request->getUri()->getHost();
-        $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
         $requestOptions = PublicKeyCredentialRequestOptions::createFromArray([
             'challenge' => $challenge,
             'allowCredentials' => $allowedCredentials,
@@ -205,20 +201,23 @@ final class WebauthnLibServer implements Server
             'Not an authenticator assertion response',
         );
 
+        $publicKeyCredentialSource = $this->findCredentialByCredentialId($publicKeyCredential->rawId);
+        Assert::notNull($publicKeyCredentialSource);
+
+        $csmFactory = new CeremonyStepManagerFactory();
         $authenticatorAssertionResponseValidator = new AuthenticatorAssertionResponseValidator(
-            $publicKeyCredentialSourceRepository,
-            new IgnoreTokenBindingHandler(),
-            new ExtensionOutputCheckerHandler(),
-            $this->coseAlgorithmManagerFactory->generate(...$this->selectedAlgorithms),
+            ceremonyStepManager: $csmFactory->requestCeremony(),
         );
 
-        $authenticatorAssertionResponseValidator->check(
-            $publicKeyCredential->rawId,
+        $credential = $authenticatorAssertionResponseValidator->check(
+            $publicKeyCredentialSource,
             $authenticatorResponse,
             $requestOptions,
-            $request,
+            $host,
             $userEntity->id,
         );
+
+        $this->saveCredentialSource($credential);
     }
 
     /** @inheritDoc */
@@ -234,7 +233,6 @@ final class WebauthnLibServer implements Server
         Assert::isArray($creationOptions['user']);
         Assert::keyExists($creationOptions['user'], 'id');
         $host = $request->getUri()->getHost();
-        $publicKeyCredentialSourceRepository = $this->createPublicKeyCredentialSourceRepository();
         $creationOptionsArray = [
             'rp' => ['name' => 'phpMyAdmin (' . $host . ')', 'id' => $host],
             'pubKeyCredParams' => [
@@ -281,93 +279,81 @@ final class WebauthnLibServer implements Server
             'Not an authenticator attestation response',
         );
 
+        $csmFactory = new CeremonyStepManagerFactory();
         $authenticatorAttestationResponseValidator = new AuthenticatorAttestationResponseValidator(
-            $attestationStatementSupportManager,
-            $publicKeyCredentialSourceRepository,
-            new IgnoreTokenBindingHandler(),
-            new ExtensionOutputCheckerHandler(),
+            ceremonyStepManager: $csmFactory->creationCeremony(),
         );
 
         $publicKeyCredentialSource = $authenticatorAttestationResponseValidator->check(
             $authenticatorResponse,
             $credentialCreationOptions,
-            $request,
+            $host,
         );
 
         return $this->normalize($publicKeyCredentialSource);
     }
 
-    /** @infection-ignore-all */
-    private function createPublicKeyCredentialSourceRepository(): PublicKeyCredentialSourceRepository
+    private function findCredentialByCredentialId(string $publicKeyCredentialId): PublicKeyCredentialSource|null
     {
-        return new class ($this->twofactor) implements PublicKeyCredentialSourceRepository {
-            public function __construct(private TwoFactor $twoFactor)
-            {
+        $data = $this->readCredentialsFromConfig();
+        if (isset($data[Base64::encode($publicKeyCredentialId)])) {
+            return PublicKeyCredentialSource::createFromArray($data[Base64::encode($publicKeyCredentialId)]);
+        }
+
+        return null;
+    }
+
+    /** @return PublicKeyCredentialSource[] */
+    private function findCredentialsForUserEntity(PublicKeyCredentialUserEntity $publicKeyCredentialUserEntity): array
+    {
+        $sources = [];
+        foreach ($this->readCredentialsFromConfig() as $data) {
+            $source = PublicKeyCredentialSource::createFromArray($data);
+            if ($source->userHandle !== $publicKeyCredentialUserEntity->id) {
+                continue;
             }
 
-            public function findOneByCredentialId(string $publicKeyCredentialId): PublicKeyCredentialSource|null
-            {
-                $data = $this->read();
-                if (isset($data[Base64::encode($publicKeyCredentialId)])) {
-                    return PublicKeyCredentialSource::createFromArray($data[Base64::encode($publicKeyCredentialId)]);
-                }
+            $sources[] = $source;
+        }
 
-                return null;
+        return $sources;
+    }
+
+    private function saveCredentialSource(PublicKeyCredentialSource $publicKeyCredentialSource): void
+    {
+        $data = $this->readCredentialsFromConfig();
+        $id = $publicKeyCredentialSource->publicKeyCredentialId;
+        $encoded = json_encode($publicKeyCredentialSource, JSON_THROW_ON_ERROR);
+        $normalized = json_decode($encoded, true, flags: JSON_THROW_ON_ERROR);
+        Assert::isArray($normalized);
+        $data[Base64::encode($id)] = $normalized;
+        $this->writeCredentialsToConfig($data);
+    }
+
+    /** @return mixed[][] */
+    private function readCredentialsFromConfig(): array
+    {
+        /** @psalm-var list<mixed[]> $credentials */
+        $credentials = $this->twofactor->config['settings']['credentials'];
+        foreach ($credentials as &$credential) {
+            if (str_ends_with($credential['userHandle'], '=')) {
+                $credential['userHandle'] = rtrim($credential['userHandle'], '=');
             }
 
-            /** @return PublicKeyCredentialSource[] */
-            public function findAllForUserEntity(PublicKeyCredentialUserEntity $publicKeyCredentialUserEntity): array
-            {
-                $sources = [];
-                foreach ($this->read() as $data) {
-                    $source = PublicKeyCredentialSource::createFromArray($data);
-                    if ($source->userHandle !== $publicKeyCredentialUserEntity->id) {
-                        continue;
-                    }
-
-                    $sources[] = $source;
-                }
-
-                return $sources;
+            if (isset($credential['trustPath'])) {
+                continue;
             }
 
-            public function saveCredentialSource(PublicKeyCredentialSource $publicKeyCredentialSource): void
-            {
-                $data = $this->read();
-                $id = $publicKeyCredentialSource->publicKeyCredentialId;
-                $encoded = json_encode($publicKeyCredentialSource, JSON_THROW_ON_ERROR);
-                $normalized = json_decode($encoded, true, flags: JSON_THROW_ON_ERROR);
-                Assert::isArray($normalized);
-                $data[Base64::encode($id)] = $normalized;
-                $this->write($data);
-            }
+            $credential['trustPath'] = ['type' => EmptyTrustPath::class];
+        }
 
-            /** @return mixed[][] */
-            private function read(): array
-            {
-                /** @psalm-var list<mixed[]> $credentials */
-                $credentials = $this->twoFactor->config['settings']['credentials'];
-                foreach ($credentials as &$credential) {
-                    if (str_ends_with($credential['userHandle'], '=')) {
-                        $credential['userHandle'] = rtrim($credential['userHandle'], '=');
-                    }
+        return $credentials;
+    }
 
-                    if (isset($credential['trustPath'])) {
-                        continue;
-                    }
-
-                    $credential['trustPath'] = ['type' => EmptyTrustPath::class];
-                }
-
-                return $credentials;
-            }
-
-            /** @param mixed[] $data */
-            private function write(array $data): void
-            {
-                $this->twoFactor->config['settings']['credentials'] = $data;
-            }
-        };
+    /** @param mixed[] $data */
+    private function writeCredentialsToConfig(array $data): void
+    {
+        $this->twofactor->config['settings']['credentials'] = $data;
     }
 
     /** @return mixed[] */
