@@ -9,7 +9,7 @@
  *
  */
 
-/* global generateFromBlock, generateWhereBlock */ // js/database/query_generator.js
+/* global generateFromBlock, generateWhereBlock, generateOrderBlock  */ // js/database/query_generator.js
 
 /**
  * js file for handling AJAX and other events in /database/multi-table-query
@@ -123,6 +123,11 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         if ($criteriaColCount > 0) {
             query += '\nWHERE ';
             query += generateWhereBlock();
+        }
+
+        var $orderParts = generateOrderBlock();
+        if ($orderParts !== '') {
+            query += '\nORDER BY ' + $orderParts;
         }
 
         query += ';';
