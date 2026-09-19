@@ -13984,7 +13984,7 @@ parameters:
 			path: src/WebAuthn/WebauthnLibServer.php
 
 		-
-			message: '#^Parameter \#1 \$string of function sodium_base642bin expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$string of static method PhpMyAdmin\\Crypto\\Base64\:\:decode\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
 			path: src/WebAuthn/WebauthnLibServer.php
