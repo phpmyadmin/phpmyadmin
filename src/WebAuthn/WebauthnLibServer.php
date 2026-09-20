@@ -11,7 +11,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use Webauthn\AttestationStatement\AttestationObjectLoader;
 use Webauthn\AttestationStatement\AttestationStatementSupportManager;
 use Webauthn\AttestationStatement\NoneAttestationStatementSupport;
-use Webauthn\AuthenticationExtensions\AuthenticationExtensions;
 use Webauthn\AuthenticatorAssertionResponse;
 use Webauthn\AuthenticatorAssertionResponseValidator;
 use Webauthn\AuthenticatorAttestationResponse;
@@ -80,24 +79,11 @@ final class WebauthnLibServer implements Server
         string $relyingPartyId,
         array $allowedCredentials,
     ): array {
-        $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
-        $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $relyingPartyId . ')', $relyingPartyId);
-        $credentialSources = $this->findCredentialsForUserEntity($userEntity);
-        $allowedCredentials = array_map(
-            static fn (
-                PublicKeyCredentialSource $credential,
-            ): PublicKeyCredentialDescriptor => $credential->getPublicKeyCredentialDescriptor(),
-            $credentialSources,
-        );
-
-        $challenge = random_bytes(self::CHALLENGE_SIZE);
-        $publicKeyCredentialRequestOptions = PublicKeyCredentialRequestOptions::create(
-            $challenge,
-            $relyingPartyEntity->id,
-            $allowedCredentials,
-            PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_DISCOURAGED,
-            self::TIMEOUT,
-            new AuthenticationExtensions(),
+        $publicKeyCredentialRequestOptions = $this->getPublicKeyCredentialRequestOptions(
+            $userName,
+            $userId,
+            $relyingPartyId,
+            random_bytes(self::CHALLENGE_SIZE),
         );
 
         /**
@@ -128,14 +114,14 @@ final class WebauthnLibServer implements Server
     ): void {
         Assert::string($this->twofactor->config['settings']['userHandle']);
         $userHandle = Base64::decodeUrlSafeNoPadding($this->twofactor->config['settings']['userHandle']);
-        $userEntity = new PublicKeyCredentialUserEntity($this->twofactor->user, $userHandle, $this->twofactor->user);
         $host = $request->getUri()->getHost();
-        $requestOptions = PublicKeyCredentialRequestOptions::createFromArray([
-            'challenge' => $challenge,
-            'allowCredentials' => $allowedCredentials,
-            'rpId' => $host,
-            'timeout' => 60000,
-        ]);
+
+        $publicKeyCredentialRequestOptions = $this->getPublicKeyCredentialRequestOptions(
+            $this->twofactor->user,
+            $userHandle,
+            $host,
+            Base64::decode($challenge),
+        );
 
         $attestationStatementSupportManager = new AttestationStatementSupportManager();
         $attestationStatementSupportManager->add(new NoneAttestationStatementSupport());
@@ -171,9 +157,9 @@ final class WebauthnLibServer implements Server
         $credential = $authenticatorAssertionResponseValidator->check(
             $publicKeyCredentialSource,
             $authenticatorResponse,
-            $requestOptions,
+            $publicKeyCredentialRequestOptions,
             $host,
-            $userEntity->id,
+            $userHandle,
         );
 
         $this->saveCredentialSource($credential);
@@ -347,6 +333,31 @@ final class WebauthnLibServer implements Server
             $authenticatorSelection,
             PublicKeyCredentialCreationOptions::ATTESTATION_CONVEYANCE_PREFERENCE_NONE,
             timeout: self::TIMEOUT,
+        );
+    }
+
+    private function getPublicKeyCredentialRequestOptions(
+        string $userName,
+        string $userId,
+        string $relyingPartyId,
+        string $challenge,
+    ): PublicKeyCredentialRequestOptions {
+        $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
+        $credentialSources = $this->findCredentialsForUserEntity($userEntity);
+
+        $allowedPublicKeyCredentials = array_map(
+            static fn (
+                PublicKeyCredentialSource $credential,
+            ): PublicKeyCredentialDescriptor => $credential->getPublicKeyCredentialDescriptor(),
+            $credentialSources,
+        );
+
+        return PublicKeyCredentialRequestOptions::create(
+            $challenge,
+            $relyingPartyId,
+            $allowedPublicKeyCredentials,
+            PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_DISCOURAGED,
+            self::TIMEOUT,
         );
     }
 }

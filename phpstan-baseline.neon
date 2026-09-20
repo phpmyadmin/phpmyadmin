@@ -13880,15 +13880,6 @@ parameters:
 
 		-
 			message: '''
-				#^Call to deprecated method createFromArray\(\) of class Webauthn\\PublicKeyCredentialRequestOptions\:
-				since 4\.8\.0\. Please use \{Webauthn\\Denormalizer\\WebauthnSerializerFactory\} for converting the object\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
 				#^Call to deprecated method createFromArray\(\) of class Webauthn\\PublicKeyCredentialSource\:
 				since 4\.8\.0\. Please use \{Webauthn\\Denormalizer\\WebauthnSerializerFactory\} for converting the object\.$#
 			'''

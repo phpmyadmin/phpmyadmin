@@ -8148,12 +8148,6 @@
       <code><![CDATA[PublicKeyCredentialLoader::create($attestationObjectLoader)]]></code>
     </DeprecatedClass>
     <DeprecatedMethod>
-      <code><![CDATA[PublicKeyCredentialRequestOptions::createFromArray([
-            'challenge' => $challenge,
-            'allowCredentials' => $allowedCredentials,
-            'rpId' => $host,
-            'timeout' => 60000,
-        ])]]></code>
       <code><![CDATA[PublicKeyCredentialSource::createFromArray($data)]]></code>
       <code><![CDATA[PublicKeyCredentialSource::createFromArray($data[Base64::encode($publicKeyCredentialId)])]]></code>
     </DeprecatedMethod>
