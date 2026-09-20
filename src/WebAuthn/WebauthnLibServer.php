@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\WebAuthn;
 
-use Cose\Algorithm\ManagerFactory;
-use Cose\Algorithm\Signature\ECDSA;
-use Cose\Algorithm\Signature\EdDSA;
-use Cose\Algorithm\Signature\RSA;
+use Cose\Algorithms;
 use PhpMyAdmin\Crypto\Base64;
 use PhpMyAdmin\TwoFactor;
 use Psr\Http\Message\ServerRequestInterface;
@@ -46,56 +43,18 @@ final class WebauthnLibServer implements Server
     private const TIMEOUT = 60000;
     private const CHALLENGE_SIZE = 32;
 
-    private ManagerFactory $coseAlgorithmManagerFactory;
-
-    /** @var string[] */
-    private array $selectedAlgorithms = ['RS256', 'RS512', 'PS256', 'PS512', 'ES256', 'ES512', 'Ed25519'];
-
     public function __construct(private TwoFactor $twofactor)
     {
-        $this->coseAlgorithmManagerFactory = new ManagerFactory();
-        $this->coseAlgorithmManagerFactory->add('RS256', new RSA\RS256());
-        $this->coseAlgorithmManagerFactory->add('RS384', new RSA\RS384());
-        $this->coseAlgorithmManagerFactory->add('RS512', new RSA\RS512());
-        $this->coseAlgorithmManagerFactory->add('PS256', new RSA\PS256());
-        $this->coseAlgorithmManagerFactory->add('PS384', new RSA\PS384());
-        $this->coseAlgorithmManagerFactory->add('PS512', new RSA\PS512());
-        $this->coseAlgorithmManagerFactory->add('ES256', new ECDSA\ES256());
-        $this->coseAlgorithmManagerFactory->add('ES256K', new ECDSA\ES256K());
-        $this->coseAlgorithmManagerFactory->add('ES384', new ECDSA\ES384());
-        $this->coseAlgorithmManagerFactory->add('ES512', new ECDSA\ES512());
-        $this->coseAlgorithmManagerFactory->add('Ed25519', new EdDSA\Ed25519());
     }
 
     /** @inheritDoc */
     public function getCredentialCreationOptions(string $userName, string $userId, string $relyingPartyId): array
     {
-        $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
-        $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $relyingPartyId . ')', $relyingPartyId);
-
-        $coseAlgorithmManager = $this->coseAlgorithmManagerFactory->generate(...$this->selectedAlgorithms);
-        $publicKeyCredentialParametersList = [];
-        foreach ($coseAlgorithmManager->all() as $algorithm) {
-            $publicKeyCredentialParametersList[] = new PublicKeyCredentialParameters(
-                PublicKeyCredentialDescriptor::CREDENTIAL_TYPE_PUBLIC_KEY,
-                $algorithm::identifier(),
-            );
-        }
-
-        $criteria = AuthenticatorSelectionCriteria::createFromArray([
-            'authenticatorAttachment' => 'cross-platform',
-            'userVerification' => 'discouraged',
-        ]);
-        $publicKeyCredentialCreationOptions = PublicKeyCredentialCreationOptions::create(
-            $relyingPartyEntity,
-            $userEntity,
+        $publicKeyCredentialCreationOptions = $this->getPublicKeyCredentialCreationOptions(
+            $userName,
+            $userId,
+            $relyingPartyId,
             random_bytes(self::CHALLENGE_SIZE),
-            $publicKeyCredentialParametersList,
-            $criteria,
-            PublicKeyCredentialCreationOptions::ATTESTATION_CONVEYANCE_PREFERENCE_NONE,
-            [],
-            self::TIMEOUT,
-            new AuthenticationExtensions(),
         );
 
         /** @psalm-var array{
@@ -229,35 +188,19 @@ final class WebauthnLibServer implements Server
         $creationOptions = json_decode($credentialCreationOptions, true, flags: JSON_THROW_ON_ERROR);
         Assert::isArray($creationOptions);
         Assert::keyExists($creationOptions, 'challenge');
+        Assert::stringNotEmpty($creationOptions['challenge']);
         Assert::keyExists($creationOptions, 'user');
         Assert::isArray($creationOptions['user']);
         Assert::keyExists($creationOptions['user'], 'id');
+        Assert::stringNotEmpty($creationOptions['user']['id']);
         $host = $request->getUri()->getHost();
-        $creationOptionsArray = [
-            'rp' => ['name' => 'phpMyAdmin (' . $host . ')', 'id' => $host],
-            'pubKeyCredParams' => [
-                ['alg' => -257, 'type' => 'public-key'], // RS256
-                ['alg' => -259, 'type' => 'public-key'], // RS512
-                ['alg' => -37, 'type' => 'public-key'], // PS256
-                ['alg' => -39, 'type' => 'public-key'], // PS512
-                ['alg' => -7, 'type' => 'public-key'], // ES256
-                ['alg' => -36, 'type' => 'public-key'], // ES512
-                ['alg' => -8, 'type' => 'public-key'], // EdDSA
-            ],
-            'challenge' => $creationOptions['challenge'],
-            'attestation' => 'none',
-            'user' => [
-                'name' => $this->twofactor->user,
-                'id' => $creationOptions['user']['id'],
-                'displayName' => $this->twofactor->user,
-            ],
-            'authenticatorSelection' => [
-                'authenticatorAttachment' => 'cross-platform',
-                'userVerification' => 'discouraged',
-            ],
-            'timeout' => 60000,
-        ];
-        $credentialCreationOptions = PublicKeyCredentialCreationOptions::createFromArray($creationOptionsArray);
+
+        $publicKeyCredentialCreationOptions = $this->getPublicKeyCredentialCreationOptions(
+            $this->twofactor->user,
+            Base64::decode($creationOptions['user']['id']),
+            $host,
+            Base64::decode($creationOptions['challenge']),
+        );
 
         $attestationStatementSupportManager = new AttestationStatementSupportManager();
         $attestationStatementSupportManager->add(new NoneAttestationStatementSupport());
@@ -286,7 +229,7 @@ final class WebauthnLibServer implements Server
 
         $publicKeyCredentialSource = $authenticatorAttestationResponseValidator->check(
             $authenticatorResponse,
-            $credentialCreationOptions,
+            $publicKeyCredentialCreationOptions,
             $host,
         );
 
@@ -364,5 +307,46 @@ final class WebauthnLibServer implements Server
         Assert::isArray($normalized);
 
         return $normalized;
+    }
+
+    private function getPublicKeyCredentialCreationOptions(
+        string $userName,
+        string $userId,
+        string $relyingPartyId,
+        string $challenge,
+    ): PublicKeyCredentialCreationOptions {
+        $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
+        $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $relyingPartyId . ')', $relyingPartyId);
+
+        /**
+         * The authenticators must use one of the algorithms in this list, respecting the order of preference on this
+         * list. Algorithms ES256 and RS256 are required by the specification.
+         */
+        $publicKeyCredentialParameters = [
+            PublicKeyCredentialParameters::createPk(Algorithms::COSE_ALGORITHM_ES256K),
+            PublicKeyCredentialParameters::createPk(Algorithms::COSE_ALGORITHM_ES256),
+            PublicKeyCredentialParameters::createPk(Algorithms::COSE_ALGORITHM_RS256),
+            PublicKeyCredentialParameters::createPk(Algorithms::COSE_ALGORITHM_PS256),
+            PublicKeyCredentialParameters::createPk(Algorithms::COSE_ALGORITHM_ED256),
+            PublicKeyCredentialParameters::createPk(Algorithms::COSE_ALGORITHM_RS512),
+            PublicKeyCredentialParameters::createPk(Algorithms::COSE_ALGORITHM_PS512),
+            PublicKeyCredentialParameters::createPk(Algorithms::COSE_ALGORITHM_ES512),
+            PublicKeyCredentialParameters::createPk(Algorithms::COSE_ALGORITHM_EDDSA),
+        ];
+
+        $authenticatorSelection = AuthenticatorSelectionCriteria::create(
+            AuthenticatorSelectionCriteria::AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM,
+            AuthenticatorSelectionCriteria::USER_VERIFICATION_REQUIREMENT_DISCOURAGED,
+        );
+
+        return PublicKeyCredentialCreationOptions::create(
+            $relyingPartyEntity,
+            $userEntity,
+            $challenge,
+            $publicKeyCredentialParameters,
+            $authenticatorSelection,
+            PublicKeyCredentialCreationOptions::ATTESTATION_CONVEYANCE_PREFERENCE_NONE,
+            timeout: self::TIMEOUT,
+        );
     }
 }
