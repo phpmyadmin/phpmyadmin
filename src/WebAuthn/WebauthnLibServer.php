@@ -35,7 +35,6 @@ use function array_key_exists;
 use function array_map;
 use function hash_equals;
 use function json_decode;
-use function json_encode;
 use function mb_strlen;
 use function random_bytes;
 use function rtrim;
@@ -110,23 +109,28 @@ final class WebauthnLibServer implements Server
             random_bytes(self::CHALLENGE_SIZE),
         );
 
-        /**
-         * @psalm-var array{
-         *   challenge: string,
-         *   allowCredentials?: list<array{id: non-empty-string, type: non-empty-string}>
-         * } $requestOptions
-         */
-        $requestOptions = $this->normalize($publicKeyCredentialRequestOptions);
-        $requestOptions['challenge'] = Base64::encode(Base64::decodeUrlSafeNoPadding($requestOptions['challenge']));
-        if (isset($requestOptions['allowCredentials'])) {
-            foreach ($requestOptions['allowCredentials'] as $key => $credential) {
-                $requestOptions['allowCredentials'][$key]['id'] = Base64::encode(
-                    Base64::decodeUrlSafeNoPadding($credential['id']),
-                );
-            }
-        }
+        $rpId = $publicKeyCredentialRequestOptions->rpId;
+        Assert::notNull($rpId);
+        $userVerification = $publicKeyCredentialRequestOptions->userVerification;
+        Assert::notNull($userVerification);
+        $allowCredentials = array_map(
+            static fn (PublicKeyCredentialDescriptor $credential) => [
+                'type' => $credential->type,
+                'id' => Base64::encode($credential->id),
+            ],
+            $publicKeyCredentialRequestOptions->allowCredentials,
+        );
+        Assert::isList($allowCredentials);
+        $timeout = $publicKeyCredentialRequestOptions->timeout;
+        Assert::notNull($timeout);
 
-        return $requestOptions;
+        return [
+            'challenge' => Base64::encode($publicKeyCredentialRequestOptions->challenge),
+            'rpId' => $rpId,
+            'userVerification' => $userVerification,
+            'allowCredentials' => $allowCredentials,
+            'timeout' => $timeout,
+        ];
     }
 
     /** @inheritDoc */
@@ -278,16 +282,6 @@ final class WebauthnLibServer implements Server
     private function writeCredentialsToConfig(array $data): void
     {
         $this->twofactor->config['settings']['credentials'] = $data;
-    }
-
-    /** @return mixed[] */
-    private function normalize(object $object): array
-    {
-        $encoded = json_encode($object, JSON_THROW_ON_ERROR);
-        $normalized = json_decode($encoded, true, flags: JSON_THROW_ON_ERROR);
-        Assert::isArray($normalized);
-
-        return $normalized;
     }
 
     private function getPublicKeyCredentialCreationOptions(
