@@ -198,7 +198,7 @@ final class WebauthnLibServer implements Server
             $host,
         );
 
-        return $this->normalize($publicKeyCredentialSource);
+        return $this->normalizeCredentialSource($publicKeyCredentialSource);
     }
 
     private function findCredentialByCredentialId(string $publicKeyCredentialId): PublicKeyCredentialSource|null
@@ -232,10 +232,7 @@ final class WebauthnLibServer implements Server
     {
         $data = $this->readCredentialsFromConfig();
         $id = $publicKeyCredentialSource->publicKeyCredentialId;
-        $encoded = json_encode($publicKeyCredentialSource, JSON_THROW_ON_ERROR);
-        $normalized = json_decode($encoded, true, flags: JSON_THROW_ON_ERROR);
-        Assert::isArray($normalized);
-        $data[Base64::encode($id)] = $normalized;
+        $data[Base64::encode($id)] = $this->normalizeCredentialSource($publicKeyCredentialSource);
         $this->writeCredentialsToConfig($data);
     }
 
@@ -435,5 +432,21 @@ final class WebauthnLibServer implements Server
             Base64::decodeUrlSafeNoPadding($credential['userHandle']),
             $credential['counter'],
         );
+    }
+
+    /** @return array<string, int|string|string[]> */
+    private function normalizeCredentialSource(PublicKeyCredentialSource $credential): array
+    {
+        return [
+            'publicKeyCredentialId' => Base64::encodeUrlSafeNoPadding($credential->publicKeyCredentialId),
+            'type' => $credential->type,
+            'transports' => $credential->transports,
+            'attestationType' => $credential->attestationType,
+            'trustPath' => ['type' => EmptyTrustPath::class],
+            'aaguid' => (string) $credential->aaguid,
+            'credentialPublicKey' => Base64::encodeUrlSafeNoPadding($credential->credentialPublicKey),
+            'userHandle' => Base64::encodeUrlSafeNoPadding($credential->userHandle),
+            'counter' => $credential->counter,
+        ];
     }
 }
