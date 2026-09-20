@@ -15,11 +15,13 @@ use Webauthn\AuthenticatorAssertionResponse;
 use Webauthn\AuthenticatorAssertionResponseValidator;
 use Webauthn\AuthenticatorAttestationResponse;
 use Webauthn\AuthenticatorAttestationResponseValidator;
+use Webauthn\AuthenticatorDataLoader;
 use Webauthn\AuthenticatorSelectionCriteria;
 use Webauthn\CeremonyStep\CeremonyStepManagerFactory;
+use Webauthn\CollectedClientData;
+use Webauthn\PublicKeyCredential;
 use Webauthn\PublicKeyCredentialCreationOptions;
 use Webauthn\PublicKeyCredentialDescriptor;
-use Webauthn\PublicKeyCredentialLoader;
 use Webauthn\PublicKeyCredentialParameters;
 use Webauthn\PublicKeyCredentialRequestOptions;
 use Webauthn\PublicKeyCredentialRpEntity;
@@ -28,7 +30,9 @@ use Webauthn\PublicKeyCredentialUserEntity;
 use Webauthn\TrustPath\EmptyTrustPath;
 use Webmozart\Assert\Assert;
 
+use function array_key_exists;
 use function array_map;
+use function hash_equals;
 use function json_decode;
 use function json_encode;
 use function random_bytes;
@@ -123,22 +127,7 @@ final class WebauthnLibServer implements Server
             Base64::decode($challenge),
         );
 
-        $attestationStatementSupportManager = new AttestationStatementSupportManager();
-        $attestationStatementSupportManager->add(new NoneAttestationStatementSupport());
-        $attestationObjectLoader = AttestationObjectLoader::create($attestationStatementSupportManager);
-        $publicKeyCredentialLoader = PublicKeyCredentialLoader::create($attestationObjectLoader);
-
-        $assertionResponseDecoded = json_decode($assertionResponseJson, true, flags: JSON_THROW_ON_ERROR);
-        $assertionResponseDecoded['response']['authenticatorData'] = Base64::encodeUrlSafeNoPadding(
-            Base64::decode($assertionResponseDecoded['response']['authenticatorData']),
-        );
-        $assertionResponseDecoded['response']['clientDataJSON'] = Base64::encodeUrlSafeNoPadding(
-            Base64::decode($assertionResponseDecoded['response']['clientDataJSON']),
-        );
-
-        $publicKeyCredential = $publicKeyCredentialLoader->load(
-            json_encode($assertionResponseDecoded, JSON_THROW_ON_ERROR),
-        );
+        $publicKeyCredential = $this->getPublicKeyCredential($assertionResponseJson);
         $authenticatorResponse = $publicKeyCredential->response;
         Assert::isInstanceOf(
             $authenticatorResponse,
@@ -188,19 +177,7 @@ final class WebauthnLibServer implements Server
             Base64::decode($creationOptions['challenge']),
         );
 
-        $attestationStatementSupportManager = new AttestationStatementSupportManager();
-        $attestationStatementSupportManager->add(new NoneAttestationStatementSupport());
-        $attestationObjectLoader = AttestationObjectLoader::create($attestationStatementSupportManager);
-        $publicKeyCredentialLoader = PublicKeyCredentialLoader::create($attestationObjectLoader);
-
-        $attestationResponseDecoded = json_decode($attestationResponse, true, flags: JSON_THROW_ON_ERROR);
-        $attestationResponseDecoded['response']['clientDataJSON'] = Base64::encodeUrlSafeNoPadding(
-            Base64::decode($attestationResponseDecoded['response']['clientDataJSON']),
-        );
-
-        $publicKeyCredential = $publicKeyCredentialLoader->load(
-            json_encode($attestationResponseDecoded, JSON_THROW_ON_ERROR),
-        );
+        $publicKeyCredential = $this->getPublicKeyCredential($attestationResponse);
         $authenticatorResponse = $publicKeyCredential->response;
         Assert::isInstanceOf(
             $authenticatorResponse,
@@ -359,5 +336,66 @@ final class WebauthnLibServer implements Server
             PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_DISCOURAGED,
             self::TIMEOUT,
         );
+    }
+
+    private function getPublicKeyCredential(string $json): PublicKeyCredential
+    {
+        $data = json_decode($json, true, flags: JSON_THROW_ON_ERROR);
+        Assert::isArray($data);
+
+        Assert::keyExists($data, 'id');
+        Assert::keyExists($data, 'rawId');
+        Assert::stringNotEmpty($data['id']);
+        Assert::stringNotEmpty($data['rawId']);
+        $id = Base64::decodeUrlSafeNoPadding($data['id']);
+        $rawId = Base64::decode($data['rawId']);
+        Assert::true(hash_equals($id, $rawId));
+
+        $type = 'public-key';
+        Assert::keyExists($data, 'type');
+        Assert::same($data['type'], $type);
+
+        Assert::keyExists($data, 'response');
+        Assert::isArray($data['response']);
+        $response = $data['response'];
+
+        Assert::keyExists($response, 'clientDataJSON');
+        Assert::stringNotEmpty($response['clientDataJSON']);
+        $clientDataJSON = Base64::encodeUrlSafeNoPadding(Base64::decode($response['clientDataJSON']));
+        $clientData = CollectedClientData::createFormJson($clientDataJSON);
+
+        if (array_key_exists('attestationObject', $response)) {
+            Assert::stringNotEmpty($response['attestationObject']);
+            $attestationStatementSupportManager = new AttestationStatementSupportManager();
+            $attestationStatementSupportManager->add(new NoneAttestationStatementSupport());
+            $attestationObjectLoader = AttestationObjectLoader::create($attestationStatementSupportManager);
+            $attestationObject = $attestationObjectLoader->load($response['attestationObject']);
+
+            return PublicKeyCredential::create(
+                null,
+                $type,
+                $rawId,
+                AuthenticatorAttestationResponse::create($clientData, $attestationObject),
+            );
+        }
+
+        if (array_key_exists('signature', $response)) {
+            Assert::stringNotEmpty($response['signature']);
+            $signature = Base64::decode($response['signature']);
+
+            Assert::keyExists($response, 'authenticatorData');
+            Assert::stringNotEmpty($response['authenticatorData']);
+            $authDataLoader = AuthenticatorDataLoader::create();
+            $authenticatorData = $authDataLoader->load(Base64::decode($response['authenticatorData']));
+
+            return PublicKeyCredential::create(
+                null,
+                $type,
+                $rawId,
+                AuthenticatorAssertionResponse::create($clientData, $authenticatorData, $signature),
+            );
+        }
+
+        throw new WebAuthnException('Unable to create the response object.');
     }
 }

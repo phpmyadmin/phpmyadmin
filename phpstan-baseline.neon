@@ -13888,42 +13888,6 @@ parameters:
 			path: src/WebAuthn/WebauthnLibServer.php
 
 		-
-			message: '''
-				#^Call to method create\(\) of deprecated class Webauthn\\PublicKeyCredentialLoader\:
-				since 4\.8\.0 and will be removed in 5\.0\.0\. Please use the Symfony serializer instead$#
-			'''
-			identifier: staticMethod.deprecatedClass
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to method load\(\) of deprecated class Webauthn\\PublicKeyCredentialLoader\:
-				since 4\.8\.0 and will be removed in 5\.0\.0\. Please use the Symfony serializer instead$#
-			'''
-			identifier: method.deprecatedClass
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '#^Cannot access offset ''authenticatorData'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '#^Cannot access offset ''clientDataJSON'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '#^Cannot access offset ''response'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
 			message: '#^Parameter \#1 \$haystack of function str_ends_with expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -13933,12 +13897,6 @@ parameters:
 			message: '#^Parameter \#1 \$string of function rtrim expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '#^Parameter \#1 \$string of static method PhpMyAdmin\\Crypto\\Base64\:\:decode\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 3
 			path: src/WebAuthn/WebauthnLibServer.php
 
 		-
