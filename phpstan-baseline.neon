@@ -5467,12 +5467,6 @@ parameters:
 			path: src/Encoding.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Encoding\:\:convertString\(\) should return string but returns string\|false\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Encoding.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Encoding\:\:kanjiStrConv\(\) should return string but returns string\|false\.$#'
 			identifier: return.type
 			count: 1
