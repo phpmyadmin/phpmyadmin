@@ -8142,10 +8142,6 @@
     </MoreSpecificReturnType>
   </file>
   <file src="src/WebAuthn/WebauthnLibServer.php">
-    <DeprecatedMethod>
-      <code><![CDATA[PublicKeyCredentialSource::createFromArray($data)]]></code>
-      <code><![CDATA[PublicKeyCredentialSource::createFromArray($data[Base64::encode($publicKeyCredentialId)])]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$credential['userHandle']]]></code>
     </MixedArgument>

@@ -8,6 +8,7 @@ use Cose\Algorithms;
 use PhpMyAdmin\Crypto\Base64;
 use PhpMyAdmin\TwoFactor;
 use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\Uid\Uuid;
 use Webauthn\AttestationStatement\AttestationObjectLoader;
 use Webauthn\AttestationStatement\AttestationStatementSupportManager;
 use Webauthn\AttestationStatement\NoneAttestationStatementSupport;
@@ -35,6 +36,7 @@ use function array_map;
 use function hash_equals;
 use function json_decode;
 use function json_encode;
+use function mb_strlen;
 use function random_bytes;
 use function rtrim;
 use function str_ends_with;
@@ -201,9 +203,10 @@ final class WebauthnLibServer implements Server
 
     private function findCredentialByCredentialId(string $publicKeyCredentialId): PublicKeyCredentialSource|null
     {
-        $data = $this->readCredentialsFromConfig();
-        if (isset($data[Base64::encode($publicKeyCredentialId)])) {
-            return PublicKeyCredentialSource::createFromArray($data[Base64::encode($publicKeyCredentialId)]);
+        $credentials = $this->readCredentialsFromConfig();
+        $credentialId = Base64::encode($publicKeyCredentialId);
+        if (isset($credentials[$credentialId])) {
+            return $this->getPublicKeyCredentialSource($credentials[$credentialId]);
         }
 
         return null;
@@ -214,7 +217,7 @@ final class WebauthnLibServer implements Server
     {
         $sources = [];
         foreach ($this->readCredentialsFromConfig() as $data) {
-            $source = PublicKeyCredentialSource::createFromArray($data);
+            $source = $this->getPublicKeyCredentialSource($data);
             if ($source->userHandle !== $publicKeyCredentialUserEntity->id) {
                 continue;
             }
@@ -397,5 +400,40 @@ final class WebauthnLibServer implements Server
         }
 
         throw new WebAuthnException('Unable to create the response object.');
+    }
+
+    /** @param array<mixed> $credential */
+    private function getPublicKeyCredentialSource(array $credential): PublicKeyCredentialSource
+    {
+        Assert::keyExists($credential, 'publicKeyCredentialId');
+        Assert::string($credential['publicKeyCredentialId']);
+        Assert::keyExists($credential, 'type');
+        Assert::string($credential['type']);
+        Assert::keyExists($credential, 'transports');
+        Assert::isArray($credential['transports']);
+        Assert::allString($credential['transports']);
+        Assert::keyExists($credential, 'attestationType');
+        Assert::string($credential['attestationType']);
+        Assert::keyExists($credential, 'aaguid');
+        Assert::string($credential['aaguid']);
+        Assert::true(mb_strlen($credential['aaguid'], '8bit') === 36);
+        Assert::keyExists($credential, 'credentialPublicKey');
+        Assert::string($credential['credentialPublicKey']);
+        Assert::keyExists($credential, 'userHandle');
+        Assert::string($credential['userHandle']);
+        Assert::keyExists($credential, 'counter');
+        Assert::integer($credential['counter']);
+
+        return PublicKeyCredentialSource::create(
+            Base64::decodeUrlSafeNoPadding($credential['publicKeyCredentialId']),
+            $credential['type'],
+            $credential['transports'],
+            $credential['attestationType'],
+            EmptyTrustPath::create(),
+            Uuid::fromString($credential['aaguid']),
+            Base64::decodeUrlSafeNoPadding($credential['credentialPublicKey']),
+            Base64::decodeUrlSafeNoPadding($credential['userHandle']),
+            $credential['counter'],
+        );
     }
 }
