@@ -111,6 +111,7 @@ class WebAuthn extends TwoFactorPlugin
                 $requestOptions['challenge'],
                 $request,
             );
+            $this->twofactor->save();
         } catch (Throwable $exception) {
             $this->message = $exception->getMessage();
 

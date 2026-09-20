@@ -20,13 +20,13 @@ use Webauthn\AuthenticatorDataLoader;
 use Webauthn\AuthenticatorSelectionCriteria;
 use Webauthn\CeremonyStep\CeremonyStepManagerFactory;
 use Webauthn\CollectedClientData;
+use Webauthn\CredentialRecord;
 use Webauthn\PublicKeyCredential;
 use Webauthn\PublicKeyCredentialCreationOptions;
 use Webauthn\PublicKeyCredentialDescriptor;
 use Webauthn\PublicKeyCredentialParameters;
 use Webauthn\PublicKeyCredentialRequestOptions;
 use Webauthn\PublicKeyCredentialRpEntity;
-use Webauthn\PublicKeyCredentialSource;
 use Webauthn\PublicKeyCredentialUserEntity;
 use Webauthn\TrustPath\EmptyTrustPath;
 use Webmozart\Assert\Assert;
@@ -79,7 +79,7 @@ final class WebauthnLibServer implements Server
 
         return [
             'challenge' => Base64::encode($challenge),
-            'rp' => ['name' => $rpEntity->name, 'id' => $rpEntity->id ?? ''],
+            'rp' => ['name' => $rpEntity->id ?? '', 'id' => $rpEntity->id ?? ''],
             'user' => [
                 'id' => Base64::encodeUrlSafeNoPadding($userEntity->id),
                 'name' => $userEntity->name,
@@ -159,8 +159,8 @@ final class WebauthnLibServer implements Server
             'Not an authenticator assertion response',
         );
 
-        $publicKeyCredentialSource = $this->findCredentialByCredentialId($publicKeyCredential->rawId);
-        Assert::notNull($publicKeyCredentialSource);
+        $credentialRecord = $this->findCredentialByCredentialId($publicKeyCredential->rawId);
+        Assert::notNull($credentialRecord);
 
         $csmFactory = new CeremonyStepManagerFactory();
         $authenticatorAssertionResponseValidator = new AuthenticatorAssertionResponseValidator(
@@ -168,14 +168,14 @@ final class WebauthnLibServer implements Server
         );
 
         $credential = $authenticatorAssertionResponseValidator->check(
-            $publicKeyCredentialSource,
+            $credentialRecord,
             $authenticatorResponse,
             $publicKeyCredentialRequestOptions,
             $host,
             $userHandle,
         );
 
-        $this->saveCredentialSource($credential);
+        $this->saveCredentialRecord($credential);
     }
 
     /** @inheritDoc */
@@ -214,32 +214,32 @@ final class WebauthnLibServer implements Server
             ceremonyStepManager: $csmFactory->creationCeremony(),
         );
 
-        $publicKeyCredentialSource = $authenticatorAttestationResponseValidator->check(
+        $credentialRecord = $authenticatorAttestationResponseValidator->check(
             $authenticatorResponse,
             $publicKeyCredentialCreationOptions,
             $host,
         );
 
-        return $this->normalizeCredentialSource($publicKeyCredentialSource);
+        return $this->normalizeCredentialRecord($credentialRecord);
     }
 
-    private function findCredentialByCredentialId(string $publicKeyCredentialId): PublicKeyCredentialSource|null
+    private function findCredentialByCredentialId(string $publicKeyCredentialId): CredentialRecord|null
     {
         $credentials = $this->readCredentialsFromConfig();
         $credentialId = Base64::encode($publicKeyCredentialId);
         if (isset($credentials[$credentialId])) {
-            return $this->getPublicKeyCredentialSource($credentials[$credentialId]);
+            return $this->getCredentialRecord($credentials[$credentialId]);
         }
 
         return null;
     }
 
-    /** @return PublicKeyCredentialSource[] */
+    /** @return CredentialRecord[] */
     private function findCredentialsForUserEntity(PublicKeyCredentialUserEntity $publicKeyCredentialUserEntity): array
     {
         $sources = [];
         foreach ($this->readCredentialsFromConfig() as $data) {
-            $source = $this->getPublicKeyCredentialSource($data);
+            $source = $this->getCredentialRecord($data);
             if ($source->userHandle !== $publicKeyCredentialUserEntity->id) {
                 continue;
             }
@@ -250,11 +250,11 @@ final class WebauthnLibServer implements Server
         return $sources;
     }
 
-    private function saveCredentialSource(PublicKeyCredentialSource $publicKeyCredentialSource): void
+    private function saveCredentialRecord(CredentialRecord $credentialRecord): void
     {
         $data = $this->readCredentialsFromConfig();
-        $id = $publicKeyCredentialSource->publicKeyCredentialId;
-        $data[Base64::encode($id)] = $this->normalizeCredentialSource($publicKeyCredentialSource);
+        $id = $credentialRecord->publicKeyCredentialId;
+        $data[Base64::encode($id)] = $this->normalizeCredentialRecord($credentialRecord);
         $this->writeCredentialsToConfig($data);
     }
 
@@ -291,7 +291,7 @@ final class WebauthnLibServer implements Server
         string $challenge,
     ): PublicKeyCredentialCreationOptions {
         $userEntity = new PublicKeyCredentialUserEntity($userName, $userId, $userName);
-        $relyingPartyEntity = new PublicKeyCredentialRpEntity('phpMyAdmin (' . $relyingPartyId . ')', $relyingPartyId);
+        $relyingPartyEntity = new PublicKeyCredentialRpEntity(id: $relyingPartyId);
 
         /**
          * The authenticators must use one of the algorithms in this list, respecting the order of preference on this
@@ -336,7 +336,7 @@ final class WebauthnLibServer implements Server
 
         $allowedPublicKeyCredentials = array_map(
             static fn (
-                PublicKeyCredentialSource $credential,
+                CredentialRecord $credential,
             ): PublicKeyCredentialDescriptor => $credential->getPublicKeyCredentialDescriptor(),
             $credentialSources,
         );
@@ -373,8 +373,10 @@ final class WebauthnLibServer implements Server
 
         Assert::keyExists($response, 'clientDataJSON');
         Assert::stringNotEmpty($response['clientDataJSON']);
-        $clientDataJSON = Base64::encodeUrlSafeNoPadding(Base64::decode($response['clientDataJSON']));
-        $clientData = CollectedClientData::createFormJson($clientDataJSON);
+        $clientDataJSON = Base64::decode($response['clientDataJSON']);
+        $clientData = json_decode($clientDataJSON, true, flags: JSON_THROW_ON_ERROR);
+        Assert::isArray($clientData);
+        $collectedClientData = CollectedClientData::create($clientDataJSON, $clientData);
 
         if (array_key_exists('attestationObject', $response)) {
             Assert::stringNotEmpty($response['attestationObject']);
@@ -384,10 +386,9 @@ final class WebauthnLibServer implements Server
             $attestationObject = $attestationObjectLoader->load($response['attestationObject']);
 
             return PublicKeyCredential::create(
-                null,
                 $type,
                 $rawId,
-                AuthenticatorAttestationResponse::create($clientData, $attestationObject),
+                AuthenticatorAttestationResponse::create($collectedClientData, $attestationObject),
             );
         }
 
@@ -401,10 +402,9 @@ final class WebauthnLibServer implements Server
             $authenticatorData = $authDataLoader->load(Base64::decode($response['authenticatorData']));
 
             return PublicKeyCredential::create(
-                null,
                 $type,
                 $rawId,
-                AuthenticatorAssertionResponse::create($clientData, $authenticatorData, $signature),
+                AuthenticatorAssertionResponse::create($collectedClientData, $authenticatorData, $signature),
             );
         }
 
@@ -412,7 +412,7 @@ final class WebauthnLibServer implements Server
     }
 
     /** @param array<mixed> $credential */
-    private function getPublicKeyCredentialSource(array $credential): PublicKeyCredentialSource
+    private function getCredentialRecord(array $credential): CredentialRecord
     {
         Assert::keyExists($credential, 'publicKeyCredentialId');
         Assert::string($credential['publicKeyCredentialId']);
@@ -433,7 +433,7 @@ final class WebauthnLibServer implements Server
         Assert::keyExists($credential, 'counter');
         Assert::integer($credential['counter']);
 
-        return PublicKeyCredentialSource::create(
+        return CredentialRecord::create(
             Base64::decodeUrlSafeNoPadding($credential['publicKeyCredentialId']),
             $credential['type'],
             $credential['transports'],
@@ -447,7 +447,7 @@ final class WebauthnLibServer implements Server
     }
 
     /** @return array<string, int|string|string[]> */
-    private function normalizeCredentialSource(PublicKeyCredentialSource $credential): array
+    private function normalizeCredentialRecord(CredentialRecord $credential): array
     {
         return [
             'publicKeyCredentialId' => Base64::encodeUrlSafeNoPadding($credential->publicKeyCredentialId),

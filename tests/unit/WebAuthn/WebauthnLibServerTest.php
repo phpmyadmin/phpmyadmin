@@ -40,7 +40,7 @@ final class WebauthnLibServerTest extends TestCase
         self::assertNotEmpty($options['pubKeyCredParams']);
         self::assertArrayHasKey('attestation', $options);
         self::assertNotEmpty($options['attestation']);
-        self::assertSame('phpMyAdmin (test.localhost)', $options['rp']['name']);
+        self::assertSame('test.localhost', $options['rp']['name']);
         self::assertSame('test.localhost', $options['rp']['id']);
         self::assertSame('user_name', $options['user']['name']);
         self::assertSame('user_name', $options['user']['displayName']);
