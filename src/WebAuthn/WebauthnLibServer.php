@@ -62,20 +62,38 @@ final class WebauthnLibServer implements Server
             random_bytes(self::CHALLENGE_SIZE),
         );
 
-        /** @psalm-var array{
-         *   challenge: non-empty-string,
-         *   rp: array{name: non-empty-string, id: non-empty-string},
-         *   user: array{id: non-empty-string, name: non-empty-string, displayName: non-empty-string},
-         *   pubKeyCredParams: list<array{alg: int, type: 'public-key'}>,
-         *   authenticatorSelection: array<string, string>,
-         *   timeout: positive-int,
-         *   attestation: non-empty-string
-         * } $creationOptions */
-        $creationOptions = $this->normalize($publicKeyCredentialCreationOptions);
-        $creationOptions['challenge'] = Base64::encode(Base64::decodeUrlSafeNoPadding($creationOptions['challenge']));
-        Assert::stringNotEmpty($creationOptions['challenge']);
+        $challenge = $publicKeyCredentialCreationOptions->challenge;
+        Assert::stringNotEmpty($challenge);
+        $rpEntity = $publicKeyCredentialCreationOptions->rp;
+        $userEntity = $publicKeyCredentialCreationOptions->user;
+        $pubKeyCredParams = array_map(
+            static fn (PublicKeyCredentialParameters $param) => ['type' => 'public-key', 'alg' => $param->alg],
+            $publicKeyCredentialCreationOptions->pubKeyCredParams,
+        );
+        Assert::isList($pubKeyCredParams);
+        $authenticatorSelection = $publicKeyCredentialCreationOptions->authenticatorSelection;
+        Assert::notNull($authenticatorSelection);
+        $timeout = $publicKeyCredentialCreationOptions->timeout;
+        Assert::notNull($timeout);
+        $attestation = $publicKeyCredentialCreationOptions->attestation;
+        Assert::stringNotEmpty($attestation);
 
-        return $creationOptions;
+        return [
+            'challenge' => Base64::encode($challenge),
+            'rp' => ['name' => $rpEntity->name, 'id' => $rpEntity->id ?? ''],
+            'user' => [
+                'id' => Base64::encodeUrlSafeNoPadding($userEntity->id),
+                'name' => $userEntity->name,
+                'displayName' => $userEntity->displayName,
+            ],
+            'pubKeyCredParams' => $pubKeyCredParams,
+            'authenticatorSelection' => [
+                'userVerification' => $authenticatorSelection->userVerification,
+                'authenticatorAttachment' => $authenticatorSelection->authenticatorAttachment ?? '',
+            ],
+            'timeout' => $timeout,
+            'attestation' => $attestation,
+        ];
     }
 
     /** @inheritDoc */
