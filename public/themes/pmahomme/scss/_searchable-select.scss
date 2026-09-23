@@ -1,0 +1,141 @@
+/**
+ * Searchable select boxes (select.search)
+ *
+ * The menu is moved to the end of the document body while open and positioned
+ * with `position: fixed` in JS, so it can escape scrollable/overflow ancestors.
+ * That is why its rules below are top-level instead of nested under
+ * `.searchable-select`.
+ */
+.searchable-select {
+  display: inline-block;
+  min-width: 150px;
+
+  select.searchable-select-native {
+    display: none;
+  }
+
+  .searchable-select-toggle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+
+    /* explicit, since some themes style any bare <button> (this toggle is one) like their action buttons instead of a form control */
+    color: $input-color;
+    background-color: $input-bg;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $input-color;
+      background-color: $input-bg;
+    }
+
+    /* otherwise the button-color override above (needed to beat some themes' generic <button> styling) also wins over .form-select's own disabled look */
+    &:disabled {
+      color: $form-select-disabled-color;
+      background-color: $form-select-disabled-bg;
+      border-color: $form-select-disabled-border-color;
+    }
+
+    .searchable-select-toggle-text {
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      /* zero-width space keeps a line box (and thus the toggle's height) even when no option is selected */
+      &::before {
+        content: "\200b";
+      }
+    }
+
+    .searchable-select-clear {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      width: 1.2em;
+      height: 1.2em;
+      margin-inline-start: 0.25rem;
+      font-size: 1.85em;
+      line-height: 1;
+      color: $dropdown-link-disabled-color;
+      border-radius: 50%;
+
+      &:hover {
+        color: $body-color;
+        background-color: $dropdown-link-hover-bg;
+      }
+    }
+  }
+}
+
+.searchable-select-menu {
+  display: none;
+  z-index: $zindex-modal + 10;
+  min-width: 12em;
+  max-height: 20em;
+  padding: 0.25rem;
+  overflow-y: auto;
+
+  &.show {
+    display: block;
+  }
+
+  .searchable-select-search {
+    margin-bottom: 0.25rem;
+  }
+
+  .searchable-select-options {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .searchable-select-optgroup-label {
+    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $dropdown-header-color;
+  }
+
+  .searchable-select-optgroup-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    /* indent options nested in an optgroup relative to their group label, like a native select does */
+    .searchable-select-option {
+      padding-left: 1.5em;
+    }
+  }
+
+  .searchable-select-option {
+    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    cursor: pointer;
+    border-radius: $border-radius-sm;
+
+    &.highlighted {
+      color: $dropdown-link-hover-color;
+      background-color: $dropdown-link-hover-bg;
+    }
+
+    &.selected {
+      color: $dropdown-link-active-color;
+      background-color: $dropdown-link-active-bg;
+      font-weight: $font-weight-bold;
+    }
+
+    &.disabled {
+      color: $dropdown-link-disabled-color;
+      cursor: not-allowed;
+    }
+  }
+
+  .searchable-select-empty {
+    padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    color: $dropdown-link-disabled-color;
+  }
+}
