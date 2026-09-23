@@ -40,7 +40,7 @@ final class WebauthnLibServerTest extends TestCase
         self::assertNotEmpty($options['pubKeyCredParams']);
         self::assertArrayHasKey('attestation', $options);
         self::assertNotEmpty($options['attestation']);
-        self::assertSame('phpMyAdmin (test.localhost)', $options['rp']['name']);
+        self::assertSame('test.localhost', $options['rp']['name']);
         self::assertSame('test.localhost', $options['rp']['id']);
         self::assertSame('user_name', $options['user']['name']);
         self::assertSame('user_name', $options['user']['displayName']);
@@ -155,8 +155,6 @@ final class WebauthnLibServerTest extends TestCase
                     'credentialPublicKey' => 'pQECAyYgASFYIJV56vRrFusoDf9hm3iDmllcxxXzzKyO9WruKw4kWx7zIlgg_nq63l8IMJcIdKDJcXRh9hoz0L-nVwP1Oxil3_oNQYs',
                     'userHandle' => 'Zm9v',
                     'counter' => 123,
-                    'backupEligible' => false,
-                    'backupStatus' => false,
                 ],
             ],
             $twoFactor->config['settings']['credentials'],
@@ -196,9 +194,6 @@ final class WebauthnLibServerTest extends TestCase
                 'credentialPublicKey' => 'pQECAyYgASFYIBw_HArIcANWNOBOxq3hH8lrHo9a17nQDxlqwybjDpHEIlggu3QUKIbALqsGuHfJI3LTKJSNmk0YCFb5oz1hjJidRMk',
                 'userHandle' => 'MJr5sD0WitVwZM0eoSO6kWhyseT67vc3oQdk_k1VdZQ',
                 'counter' => 0,
-                'backupEligible' => false,
-                'backupStatus' => false,
-                'uvInitialized' => false,
             ],
             $credential,
         );

@@ -119,7 +119,7 @@ class WebAuthnTest extends AbstractTestCase
 
         $expectedCreationOptions = [
             'challenge' => 'challenge',
-            'rp' => ['name' => 'phpMyAdmin (test.localhost)', 'id' => 'test.localhost'],
+            'rp' => ['name' => 'test.localhost', 'id' => 'test.localhost'],
             'user' => ['id' => 'user_id', 'name' => 'test_user', 'displayName' => 'test_user'],
             'pubKeyCredParams' => [['alg' => -8, 'type' => 'public-key']],
             'authenticatorSelection' => ['authenticatorAttachment' => 'cross-platform'],
