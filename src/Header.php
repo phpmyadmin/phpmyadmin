@@ -326,7 +326,7 @@ class Header
     }
 
     /** @return array<string, string> */
-    public function getHttpHeaders(ClockInterface|null $clock = null): array
+    public function getHttpHeaders(ClockInterface $clock = new Clock()): array
     {
         $headers = [
             'Referrer-Policy' => 'same-origin',
@@ -372,7 +372,7 @@ class Header
             'Permissions-Policy' => 'fullscreen=(self), interest-cohort=()',
         ];
 
-        $headers = array_merge($headers, Core::getNoCacheHeaders($clock ?? new Clock()));
+        $headers = array_merge($headers, Core::getNoCacheHeaders($clock));
 
         /**
          * A different Content-Type is set in {@see \PhpMyAdmin\Controllers\Transformation\WrapperController}.

@@ -178,10 +178,10 @@ class Core
      *
      * @return array<string, string>
      */
-    public static function headerJSON(ClockInterface|null $clock = null): array
+    public static function headerJSON(ClockInterface $clock = new Clock()): array
     {
         // No caching
-        $headers = self::getNoCacheHeaders($clock ?? new Clock());
+        $headers = self::getNoCacheHeaders($clock);
 
         // Media type
         $headers['Content-Type'] = 'application/json; charset=UTF-8';
