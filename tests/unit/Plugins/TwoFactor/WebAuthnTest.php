@@ -17,6 +17,8 @@ use PhpMyAdmin\WebAuthn\WebAuthnException;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Psr\Http\Message\UriInterface;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 use ReflectionProperty;
 
 use function array_column;
@@ -129,11 +131,11 @@ class WebAuthnTest extends AbstractTestCase
         $server = $this->createMock(Server::class);
         $server->expects(self::once())->method('getCredentialCreationOptions')->with(
             self::equalTo('test_user'),
-            self::anything(),
+            self::equalTo('ZtzhX7M96stcA2LzDpX1Lmr0Y7tH1JnHvK5BmRQsy5g='),
             self::equalTo('test.localhost'),
         )->willReturn($expectedCreationOptions);
 
-        $webAuthn = new WebAuthn($twoFactor);
+        $webAuthn = new WebAuthn($twoFactor, new Randomizer(new Mt19937(42)));
         $webAuthn->setServer($server);
         $actual = $webAuthn->setup($request);
 

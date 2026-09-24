@@ -8,6 +8,7 @@ use Cose\Algorithms;
 use PhpMyAdmin\Crypto\Base64;
 use PhpMyAdmin\TwoFactor;
 use Psr\Http\Message\ServerRequestInterface;
+use Random\Randomizer;
 use Symfony\Component\Uid\Uuid;
 use Webauthn\AttestationStatement\AttestationObjectLoader;
 use Webauthn\AttestationStatement\AttestationStatementSupportManager;
@@ -36,7 +37,6 @@ use function array_map;
 use function hash_equals;
 use function json_decode;
 use function mb_strlen;
-use function random_bytes;
 use function rtrim;
 use function str_ends_with;
 
@@ -47,8 +47,10 @@ final class WebauthnLibServer implements Server
     private const TIMEOUT = 60000;
     private const CHALLENGE_SIZE = 32;
 
-    public function __construct(private TwoFactor $twofactor)
-    {
+    public function __construct(
+        private TwoFactor $twofactor,
+        private Randomizer $randomizer = new Randomizer(),
+    ) {
     }
 
     /** @inheritDoc */
@@ -58,7 +60,7 @@ final class WebauthnLibServer implements Server
             $userName,
             $userId,
             $relyingPartyId,
-            random_bytes(self::CHALLENGE_SIZE),
+            $this->randomizer->getBytes(self::CHALLENGE_SIZE),
         );
 
         $challenge = $publicKeyCredentialCreationOptions->challenge;
@@ -106,7 +108,7 @@ final class WebauthnLibServer implements Server
             $userName,
             $userId,
             $relyingPartyId,
-            random_bytes(self::CHALLENGE_SIZE),
+            $this->randomizer->getBytes(self::CHALLENGE_SIZE),
         );
 
         $rpId = $publicKeyCredentialRequestOptions->rpId;

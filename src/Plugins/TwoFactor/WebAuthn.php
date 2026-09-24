@@ -12,6 +12,7 @@ use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\WebAuthn\CustomServer;
 use PhpMyAdmin\WebAuthn\Server;
 use PhpMyAdmin\WebAuthn\WebauthnLibServer;
+use Random\Randomizer;
 use SodiumException;
 use Throwable;
 use Webauthn\PublicKeyCredential;
@@ -23,7 +24,6 @@ use function is_array;
 use function is_string;
 use function json_decode;
 use function json_encode;
-use function random_bytes;
 
 /**
  * Two-factor authentication plugin for the WebAuthn/FIDO2 protocol.
@@ -34,7 +34,7 @@ class WebAuthn extends TwoFactorPlugin
 
     private Server $server;
 
-    public function __construct(TwoFactor $twofactor)
+    public function __construct(TwoFactor $twofactor, private readonly Randomizer $randomizer = new Randomizer())
     {
         parent::__construct($twofactor);
 
@@ -57,7 +57,9 @@ class WebAuthn extends TwoFactorPlugin
 
     private function createServer(): Server
     {
-        return class_exists(PublicKeyCredential::class) ? new WebauthnLibServer($this->twofactor) : new CustomServer();
+        return class_exists(PublicKeyCredential::class)
+            ? new WebauthnLibServer($this->twofactor, $this->randomizer)
+            : new CustomServer($this->randomizer);
     }
 
     public function setServer(Server $server): void
@@ -123,7 +125,7 @@ class WebAuthn extends TwoFactorPlugin
 
     public function setup(ServerRequest $request): string
     {
-        $userId = Base64::encode(random_bytes(32));
+        $userId = Base64::encode($this->randomizer->getBytes(32));
         $host = $request->getUri()->getHost();
         $creationOptions = $this->server->getCredentialCreationOptions($this->twofactor->user, $userId, $host);
         $creationOptionsEncoded = json_encode($creationOptions);
