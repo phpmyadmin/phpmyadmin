@@ -9,8 +9,8 @@ namespace PhpMyAdmin\Plugins\Schema\Svg;
 
 use PhpMyAdmin\Plugins\Schema\RelationStats;
 use PhpMyAdmin\Plugins\Schema\TableStats;
+use Random\Randomizer;
 
-use function shuffle;
 use function sqrt;
 
 /**
@@ -36,6 +36,7 @@ class RelationStatsSvg extends RelationStats
         string $masterField,
         TableStats $foreignTable,
         string $foreignField,
+        private Randomizer $randomizer = new Randomizer(),
     ) {
         $this->wTick = 10;
 
@@ -51,8 +52,7 @@ class RelationStatsSvg extends RelationStats
     {
         if ($showColor) {
             $listOfColors = ['#c00', '#bbb', '#333', '#cb0', '#0b0', '#0bf', '#b0b'];
-            shuffle($listOfColors);
-            $color = $listOfColors[0];
+            $color = $listOfColors[$this->randomizer->pickArrayKeys($listOfColors, 1)[0]];
         } else {
             $color = '#333';
         }

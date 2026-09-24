@@ -7,8 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
+use Random\Randomizer;
+
 use function array_search;
-use function shuffle;
 
 /**
  * Relation preferences/statistics
@@ -47,6 +48,7 @@ class RelationStatsDia
         string $masterField,
         TableStatsDia $foreignTable,
         string $foreignField,
+        private Randomizer $randomizer = new Randomizer(),
     ) {
         $srcPos = $this->getXy($masterTable, $masterField);
         $destPos = $this->getXy($foreignTable, $foreignField);
@@ -111,8 +113,7 @@ class RelationStatsDia
 
         if ($showColor) {
             $listOfColors = ['FF0000', '000099', '00FF00'];
-            shuffle($listOfColors);
-            $this->referenceColor = '#' . $listOfColors[0];
+            $this->referenceColor = '#' . $listOfColors[$this->randomizer->pickArrayKeys($listOfColors, 1)[0]];
         } else {
             $this->referenceColor = '#000000';
         }
