@@ -33,6 +33,8 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
@@ -1062,9 +1064,8 @@ class ResultsTest extends AbstractTestCase
             Current::$server,
             '',
             $query,
+            new Randomizer(new Mt19937(42)),
         );
-
-        (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
 
         [$statementInfo] = ParseAnalyze::sqlQuery($query, Current::$database, false);
         $fieldsMeta = [
@@ -1330,7 +1331,7 @@ class ResultsTest extends AbstractTestCase
             ],
             'db' => Current::$database,
             'table' => Current::$table,
-            'unique_id' => 1234567890,
+            'unique_id' => 804318771,
             'sql_query' => $query,
             'goto' => '',
             'unlim_num_rows' => 3,
@@ -1356,9 +1357,16 @@ class ResultsTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $object = new DisplayResults($dbi, $config, Current::$database, Current::$table, 2, '', $query);
-
-        (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
+        $object = new DisplayResults(
+            $dbi,
+            $config,
+            Current::$database,
+            Current::$table,
+            2,
+            '',
+            $query,
+            new Randomizer(new Mt19937(42)),
+        );
 
         [$statementInfo] = ParseAnalyze::sqlQuery($query, Current::$database, false);
         $fieldsMeta = [
@@ -1563,7 +1571,7 @@ class ResultsTest extends AbstractTestCase
             ],
             'db' => Current::$database,
             'table' => Current::$table,
-            'unique_id' => 1234567890,
+            'unique_id' => 804318771,
             'sql_query' => $query,
             'goto' => '',
             'unlim_num_rows' => 2,
