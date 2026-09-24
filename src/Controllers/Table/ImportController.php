@@ -42,6 +42,7 @@ final readonly class ImportController implements InvocableController
         private PageSettings $pageSettings,
         private DbTableExists $dbTableExists,
         private Config $config,
+        private Ajax $ajax,
     ) {
     }
 
@@ -90,7 +91,7 @@ final readonly class ImportController implements InvocableController
         UrlParams::$params['goto'] = Url::getFromRoute('/table/import');
         UrlParams::$params['back'] = Url::getFromRoute('/table/import');
 
-        $uploadId = Ajax::uploadProgressSetup();
+        $uploadId = $this->ajax->uploadProgressSetup();
 
         ImportSettings::$importType = 'table';
         $importList = Plugins::getImport();

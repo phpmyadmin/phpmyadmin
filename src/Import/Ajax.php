@@ -7,24 +7,29 @@ namespace PhpMyAdmin\Import;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin;
 use PhpMyAdmin\Plugins\Import\Upload\UploadProgress;
+use Random\Randomizer;
 
+use function bin2hex;
 use function defined;
 use function function_exists;
 use function header;
 use function ini_get;
 use function json_encode;
 use function sprintf;
-use function uniqid;
 
 /**
  * Handles plugins that show the upload progress.
  */
-final class Ajax
+final readonly class Ajax
 {
     /** For differentiating array in $_SESSION variable */
     public const SESSION_KEY = '__upload_status';
 
-    public static function uploadProgressSetup(): string
+    public function __construct(private Randomizer $randomizer)
+    {
+    }
+
+    public function uploadProgressSetup(): string
     {
         /**
          * sets default plugin for handling the import process
@@ -34,7 +39,7 @@ final class Ajax
         /**
          * unique ID for each upload
          */
-        $uploadId = ! defined('TESTSUITE') ? uniqid() : 'abc1234567890';
+        $uploadId = bin2hex($this->randomizer->getBytes(8));
 
         /**
          * list of available plugins

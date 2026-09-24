@@ -9482,6 +9482,14 @@
       <code><![CDATA[assertSame]]></code>
     </RedundantCondition>
   </file>
+  <file src="tests/unit/Import/AjaxTest.php">
+    <EmptyArrayAccess>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]]]></code>
+    </EmptyArrayAccess>
+    <MixedArrayAccess>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
+    </MixedArrayAccess>
+  </file>
   <file src="tests/unit/Import/ImportTest.php">
     <DocblockTypeContradiction>
       <code><![CDATA[assertSame]]></code>

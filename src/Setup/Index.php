@@ -10,12 +10,13 @@ namespace PhpMyAdmin\Setup;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Version;
 use PhpMyAdmin\VersionInformation;
+use Random\Randomizer;
 
 use function __;
+use function bin2hex;
 use function htmlspecialchars;
 use function is_array;
 use function sprintf;
-use function uniqid;
 
 /**
  * PhpMyAdmin\Setup\Index class
@@ -108,11 +109,11 @@ class Index
     /**
      * Checks for newest phpMyAdmin version and sets result as a new notice
      */
-    public static function versionCheck(): void
+    public static function versionCheck(Randomizer $randomizer = new Randomizer()): void
     {
         // version check messages should always be visible so let's make
         // a unique message id each time we run it
-        $messageId = uniqid('version_check');
+        $messageId = 'version_check' . bin2hex($randomizer->getBytes(8));
 
         // Fetch data
         $versionInformation = new VersionInformation();

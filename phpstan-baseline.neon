@@ -16234,6 +16234,12 @@ parameters:
 			path: tests/unit/Import/AjaxTest.php
 
 		-
+			message: '#^Cannot access offset ''handler'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/unit/Import/AjaxTest.php
+
+		-
 			message: '#^Cannot access an offset on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 3

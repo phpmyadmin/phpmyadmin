@@ -37,13 +37,16 @@ class StatusController implements InvocableController
     /** Time to wait before rechecking for the $_SESSION variable. Default is 0.25 seconds. */
     private static int $sleepMicrosecondsRetry = 250000;
 
-    public function __construct(private readonly Template $template, private readonly ClockInterface $clock)
-    {
+    public function __construct(
+        private readonly Template $template,
+        private readonly ClockInterface $clock,
+        private readonly Ajax $ajax,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response
     {
-        Ajax::uploadProgressSetup();
+        $this->ajax->uploadProgressSetup();
 
         // $_GET["message"] is used for asking for an import message
         if ($request->hasQueryParam('message')) {

@@ -14,12 +14,15 @@ use PhpMyAdmin\Controllers\Database\ImportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 
 #[CoversClass(ImportController::class)]
 final class ImportControllerTest extends AbstractTestCase
@@ -69,6 +72,7 @@ final class ImportControllerTest extends AbstractTestCase
             new PageSettings($userPreferences, $responseRenderer),
             new DbTableExists($dbi),
             $config,
+            new Ajax(new Randomizer(new Mt19937(42))),
         );
     }
 }

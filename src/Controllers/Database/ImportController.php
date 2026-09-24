@@ -39,6 +39,7 @@ final readonly class ImportController implements InvocableController
         private PageSettings $pageSettings,
         private DbTableExists $dbTableExists,
         private Config $config,
+        private Ajax $ajax,
     ) {
     }
 
@@ -66,7 +67,7 @@ final readonly class ImportController implements InvocableController
             return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
         }
 
-        $uploadId = Ajax::uploadProgressSetup();
+        $uploadId = $this->ajax->uploadProgressSetup();
 
         ImportSettings::$importType = 'database';
         $importList = Plugins::getImport();
