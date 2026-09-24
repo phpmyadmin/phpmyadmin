@@ -92,6 +92,7 @@ use PhpMyAdmin\UserPassword;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\VersionInformation;
 use Psr\Clock\ClockInterface;
+use Random\Randomizer;
 
 return [
     BrowseForeignersController::class => [
@@ -144,7 +145,14 @@ return [
     ],
     Database\DesignerController::class => [
         'class' => Database\DesignerController::class,
-        'arguments' => [ResponseRenderer::class, Template::class, Designer::class, Common::class, DbTableExists::class],
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Designer::class,
+            Common::class,
+            DbTableExists::class,
+            Randomizer::class,
+        ],
     ],
     Database\EventsController::class => [
         'class' => Database\EventsController::class,

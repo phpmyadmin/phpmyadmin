@@ -19,6 +19,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 use ReflectionProperty;
 
 #[CoversClass(DesignerController::class)]
@@ -129,7 +131,7 @@ final class DesignerControllerTest extends AbstractTestCase
 
         $dbiDummy->assertAllSelectsConsumed();
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
-        self::assertStringMatchesFormatFile(
+        self::assertStringEqualsFile(
             __DIR__ . '/Fixtures/Designer-testAddTableDialog.html',
             (string) $response->getBody(),
         );
@@ -189,6 +191,7 @@ final class DesignerControllerTest extends AbstractTestCase
             new Designer($dbi, $relation, $template, $config),
             new Common($dbi, $relation, $config),
             new DbTableExists($dbi),
+            new Randomizer(new Mt19937(42)),
         );
     }
 }
