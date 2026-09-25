@@ -32,7 +32,6 @@ use function ob_get_clean;
 use function ob_start;
 use function random_bytes;
 use function str_repeat;
-use function str_shuffle;
 use function time;
 
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
@@ -570,7 +569,7 @@ class AuthenticationCookieTest extends AbstractTestCase
     #[DataProvider('dataProviderPasswordLength')]
     public function testAuthFailsTooLongPass(string $password, bool $expected, string $connError): void
     {
-        $_POST['pma_username'] = str_shuffle('123456987rootfoobar');
+        $_POST['pma_username'] = '123456987rootfoobar';
         $_POST['pma_password'] = $password;
 
         self::assertSame(

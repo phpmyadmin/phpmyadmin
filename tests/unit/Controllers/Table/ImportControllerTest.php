@@ -16,6 +16,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin;
@@ -25,6 +26,8 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 
 #[CoversClass(ImportController::class)]
 class ImportControllerTest extends AbstractTestCase
@@ -59,10 +62,10 @@ class ImportControllerTest extends AbstractTestCase
         $expected = $template->render('table/import/index', [
             'page_settings_error_html' => $pageSettings->getErrorHTML(),
             'page_settings_html' => $pageSettings->getHTML(),
-            'upload_id' => 'abc1234567890',
+            'upload_id' => '66dce15fb33deacb',
             'handler' => UploadNoplugin::class,
             'hidden_inputs' => [
-                'noplugin' => 'abc1234567890',
+                'noplugin' => '66dce15fb33deacb',
                 'import_type' => 'table',
                 'db' => 'test_db',
                 'table' => 'test_table',
@@ -95,7 +98,14 @@ class ImportControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table', 'format' => 'xml']);
 
-        (new ImportController($response, $dbi, $pageSettings, new DbTableExists($dbi), $config))($request);
+        (new ImportController(
+            $response,
+            $dbi,
+            $pageSettings,
+            new DbTableExists($dbi),
+            $config,
+            new Ajax(new Randomizer(new Mt19937(42))),
+        ))($request);
         self::assertSame($expected, $response->getHTMLResult());
     }
 }

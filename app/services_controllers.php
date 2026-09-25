@@ -63,6 +63,7 @@ use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Navigation\Navigation;
@@ -91,6 +92,7 @@ use PhpMyAdmin\UserPassword;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\VersionInformation;
 use Psr\Clock\ClockInterface;
+use Random\Randomizer;
 
 return [
     BrowseForeignersController::class => [
@@ -143,7 +145,14 @@ return [
     ],
     Database\DesignerController::class => [
         'class' => Database\DesignerController::class,
-        'arguments' => [ResponseRenderer::class, Template::class, Designer::class, Common::class, DbTableExists::class],
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Designer::class,
+            Common::class,
+            DbTableExists::class,
+            Randomizer::class,
+        ],
     ],
     Database\EventsController::class => [
         'class' => Database\EventsController::class,
@@ -173,6 +182,7 @@ return [
             PageSettings::class,
             DbTableExists::class,
             Config::class,
+            Ajax::class,
         ],
     ],
     Database\MultiTableQuery\QueryController::class => [
@@ -435,7 +445,7 @@ return [
     ],
     Import\StatusController::class => [
         'class' => Import\StatusController::class,
-        'arguments' => [Template::class, ClockInterface::class],
+        'arguments' => [Template::class, ClockInterface::class, Ajax::class],
     ],
     JavaScriptMessagesController::class => [
         'class' => JavaScriptMessagesController::class,
@@ -642,7 +652,13 @@ return [
     ],
     Server\ImportController::class => [
         'class' => Server\ImportController::class,
-        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, PageSettings::class, Config::class],
+        'arguments' => [
+            ResponseRenderer::class,
+            DatabaseInterface::class,
+            PageSettings::class,
+            Config::class,
+            Ajax::class,
+        ],
     ],
     Server\PluginsController::class => [
         'class' => Server\PluginsController::class,
@@ -942,6 +958,7 @@ return [
             PageSettings::class,
             DbTableExists::class,
             Config::class,
+            Ajax::class,
         ],
     ],
     Table\IndexesController::class => [

@@ -11,6 +11,8 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 use Webauthn\PublicKeyCredential;
 use Webauthn\TrustPath\EmptyTrustPath;
 
@@ -32,10 +34,9 @@ final class WebauthnLibServerTest extends TestCase
 
     public function testGetCredentialCreationOptions(): void
     {
-        $server = new WebauthnLibServer(self::createStub(TwoFactor::class));
+        $server = new WebauthnLibServer(self::createStub(TwoFactor::class), new Randomizer(new Mt19937(42)));
         $options = $server->getCredentialCreationOptions('user_name', 'user_id', 'test.localhost');
-        self::assertArrayHasKey('challenge', $options);
-        self::assertNotEmpty($options['challenge']);
+        self::assertSame('ZtzhX7M96stcA2LzDpX1Lmr0Y7tH1JnHvK5BmRQsy5g=', $options['challenge']);
         self::assertArrayHasKey('pubKeyCredParams', $options);
         self::assertNotEmpty($options['pubKeyCredParams']);
         self::assertArrayHasKey('attestation', $options);
@@ -74,14 +75,14 @@ final class WebauthnLibServerTest extends TestCase
             ],
         ];
 
-        $server = new WebauthnLibServer($twoFactor);
+        $server = new WebauthnLibServer($twoFactor, new Randomizer(new Mt19937(42)));
         $options = $server->getCredentialRequestOptions(
             'user_name',
             'userHandle1',
             'test.localhost',
             [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ==']],
         );
-        self::assertNotEmpty($options['challenge']);
+        self::assertSame('ZtzhX7M96stcA2LzDpX1Lmr0Y7tH1JnHvK5BmRQsy5g=', $options['challenge']);
         self::assertSame('test.localhost', $options['rpId']);
         self::assertSame(
             [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ==']],

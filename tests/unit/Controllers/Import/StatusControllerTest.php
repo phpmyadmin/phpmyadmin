@@ -15,6 +15,8 @@ use PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 use ReflectionProperty;
 
 use function ini_get;
@@ -42,7 +44,11 @@ final class StatusControllerTest extends AbstractTestCase
             'id' => 'abc1234567890',
         ]);
 
-        $controller = new StatusController(new Template(new Config()), new Clock());
+        $controller = new StatusController(
+            new Template(new Config()),
+            new Clock(),
+            new Ajax(new Randomizer(new Mt19937(42))),
+        );
         $response = $controller($request);
 
         self::assertSame(
@@ -67,7 +73,11 @@ final class StatusControllerTest extends AbstractTestCase
             'message' => '1',
         ]);
 
-        $controller = new StatusController(new Template(new Config()), new Clock());
+        $controller = new StatusController(
+            new Template(new Config()),
+            new Clock(),
+            new Ajax(new Randomizer(new Mt19937(42))),
+        );
         $response = $controller($request);
 
         $expected = $message->getDisplay();
@@ -98,7 +108,11 @@ final class StatusControllerTest extends AbstractTestCase
             'message' => '1',
         ]);
 
-        $controller = new StatusController(new Template(new Config()), new Clock());
+        $controller = new StatusController(
+            new Template(new Config()),
+            new Clock(),
+            new Ajax(new Randomizer(new Mt19937(42))),
+        );
         $response = $controller($request);
 
         self::assertSame($message->getDisplay(), self::getActualOutputForAssertion());

@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common as DesignerCommon;
+use PhpMyAdmin\Database\Designer\DesignerTable;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -17,6 +18,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use Random\Randomizer;
 
 use function __;
 use function htmlspecialchars;
@@ -33,6 +35,7 @@ final readonly class DesignerController implements InvocableController
         private Designer $databaseDesigner,
         private DesignerCommon $designerCommon,
         private DbTableExists $dbTableExists,
+        private Randomizer $randomizer,
     ) {
     }
 
@@ -68,6 +71,7 @@ final readonly class DesignerController implements InvocableController
                     'db' => Current::$database,
                     'has_query' => isset($_REQUEST['query']),
                     'tab_pos' => [],
+                    'default_tab_pos' => $this->getDefaultTablePositions($scriptDisplayField, []),
                     'display_page' => -1,
                     'tab_column' => $tableColumn,
                     'tables_all_keys' => $tablesAllKeys,
@@ -243,6 +247,7 @@ final readonly class DesignerController implements InvocableController
             'selected_page' => $selectedPage,
             'params_array' => $classesSideMenu,
             'tab_pos' => $tablePositions,
+            'default_tab_pos' => $this->getDefaultTablePositions($scriptDisplayField, $tablePositions),
             'tab_column' => $tableColumn,
             'tables_all_keys' => $tablesAllKeys,
             'designerTables' => $scriptDisplayField,
@@ -256,5 +261,29 @@ final readonly class DesignerController implements InvocableController
         $this->response->addHTML('<div id="PMA_disable_floating_menubar"></div>' . "\n");
 
         return $this->response->response();
+    }
+
+    /**
+     * @param DesignerTable[] $designerTables
+     * @param string[][]      $tablePositions
+     *
+     * @return array<string, array{X: int, Y: int}>
+     */
+    private function getDefaultTablePositions(array $designerTables, array $tablePositions): array
+    {
+        $defaultPositions = [];
+        foreach ($designerTables as $designerTable) {
+            $tableName = $designerTable->getDbTableString();
+            if (isset($tablePositions[$tableName])) {
+                continue;
+            }
+
+            $defaultPositions[$tableName] = [
+                'X' => $this->randomizer->getInt(20, 700),
+                'Y' => $this->randomizer->getInt(20, 550),
+            ];
+        }
+
+        return $defaultPositions;
     }
 }

@@ -43,6 +43,7 @@ use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
+use Random\Randomizer;
 
 use function __;
 use function array_filter;
@@ -70,10 +71,8 @@ use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_substr;
 use function md5;
-use function mt_getrandmax;
 use function pack;
 use function preg_match;
-use function random_int;
 use function str_contains;
 use function str_replace;
 use function strcasecmp;
@@ -221,6 +220,7 @@ class Results
         private readonly int $server,
         private readonly string $goto,
         private readonly string $sqlQuery,
+        Randomizer $randomizer = new Randomizer(),
     ) {
         $this->relation = new Relation($this->dbi);
         $this->transformations = new Transformations($this->dbi, $this->relation);
@@ -228,7 +228,7 @@ class Results
 
         $this->setDefaultTransformations();
 
-        $this->uniqueId = random_int(0, mt_getrandmax());
+        $this->uniqueId = $randomizer->nextInt();
     }
 
     /**

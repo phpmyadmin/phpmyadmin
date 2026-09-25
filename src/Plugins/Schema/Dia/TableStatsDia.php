@@ -9,10 +9,10 @@ namespace PhpMyAdmin\Plugins\Schema\Dia;
 
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Plugins\Schema\TableStats;
+use Random\Randomizer;
 
 use function __;
 use function in_array;
-use function shuffle;
 use function sprintf;
 
 /**
@@ -45,6 +45,7 @@ class TableStatsDia extends TableStats
         int $pageNumber,
         bool $showKeys = false,
         bool $offline = false,
+        private Randomizer $randomizer = new Randomizer(),
     ) {
         parent::__construct($diagram, $db, $pageNumber, $tableName, $showKeys, false, $offline);
 
@@ -85,8 +86,7 @@ class TableStatsDia extends TableStats
     {
         if ($showColor) {
             $listOfColors = ['FF0000', '000099', '00FF00'];
-            shuffle($listOfColors);
-            $this->tableColor = '#' . $listOfColors[0];
+            $this->tableColor = '#' . $listOfColors[$this->randomizer->pickArrayKeys($listOfColors, 1)[0]];
         } else {
             $this->tableColor = '#000000';
         }

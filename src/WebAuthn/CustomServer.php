@@ -6,6 +6,7 @@ namespace PhpMyAdmin\WebAuthn;
 
 use PhpMyAdmin\Crypto\Base64;
 use Psr\Http\Message\ServerRequestInterface;
+use Random\Randomizer;
 use SodiumException;
 use Throwable;
 use Webmozart\Assert\Assert;
@@ -18,7 +19,6 @@ use function mb_strlen;
 use function mb_substr;
 use function ord;
 use function parse_url;
-use function random_bytes;
 use function unpack;
 
 use const PHP_URL_HOST;
@@ -32,6 +32,10 @@ use const PHP_URL_HOST;
  */
 final class CustomServer implements Server
 {
+    public function __construct(private readonly Randomizer $randomizer = new Randomizer())
+    {
+    }
+
     /** @inheritDoc */
     public function getCredentialCreationOptions(string $userName, string $userId, string $relyingPartyId): array
     {
@@ -191,7 +195,7 @@ final class CustomServer implements Server
     private function generateChallenge(): string
     {
         try {
-            return Base64::encode(random_bytes(32));
+            return Base64::encode($this->randomizer->getBytes(32));
         } catch (Throwable) { // @codeCoverageIgnore
             throw new WebAuthnException('Error when generating challenge.'); // @codeCoverageIgnore
         }

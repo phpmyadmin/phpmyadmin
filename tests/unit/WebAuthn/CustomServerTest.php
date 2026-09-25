@@ -12,6 +12,8 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 
 use function hex2bin;
 
@@ -22,10 +24,9 @@ final class CustomServerTest extends TestCase
 {
     public function testGetCredentialCreationOptions(): void
     {
-        $server = new CustomServer();
+        $server = new CustomServer(new Randomizer(new Mt19937(42)));
         $options = $server->getCredentialCreationOptions('user_name', 'user_id', 'test.localhost');
-        self::assertArrayHasKey('challenge', $options);
-        self::assertNotEmpty($options['challenge']);
+        self::assertSame('ZtzhX7M96stcA2LzDpX1Lmr0Y7tH1JnHvK5BmRQsy5g=', $options['challenge']);
         self::assertArrayHasKey('pubKeyCredParams', $options);
         self::assertNotEmpty($options['pubKeyCredParams']);
         self::assertArrayHasKey('attestation', $options);
@@ -41,14 +42,14 @@ final class CustomServerTest extends TestCase
 
     public function testGetCredentialRequestOptions(): void
     {
-        $server = new CustomServer();
+        $server = new CustomServer(new Randomizer(new Mt19937(42)));
         $options = $server->getCredentialRequestOptions(
             'user_name',
             'userHandle1',
             'test.localhost',
             [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ']],
         );
-        self::assertNotEmpty($options['challenge']);
+        self::assertSame('ZtzhX7M96stcA2LzDpX1Lmr0Y7tH1JnHvK5BmRQsy5g=', $options['challenge']);
         self::assertSame(
             [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ==']],
             $options['allowCredentials'],

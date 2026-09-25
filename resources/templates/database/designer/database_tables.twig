@@ -16,8 +16,8 @@
         cellspacing="0"
         class="table table-sm table-striped table-hover w-auto designer_tab"
         style="position:absolute; {{ pma.text_dir == 'rtl' ? 'right' : 'left' }}:
-            {{- tab_pos[t_n] is defined ? tab_pos[t_n]['X'] : random(range(20, 700)) }}px; top:
-            {{- tab_pos[t_n] is defined ? tab_pos[t_n]['Y'] : random(range(20, 550)) }}px; display:
+            {{- tab_pos[t_n] is defined ? tab_pos[t_n]['X'] : default_tab_pos[t_n]['X'] }}px; top:
+            {{- tab_pos[t_n] is defined ? tab_pos[t_n]['Y'] : default_tab_pos[t_n]['Y'] }}px; display:
             {{- tab_pos[t_n] is defined or display_page == -1 ? 'block' : 'none' }}; z-index: 1;"> <!--"-->
         <thead>
             <tr class="header">

@@ -35,6 +35,7 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Middleware;
 use PhpMyAdmin\I18n\LanguageManager;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
@@ -70,6 +71,7 @@ use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\VersionInformation;
 use Psr\Clock\ClockInterface;
+use Random\Randomizer;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 return [
@@ -132,6 +134,7 @@ return [
     ],
     HttpRequest::class => ['class' => HttpRequest::class],
     ResponseFactory::class => ['class' => ResponseFactory::class, 'factory' => [ResponseFactory::class, 'create']],
+    Ajax::class => ['class' => Ajax::class, 'arguments' => [Randomizer::class]],
     Import::class => [
         'class' => Import::class,
         'arguments' => [DatabaseInterface::class, ResponseRenderer::class, Config::class],
@@ -408,6 +411,7 @@ return [
     ],
     LanguageManager::class => ['class' => LanguageManager::class, 'factory' => [LanguageManager::class, 'getInstance']],
     ClockInterface::class => ['class' => Clock::class],
+    Randomizer::class => ['class' => Randomizer::class],
     Footer::class => ['class' => Footer::class, 'arguments' => [Template::class, Config::class]],
     UrlRedirector::class => [
         'class' => UrlRedirector::class,
