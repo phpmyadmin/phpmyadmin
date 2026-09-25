@@ -98,5 +98,6 @@ All notable changes of the phpMyAdmin 6.0 release series are documented in this 
 * [#19550](https://github.com/phpmyadmin/phpmyadmin/pull/19550): Replace jQuery UI's tooltip with Bootstrap's Tooltip
 * [#19852](https://github.com/phpmyadmin/phpmyadmin/pull/19852): Bump Node version to 20
 * [#19854](https://github.com/phpmyadmin/phpmyadmin/pull/19854): Drop support for BaconQrCode v2
+* [#18749](https://github.com/phpmyadmin/phpmyadmin/issues/18749): Remove the obsolete `X-XSS-Protection` HTTP header
 
 [6.0.0]: https://github.com/phpmyadmin/phpmyadmin/compare/QA_5_2...master

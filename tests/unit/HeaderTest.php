@@ -268,7 +268,6 @@ class HeaderTest extends AbstractTestCase
         $expected = [
             'Referrer-Policy' => 'same-origin',
             'Content-Security-Policy' => $expectedCsp,
-            'X-XSS-Protection' => '1; mode=block',
             'X-Content-Type-Options' => 'nosniff',
             'X-Permitted-Cross-Domain-Policies' => 'none',
             'X-Robots-Tag' => 'noindex, nofollow',
