@@ -155,7 +155,12 @@ final readonly class GisVisualizationController implements InvocableController
         ];
         $downloadUrl = Url::getFromRoute('/table/gis-visualization', $downloadParams + $urlParams);
 
-        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($sqlQuery);
+        $pos = $request->getParam('pos');
+        if ($pos !== null) {
+            $pos = (int) $pos;
+        }
+
+        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($sqlQuery, $pos);
 
         $html = $this->template->render('table/gis_visualization/gis_visualization', [
             'url_params' => $urlParams,

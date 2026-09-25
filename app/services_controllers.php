@@ -307,7 +307,6 @@ return [
             DatabaseInterface::class,
             FlashMessenger::class,
             Database\StructureController::class,
-            \PhpMyAdmin\Sql::class,
         ],
     ],
     Database\Structure\FavoriteTableController::class => [
