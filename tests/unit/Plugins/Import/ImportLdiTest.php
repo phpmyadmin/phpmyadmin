@@ -18,6 +18,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
@@ -198,6 +199,118 @@ final class ImportLdiTest extends AbstractTestCase
         self::assertStringContainsString('IGNORE 1 LINES', Current::$sqlQuery);
 
         self::assertTrue(ImportSettings::$finished);
+    }
+
+    #[DataProvider('charsetMappingProvider')]
+    public function testDoImportWithCharsetConversion(
+        string $charsetOfFile,
+        string $expectedCharset,
+    ): void {
+        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$charsetConversion = true;
+        ImportSettings::$charsetOfFile = $charsetOfFile;
+
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
+
+        $importHandle = new File(ImportSettings::$importFile);
+        $importHandle->open();
+
+        $this->getImportLdi($dbi)->doImport($importHandle);
+
+        self::assertStringContainsString('CHARACTER SET ' . $expectedCharset, Current::$sqlQuery);
+    }
+
+    /** @return array<string, array{string, string}> */
+    public static function charsetMappingProvider(): array
+    {
+        return [
+            'ISO-8859-1' => ['iso-8859-1', 'latin1'],
+            'ISO-8859-2' => ['iso-8859-2', 'latin2'],
+            'ISO-8859-7' => ['iso-8859-7', 'greek'],
+            'ISO-8859-8' => ['iso-8859-8', 'hebrew'],
+            'ISO-8859-9' => ['iso-8859-9', 'latin5'],
+            'ISO-8859-13' => ['iso-8859-13', 'latin7'],
+            'KOI8-R' => ['koi8-r', 'koi8r'],
+            'Windows-1250' => ['windows-1250', 'cp1250'],
+            'Windows-1251' => ['windows-1251', 'cp1251'],
+            'Windows-1252' => ['windows-1252', 'latin1'],
+            'Windows-1256' => ['windows-1256', 'cp1256'],
+            'Windows-1257' => ['windows-1257', 'cp1257'],
+            'TIS-620' => ['tis-620', 'tis620'],
+            'Shift_JIS' => ['SHIFT_JIS', 'sjis'],
+            'SJIS' => ['SJIS', 'sjis'],
+            'SJIS-win' => ['SJIS-win', 'cp932'],
+            'Big5' => ['big5', 'big5'],
+            'GB2312' => ['gb2312', 'gb2312'],
+            'euc-jp' => ['euc-jp', 'ujis'],
+            'ks_c_5601-1987' => ['ks_c_5601-1987', 'euckr'],
+        ];
+    }
+
+    public function testDoImportWithUtf16OnMariaDb(): void
+    {
+        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$charsetConversion = true;
+        ImportSettings::$charsetOfFile = 'utf-16';
+
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
+
+        $dbi->method('isMariaDB')->willReturn(true);
+
+        $importHandle = new File(ImportSettings::$importFile);
+        $importHandle->open();
+
+        $this->getImportLdi($dbi)->doImport($importHandle);
+
+        self::assertStringContainsString('CHARACTER SET utf16', Current::$sqlQuery);
+    }
+
+    public function testDoImportWithUtf16OnMySql(): void
+    {
+        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$charsetConversion = true;
+        ImportSettings::$charsetOfFile = 'utf-16';
+
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
+        $dbi->method('isMariaDB')->willReturn(false);
+
+        $importHandle = new File(ImportSettings::$importFile);
+        $importHandle->open();
+
+        $importLdi = $this->getImportLdi($dbi);
+        $result = $importLdi->doImport($importHandle);
+
+        self::assertSame([], $result);
+        self::assertTrue(Import::$hasError);
+        self::assertInstanceOf(Message::class, Current::$message);
+        self::assertStringContainsString(
+            __('The selected character set is not supported by the database system!'),
+            Current::$message->__toString(),
+        );
+    }
+
+    public function testDoImportWithUnsupportedCharsetDoesNotAddCharacterSet(): void
+    {
+        ImportSettings::$sqlQueryDisabled = false;
+        ImportSettings::$charsetConversion = true;
+        ImportSettings::$charsetOfFile = 'iso-8859-3';
+
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
+
+        $importHandle = new File(ImportSettings::$importFile);
+        $importHandle->open();
+
+        $this->getImportLdi($dbi)->doImport($importHandle);
+
+        self::assertStringNotContainsString('CHARACTER SET', Current::$sqlQuery);
     }
 
     private function getImportLdi(DatabaseInterface|null $dbi = null, Config|null $config = null): ImportLdi
