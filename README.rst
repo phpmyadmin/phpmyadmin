@@ -41,8 +41,8 @@ Code status
     :target: https://shepherd.dev/github/phpmyadmin/phpmyadmin
 
 .. image:: https://img.shields.io/endpoint?url=https://badge-api.stryker-mutator.io/github.com/phpmyadmin/phpmyadmin/master
-    :alt: Infection MSI
-    :target: https://infection.github.io
+    :alt: Mutation score
+    :target: https://dashboard.stryker-mutator.io/reports/github.com/phpmyadmin/phpmyadmin/master
 
 
 Download
