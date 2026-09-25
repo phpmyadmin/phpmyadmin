@@ -200,11 +200,10 @@ final class ImportLdiTest extends AbstractTestCase
         self::assertTrue(ImportSettings::$finished);
     }
 
-    private function getImportLdi(DatabaseInterface|null $dbi = null, Config|null $config = null): ImportLdi
+    private function getImportLdi(DatabaseInterface|null $dbi = null, Config $config = new Config()): ImportLdi
     {
         $dbiObject = $dbi ?? $this->createDatabaseInterface();
-        $configObject = $config ?? new Config();
 
-        return new ImportLdi(new Import($dbiObject, new ResponseRenderer(), $configObject), $dbiObject, $configObject);
+        return new ImportLdi(new Import($dbiObject, new ResponseRenderer(), $config), $dbiObject, $config);
     }
 }
