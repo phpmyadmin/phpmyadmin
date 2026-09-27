@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-09-20 00:43+0000\n"
+"POT-Creation-Date: 2026-09-27 00:45+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Tamazight (Central Atlas) <https://hosted.weblate.org/"
@@ -193,7 +193,7 @@ msgstr ""
 #: resources/templates/columns_definitions/column_attributes.twig:238
 #: resources/templates/config/form_display/input.twig:43
 #: resources/templates/database/central_columns/main.twig:311
-#: resources/templates/database/designer/main.twig:585
+#: resources/templates/database/designer/main.twig:586
 #: resources/templates/export.twig:427
 #: resources/templates/server/privileges/privileges_summary.twig:31
 #: resources/templates/server/status/monitor/index.twig:206
@@ -228,7 +228,7 @@ msgid "column(s)"
 msgstr ""
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:41
-#: resources/templates/database/designer/main.twig:1099
+#: resources/templates/database/designer/main.twig:1100
 #: resources/templates/database/events/editor_form.twig:121
 #: resources/templates/database/operations/index.twig:20
 #: resources/templates/database/operations/index.twig:76
@@ -352,9 +352,9 @@ msgid ""
 msgstr ""
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:173
-#: resources/templates/database/designer/main.twig:1094
-#: resources/templates/database/designer/main.twig:1109
-#: resources/templates/database/designer/main.twig:1126
+#: resources/templates/database/designer/main.twig:1095
+#: resources/templates/database/designer/main.twig:1110
+#: resources/templates/database/designer/main.twig:1127
 #: resources/templates/export_modal.twig:5 resources/templates/export.twig:81
 #: resources/templates/modals/index_dialog_modal.twig:5
 #: resources/templates/modals/preview_sql_confirmation.twig:5
@@ -368,8 +368,8 @@ msgstr ""
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:174
 #: resources/templates/columns_definitions/column_definitions_form.twig:179
-#: resources/templates/database/designer/main.twig:1127
-#: resources/templates/database/designer/main.twig:1137
+#: resources/templates/database/designer/main.twig:1128
+#: resources/templates/database/designer/main.twig:1138
 #: resources/templates/database/events/index.twig:162
 #: resources/templates/database/events/index.twig:170
 #: resources/templates/database/events/index.twig:182
@@ -877,7 +877,7 @@ msgstr ""
 #: resources/templates/database/central_columns/main.twig:362
 #: resources/templates/database/data_dictionary/index.twig:48
 #: resources/templates/database/data_dictionary/index.twig:92
-#: resources/templates/database/designer/main.twig:1114
+#: resources/templates/database/designer/main.twig:1115
 #: resources/templates/database/privileges/index.twig:69
 #: resources/templates/database/structure/drop_form.twig:20
 #: resources/templates/database/structure/empty_form.twig:20
@@ -918,7 +918,7 @@ msgstr ""
 #: resources/templates/database/central_columns/main.twig:362
 #: resources/templates/database/data_dictionary/index.twig:48
 #: resources/templates/database/data_dictionary/index.twig:92
-#: resources/templates/database/designer/main.twig:1115
+#: resources/templates/database/designer/main.twig:1116
 #: resources/templates/database/privileges/index.twig:69
 #: resources/templates/database/structure/drop_form.twig:21
 #: resources/templates/database/structure/empty_form.twig:21
@@ -1019,7 +1019,7 @@ msgstr ""
 #: resources/templates/database/central_columns/main.twig:274
 #: resources/templates/database/central_columns/main.twig:385
 #: resources/templates/database/central_columns/main.twig:386
-#: resources/templates/database/designer/main.twig:385
+#: resources/templates/database/designer/main.twig:386
 #: resources/templates/database/search/results.twig:31
 #: resources/templates/display/results/table.twig:327
 #: resources/templates/display/results/table.twig:328
@@ -1210,12 +1210,12 @@ msgid "Share this bookmark"
 msgstr ""
 
 #: resources/templates/console/display.twig:162
-#: resources/templates/database/designer/main.twig:334
-#: resources/templates/database/designer/main.twig:663
-#: resources/templates/database/designer/main.twig:727
-#: resources/templates/database/designer/main.twig:866
-#: resources/templates/database/designer/main.twig:951
-#: resources/templates/database/designer/main.twig:1058
+#: resources/templates/database/designer/main.twig:335
+#: resources/templates/database/designer/main.twig:664
+#: resources/templates/database/designer/main.twig:728
+#: resources/templates/database/designer/main.twig:867
+#: resources/templates/database/designer/main.twig:952
+#: resources/templates/database/designer/main.twig:1059
 #: resources/templates/modals/preview_sql_confirmation.twig:14
 #: resources/templates/table/structure/display_structure.twig:367
 #: src/Controllers/JavaScriptMessagesController.php:336
@@ -1346,17 +1346,17 @@ msgid "Action"
 msgstr ""
 
 #: resources/templates/database/central_columns/main.twig:275
-#: resources/templates/database/designer/main.twig:336
-#: resources/templates/database/designer/main.twig:387
-#: resources/templates/database/designer/main.twig:665
-#: resources/templates/database/designer/main.twig:731
-#: resources/templates/database/designer/main.twig:870
-#: resources/templates/database/designer/main.twig:955
-#: resources/templates/database/designer/main.twig:1060
-#: resources/templates/database/designer/main.twig:1095
-#: resources/templates/database/designer/main.twig:1100
-#: resources/templates/database/designer/main.twig:1110
-#: resources/templates/database/designer/main.twig:1116
+#: resources/templates/database/designer/main.twig:337
+#: resources/templates/database/designer/main.twig:388
+#: resources/templates/database/designer/main.twig:666
+#: resources/templates/database/designer/main.twig:732
+#: resources/templates/database/designer/main.twig:871
+#: resources/templates/database/designer/main.twig:956
+#: resources/templates/database/designer/main.twig:1061
+#: resources/templates/database/designer/main.twig:1096
+#: resources/templates/database/designer/main.twig:1101
+#: resources/templates/database/designer/main.twig:1111
+#: resources/templates/database/designer/main.twig:1117
 #: resources/templates/database/structure/bulk_action_modal.twig:7
 #: resources/templates/database/structure/bulk_action_modal.twig:11
 #: resources/templates/database/structure/check_all_tables.twig:51
@@ -1550,7 +1550,7 @@ msgstr ""
 
 #: resources/templates/database/designer/main.twig:91
 #: resources/templates/database/designer/main.twig:94
-#: resources/templates/database/designer/main.twig:268
+#: resources/templates/database/designer/main.twig:269
 msgid "Create relationship"
 msgstr ""
 
@@ -1632,26 +1632,26 @@ msgstr ""
 msgid "Number of tables:"
 msgstr ""
 
-#: resources/templates/database/designer/main.twig:378
+#: resources/templates/database/designer/main.twig:379
 msgid "Delete relationship"
 msgstr ""
 
-#: resources/templates/database/designer/main.twig:442
-#: resources/templates/database/designer/main.twig:607
+#: resources/templates/database/designer/main.twig:443
+#: resources/templates/database/designer/main.twig:608
 msgid "Relationship operator"
 msgstr ""
 
-#: resources/templates/database/designer/main.twig:471
-#: resources/templates/database/designer/main.twig:636
-#: resources/templates/database/designer/main.twig:842
-#: resources/templates/database/designer/main.twig:1035
+#: resources/templates/database/designer/main.twig:472
+#: resources/templates/database/designer/main.twig:637
+#: resources/templates/database/designer/main.twig:843
+#: resources/templates/database/designer/main.twig:1036
 msgid "Except"
 msgstr ""
 
-#: resources/templates/database/designer/main.twig:481
-#: resources/templates/database/designer/main.twig:646
-#: resources/templates/database/designer/main.twig:852
-#: resources/templates/database/designer/main.twig:1045
+#: resources/templates/database/designer/main.twig:482
+#: resources/templates/database/designer/main.twig:647
+#: resources/templates/database/designer/main.twig:853
+#: resources/templates/database/designer/main.twig:1046
 #: resources/templates/database/routines/execute_form.twig:21
 #: resources/templates/server/replication/status_table.twig:17
 #: resources/templates/server/status/variables/index.twig:76
@@ -1663,44 +1663,44 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: resources/templates/database/designer/main.twig:483
-#: resources/templates/database/designer/main.twig:648
-#: resources/templates/database/designer/main.twig:854
-#: resources/templates/database/designer/main.twig:1047
+#: resources/templates/database/designer/main.twig:484
+#: resources/templates/database/designer/main.twig:649
+#: resources/templates/database/designer/main.twig:855
+#: resources/templates/database/designer/main.twig:1048
 msgid "subquery"
 msgstr ""
 
-#: resources/templates/database/designer/main.twig:492
-#: resources/templates/database/designer/main.twig:708
+#: resources/templates/database/designer/main.twig:493
+#: resources/templates/database/designer/main.twig:709
 msgid "Rename to"
 msgstr ""
 
-#: resources/templates/database/designer/main.twig:498
-#: resources/templates/database/designer/main.twig:716
+#: resources/templates/database/designer/main.twig:499
+#: resources/templates/database/designer/main.twig:717
 msgid "New name"
 msgstr ""
 
-#: resources/templates/database/designer/main.twig:507
-#: resources/templates/database/designer/main.twig:913
+#: resources/templates/database/designer/main.twig:508
+#: resources/templates/database/designer/main.twig:914
 msgid "Aggregate"
 msgstr ""
 
-#: resources/templates/database/designer/main.twig:513
-#: resources/templates/database/designer/main.twig:577
-#: resources/templates/database/designer/main.twig:782
-#: resources/templates/database/designer/main.twig:813
-#: resources/templates/database/designer/main.twig:921
-#: resources/templates/database/designer/main.twig:1006
+#: resources/templates/database/designer/main.twig:514
+#: resources/templates/database/designer/main.twig:578
+#: resources/templates/database/designer/main.twig:783
+#: resources/templates/database/designer/main.twig:814
+#: resources/templates/database/designer/main.twig:922
+#: resources/templates/database/designer/main.twig:1007
 #: resources/templates/table/search/index.twig:41
 #: resources/templates/table/zoom_search/index.twig:39
 msgid "Operator"
 msgstr ""
 
-#: resources/templates/database/designer/main.twig:1087
+#: resources/templates/database/designer/main.twig:1088
 msgid "Active options"
 msgstr ""
 
-#: resources/templates/database/designer/main.twig:1138
+#: resources/templates/database/designer/main.twig:1139
 #: resources/templates/sql/query.twig:181
 #: src/Controllers/JavaScriptMessagesController.php:537
 msgid "Submit"
@@ -10884,8 +10884,8 @@ msgstr ""
 msgid "Enable the Developer tab in settings"
 msgstr ""
 
-#: src/Config/Descriptions.php:940 src/Setup/Index.php:125
-#: src/Setup/Index.php:152 src/Setup/Index.php:160 src/Setup/Index.php:168
+#: src/Config/Descriptions.php:940 src/Setup/Index.php:126
+#: src/Setup/Index.php:153 src/Setup/Index.php:161 src/Setup/Index.php:169
 msgid "Version check"
 msgstr ""
 
@@ -11306,19 +11306,19 @@ msgid "Showing rows %1$s - %2$s."
 msgstr ""
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:105
+#: src/Controllers/Database/DesignerController.php:109
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: src/Controllers/Database/DesignerController.php:171
-#: src/Controllers/Database/DesignerController.php:176
+#: src/Controllers/Database/DesignerController.php:175
+#: src/Controllers/Database/DesignerController.php:180
 #: src/Controllers/Database/EventsController.php:52
 #: src/Controllers/Database/ExportController.php:57
 #: src/Controllers/Database/ExportController.php:62
-#: src/Controllers/Database/ImportController.php:61
-#: src/Controllers/Database/ImportController.php:66
+#: src/Controllers/Database/ImportController.php:62
+#: src/Controllers/Database/ImportController.php:67
 #: src/Controllers/Database/RoutinesController.php:77
 #: src/Controllers/Database/RoutinesController.php:95
 #: src/Controllers/Database/SearchController.php:53
@@ -11357,8 +11357,8 @@ msgstr ""
 #: src/Controllers/Table/FindReplaceController.php:81
 #: src/Controllers/Table/GisVisualizationController.php:70
 #: src/Controllers/Table/GisVisualizationController.php:75
-#: src/Controllers/Table/ImportController.php:70
-#: src/Controllers/Table/ImportController.php:75
+#: src/Controllers/Table/ImportController.php:71
+#: src/Controllers/Table/ImportController.php:76
 #: src/Controllers/Table/IndexesController.php:66
 #: src/Controllers/Table/IndexesController.php:73
 #: src/Controllers/Table/IndexRenameController.php:54
@@ -11424,9 +11424,9 @@ msgstr ""
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
-#: src/Controllers/Database/ImportController.php:76
-#: src/Controllers/Server/ImportController.php:61
-#: src/Controllers/Table/ImportController.php:100
+#: src/Controllers/Database/ImportController.php:77
+#: src/Controllers/Server/ImportController.php:62
+#: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 
@@ -11472,8 +11472,8 @@ msgstr ""
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
 #: src/Controllers/Table/FindReplaceController.php:88
 #: src/Controllers/Table/FindReplaceController.php:93
-#: src/Controllers/Table/ImportController.php:82
-#: src/Controllers/Table/ImportController.php:87
+#: src/Controllers/Table/ImportController.php:83
+#: src/Controllers/Table/ImportController.php:88
 #: src/Controllers/Table/IndexesController.php:81
 #: src/Controllers/Table/IndexesController.php:86
 #: src/Controllers/Table/IndexRenameController.php:66
@@ -11780,7 +11780,7 @@ msgstr ""
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: src/Controllers/Import/StatusController.php:73
+#: src/Controllers/Import/StatusController.php:76
 msgid "Could not load the progress of the import."
 msgstr ""
 
@@ -12963,7 +12963,7 @@ msgstr ""
 msgid "Unlink from main panel"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:592 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:592 src/Setup/Index.php:154
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -16377,7 +16377,7 @@ msgstr ""
 msgid "This format has no options"
 msgstr ""
 
-#: src/Plugins/Schema/Dia/TableStatsDia.php:66
+#: src/Plugins/Schema/Dia/TableStatsDia.php:67
 #: src/Plugins/Schema/Eps/TableStatsEps.php:72
 #: src/Plugins/Schema/Pdf/TableStatsPdf.php:72
 #: src/Plugins/Schema/Svg/TableStatsSvg.php:72
@@ -16679,11 +16679,11 @@ msgstr ""
 msgid "For testing purposes only!"
 msgstr ""
 
-#: src/Plugins/TwoFactor/WebAuthn.php:172
+#: src/Plugins/TwoFactor/WebAuthn.php:175
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr ""
 
-#: src/Plugins/TwoFactor/WebAuthn.php:178
+#: src/Plugins/TwoFactor/WebAuthn.php:181
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
@@ -16965,20 +16965,20 @@ msgstr ""
 msgid "Progress"
 msgstr ""
 
-#: src/Setup/Index.php:127
+#: src/Setup/Index.php:128
 msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
 
-#: src/Setup/Index.php:161
+#: src/Setup/Index.php:162
 #, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
 
-#: src/Setup/Index.php:169
+#: src/Setup/Index.php:170
 msgid "No newer stable version is available"
 msgstr ""
 
