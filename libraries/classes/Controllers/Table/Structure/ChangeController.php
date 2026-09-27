@@ -10,6 +10,8 @@ use PhpMyAdmin\Controllers\Table\AbstractController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
@@ -17,6 +19,7 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function count;
+use function is_array;
 
 final class ChangeController extends AbstractController
 {
@@ -73,6 +76,11 @@ final class ChangeController extends AbstractController
     {
         global $action, $num_fields;
 
+        // Column metadata reports the effective collation, including one inherited from the table.
+        $inheritedCollations = self::getInheritedCollations(
+            $this->dbi->getTable($this->db, $this->table)->showCreate()
+        );
+
         if (empty($selected)) {
             $selected[] = $_REQUEST['field'];
             $selected_cnt = 1;
@@ -93,6 +101,10 @@ final class ChangeController extends AbstractController
                 $message->addParam($selected[$i]);
                 $this->response->addHTML($message->getDisplay());
             } else {
+                if (isset($inheritedCollations[$selected[$i]])) {
+                    $value['Collation'] = null;
+                }
+
                 $fields_meta[] = $value;
             }
         }
@@ -121,5 +133,43 @@ final class ChangeController extends AbstractController
         );
 
         $this->render('columns_definitions/column_definitions_form', $templateData);
+    }
+
+    /** @return array<string, true> */
+    private static function getInheritedCollations(string $createTable): array
+    {
+        if ($createTable === '') {
+            return [];
+        }
+
+        $parser = new Parser($createTable);
+        if ($parser->errors !== []) {
+            return [];
+        }
+
+        $statement = $parser->statements[0] ?? null;
+        if (! $statement instanceof CreateStatement || ! is_array($statement->fields)) {
+            return [];
+        }
+
+        $inheritedCollations = [];
+        foreach ($statement->fields as $field) {
+            if ($field->name === null || $field->type === null) {
+                continue;
+            }
+
+            $options = $field->type->options;
+            if (
+                $options->has('COLLATE') !== false
+                || $options->has('CHARACTER SET') !== false
+                || $options->has('CHARSET') !== false
+            ) {
+                continue;
+            }
+
+            $inheritedCollations[$field->name] = true;
+        }
+
+        return $inheritedCollations;
     }
 }
