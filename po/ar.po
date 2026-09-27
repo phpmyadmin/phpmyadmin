@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-09-27 19:51+0000\n"
+"PO-Revision-Date: 2026-09-28 23:51+0000\n"
 "Last-Translator: علي الخضر <alielkhedr@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ar/>\n"
@@ -4924,6 +4924,7 @@ msgstr "عرض شجرة العمليات"
 #: libraries/classes/Config/Descriptions.php:851
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
+"ما إذا كان سيتم عرض الإجراءات الموجودة ضمن قاعدة البيانات في شجرة التنقل"
 
 #: libraries/classes/Config/Descriptions.php:853
 msgid "Show events in tree"
