@@ -82,6 +82,7 @@ All notable changes of the phpMyAdmin 6.0 release series are documented in this 
 * [#19795](https://github.com/phpmyadmin/phpmyadmin/pull/19795): Use `additional-methods.min.js` instead of `additional-methods.js`
 * [#19564](https://github.com/phpmyadmin/phpmyadmin/pull/19564): Update the table comment field to a textarea
 * [#19947](https://github.com/phpmyadmin/phpmyadmin/pull/19947): Export ODS column headers by default
+* [#15993](https://github.com/phpmyadmin/phpmyadmin/issues/15993): Do not expose the phpMyAdmin version in the cache-busting `?v=` query string of CSS and JS assets
 
 ### Removed
 

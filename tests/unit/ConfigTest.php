@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Depends;
@@ -18,9 +19,11 @@ use ReflectionProperty;
 
 use function file_put_contents;
 use function get_defined_constants;
+use function hash_hmac;
 use function md5;
 use function realpath;
 use function stristr;
+use function substr;
 use function sys_get_temp_dir;
 use function tempnam;
 use function unlink;
@@ -646,5 +649,35 @@ class ConfigTest extends AbstractTestCase
     public function testGetChangeLogFilePath(): void
     {
         self::assertSame(CHANGELOG_FILE, (new Config())->getChangeLogFilePath());
+    }
+
+    public function testGetAssetVersion(): void
+    {
+        $config = new Config();
+        $config->config = new Settings(['blowfish_secret' => 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']);
+        $assetVersion = $config->getAssetVersion();
+
+        self::assertMatchesRegularExpression('/^[0-9a-f]{12}$/', $assetVersion);
+        self::assertSame($assetVersion, $config->getAssetVersion());
+        self::assertStringNotContainsString(Version::VERSION, $assetVersion);
+        self::assertSame(
+            substr(hash_hmac('sha256', Version::VERSION, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'), 0, 12),
+            $assetVersion,
+        );
+
+        $config->config = new Settings(['blowfish_secret' => 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb']);
+        self::assertNotSame($assetVersion, $config->getAssetVersion());
+    }
+
+    public function testGetAssetVersionWithoutBlowfishSecret(): void
+    {
+        $config = new Config();
+        $config->config = new Settings(['blowfish_secret' => '']);
+        $assetVersion = $config->getAssetVersion();
+
+        self::assertMatchesRegularExpression('/^[0-9a-f]{12}$/', $assetVersion);
+        self::assertSame($assetVersion, $config->getAssetVersion());
+        // The token must not be a publicly computable hash of the version.
+        self::assertNotSame(substr(hash_hmac('sha256', Version::VERSION, ''), 0, 12), $assetVersion);
     }
 }
