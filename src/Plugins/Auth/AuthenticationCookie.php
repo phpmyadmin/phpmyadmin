@@ -240,7 +240,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 if (function_exists('curl_init') && function_exists('curl_exec')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $config->config->CaptchaLoginPrivateKey,
-                        new ReCaptcha\RequestMethod\CurlPost(null, $captchaSiteVerifyURL),
+                        new ReCaptcha\RequestMethod\CurlPost(siteVerifyUrl: $captchaSiteVerifyURL),
                     );
                 } elseif (ini_get('allow_url_fopen')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
@@ -250,7 +250,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 } else {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $config->config->CaptchaLoginPrivateKey,
-                        new ReCaptcha\RequestMethod\SocketPost(null, $captchaSiteVerifyURL),
+                        new ReCaptcha\RequestMethod\SocketPost(siteVerifyUrl: $captchaSiteVerifyURL),
                     );
                 }
 
