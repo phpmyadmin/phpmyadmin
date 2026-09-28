@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
-use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
@@ -29,7 +28,6 @@ final readonly class EmptyTableController implements InvocableController
         private DatabaseInterface $dbi,
         private FlashMessenger $flashMessenger,
         private StructureController $structureController,
-        private Sql $sql,
     ) {
     }
 
@@ -61,14 +59,6 @@ final readonly class EmptyTableController implements InvocableController
 
             Current::$sqlQuery .= $aQuery . ';' . "\n";
             $this->dbi->query($aQuery);
-        }
-
-        if (! empty($_REQUEST['pos'])) {
-            $_REQUEST['pos'] = $this->sql->calculatePosForLastPage(
-                Current::$database,
-                Current::$table,
-                $_REQUEST['pos'],
-            );
         }
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
