@@ -1492,12 +1492,6 @@ parameters:
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
-			message: '#^Parameter \#1 \$database of method PhpMyAdmin\\Database\\CentralColumns\:\:deleteColumnsFromList\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/Structure/CentralColumns/RemoveController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#

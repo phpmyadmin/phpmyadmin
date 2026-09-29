@@ -43,11 +43,9 @@ final readonly class RemoveController implements InvocableController
         Assert::allString($selected);
 
         $centralColumns = new CentralColumns($this->dbi);
-        $error = $centralColumns->deleteColumnsFromList($_POST['db'], $selected);
+        $error = $centralColumns->deleteColumnsFromList(Current::$database, $selected);
 
         Current::$message = $error instanceof Message ? $error : Message::success(__('Success!'));
-
-        unset($_POST['submit_mult']);
 
         return ($this->structureController)($request);
     }

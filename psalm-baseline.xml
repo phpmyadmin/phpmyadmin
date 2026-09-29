@@ -876,17 +876,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Database/Structure/CentralColumns/RemoveController.php">
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['db']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['db']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/Structure/CopyFormController.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
