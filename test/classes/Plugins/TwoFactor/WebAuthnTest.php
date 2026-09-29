@@ -265,10 +265,12 @@ class WebAuthnTest extends AbstractTestCase
         $request->method('getParsedBodyParam')->willReturnMap([['webauthn_request_response', '', '{}']]);
         $GLOBALS['request'] = $request;
 
-        $twoFactor = $this->createStub(TwoFactor::class);
-        $twoFactor->config = [
+        $twoFactor = $this->createMock(TwoFactor::class);
+        $twoFactor->expects(self::once())->method('save');
+        $expectedConfig = [
             'backend' => 'WebAuthn',
             'settings' => [
+                'userHandle' => '',
                 'credentials' => [
                     // base64 of publicKeyCredentialId1
                     'cHVibGljS2V5Q3JlZGVudGlhbElkMQ==' => [
@@ -279,6 +281,7 @@ class WebAuthnTest extends AbstractTestCase
                 ],
             ],
         ];
+        $twoFactor->config = $expectedConfig;
 
         $server = $this->createMock(Server::class);
         $server->expects($this->once())->method('parseAndValidateAssertionResponse')->with(
@@ -291,5 +294,6 @@ class WebAuthnTest extends AbstractTestCase
         $webAuthn = new WebAuthn($twoFactor);
         $webAuthn->setServer($server);
         self::assertTrue($webAuthn->check());
+        self::assertSame($expectedConfig, $twoFactor->config);
     }
 }

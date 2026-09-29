@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\WebAuthn;
 
+use PhpMyAdmin\TwoFactor;
 use Psr\Http\Message\ServerRequestInterface;
 use SodiumException;
 use Throwable;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
+use function bin2hex;
 use function hash;
 use function hash_equals;
 use function json_decode;
@@ -20,6 +22,9 @@ use function parse_url;
 use function random_bytes;
 use function sodium_base642bin;
 use function sodium_bin2base64;
+use function sprintf;
+use function strtolower;
+use function substr;
 use function unpack;
 
 use const PHP_URL_HOST;
@@ -35,6 +40,14 @@ use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
  */
 final class CustomServer implements Server
 {
+    /** @var TwoFactor */
+    private $twoFactor;
+
+    public function __construct(TwoFactor $twoFactor)
+    {
+        $this->twoFactor = $twoFactor;
+    }
+
     public function getCredentialCreationOptions(string $userName, string $userId, string $relyingPartyId): array
     {
         return [
@@ -85,6 +98,9 @@ final class CustomServer implements Server
             Assert::true($this->isCredentialIdAllowed($assertionCredential['rawId'], $allowedCredentials));
         }
 
+        $sourceCredential = $this->findOneCredentialByCredentialId($assertionCredential['rawId']);
+        Assert::notNull($sourceCredential);
+
         $authenticatorData = $this->getAuthenticatorData($assertionCredential['response']['authenticatorData']);
 
         $clientData = $this->getCollectedClientData($assertionCredential['response']['clientDataJSON']);
@@ -107,6 +123,10 @@ final class CustomServer implements Server
 
         $isUserPresent = (ord($authenticatorData['flags']) & 1) !== 0;
         Assert::true($isUserPresent);
+
+        $sourceCredential['counter'] = $authenticatorData['signCount'];
+
+        $this->saveCredentialSource($sourceCredential);
     }
 
     public function parseAndValidateAttestationResponse(
@@ -242,7 +262,7 @@ final class CustomServer implements Server
         // Bit 6: Attested credential data included (AT).
         if ((ord($flags) & 64) !== 0) {
             /** Authenticator Attestation GUID */
-            $aaguid = $authDataStream->take(16);
+            $aaguid = $this->uuidFromBytes($authDataStream->take(16));
 
             // 16-bit unsigned big-endian integer
             $unpackedCredentialIdLength = unpack('n', $authDataStream->take(2));
@@ -493,5 +513,57 @@ final class CustomServer implements Server
         Assert::string($decoded['authData']);
 
         return $decoded;
+    }
+
+    /** @return array<array-key, mixed>|null */
+    private function findOneCredentialByCredentialId(string $publicKeyCredentialId): ?array
+    {
+        $credentials = $this->twoFactor->config['settings']['credentials'];
+        Assert::isArray($credentials);
+        $id = sodium_bin2base64($publicKeyCredentialId, SODIUM_BASE64_VARIANT_ORIGINAL);
+        if (isset($credentials[$id])) {
+            Assert::isArray($credentials[$id]);
+            Assert::keyExists($credentials[$id], 'publicKeyCredentialId');
+            Assert::keyExists($credentials[$id], 'type');
+            Assert::keyExists($credentials[$id], 'transports');
+            Assert::keyExists($credentials[$id], 'attestationType');
+            Assert::keyExists($credentials[$id], 'aaguid');
+            Assert::keyExists($credentials[$id], 'credentialPublicKey');
+            Assert::keyExists($credentials[$id], 'userHandle');
+            Assert::keyExists($credentials[$id], 'counter');
+
+            return $credentials[$id];
+        }
+
+        return null;
+    }
+
+    /** @param array<array-key, mixed> $publicKeyCredentialSource */
+    private function saveCredentialSource(array $publicKeyCredentialSource): void
+    {
+        $credentials = $this->twoFactor->config['settings']['credentials'];
+        Assert::isArray($credentials);
+        Assert::keyExists($publicKeyCredentialSource, 'publicKeyCredentialId');
+        Assert::stringNotEmpty($publicKeyCredentialSource['publicKeyCredentialId']);
+        $credentialId = sodium_base642bin(
+            $publicKeyCredentialSource['publicKeyCredentialId'],
+            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING
+        );
+        $credentials[sodium_bin2base64($credentialId, SODIUM_BASE64_VARIANT_ORIGINAL)] = $publicKeyCredentialSource;
+        $this->twoFactor->config['settings']['credentials'] = $credentials;
+    }
+
+    private function uuidFromBytes(string $bytes): string
+    {
+        $uuid = bin2hex($bytes);
+
+        return strtolower(sprintf(
+            '%s-%s-%s-%s-%s',
+            substr($uuid, 0, 8),
+            substr($uuid, 8, 4),
+            substr($uuid, 12, 4),
+            substr($uuid, 16, 4),
+            substr($uuid, 20, 12)
+        ));
     }
 }
