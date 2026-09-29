@@ -22,7 +22,6 @@ use function ini_get;
 use function session_start;
 use function session_write_close;
 use function sprintf;
-use function time;
 use function usleep;
 
 /**
@@ -61,7 +60,7 @@ class StatusController implements InvocableController
             usleep(self::$sleepMicroseconds);
 
             $maximumTime = ini_get('max_execution_time');
-            $timestamp = time();
+            $timestamp = $this->clock->now()->getTimestamp();
             // wait until message is available
             while (($_SESSION['Import_message']['message'] ?? null) == null) {
                 // close session before sleeping
@@ -71,7 +70,7 @@ class StatusController implements InvocableController
                 // reopen session
                 session_start();
 
-                if (time() - $timestamp > $maximumTime) {
+                if ($this->clock->now()->getTimestamp() - $timestamp > $maximumTime) {
                     $_SESSION['Import_message']['message'] = Message::error(
                         __('Could not load the progress of the import.'),
                     )->getDisplay();
