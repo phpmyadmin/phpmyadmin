@@ -1156,6 +1156,29 @@ class PrivilegesTest extends AbstractTestCase
         $this->serverPrivileges->dbi = $dbi_old;
     }
 
+    public function testGetUserGroupForUserEscapesTheUsername(): void
+    {
+        $username = 'pma\' UNION SELECT \'injected';
+
+        $dbi_old = $GLOBALS['dbi'];
+        $dbi = $this->createMock(DatabaseInterface::class);
+
+        $dbi->method('escapeString')->willReturnCallback(static function ($string) {
+            return str_replace("'", "\\'", $string);
+        });
+        $dbi->expects(self::once())->method('fetchValue')
+            ->with(self::stringContains('WHERE `username` = \'pma\\\' UNION SELECT \\\'injected\''))
+            ->willReturn('pma_usergroup');
+
+        $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
+
+        self::assertSame('pma_usergroup', $this->serverPrivileges->getUserGroupForUser($username));
+
+        $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
+    }
+
     /**
      * Test for getUsersOverview
      */
