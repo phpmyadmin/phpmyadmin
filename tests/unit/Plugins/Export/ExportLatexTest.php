@@ -24,7 +24,6 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -515,13 +514,11 @@ final class ExportLatexTest extends AbstractTestCase
 
         // case 1
 
-        $resultStub = $this->createMock(DummyResult::class);
-
         $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getTableIndexes')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn($keys);
 
         $dbi->expects(self::exactly(2))
@@ -535,22 +532,10 @@ final class ExportLatexTest extends AbstractTestCase
             new Column('name1', 'set(abc)enum123', null, true, 'PRI', null, '', '', ''),
             new Column('fields', '', null, false, 'COMP', 'def', '', '', ''),
         ];
-        $dbi->expects(self::once())
+        $dbi->expects(self::exactly(2))
             ->method('getColumns')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn($columns);
-
-        $dbi->expects(self::once())
-            ->method('tryQueryAsControlUser')
-            ->willReturn($resultStub);
-
-        $resultStub->expects(self::once())
-            ->method('numRows')
-            ->willReturn(1);
-
-        $resultStub->expects(self::once())
-            ->method('fetchAssoc')
-            ->willReturn(['comment' => 'testComment']);
 
         $exportLatex = $this->getExportLatex($dbi);
 
@@ -570,13 +555,13 @@ final class ExportLatexTest extends AbstractTestCase
         $exportLatex->setExportOptions($request, new SettingsExport());
 
         ob_start();
-        $exportLatex->exportStructure('database', '', 'test');
+        $exportLatex->exportStructure('database', 't1', 'test');
         $result = ob_get_clean();
 
         //echo $result; die;
         self::assertSame(
             "\n" . '%' . "\n" .
-            '% Structure: ' . "\n" .
+            '% Structure: t1' . "\n" .
             '%' . "\n" .
             ' \\begin{longtable}{|l|c|c|c|l|l|} ' . "\n" .
             ' \\hline \\multicolumn{1}{|c|}{\\textbf{Column}} & ' .
@@ -599,8 +584,6 @@ final class ExportLatexTest extends AbstractTestCase
 
         // case 2
 
-        $resultStub = $this->createMock(DummyResult::class);
-
         $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
@@ -612,25 +595,13 @@ final class ExportLatexTest extends AbstractTestCase
 
         $dbi->expects(self::once())
             ->method('getTableIndexes')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn($keys);
 
-        $dbi->expects(self::once())
+        $dbi->expects(self::exactly(2))
             ->method('getColumns')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn($columns);
-
-        $dbi->expects(self::once())
-            ->method('tryQueryAsControlUser')
-            ->willReturn($resultStub);
-
-        $resultStub->expects(self::once())
-            ->method('numRows')
-            ->willReturn(1);
-
-        $resultStub->expects(self::once())
-            ->method('fetchAssoc')
-            ->willReturn(['comment' => 'testComment']);
 
         $exportLatex = $this->getExportLatex($dbi);
         $exportLatex->setExportOptions($request, new SettingsExport());
@@ -646,7 +617,7 @@ final class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
-        $exportLatex->exportStructure('database', '', 'test');
+        $exportLatex->exportStructure('database', 't1', 'test');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -663,12 +634,12 @@ final class ExportLatexTest extends AbstractTestCase
 
         $dbi->expects(self::once())
             ->method('getTableIndexes')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn($keys);
 
         $dbi->expects(self::once())
             ->method('getColumns')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn($columns);
 
         $dbi->expects(self::never())
@@ -693,7 +664,7 @@ final class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
-        $exportLatex->exportStructure('database', '', 'test');
+        $exportLatex->exportStructure('database', 't1', 'test');
         $result = ob_get_clean();
 
         self::assertIsString($result);
