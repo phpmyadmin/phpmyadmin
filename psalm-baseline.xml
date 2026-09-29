@@ -690,9 +690,6 @@
       <code><![CDATA[$foreigner['foreign_field']]]></code>
       <code><![CDATA[$relation]]></code>
     </MixedOperand>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$pkArray]]></code>
-    </PossiblyNullArrayOffset>
   </file>
   <file src="src/Controllers/Database/DesignerController.php">
     <MixedArgument>
