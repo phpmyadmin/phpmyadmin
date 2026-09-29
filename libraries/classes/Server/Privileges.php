@@ -1551,7 +1551,7 @@ class Privileges
         $userTable = Util::backquote($configurableMenusFeature->database)
             . '.' . Util::backquote($configurableMenusFeature->users);
         $sqlQuery = 'SELECT `usergroup` FROM ' . $userTable
-            . " WHERE `username` = '" . $this->dbi->escapeString($username) . "'"
+            . ' WHERE `username` = \'' . $this->dbi->escapeString($username) . '\''
             . ' LIMIT 1';
 
         $usergroup = $this->dbi->fetchValue($sqlQuery, 0, DatabaseInterface::CONNECT_CONTROL);
