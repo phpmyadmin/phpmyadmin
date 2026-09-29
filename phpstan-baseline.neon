@@ -48812,11 +48812,6 @@ parameters:
 			path: test/classes/WebAuthn/CustomServerTest.php
 
 		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with null will always evaluate to true\\.$#"
-			count: 1
-			path: test/classes/WebAuthn/CustomServerTest.php
-
-		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 'attestation' and array\\{challenge\\: non\\-falsy\\-string, rp\\: array\\{name\\: string, id\\: string\\}, user\\: array\\{id\\: string, name\\: string, displayName\\: string\\}, pubKeyCredParams\\: non\\-empty\\-array\\<int, array\\{alg\\: int, type\\: 'public\\-key'\\}\\>, authenticatorSelection\\: array\\<string, string\\>, timeout\\: int\\<1, max\\>, attestation\\: non\\-empty\\-string\\} will always evaluate to true\\.$#"
 			count: 1
 			path: test/classes/WebAuthn/WebauthnLibServerTest.php
