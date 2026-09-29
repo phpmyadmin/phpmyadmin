@@ -11,7 +11,6 @@ use Laminas\Diactoros\ResponseFactory as LaminasResponseFactory;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
-use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
@@ -26,6 +25,25 @@ use function class_exists;
 #[CoversClass(ResponseFactory::class)]
 final class ResponseFactoryTest extends TestCase
 {
+    private ReflectionProperty $providersProperty;
+
+    private mixed $originalProviders;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->providersProperty = new ReflectionProperty(ResponseFactory::class, 'providers');
+        $this->originalProviders = $this->providersProperty->getValue();
+    }
+
+    protected function tearDown(): void
+    {
+        $this->providersProperty->setValue(null, $this->originalProviders);
+
+        parent::tearDown();
+    }
+
     /**
      * @psalm-param class-string<ResponseFactoryInterface> $provider
      * @psalm-param class-string<ResponseInterface> $expectedResponse
@@ -54,11 +72,10 @@ final class ResponseFactoryTest extends TestCase
 
     /** @psalm-param class-string<ResponseFactoryInterface> $provider */
     #[DataProvider('providerForTestCreate')]
-    #[BackupStaticProperties(true)]
     public function testCreate(string $provider): void
     {
         $this->skipIfNotAvailable($provider);
-        (new ReflectionProperty(ResponseFactory::class, 'providers'))->setValue(null, [$provider]);
+        $this->providersProperty->setValue(null, [$provider]);
         $responseFactory = ResponseFactory::create();
         $actual = (new ReflectionProperty(ResponseFactory::class, 'responseFactory'))->getValue($responseFactory);
         self::assertInstanceOf($provider, $actual);
@@ -74,10 +91,9 @@ final class ResponseFactoryTest extends TestCase
         yield 'httpsoft/http-message' => [HttpSoftResponseFactory::class];
     }
 
-    #[BackupStaticProperties(true)]
     public function testCreateWithoutProvider(): void
     {
-        (new ReflectionProperty(ResponseFactory::class, 'providers'))->setValue(null, ['InvalidResponseFactoryClass']);
+        $this->providersProperty->setValue(null, ['InvalidResponseFactoryClass']);
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('No HTTP response factories found.');
         ResponseFactory::create();
