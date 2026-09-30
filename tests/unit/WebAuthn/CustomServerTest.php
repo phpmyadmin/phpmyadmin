@@ -5,17 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\WebAuthn;
 
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\WebAuthn\CBORDecoder;
 use PhpMyAdmin\WebAuthn\CustomServer;
 use PhpMyAdmin\WebAuthn\DataStream;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
 use Random\Engine\Mt19937;
 use Random\Randomizer;
-
-use function hex2bin;
 
 #[CoversClass(CustomServer::class)]
 #[CoversClass(CBORDecoder::class)]
@@ -24,7 +22,7 @@ final class CustomServerTest extends TestCase
 {
     public function testGetCredentialCreationOptions(): void
     {
-        $server = new CustomServer(new Randomizer(new Mt19937(42)));
+        $server = new CustomServer(self::createStub(TwoFactor::class), new Randomizer(new Mt19937(42)));
         $options = $server->getCredentialCreationOptions('user_name', 'user_id', 'test.localhost');
         self::assertSame('ZtzhX7M96stcA2LzDpX1Lmr0Y7tH1JnHvK5BmRQsy5g=', $options['challenge']);
         self::assertArrayHasKey('pubKeyCredParams', $options);
@@ -42,7 +40,7 @@ final class CustomServerTest extends TestCase
 
     public function testGetCredentialRequestOptions(): void
     {
-        $server = new CustomServer(new Randomizer(new Mt19937(42)));
+        $server = new CustomServer(self::createStub(TwoFactor::class), new Randomizer(new Mt19937(42)));
         $options = $server->getCredentialRequestOptions(
             'user_name',
             'userHandle1',
@@ -60,10 +58,32 @@ final class CustomServerTest extends TestCase
     }
 
     /** @see https://github.com/web-auth/webauthn-framework/blob/v3.3.12/tests/library/Functional/AssertionTest.php#L46 */
-    #[DoesNotPerformAssertions]
     public function testParseAndValidateAssertionResponse(): void
     {
-        $server = new CustomServer();
+        $twoFactor = self::createStub(TwoFactor::class);
+        $twoFactor->user = 'foo';
+        $twoFactor->config = [
+            'backend' => 'WebAuthn',
+            'settings' => [
+                'userHandle' => 'Zm9v',
+                'credentials' => [
+                    'eHouz/Zi7+BmByHjJ/tx9h4a1WZsK4IzUmgGjkhyOodPGAyUqUp/B9yUkflXY3yHWsNtsrgCXQ3HjAIFUeZB+w==' => [
+                        // phpcs:ignore Generic.Files.LineLength.TooLong
+                        'publicKeyCredentialId' => 'eHouz_Zi7-BmByHjJ_tx9h4a1WZsK4IzUmgGjkhyOodPGAyUqUp_B9yUkflXY3yHWsNtsrgCXQ3HjAIFUeZB-w',
+                        'type' => 'public-key',
+                        'transports' => [],
+                        'attestationType' => 'none',
+                        'aaguid' => '00000000-0000-0000-0000-000000000000',
+                        // phpcs:ignore Generic.Files.LineLength.TooLong
+                        'credentialPublicKey' => 'pQECAyYgASFYIJV56vRrFusoDf9hm3iDmllcxxXzzKyO9WruKw4kWx7zIlgg_nq63l8IMJcIdKDJcXRh9hoz0L-nVwP1Oxil3_oNQYs',
+                        'userHandle' => 'Zm9v',
+                        'counter' => 100,
+                    ],
+                ],
+            ],
+        ];
+
+        $server = new CustomServer($twoFactor);
 
         $uriStub = self::createStub(UriInterface::class);
         $uriStub->method('getHost')->willReturn('localhost');
@@ -82,6 +102,29 @@ final class CustomServerTest extends TestCase
         ];
 
         $server->parseAndValidateAssertionResponse($authenticatorResponse, $allowedCredentials, $challenge, $request);
+
+        $expectedConfig = [
+            'backend' => 'WebAuthn',
+            'settings' => [
+                'userHandle' => 'Zm9v',
+                'credentials' => [
+                    'eHouz/Zi7+BmByHjJ/tx9h4a1WZsK4IzUmgGjkhyOodPGAyUqUp/B9yUkflXY3yHWsNtsrgCXQ3HjAIFUeZB+w==' => [
+                        // phpcs:ignore Generic.Files.LineLength.TooLong
+                        'publicKeyCredentialId' => 'eHouz_Zi7-BmByHjJ_tx9h4a1WZsK4IzUmgGjkhyOodPGAyUqUp_B9yUkflXY3yHWsNtsrgCXQ3HjAIFUeZB-w',
+                        'type' => 'public-key',
+                        'transports' => [],
+                        'attestationType' => 'none',
+                        'aaguid' => '00000000-0000-0000-0000-000000000000',
+                        // phpcs:ignore Generic.Files.LineLength.TooLong
+                        'credentialPublicKey' => 'pQECAyYgASFYIJV56vRrFusoDf9hm3iDmllcxxXzzKyO9WruKw4kWx7zIlgg_nq63l8IMJcIdKDJcXRh9hoz0L-nVwP1Oxil3_oNQYs',
+                        'userHandle' => 'Zm9v',
+                        'counter' => 123,
+                    ],
+                ],
+            ],
+        ];
+        /** @psalm-suppress TypeDoesNotContainType */
+        self::assertSame($expectedConfig, $twoFactor->config);
     }
 
     /** @see https://github.com/web-auth/webauthn-framework/blob/v3.3.12/tests/library/Functional/NoneAttestationStatementTest.php#L45 */
@@ -97,7 +140,7 @@ final class CustomServerTest extends TestCase
         // phpcs:ignore Generic.Files.LineLength.TooLong
         $response = '{"id":"mMihuIx9LukswxBOMjMHDf6EAONOy7qdWhaQQ7dOtViR2cVB_MNbZxURi2cvgSvKSILb3mISe9lPNG9sYgojuY5iNinYOg6hRVxmm0VssuNG2pm1-RIuTF9DUtEJZEEK","type":"public-key","rawId":"mMihuIx9LukswxBOMjMHDf6EAONOy7qdWhaQQ7dOtViR2cVB/MNbZxURi2cvgSvKSILb3mISe9lPNG9sYgojuY5iNinYOg6hRVxmm0VssuNG2pm1+RIuTF9DUtEJZEEK","response":{"clientDataJSON":"eyJjaGFsbGVuZ2UiOiI5V3FncFJJWXZHTUNVWWlGVDIwbzFVN2hTRDE5M2sxMXp1NHRLUDd3UmNyRTI2enMxemM0TEh5UGludlBHUzg2d3U2YkR2cHdidDhYcDJiUTNWQlJTUSIsImNsaWVudEV4dGVuc2lvbnMiOnt9LCJoYXNoQWxnb3JpdGhtIjoiU0hBLTI1NiIsIm9yaWdpbiI6Imh0dHBzOi8vbG9jYWxob3N0Ojg0NDMiLCJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIn0=","attestationObject":"o2NmbXRkbm9uZWdhdHRTdG10oGhhdXRoRGF0YVjkSZYN5YgOjGh0NBcPZHZgW4/krrmihjLHmVzzuoMdl2NBAAAAAAAAAAAAAAAAAAAAAAAAAAAAYJjIobiMfS7pLMMQTjIzBw3+hADjTsu6nVoWkEO3TrVYkdnFQfzDW2cVEYtnL4ErykiC295iEnvZTzRvbGIKI7mOYjYp2DoOoUVcZptFbLLjRtqZtfkSLkxfQ1LRCWRBCqUBAgMmIAEhWCAcPxwKyHADVjTgTsat4R/Jax6PWte50A8ZasMm4w6RxCJYILt0FCiGwC6rBrh3ySNy0yiUjZpNGAhW+aM9YYyYnUTJ"}}';
 
-        $server = new CustomServer();
+        $server = new CustomServer(self::createStub(TwoFactor::class));
         $credential = $server->parseAndValidateAttestationResponse($response, $options, $request);
 
         self::assertSame(
@@ -107,7 +150,7 @@ final class CustomServerTest extends TestCase
                 'type' => 'public-key',
                 'transports' => [],
                 'attestationType' => 'none',
-                'aaguid' => hex2bin('00000000000000000000000000000000'),
+                'aaguid' => '00000000-0000-0000-0000-000000000000',
                 // phpcs:ignore Generic.Files.LineLength.TooLong
                 'credentialPublicKey' => 'pQECAyYgASFYIBw_HArIcANWNOBOxq3hH8lrHo9a17nQDxlqwybjDpHEIlggu3QUKIbALqsGuHfJI3LTKJSNmk0YCFb5oz1hjJidRMk',
                 'userHandle' => 'MJr5sD0WitVwZM0eoSO6kWhyseT67vc3oQdk_k1VdZQ',

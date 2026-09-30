@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\WebAuthn;
 
 use PhpMyAdmin\Crypto\Base64;
+use PhpMyAdmin\TwoFactor;
 use Psr\Http\Message\ServerRequestInterface;
 use Random\Randomizer;
 use SodiumException;
@@ -12,6 +13,7 @@ use Throwable;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
+use function bin2hex;
 use function hash;
 use function hash_equals;
 use function json_decode;
@@ -19,6 +21,9 @@ use function mb_strlen;
 use function mb_substr;
 use function ord;
 use function parse_url;
+use function sprintf;
+use function strtolower;
+use function substr;
 use function unpack;
 
 use const PHP_URL_HOST;
@@ -30,9 +35,9 @@ use const PHP_URL_HOST;
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API
  * @see https://webauthn.guide/
  */
-final class CustomServer implements Server
+final readonly class CustomServer implements Server
 {
-    public function __construct(private readonly Randomizer $randomizer = new Randomizer())
+    public function __construct(private TwoFactor $twoFactor, private Randomizer $randomizer = new Randomizer())
     {
     }
 
@@ -86,6 +91,9 @@ final class CustomServer implements Server
             Assert::true($this->isCredentialIdAllowed($assertionCredential['rawId'], $allowedCredentials));
         }
 
+        $sourceCredential = $this->findOneCredentialByCredentialId($assertionCredential['rawId']);
+        Assert::notNull($sourceCredential);
+
         $authenticatorData = $this->getAuthenticatorData($assertionCredential['response']['authenticatorData']);
 
         $clientData = $this->getCollectedClientData($assertionCredential['response']['clientDataJSON']);
@@ -108,6 +116,10 @@ final class CustomServer implements Server
 
         $isUserPresent = (ord($authenticatorData['flags']) & 1) !== 0;
         Assert::true($isUserPresent);
+
+        $sourceCredential['counter'] = $authenticatorData['signCount'];
+
+        $this->saveCredentialSource($sourceCredential);
     }
 
     /** @inheritDoc */
@@ -239,7 +251,7 @@ final class CustomServer implements Server
         // Bit 6: Attested credential data included (AT).
         if ((ord($flags) & 64) !== 0) {
             /** Authenticator Attestation GUID */
-            $aaguid = $authDataStream->take(16);
+            $aaguid = $this->uuidFromBytes($authDataStream->take(16));
 
             // 16-bit unsigned big-endian integer
             $unpackedCredentialIdLength = unpack('n', $authDataStream->take(2));
@@ -481,5 +493,54 @@ final class CustomServer implements Server
         Assert::string($decoded['authData']);
 
         return $decoded;
+    }
+
+    /** @return array<array-key, mixed>|null */
+    private function findOneCredentialByCredentialId(string $publicKeyCredentialId): array|null
+    {
+        $credentials = $this->twoFactor->config['settings']['credentials'];
+        Assert::isArray($credentials);
+        $id = Base64::encode($publicKeyCredentialId);
+        if (isset($credentials[$id])) {
+            Assert::isArray($credentials[$id]);
+            Assert::keyExists($credentials[$id], 'publicKeyCredentialId');
+            Assert::keyExists($credentials[$id], 'type');
+            Assert::keyExists($credentials[$id], 'transports');
+            Assert::keyExists($credentials[$id], 'attestationType');
+            Assert::keyExists($credentials[$id], 'aaguid');
+            Assert::keyExists($credentials[$id], 'credentialPublicKey');
+            Assert::keyExists($credentials[$id], 'userHandle');
+            Assert::keyExists($credentials[$id], 'counter');
+
+            return $credentials[$id];
+        }
+
+        return null;
+    }
+
+    /** @param array<array-key, mixed> $publicKeyCredentialSource */
+    private function saveCredentialSource(array $publicKeyCredentialSource): void
+    {
+        $credentials = $this->twoFactor->config['settings']['credentials'];
+        Assert::isArray($credentials);
+        Assert::keyExists($publicKeyCredentialSource, 'publicKeyCredentialId');
+        Assert::stringNotEmpty($publicKeyCredentialSource['publicKeyCredentialId']);
+        $credentialId = Base64::decodeUrlSafeNoPadding($publicKeyCredentialSource['publicKeyCredentialId']);
+        $credentials[Base64::encode($credentialId)] = $publicKeyCredentialSource;
+        $this->twoFactor->config['settings']['credentials'] = $credentials;
+    }
+
+    private function uuidFromBytes(string $bytes): string
+    {
+        $uuid = bin2hex($bytes);
+
+        return strtolower(sprintf(
+            '%s-%s-%s-%s-%s',
+            substr($uuid, 0, 8),
+            substr($uuid, 8, 4),
+            substr($uuid, 12, 4),
+            substr($uuid, 16, 4),
+            substr($uuid, 20, 12),
+        ));
     }
 }

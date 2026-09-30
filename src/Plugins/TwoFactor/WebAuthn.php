@@ -59,7 +59,7 @@ class WebAuthn extends TwoFactorPlugin
     {
         return class_exists(PublicKeyCredential::class)
             ? new WebauthnLibServer($this->twofactor, $this->randomizer)
-            : new CustomServer($this->randomizer);
+            : new CustomServer($this->twofactor, $this->randomizer);
     }
 
     public function setServer(Server $server): void
