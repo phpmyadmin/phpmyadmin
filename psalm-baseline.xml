@@ -15981,11 +15981,15 @@
     </RedundantCondition>
   </file>
   <file src="test/classes/Server/PrivilegesTest.php">
-    <MixedArgument occurrences="5">
+    <MissingClosureParamType occurrences="1">
+      <code>$string</code>
+    </MissingClosureParamType>
+    <MixedArgument occurrences="6">
       <code>$export</code>
       <code>$extra_data['new_privileges']</code>
       <code>$extra_data['new_user_string']</code>
       <code>$extra_data['new_user_string']</code>
+      <code>$string</code>
       <code>$title</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">

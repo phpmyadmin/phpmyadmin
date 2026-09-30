@@ -47142,8 +47142,13 @@ parameters:
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
+			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
+			count: 1
+			path: test/classes/Server/PrivilegesTest.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\Server\\\\Privileges\\:\\:\\$dbi \\(PhpMyAdmin\\\\DatabaseInterface\\) does not accept mixed\\.$#"
-			count: 10
+			count: 11
 			path: test/classes/Server/PrivilegesTest.php
 
 		-
