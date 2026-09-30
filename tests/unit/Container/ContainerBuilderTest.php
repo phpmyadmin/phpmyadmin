@@ -13,6 +13,7 @@ use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use Psr\Container\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder as SymfonyContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurator;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
@@ -25,6 +26,15 @@ use function array_merge;
 #[CoversClass(ContainerBuilder::class)]
 final class ContainerBuilderTest extends AbstractTestCase
 {
+    private static ContainerInterface $container;
+
+    public static function setUpBeforeClass(): void
+    {
+        parent::setUpBeforeClass();
+
+        self::$container = ContainerBuilder::getContainer();
+    }
+
     public function testGetContainer(): void
     {
         ContainerBuilder::$container = null;
@@ -41,8 +51,7 @@ final class ContainerBuilderTest extends AbstractTestCase
     {
         Current::$lang = 'en';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $container = ContainerBuilder::getContainer();
-        self::assertInstanceOf($service, $container->get($service));
+        self::assertInstanceOf($service, self::$container->get($service));
         ContainerBuilder::$container = null;
     }
 
