@@ -500,23 +500,11 @@ class Relation
         return '';
     }
 
-    /**
-     * Gets the comments for all columns of a table or the db itself
-     *
-     * @param string $db    the name of the db to check for
-     * @param string $table the name of the table to check for
-     *
-     * @return string[]    [column_name] = comment
-     */
-    public function getComments(string $db, string $table = ''): array
+    /** @return string[]    [column_name] = comment */
+    public function getComments(string $db, string $table): array
     {
-        if ($table === '') {
-            return [$this->getDbComment($db)];
-        }
-
         $comments = [];
 
-        // MySQL native column comments
         $columns = $this->dbi->getColumns($db, $table);
         foreach ($columns as $column) {
             if ($column->comment === '') {

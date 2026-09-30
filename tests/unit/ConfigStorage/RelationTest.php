@@ -147,12 +147,6 @@ class RelationTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $db = 'information_schema';
-        self::assertSame(
-            [''],
-            $relation->getComments($db),
-        );
-
-        $db = 'information_schema';
         $table = 'TABLES';
         self::assertSame(
             ['field1' => 'Comment1', 'field2' => 'Comment1'],

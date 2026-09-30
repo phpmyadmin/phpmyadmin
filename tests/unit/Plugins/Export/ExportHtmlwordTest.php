@@ -24,7 +24,6 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Triggers\Event;
 use PhpMyAdmin\Triggers\Timing;
@@ -324,8 +323,6 @@ final class ExportHtmlwordTest extends AbstractTestCase
 
         // case 1
 
-        $resultStub = $this->createMock(DummyResult::class);
-
         $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
@@ -337,26 +334,14 @@ final class ExportHtmlwordTest extends AbstractTestCase
 
         $dbi->expects(self::once())
             ->method('getTableIndexes')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn($keys);
 
         $column = new Column('fieldname', '', null, false, '', null, '', '', '');
-        $dbi->expects(self::once())
+        $dbi->expects(self::exactly(2))
             ->method('getColumns')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn([$column]);
-
-        $dbi->expects(self::once())
-            ->method('tryQueryAsControlUser')
-            ->willReturn($resultStub);
-
-        $resultStub->expects(self::once())
-            ->method('numRows')
-            ->willReturn(1);
-
-        $resultStub->expects(self::once())
-            ->method('fetchAssoc')
-            ->willReturn(['comment' => 'testComment']);
 
         $exportHtmlword = $this->getExportHtmlword($dbi);
 
@@ -375,7 +360,7 @@ final class ExportHtmlwordTest extends AbstractTestCase
 
         $exportHtmlword->setExportOptions($request, new SettingsExport());
 
-        $result = $exportHtmlword->getTableDef('database', '');
+        $result = $exportHtmlword->getTableDef('database', 't1');
 
         self::assertSame(
             '<table width="100%" cellspacing="1">' .
@@ -393,8 +378,6 @@ final class ExportHtmlwordTest extends AbstractTestCase
 
         // case 2
 
-        $resultStub = $this->createMock(DummyResult::class);
-
         $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
@@ -406,27 +389,15 @@ final class ExportHtmlwordTest extends AbstractTestCase
 
         $dbi->expects(self::once())
             ->method('getTableIndexes')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn($keys);
 
         $column = new Column('fieldname', '', null, false, '', null, '', '', '');
 
-        $dbi->expects(self::once())
+        $dbi->expects(self::exactly(2))
             ->method('getColumns')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn([$column]);
-
-        $dbi->expects(self::once())
-            ->method('tryQueryAsControlUser')
-            ->willReturn($resultStub);
-
-        $resultStub->expects(self::once())
-            ->method('numRows')
-            ->willReturn(1);
-
-        $resultStub->expects(self::once())
-            ->method('fetchAssoc')
-            ->willReturn(['comment' => 'testComment']);
 
         $exportHtmlword = $this->getExportHtmlword($dbi);
         $exportHtmlword->setExportOptions($request, new SettingsExport());
@@ -441,7 +412,7 @@ final class ExportHtmlwordTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $exportHtmlword->getTableDef('database', '');
+        $result = $exportHtmlword->getTableDef('database', 't1');
 
         self::assertStringContainsString('<td class="print">ftable (ffield)</td>', $result);
 
@@ -453,14 +424,14 @@ final class ExportHtmlwordTest extends AbstractTestCase
 
         $dbi->expects(self::once())
             ->method('getTableIndexes')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn($keys);
 
         $column = new Column('fieldname', '', null, false, '', null, '', '', '');
 
         $dbi->expects(self::once())
             ->method('getColumns')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn([$column]);
 
         $dbi->expects(self::never())
@@ -479,7 +450,7 @@ final class ExportHtmlwordTest extends AbstractTestCase
         $exportHtmlword = $this->getExportHtmlword($dbi);
         $exportHtmlword->setExportOptions($request, new SettingsExport());
 
-        $result = $exportHtmlword->getTableDef('database', '');
+        $result = $exportHtmlword->getTableDef('database', 't1');
 
         self::assertSame(
             '<table width="100%" cellspacing="1">' .

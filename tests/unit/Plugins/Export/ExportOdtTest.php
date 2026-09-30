@@ -503,8 +503,6 @@ final class ExportOdtTest extends AbstractTestCase
 
     public function testGetTableDef(): void
     {
-        $resultStub = $this->createMock(DummyResult::class);
-
         $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
@@ -515,22 +513,10 @@ final class ExportOdtTest extends AbstractTestCase
             );
 
         $column = new Column('fieldname', '', null, false, '', null, '', '', '');
-        $dbi->expects(self::once())
+        $dbi->expects(self::exactly(2))
             ->method('getColumns')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn([$column]);
-
-        $dbi->expects(self::once())
-            ->method('tryQueryAsControlUser')
-            ->willReturn($resultStub);
-
-        $resultStub->expects(self::once())
-            ->method('numRows')
-            ->willReturn(1);
-
-        $resultStub->expects(self::once())
-            ->method('fetchAssoc')
-            ->willReturn(['comment' => 'testComment']);
 
         $exportOdt = $this->getExportOdt($dbi);
 
@@ -549,10 +535,10 @@ final class ExportOdtTest extends AbstractTestCase
 
         $exportOdt->setExportOptions($request, new SettingsExport());
 
-        self::assertTrue($exportOdt->getTableDef('database', ''));
+        self::assertTrue($exportOdt->getTableDef('database', 't1'));
 
         self::assertSame(
-            '<table:table table:name="_structure">' .
+            '<table:table table:name="t1_structure">' .
             '<table:table-column table:number-columns-repeated="6"/><table:table-row>' .
             '<table:table-cell office:value-type="string"><text:p>Column</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p>Type</text:p></table:table-cell>' .
@@ -573,8 +559,6 @@ final class ExportOdtTest extends AbstractTestCase
 
         // case 2
 
-        $resultStub = $this->createMock(DummyResult::class);
-
         $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
@@ -585,22 +569,10 @@ final class ExportOdtTest extends AbstractTestCase
             );
 
         $column = new Column('fieldname', '', null, false, '', null, '', '', '');
-        $dbi->expects(self::once())
+        $dbi->expects(self::exactly(2))
             ->method('getColumns')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn([$column]);
-
-        $dbi->expects(self::once())
-            ->method('tryQueryAsControlUser')
-            ->willReturn($resultStub);
-
-        $resultStub->expects(self::once())
-            ->method('numRows')
-            ->willReturn(1);
-
-        $resultStub->expects(self::once())
-            ->method('fetchAssoc')
-            ->willReturn(['comment' => 'testComment']);
 
         $exportOdt = $this->getExportOdt($dbi);
         $exportOdt->setExportOptions($request, new SettingsExport());
@@ -616,10 +588,10 @@ final class ExportOdtTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        self::assertTrue($exportOdt->getTableDef('database', ''));
+        self::assertTrue($exportOdt->getTableDef('database', 't1'));
 
         self::assertSame(
-            '<table:table table:name="_structure">' .
+            '<table:table table:name="t1_structure">' .
             '<table:table-column table:number-columns-repeated="7"/><table:table-row>' .
             '<table:table-cell office:value-type="string"><text:p>Column</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p>Type</text:p></table:table-cell>' .
