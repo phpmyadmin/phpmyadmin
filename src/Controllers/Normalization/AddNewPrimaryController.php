@@ -38,13 +38,7 @@ final readonly class AddNewPrimaryController implements InvocableController
         $tableName = $table?->getName() ?? '';
 
         $columnMeta = ['Field' => $tableName . '_id', 'Extra' => 'auto_increment'];
-        $html = $this->normalization->getHtmlForCreateNewColumn(
-            $userPrivileges,
-            $numFields,
-            $dbName,
-            $tableName,
-            $columnMeta,
-        );
+        $html = $this->normalization->getHtmlForCreateNewColumn($userPrivileges, $numFields, $columnMeta);
         $html .= Url::getHiddenInputs($dbName, $tableName);
         $this->response->addHTML($html);
 
