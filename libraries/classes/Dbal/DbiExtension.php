@@ -132,6 +132,17 @@ interface DbiExtension
     public function escapeString($link, $string);
 
     /**
+     * Returns properly quoted string for use in SQL statements.
+     *
+     * @param mixed $link
+     *
+     * @return non-empty-string
+     *
+     * @psalm-taint-escape sql
+     */
+    public function quoteString($link, string $string): string;
+
+    /**
      * Prepare an SQL statement for execution.
      *
      * @param mixed  $link  database link

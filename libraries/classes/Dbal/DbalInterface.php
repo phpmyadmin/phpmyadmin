@@ -636,6 +636,17 @@ interface DbalInterface
     public function escapeString(string $str, $link = DatabaseInterface::CONNECT_USER);
 
     /**
+     * Returns properly quoted string for use in SQL statements.
+     *
+     * @param mixed $link
+     *
+     * @return non-empty-string
+     *
+     * @psalm-taint-escape sql
+     */
+    public function quoteString(string $string, $link = DatabaseInterface::CONNECT_USER): string;
+
+    /**
      * returns properly escaped string for use in MySQL LIKE clauses
      *
      * @param string $str  string to be escaped

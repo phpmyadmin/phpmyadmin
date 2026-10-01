@@ -5744,7 +5744,7 @@
       <code>$trigger['EVENT_OBJECT_TABLE']</code>
       <code>$trigger['TRIGGER_NAME']</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="10">
+    <MixedArrayOffset occurrences="11">
       <code>$databases[$database_name]</code>
       <code>$result_target[$row[$key_index]]</code>
       <code>$result_target[$row[$key_index]]</code>
@@ -5753,6 +5753,7 @@
       <code>$row[$key_index]</code>
       <code>$row[$key_index]</code>
       <code>$row[$key_index]</code>
+      <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
     </MixedArrayOffset>
@@ -5880,9 +5881,15 @@
       <code>$host</code>
       <code>$server['host']</code>
     </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>non-empty-string</code>
+    </MixedInferredReturnType>
     <MixedOperand occurrences="1">
       <code>$server['host']</code>
     </MixedOperand>
+    <MixedReturnStatement occurrences="1">
+      <code>$mysqli-&gt;quote_string($string)</code>
+    </MixedReturnStatement>
     <MoreSpecificImplementedParamType occurrences="12">
       <code>$link</code>
       <code>$link</code>

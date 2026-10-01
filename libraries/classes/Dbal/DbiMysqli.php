@@ -14,6 +14,7 @@ use PhpMyAdmin\Query\Utilities;
 
 use function __;
 use function defined;
+use function method_exists;
 use function mysqli_connect_errno;
 use function mysqli_connect_error;
 use function mysqli_get_client_info;
@@ -349,6 +350,26 @@ class DbiMysqli implements DbiExtension
     public function escapeString($link, $string)
     {
         return $link->real_escape_string($string);
+    }
+
+    /**
+     * Returns properly quoted string for use in SQL statements.
+     *
+     * @param mixed $link
+     *
+     * @return non-empty-string
+     *
+     * @psalm-taint-escape sql
+     */
+    public function quoteString($link, string $string): string
+    {
+        /** @var mysqli $mysqli */
+        $mysqli = $link;
+        if (method_exists($mysqli, 'quote_string')) {
+            return $mysqli->quote_string($string);
+        }
+
+        return "'" . $mysqli->real_escape_string($string) . "'";
     }
 
     /**
