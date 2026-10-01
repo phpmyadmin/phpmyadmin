@@ -1254,6 +1254,29 @@ class PrivilegesTest extends AbstractTestCase
         self::assertSame('pma_usergroup', $serverPrivileges->getUserGroupForUser('pma_username'));
     }
 
+    public function testGetUserGroupForUserEscapesTheUsername(): void
+    {
+        $username = 'pma\' UNION SELECT \'injected';
+
+        $relationParameters = RelationParameters::fromArray([
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::USERS => 'users',
+            RelationParameters::USER_GROUPS => 'usergroups',
+            RelationParameters::MENUS_WORK => true,
+        ]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
+
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addResult(
+            'SELECT `usergroup` FROM `pmadb`.`users` WHERE `username` = \'pma\\\' UNION SELECT \\\'injected\' LIMIT 1',
+            [['pma_usergroup']],
+        );
+
+        $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
+
+        self::assertSame('pma_usergroup', $serverPrivileges->getUserGroupForUser($username));
+    }
+
     public function testGetUsersOverview(): void
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
