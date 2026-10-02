@@ -4,51 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use function define;
-use function defined;
 use function in_array;
-
-use const MYSQLI_BLOB_FLAG;
-use const MYSQLI_ENUM_FLAG;
-use const MYSQLI_MULTIPLE_KEY_FLAG;
-use const MYSQLI_NOT_NULL_FLAG;
-use const MYSQLI_PRI_KEY_FLAG;
-use const MYSQLI_SET_FLAG;
-use const MYSQLI_TYPE_BIT;
-use const MYSQLI_TYPE_BLOB;
-use const MYSQLI_TYPE_DATE;
-use const MYSQLI_TYPE_DATETIME;
-use const MYSQLI_TYPE_DECIMAL;
-use const MYSQLI_TYPE_DOUBLE;
-use const MYSQLI_TYPE_ENUM;
-use const MYSQLI_TYPE_FLOAT;
-use const MYSQLI_TYPE_GEOMETRY;
-use const MYSQLI_TYPE_INT24;
-use const MYSQLI_TYPE_JSON;
-use const MYSQLI_TYPE_LONG;
-use const MYSQLI_TYPE_LONG_BLOB;
-use const MYSQLI_TYPE_LONGLONG;
-use const MYSQLI_TYPE_MEDIUM_BLOB;
-use const MYSQLI_TYPE_NEWDATE;
-use const MYSQLI_TYPE_NEWDECIMAL;
-use const MYSQLI_TYPE_NULL;
-use const MYSQLI_TYPE_SET;
-use const MYSQLI_TYPE_SHORT;
-use const MYSQLI_TYPE_STRING;
-use const MYSQLI_TYPE_TIME;
-use const MYSQLI_TYPE_TIMESTAMP;
-use const MYSQLI_TYPE_TINY;
-use const MYSQLI_TYPE_TINY_BLOB;
-use const MYSQLI_TYPE_VAR_STRING;
-use const MYSQLI_TYPE_YEAR;
-use const MYSQLI_UNIQUE_KEY_FLAG;
-use const MYSQLI_UNSIGNED_FLAG;
-use const MYSQLI_ZEROFILL_FLAG;
-
-// Issue #16043 - client API mysqlnd seem not to have MYSQLI_TYPE_JSON defined
-if (! defined('MYSQLI_TYPE_JSON')) {
-    define('MYSQLI_TYPE_JSON', 245);
-}
 
 /**
  * Handles fields Metadata
@@ -57,6 +13,55 @@ if (! defined('MYSQLI_TYPE_JSON')) {
  */
 final class FieldMetadata
 {
+    /**
+     * The MySQL protocol field flags, matching the MYSQLI_*_FLAG constants.
+     * Declared here so that the metadata can be handled without the mysqli extension.
+     *
+     * @see https://dev.mysql.com/doc/dev/mysql-server/latest/group__group__cs__column__definition__flags.html
+     */
+    public const NOT_NULL_FLAG = 1;
+    public const PRI_KEY_FLAG = 2;
+    public const UNIQUE_KEY_FLAG = 4;
+    public const MULTIPLE_KEY_FLAG = 8;
+    public const BLOB_FLAG = 16;
+    public const UNSIGNED_FLAG = 32;
+    public const ZEROFILL_FLAG = 64;
+    public const ENUM_FLAG = 256;
+    public const SET_FLAG = 2048;
+
+    /**
+     * The MySQL protocol field types, matching the MYSQLI_TYPE_* constants.
+     *
+     * @see https://dev.mysql.com/doc/dev/mysql-server/latest/field__types_8h.html
+     */
+    public const MYSQL_TYPE_DECIMAL = 0;
+    public const MYSQL_TYPE_TINY = 1;
+    public const MYSQL_TYPE_SHORT = 2;
+    public const MYSQL_TYPE_LONG = 3;
+    public const MYSQL_TYPE_FLOAT = 4;
+    public const MYSQL_TYPE_DOUBLE = 5;
+    public const MYSQL_TYPE_NULL = 6;
+    public const MYSQL_TYPE_TIMESTAMP = 7;
+    public const MYSQL_TYPE_LONGLONG = 8;
+    public const MYSQL_TYPE_INT24 = 9;
+    public const MYSQL_TYPE_DATE = 10;
+    public const MYSQL_TYPE_TIME = 11;
+    public const MYSQL_TYPE_DATETIME = 12;
+    public const MYSQL_TYPE_YEAR = 13;
+    public const MYSQL_TYPE_NEWDATE = 14;
+    public const MYSQL_TYPE_BIT = 16;
+    public const MYSQL_TYPE_JSON = 245;
+    public const MYSQL_TYPE_NEWDECIMAL = 246;
+    public const MYSQL_TYPE_ENUM = 247;
+    public const MYSQL_TYPE_SET = 248;
+    public const MYSQL_TYPE_TINY_BLOB = 249;
+    public const MYSQL_TYPE_MEDIUM_BLOB = 250;
+    public const MYSQL_TYPE_LONG_BLOB = 251;
+    public const MYSQL_TYPE_BLOB = 252;
+    public const MYSQL_TYPE_VAR_STRING = 253;
+    public const MYSQL_TYPE_STRING = 254;
+    public const MYSQL_TYPE_GEOMETRY = 255;
+
     public const TYPE_GEOMETRY = 1;
     public const TYPE_BIT = 2;
     public const TYPE_JSON = 3;
@@ -185,15 +190,15 @@ final class FieldMetadata
         $this->mappedType = $this->getMappedInternalType($type);
 
         $flags = $field->flags;
-        $this->isMultipleKey = (bool) ($flags & MYSQLI_MULTIPLE_KEY_FLAG);
-        $this->isPrimaryKey = (bool) ($flags & MYSQLI_PRI_KEY_FLAG);
-        $this->isUniqueKey = (bool) ($flags & MYSQLI_UNIQUE_KEY_FLAG);
-        $this->isNotNull = (bool) ($flags & MYSQLI_NOT_NULL_FLAG);
-        $this->isUnsigned = (bool) ($flags & MYSQLI_UNSIGNED_FLAG);
-        $this->isZerofill = (bool) ($flags & MYSQLI_ZEROFILL_FLAG);
-        $this->isBlob = (bool) ($flags & MYSQLI_BLOB_FLAG);
-        $this->isEnum = (bool) ($flags & MYSQLI_ENUM_FLAG);
-        $this->isSet = (bool) ($flags & MYSQLI_SET_FLAG);
+        $this->isMultipleKey = (bool) ($flags & self::MULTIPLE_KEY_FLAG);
+        $this->isPrimaryKey = (bool) ($flags & self::PRI_KEY_FLAG);
+        $this->isUniqueKey = (bool) ($flags & self::UNIQUE_KEY_FLAG);
+        $this->isNotNull = (bool) ($flags & self::NOT_NULL_FLAG);
+        $this->isUnsigned = (bool) ($flags & self::UNSIGNED_FLAG);
+        $this->isZerofill = (bool) ($flags & self::ZEROFILL_FLAG);
+        $this->isBlob = (bool) ($flags & self::BLOB_FLAG);
+        $this->isEnum = (bool) ($flags & self::ENUM_FLAG);
+        $this->isSet = (bool) ($flags & self::SET_FLAG);
 
         // as flags 32768 can be NUM_FLAG or GROUP_FLAG
         // reference: https://www.php.net/manual/en/mysqli-result.fetch-fields.php
@@ -218,12 +223,12 @@ final class FieldMetadata
 
         // 63 is the number for the MySQL charset "binary"
         $this->isBinary = in_array($type, [
-            MYSQLI_TYPE_TINY_BLOB,
-            MYSQLI_TYPE_BLOB,
-            MYSQLI_TYPE_MEDIUM_BLOB,
-            MYSQLI_TYPE_LONG_BLOB,
-            MYSQLI_TYPE_VAR_STRING,
-            MYSQLI_TYPE_STRING,
+            self::MYSQL_TYPE_TINY_BLOB,
+            self::MYSQL_TYPE_BLOB,
+            self::MYSQL_TYPE_MEDIUM_BLOB,
+            self::MYSQL_TYPE_LONG_BLOB,
+            self::MYSQL_TYPE_VAR_STRING,
+            self::MYSQL_TYPE_STRING,
         ], true)
             && $this->charsetnr === 63;
     }
@@ -236,38 +241,38 @@ final class FieldMetadata
     private function getMappedInternalType(int $type): int|null
     {
         return match ($type) {
-            MYSQLI_TYPE_DECIMAL => self::TYPE_REAL,
-            MYSQLI_TYPE_NEWDECIMAL => self::TYPE_REAL,
-            MYSQLI_TYPE_TINY => self::TYPE_INT,
-            MYSQLI_TYPE_SHORT => self::TYPE_INT,
-            MYSQLI_TYPE_LONG => self::TYPE_INT,
-            MYSQLI_TYPE_FLOAT => self::TYPE_REAL,
-            MYSQLI_TYPE_DOUBLE => self::TYPE_REAL,
-            MYSQLI_TYPE_NULL => self::TYPE_NULL,
-            MYSQLI_TYPE_TIMESTAMP => self::TYPE_TIMESTAMP,
-            MYSQLI_TYPE_LONGLONG => self::TYPE_INT,
-            MYSQLI_TYPE_INT24 => self::TYPE_INT,
-            MYSQLI_TYPE_DATE => self::TYPE_DATE,
-            MYSQLI_TYPE_TIME => self::TYPE_TIME,
-            MYSQLI_TYPE_DATETIME => self::TYPE_DATETIME,
-            MYSQLI_TYPE_YEAR => self::TYPE_YEAR,
-            MYSQLI_TYPE_NEWDATE => self::TYPE_DATE,
-            MYSQLI_TYPE_ENUM => self::TYPE_UNKNOWN,
-            MYSQLI_TYPE_SET => self::TYPE_UNKNOWN,
-            MYSQLI_TYPE_TINY_BLOB => self::TYPE_BLOB,
-            MYSQLI_TYPE_MEDIUM_BLOB => self::TYPE_BLOB,
-            MYSQLI_TYPE_LONG_BLOB => self::TYPE_BLOB,
-            MYSQLI_TYPE_BLOB => self::TYPE_BLOB,
-            MYSQLI_TYPE_VAR_STRING => self::TYPE_STRING,
-            MYSQLI_TYPE_STRING => self::TYPE_STRING,
-            // MySQL returns MYSQLI_TYPE_STRING for CHAR
-            // and MYSQLI_TYPE_CHAR === MYSQLI_TYPE_TINY
+            self::MYSQL_TYPE_DECIMAL => self::TYPE_REAL,
+            self::MYSQL_TYPE_NEWDECIMAL => self::TYPE_REAL,
+            self::MYSQL_TYPE_TINY => self::TYPE_INT,
+            self::MYSQL_TYPE_SHORT => self::TYPE_INT,
+            self::MYSQL_TYPE_LONG => self::TYPE_INT,
+            self::MYSQL_TYPE_FLOAT => self::TYPE_REAL,
+            self::MYSQL_TYPE_DOUBLE => self::TYPE_REAL,
+            self::MYSQL_TYPE_NULL => self::TYPE_NULL,
+            self::MYSQL_TYPE_TIMESTAMP => self::TYPE_TIMESTAMP,
+            self::MYSQL_TYPE_LONGLONG => self::TYPE_INT,
+            self::MYSQL_TYPE_INT24 => self::TYPE_INT,
+            self::MYSQL_TYPE_DATE => self::TYPE_DATE,
+            self::MYSQL_TYPE_TIME => self::TYPE_TIME,
+            self::MYSQL_TYPE_DATETIME => self::TYPE_DATETIME,
+            self::MYSQL_TYPE_YEAR => self::TYPE_YEAR,
+            self::MYSQL_TYPE_NEWDATE => self::TYPE_DATE,
+            self::MYSQL_TYPE_ENUM => self::TYPE_UNKNOWN,
+            self::MYSQL_TYPE_SET => self::TYPE_UNKNOWN,
+            self::MYSQL_TYPE_TINY_BLOB => self::TYPE_BLOB,
+            self::MYSQL_TYPE_MEDIUM_BLOB => self::TYPE_BLOB,
+            self::MYSQL_TYPE_LONG_BLOB => self::TYPE_BLOB,
+            self::MYSQL_TYPE_BLOB => self::TYPE_BLOB,
+            self::MYSQL_TYPE_VAR_STRING => self::TYPE_STRING,
+            self::MYSQL_TYPE_STRING => self::TYPE_STRING,
+            // MySQL returns MYSQL_TYPE_STRING for CHAR
+            // and MYSQL_TYPE_CHAR === MYSQL_TYPE_TINY
             // so this would override TINYINT and mark all TINYINT as string
             // see https://github.com/phpmyadmin/phpmyadmin/issues/8569
-            //$typeAr[MYSQLI_TYPE_CHAR]        = self::TYPE_STRING;
-            MYSQLI_TYPE_GEOMETRY => self::TYPE_GEOMETRY,
-            MYSQLI_TYPE_BIT => self::TYPE_BIT,
-            MYSQLI_TYPE_JSON => self::TYPE_JSON,
+            //$typeAr[self::MYSQL_TYPE_CHAR]   = self::TYPE_STRING;
+            self::MYSQL_TYPE_GEOMETRY => self::TYPE_GEOMETRY,
+            self::MYSQL_TYPE_BIT => self::TYPE_BIT,
+            self::MYSQL_TYPE_JSON => self::TYPE_JSON,
             default => null,
         };
     }

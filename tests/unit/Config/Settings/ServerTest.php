@@ -165,6 +165,25 @@ class ServerTest extends TestCase
         self::assertSame($expected, $serverArray['compress']);
     }
 
+    #[DataProvider('valuesForDriverProvider')]
+    public function testDriver(mixed $actual, string $expected): void
+    {
+        $server = new Server(['driver' => $actual]);
+        $serverArray = $server->asArray();
+        self::assertSame($expected, $server->driver);
+        self::assertSame($expected, $serverArray['driver']);
+    }
+
+    /** @return iterable<string, array{mixed, string}> */
+    public static function valuesForDriverProvider(): iterable
+    {
+        yield 'null value' => [null, 'mysqli'];
+        yield 'valid value' => ['mysqli', 'mysqli'];
+        yield 'valid value 2' => ['pdo_mysql', 'pdo_mysql'];
+        yield 'old value' => ['pdo', 'mysqli'];
+        yield 'invalid value' => ['invalid', 'mysqli'];
+    }
+
     #[DataProvider('valuesForControlHostProvider')]
     public function testControlHost(mixed $actual, string $expected): void
     {
