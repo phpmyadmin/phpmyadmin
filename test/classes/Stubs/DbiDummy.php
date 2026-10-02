@@ -483,6 +483,20 @@ class DbiDummy implements DbiExtension
         return addslashes($string);
     }
 
+    /**
+     * Returns properly quoted string for use in SQL statements.
+     *
+     * @param mixed $link
+     *
+     * @return non-empty-string
+     *
+     * @psalm-taint-escape sql
+     */
+    public function quoteString($link, string $string): string
+    {
+        return "'" . addslashes($string) . "'";
+    }
+
     public function addSelectDb(string $databaseName): void
     {
         $this->fifoDatabasesToSelect[] = $databaseName;

@@ -15354,6 +15354,11 @@ parameters:
 			path: libraries/classes/Dbal/DbiMysqli.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\Dbal\\\\DbiMysqli\\:\\:quoteString\\(\\) should return non\\-empty\\-string but returns mixed\\.$#"
+			count: 1
+			path: libraries/classes/Dbal/DbiMysqli.php
+
+		-
 			message: "#^Only booleans are allowed in an if condition, array given\\.$#"
 			count: 1
 			path: libraries/classes/Dbal/DbiMysqli.php

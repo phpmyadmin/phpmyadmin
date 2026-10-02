@@ -2244,6 +2244,20 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
+     * Returns properly quoted string for use in SQL statements.
+     *
+     * @param mixed $link
+     *
+     * @return non-empty-string
+     *
+     * @psalm-taint-escape sql
+     */
+    public function quoteString(string $string, $link = self::CONNECT_USER): string
+    {
+        return $this->extension->quoteString($this->links[$link], $string);
+    }
+
+    /**
      * returns properly escaped string for use in MySQL LIKE clauses
      *
      * @param string $str  string to be escaped
