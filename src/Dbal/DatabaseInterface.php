@@ -1774,17 +1774,15 @@ class DatabaseInterface
     }
 
     /**
-     * Returns properly quoted string for use in MySQL queries.
+     * Returns properly quoted string for use in SQL statements.
      *
-     * @param string $str string to be quoted
-     *
-     * @psalm-return non-empty-string
+     * @return non-empty-string
      *
      * @psalm-taint-escape sql
      */
-    public function quoteString(string $str, ConnectionType $connectionType = ConnectionType::User): string
+    public function quoteString(string $string, ConnectionType $connectionType = ConnectionType::User): string
     {
-        return "'" . $this->extension->escapeString($this->connections[$connectionType->value], $str) . "'";
+        return $this->extension->quoteString($this->connections[$connectionType->value], $string);
     }
 
     /**

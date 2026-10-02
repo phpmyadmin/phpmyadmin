@@ -273,15 +273,15 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * returns properly escaped string for use in MySQL queries
+     * Returns properly quoted string for use in SQL statements.
      *
-     * @param string $string string to be escaped
+     * @return non-empty-string
      *
-     * @return string a MySQL escaped string
+     * @psalm-taint-escape sql
      */
-    public function escapeString(Connection $connection, string $string): string
+    public function quoteString(Connection $connection, string $string): string
     {
-        return addslashes($string);
+        return "'" . addslashes($string) . "'";
     }
 
     public function addSelectDb(string $databaseName): void

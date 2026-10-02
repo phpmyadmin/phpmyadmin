@@ -16,6 +16,7 @@ use PhpMyAdmin\Query\Utilities;
 
 use function __;
 use function defined;
+use function method_exists;
 use function mysqli_connect_errno;
 use function mysqli_get_client_info;
 use function mysqli_report;
@@ -273,18 +274,21 @@ class DbiMysqli implements DbiExtension
     }
 
     /**
-     * returns properly escaped string for use in MySQL queries
+     * Returns properly quoted string for use in SQL statements.
      *
-     * @param string $string string to be escaped
+     * @return non-empty-string
      *
-     * @return string a MySQL escaped string
+     * @psalm-taint-escape sql
      */
-    public function escapeString(Connection $connection, string $string): string
+    public function quoteString(Connection $connection, string $string): string
     {
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
+        if (method_exists($mysqli, 'quote_string')) {
+            return $mysqli->quote_string($string);
+        }
 
-        return $mysqli->real_escape_string($string);
+        return "'" . $mysqli->real_escape_string($string) . "'";
     }
 
     /**

@@ -871,7 +871,7 @@ parameters:
 			path: src/Config/UserPreferences.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|false given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|false given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Config/UserPreferences.php
@@ -1657,13 +1657,13 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, int\|string\|null given\.$#'
+			message: '#^Parameter \#1 \$string of function md5 expects string, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^Parameter \#1 \$string of function md5 expects string, int\|string\|null given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/StructureController.php
@@ -2683,7 +2683,7 @@ parameters:
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Table/FindReplaceController.php
@@ -3694,7 +3694,7 @@ parameters:
 			path: src/Controllers/View/CreateController.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/View/CreateController.php
@@ -3985,15 +3985,15 @@ parameters:
 			path: src/CreateAddField.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/CreateAddField.php
-
-		-
 			message: '#^Parameter \#1 \$string of function rtrim expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
+			path: src/CreateAddField.php
+
+		-
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 3
 			path: src/CreateAddField.php
 
 		-
@@ -4273,19 +4273,19 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 4
-			path: src/Database/Designer/Common.php
-
-		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|false given\.$#'
+			message: '#^Parameter \#1 \$string of function rawurlencode expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Database/Designer/Common.php
 
 		-
-			message: '#^Parameter \#1 \$string of function rawurlencode expects string, string\|null given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 4
+			path: src/Database/Designer/Common.php
+
+		-
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|false given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Database/Designer/Common.php
@@ -4351,15 +4351,15 @@ parameters:
 			path: src/Database/Events.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 4
-			path: src/Database/Events.php
-
-		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
+			path: src/Database/Events.php
+
+		-
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 4
 			path: src/Database/Events.php
 
 		-
@@ -4477,12 +4477,6 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 6
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4498,6 +4492,12 @@ parameters:
 			message: '#^Parameter \#1 \$string of function mb_strtoupper expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
+			path: src/Database/Routines.php
+
+		-
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 6
 			path: src/Database/Routines.php
 
 		-
@@ -4722,6 +4722,12 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
+			count: 1
+			path: src/Dbal/DbiMysqli.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Dbal\\DbiMysqli\:\:quoteString\(\) should return non\-empty\-string but returns mixed\.$#'
+			identifier: return.type
 			count: 1
 			path: src/Dbal/DbiMysqli.php
 
@@ -5641,7 +5647,7 @@ parameters:
 			path: src/Favorites/RecentFavoriteTables.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|false given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|false given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Favorites/RecentFavoriteTables.php
@@ -7963,12 +7969,6 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Operations.php
-
-		-
 			message: '#^Parameter \#1 \$string of function mb_strtolower expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -7976,6 +7976,12 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$string of function urldecode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Operations.php
+
+		-
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Operations.php
@@ -11290,7 +11296,7 @@ parameters:
 			path: src/Replication/Replication.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Replication/Replication.php
@@ -11842,21 +11848,21 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$string of function mb_substr expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Server/Privileges.php
+
+		-
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 5
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|null given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Parameter \#1 \$string of function mb_substr expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -12619,7 +12625,7 @@ parameters:
 			path: src/SystemDatabase.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|null given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 4
 			path: src/SystemDatabase.php
@@ -12790,13 +12796,13 @@ parameters:
 			path: src/Table/Search.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$string of function trim expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
 			path: src/Table/Search.php
 
 		-
-			message: '#^Parameter \#1 \$string of function trim expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
 			path: src/Table/Search.php
@@ -13054,7 +13060,7 @@ parameters:
 			path: src/Table/TableMover.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|null given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 6
 			path: src/Table/TableMover.php
@@ -13177,7 +13183,7 @@ parameters:
 			path: src/Tracking/Tracker.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Tracking/Tracker.php
@@ -13306,7 +13312,7 @@ parameters:
 			path: src/Tracking/Tracking.php
 
 		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|null given\.$#'
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Tracking/Tracking.php
@@ -15748,6 +15754,12 @@ parameters:
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 2
+			path: tests/unit/Dbal/DbiMysqliTest.php
+
+		-
+			message: '#^Trying to mock an undefined method quote_string\(\) on class mysqli\.$#'
+			identifier: phpunit.mockMethod
+			count: 1
 			path: tests/unit/Dbal/DbiMysqliTest.php
 
 		-

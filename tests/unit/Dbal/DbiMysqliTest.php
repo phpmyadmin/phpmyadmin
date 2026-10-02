@@ -12,6 +12,8 @@ use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
+use function method_exists;
+
 #[CoversClass(DbiMysqli::class)]
 #[CoversClass(Connection::class)]
 class DbiMysqliTest extends AbstractTestCase
@@ -107,18 +109,17 @@ class DbiMysqliTest extends AbstractTestCase
         self::assertInstanceOf(MysqliResult::class, $this->object->storeResult(new Connection($mysqli)));
     }
 
-    /**
-     * Test for escapeString
-     */
-    public function testEscapeString(): void
+    public function testQuoteString(): void
     {
         $string = 'test';
         $mysqli = $this->createMock(mysqli::class);
-        $mysqli->expects(self::once())
-            ->method('real_escape_string')
-            ->willReturn($string);
+        if (method_exists(mysqli::class, 'quote_string')) {
+            $mysqli->expects(self::once())->method('quote_string')->willReturn("'" . $string . "'");
+        } else {
+            $mysqli->expects(self::once())->method('real_escape_string')->willReturn($string);
+        }
 
-        self::assertSame($string, $this->object->escapeString(new Connection($mysqli), $string));
+        self::assertSame("'" . $string . "'", $this->object->quoteString(new Connection($mysqli), $string));
     }
 
     public function testGetWarningCount(): void

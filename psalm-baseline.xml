@@ -3431,6 +3431,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <MixedReturnStatement>
+      <code><![CDATA[$mysqli->quote_string($string)]]></code>
+    </MixedReturnStatement>
   </file>
   <file src="src/Dbal/MysqliResult.php">
     <InvalidReturnStatement>
