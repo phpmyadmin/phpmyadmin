@@ -97,7 +97,7 @@
 
           <label class="form-label" for="charset_of_file">{{ t('Character set of the file:') }}</label>
           {% if is_encoding_supported %}
-            <select class="form-select" id="charset_of_file" name="charset_of_file" size="1">
+            <select class="form-select search" id="charset_of_file" name="charset_of_file" size="1">
               {% for charset in encodings %}
                 <option value="{{ charset }}"{% if (import_charset is empty and charset == 'utf-8') or charset == import_charset %} selected{% endif %}>
                   {{- charset -}}
@@ -105,7 +105,7 @@
               {% endfor %}
             </select>
           {% else %}
-            <select class="form-select" lang="en" dir="ltr" name="charset_of_file" id="charset_of_file">
+            <select class="form-select search" lang="en" dir="ltr" name="charset_of_file" id="charset_of_file">
               <option value=""></option>
               {% for charset in charsets %}
                 <option value="{{ charset.getName() }}" title="{{ charset.getDescription() }}"{{ charset.getName() == 'utf8' ? ' selected' }}>

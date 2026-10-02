@@ -39,7 +39,7 @@
 
       <div class="mb-3">
         <label class="form-label" for="columnIndexSelect">{{ t('Column:') }}</label>
-        <select class="form-select" name="columnIndex" id="columnIndexSelect">
+        <select class="form-select search" name="columnIndex" id="columnIndexSelect">
           {% for i, columnName in column_names %}
             <option value="{{ i }}">
               {{- columnName -}}
