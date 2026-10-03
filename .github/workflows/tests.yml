@@ -62,19 +62,17 @@ jobs:
         run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.15 sh /app/do-tests.sh
 
   test-php:
-    name: Test on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Test on PHP ${{ matrix.php-version }}
+    runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
         php-version: ['7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
         experimental: [false]
-        os: [ubuntu-latest]
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
           - php-version: '8.6'
             experimental: true
-            os: ubuntu-latest
             composer-options: '--ignore-platform-req=php+'
             php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
@@ -84,11 +82,10 @@ jobs:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
 
-      - name: Install gettext
-        run: sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
+      - name: Install gettext and generate translation files
+        run: |
+          sudo apt-get install -y gettext
+          ./scripts/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -110,8 +107,8 @@ jobs:
         uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
-          name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
+          flags: unit-${{ matrix.php-version }}
+          name: phpunit-${{ matrix.php-version }}
 
       - name: Send coverage to Scrutinizer
         uses: sudo-bot/action-scrutinizer@latest
@@ -132,12 +129,11 @@ jobs:
           coverage-reports: build/logs/clover.xml
 
   test-php-optional-extensions:
-    name: Test on PHP (+ ext-${{ matrix.extension }}) ${{ matrix.php-version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Test on PHP ${{ matrix.php-version }} (+ ext-${{ matrix.extension }})
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         php-version: ["7.2"]
-        os: [ubuntu-latest]
         extension: ["dbase", "recode"]
     steps:
       - name: Checkout code
@@ -146,11 +142,10 @@ jobs:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
 
-      - name: Install gettext
-        run: sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
+      - name: Install gettext and generate translation files
+        run: |
+          sudo apt-get install -y gettext
+          ./scripts/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -211,11 +206,10 @@ jobs:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
 
-      - name: Install gettext
-        run: sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
+      - name: Install gettext and generate translation files
+        run: |
+          sudo apt-get install -y gettext
+          ./scripts/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -309,9 +303,45 @@ jobs:
       - name: Run PHP tests
         run: vendor/bin/phpunit --testsuite unit --no-coverage --no-logging --display-all-issues
 
+  test-php-windows:
+    name: Test on PHP 7.2 (Windows)
+    runs-on: windows-latest
+    env:
+      php-version: '7.2'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install gettext
+        run: choco install gettext -y
+
+      - name: Generate translation files
+        shell: bash
+        run: |
+          export PATH=$PATH:"/c/Program Files/gettext-iconv/bin"
+          ./scripts/generate-mo --quiet
+
+      - name: Set up PHP ${{ env.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.php-version }}
+          extensions: mbstring, iconv, mysqli, zip, gd, bz2, sodium
+          coverage: none
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v4
+
+      - name: Run PHP tests
+        run: vendor/bin/phpunit --testsuite unit --no-coverage --no-logging
+
   test-js:
-    name: Test javascript files
-    runs-on: ubuntu-latest
+    name: Test JavaScript files
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest ]
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
