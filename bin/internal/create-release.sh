@@ -686,7 +686,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la $SIGN_FILES
+ls -la "$SIGN_FILES"
 
 cd ..
 
