@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Encoding;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
@@ -108,6 +109,84 @@ class EncodingTest extends AbstractTestCase
                 'ISO-8859-1',
                 "This is the Euro symbol '€'.",
             ),
+        );
+    }
+
+    /** @return array<string, array{string, string, string, string, string}> */
+    public static function providerIconvSjisWin(): array
+    {
+        $katakana = 'テスト';
+        $katakanaBytes = "\x83\x65\x83\x58\x83\x67";
+        $windowsChars = '①髙';
+        $windowsBytes = "\x87\x40\xfb\xfc";
+
+        return [
+            'katakana with translit' => ['UTF-8', 'SJIS-win', $katakana, $katakanaBytes, '//TRANSLIT'],
+            'katakana without suffix' => ['UTF-8', 'SJIS-win', $katakana, $katakanaBytes, ''],
+            'lowercase destination' => ['UTF-8', 'sjis-win', $katakana, $katakanaBytes, '//TRANSLIT'],
+            'uppercase destination' => ['UTF-8', 'SJIS-WIN', $katakana, $katakanaBytes, '//TRANSLIT'],
+            'decode from SJIS-win' => ['SJIS-win', 'UTF-8', $katakanaBytes, $katakana, '//TRANSLIT'],
+            'decode lowercase source' => ['sjis-win', 'UTF-8', $katakanaBytes, $katakana, '//TRANSLIT'],
+            'decode uppercase source' => ['SJIS-WIN', 'UTF-8', $katakanaBytes, $katakana, '//TRANSLIT'],
+            'windows-specific characters' => ['UTF-8', 'SJIS-win', $windowsChars, $windowsBytes, '//TRANSLIT'],
+            'windows-specific without suffix' => ['UTF-8', 'SJIS-win', $windowsChars, $windowsBytes, ''],
+            'decode windows-specific characters' => ['SJIS-win', 'UTF-8', $windowsBytes, $windowsChars, '//TRANSLIT'],
+            'empty input' => ['UTF-8', 'SJIS-win', '', '', '//TRANSLIT'],
+            'ascii input' => ['UTF-8', 'SJIS-win', 'ABC123', 'ABC123', '//TRANSLIT'],
+        ];
+    }
+
+    /**
+     * This group is used on debian packaging to exclude the test
+     *
+     * @see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854821#27
+     */
+    #[Group('extension-iconv')]
+    #[RequiresPhpExtension('iconv')]
+    #[DataProvider('providerIconvSjisWin')]
+    public function testIconvSjisWin(
+        string $srcCharset,
+        string $destCharset,
+        string $input,
+        string $expected,
+        string $iconvExtraParams,
+    ): void {
+        $config = Config::$instance = new Config();
+        $config->set('IconvExtraParams', $iconvExtraParams);
+        Encoding::setEngine(Encoding::ENGINE_ICONV);
+
+        self::assertSame($expected, Encoding::convertString($srcCharset, $destCharset, $input));
+    }
+
+    public function testSjisWinPassthroughWhenCharsetsAreEqual(): void
+    {
+        Encoding::setEngine(Encoding::ENGINE_ICONV);
+
+        self::assertSame('テスト', Encoding::convertString('SJIS-win', 'SJIS-win', 'テスト'));
+    }
+
+    public function testSjisWinPassthroughWhenEngineIsNone(): void
+    {
+        Encoding::setEngine(Encoding::ENGINE_NONE);
+
+        self::assertSame('テスト', Encoding::convertString('UTF-8', 'SJIS-win', 'テスト'));
+    }
+
+    public function testMbstringSjisWin(): void
+    {
+        Encoding::setEngine(Encoding::ENGINE_MBSTRING);
+
+        self::assertSame(
+            "\x83\x65\x83\x58\x83\x67",
+            Encoding::convertString('UTF-8', 'SJIS-win', 'テスト'),
+        );
+        self::assertSame(
+            "\x87\x40\xfb\xfc",
+            Encoding::convertString('UTF-8', 'SJIS-win', '①髙'),
+        );
+        self::assertSame(
+            'テスト',
+            Encoding::convertString('SJIS-win', 'UTF-8', "\x83\x65\x83\x58\x83\x67"),
         );
     }
 
