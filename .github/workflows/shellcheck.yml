@@ -26,4 +26,4 @@ jobs:
         with:
           path: bin
           check_all_files_with_shebangs: true
-          fail_on_error: true
+          fail_level: error
