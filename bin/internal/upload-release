@@ -15,7 +15,7 @@ if [ $# -lt 2 ] ; then
     exit 1
 fi
 REL=$(echo "$1" | tr -d -c '0-9a-z.-')
-if [ "x$REL" != "x$1" ] ; then
+if [ "$REL" != "$1" ] ; then
     echo "Invalid version: $1"
     exit 1
 fi
