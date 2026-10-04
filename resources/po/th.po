@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-09-27 00:45+0000\n"
+"POT-Creation-Date: 2026-10-04 01:17+0000\n"
 "PO-Revision-Date: 2026-09-26 09:51+0000\n"
 "Last-Translator: Anusuk Sangubon <jaideejung007@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -821,7 +821,7 @@ msgstr "ตัวเลือกการแปลงข้อมูลเข้
 
 #: resources/templates/components/_preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
-#: src/Controllers/Database/Structure/EmptyTableController.php:43
+#: src/Controllers/Database/Structure/EmptyTableController.php:41
 #: src/Controllers/Operations/TableController.php:334
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289
@@ -907,7 +907,7 @@ msgstr "ปิดการใช้อยู่"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:28
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
 #: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:42
+#: src/Controllers/Database/Structure/EmptyTableController.php:40
 #: src/Controllers/JavaScriptMessagesController.php:482
 #: src/Controllers/Table/DeleteRowsController.php:35
 #: src/Controllers/Table/DropColumnController.php:46
@@ -11592,11 +11592,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "เซิร์ฟเวอร์ %d"
 
-#: src/ConfigStorage/Relation.php:1102
+#: src/ConfigStorage/Relation.php:1090
 msgid "no description"
 msgstr "ไม่มีรายละเอียด"
 
-#: src/ConfigStorage/Relation.php:1295
+#: src/ConfigStorage/Relation.php:1283
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -11778,7 +11778,7 @@ msgstr "มีหน้าเพจชื่อ \"%s\" อยู่แล้ว 
 #: src/Controllers/Table/ChartController.php:93
 #: src/Controllers/Table/ChartController.php:120
 #: src/Controllers/Table/ChartController.php:127
-#: src/Controllers/Table/ChartController.php:200
+#: src/Controllers/Table/ChartController.php:205
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
 #: src/Controllers/Table/DropColumnConfirmationController.php:52
@@ -11895,7 +11895,7 @@ msgstr "คุณไม่มีสิทธิ์ในการจัดกา
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:101
 #: src/Controllers/Table/ChartController.php:106
-#: src/Controllers/Table/ChartController.php:208
+#: src/Controllers/Table/ChartController.php:213
 #: src/Controllers/Table/DeleteConfirmController.php:69
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
@@ -12255,7 +12255,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
 
-#: src/Controllers/Import/ImportController.php:697 src/Sql.php:919
+#: src/Controllers/Import/ImportController.php:697 src/Sql.php:918
 msgid "[ROLLBACK occurred.]"
 msgstr "[เกิดการย้อนกลับ]"
 
@@ -12263,7 +12263,7 @@ msgstr "[เกิดการย้อนกลับ]"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "สามารถจำลองได้เฉพาะคำสั่ง UPDATE และ DELETE ที่ทำงานกับตารางเดียวเท่านั้น"
 
-#: src/Controllers/Import/StatusController.php:76
+#: src/Controllers/Import/StatusController.php:75
 msgid "Could not load the progress of the import."
 msgstr "ไม่สามารถโหลดข้อมูลความคืบหน้าของการนำเข้าได้"
 
@@ -14929,7 +14929,7 @@ msgstr "ข้อมูลไม่ถูกต้อง"
 msgid "Wrong data or no validation for %s"
 msgstr "ข้อมูลไม่ถูกต้องหรือไม่มีการตรวจสอบความถูกต้องสำหรับ %s"
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1079
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1078
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "บุ๊กมาร์ก %s ถูกสร้างขึ้นแล้ว"
@@ -14962,7 +14962,7 @@ msgstr "ไม่ได้ตั้งค่าคำสั่ง SQL เพื�
 msgid "No numeric columns present in the table to plot."
 msgstr "ไม่มีคอลัมน์ตัวเลขในตารางให้สร้างกราฟ"
 
-#: src/Controllers/Table/ChartController.php:235
+#: src/Controllers/Table/ChartController.php:242
 msgid "No data to display"
 msgstr "ไม่มีข้อมูลแสดง"
 
@@ -15006,7 +15006,7 @@ msgstr "มีปัญหาเกี่ยวกับคำขอของค
 
 #: src/Controllers/Table/GetFieldController.php:109
 #: src/Database/Routines.php:1017 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:905
+#: src/InsertEdit.php:163 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ส่งคืนชุดผลลัพธ์ว่างเปล่า (กล่าวคือ ศูนย์แถว)"
 
@@ -15370,7 +15370,7 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "ไม่สามารถกำหนดค่าการเชื่อมต่อการเรียงลำดับที่กำหนดค่าไว้ได้!"
 
-#: src/Dbal/DbiMysqli.php:116
+#: src/Dbal/DbiMysqli.php:117
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -15383,7 +15383,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "แถวนั้นถูกลบแล้ว"
 
-#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:911
+#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:910
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "คำสั่งใช้เวลา %01.4f วินาที"
@@ -16009,11 +16009,11 @@ msgstr "ดัชนี %1$s และ %2$s ดูเหมือนจะเท
 msgid "web server upload directory:"
 msgstr "ไดเร็กทอรีอัปโหลดของเว็บเซิร์ฟเวอร์:"
 
-#: src/InsertEdit.php:819 src/Sql.php:902
+#: src/InsertEdit.php:819 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "แสดงคำสั่ง SQL"
 
-#: src/InsertEdit.php:843 src/Sql.php:883
+#: src/InsertEdit.php:843 src/Sql.php:882
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "รหัสแถวที่แทรก: %1$d"
@@ -17766,16 +17766,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "ไม่มีเวอร์ชันเสถียรที่ใหม่กว่านี้"
 
-#: src/Sql.php:446
+#: src/Sql.php:445
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "ใช้บุ๊กมาร์ก \"%s\" เป็นค่าเริ่มต้นในการเรียกดูคำสั่ง"
 
-#: src/Sql.php:899
+#: src/Sql.php:898
 msgid "Showing as PHP code"
 msgstr "แสดงผลเป็นโค้ด PHP"
 
-#: src/Sql.php:1245
+#: src/Sql.php:1244
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -17784,7 +17784,7 @@ msgstr ""
 "การเลือกปัจจุบันไม่มีคอลัมน์ที่ไม่ซ้ำกัน ฟีเจอร์การแก้ไขตาราง, ช่องทำเครื่องหมาย, การแก้ไข, "
 "การคัดลอก และการลบไม่สามารถใช้งานได้ %s"
 
-#: src/Sql.php:1259
+#: src/Sql.php:1258
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

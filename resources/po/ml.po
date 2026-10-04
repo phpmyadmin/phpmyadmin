@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-09-27 00:45+0000\n"
+"POT-Creation-Date: 2026-10-04 01:17+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Malayalam <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -843,7 +843,7 @@ msgstr ""
 
 #: resources/templates/components/_preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
-#: src/Controllers/Database/Structure/EmptyTableController.php:43
+#: src/Controllers/Database/Structure/EmptyTableController.php:41
 #: src/Controllers/Operations/TableController.php:334
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289
@@ -929,7 +929,7 @@ msgstr ""
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:28
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
 #: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:42
+#: src/Controllers/Database/Structure/EmptyTableController.php:40
 #: src/Controllers/JavaScriptMessagesController.php:482
 #: src/Controllers/Table/DeleteRowsController.php:35
 #: src/Controllers/Table/DropColumnController.php:46
@@ -11634,11 +11634,11 @@ msgstr ""
 msgid "Server %d"
 msgstr ""
 
-#: src/ConfigStorage/Relation.php:1102
+#: src/ConfigStorage/Relation.php:1090
 msgid "no description"
 msgstr ""
 
-#: src/ConfigStorage/Relation.php:1295
+#: src/ConfigStorage/Relation.php:1283
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -11835,7 +11835,7 @@ msgstr ""
 #: src/Controllers/Table/ChartController.php:93
 #: src/Controllers/Table/ChartController.php:120
 #: src/Controllers/Table/ChartController.php:127
-#: src/Controllers/Table/ChartController.php:200
+#: src/Controllers/Table/ChartController.php:205
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
 #: src/Controllers/Table/DropColumnConfirmationController.php:52
@@ -11954,7 +11954,7 @@ msgstr ""
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:101
 #: src/Controllers/Table/ChartController.php:106
-#: src/Controllers/Table/ChartController.php:208
+#: src/Controllers/Table/ChartController.php:213
 #: src/Controllers/Table/DeleteConfirmController.php:69
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
@@ -12269,7 +12269,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:697 src/Sql.php:919
+#: src/Controllers/Import/ImportController.php:697 src/Sql.php:918
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -12277,7 +12277,7 @@ msgstr ""
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
-#: src/Controllers/Import/StatusController.php:76
+#: src/Controllers/Import/StatusController.php:75
 msgid "Could not load the progress of the import."
 msgstr ""
 
@@ -14893,7 +14893,7 @@ msgstr ""
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1079
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1078
 #, fuzzy, php-format
 #| msgid "Database %1$s has been created."
 msgid "Bookmark %s has been created."
@@ -14929,7 +14929,7 @@ msgstr ""
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: src/Controllers/Table/ChartController.php:235
+#: src/Controllers/Table/ChartController.php:242
 msgid "No data to display"
 msgstr ""
 
@@ -14975,7 +14975,7 @@ msgstr ""
 
 #: src/Controllers/Table/GetFieldController.php:109
 #: src/Database/Routines.php:1017 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:905
+#: src/InsertEdit.php:163 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -15371,7 +15371,7 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr ""
 
-#: src/Dbal/DbiMysqli.php:116
+#: src/Dbal/DbiMysqli.php:117
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -15384,7 +15384,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "വിവരശേഖരം(ങ്ങൾ) %1$s സൃഷ്ടിച്ചിരിക്കുന്നു."
 
-#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:911
+#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:910
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
@@ -15976,11 +15976,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr ""
 
-#: src/InsertEdit.php:819 src/Sql.php:902
+#: src/InsertEdit.php:819 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr ""
 
-#: src/InsertEdit.php:843 src/Sql.php:883
+#: src/InsertEdit.php:843 src/Sql.php:882
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -17669,23 +17669,23 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: src/Sql.php:446
+#: src/Sql.php:445
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:899
+#: src/Sql.php:898
 msgid "Showing as PHP code"
 msgstr ""
 
-#: src/Sql.php:1245
+#: src/Sql.php:1244
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: src/Sql.php:1259
+#: src/Sql.php:1258
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

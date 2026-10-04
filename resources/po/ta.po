@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-09-27 00:45+0000\n"
+"POT-Creation-Date: 2026-10-04 01:17+0000\n"
 "PO-Revision-Date: 2026-07-28 04:01+0000\n"
 "Last-Translator: Rajkumar Ramadoss <lionrajkumar@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -828,7 +828,7 @@ msgstr "உள்ளீடு மாற்றுருவாக்க விர�
 
 #: resources/templates/components/_preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
-#: src/Controllers/Database/Structure/EmptyTableController.php:43
+#: src/Controllers/Database/Structure/EmptyTableController.php:41
 #: src/Controllers/Operations/TableController.php:334
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289
@@ -914,7 +914,7 @@ msgstr "முடக்கப்பட்டது"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:28
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
 #: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:42
+#: src/Controllers/Database/Structure/EmptyTableController.php:40
 #: src/Controllers/JavaScriptMessagesController.php:482
 #: src/Controllers/Table/DeleteRowsController.php:35
 #: src/Controllers/Table/DropColumnController.php:46
@@ -11794,11 +11794,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "வழங்கி %d"
 
-#: src/ConfigStorage/Relation.php:1102
+#: src/ConfigStorage/Relation.php:1090
 msgid "no description"
 msgstr "விளக்கம் இல்லை"
 
-#: src/ConfigStorage/Relation.php:1295
+#: src/ConfigStorage/Relation.php:1283
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -11987,7 +11987,7 @@ msgstr "\"%s\" என்ற பக்கம் ஏற்கனவே உள்�
 #: src/Controllers/Table/ChartController.php:93
 #: src/Controllers/Table/ChartController.php:120
 #: src/Controllers/Table/ChartController.php:127
-#: src/Controllers/Table/ChartController.php:200
+#: src/Controllers/Table/ChartController.php:205
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
 #: src/Controllers/Table/DropColumnConfirmationController.php:52
@@ -12107,7 +12107,7 @@ msgstr "பயனர்களை நிர்வகிப்பதற்கா�
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:101
 #: src/Controllers/Table/ChartController.php:106
-#: src/Controllers/Table/ChartController.php:208
+#: src/Controllers/Table/ChartController.php:213
 #: src/Controllers/Table/DeleteConfirmController.php:69
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
@@ -12479,7 +12479,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" கூற்றுகள் முடக்கப்பட்டுள்ளன."
 
-#: src/Controllers/Import/ImportController.php:697 src/Sql.php:919
+#: src/Controllers/Import/ImportController.php:697 src/Sql.php:918
 msgid "[ROLLBACK occurred.]"
 msgstr "[ரோல்பேக் ஏற்பட்டது.]"
 
@@ -12488,7 +12488,7 @@ msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "ஒற்றை அட்டவணை புதுப்பிப்பு மற்றும் நீக்குதல் வினவல்களை மட்டுமே உருவகப்படுத்த முடியும்."
 
-#: src/Controllers/Import/StatusController.php:76
+#: src/Controllers/Import/StatusController.php:75
 msgid "Could not load the progress of the import."
 msgstr "இறக்குமதி தரவை ஏற்ற முடியவில்லை."
 
@@ -15223,7 +15223,7 @@ msgstr "தவறான தரவு"
 msgid "Wrong data or no validation for %s"
 msgstr "தவறான தரவு அல்லது %s க்கு சரிபார்ப்பு இல்லை"
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1079
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1078
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "புத்தகக்குறி %s குறிக்கப்பட்டது."
@@ -15256,7 +15256,7 @@ msgstr "தரவைப் பெற கவிமொ வினவல் எத�
 msgid "No numeric columns present in the table to plot."
 msgstr "சூழ்ச்சி செய்ய அட்டவணையில் எண் நெடுவரிசைகள் எதுவும் இல்லை."
 
-#: src/Controllers/Table/ChartController.php:235
+#: src/Controllers/Table/ChartController.php:242
 msgid "No data to display"
 msgstr "காட்டுவதற்கு தரவு இல்லை"
 
@@ -15301,7 +15301,7 @@ msgstr "உங்கள் கோரிக்கையில் சிக்க�
 
 #: src/Controllers/Table/GetFieldController.php:109
 #: src/Database/Routines.php:1017 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:905
+#: src/InsertEdit.php:163 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ஒரு வெற்று முடிவு தொகுப்பை (அதாவது சுழிய வரிசைகள்) திருப்பி அளித்தது."
 
@@ -15671,7 +15671,7 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "கட்டமைக்கப்பட்ட கூட்டு இணைப்பை அமைப்பதில் தோல்வி!"
 
-#: src/Dbal/DbiMysqli.php:116
+#: src/Dbal/DbiMysqli.php:117
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -15684,7 +15684,7 @@ msgstr ""
 msgid "The row has been deleted."
 msgstr "இந்நிரைவரிசை அழிக்கப்பட்டது."
 
-#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:911
+#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:910
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "வினவல் %01.4f நொடிகள் எடுத்துக்கொண்டது."
@@ -16328,11 +16328,11 @@ msgstr "குறியீடுகள் %1$s மற்றும் %2$s சம
 msgid "web server upload directory:"
 msgstr "வலை சேவையக பதிவேற்ற அடைவு:"
 
-#: src/InsertEdit.php:819 src/Sql.php:902
+#: src/InsertEdit.php:819 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "கவிமொ வினவலைக் காட்டுகிறது"
 
-#: src/InsertEdit.php:843 src/Sql.php:883
+#: src/InsertEdit.php:843 src/Sql.php:882
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "வரிசை ஐடி செருகப்பட்டது: %1$d"
@@ -18147,16 +18147,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "புதிய நிலையான பதிப்புகள் ஏதுமில்லை"
 
-#: src/Sql.php:446
+#: src/Sql.php:445
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "இயல்புநிலை உலாவி வினவலாகப் புக்மார்க்கு \"%s\" பயன்படுத்துதல்."
 
-#: src/Sql.php:899
+#: src/Sql.php:898
 msgid "Showing as PHP code"
 msgstr "பிஎச்பி குறியீடாகக் காட்டுகிறது"
 
-#: src/Sql.php:1245
+#: src/Sql.php:1244
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18165,7 +18165,7 @@ msgstr ""
 "தற்போதைய தேர்வில் தனித்துவமான நெடுவரிசை இல்லை. கட்டம் திருத்து, தேர்வுப்பெட்டி, "
 "திருத்து, நகலெடுத்து நீக்குதல் நற்பொருத்தங்கள் கிடைக்கவில்லை. %s"
 
-#: src/Sql.php:1259
+#: src/Sql.php:1258
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

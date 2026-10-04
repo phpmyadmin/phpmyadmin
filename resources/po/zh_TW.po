@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-09-27 00:45+0000\n"
+"POT-Creation-Date: 2026-10-04 01:17+0000\n"
 "PO-Revision-Date: 2024-07-03 07:27+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -823,7 +823,7 @@ msgstr "輸入轉換選項"
 
 #: resources/templates/components/_preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
-#: src/Controllers/Database/Structure/EmptyTableController.php:43
+#: src/Controllers/Database/Structure/EmptyTableController.php:41
 #: src/Controllers/Operations/TableController.php:334
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289
@@ -909,7 +909,7 @@ msgstr "已關閉"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:28
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
 #: src/Controllers/Database/Structure/DropTableController.php:43
-#: src/Controllers/Database/Structure/EmptyTableController.php:42
+#: src/Controllers/Database/Structure/EmptyTableController.php:40
 #: src/Controllers/JavaScriptMessagesController.php:482
 #: src/Controllers/Table/DeleteRowsController.php:35
 #: src/Controllers/Table/DropColumnController.php:46
@@ -11685,11 +11685,11 @@ msgstr "此系統目前未有提供 %1$sGZip 壓縮和解壓縮%2$s所必須的 
 msgid "Server %d"
 msgstr "伺服器 %d"
 
-#: src/ConfigStorage/Relation.php:1102
+#: src/ConfigStorage/Relation.php:1090
 msgid "no description"
 msgstr "無說明"
 
-#: src/ConfigStorage/Relation.php:1295
+#: src/ConfigStorage/Relation.php:1283
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -11875,7 +11875,7 @@ msgstr "已存在名為 “%s” 的頁面，請重新命名。"
 #: src/Controllers/Table/ChartController.php:93
 #: src/Controllers/Table/ChartController.php:120
 #: src/Controllers/Table/ChartController.php:127
-#: src/Controllers/Table/ChartController.php:200
+#: src/Controllers/Table/ChartController.php:205
 #: src/Controllers/Table/DeleteConfirmController.php:57
 #: src/Controllers/Table/DeleteConfirmController.php:62
 #: src/Controllers/Table/DropColumnConfirmationController.php:52
@@ -11992,7 +11992,7 @@ msgstr "沒有管理使用者的權限！"
 #: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:101
 #: src/Controllers/Table/ChartController.php:106
-#: src/Controllers/Table/ChartController.php:208
+#: src/Controllers/Table/ChartController.php:213
 #: src/Controllers/Table/DeleteConfirmController.php:69
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
@@ -12324,7 +12324,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "刪除資料庫 DROP DATABASE 指令已經被停用。"
 
-#: src/Controllers/Import/ImportController.php:697 src/Sql.php:919
+#: src/Controllers/Import/ImportController.php:697 src/Sql.php:918
 msgid "[ROLLBACK occurred.]"
 msgstr "[已發生回退(ROLLBACK)。]"
 
@@ -12332,7 +12332,7 @@ msgstr "[已發生回退(ROLLBACK)。]"
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "僅能模擬單一資料表的更新(UPDATE)與刪除(DELETE)查詢。"
 
-#: src/Controllers/Import/StatusController.php:76
+#: src/Controllers/Import/StatusController.php:75
 msgid "Could not load the progress of the import."
 msgstr "無法得知匯入進度。"
 
@@ -15093,7 +15093,7 @@ msgstr "資料錯誤"
 msgid "Wrong data or no validation for %s"
 msgstr "資料錯誤或未通過 %s 審核"
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1079
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1078
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "已建立書籤 %s。"
@@ -15126,7 +15126,7 @@ msgstr "尚未設定 SQL 查詢來檢索資料。"
 msgid "No numeric columns present in the table to plot."
 msgstr "目前資料表中沒有數值欄位可供繪製。"
 
-#: src/Controllers/Table/ChartController.php:235
+#: src/Controllers/Table/ChartController.php:242
 msgid "No data to display"
 msgstr "無資料可顯示"
 
@@ -15170,7 +15170,7 @@ msgstr "請求發生問題。"
 
 #: src/Controllers/Table/GetFieldController.php:109
 #: src/Database/Routines.php:1017 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:905
+#: src/InsertEdit.php:163 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL 傳回空的查詢結果 (即0列資料)。"
 
@@ -15541,7 +15541,7 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "設定編碼與排序連線失敗！"
 
-#: src/Dbal/DbiMysqli.php:116
+#: src/Dbal/DbiMysqli.php:117
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -15552,7 +15552,7 @@ msgstr "錯誤1045：使用者被拒絕。可能有其他錯誤訊息，但被%s
 msgid "The row has been deleted."
 msgstr "已刪除該行。"
 
-#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:911
+#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:910
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "查詢用了 %01.4f 秒。"
@@ -16174,11 +16174,11 @@ msgstr "索引 %1$s 和 %2$s 看來是相同的，其中一個可能會被移除
 msgid "web server upload directory:"
 msgstr "網頁伺服器上傳資料夾："
 
-#: src/InsertEdit.php:819 src/Sql.php:902
+#: src/InsertEdit.php:819 src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "顯示 SQL 查詢"
 
-#: src/InsertEdit.php:843 src/Sql.php:883
+#: src/InsertEdit.php:843 src/Sql.php:882
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "新增的資料列行 ID：%1$d"
@@ -17943,16 +17943,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "無更新版本提供"
 
-#: src/Sql.php:446
+#: src/Sql.php:445
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "使用書籤「%s」作為預設的瀏覽查詢。"
 
-#: src/Sql.php:899
+#: src/Sql.php:898
 msgid "Showing as PHP code"
 msgstr "顯示的內容為 PHP 程式碼"
 
-#: src/Sql.php:1245
+#: src/Sql.php:1244
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -17961,7 +17961,7 @@ msgstr ""
 "目前選擇的項目不含獨一的資料欄位，以下功能無法執行：網格編輯、核選、編輯、複"
 "製、刪除。%s"
 
-#: src/Sql.php:1259
+#: src/Sql.php:1258
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
