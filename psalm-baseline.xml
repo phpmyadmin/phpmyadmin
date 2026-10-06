@@ -6020,8 +6020,6 @@
   </file>
   <file src="src/Plugins/Import/ImportShp.php">
     <MixedArgument>
-      <code><![CDATA[$dbfFilePath]]></code>
-      <code><![CDATA[$dbfFilePath]]></code>
       <code><![CDATA[$gisType]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>

@@ -118,7 +118,7 @@ class ImportShp extends ImportPlugin
             }
         }
 
-        $tempDbfFile = false;
+        $dbfFilePath = '';
         // We need dbase extension to handle .dbf file
         if (extension_loaded('dbase')) {
             $temp = $this->config->getTempDir('shp');
@@ -138,17 +138,14 @@ class ImportShp extends ImportPlugin
                         $pathParts = pathinfo($dbfFileName);
                         $dbfFileName = $pathParts['dirname'] . '/' . $pathParts['filename'];
 
-                        // sanitize filename
                         $dbfFileName = Sanitize::sanitizeFilename($dbfFileName, true);
 
-                        // concat correct filename and extension
-                        $dbfFilePath = $temp . '/' . $dbfFileName . '.dbf';
+                        $dbfFilePathWithoutExtension = $temp . '/' . $dbfFileName;
 
-                        if (file_put_contents($dbfFilePath, $extracted, LOCK_EX) !== false) {
-                            $tempDbfFile = true;
-
+                        if (file_put_contents($dbfFilePathWithoutExtension . '.dbf', $extracted, LOCK_EX) !== false) {
+                            $dbfFilePath = $dbfFilePathWithoutExtension . '.dbf';
                             // Replace the .dbf with .*, as required by the bsShapeFiles library.
-                            $shp->fileName = substr($dbfFilePath, 0, -4) . '.*';
+                            $shp->fileName = $dbfFilePathWithoutExtension . '.*';
                         }
                     }
                 }
@@ -169,7 +166,7 @@ class ImportShp extends ImportPlugin
         $shp->loadFromFile('');
 
         // Delete the .dbf file extracted to 'TempDir'
-        if ($tempDbfFile && isset($dbfFilePath) && @file_exists($dbfFilePath)) {
+        if (@file_exists($dbfFilePath)) {
             unlink($dbfFilePath);
         }
 
