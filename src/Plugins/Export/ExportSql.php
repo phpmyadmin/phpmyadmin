@@ -146,26 +146,14 @@ class ExportSql extends ExportPlugin
 
     protected function setProperties(): ExportPluginProperties
     {
-        $hideSql = false;
-        $hideStructure = false;
-        if (ExportPlugin::$exportType === ExportType::Table && ! ExportPlugin::$singleTable) {
-            $hideStructure = true;
-            $hideSql = true;
-        }
-
-        // In case we have `raw_query` parameter set,
-        // we initialize SQL option
-        if (isset($_REQUEST['raw_query'])) {
-            $hideStructure = false;
-            $hideSql = false;
-        }
+        $hideSql = ExportPlugin::$exportType === ExportType::Table && ! ExportPlugin::$singleTable;
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('SQL');
         $exportPluginProperties->setExtension('sql');
         $exportPluginProperties->setMimeType('text/x-sql');
 
-        if ($hideSql) {
+        if ($hideSql && ! isset($_REQUEST['raw_query'])) {
             return $exportPluginProperties;
         }
 
@@ -274,140 +262,138 @@ class ExportSql extends ExportPlugin
         $exportSpecificOptions->addProperty($generalOptions);
 
         // structure options main group
-        if (! $hideStructure) {
-            $structureOptions = new OptionsPropertyMainGroup(
-                'sql_structure',
-                __('Object creation options'),
-            );
+        $structureOptions = new OptionsPropertyMainGroup(
+            'sql_structure',
+            __('Object creation options'),
+        );
 
-            // begin SQL Statements
-            $subgroup = new OptionsPropertySubgroup();
-            $leaf = new MessageOnlyPropertyItem(
-                'sql_add_statements',
-                __('Add statements:'),
-            );
-            $subgroup->setSubgroupHeader($leaf);
+        // begin SQL Statements
+        $subgroup = new OptionsPropertySubgroup();
+        $leaf = new MessageOnlyPropertyItem(
+            'sql_add_statements',
+            __('Add statements:'),
+        );
+        $subgroup->setSubgroupHeader($leaf);
 
-            // server export options
-            if (ExportPlugin::$exportType === ExportType::Server) {
-                $leaf = new BoolPropertyItem(
-                    'sql_drop_database',
-                    sprintf(__('Add %s statement'), '<code>DROP DATABASE IF EXISTS</code>'),
-                );
-                $subgroup->addProperty($leaf);
-            }
-
-            if (ExportPlugin::$exportType === ExportType::Database) {
-                $createClause = '<code>CREATE DATABASE / USE</code>';
-                $leaf = new BoolPropertyItem(
-                    'sql_create_database',
-                    sprintf(__('Add %s statement'), $createClause),
-                );
-                $subgroup->addProperty($leaf);
-            }
-
-            if (ExportPlugin::$exportType === ExportType::Table) {
-                $dropClause = $this->dbi->getTable(Current::$database, Current::$table)->isView()
-                    ? '<code>DROP VIEW</code>'
-                    : '<code>DROP TABLE</code>';
-            } else {
-                $dropClause = '<code>DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT</code>';
-            }
-
-            $dropClause .= '<code> / TRIGGER</code>';
-
+        // server export options
+        if (ExportPlugin::$exportType === ExportType::Server) {
             $leaf = new BoolPropertyItem(
-                'sql_drop_table',
-                sprintf(__('Add %s statement'), $dropClause),
+                'sql_drop_database',
+                sprintf(__('Add %s statement'), '<code>DROP DATABASE IF EXISTS</code>'),
             );
             $subgroup->addProperty($leaf);
-
-            $subgroupCreateTable = new OptionsPropertySubgroup();
-
-            // Add table structure option
-            $leaf = new BoolPropertyItem(
-                'sql_create_table',
-                sprintf(__('Add %s statement'), '<code>CREATE TABLE</code>'),
-            );
-            $subgroupCreateTable->setSubgroupHeader($leaf);
-
-            $leaf = new BoolPropertyItem(
-                'sql_if_not_exists',
-                '<code>IF NOT EXISTS</code> ' . __(
-                    '(less efficient as indexes will be generated during table creation)',
-                ),
-            );
-            $subgroupCreateTable->addProperty($leaf);
-
-            $leaf = new BoolPropertyItem(
-                'sql_auto_increment',
-                sprintf(__('%s value'), '<code>AUTO_INCREMENT</code>'),
-            );
-            $subgroupCreateTable->addProperty($leaf);
-
-            $subgroup->addProperty($subgroupCreateTable);
-
-            // Add view option
-            $subgroupCreateView = new OptionsPropertySubgroup();
-            $leaf = new BoolPropertyItem(
-                'sql_create_view',
-                sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>'),
-            );
-            $subgroupCreateView->setSubgroupHeader($leaf);
-
-            $leaf = new BoolPropertyItem(
-                'sql_simple_view_export',
-                /* l10n: Allow simplifying exported view syntax to only "CREATE VIEW" */
-                __('Use simple view export'),
-            );
-            $subgroupCreateView->addProperty($leaf);
-
-            $leaf = new BoolPropertyItem(
-                'sql_view_current_user',
-                __('Exclude definition of current user'),
-            );
-            $subgroupCreateView->addProperty($leaf);
-
-            $leaf = new BoolPropertyItem(
-                'sql_or_replace_view',
-                sprintf(__('%s view'), '<code>OR REPLACE</code>'),
-            );
-            $subgroupCreateView->addProperty($leaf);
-
-            $subgroup->addProperty($subgroupCreateView);
-
-            $leaf = new BoolPropertyItem(
-                'sql_procedure_function',
-                sprintf(
-                    __('Add %s statement'),
-                    '<code>CREATE PROCEDURE / FUNCTION / EVENT</code>',
-                ),
-            );
-            $subgroup->addProperty($leaf);
-
-            // Add triggers option
-            $leaf = new BoolPropertyItem(
-                'sql_create_trigger',
-                sprintf(__('Add %s statement'), '<code>CREATE TRIGGER</code>'),
-            );
-            $subgroup->addProperty($leaf);
-
-            $structureOptions->addProperty($subgroup);
-
-            $leaf = new BoolPropertyItem(
-                'sql_backquotes',
-                __(
-                    'Enclose table and column names with backquotes '
-                    . '<i>(Protects column and table names formed with'
-                    . ' special characters or keywords)</i>',
-                ),
-            );
-
-            $structureOptions->addProperty($leaf);
-
-            // add the main group to the root group
-            $exportSpecificOptions->addProperty($structureOptions);
         }
+
+        if (ExportPlugin::$exportType === ExportType::Database) {
+            $createClause = '<code>CREATE DATABASE / USE</code>';
+            $leaf = new BoolPropertyItem(
+                'sql_create_database',
+                sprintf(__('Add %s statement'), $createClause),
+            );
+            $subgroup->addProperty($leaf);
+        }
+
+        if (ExportPlugin::$exportType === ExportType::Table) {
+            $dropClause = $this->dbi->getTable(Current::$database, Current::$table)->isView()
+                ? '<code>DROP VIEW</code>'
+                : '<code>DROP TABLE</code>';
+        } else {
+            $dropClause = '<code>DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT</code>';
+        }
+
+        $dropClause .= '<code> / TRIGGER</code>';
+
+        $leaf = new BoolPropertyItem(
+            'sql_drop_table',
+            sprintf(__('Add %s statement'), $dropClause),
+        );
+        $subgroup->addProperty($leaf);
+
+        $subgroupCreateTable = new OptionsPropertySubgroup();
+
+        // Add table structure option
+        $leaf = new BoolPropertyItem(
+            'sql_create_table',
+            sprintf(__('Add %s statement'), '<code>CREATE TABLE</code>'),
+        );
+        $subgroupCreateTable->setSubgroupHeader($leaf);
+
+        $leaf = new BoolPropertyItem(
+            'sql_if_not_exists',
+            '<code>IF NOT EXISTS</code> ' . __(
+                '(less efficient as indexes will be generated during table creation)',
+            ),
+        );
+        $subgroupCreateTable->addProperty($leaf);
+
+        $leaf = new BoolPropertyItem(
+            'sql_auto_increment',
+            sprintf(__('%s value'), '<code>AUTO_INCREMENT</code>'),
+        );
+        $subgroupCreateTable->addProperty($leaf);
+
+        $subgroup->addProperty($subgroupCreateTable);
+
+        // Add view option
+        $subgroupCreateView = new OptionsPropertySubgroup();
+        $leaf = new BoolPropertyItem(
+            'sql_create_view',
+            sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>'),
+        );
+        $subgroupCreateView->setSubgroupHeader($leaf);
+
+        $leaf = new BoolPropertyItem(
+            'sql_simple_view_export',
+            /* l10n: Allow simplifying exported view syntax to only "CREATE VIEW" */
+            __('Use simple view export'),
+        );
+        $subgroupCreateView->addProperty($leaf);
+
+        $leaf = new BoolPropertyItem(
+            'sql_view_current_user',
+            __('Exclude definition of current user'),
+        );
+        $subgroupCreateView->addProperty($leaf);
+
+        $leaf = new BoolPropertyItem(
+            'sql_or_replace_view',
+            sprintf(__('%s view'), '<code>OR REPLACE</code>'),
+        );
+        $subgroupCreateView->addProperty($leaf);
+
+        $subgroup->addProperty($subgroupCreateView);
+
+        $leaf = new BoolPropertyItem(
+            'sql_procedure_function',
+            sprintf(
+                __('Add %s statement'),
+                '<code>CREATE PROCEDURE / FUNCTION / EVENT</code>',
+            ),
+        );
+        $subgroup->addProperty($leaf);
+
+        // Add triggers option
+        $leaf = new BoolPropertyItem(
+            'sql_create_trigger',
+            sprintf(__('Add %s statement'), '<code>CREATE TRIGGER</code>'),
+        );
+        $subgroup->addProperty($leaf);
+
+        $structureOptions->addProperty($subgroup);
+
+        $leaf = new BoolPropertyItem(
+            'sql_backquotes',
+            __(
+                'Enclose table and column names with backquotes '
+                . '<i>(Protects column and table names formed with'
+                . ' special characters or keywords)</i>',
+            ),
+        );
+
+        $structureOptions->addProperty($leaf);
+
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($structureOptions);
 
         // begin Data options
         $dataOptions = new OptionsPropertyMainGroup(
