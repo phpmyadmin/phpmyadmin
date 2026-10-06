@@ -55,10 +55,10 @@ final readonly class RelationController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $options = [
+            'RESTRICT' => 'RESTRICT',
+            'NO_ACTION' => 'NO ACTION',
             'CASCADE' => 'CASCADE',
             'SET_NULL' => 'SET NULL',
-            'NO_ACTION' => 'NO ACTION',
-            'RESTRICT' => 'RESTRICT',
         ];
 
         $table = $this->dbi->getTable(Current::$database, Current::$table);
