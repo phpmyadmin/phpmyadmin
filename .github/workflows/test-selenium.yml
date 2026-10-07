@@ -80,11 +80,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
 
-      - name: Install gettext
-        run: sudo apt-get update && sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
+      - name: Install gettext and generate translation files
+        run: |
+          sudo apt-get install -y gettext
+          ./scripts/generate-mo --quiet
 
       - name: Set up PHP ${{ env.php-version }}
         uses: shivammathur/setup-php@v2
