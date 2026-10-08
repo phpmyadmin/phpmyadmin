@@ -115,6 +115,7 @@ return static function (RouteCollector $routes): void {
     $routes->get('/changelog', [ChangeLogController::class, 'index']);
     $routes->addRoute(['GET', 'POST'], '/check-relations', [CheckRelationsController::class, 'index']);
     $routes->post('/columns', [ColumnController::class, 'all']);
+    $routes->post('/columns/defaultFuncs', [ColumnController::class, 'getDefaultFuncs']);
     $routes->addGroup('/config', static function (RouteCollector $routes): void {
         $routes->post('/get', [ConfigController::class, 'get']);
         $routes->post('/set', [ConfigController::class, 'set']);
