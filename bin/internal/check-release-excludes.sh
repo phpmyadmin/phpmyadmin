@@ -278,8 +278,6 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         */.scrutinizer.yml)
         foundFile;;
-        */.phpstorm.meta.php)
-        foundFile;;
         */codecov.yml)
         foundFile;;
         */.codecov.yml)
