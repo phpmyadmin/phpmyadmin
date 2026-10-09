@@ -678,6 +678,7 @@ class Config
             'port' => '0',
             'socket' => null,
             'compress' => null,
+            'driver' => $currentServer->driver,
             'ssl' => null,
             'ssl_key' => null,
             'ssl_cert' => null,

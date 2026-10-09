@@ -1508,6 +1508,10 @@ class Util
             $result[] = 'mysqli';
         }
 
+        if (extension_loaded('pdo_mysql')) {
+            $result[] = 'pdo_mysql';
+        }
+
         if (extension_loaded('curl')) {
             $result[] = 'curl';
         }

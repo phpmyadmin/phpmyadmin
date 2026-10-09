@@ -3435,6 +3435,11 @@
       <code><![CDATA[$mysqli->quote_string($string)]]></code>
     </MixedReturnStatement>
   </file>
+  <file src="src/Dbal/DbiPdo.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+    </DeprecatedMethod>
+  </file>
   <file src="src/Dbal/MysqliResult.php">
     <InvalidReturnStatement>
       <code><![CDATA[$this->result->fetch_all(MYSQLI_ASSOC)]]></code>
