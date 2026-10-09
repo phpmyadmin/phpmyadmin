@@ -282,9 +282,14 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/PERFORMANCE.md \
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
+        vendor/pragmarx/google2fa/CODE_OF_CONDUCT.md \
+        vendor/pragmarx/google2fa/CONTRIBUTING.md \
+        vendor/pragmarx/google2fa/SECURITY.md \
+        vendor/pragmarx/google2fa/SUPPORT.md \
         vendor/brick/math/SECURITY.md \
         vendor/ramsey/collection/SECURITY.md \
-        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md
+        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md \
+        vendor/tecnickcom/tcpdf/SECURITY.md
 
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
