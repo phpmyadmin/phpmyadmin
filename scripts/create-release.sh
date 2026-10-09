@@ -275,7 +275,7 @@ cleanup_composer_vendors() {
         vendor/google/recaptcha/tests/
 
     rm \
-        vendor/slim/psr7/MAINTAINERS.md \
+        vendor/brick/math/SECURITY.md \
         vendor/google/recaptcha/ARCHITECTURE.md \
         vendor/google/recaptcha/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
@@ -286,8 +286,8 @@ cleanup_composer_vendors() {
         vendor/pragmarx/google2fa/CONTRIBUTING.md \
         vendor/pragmarx/google2fa/SECURITY.md \
         vendor/pragmarx/google2fa/SUPPORT.md \
-        vendor/brick/math/SECURITY.md \
         vendor/ramsey/collection/SECURITY.md \
+        vendor/slim/psr7/MAINTAINERS.md \
         vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md \
         vendor/tecnickcom/tcpdf/SECURITY.md
 
