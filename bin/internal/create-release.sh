@@ -167,10 +167,13 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/shapefile/tests/ \
         vendor/phpmyadmin/shapefile/examples/ \
         vendor/phpmyadmin/shapefile/data/ \
+        vendor/symfony/clock/Test/ \
         vendor/symfony/service-contracts/Test/ \
         vendor/symfony/expression-language/Resources/ \
         vendor/symfony/dependency-injection/Loader/schema/services.schema.json \
         vendor/symfony/dependency-injection/Loader/schema/dic/services/services-1.0.xsd \
+        vendor/symfony/serializer/Mapping/Loader/schema/serialization.schema.json \
+        vendor/symfony/serializer/Mapping/Loader/schema/dic/serializer-mapping/serializer-mapping-1.0.xsd \
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.*/ \
@@ -190,21 +193,24 @@ cleanup_composer_vendors() {
         vendor/twig/twig/README.rst \
         vendor/webmozart/assert/.php-cs-fixer.php \
         vendor/twig/twig/src/Test/ \
+        vendor/phpdocumentor/reflection-common/.yamllint.yaml \
         vendor/psr/event-dispatcher/.editorconfig \
         vendor/psr/http-message/docs/ \
-        vendor/pragmarx/google2fa/.github/workflows/run-tests.yml \
+        vendor/pragmarx/google2fa/.github/ \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
         vendor/pragmarx/google2fa-qrcode/tests \
         vendor/slim/psr7/phpunit.xml.dist \
-        vendor/slim/psr7/tests/
+        vendor/slim/psr7/tests/ \
+        vendor/spomky-labs/cbor-php/.github/
 
     rm \
         vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/PERFORMANCE.md \
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
+        vendor/phpstan/phpdoc-parser/UPGRADING.md \
         vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md \
         vendor/spomky-labs/cbor-php/RELEASES.md \
         vendor/spomky-labs/cbor-php/SECURITY.md \
