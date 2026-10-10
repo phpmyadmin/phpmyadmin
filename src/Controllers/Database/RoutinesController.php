@@ -29,6 +29,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function htmlspecialchars;
 use function in_array;
+use function is_string;
 use function max;
 use function mb_strtoupper;
 use function sprintf;
@@ -362,25 +363,13 @@ final readonly class RoutinesController implements InvocableController
             }
         }
 
-        /** @var mixed $routineType */
-        $routineType = $request->getQueryParam('item_type');
-        if (
-            ! empty($_GET['export_item'])
-            && ! empty($_GET['item_name'])
-            && in_array($routineType, ['FUNCTION', 'PROCEDURE'], true)
-        ) {
-            if ($routineType === 'FUNCTION') {
-                $routineDefinition = Routines::getFunctionDefinition(
-                    $this->dbi,
-                    Current::$database,
-                    $_GET['item_name'],
-                );
+        $routineType = $this->getRoutineType($request->getQueryParam('item_type'));
+        $routineName = $this->getRoutineName($request->getQueryParam('item_name'));
+        if ($request->hasQueryParam('export_item') && $routineName !== '' && $routineType !== null) {
+            if ($routineType === RoutineType::Function) {
+                $routineDefinition = Routines::getFunctionDefinition($this->dbi, Current::$database, $routineName);
             } else {
-                $routineDefinition = Routines::getProcedureDefinition(
-                    $this->dbi,
-                    Current::$database,
-                    $_GET['item_name'],
-                );
+                $routineDefinition = Routines::getProcedureDefinition($this->dbi, Current::$database, $routineName);
             }
 
             $exportData = false;
@@ -389,10 +378,10 @@ final readonly class RoutinesController implements InvocableController
                 $exportData = "DELIMITER $$\n" . $routineDefinition . "$$\nDELIMITER ;\n";
             }
 
-            $itemName = Util::backquote($_GET['item_name']);
+            $routineName = Util::backquote($routineName);
             if ($exportData !== false) {
                 $exportData = trim($exportData);
-                $title = sprintf(__('Export of routine %s'), $itemName);
+                $title = sprintf(__('Export of routine %s'), $routineName);
 
                 if ($request->isAjax()) {
                     $this->response->addJSON('message', $exportData);
@@ -414,7 +403,7 @@ final readonly class RoutinesController implements InvocableController
                         'Error in processing request: No routine with name %1$s found in database %2$s.'
                         . ' You might be lacking the necessary privileges to view/export this routine.',
                     ),
-                    htmlspecialchars($itemName),
+                    htmlspecialchars($routineName),
                     htmlspecialchars(Util::backquote(Current::$database)),
                 );
                 $message = Message::error($message);
@@ -489,5 +478,15 @@ final readonly class RoutinesController implements InvocableController
         ]);
 
         return $this->response->response();
+    }
+
+    private function getRoutineType(mixed $param): RoutineType|null
+    {
+        return is_string($param) ? RoutineType::tryFrom($param) : null;
+    }
+
+    private function getRoutineName(mixed $param): string
+    {
+        return is_string($param) ? $param : '';
     }
 }

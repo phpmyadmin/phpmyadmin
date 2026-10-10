@@ -20,6 +20,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function htmlspecialchars;
+use function is_string;
 use function mb_strtoupper;
 use function sprintf;
 use function trim;
@@ -203,18 +204,18 @@ final readonly class EventsController implements InvocableController
             $this->response->addHTML($message);
         }
 
-        if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
-            $itemName = $_GET['item_name'];
-            $exportData = Events::getDefinition($this->dbi, Current::$database, $itemName);
+        $eventName = $this->getEventName($request->getQueryParam('item_name'));
+        if ($request->hasQueryParam('export_item') && $eventName !== '') {
+            $exportData = Events::getDefinition($this->dbi, Current::$database, $eventName);
 
             if ($exportData === null || $exportData === '') {
                 $exportData = false;
             }
 
-            $itemName = Util::backquote($itemName);
+            $eventName = Util::backquote($eventName);
             if ($exportData !== false) {
                 $exportData = trim($exportData);
-                $title = sprintf(__('Export of event %s'), $itemName);
+                $title = sprintf(__('Export of event %s'), $eventName);
 
                 if ($request->isAjax()) {
                     $this->response->addJSON('message', $exportData);
@@ -235,7 +236,7 @@ final readonly class EventsController implements InvocableController
             } else {
                 $message = sprintf(
                     __('Error in processing request: No event with name %1$s found in database %2$s.'),
-                    htmlspecialchars($itemName),
+                    htmlspecialchars($eventName),
                     htmlspecialchars(Util::backquote(Current::$database)),
                 );
                 $message = Message::error($message);
@@ -262,5 +263,10 @@ final readonly class EventsController implements InvocableController
         ]);
 
         return $this->response->response();
+    }
+
+    private function getEventName(mixed $param): string
+    {
+        return is_string($param) ? $param : '';
     }
 }

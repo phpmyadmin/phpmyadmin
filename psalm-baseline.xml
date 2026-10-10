@@ -714,21 +714,16 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code><![CDATA[$itemName]]></code>
-      <code><![CDATA[$itemName]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code><![CDATA[$itemName]]></code>
     </PossiblyInvalidCast>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_GET['export_item'])]]></code>
-      <code><![CDATA[empty($_GET['item_name'])]]></code>
       <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
       <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
       <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
@@ -793,9 +788,6 @@
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_GET['item_type']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
@@ -807,8 +799,6 @@
       <code><![CDATA[$_REQUEST['type'] ?? '']]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_type']]]></code>
@@ -826,8 +816,6 @@
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_GET['execute_dialog'])]]></code>
-      <code><![CDATA[empty($_GET['export_item'])]]></code>
-      <code><![CDATA[empty($_GET['item_name'])]]></code>
       <code><![CDATA[empty($_GET['item_name'])]]></code>
       <code><![CDATA[empty($_GET['item_name'])]]></code>
       <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
