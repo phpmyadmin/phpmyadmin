@@ -1374,13 +1374,13 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 16
+			count: 14
 			path: src/Controllers/Database/EventsController.php
 
 		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Controllers/Database/EventsController.php
 
 		-
@@ -1397,12 +1397,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$name of method PhpMyAdmin\\Database\\Events\:\:getDetails\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
-			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Events\:\:getDefinition\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/EventsController.php
@@ -1434,7 +1428,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 23
+			count: 21
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
@@ -1446,7 +1440,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 4
+			count: 3
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
@@ -1471,18 +1465,6 @@ parameters:
 			message: '#^Parameter \#2 \$type of method PhpMyAdmin\\Database\\Routines\:\:getDataFromName\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Routines\:\:getFunctionDefinition\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Routines\:\:getProcedureDefinition\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
