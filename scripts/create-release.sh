@@ -275,16 +275,21 @@ cleanup_composer_vendors() {
         vendor/google/recaptcha/tests/
 
     rm \
-        vendor/slim/psr7/MAINTAINERS.md \
+        vendor/brick/math/SECURITY.md \
         vendor/google/recaptcha/ARCHITECTURE.md \
         vendor/google/recaptcha/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/PERFORMANCE.md \
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
-        vendor/brick/math/SECURITY.md \
+        vendor/pragmarx/google2fa/CODE_OF_CONDUCT.md \
+        vendor/pragmarx/google2fa/CONTRIBUTING.md \
+        vendor/pragmarx/google2fa/SECURITY.md \
+        vendor/pragmarx/google2fa/SUPPORT.md \
         vendor/ramsey/collection/SECURITY.md \
-        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md
+        vendor/slim/psr7/MAINTAINERS.md \
+        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md \
+        vendor/tecnickcom/tcpdf/SECURITY.md
 
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
