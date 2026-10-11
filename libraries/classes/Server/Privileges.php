@@ -2320,6 +2320,11 @@ class Privileges
             }
         }
 
+        if ($needsToUseAlter && isset($_POST['Grant_priv']) && $_POST['Grant_priv'] === 'Y') {
+            // ALTER USER cannot set the grant option, so it stays on the GRANT statement
+            $grantBackQuery .= ' WITH GRANT OPTION';
+        }
+
         if (
             (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] === 'Y')
             || (strlen($dbname) === 0
