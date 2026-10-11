@@ -20,6 +20,7 @@ use PhpMyAdmin\Url;
 use function __;
 use function count;
 use function is_array;
+use function is_string;
 
 final class ChangeController extends AbstractController
 {
@@ -101,7 +102,7 @@ final class ChangeController extends AbstractController
                 $message->addParam($selected[$i]);
                 $this->response->addHTML($message->getDisplay());
             } else {
-                if (isset($inheritedCollations[$selected[$i]])) {
+                if (is_string($selected[$i]) && isset($inheritedCollations[$selected[$i]])) {
                     $value['Collation'] = null;
                 }
 
