@@ -576,12 +576,49 @@ class PrivilegesTest extends AbstractTestCase
             $message->getMessage(),
         );
         self::assertSame(
-            '  GRANT USAGE ON  *.* TO \'pma_username\'@\'pma_hostname\';'
+            '  GRANT USAGE ON  *.* TO \'pma_username\'@\'pma_hostname\' WITH GRANT OPTION;'
             . ' ALTER USER \'pma_username\'@\'pma_hostname\'  REQUIRE NONE'
             . ' WITH MAX_QUERIES_PER_HOUR 1000 MAX_CONNECTIONS_PER_HOUR'
             . ' 20 MAX_UPDATES_PER_HOUR 30 MAX_USER_CONNECTIONS 40;',
             $sqlQuery,
         );
+    }
+
+    /**
+     * The grant option cannot be set by ALTER USER, so on MySQL 8.0.11+ it must stay on the GRANT.
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/19605
+     */
+    public function testGenerateQueriesForUpdatePrivilegesKeepsGrantOptionAfterMySql8Dot11(): void
+    {
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('getVersion')->willReturn(80011);
+        $dbi->method('quoteString')
+            ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
+
+        $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface());
+        $serverPrivileges->dbi = $dbi;
+
+        $_POST['Select_priv'] = 'Y';
+        $_POST['Insert_priv'] = 'Y';
+        $_POST['Grant_priv'] = 'Y';
+        $_POST['grant_count'] = '19';
+
+        $method = new ReflectionMethod(Privileges::class, 'generateQueriesForUpdatePrivileges');
+        [$grantQuery, $alterUserQuery] = $method->invoke(
+            $serverPrivileges,
+            '',
+            '`pma_dbname`.*',
+            'pma_username',
+            'pma_hostname',
+            'pma_dbname',
+        );
+
+        self::assertSame(
+            'GRANT SELECT, INSERT ON  `pma_dbname`.* TO \'pma_username\'@\'pma_hostname\' WITH GRANT OPTION;',
+            $grantQuery,
+        );
+        self::assertSame('ALTER USER \'pma_username\'@\'pma_hostname\' ;', $alterUserQuery);
     }
 
     public function testGetHtmlToDisplayPrivilegesTable(): void
