@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-09-08 03:51+0000\n"
+"PO-Revision-Date: 2026-10-12 17:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.9.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -3245,7 +3245,7 @@ msgstr "Atribūti"
 #: libraries/classes/CentralColumns.php:757
 #: libraries/classes/CentralColumns.php:1429
 msgid "A_I"
-msgstr ""
+msgstr "Automātiska skaitliskās vērtības piešķiršana"
 
 #: libraries/classes/CentralColumns.php:793
 msgid "Select a table"
@@ -11795,7 +11795,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:443
 msgid "Monitor"
-msgstr ""
+msgstr "Reāllaika uzraudzība"
 
 #: libraries/classes/Server/Status/Data.php:447
 msgid "Advisor"
@@ -13349,7 +13349,7 @@ msgstr ""
 #: libraries/classes/Types.php:718
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Skaitliskie"
 
 #: libraries/classes/Types.php:736
 msgctxt "date and time types"
@@ -13365,7 +13365,7 @@ msgstr "Kopā"
 
 #: libraries/classes/UserPassword.php:62
 msgid "The profile has been updated."
-msgstr "Profils tika modificēts."
+msgstr "Profils atjaunināts."
 
 #: libraries/classes/UserPassword.php:74
 msgid "Password is too long!"
@@ -13541,19 +13541,19 @@ msgstr "Teksts"
 #: libraries/config.values.php:58 libraries/config.values.php:66
 #: libraries/config.values.php:78 libraries/config.values.php:90
 msgid "Both"
-msgstr "Abi"
+msgstr "Abās pusēs"
 
 #: libraries/config.values.php:63
 msgid "Nowhere"
-msgstr ""
+msgstr "Nerādīt jeb nevienā pusē"
 
 #: libraries/config.values.php:64
 msgid "Left"
-msgstr ""
+msgstr "Kreisā pusē"
 
 #: libraries/config.values.php:65
 msgid "Right"
-msgstr ""
+msgstr "Labā pusē"
 
 #: libraries/config.values.php:93
 msgid "Click"
@@ -14482,12 +14482,12 @@ msgstr "Līniju"
 #: templates/table/chart/tbl_chart.twig:27
 msgctxt "Chart type"
 msgid "Spline"
-msgstr ""
+msgstr "Gludlīkņu"
 
 #: templates/table/chart/tbl_chart.twig:31
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Datu apgabala (laukuma)"
 
 #: templates/table/chart/tbl_chart.twig:35
 #, fuzzy
@@ -14503,7 +14503,7 @@ msgstr "Laikskalas"
 #: templates/table/chart/tbl_chart.twig:43
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Datu punktu izkliedes"
 
 #: templates/table/chart/tbl_chart.twig:48
 msgid "Stacked"
