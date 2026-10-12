@@ -1,4 +1,4 @@
-<form class="rte_form" action="{{ url('/database/events') }}" method="post">
+<form class="rte_form" action="{{ url('/events') }}" method="post">
   {{ get_hidden_inputs(db) }}
   <input name="{{ mode }}_item" type="hidden" value="1">
   {% if mode == 'edit' %}

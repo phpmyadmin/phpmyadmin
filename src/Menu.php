@@ -377,10 +377,10 @@ class Menu
             $tabs['routines']['active'] = $route === '/database/routines';
 
             if (Util::currentUserHasPrivilege($this->dbi, 'EVENT', $this->db)) {
-                $tabs['events']['route'] = '/database/events';
+                $tabs['events']['route'] = '/events';
                 $tabs['events']['text'] = __('Events');
                 $tabs['events']['icon'] = 'b_events';
-                $tabs['events']['active'] = $route === '/database/events';
+                $tabs['events']['active'] = $route === '/events';
             }
 
             if (Util::currentUserHasPrivilege($this->dbi, 'TRIGGER', $this->db)) {

@@ -6,13 +6,13 @@
 
   <div class="d-flex flex-wrap my-3">
     <div>
-      <a class="ajax add_anchor btn btn-primary" href="index.php?route=/database/events&db=test_db&add_item=1&server=2&lang=en" role="button">
+      <a class="ajax add_anchor btn btn-primary" href="index.php?route=/events&db=test_db&add_item=1&server=2&lang=en" role="button">
         <span class="text-nowrap"><img src="themes/dot.gif" title="Create new event" alt="Create new event" class="icon ic_b_event_add">&nbsp;Create new event</span>
       </a>
     </div>
   </div>
 
-  <form id="rteListForm" class="disableAjax" action="index.php?route=/database/events&server=2&lang=en">
+  <form id="rteListForm" class="disableAjax" action="index.php?route=/events&server=2&lang=en">
     <input type="hidden" name="db" value="test_db"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
 
     <div id="nothing2display">
@@ -51,12 +51,12 @@
                 <tbody>
                 <tr>
                   <td class="toggleOn">
-                  <span class="hide">index.php?route=/sql&db=test_db&goto=index.php%3Froute%3D%2Fdatabase%2Fevents%26db%3Dtest_db%26server%3D2%26lang%3Den&sql_query=SET+GLOBAL+event_scheduler%3D%22ON%22&server=2&lang=en</span>
+                  <span class="hide">index.php?route=/sql&db=test_db&goto=index.php%3Froute%3D%2Fevents%26db%3Dtest_db%26server%3D2%26lang%3Den&sql_query=SET+GLOBAL+event_scheduler%3D%22ON%22&server=2&lang=en</span>
                     <div>ON</div>
                   </td>
                   <td><div>&nbsp;</div></td>
                   <td class="toggleOff">
-                  <span class="hide">index.php?route=/sql&db=test_db&goto=index.php%3Froute%3D%2Fdatabase%2Fevents%26db%3Dtest_db%26server%3D2%26lang%3Den&sql_query=SET+GLOBAL+event_scheduler%3D%22OFF%22&server=2&lang=en</span>
+                  <span class="hide">index.php?route=/sql&db=test_db&goto=index.php%3Froute%3D%2Fevents%26db%3Dtest_db%26server%3D2%26lang%3Den&sql_query=SET+GLOBAL+event_scheduler%3D%22OFF%22&server=2&lang=en</span>
                     <div>OFF</div>
                   </td>
                 </tr>

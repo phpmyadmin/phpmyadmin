@@ -25,7 +25,7 @@ use function mb_strtoupper;
 use function sprintf;
 use function trim;
 
-#[Route('/database/events', ['GET', 'POST'])]
+#[Route('/events', ['GET', 'POST'])]
 final readonly class IndexController implements InvocableController
 {
     public function __construct(

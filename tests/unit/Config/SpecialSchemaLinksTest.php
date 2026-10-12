@@ -80,7 +80,7 @@ final class SpecialSchemaLinksTest extends AbstractTestCase
         yield ['mysql', 'columns_priv', 'table_name', 'table', [['param_info' => 'db', 'column_name' => 'Db']], './index.php?route=/table/sql&lang=en', 'sql'];
         yield ['mysql', 'columns_priv', 'column_name', 'field', [['param_info' => 'db', 'column_name' => 'Db'], ['param_info' => 'table', 'column_name' => 'Table_name']], './index.php?route=/table/structure/change&change_column=1&lang=en'];
         yield ['mysql', 'db', 'user', 'username', [['param_info' => 'hostname', 'column_name' => 'host']], './index.php?route=/server/privileges&lang=en'];
-        yield ['mysql', 'event', 'name', 'item_name', [['param_info' => 'db', 'column_name' => 'db']], './index.php?route=/database/events&edit_item=1&lang=en'];
+        yield ['mysql', 'event', 'name', 'item_name', [['param_info' => 'db', 'column_name' => 'db']], './index.php?route=/events&edit_item=1&lang=en'];
         yield ['mysql', 'innodb_index_stats', 'table_name', 'table', [['param_info' => 'db', 'column_name' => 'database_name']], './index.php?route=/sql&lang=en'];
         yield ['mysql', 'innodb_index_stats', 'table_name', 'table', [['param_info' => 'db', 'column_name' => 'database_name']], './index.php?route=/table/sql&lang=en', 'sql'];
         yield ['mysql', 'innodb_index_stats', 'index_name', 'index', [['param_info' => 'db', 'column_name' => 'database_name'], ['param_info' => 'table', 'column_name' => 'table_name']], './index.php?route=/table/structure&lang=en'];
