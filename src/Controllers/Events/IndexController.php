@@ -39,7 +39,7 @@ final readonly class IndexController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $this->response->addScriptFiles(['database/events.js', 'sql.js']);
+        $this->response->addScriptFiles(['events.js', 'sql.js']);
 
         if (! $request->isAjax()) {
             if (Current::$database === '') {
