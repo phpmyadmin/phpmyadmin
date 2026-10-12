@@ -250,6 +250,8 @@ final readonly class IndexController implements InvocableController
 
                 $this->response->addHTML($message);
             }
+
+            return $this->response->response();
         }
 
         $items = $this->events->getDetails(Current::$database);
