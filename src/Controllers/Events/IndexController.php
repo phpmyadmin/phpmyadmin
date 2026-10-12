@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Controllers\Events;
 
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Events\Events;
 use PhpMyAdmin\Http\Response;
@@ -30,37 +29,35 @@ final readonly class IndexController implements InvocableController
         private ResponseRenderer $response,
         private Template $template,
         private Events $events,
-        private DatabaseInterface $dbi,
         private DbTableExists $dbTableExists,
     ) {
     }
 
     public function __invoke(ServerRequest $request): Response
     {
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
+            $message = __('No database selected.');
+            if (! $request->isAjax()) {
+                return $this->response->redirectToRoute('/', ['reload' => true, 'message' => $message]);
+            }
+
+            $this->response->addJSON('message', $message);
+            $this->response->setRequestStatus(false);
+
+            return $this->response->response();
+        }
+
         $this->response->addScriptFiles(['events.js', 'sql.js']);
 
-        if (! $request->isAjax()) {
-            if (Current::$database === '') {
-                return $this->response->missingParameterError('db');
-            }
-
-            $databaseName = DatabaseName::tryFrom($request->getParam('db'));
-            if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                return $this->response->redirectToRoute(
-                    '/',
-                    ['reload' => true, 'message' => __('No databases selected.')],
-                );
-            }
-        } elseif (Current::$database !== '') {
-            $this->dbi->selectDb(Current::$database);
-        }
+        $hasPrivilege = $this->events->hasEventPrivilege($databaseName);
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $output = $this->events->handleEditor();
 
             if ($request->isAjax()) {
                 if (Current::$message instanceof Message && Current::$message->isSuccess()) {
-                    $events = $this->events->getDetails(Current::$database, $_POST['item_name']);
+                    $events = $this->events->getDetails($databaseName->getName(), $_POST['item_name']);
                     if ($events === []) {
                         $this->response->setRequestStatus(false);
                         $this->response->addJSON(
@@ -86,10 +83,10 @@ final readonly class IndexController implements InvocableController
                     $this->response->addJSON(
                         'new_row',
                         $this->template->render('events/row', [
-                            'db' => Current::$database,
+                            'db' => $databaseName->getName(),
                             'table' => Current::$table,
                             'event' => $event,
-                            'has_privilege' => Util::currentUserHasPrivilege($this->dbi, 'EVENT', Current::$database),
+                            'has_privilege' => $hasPrivilege,
                             'sql_drop' => $sqlDrop,
                             'row_class' => '',
                         ]),
@@ -165,7 +162,7 @@ final readonly class IndexController implements InvocableController
                 }
 
                 $editor = $this->template->render('events/editor-form', [
-                    'db' => Current::$database,
+                    'db' => $databaseName->getName(),
                     'event' => $item,
                     'mode' => $mode,
                     'is_ajax' => $request->isAjax(),
@@ -180,7 +177,7 @@ final readonly class IndexController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
+                $this->response->addHTML('<h2>' . $title . "</h2>\n\n" . $editor);
 
                 return $this->response->response();
             }
@@ -189,7 +186,7 @@ final readonly class IndexController implements InvocableController
             $message .= sprintf(
                 __('No event with name %1$s found in database %2$s.'),
                 htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
-                htmlspecialchars(Util::backquote(Current::$database)),
+                htmlspecialchars(Util::backquote($databaseName->getName())),
             );
             $message = Message::error($message);
             if ($request->isAjax()) {
@@ -202,12 +199,12 @@ final readonly class IndexController implements InvocableController
             $this->response->addHTML($message);
         }
 
-        $items = $this->events->getDetails(Current::$database);
+        $items = $this->events->getDetails($databaseName->getName());
 
         $this->response->render('events/index', [
-            'db' => Current::$database,
+            'db' => $databaseName->getName(),
             'items' => $items,
-            'has_privilege' => Util::currentUserHasPrivilege($this->dbi, 'EVENT', Current::$database),
+            'has_privilege' => $hasPrivilege,
             'scheduler_state' => $this->events->getEventSchedulerStatus(),
             'is_ajax' => $request->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);

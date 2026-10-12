@@ -371,13 +371,7 @@ return [
     ],
     EventsControllers\IndexController::class => [
         'class' => EventsControllers\IndexController::class,
-        'arguments' => [
-            ResponseRenderer::class,
-            Template::class,
-            Events::class,
-            DatabaseInterface::class,
-            DbTableExists::class,
-        ],
+        'arguments' => [ResponseRenderer::class, Template::class, Events::class, DbTableExists::class],
     ],
     Export\CheckTimeOutController::class => [
         'class' => Export\CheckTimeOutController::class,

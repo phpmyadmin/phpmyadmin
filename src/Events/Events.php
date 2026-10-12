@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Util;
@@ -388,6 +389,11 @@ class Events
     public function getEventDefinition(string $db, string $name): string|null
     {
         return self::getDefinition($this->dbi, $db, $name);
+    }
+
+    public function hasEventPrivilege(DatabaseName $databaseName): bool
+    {
+        return Util::currentUserHasPrivilege($this->dbi, 'EVENT', $databaseName->getName());
     }
 
     public function getErrorCount(): int
