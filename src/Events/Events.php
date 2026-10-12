@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Database;
+namespace PhpMyAdmin\Events;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;

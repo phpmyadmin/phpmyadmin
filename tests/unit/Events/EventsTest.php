@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Database;
+namespace PhpMyAdmin\Tests\Events;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Events\Events;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;

@@ -1723,7 +1723,7 @@ parameters:
 			path: src/Controllers/Events/IndexController.php
 
 		-
-			message: '#^Parameter \#1 \$name of method PhpMyAdmin\\Database\\Events\:\:getDataFromName\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$name of method PhpMyAdmin\\Events\\Events\:\:getDataFromName\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Events/IndexController.php
@@ -1735,7 +1735,7 @@ parameters:
 			path: src/Controllers/Events/IndexController.php
 
 		-
-			message: '#^Parameter \#2 \$name of method PhpMyAdmin\\Database\\Events\:\:getDetails\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$name of method PhpMyAdmin\\Events\\Events\:\:getDetails\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Events/IndexController.php
@@ -4291,78 +4291,6 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 13
-			path: src/Database/Events.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 4
-			path: src/Database/Events.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 4
-			path: src/Database/Events.php
-
-		-
-			message: '#^Parameter \#1 \$query of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:tryQuery\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 4
-			path: src/Database/Events.php
-
-		-
-			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Events\:\:getDefinition\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Events.php
-
-		-
 			message: '#^Binary operation "\." between ''\('' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -5387,6 +5315,78 @@ parameters:
 			identifier: argument.type
 			count: 3
 			path: src/Error/ErrorReport.php
+
+		-
+			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: assignOp.invalid
+			count: 1
+			path: src/Events/Events.php
+
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 1
+			path: src/Events/Events.php
+
+		-
+			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
+			identifier: empty.notAllowed
+			count: 13
+			path: src/Events/Events.php
+
+		-
+			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
+			identifier: equal.notAllowed
+			count: 1
+			path: src/Events/Events.php
+
+		-
+			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
+			identifier: booleanNot.exprNotBoolean
+			count: 4
+			path: src/Events/Events.php
+
+		-
+			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Events/Events.php
+
+		-
+			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 4
+			path: src/Events/Events.php
+
+		-
+			message: '#^Parameter \#1 \$query of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:tryQuery\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Events/Events.php
+
+		-
+			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Events/Events.php
+
+		-
+			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 4
+			path: src/Events/Events.php
+
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Events/Events.php
+
+		-
+			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Events\\Events\:\:getDefinition\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Events/Events.php
 
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
@@ -8881,7 +8881,7 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Events\:\:getDefinition\(\) expects string, string\|null given\.$#'
+			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Events\\Events\:\:getDefinition\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
@@ -15605,30 +15605,6 @@ parameters:
 
 		-
 			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: tests/unit/Database/EventsTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: tests/unit/Database/EventsTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: tests/unit/Database/EventsTest.php
-
-		-
-			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
 			'''
@@ -15848,6 +15824,30 @@ parameters:
 			identifier: method.nonObject
 			count: 2
 			path: tests/unit/Error/ErrorReportTest.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: tests/unit/Events/EventsTest.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: tests/unit/Events/EventsTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\TestCase\:\:createStub\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: tests/unit/Events/EventsTest.php
 
 		-
 			message: '''
