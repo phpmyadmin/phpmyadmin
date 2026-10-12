@@ -5,7 +5,85 @@ if [ -n "$GATEWAY_INTERFACE" ] ; then
     exit 1
 fi
 
-for x in po/*.po  ; do
-    grep 'Team' $x | sed 's/.*: \(.*\)<.*/\1/'
-    git shortlog -sne --no-merges -- $x | grep '^  [ 0-9][0-9]\{3\}'
+# List the contributors of the translations, indented and with the emails
+# escaped for reST, ready to be curated into the credits file.
+#
+# Usage: locales-contributors [revision [minimum-commits [po file]]]
+#
+#   revision         revision to read the history from, defaults to HEAD
+#   minimum-commits  skip the authors below that number of commits, defaults
+#                    to 2
+#   po file          po file to read, one per run, defaults to all of them
+#
+# The revision is always passed to git shortlog: without one it reads the
+# list of commits from stdin, and stdin is not a terminal when this runs from
+# cron or a hook, which silently returned no author at all.
+#
+# The po files were generated in 2010, translators of the earlier language
+# files are not in them, so no revision older than that can list them. They
+# have to be curated by hand, from the ChangeLog and the commit messages.
+#
+# The accounts matching SKIPPED_ACCOUNTS only commit from tooling, they are
+# not translators.
+
+set -eu
+
+REVISION="HEAD"
+MINIMUM_COMMITS="2"
+
+if [ "$#" -gt 0 ] ; then
+    REVISION="$1"
+    shift
+fi
+if [ "$#" -gt 0 ] ; then
+    MINIMUM_COMMITS="$1"
+    shift
+fi
+
+# Tooling accounts, never translators. The noreply ones are the throwaway
+# addresses GitHub and Weblate hand out.
+SKIPPED_ACCOUNTS='bot@phpmyadmin\.net|anonymous|noreply'
+
+# The po files moved to resources/po/ in phpMyAdmin 5.3
+PO_DIRECTORY="po"
+if [ -d resources/po ] ; then
+    PO_DIRECTORY="resources/po"
+fi
+
+if [ "$#" -gt 0 ] ; then
+    set -- "$@"
+else
+    set -- "$PO_DIRECTORY"/*.po
+fi
+
+for x in "$@" ; do
+    if [ ! -f "$x" ] ; then
+        continue
+    fi
+
+    AUTHORS="$(
+        git shortlog -sne --no-merges "$REVISION" -- "$x" \
+            | grep -vE "$SKIPPED_ACCOUNTS" \
+            | awk -v minimum="$MINIMUM_COMMITS" '
+                $1 >= minimum {
+                    sub(/^[[:space:]]*[0-9]+[[:space:]]+/, "")
+                    print "    * " $0
+                }' \
+            | sed 's/@/\\_at\\_/' \
+            || true
+    )"
+
+    if [ -z "$AUTHORS" ] ; then
+        continue
+    fi
+
+    # The language name, from the "Language-Team: Spanish <...>" header
+    LANGUAGE="$(grep 'Team' "$x" | sed -e 's/.*: \(.*\)<.*/\1/' -e 's/[[:space:]]*$//' || true)"
+    if [ -z "$LANGUAGE" ] ; then
+        LANGUAGE="$x"
+    fi
+
+    printf '* %s\n\n' "$LANGUAGE"
+    printf '%s\n' "$AUTHORS"
+    printf '\n'
 done
