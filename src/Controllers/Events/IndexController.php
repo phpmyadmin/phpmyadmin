@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers\Database;
+namespace PhpMyAdmin\Controllers\Events;
 
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
@@ -26,7 +26,7 @@ use function sprintf;
 use function trim;
 
 #[Route('/database/events', ['GET', 'POST'])]
-final readonly class EventsController implements InvocableController
+final readonly class IndexController implements InvocableController
 {
     public function __construct(
         private ResponseRenderer $response,
@@ -87,7 +87,7 @@ final readonly class EventsController implements InvocableController
                     );
                     $this->response->addJSON(
                         'new_row',
-                        $this->template->render('database/events/row', [
+                        $this->template->render('events/row', [
                             'db' => Current::$database,
                             'table' => Current::$table,
                             'event' => $event,
@@ -166,7 +166,7 @@ final readonly class EventsController implements InvocableController
                     }
                 }
 
-                $editor = $this->template->render('database/events/editor_form', [
+                $editor = $this->template->render('events/editor-form', [
                     'db' => Current::$database,
                     'event' => $item,
                     'mode' => $mode,
@@ -254,7 +254,7 @@ final readonly class EventsController implements InvocableController
 
         $items = $this->events->getDetails(Current::$database);
 
-        $this->response->render('database/events/index', [
+        $this->response->render('events/index', [
             'db' => Current::$database,
             'items' => $items,
             'has_privilege' => Util::currentUserHasPrivilege($this->dbi, 'EVENT', Current::$database),

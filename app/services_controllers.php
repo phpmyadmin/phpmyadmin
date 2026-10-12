@@ -20,6 +20,7 @@ use PhpMyAdmin\Controllers\Console;
 use PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Controllers\ErrorReportController;
+use PhpMyAdmin\Controllers\Events as EventsControllers;
 use PhpMyAdmin\Controllers\Export;
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\GitInfoController;
@@ -154,8 +155,8 @@ return [
             Randomizer::class,
         ],
     ],
-    Database\EventsController::class => [
-        'class' => Database\EventsController::class,
+    EventsControllers\IndexController::class => [
+        'class' => EventsControllers\IndexController::class,
         'arguments' => [
             ResponseRenderer::class,
             Template::class,

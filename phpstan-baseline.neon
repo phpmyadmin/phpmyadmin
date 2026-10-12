@@ -1372,36 +1372,6 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 14
-			path: src/Controllers/Database/EventsController.php
-
-		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
-			message: '#^Parameter \#1 \$name of method PhpMyAdmin\\Database\\Events\:\:getDataFromName\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
-			message: '#^Parameter \#1 \$string of function mb_strtoupper expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
-			message: '#^Parameter \#2 \$name of method PhpMyAdmin\\Database\\Events\:\:getDetails\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
 			message: '#^Cannot access offset ''handler'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -1739,6 +1709,36 @@ parameters:
 			identifier: booleanAnd.rightNotBoolean
 			count: 1
 			path: src/Controllers/ErrorReportController.php
+
+		-
+			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
+			identifier: empty.notAllowed
+			count: 14
+			path: src/Controllers/Events/IndexController.php
+
+		-
+			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Events/IndexController.php
+
+		-
+			message: '#^Parameter \#1 \$name of method PhpMyAdmin\\Database\\Events\:\:getDataFromName\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Events/IndexController.php
+
+		-
+			message: '#^Parameter \#1 \$string of function mb_strtoupper expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Events/IndexController.php
+
+		-
+			message: '#^Parameter \#2 \$name of method PhpMyAdmin\\Database\\Events\:\:getDetails\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Events/IndexController.php
 
 		-
 			message: '#^Cannot access offset ''aliases'' on mixed\.$#'

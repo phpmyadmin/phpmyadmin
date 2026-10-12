@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Controllers\Database;
+namespace PhpMyAdmin\Tests\Controllers\Events;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Controllers\Database\EventsController;
+use PhpMyAdmin\Controllers\Events\IndexController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\DbTableExists;
@@ -16,9 +16,9 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 
-#[CoversClass(EventsController::class)]
+#[CoversClass(IndexController::class)]
 #[CoversClass(Events::class)]
-final class EventsControllerTest extends AbstractTestCase
+final class IndexControllerTest extends AbstractTestCase
 {
     public function testWithEvents(): void
     {
@@ -55,7 +55,7 @@ final class EventsControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db']);
 
-        $response = (new EventsController(
+        $response = (new IndexController(
             $responseRenderer,
             $template,
             new Events($dbi, $config),
@@ -68,7 +68,7 @@ final class EventsControllerTest extends AbstractTestCase
 
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertStringEqualsFile(
-            __DIR__ . '/Fixtures/Events-testWithEvents.html',
+            __DIR__ . '/Fixtures/Index-testWithEvents.html',
             (string) $response->getBody(),
         );
     }
@@ -108,7 +108,7 @@ final class EventsControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db']);
 
-        $response = (new EventsController(
+        $response = (new IndexController(
             $responseRenderer,
             $template,
             new Events($dbi, $config),
@@ -121,7 +121,7 @@ final class EventsControllerTest extends AbstractTestCase
 
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertStringEqualsFile(
-            __DIR__ . '/Fixtures/Events-testWithoutEvents.html',
+            __DIR__ . '/Fixtures/Index-testWithoutEvents.html',
             (string) $response->getBody(),
         );
     }
