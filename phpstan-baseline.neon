@@ -14623,15 +14623,6 @@ parameters:
 			path: tests/unit/Controllers/Console/Bookmark/RefreshControllerTest.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: tests/unit/Controllers/Database/EventsControllerTest.php
-
-		-
 			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
 			identifier: attribute.notFound
 			count: 1

@@ -20,5 +20,6 @@ insert_final_newline = false
 insert_final_newline = false
 
 [tests/unit/**/Fixtures/*.html]
+indent_size = 2
 insert_final_newline = false
 trim_trailing_whitespace = false

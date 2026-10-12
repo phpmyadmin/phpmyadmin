@@ -720,9 +720,6 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
       <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
@@ -8572,12 +8569,6 @@
       <code><![CDATA[iterable<array{string, string, bool|int|string}>]]></code>
       <code><![CDATA[iterable<array{string|string[], string|string[]}>]]></code>
     </MixedReturnStatement>
-  </file>
-  <file src="tests/unit/Controllers/Database/EventsControllerTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
   </file>
   <file src="tests/unit/Controllers/Database/PrivilegesControllerTest.php">
     <DeprecatedMethod>
