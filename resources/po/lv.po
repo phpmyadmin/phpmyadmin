@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-11 00:47+0000\n"
-"PO-Revision-Date: 2026-09-08 03:51+0000\n"
+"PO-Revision-Date: 2026-10-12 17:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2026.9.1.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1314,7 +1314,7 @@ msgstr "Servera versija"
 #: resources/templates/database/central_columns/edit.twig:15
 msgctxt "Auto Increment"
 msgid "A_I"
-msgstr ""
+msgstr "Automātiska skaitliskās vērtības piešķiršana"
 
 #: resources/templates/database/central_columns/main.twig:4
 msgid "Add new column"
@@ -1334,7 +1334,7 @@ msgstr "Atribūti"
 #: resources/templates/database/central_columns/main.twig:44
 #: resources/templates/database/central_columns/main.twig:254
 msgid "A_I"
-msgstr ""
+msgstr "Automātiska skaitliskās vērtības piešķiršana"
 
 #: resources/templates/database/central_columns/main.twig:129
 msgid "The central list of columns for the current database is empty"
@@ -3701,7 +3701,7 @@ msgstr "Brīdinājums"
 
 #: resources/templates/home/index.twig:302
 msgid "Notice"
-msgstr ""
+msgstr "Paziņojums"
 
 #: resources/templates/home/index.twig:315
 msgid "phpMyAdmin Themes"
@@ -5803,7 +5803,7 @@ msgstr ""
 
 #: resources/templates/server/status/base.twig:26
 msgid "Monitor"
-msgstr ""
+msgstr "Reāllaika uzraudzība"
 
 #: resources/templates/server/status/base.twig:31
 msgid "Advisor"
@@ -6610,12 +6610,12 @@ msgstr "Līniju"
 #: resources/templates/table/chart/tbl_chart.twig:25
 msgctxt "Chart type"
 msgid "Spline"
-msgstr ""
+msgstr "Gludlīkņu"
 
 #: resources/templates/table/chart/tbl_chart.twig:29
 msgctxt "Chart type"
 msgid "Area"
-msgstr ""
+msgstr "Datu apgabala (laukuma)"
 
 #: resources/templates/table/chart/tbl_chart.twig:33
 #, fuzzy
@@ -6631,7 +6631,7 @@ msgstr "Laikskalas"
 #: resources/templates/table/chart/tbl_chart.twig:41
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "Datu punktu izkliedes"
 
 #: resources/templates/table/chart/tbl_chart.twig:47
 msgid "Stacked"
@@ -8997,19 +8997,19 @@ msgstr "Ielikt"
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:552
 #: src/Config/ConfigFile.php:557 src/Config/ConfigFile.php:565
 msgid "Both"
-msgstr "Abi"
+msgstr "Abās pusēs"
 
 #: src/Config/ConfigFile.php:549
 msgid "Nowhere"
-msgstr ""
+msgstr "Nerādīt jeb nevienā pusē"
 
 #: src/Config/ConfigFile.php:550
 msgid "Left"
-msgstr ""
+msgstr "Kreisā pusē"
 
 #: src/Config/ConfigFile.php:551
 msgid "Right"
-msgstr ""
+msgstr "Labā pusē"
 
 #: src/Config/ConfigFile.php:567
 msgid "Click"
@@ -18245,7 +18245,7 @@ msgstr ""
 #: src/Types.php:615
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Skaitliskie"
 
 #: src/Types.php:633
 msgctxt "date and time types"
@@ -18264,7 +18264,7 @@ msgstr "Parole ir pārāk gara!"
 
 #: src/UserPassword.php:47
 msgid "The profile has been updated."
-msgstr "Profils tika modificēts."
+msgstr "Profils atjaunināts."
 
 #: src/Util.php:132
 #, php-format
