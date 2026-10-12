@@ -130,6 +130,7 @@ final class RoutesTest extends TestCase
             '/database/tracking' => Database\TrackingController::class,
             '/error-report' => ErrorReportController::class,
             '/events' => Events\IndexController::class,
+            '/events/export' => Events\ExportController::class,
             '/export' => Export\ExportController::class,
             '/export/check-time-out' => Export\CheckTimeOutController::class,
             '/gis-data-editor' => GisDataEditorController::class,

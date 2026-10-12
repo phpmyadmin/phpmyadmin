@@ -1054,7 +1054,6 @@
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$item['item_original_name']]]></code>

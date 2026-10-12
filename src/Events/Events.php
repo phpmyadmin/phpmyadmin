@@ -385,6 +385,11 @@ class Events
         return is_string($result) ? $result : null;
     }
 
+    public function getEventDefinition(string $db, string $name): string|null
+    {
+        return self::getDefinition($this->dbi, $db, $name);
+    }
+
     public function getErrorCount(): int
     {
         return count($this->errors);

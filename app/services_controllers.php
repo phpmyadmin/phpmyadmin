@@ -155,16 +155,6 @@ return [
             Randomizer::class,
         ],
     ],
-    EventsControllers\IndexController::class => [
-        'class' => EventsControllers\IndexController::class,
-        'arguments' => [
-            ResponseRenderer::class,
-            Template::class,
-            Events::class,
-            DatabaseInterface::class,
-            DbTableExists::class,
-        ],
-    ],
     Database\ExportController::class => [
         'class' => Database\ExportController::class,
         'arguments' => [
@@ -373,6 +363,20 @@ return [
             ErrorHandler::class,
             DatabaseInterface::class,
             Config::class,
+        ],
+    ],
+    EventsControllers\ExportController::class => [
+        'class' => EventsControllers\ExportController::class,
+        'arguments' => [ResponseRenderer::class, Events::class, DbTableExists::class],
+    ],
+    EventsControllers\IndexController::class => [
+        'class' => EventsControllers\IndexController::class,
+        'arguments' => [
+            ResponseRenderer::class,
+            Template::class,
+            Events::class,
+            DatabaseInterface::class,
+            DbTableExists::class,
         ],
     ],
     Export\CheckTimeOutController::class => [

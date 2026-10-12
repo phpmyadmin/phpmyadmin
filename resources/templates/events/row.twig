@@ -27,12 +27,7 @@
     {% endif %}
   </td>
   <td>
-    <a class="ajax export_anchor" href="{{ url('/events', {
-      'db': db,
-      'table': table,
-      'export_item': true,
-      'item_name': event.name
-    }) }}">
+    <a class="ajax export_anchor" href="{{ url('/events/export', {'db': db, 'table': table, 'item_name': event.name}) }}">
       {{ get_icon('b_export', t('Export')) }}
     </a>
   </td>
