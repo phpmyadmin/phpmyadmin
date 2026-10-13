@@ -125,8 +125,8 @@ class ServerSettingsTest extends TestBase
         // The previously active tab must still be shown
         self::assertTrue($this->byId('Tabs')->isDisplayed());
         self::assertFalse($this->byId('Startup')->isDisplayed());
-        self::assertStringContainsString('active', $this->byId('Tabs')->getAttribute('class'));
-        self::assertStringNotContainsString('active', $this->byId('Startup')->getAttribute('class'));
+        self::assertTrue($this->isElementPresent('cssSelector', '#Tabs.active'));
+        self::assertFalse($this->isElementPresent('cssSelector', '#Startup.active'));
     }
 
     /**
