@@ -1,0 +1,119 @@
+<h2>Add event</h2>
+
+<form class="rte_form" action="index.php?route=/events&server=2&lang=en" method="post">
+  <input type="hidden" name="db" value="test_db"><input type="hidden" name="server" value="2"><input type="hidden" name="lang" value="en"><input type="hidden" name="token" value="token">
+  <input name="add_item" type="hidden" value="1">
+
+  <div class="card">
+    <div class="card-header">
+      Details
+              <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fcreate-event.html" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+          </div>
+
+    <div class="card-body">
+      <table class="rte_table table table-borderless table-sm">
+        <colgroup>
+          <col>
+          <col width="100%">
+        </colgroup>
+
+        <tr>
+          <td>Event name</td>
+          <td>
+            <input type="text" name="item_name" value="" maxlength="64">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-nowrap">Status</td>
+          <td>
+            <select name="item_status">
+                              <option value="ENABLED">ENABLED</option>
+                              <option value="DISABLED">DISABLED</option>
+                              <option value="SLAVESIDE_DISABLED">SLAVESIDE_DISABLED</option>
+                          </select>
+          </td>
+        </tr>
+        <tr class="text-nowrap">
+          <td>Event type</td>
+          <td>
+                          <input name="item_type" type="hidden" value="ONE TIME">
+              <div class="fw-bold text-center w-50">
+                ONE TIME
+              </div>
+              <input type="submit" name="item_changetype" class="w-50" value="Change to RECURRING">
+                      </td>
+        </tr>
+        <tr class="onetime_event_row">
+          <td class="text-nowrap">Execute at</td>
+          <td class="text-nowrap">
+            <input type="text" name="item_execute_at" value="" class="datetimefield">
+          </td>
+        </tr>
+        <tr class="recurring_event_row hide">
+          <td class="text-nowrap">Execute every</td>
+          <td>
+            <input class="w-50" type="text" name="item_interval_value" value="">
+            <select class="w-50" name="item_interval_field">
+                              <option value="YEAR">YEAR</option>
+                              <option value="QUARTER">QUARTER</option>
+                              <option value="MONTH">MONTH</option>
+                              <option value="DAY">DAY</option>
+                              <option value="HOUR">HOUR</option>
+                              <option value="MINUTE">MINUTE</option>
+                              <option value="WEEK">WEEK</option>
+                              <option value="SECOND">SECOND</option>
+                              <option value="YEAR_MONTH">YEAR_MONTH</option>
+                              <option value="DAY_HOUR">DAY_HOUR</option>
+                              <option value="DAY_MINUTE">DAY_MINUTE</option>
+                              <option value="DAY_SECOND">DAY_SECOND</option>
+                              <option value="HOUR_MINUTE">HOUR_MINUTE</option>
+                              <option value="HOUR_SECOND">HOUR_SECOND</option>
+                              <option value="MINUTE_SECOND">MINUTE_SECOND</option>
+                          </select>
+          </td>
+        </tr>
+        <tr class="recurring_event_row hide">
+          <td class="text-nowrap">Start</td>
+          <td class="text-nowrap">
+            <input type="text" name="item_starts" value="" class="datetimefield">
+          </td>
+        </tr>
+        <tr class="recurring_event_row hide">
+          <td class="text-nowrap">End</td>
+          <td class="text-nowrap">
+            <input type="text" name="item_ends" value="" class="datetimefield">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-nowrap">Definition</td>
+          <td>
+            <textarea name="item_definition" rows="15" cols="40"></textarea><br>
+            <input type="button" value="Format" id="format" class="btn btn-secondary button sqlbutton">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-nowrap">On completion preserve</td>
+          <td>
+            <input type="checkbox" name="item_preserve">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-nowrap">Definer</td>
+          <td>
+            <input type="text" name="item_definer" value="">
+          </td>
+        </tr>
+        <tr>
+          <td class="text-nowrap">Comment</td>
+          <td>
+            <input type="text" name="item_comment" value="" maxlength="64">
+          </td>
+        </tr>
+      </table>
+    </div>
+
+          <div class="card-footer">
+        <input class="btn btn-primary" type="submit" name="editor_process_add" value="Go">
+      </div>
+      </div>
+</form>

@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Controllers\Database;
+namespace PhpMyAdmin\Controllers\Events;
 
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\Database\Events;
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Events\Events;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -20,49 +19,45 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function htmlspecialchars;
-use function is_string;
 use function mb_strtoupper;
 use function sprintf;
-use function trim;
 
-#[Route('/database/events', ['GET', 'POST'])]
-final readonly class EventsController implements InvocableController
+#[Route('/events', ['GET', 'POST'])]
+final readonly class IndexController implements InvocableController
 {
     public function __construct(
         private ResponseRenderer $response,
         private Template $template,
         private Events $events,
-        private DatabaseInterface $dbi,
         private DbTableExists $dbTableExists,
     ) {
     }
 
     public function __invoke(ServerRequest $request): Response
     {
-        $this->response->addScriptFiles(['database/events.js', 'sql.js']);
-
-        if (! $request->isAjax()) {
-            if (Current::$database === '') {
-                return $this->response->missingParameterError('db');
+        $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
+            $message = __('No database selected.');
+            if (! $request->isAjax()) {
+                return $this->response->redirectToRoute('/', ['reload' => true, 'message' => $message]);
             }
 
-            $databaseName = DatabaseName::tryFrom($request->getParam('db'));
-            if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                return $this->response->redirectToRoute(
-                    '/',
-                    ['reload' => true, 'message' => __('No databases selected.')],
-                );
-            }
-        } elseif (Current::$database !== '') {
-            $this->dbi->selectDb(Current::$database);
+            $this->response->addJSON('message', $message);
+            $this->response->setRequestStatus(false);
+
+            return $this->response->response();
         }
+
+        $this->response->addScriptFiles(['events.js', 'sql.js']);
+
+        $hasPrivilege = $this->events->hasEventPrivilege($databaseName);
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $output = $this->events->handleEditor();
 
             if ($request->isAjax()) {
                 if (Current::$message instanceof Message && Current::$message->isSuccess()) {
-                    $events = $this->events->getDetails(Current::$database, $_POST['item_name']);
+                    $events = $this->events->getDetails($databaseName->getName(), $_POST['item_name']);
                     if ($events === []) {
                         $this->response->setRequestStatus(false);
                         $this->response->addJSON(
@@ -87,11 +82,11 @@ final readonly class EventsController implements InvocableController
                     );
                     $this->response->addJSON(
                         'new_row',
-                        $this->template->render('database/events/row', [
-                            'db' => Current::$database,
+                        $this->template->render('events/row', [
+                            'db' => $databaseName->getName(),
                             'table' => Current::$table,
                             'event' => $event,
-                            'has_privilege' => Util::currentUserHasPrivilege($this->dbi, 'EVENT', Current::$database),
+                            'has_privilege' => $hasPrivilege,
                             'sql_drop' => $sqlDrop,
                             'row_class' => '',
                         ]),
@@ -166,8 +161,8 @@ final readonly class EventsController implements InvocableController
                     }
                 }
 
-                $editor = $this->template->render('database/events/editor_form', [
-                    'db' => Current::$database,
+                $editor = $this->template->render('events/editor-form', [
+                    'db' => $databaseName->getName(),
                     'event' => $item,
                     'mode' => $mode,
                     'is_ajax' => $request->isAjax(),
@@ -182,7 +177,7 @@ final readonly class EventsController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
+                $this->response->addHTML('<h2>' . $title . "</h2>\n\n" . $editor);
 
                 return $this->response->response();
             }
@@ -191,7 +186,7 @@ final readonly class EventsController implements InvocableController
             $message .= sprintf(
                 __('No event with name %1$s found in database %2$s.'),
                 htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
-                htmlspecialchars(Util::backquote(Current::$database)),
+                htmlspecialchars(Util::backquote($databaseName->getName())),
             );
             $message = Message::error($message);
             if ($request->isAjax()) {
@@ -204,69 +199,16 @@ final readonly class EventsController implements InvocableController
             $this->response->addHTML($message);
         }
 
-        $eventName = $this->getEventName($request->getQueryParam('item_name'));
-        if ($request->hasQueryParam('export_item') && $eventName !== '') {
-            $exportData = Events::getDefinition($this->dbi, Current::$database, $eventName);
+        $items = $this->events->getDetails($databaseName->getName());
 
-            if ($exportData === null || $exportData === '') {
-                $exportData = false;
-            }
-
-            $eventName = Util::backquote($eventName);
-            if ($exportData !== false) {
-                $exportData = trim($exportData);
-                $title = sprintf(__('Export of event %s'), $eventName);
-
-                if ($request->isAjax()) {
-                    $this->response->addJSON('message', $exportData);
-                    $this->response->addJSON('title', $title);
-
-                    return $this->response->response();
-                }
-
-                $exportData = htmlspecialchars($exportData);
-
-                $output = '<div class="container">';
-                $output .= '<h2>' . $title . '</h2>';
-                $output .= '<div class="card"><div class="card-body">';
-                $output .= '<textarea rows="15" class="form-control">' . $exportData . '</textarea>';
-                $output .= '</div></div></div>';
-
-                $this->response->addHTML($output);
-            } else {
-                $message = sprintf(
-                    __('Error in processing request: No event with name %1$s found in database %2$s.'),
-                    htmlspecialchars($eventName),
-                    htmlspecialchars(Util::backquote(Current::$database)),
-                );
-                $message = Message::error($message);
-
-                if ($request->isAjax()) {
-                    $this->response->setRequestStatus(false);
-                    $this->response->addJSON('message', $message);
-
-                    return $this->response->response();
-                }
-
-                $this->response->addHTML($message);
-            }
-        }
-
-        $items = $this->events->getDetails(Current::$database);
-
-        $this->response->render('database/events/index', [
-            'db' => Current::$database,
+        $this->response->render('events/index', [
+            'db' => $databaseName->getName(),
             'items' => $items,
-            'has_privilege' => Util::currentUserHasPrivilege($this->dbi, 'EVENT', Current::$database),
+            'has_privilege' => $hasPrivilege,
             'scheduler_state' => $this->events->getEventSchedulerStatus(),
             'is_ajax' => $request->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
 
         return $this->response->response();
-    }
-
-    private function getEventName(mixed $param): string
-    {
-        return is_string($param) ? $param : '';
     }
 }

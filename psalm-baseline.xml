@@ -699,47 +699,6 @@
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
   </file>
-  <file src="src/Controllers/Database/EventsController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$item['item_original_name']]]></code>
-    </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
-      <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
-      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
-      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
-      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
-      <code><![CDATA[empty($_POST['item_changetype'])]]></code>
-      <code><![CDATA[empty($_POST['item_changetype'])]]></code>
-      <code><![CDATA[empty($_POST['item_changetype'])]]></code>
-      <code><![CDATA[empty($_REQUEST['add_item'])]]></code>
-      <code><![CDATA[empty($_REQUEST['add_item'])]]></code>
-      <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
-      <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
-      <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
-      <code><![CDATA[empty($_REQUEST['item_name'])]]></code>
-    </RiskyTruthyFalsyComparison>
-  </file>
   <file src="src/Controllers/Database/ExportController.php">
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
@@ -1089,6 +1048,38 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Controllers/Events/IndexController.php">
+    <MixedAssignment>
+      <code><![CDATA[$item['item_original_name']]]></code>
+    </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['item_name']]]></code>
+    </PossiblyInvalidCast>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
+      <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
+      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
+      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
+      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
+      <code><![CDATA[empty($_POST['item_changetype'])]]></code>
+      <code><![CDATA[empty($_POST['item_changetype'])]]></code>
+      <code><![CDATA[empty($_POST['item_changetype'])]]></code>
+      <code><![CDATA[empty($_REQUEST['add_item'])]]></code>
+      <code><![CDATA[empty($_REQUEST['add_item'])]]></code>
+      <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
+      <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
+      <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
+      <code><![CDATA[empty($_REQUEST['item_name'])]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Export/CheckTimeOutController.php">
     <PossiblyUnusedMethod>
@@ -3096,51 +3087,6 @@
       <code><![CDATA[$value['foreign_table']]]></code>
     </PossiblyNullOperand>
   </file>
-  <file src="src/Database/Events.php">
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['item_comment']]]></code>
-      <code><![CDATA[$_POST['item_definer']]]></code>
-      <code><![CDATA[$_POST['item_ends']]]></code>
-      <code><![CDATA[$_POST['item_execute_at']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_POST['item_starts']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_comment']]]></code>
-      <code><![CDATA[$_POST['item_ends']]]></code>
-      <code><![CDATA[$_POST['item_execute_at']]]></code>
-      <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_POST['item_starts']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$_POST['item_definition']]]></code>
-    </PossiblyInvalidOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$createItem]]></code>
-    </PossiblyNullArgument>
-    <RiskyCast>
-      <code><![CDATA[$_POST['item_interval_value']]]></code>
-    </RiskyCast>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
-      <code><![CDATA[empty($_POST['item_comment'])]]></code>
-      <code><![CDATA[empty($_POST['item_definer'])]]></code>
-      <code><![CDATA[empty($_POST['item_definition'])]]></code>
-      <code><![CDATA[empty($_POST['item_ends'])]]></code>
-      <code><![CDATA[empty($_POST['item_execute_at'])]]></code>
-      <code><![CDATA[empty($_POST['item_interval_field'])]]></code>
-      <code><![CDATA[empty($_POST['item_interval_value'])]]></code>
-      <code><![CDATA[empty($_POST['item_name'])]]></code>
-      <code><![CDATA[empty($_POST['item_preserve'])]]></code>
-      <code><![CDATA[empty($_POST['item_starts'])]]></code>
-      <code><![CDATA[empty($_POST['item_status'])]]></code>
-      <code><![CDATA[empty($_POST['item_type'])]]></code>
-    </RiskyTruthyFalsyComparison>
-  </file>
   <file src="src/Database/Routine.php">
     <PossiblyUnusedProperty>
       <code><![CDATA[$returns]]></code>
@@ -3794,6 +3740,51 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['description'])]]></code>
       <code><![CDATA[empty($_POST['exception'])]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Events/Events.php">
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$_POST['item_comment']]]></code>
+      <code><![CDATA[$_POST['item_definer']]]></code>
+      <code><![CDATA[$_POST['item_ends']]]></code>
+      <code><![CDATA[$_POST['item_execute_at']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_name']]]></code>
+      <code><![CDATA[$_POST['item_original_name']]]></code>
+      <code><![CDATA[$_POST['item_original_name']]]></code>
+      <code><![CDATA[$_POST['item_starts']]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast>
+      <code><![CDATA[$_POST['item_comment']]]></code>
+      <code><![CDATA[$_POST['item_ends']]]></code>
+      <code><![CDATA[$_POST['item_execute_at']]]></code>
+      <code><![CDATA[$_POST['item_original_name']]]></code>
+      <code><![CDATA[$_POST['item_starts']]]></code>
+    </PossiblyInvalidCast>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$_POST['item_definition']]]></code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullArgument>
+      <code><![CDATA[$createItem]]></code>
+    </PossiblyNullArgument>
+    <RiskyCast>
+      <code><![CDATA[$_POST['item_interval_value']]]></code>
+    </RiskyCast>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
+      <code><![CDATA[empty($_POST['item_comment'])]]></code>
+      <code><![CDATA[empty($_POST['item_definer'])]]></code>
+      <code><![CDATA[empty($_POST['item_definition'])]]></code>
+      <code><![CDATA[empty($_POST['item_ends'])]]></code>
+      <code><![CDATA[empty($_POST['item_execute_at'])]]></code>
+      <code><![CDATA[empty($_POST['item_interval_field'])]]></code>
+      <code><![CDATA[empty($_POST['item_interval_value'])]]></code>
+      <code><![CDATA[empty($_POST['item_name'])]]></code>
+      <code><![CDATA[empty($_POST['item_preserve'])]]></code>
+      <code><![CDATA[empty($_POST['item_starts'])]]></code>
+      <code><![CDATA[empty($_POST['item_status'])]]></code>
+      <code><![CDATA[empty($_POST['item_type'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Export/Export.php">
@@ -8573,12 +8564,6 @@
       <code><![CDATA[iterable<array{string|string[], string|string[]}>]]></code>
     </MixedReturnStatement>
   </file>
-  <file src="tests/unit/Controllers/Database/EventsControllerTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Controllers/Database/PrivilegesControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -9151,12 +9136,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="tests/unit/Database/EventsTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Database/RoutinesTest.php">
     <MixedAssignment>
       <code><![CDATA[$postData[$key]]]></code>
@@ -9288,6 +9267,12 @@
       <code><![CDATA[$_SERVER['SERVER_SOFTWARE']]]></code>
       <code><![CDATA[$_SERVER['SERVER_SOFTWARE']]]></code>
     </PossiblyUndefinedArrayOffset>
+  </file>
+  <file src="tests/unit/Events/EventsTest.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+    </DeprecatedMethod>
   </file>
   <file src="tests/unit/Export/ExportTest.php">
     <DeprecatedMethod>

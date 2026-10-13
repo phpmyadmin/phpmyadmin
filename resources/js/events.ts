@@ -1,12 +1,12 @@
 import $ from 'jquery';
 import * as bootstrap from 'bootstrap';
-import { AJAX } from '../modules/ajax.ts';
-import { addDatepicker, getSqlEditor, slidingMessage } from '../modules/functions.ts';
-import { Navigation } from '../modules/navigation.ts';
-import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
-import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
+import { AJAX } from './modules/ajax.ts';
+import { addDatepicker, getSqlEditor, slidingMessage } from './modules/functions.ts';
+import { Navigation } from './modules/navigation.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.ts';
+import getJsConfirmCommonParam from './modules/functions/getJsConfirmCommonParam.ts';
 
-AJAX.registerTeardown('database/events.js', function () {
+AJAX.registerTeardown('events.js', function () {
     $(document).off('click', 'a.ajax.add_anchor, a.ajax.edit_anchor');
     $(document).off('click', 'a.ajax.export_anchor');
     $(document).off('click', '#bulkActionExportButton');
@@ -536,7 +536,7 @@ const DatabaseEvents = {
     }
 };
 
-AJAX.registerOnload('database/events.js', function () {
+AJAX.registerOnload('events.js', function () {
     /**
      * Attach Ajax event handlers for the Add/Edit functionality.
      */

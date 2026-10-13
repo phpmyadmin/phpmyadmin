@@ -25,13 +25,13 @@
     {%- endif %}
 
     <div{{ items is not empty ? ' class="ms-auto"' }}>
-      <a class="ajax add_anchor btn btn-primary{{ not has_privilege ? ' disabled' }}" href="{{ url('/database/events', {'db': db, 'add_item': true}) }}" role="button"{{ not has_privilege ? ' tabindex="-1" aria-disabled="true"' }}>
+      <a class="ajax add_anchor btn btn-primary{{ not has_privilege ? ' disabled' }}" href="{{ url('/events', {'db': db, 'add_item': true}) }}" role="button"{{ not has_privilege ? ' tabindex="-1" aria-disabled="true"' }}>
         {{ get_icon('b_event_add', t('Create new event')) }}
       </a>
     </div>
   </div>
 
-  <form id="rteListForm" class="disableAjax" action="{{ url('/database/events') }}">
+  <form id="rteListForm" class="disableAjax" action="{{ url('/events') }}">
     {{ get_hidden_inputs(db) }}
 
     <div id="nothing2display"{{ items is not empty ? ' class="hide"' }}>
@@ -68,7 +68,7 @@
           </td>
           <td>
             {% if has_privilege %}
-              <a class="ajax edit_anchor" href="{{ url('/database/events', {
+              <a class="ajax edit_anchor" href="{{ url('/events', {
                 'db': db,
                 'edit_item': true,
                 'item_name': event.name
@@ -80,11 +80,7 @@
             {% endif %}
           </td>
           <td>
-            <a class="ajax export_anchor" href="{{ url('/database/events', {
-              'db': db,
-              'export_item': true,
-              'item_name': event.name
-            }) }}">
+            <a class="ajax export_anchor" href="{{ url('/events/export', {'db': db, 'item_name': event.name}) }}">
               {{ get_icon('b_export', t('Export')) }}
             </a>
           </td>
@@ -95,7 +91,7 @@
                 {
                   'db': db,
                   'sql_query': 'DROP EVENT IF EXISTS %s'|format(backquote(event.name)),
-                  'goto': url('/database/events', {'db': db})
+                  'goto': url('/events', {'db': db})
                 },
                 get_icon('b_drop', t('Drop')),
                 {'class': 'ajax drop_anchor'}
@@ -125,7 +121,7 @@
                   <span class="hide">
                     {{- url('/sql', {
                       'db': db,
-                      'goto': url('/database/events', {'db': db}),
+                      'goto': url('/events', {'db': db}),
                       'sql_query': 'SET GLOBAL event_scheduler="ON"',
                     }) -}}
                   </span>
@@ -136,7 +132,7 @@
                   <span class="hide">
                     {{- url('/sql', {
                       'db': db,
-                      'goto': url('/database/events', {'db': db}),
+                      'goto': url('/events', {'db': db}),
                       'sql_query': 'SET GLOBAL event_scheduler="OFF"',
                     }) -}}
                   </span>

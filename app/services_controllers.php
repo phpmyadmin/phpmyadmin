@@ -20,6 +20,7 @@ use PhpMyAdmin\Controllers\Console;
 use PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Controllers\ErrorReportController;
+use PhpMyAdmin\Controllers\Events as EventsControllers;
 use PhpMyAdmin\Controllers\Export;
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\GitInfoController;
@@ -53,12 +54,12 @@ use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common;
-use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Error\ErrorReport;
+use PhpMyAdmin\Events\Events;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FlashMessenger;
@@ -152,16 +153,6 @@ return [
             Common::class,
             DbTableExists::class,
             Randomizer::class,
-        ],
-    ],
-    Database\EventsController::class => [
-        'class' => Database\EventsController::class,
-        'arguments' => [
-            ResponseRenderer::class,
-            Template::class,
-            Events::class,
-            DatabaseInterface::class,
-            DbTableExists::class,
         ],
     ],
     Database\ExportController::class => [
@@ -373,6 +364,14 @@ return [
             DatabaseInterface::class,
             Config::class,
         ],
+    ],
+    EventsControllers\ExportController::class => [
+        'class' => EventsControllers\ExportController::class,
+        'arguments' => [ResponseRenderer::class, Events::class, DbTableExists::class],
+    ],
+    EventsControllers\IndexController::class => [
+        'class' => EventsControllers\IndexController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, Events::class, DbTableExists::class],
     ],
     Export\CheckTimeOutController::class => [
         'class' => Export\CheckTimeOutController::class,
