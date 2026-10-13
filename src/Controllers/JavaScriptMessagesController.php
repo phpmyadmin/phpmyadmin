@@ -343,6 +343,9 @@ final readonly class JavaScriptMessagesController implements InvocableController
             'strChangingCharset' => __('Changing charset'),
             'strNo' => __('No'),
 
+            /* For table/operations.js */
+            'strCopyingTable' => __('Copying table'),
+
             /* For Foreign key checks */
             'strForeignKeyCheck' => __('Enable foreign key checks'),
 
