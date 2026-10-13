@@ -1416,4 +1416,128 @@ class RoutinesTest extends AbstractTestCase
             ],
         ];
     }
+
+    /**
+     * A user who was only granted the EXECUTE privilege cannot read the source of a
+     * routine, but is still allowed to call it, so the Execute link must stay usable.
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/19543
+     */
+    public function testGetRowWithOnlyExecutePrivilege(): void
+    {
+        $this->dummyDbi->removeDefaultResults();
+        $this->dummyDbi->addResult('SELECT @@lower_case_table_names', []);
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $this->dummyDbi->addResult(
+            "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA ='db' AND SPECIFIC_NAME='test_proc'AND ROUTINE_TYPE='PROCEDURE';",
+            [['root@localhost']],
+            ['DEFINER']
+        );
+        $this->dummyDbi->addResult('SELECT CURRENT_USER();', [['john@%']], ['CURRENT_USER()']);
+        // No CREATE ROUTINE privilege, globally or on the database.
+        $this->dummyDbi->addResult(
+            "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''john''@''%''' AND PRIVILEGE_TYPE='CREATE ROUTINE'",
+            []
+        );
+        $this->dummyDbi->addResult(
+            "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''john''@''%''' AND PRIVILEGE_TYPE='CREATE ROUTINE' AND 'db' LIKE `TABLE_SCHEMA`",
+            []
+        );
+        $this->dummyDbi->addResult('SELECT 1 FROM mysql.user LIMIT 1', []);
+        // ... but EXECUTE was granted on it.
+        $this->dummyDbi->addResult(
+            "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''john''@''%''' AND PRIVILEGE_TYPE='EXECUTE'",
+            []
+        );
+        $this->dummyDbi->addResult(
+            "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` WHERE GRANTEE='''john''@''%''' AND PRIVILEGE_TYPE='EXECUTE' AND 'db' LIKE `TABLE_SCHEMA`",
+            [['EXECUTE']],
+            ['PRIVILEGE_TYPE']
+        );
+        // The server hides the body of the routine from this user.
+        $this->dummyDbi->addResult(
+            'SHOW CREATE PROCEDURE `db`.`test_proc`',
+            [['test_proc', null]],
+            ['Procedure', 'Create Procedure']
+        );
+        // phpcs:enable
+
+        $actual = $this->routines->getRow(['name' => 'test_proc', 'type' => 'PROCEDURE', 'returns' => '']);
+
+        self::assertStringContainsString('exec_anchor', $actual);
+        self::assertStringContainsString('ic_b_nextpage', $actual);
+        self::assertStringNotContainsString('ic_bd_nextpage', $actual);
+        // Editing and exporting still require more than the EXECUTE privilege.
+        self::assertStringContainsString('ic_bd_edit', $actual);
+        self::assertStringContainsString('ic_bd_export', $actual);
+        $this->assertAllQueriesConsumed();
+    }
+
+    /**
+     * When the source of a routine is hidden, its parameters are still readable from
+     * INFORMATION_SCHEMA.PARAMETERS, so the execution dialog can be built from those.
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/19543
+     */
+    public function testGetDataFromNameWithoutReadableDefinition(): void
+    {
+        $this->dummyDbi->removeDefaultResults();
+        $this->dummyDbi->addResult('SELECT @@lower_case_table_names', []);
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $this->dummyDbi->addResult(
+            "SELECT SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, ROUTINE_COMMENT, SECURITY_TYPE FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA ='db' AND SPECIFIC_NAME='test_proc'AND ROUTINE_TYPE='PROCEDURE';",
+            [['test_proc', 'PROCEDURE', null, null, 'NO', 'CONTAINS SQL', '', 'DEFINER']],
+            ['SPECIFIC_NAME', 'ROUTINE_TYPE', 'DTD_IDENTIFIER', 'ROUTINE_DEFINITION', 'IS_DETERMINISTIC', 'SQL_DATA_ACCESS', 'ROUTINE_COMMENT', 'SECURITY_TYPE']
+        );
+        $this->dummyDbi->addResult(
+            'SHOW CREATE PROCEDURE `db`.`test_proc`',
+            [['test_proc', null]],
+            ['Procedure', 'Create Procedure']
+        );
+        $this->dummyDbi->addResult(
+            "SELECT PARAMETER_MODE, PARAMETER_NAME, DTD_IDENTIFIER FROM INFORMATION_SCHEMA.PARAMETERS WHERE SPECIFIC_SCHEMA ='db' AND SPECIFIC_NAME='test_proc' AND ROUTINE_TYPE='PROCEDURE' AND ORDINAL_POSITION > 0 ORDER BY ORDINAL_POSITION;",
+            [['IN', 'inputParam', 'int unsigned'], ['OUT', 'outputParam', "enum('a','b')"]],
+            ['PARAMETER_MODE', 'PARAMETER_NAME', 'DTD_IDENTIFIER']
+        );
+        // phpcs:enable
+
+        $actual = $this->routines->getDataFromName('test_proc', 'PROCEDURE', false, true);
+
+        self::assertIsArray($actual);
+        self::assertSame(2, $actual['item_num_params']);
+        self::assertSame(['IN', 'OUT'], $actual['item_param_dir']);
+        self::assertSame(['inputParam', 'outputParam'], $actual['item_param_name']);
+        self::assertSame(['INT', 'ENUM'], $actual['item_param_type']);
+        self::assertSame(['', "'a','b'"], $actual['item_param_length']);
+        self::assertSame(['UNSIGNED', ''], $actual['item_param_opts_num']);
+        $this->assertAllQueriesConsumed();
+    }
+
+    /**
+     * The parameters alone do not describe the body of a routine, so the editor must
+     * keep refusing a routine whose source cannot be read: saving it back would
+     * recreate the routine with an empty body.
+     *
+     * @see https://github.com/phpmyadmin/phpmyadmin/issues/19543
+     */
+    public function testGetDataFromNameWithoutReadableDefinitionForTheEditor(): void
+    {
+        $this->dummyDbi->removeDefaultResults();
+        $this->dummyDbi->addResult('SELECT @@lower_case_table_names', []);
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $this->dummyDbi->addResult(
+            "SELECT SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, ROUTINE_COMMENT, SECURITY_TYPE FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA ='db' AND SPECIFIC_NAME='test_proc'AND ROUTINE_TYPE='PROCEDURE';",
+            [['test_proc', 'PROCEDURE', null, null, 'NO', 'CONTAINS SQL', '', 'DEFINER']],
+            ['SPECIFIC_NAME', 'ROUTINE_TYPE', 'DTD_IDENTIFIER', 'ROUTINE_DEFINITION', 'IS_DETERMINISTIC', 'SQL_DATA_ACCESS', 'ROUTINE_COMMENT', 'SECURITY_TYPE']
+        );
+        $this->dummyDbi->addResult(
+            'SHOW CREATE PROCEDURE `db`.`test_proc`',
+            [['test_proc', null]],
+            ['Procedure', 'Create Procedure']
+        );
+        // phpcs:enable
+
+        self::assertNull($this->routines->getDataFromName('test_proc', 'PROCEDURE'));
+        $this->assertAllQueriesConsumed();
+    }
 }
