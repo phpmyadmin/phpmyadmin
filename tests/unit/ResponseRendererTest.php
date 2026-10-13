@@ -104,6 +104,7 @@ final class ResponseRendererTest extends AbstractTestCase
                     'codemirror_enable' => true,
                     'lint_enable' => true,
                     'theme_path' => '',
+                    'asset_version' => Config::getInstance()->getAssetVersion(),
                     'server' => 0,
                     'title' => 'phpMyAdmin',
                     'scripts' => $header->getScripts()->getDisplay(),
