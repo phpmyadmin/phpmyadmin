@@ -85,6 +85,13 @@ class Index
      */
     private string $parser = '';
 
+    /**
+     * Whether the index is visible to the optimizer.
+     * Invisible indexes (MySQL 8.0+) are not used by the optimizer unless
+     * explicitly forced with USE/FORCE INDEX.
+     */
+    private bool $visible = true;
+
     /** @param mixed[] $params parameters */
     public function __construct(array $params = [])
     {
@@ -323,11 +330,17 @@ class Index
             $this->keyBlockSize = (int) $params['Key_block_size'];
         }
 
-        if (! isset($params['Parser'])) {
+        if (isset($params['Parser'])) {
+            $this->parser = $params['Parser'];
+        }
+
+        if (! isset($params['Visible'])) {
             return;
         }
 
-        $this->parser = $params['Parser'];
+        // SHOW INDEXES on MySQL 8.0+ returns 'YES' / 'NO'.
+        // The form posts the same string values from the dropdown.
+        $this->visible = $params['Visible'] !== 'NO';
     }
 
     /**
@@ -374,6 +387,15 @@ class Index
     public function getParser(): string
     {
         return $this->parser;
+    }
+
+    /**
+     * Whether the index is visible to the optimizer (MySQL 8.0+).
+     * Defaults to true; only false when the index was created with INVISIBLE.
+     */
+    public function isVisible(): bool
+    {
+        return $this->visible;
     }
 
     /**
