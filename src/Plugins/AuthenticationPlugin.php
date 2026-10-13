@@ -236,8 +236,10 @@ abstract class AuthenticationPlugin
 
         /* Show login form (this exits) */
         if (! $success) {
-            /* Force generating of new session */
-            Session::secure();
+            /* Generate session token if missing; regeneration happens on successful login */
+            if (Session::getToken() === '') {
+                Session::secure();
+            }
 
             $response = $this->showLoginForm();
             if ($response !== null) {
