@@ -42,6 +42,7 @@ import {
     userAgent,
 } from '../functions.ts';
 import handleCreateViewModal from './handleCreateViewModal.ts';
+import { onloadSearchableSelects, teardownSearchableSelects } from './searchableSelect.ts';
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -79,6 +80,7 @@ export function teardownFunctions () {
         $(document).off('keydown', 'form input, form textarea, form select');
         $(document).off('change', 'input[type=radio][name="pw_hash"]');
         teardownSortLinkMouseEvent();
+        teardownSearchableSelects();
     };
 }
 
@@ -132,5 +134,6 @@ export function onloadFunctions () {
         $('form input, form textarea, form select').on('keydown', getKeyboardFormSubmitEventHandler());
         $(document).on('change', 'select#select_authentication_plugin_cp', getSslPasswordEventHandler());
         onloadSortLinkMouseEvent();
+        onloadSearchableSelects();
     };
 }
