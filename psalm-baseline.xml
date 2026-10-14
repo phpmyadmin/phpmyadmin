@@ -1050,6 +1050,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Events/IndexController.php">
+    <MixedArrayAccess>
+      <code><![CDATA[$this->events::STATUS['display']]]></code>
+    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$item['item_original_name']]]></code>
     </MixedAssignment>
@@ -3744,47 +3747,19 @@
   </file>
   <file src="src/Events/Events.php">
     <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['item_comment']]]></code>
-      <code><![CDATA[$_POST['item_definer']]]></code>
-      <code><![CDATA[$_POST['item_ends']]]></code>
-      <code><![CDATA[$_POST['item_execute_at']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_POST['item_starts']]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_comment']]]></code>
-      <code><![CDATA[$_POST['item_ends']]]></code>
-      <code><![CDATA[$_POST['item_execute_at']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_POST['item_starts']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$_POST['item_definition']]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$createItem]]></code>
     </PossiblyNullArgument>
-    <RiskyCast>
-      <code><![CDATA[$_POST['item_interval_value']]]></code>
-    </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
-      <code><![CDATA[empty($_POST['item_comment'])]]></code>
-      <code><![CDATA[empty($_POST['item_definer'])]]></code>
-      <code><![CDATA[empty($_POST['item_definition'])]]></code>
-      <code><![CDATA[empty($_POST['item_ends'])]]></code>
-      <code><![CDATA[empty($_POST['item_execute_at'])]]></code>
-      <code><![CDATA[empty($_POST['item_interval_field'])]]></code>
-      <code><![CDATA[empty($_POST['item_interval_value'])]]></code>
-      <code><![CDATA[empty($_POST['item_name'])]]></code>
-      <code><![CDATA[empty($_POST['item_preserve'])]]></code>
-      <code><![CDATA[empty($_POST['item_starts'])]]></code>
-      <code><![CDATA[empty($_POST['item_status'])]]></code>
-      <code><![CDATA[empty($_POST['item_type'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Export/Export.php">

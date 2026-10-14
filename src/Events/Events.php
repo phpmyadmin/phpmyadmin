@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
@@ -30,54 +31,46 @@ use const SORT_ASC;
 /**
  * Functions for event management.
  */
-class Events
+final class Events
 {
-    /** @var array<string, array<int, string>> */
-    public readonly array $status;
+    public const STATUS = [
+        'query' => ['ENABLE', 'DISABLE', 'DISABLE ON SLAVE'],
+        'display' => ['ENABLED', 'DISABLED', 'SLAVESIDE_DISABLED'],
+    ];
 
-    /** @var array<int, string> */
-    public readonly array $type;
+    public const TYPE = ['RECURRING', 'ONE TIME'];
 
-    /** @var array<int, string> */
-    public readonly array $interval;
+    public const INTERVAL = [
+        'YEAR',
+        'QUARTER',
+        'MONTH',
+        'DAY',
+        'HOUR',
+        'MINUTE',
+        'WEEK',
+        'SECOND',
+        'YEAR_MONTH',
+        'DAY_HOUR',
+        'DAY_MINUTE',
+        'DAY_SECOND',
+        'HOUR_MINUTE',
+        'HOUR_SECOND',
+        'MINUTE_SECOND',
+    ];
 
     /** @var list<string> */
     private array $errors = [];
 
     public function __construct(private readonly DatabaseInterface $dbi, private readonly Config $config)
     {
-        $this->status = [
-            'query' => ['ENABLE', 'DISABLE', 'DISABLE ON SLAVE'],
-            'display' => ['ENABLED', 'DISABLED', 'SLAVESIDE_DISABLED'],
-        ];
-        $this->type = ['RECURRING', 'ONE TIME'];
-        $this->interval = [
-            'YEAR',
-            'QUARTER',
-            'MONTH',
-            'DAY',
-            'HOUR',
-            'MINUTE',
-            'WEEK',
-            'SECOND',
-            'YEAR_MONTH',
-            'DAY_HOUR',
-            'DAY_MINUTE',
-            'DAY_SECOND',
-            'HOUR_MINUTE',
-            'HOUR_SECOND',
-            'MINUTE_SECOND',
-        ];
     }
 
     /**
      * Handles editor requests for adding or editing an item
      */
-    public function handleEditor(): string
+    public function handleEditor(string $itemQuery): string
     {
         $sqlQuery = '';
-
-        $itemQuery = $this->getQueryFromRequest();
 
         // set by getQueryFromRequest()
         if ($this->errors === []) {
@@ -252,12 +245,13 @@ class Events
      *
      * @return string  The CREATE EVENT query.
      */
-    public function getQueryFromRequest(): string
+    public function getQueryFromRequest(ServerRequest $request): string
     {
         $query = 'CREATE ';
-        if (! empty($_POST['item_definer'])) {
-            if (str_contains($_POST['item_definer'], '@')) {
-                $arr = explode('@', $_POST['item_definer']);
+        $itemDefiner = $request->getParsedBodyParamAsString('item_definer', '');
+        if ($itemDefiner !== '') {
+            if (str_contains($itemDefiner, '@')) {
+                $arr = explode('@', $itemDefiner);
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
                 $query .= '@' . Util::backquote($arr[1]) . ' ';
             } else {
@@ -266,35 +260,38 @@ class Events
         }
 
         $query .= 'EVENT ';
-        if (! empty($_POST['item_name'])) {
-            $query .= Util::backquote($_POST['item_name']) . ' ';
+        $itemName = $request->getParsedBodyParamAsString('item_name', '');
+        if ($itemName !== '') {
+            $query .= Util::backquote($itemName) . ' ';
         } else {
             $this->errors[] = __('You must provide an event name!');
         }
 
         $query .= 'ON SCHEDULE ';
-        if (! empty($_POST['item_type']) && in_array($_POST['item_type'], $this->type, true)) {
-            if ($_POST['item_type'] === 'RECURRING') {
-                if (
-                    ! empty($_POST['item_interval_value'])
-                    && ! empty($_POST['item_interval_field'])
-                    && in_array($_POST['item_interval_field'], $this->interval, true)
-                ) {
-                    $query .= 'EVERY ' . (int) $_POST['item_interval_value'] . ' ';
-                    $query .= $_POST['item_interval_field'] . ' ';
+        $itemType = $request->getParsedBodyParamAsString('item_type', '');
+        if (in_array($itemType, self::TYPE, true)) {
+            $itemExecuteAt = $request->getParsedBodyParamAsString('item_execute_at', '');
+            if ($itemType === 'RECURRING') {
+                $itemIntervalValue = $request->getParsedBodyParamAsString('item_interval_value', '');
+                $itemIntervalField = $request->getParsedBodyParamAsString('item_interval_field', '');
+                if ($itemIntervalValue !== '' && in_array($itemIntervalField, self::INTERVAL, true)) {
+                    $query .= 'EVERY ' . (int) $itemIntervalValue . ' ';
+                    $query .= $itemIntervalField . ' ';
                 } else {
                     $this->errors[] = __('You must provide a valid interval value for the event.');
                 }
 
-                if (! empty($_POST['item_starts'])) {
-                    $query .= 'STARTS ' . $this->dbi->quoteString($_POST['item_starts']) . ' ';
+                $itemStarts = $request->getParsedBodyParamAsString('item_starts', '');
+                if ($itemStarts !== '') {
+                    $query .= 'STARTS ' . $this->dbi->quoteString($itemStarts) . ' ';
                 }
 
-                if (! empty($_POST['item_ends'])) {
-                    $query .= 'ENDS ' . $this->dbi->quoteString($_POST['item_ends']) . ' ';
+                $itemEnds = $request->getParsedBodyParamAsString('item_ends', '');
+                if ($itemEnds !== '') {
+                    $query .= 'ENDS ' . $this->dbi->quoteString($itemEnds) . ' ';
                 }
-            } elseif (! empty($_POST['item_execute_at'])) {
-                $query .= 'AT ' . $this->dbi->quoteString($_POST['item_execute_at']) . ' ';
+            } elseif ($itemExecuteAt !== '') {
+                $query .= 'AT ' . $this->dbi->quoteString($itemExecuteAt) . ' ';
             } else {
                 $this->errors[] = __('You must provide a valid execution time for the event.');
             }
@@ -303,27 +300,30 @@ class Events
         }
 
         $query .= 'ON COMPLETION ';
-        if (empty($_POST['item_preserve'])) {
+        if (! $request->hasBodyParam('item_preserve')) {
             $query .= 'NOT ';
         }
 
         $query .= 'PRESERVE ';
-        if (! empty($_POST['item_status'])) {
-            foreach ($this->status['display'] as $key => $value) {
-                if ($value == $_POST['item_status']) {
-                    $query .= $this->status['query'][$key] . ' ';
+        $itemStatus = $request->getParsedBodyParamAsString('item_status', '');
+        if ($itemStatus !== '') {
+            foreach (self::STATUS['display'] as $key => $value) {
+                if ($value == $itemStatus) {
+                    $query .= self::STATUS['query'][$key] . ' ';
                     break;
                 }
             }
         }
 
-        if (! empty($_POST['item_comment'])) {
-            $query .= 'COMMENT ' . $this->dbi->quoteString($_POST['item_comment']) . ' ';
+        $itemComment = $request->getParsedBodyParamAsString('item_comment', '');
+        if ($itemComment !== '') {
+            $query .= 'COMMENT ' . $this->dbi->quoteString($itemComment) . ' ';
         }
 
         $query .= 'DO ';
-        if (! empty($_POST['item_definition'])) {
-            $query .= $_POST['item_definition'];
+        $itemDefinition = $request->getParsedBodyParamAsString('item_definition', '');
+        if ($itemDefinition !== '') {
+            $query .= $itemDefinition;
         } else {
             $this->errors[] = __('You must provide an event definition.');
         }

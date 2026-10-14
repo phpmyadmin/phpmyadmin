@@ -53,7 +53,7 @@ final readonly class IndexController implements InvocableController
         $hasPrivilege = $this->events->hasEventPrivilege($databaseName);
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
-            $output = $this->events->handleEditor();
+            $output = $this->events->handleEditor($this->events->getQueryFromRequest($request));
 
             if ($request->isAjax()) {
                 if (Current::$message instanceof Message && Current::$message->isSuccess()) {
@@ -166,9 +166,9 @@ final readonly class IndexController implements InvocableController
                     'event' => $item,
                     'mode' => $mode,
                     'is_ajax' => $request->isAjax(),
-                    'status_display' => $this->events->status['display'],
-                    'event_type' => $this->events->type,
-                    'event_interval' => $this->events->interval,
+                    'status_display' => $this->events::STATUS['display'],
+                    'event_type' => $this->events::TYPE,
+                    'event_interval' => $this->events::INTERVAL,
                 ]);
                 if ($request->isAjax()) {
                     $this->response->addJSON('message', $editor);

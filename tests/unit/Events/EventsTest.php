@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Events\Events;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -143,13 +144,13 @@ class EventsTest extends AbstractTestCase
     #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(array $request, string $query, int $numErr): void
     {
-        unset($_POST);
-        $_POST = $request;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody($request);
 
         $dbi = $this->createStub(DatabaseInterface::class);
         DatabaseInterface::$instance = $dbi;
 
-        self::assertSame($query, $this->events->getQueryFromRequest());
+        self::assertSame($query, $this->events->getQueryFromRequest($request));
         self::assertSame($numErr, $this->events->getErrorCount());
     }
 
