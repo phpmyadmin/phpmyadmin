@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-10-12 17:51+0000\n"
+"PO-Revision-Date: 2026-10-15 09:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "lv/>\n"
@@ -3945,7 +3945,7 @@ msgstr "Datnes kodējums"
 #: libraries/classes/SqlQueryForm.php:251
 #: templates/table/structure/row_stats_table.twig:6
 msgid "Format"
-msgstr "Formats"
+msgstr "Formāts"
 
 #: libraries/classes/Config/Descriptions.php:260
 msgid "Compression"
@@ -8336,7 +8336,7 @@ msgstr "Rādīt režģi"
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:36
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Jaunu"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:37
 msgctxt "Create new event"
@@ -12994,9 +12994,8 @@ msgid "Updated"
 msgstr "Atjaunots"
 
 #: libraries/classes/Tracking.php:170 libraries/classes/Tracking.php:234
-#, fuzzy
 msgid "Delete version"
-msgstr "Servera versija"
+msgstr "Dzēst versiju"
 
 #: libraries/classes/Tracking.php:171 libraries/classes/Tracking.php:334
 #: templates/database/tracking/tracked_tables.twig:76
@@ -14133,7 +14132,7 @@ msgstr ""
 
 #: templates/table/search/options_zoom.twig:32
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Maksimālais rindu skaits grafikā"
 
 #: templates/display/export/selection.twig:3
 msgid "Databases:"
