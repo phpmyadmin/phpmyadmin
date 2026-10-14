@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-11 00:47+0000\n"
-"PO-Revision-Date: 2026-10-12 17:51+0000\n"
+"PO-Revision-Date: 2026-10-15 09:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lv/>\n"
@@ -1859,7 +1859,7 @@ msgstr "Apraksts"
 #: resources/templates/triggers/editor_form.twig:64
 #: src/Config/Descriptions.php:636 src/Config/Descriptions.php:652
 msgid "Format"
-msgstr "Formats"
+msgstr "Formāts"
 
 #: resources/templates/database/events/editor_form.twig:96
 msgid "On completion preserve"
@@ -5472,7 +5472,7 @@ msgstr ""
 #: src/Controllers/JavaScriptMessagesController.php:156
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Bloķēt"
 
 #: resources/templates/server/privileges/users_overview.twig:146
 #, fuzzy
@@ -7403,9 +7403,8 @@ msgstr "Procesi"
 #: resources/templates/table/tracking/main.twig:64
 #: resources/templates/table/tracking/main.twig:90
 #: resources/templates/table/tracking/main.twig:91
-#, fuzzy
 msgid "Delete version"
-msgstr "Servera versija"
+msgstr "Dzēst versiju"
 
 #: resources/templates/table/tracking/main.twig:99
 #, php-format
@@ -7454,7 +7453,7 @@ msgstr ""
 
 #: resources/templates/table/zoom_search/index.twig:139
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Maksimālais rindu skaits grafikā"
 
 #: resources/templates/table/zoom_search/result_form.twig:7
 msgid "Browse/Edit the points"
@@ -12731,7 +12730,6 @@ msgstr "Lūdzu, pievienojiet sērijai vismaz vienu mainīgo!"
 
 #. l10n: SQL Query on modal to show exported query
 #: src/Controllers/JavaScriptMessagesController.php:221
-#, fuzzy
 msgid "SQL Query"
 msgstr "SQL vaicājums"
 
@@ -16106,7 +16104,7 @@ msgstr "Jauna"
 #: src/Navigation/Nodes/NodeDatabaseContainer.php:43
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Jaunu"
 
 #: src/Navigation/Nodes/NodeDatabase.php:196
 #, fuzzy
