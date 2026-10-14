@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-10-12 17:51+0000\n"
+"PO-Revision-Date: 2026-10-15 09:51+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "lv/>\n"
@@ -2918,7 +2918,7 @@ msgstr "Datnes kodējums"
 #: templates/import.twig:167 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:82
 msgid "Format"
-msgstr "Formats"
+msgstr "Formāts"
 
 #: libraries/classes/Config/Descriptions.php:659
 msgid "Compression"
@@ -5566,7 +5566,7 @@ msgstr "Aizvērt"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Bloķēt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:138
 #: templates/server/privileges/users_overview.twig:102
@@ -5814,8 +5814,6 @@ msgstr "Nav"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:209
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL vaicājums"
 
@@ -9831,7 +9829,7 @@ msgstr "Lauks"
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:38
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Jaunu"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
 msgid "Database operations"
@@ -18662,9 +18660,8 @@ msgstr ""
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:91
 #: templates/table/tracking/main.twig:92
-#, fuzzy
 msgid "Delete version"
-msgstr "Servera versija"
+msgstr "Dzēst versiju"
 
 #: templates/table/tracking/main.twig:102
 #, php-format
@@ -18714,7 +18711,7 @@ msgstr ""
 
 #: templates/table/zoom_search/index.twig:141
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Maksimālais rindu skaits grafikā"
 
 #: templates/table/zoom_search/result_form.twig:7
 msgid "Browse/Edit the points"
