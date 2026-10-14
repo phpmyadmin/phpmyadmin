@@ -794,7 +794,7 @@ class Export
                         break;
                     }
                 } elseif (isset($GLOBALS['sql_create_table'])) {
-                    $tableSize = $GLOBALS['maxsize'];
+                    $tableSize = $GLOBALS['maxsize'] ?? '';
                     // Checking if the maximum table size constrain has been set
                     // And if that constrain is a valid number or not
                     if ($tableSize !== '' && is_numeric($tableSize)) {
