@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-10-12 17:51+0000\n"
+"PO-Revision-Date: 2026-10-15 09:55+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "lv/>\n"
@@ -2877,7 +2877,7 @@ msgstr "Datnes kodējums"
 #: libraries/classes/Config/Descriptions.php:683 templates/sql/query.twig:41
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
-msgstr "Formats"
+msgstr "Formāts"
 
 #: libraries/classes/Config/Descriptions.php:668
 msgid "Compression"
@@ -5709,8 +5709,6 @@ msgstr "Nav"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:203
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL vaicājums"
 
@@ -10063,7 +10061,7 @@ msgstr "Jauna"
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:40
 msgctxt "Create new database"
 msgid "New"
-msgstr ""
+msgstr "Jaunu"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
 msgid "Database operations"
@@ -18173,9 +18171,8 @@ msgstr ""
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
 #: templates/table/tracking/main.twig:93
-#, fuzzy
 msgid "Delete version"
-msgstr "Servera versija"
+msgstr "Dzēst versiju"
 
 #: templates/table/tracking/main.twig:103
 #, php-format
@@ -18225,7 +18222,7 @@ msgstr ""
 
 #: templates/table/zoom_search/index.twig:143
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "Maksimālais rindu skaits grafikā"
 
 #: templates/table/zoom_search/result_form.twig:7
 msgid "Browse/Edit the points"
