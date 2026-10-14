@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Large;
 
@@ -121,5 +122,40 @@ class ExportTest extends AbstractTestCase
             'export.db1.table1.file.php.gz',
             'application/x-gzip',
         ], $finalFileName);
+    }
+
+    /** @see https://github.com/phpmyadmin/phpmyadmin/issues/20525 */
+    public function testExportDatabaseWithoutMaxSizeParam(): void
+    {
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
+        $GLOBALS['sql_structure_or_data'] = 'structure';
+        $GLOBALS['sql_create_table'] = 'something';
+        unset($GLOBALS['maxsize']);
+
+        $exportPlugin = $this->createMock(ExportPlugin::class);
+        $exportPlugin->method('exportDBHeader')->willReturn(true);
+        $exportPlugin->method('exportDBCreate')->willReturn(true);
+        $exportPlugin->method('exportDBFooter')->willReturn(true);
+        $exportPlugin->expects(self::once())->method('exportStructure')
+            ->with('test_db', 'test_table', "\n", '', 'create_table')
+            ->willReturn(true);
+
+        $this->export->exportDatabase(
+            'test_db',
+            ['test_table'],
+            'structure',
+            ['test_table'],
+            [],
+            $exportPlugin,
+            "\n",
+            '',
+            'database',
+            false,
+            false,
+            false,
+            false,
+            [],
+            ''
+        );
     }
 }
