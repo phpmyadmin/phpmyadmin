@@ -50,7 +50,6 @@
         "php": "^8.2",
         "ext-hash": "*",
         "ext-iconv": "*",
-        "ext-json": "*",
         "ext-mysqli": "*",
         "ext-openssl": "*",
         "ext-pcre": "*",
@@ -88,6 +87,7 @@
         "tecnickcom/tcpdf": "<6.4.4"
     },
     "suggest": {
+        "ext-pdo_mysql": "For connecting to the database server via the MySQL PDO driver (experimental)",
         "ext-curl": "Updates checking",
         "ext-opcache": "Better performance",
         "ext-zlib": "For gz import and export",
