@@ -20,7 +20,6 @@ use Webmozart\Assert\Assert;
 
 use function __;
 use function htmlspecialchars;
-use function is_string;
 use function mb_strtoupper;
 use function sprintf;
 
@@ -122,24 +121,23 @@ final readonly class IndexController implements InvocableController
             && ! $request->hasBodyParam('editor_process_edit')
             && ($request->has('add_item') || $request->has('edit_item')))
         ) {
-            // FIXME: this must be simpler than that
-            $title = '';
-            $mode = '';
-
-            // Get the data for the form (if any)
             if ($request->has('add_item')) {
                 $title = __('Add event');
                 $item = $this->events->getDataFromRequest();
                 $mode = 'add';
             } else {
                 $itemName = $request->getQueryParam('item_name');
+                Assert::string($itemName);
                 $title = __('Edit event');
                 if (! $request->hasBodyParam('editor_process_edit')) {
                     $item = $this->events->getDataFromName($itemName);
                     if ($item === null) {
                         if ($request->isAjax()) {
                             $this->response->setRequestStatus(false);
-                            $this->response->addJSON('message', $this->getMessageForMissingItem($request, $databaseName));
+                            $this->response->addJSON(
+                                'message',
+                                $this->getMessageForMissingItem($request, $databaseName),
+                            );
 
                             return $this->response->response();
                         }
@@ -207,7 +205,7 @@ final readonly class IndexController implements InvocableController
             'items' => $items,
             'has_privilege' => $hasPrivilege,
             'scheduler_state' => $schedulerStatus,
-            'is_ajax' => $request->isAjax() && empty($_REQUEST['ajax_page_request']),
+            'is_ajax' => $request->isAjax(),
         ]);
 
         return $this->response->response();

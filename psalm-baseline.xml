@@ -1057,14 +1057,6 @@
       <code><![CDATA[$itemName]]></code>
       <code><![CDATA[$item['item_original_name']]]></code>
     </MixedAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
-    </RiskyTruthyFalsyComparison>
-    <UnusedVariable>
-      <code><![CDATA[$item]]></code>
-      <code><![CDATA[$mode]]></code>
-      <code><![CDATA[$title]]></code>
-    </UnusedVariable>
   </file>
   <file src="src/Controllers/Export/CheckTimeOutController.php">
     <PossiblyUnusedMethod>

@@ -266,14 +266,13 @@ final readonly class IndexController implements InvocableController
             Current::$database,
             Current::$table,
         );
-        $isAjax = $request->isAjax() && empty($request->getParam('ajax_page_request'));
 
         $this->response->render('triggers/list', [
             'db' => Current::$database,
             'table' => Current::$table,
             'triggers' => $triggers,
             'has_privilege' => $hasTriggerPrivilege,
-            'is_ajax' => $isAjax,
+            'is_ajax' => $request->isAjax(),
             'error_message' => $message?->getDisplay() ?? '',
         ]);
 

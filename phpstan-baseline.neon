@@ -1711,12 +1711,6 @@ parameters:
 			path: src/Controllers/ErrorReportController.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Events/IndexController.php
-
-		-
 			message: '#^Cannot access offset ''aliases'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -3582,7 +3576,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 11
+			count: 10
 			path: src/Controllers/Triggers/IndexController.php
 
 		-
