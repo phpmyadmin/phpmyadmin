@@ -2278,6 +2278,7 @@
       <code><![CDATA[$fields]]></code>
       <code><![CDATA[$multiEditAutoIncrement]]></code>
       <code><![CDATA[$multiEditColumns]]></code>
+      <code><![CDATA[$multiEditColumnsEmpty]]></code>
       <code><![CDATA[$multiEditColumnsName]]></code>
       <code><![CDATA[$multiEditColumnsNull]]></code>
       <code><![CDATA[$multiEditColumnsNullPrev]]></code>

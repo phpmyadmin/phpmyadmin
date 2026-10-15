@@ -31,6 +31,8 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 use ReflectionProperty;
 
+use function md5;
+
 #[CoversClass(ReplaceController::class)]
 class ReplaceControllerTest extends AbstractTestCase
 {
@@ -150,6 +152,64 @@ class ReplaceControllerTest extends AbstractTestCase
             $output,
         );
         self::assertStringContainsString('SELECT * FROM `test_tbl`', $output);
+    }
+
+    /**
+     * The "Empty" checkbox of a protected (binary) column must produce an UPDATE that empties it
+     */
+    public function testReplaceWithEmptiedProtectedField(): void
+    {
+        UrlParams::$params = [];
+
+        $fieldHash = md5('data');
+        $request = self::createStub(ServerRequest::class);
+        $request->method('getParsedBodyParam')->willReturnMap([
+            ['where_clause', null, ['`test_tbl`.`id` = 1']],
+            ['submit_type', null, 'save'],
+            ['fields', null, ['multi_edit' => [[$fieldHash => '']]]],
+            ['fields_name', null, ['multi_edit' => [[$fieldHash => 'data']]]],
+            ['fields_type', null, ['multi_edit' => [[$fieldHash => 'protected']]]],
+            ['fields_empty', null, ['multi_edit' => [[$fieldHash => '1']]]],
+        ]);
+
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $config = new Config();
+        $relation = new Relation($dbi, $config);
+        $transformations = new Transformations($dbi, $relation);
+        $template = new Template($config);
+        $response = new ResponseRenderer();
+
+        $sqlController = self::createStub(SqlController::class);
+        $sqlController->method('__invoke')->willReturn($response->response());
+
+        $replaceController = new ReplaceController(
+            $response,
+            new InsertEdit($dbi, $relation, $transformations, new FileListing(), $template, $config, $response),
+            $transformations,
+            $relation,
+            $dbi,
+            $sqlController,
+            self::createStub(DatabaseSqlController::class),
+            self::createStub(ChangeController::class),
+            self::createStub(TableSqlController::class),
+            $template,
+        );
+
+        UrlParams::$goto = 'index.php?route=/sql';
+        $dummyDbi->addSelectDb('my_db');
+        $dummyDbi->addResult(
+            "SELECT COLUMN_NAME, CASE WHEN INSTR(EXTRA, 'DEFAULT_GENERATED') THEN COLUMN_DEFAULT "
+                . "ELSE CONCAT('''', COLUMN_DEFAULT, '''') END AS COLUMN_DEFAULT FROM INFORMATION_SCHEMA.COLUMNS "
+                . "WHERE TABLE_NAME = 'test_tbl' AND TABLE_SCHEMA = 'my_db'",
+            [],
+        );
+        $dummyDbi->addResult("UPDATE `test_tbl` SET `data` = '' WHERE `test_tbl`.`id` = 1 LIMIT 1", true);
+
+        $replaceController($request);
+
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
     }
 
     /**

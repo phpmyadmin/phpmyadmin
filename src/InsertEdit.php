@@ -1103,7 +1103,7 @@ class InsertEdit
         string|int $whereClause,
     ): string {
         $protectedValue = '';
-        if ($editField->type === 'protected' && $usingKey && $whereClause !== '') {
+        if ($editField->type === 'protected' && ! $editField->isEmptied && $usingKey && $whereClause !== '') {
             // Fetch the current values of a row to use in case we have a protected field
             $protectedValue = $this->dbi->fetchValue(
                 'SELECT ' . Util::backquote($editField->columnName)
@@ -1164,6 +1164,12 @@ class InsertEdit
             // so tbl_change has put this special value in the
             // columns array, so we do not change the column value
             // but we can still handle column upload
+
+            // The "Empty" checkbox was checked, so replace the field's content
+            // with an empty value (or NULL when the Null checkbox is checked too)
+            if ($editField->isEmptied) {
+                return $editField->isNull ? 'NULL' : "''";
+            }
 
             // when in UPDATE mode, do not alter field's contents. When in INSERT
             // mode, insert empty field because no values were submitted.
