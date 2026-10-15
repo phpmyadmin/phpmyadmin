@@ -16,6 +16,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function htmlspecialchars;
@@ -55,13 +56,14 @@ final readonly class IndexController implements InvocableController
 
         if (
             $schedulerStatus !== 'DISABLED'
-            && (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit']))
+            && ($request->hasBodyParam('editor_process_add') || $request->hasBodyParam('editor_process_edit'))
         ) {
             $output = $this->events->handleEditor($this->events->getQueryFromRequest($request));
 
             if ($request->isAjax()) {
                 if (Current::$message instanceof Message && Current::$message->isSuccess()) {
-                    $events = $this->events->getDetails($databaseName->getName(), $_POST['item_name']);
+                    $itemName = $request->getParsedBodyParamAsString('item_name');
+                    $events = $this->events->getDetails($databaseName->getName(), $itemName);
                     if ($events === []) {
                         $this->response->setRequestStatus(false);
                         $this->response->addJSON(
@@ -77,7 +79,7 @@ final readonly class IndexController implements InvocableController
                     $this->response->addJSON(
                         'name',
                         htmlspecialchars(
-                            mb_strtoupper($_POST['item_name']),
+                            mb_strtoupper($itemName),
                         ),
                     );
                     $sqlDrop = sprintf(
@@ -115,12 +117,12 @@ final readonly class IndexController implements InvocableController
         if (
             $schedulerStatus !== 'DISABLED'
             && ($this->events->getErrorCount() > 0
-            || empty($_POST['editor_process_add'])
-            && empty($_POST['editor_process_edit'])
+            || ! $request->hasBodyParam('editor_process_add')
+            && ! $request->hasBodyParam('editor_process_edit')
             && (
-                ! empty($_REQUEST['add_item'])
-                || ! empty($_REQUEST['edit_item'])
-                || ! empty($_POST['item_changetype'])
+                $request->has('add_item')
+                || $request->has('edit_item')
+                || $request->hasBodyParam('item_changetype')
             ))
         ) {
             // FIXME: this must be simpler than that
@@ -128,23 +130,25 @@ final readonly class IndexController implements InvocableController
             $title = '';
             $item = null;
             $mode = '';
-            if (! empty($_POST['item_changetype'])) {
+            if ($request->hasBodyParam('item_changetype')) {
                 $operation = 'change';
             }
 
             // Get the data for the form (if any)
-            if (! empty($_REQUEST['add_item'])) {
+            if ($request->has('add_item')) {
                 $title = __('Add event');
                 $item = $this->events->getDataFromRequest();
                 $mode = 'add';
-            } elseif (! empty($_REQUEST['edit_item'])) {
+            } elseif ($request->has('edit_item')) {
                 $title = __('Edit event');
+                $itemName = $request->getParam('item_name');
+                Assert::string($itemName);
                 if (
-                    ! empty($_REQUEST['item_name'])
-                    && empty($_POST['editor_process_edit'])
-                    && empty($_POST['item_changetype'])
+                    $itemName !== ''
+                    && ! $request->hasBodyParam('editor_process_edit')
+                    && ! $request->hasBodyParam('item_changetype')
                 ) {
-                    $item = $this->events->getDataFromName($_REQUEST['item_name']);
+                    $item = $this->events->getDataFromName($itemName);
                     if ($item !== null) {
                         $item['item_original_name'] = $item['item_name'];
                     }
@@ -187,10 +191,12 @@ final readonly class IndexController implements InvocableController
                 return $this->response->response();
             }
 
+            $itemName = $request->getParam('item_name');
+            Assert::string($itemName);
             $message = __('Error in processing request:') . ' ';
             $message .= sprintf(
                 __('No event with name %1$s found in database %2$s.'),
-                htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
+                htmlspecialchars(Util::backquote($itemName)),
                 htmlspecialchars(Util::backquote($databaseName->getName())),
             );
             $message = Message::error($message);
