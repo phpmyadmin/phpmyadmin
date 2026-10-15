@@ -120,19 +120,11 @@ final readonly class IndexController implements InvocableController
             && ($this->events->getErrorCount() > 0
             || ! $request->hasBodyParam('editor_process_add')
             && ! $request->hasBodyParam('editor_process_edit')
-            && (
-                $request->has('add_item')
-                || $request->has('edit_item')
-                || $request->hasBodyParam('item_changetype')
-            ))
+            && ($request->has('add_item') || $request->has('edit_item')))
         ) {
             // FIXME: this must be simpler than that
-            $operation = '';
             $title = '';
             $mode = '';
-            if ($request->hasBodyParam('item_changetype')) {
-                $operation = 'change';
-            }
 
             // Get the data for the form (if any)
             if ($request->has('add_item')) {
@@ -142,7 +134,7 @@ final readonly class IndexController implements InvocableController
             } else {
                 $itemName = $request->getQueryParam('item_name');
                 $title = __('Edit event');
-                if (! $request->hasBodyParam('editor_process_edit') && ! $request->hasBodyParam('item_changetype')) {
+                if (! $request->hasBodyParam('editor_process_edit')) {
                     $item = $this->events->getDataFromName($itemName);
                     if ($item === null) {
                         if ($request->isAjax()) {
@@ -163,16 +155,6 @@ final readonly class IndexController implements InvocableController
                 }
 
                 $mode = 'edit';
-            }
-
-            if ($operation === 'change') {
-                if ($item['item_type'] === 'RECURRING') {
-                    $item['item_type'] = 'ONE TIME';
-                    $item['item_type_toggle'] = 'RECURRING';
-                } else {
-                    $item['item_type'] = 'RECURRING';
-                    $item['item_type_toggle'] = 'ONE TIME';
-                }
             }
 
             $editor = $this->template->render('events/editor-form', [

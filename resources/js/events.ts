@@ -12,7 +12,6 @@ AJAX.registerTeardown('events.js', function () {
     $(document).off('click', '#bulkActionExportButton');
     $(document).off('click', 'a.ajax.drop_anchor');
     $(document).off('click', '#bulkActionDropButton');
-    $(document).off('change', 'select[name=item_type]');
 });
 
 const DatabaseEvents = {
@@ -576,12 +575,4 @@ AJAX.registerOnload('events.js', function () {
         event.preventDefault();
         DatabaseEvents.dropMultipleDialog($(this));
     }); // end $(document).on()
-
-    /**
-     * Attach Ajax event handlers for the "Change event type" functionality, so that the correct
-     * rows are shown in the editor when changing the event type
-     */
-    $(document).on('change', 'select[name=item_type]', function () {
-        $(this).closest('table').find('tr.recurring_event_row, tr.onetime_event_row').toggle();
-    });
 });
