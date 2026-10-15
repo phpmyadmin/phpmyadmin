@@ -20,6 +20,7 @@ use Webmozart\Assert\Assert;
 
 use function __;
 use function htmlspecialchars;
+use function is_string;
 use function mb_strtoupper;
 use function sprintf;
 
@@ -128,7 +129,6 @@ final readonly class IndexController implements InvocableController
             // FIXME: this must be simpler than that
             $operation = '';
             $title = '';
-            $item = null;
             $mode = '';
             if ($request->hasBodyParam('item_changetype')) {
                 $operation = 'change';
@@ -139,19 +139,25 @@ final readonly class IndexController implements InvocableController
                 $title = __('Add event');
                 $item = $this->events->getDataFromRequest();
                 $mode = 'add';
-            } elseif ($request->has('edit_item')) {
+            } else {
+                $itemName = $request->getQueryParam('item_name');
                 $title = __('Edit event');
-                $itemName = $request->getParam('item_name');
-                Assert::string($itemName);
-                if (
-                    $itemName !== ''
-                    && ! $request->hasBodyParam('editor_process_edit')
-                    && ! $request->hasBodyParam('item_changetype')
-                ) {
+                if (! $request->hasBodyParam('editor_process_edit') && ! $request->hasBodyParam('item_changetype')) {
                     $item = $this->events->getDataFromName($itemName);
-                    if ($item !== null) {
-                        $item['item_original_name'] = $item['item_name'];
+                    if ($item === null) {
+                        if ($request->isAjax()) {
+                            $this->response->setRequestStatus(false);
+                            $this->response->addJSON('message', $this->getMessageForMissingItem($request, $databaseName));
+
+                            return $this->response->response();
+                        }
+
+                        $this->response->addHTML($this->getMessageForMissingItem($request, $databaseName));
+
+                        return $this->showIndexPage($request, $databaseName, $hasPrivilege, $schedulerStatus);
                     }
+
+                    $item['item_original_name'] = $item['item_name'];
                 } else {
                     $item = $this->events->getDataFromRequest();
                 }
@@ -159,57 +165,56 @@ final readonly class IndexController implements InvocableController
                 $mode = 'edit';
             }
 
-            if ($item !== null) {
-                if ($operation === 'change') {
-                    if ($item['item_type'] === 'RECURRING') {
-                        $item['item_type'] = 'ONE TIME';
-                        $item['item_type_toggle'] = 'RECURRING';
-                    } else {
-                        $item['item_type'] = 'RECURRING';
-                        $item['item_type_toggle'] = 'ONE TIME';
-                    }
+            if ($operation === 'change') {
+                if ($item['item_type'] === 'RECURRING') {
+                    $item['item_type'] = 'ONE TIME';
+                    $item['item_type_toggle'] = 'RECURRING';
+                } else {
+                    $item['item_type'] = 'RECURRING';
+                    $item['item_type_toggle'] = 'ONE TIME';
                 }
-
-                $editor = $this->template->render('events/editor-form', [
-                    'db' => $databaseName->getName(),
-                    'event' => $item,
-                    'mode' => $mode,
-                    'is_ajax' => $request->isAjax(),
-                    'status_display' => $this->events::STATUS['display'],
-                    'event_type' => $this->events::TYPE,
-                    'event_interval' => $this->events::INTERVAL,
-                ]);
-                if ($request->isAjax()) {
-                    $this->response->addJSON('message', $editor);
-                    $this->response->addJSON('title', $title);
-
-                    return $this->response->response();
-                }
-
-                $this->response->addHTML('<h2>' . $title . "</h2>\n\n" . $editor);
-
-                return $this->response->response();
             }
 
-            $itemName = $request->getParam('item_name');
-            Assert::string($itemName);
-            $message = __('Error in processing request:') . ' ';
-            $message .= sprintf(
-                __('No event with name %1$s found in database %2$s.'),
-                htmlspecialchars(Util::backquote($itemName)),
-                htmlspecialchars(Util::backquote($databaseName->getName())),
-            );
-            $message = Message::error($message);
+            $editor = $this->template->render('events/editor-form', [
+                'db' => $databaseName->getName(),
+                'event' => $item,
+                'mode' => $mode,
+                'is_ajax' => $request->isAjax(),
+                'status_display' => $this->events::STATUS['display'],
+                'event_type' => $this->events::TYPE,
+                'event_interval' => $this->events::INTERVAL,
+            ]);
             if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $message);
+                $this->response->addJSON('message', $editor);
+                $this->response->addJSON('title', $title);
 
                 return $this->response->response();
             }
 
-            $this->response->addHTML($message);
+            $this->response->addHTML('<h2>' . $title . "</h2>\n\n" . $editor);
+
+            return $this->response->response();
         }
 
+        return $this->showIndexPage($request, $databaseName, $hasPrivilege, $schedulerStatus);
+    }
+
+    private function getMessageForMissingItem(ServerRequest $request, DatabaseName $databaseName): Message
+    {
+        $itemName = $request->getParam('item_name');
+        Assert::string($itemName);
+        $message = __('Error in processing request:') . ' ';
+        $message .= sprintf(
+            __('No event with name %1$s found in database %2$s.'),
+            htmlspecialchars(Util::backquote($itemName)),
+            htmlspecialchars(Util::backquote($databaseName->getName())),
+        );
+
+        return Message::error($message);
+    }
+
+    private function showIndexPage(ServerRequest $request, DatabaseName $databaseName, bool $hasPrivilege, string $schedulerStatus): Response
+    {
         $items = [];
         if ($schedulerStatus !== 'DISABLED') {
             $items = $this->events->getDetails($databaseName->getName());
