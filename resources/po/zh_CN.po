@@ -4,9 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-11 00:47+0000\n"
-"PO-Revision-Date: 2026-06-24 15:01+0000\n"
-"Last-Translator: reducedradius <flytothehighest@users.noreply.hosted.weblate."
-"org>\n"
+"PO-Revision-Date: 2026-10-15 09:51+0000\n"
+"Last-Translator: Lesterbor <qianfan@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/phpmyadmin/master/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.7.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2536,7 +2535,7 @@ msgstr "选项："
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
-msgstr ""
+msgstr "包括hex匹配"
 
 #: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
