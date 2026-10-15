@@ -16,7 +16,6 @@ use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
 use function __;
-use function htmlspecialchars;
 use function is_string;
 use function sprintf;
 use function trim;
@@ -34,6 +33,7 @@ final readonly class ExportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        // selectDatabase is necessary for Events::getEventDefinition()
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             return $this->responseRenderer->respondWithErrorMessage(__('No database selected.'));
         }
@@ -61,22 +61,15 @@ final readonly class ExportController implements InvocableController
                     return $this->responseRenderer->response();
                 }
 
-                $exportData = htmlspecialchars($exportData);
-
-                $output = '<div class="container">';
-                $output .= '<h2>' . $title . '</h2>';
-                $output .= '<div class="card"><div class="card-body">';
-                $output .= '<textarea rows="15" class="form-control">' . $exportData . '</textarea>';
-                $output .= '</div></div></div>';
-
-                $this->responseRenderer->addHTML($output);
+                $this->responseRenderer->render('events/export', ['title' => $title, 'data' => $exportData]);
             } else {
-                $message = sprintf(
+                $message = Message::error(
                     __('Error in processing request: No event with name %1$s found in database %2$s.'),
-                    htmlspecialchars($eventName),
-                    htmlspecialchars(Util::backquote($databaseName->getName())),
+                    [
+                        $eventName,
+                        Util::backquote($databaseName->getName()),
+                    ],
                 );
-                $message = Message::error($message);
 
                 if ($request->isAjax()) {
                     $this->responseRenderer->setRequestStatus(false);
