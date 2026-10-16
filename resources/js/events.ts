@@ -367,12 +367,12 @@ const DatabaseEvents = {
                  * @var $table Object containing reference
                  *             to the main list of elements
                  */
-                const $table = $currRow.parent();
+                const $table = $currRow.closest('table');
                 // Check how many rows will be left after we remove
                 // the one that the user has requested us to remove
                 if ($table.find('tr').length === 3) {
-                    // If there are two rows left, it means that they are
-                    // the header of the table and the rows that we are
+                    // If there are three rows left, it means that they are
+                    // the header row, the hidden row and the row that we are
                     // about to remove, so after the removal there will be
                     // nothing to show in the table, so we hide it.
                     $table.hide('slow', function () {
@@ -450,12 +450,12 @@ const DatabaseEvents = {
                      * @var $table Object containing reference
                      *             to the main list of elements
                      */
-                    const $table = $currRow.parent();
+                    const $table = $currRow.closest('table');
                     // Check how many rows will be left after we remove
                     // the one that the user has requested us to remove
                     if ($table.find('tr').length === 3) {
-                        // If there are two rows left, it means that they are
-                        // the header of the table and the rows that we are
+                        // If there are three rows left, it means that they are
+                        // the header row, the hidden row and the row that we are
                         // about to remove, so after the removal there will be
                         // nothing to show in the table, so we hide it.
                         $table.hide('slow', function () {
