@@ -85,21 +85,11 @@ final class Events
                 . ";\n";
             $result = $this->dbi->tryQuery($dropItem);
             if ($result === false) {
-                $this->errors[] = sprintf(
-                    __('The following query has failed: "%s"'),
-                    htmlspecialchars($dropItem),
-                )
-                    . '<br>'
-                    . __('MySQL said: ') . $this->dbi->getError();
+                $this->errors[] = $this->getErrorForFailedQuery($dropItem);
             } else {
                 $result = $this->dbi->tryQuery($itemQuery);
                 if (! $result) {
-                    $this->errors[] = sprintf(
-                        __('The following query has failed: "%s"'),
-                        htmlspecialchars($itemQuery),
-                    )
-                        . '<br>'
-                        . __('MySQL said: ') . $this->dbi->getError();
+                    $this->errors[] = $this->getErrorForFailedQuery($itemQuery);
                     // We dropped the old item, but were unable to create
                     // the new one. Try to restore the backup query
                     $result = $this->dbi->tryQuery($createItem);
@@ -126,12 +116,7 @@ final class Events
             // 'Add a new item' mode
             $result = $this->dbi->tryQuery($itemQuery);
             if (! $result) {
-                $this->errors[] = sprintf(
-                    __('The following query has failed: "%s"'),
-                    htmlspecialchars($itemQuery),
-                )
-                    . '<br><br>'
-                    . __('MySQL said: ') . $this->dbi->getError();
+                $this->errors[] = $this->getErrorForFailedQuery($itemQuery);
             } else {
                 Current::$message = Message::success(
                     __('Event %1$s has been created.'),
@@ -165,6 +150,14 @@ final class Events
         $message->addHtml('</ul>');
 
         return $message;
+    }
+
+    private function getErrorForFailedQuery(string $query): string
+    {
+        return sprintf(
+            '<div class="mb-3">' . __('The following query has failed: "%s"') . '</div>',
+            htmlspecialchars($query),
+        ) . __('MySQL said: ') . $this->dbi->getError();
     }
 
     /**
