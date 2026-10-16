@@ -5317,21 +5317,9 @@ parameters:
 			path: src/Error/ErrorReport.php
 
 		-
-			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Events/Events.php
-
-		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: src/Events/Events.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 13
+			count: 1
 			path: src/Events/Events.php
 
 		-
@@ -5347,15 +5335,9 @@ parameters:
 			path: src/Events/Events.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Events/Events.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 4
+			count: 3
 			path: src/Events/Events.php
 
 		-
@@ -5366,18 +5348,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Events/Events.php
-
-		-
-			message: '#^Parameter \#1 \$string of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 4
-			path: src/Events/Events.php
-
-		-
-			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Events/Events.php
