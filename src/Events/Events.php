@@ -68,21 +68,21 @@ final class Events
     /**
      * Handles editor requests for adding or editing an item
      */
-    public function handleEditor(string $itemQuery): string
+    public function handleEditor(string $itemQuery, ServerRequest $request): string
     {
         $sqlQuery = '';
 
         // set by getQueryFromRequest()
         if ($this->errors === []) {
             // Execute the created query
-            if (! empty($_POST['editor_process_edit'])) {
+            if ($request->hasBodyParam('editor_process_edit')) {
                 // Backup the old trigger, in case something goes wrong
-                $createItem = self::getDefinition($this->dbi, Current::$database, $_POST['item_original_name']);
+                $createItem = self::getDefinition($this->dbi, Current::$database, $request->getParsedBodyParamAsString('item_original_name'));
                 $dropItem = 'DROP EVENT IF EXISTS '
-                    . Util::backquote($_POST['item_original_name'])
+                    . Util::backquote($request->getParsedBodyParamAsString('item_original_name'))
                     . ";\n";
                 $result = $this->dbi->tryQuery($dropItem);
-                if (! $result) {
+                if ($result === false) {
                     $this->errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($dropItem),
@@ -115,7 +115,7 @@ final class Events
                     } else {
                         Current::$message = Message::success(
                             __('Event %1$s has been modified.'),
-                            [Util::backquote($_POST['item_name'])],
+                            [Util::backquote($request->getParsedBodyParamAsString('item_name'))],
                         );
                         $sqlQuery = $dropItem . $itemQuery;
                     }
@@ -133,7 +133,7 @@ final class Events
                 } else {
                     Current::$message = Message::success(
                         __('Event %1$s has been created.'),
-                        [Util::backquote($_POST['item_name'])],
+                        [Util::backquote($request->getParsedBodyParamAsString('item_name'))],
                     );
                     $sqlQuery = $itemQuery;
                 }

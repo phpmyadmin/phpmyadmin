@@ -58,7 +58,7 @@ final readonly class IndexController implements InvocableController
             $schedulerStatus !== 'DISABLED'
             && ($request->hasBodyParam('editor_process_add') || $request->hasBodyParam('editor_process_edit'))
         ) {
-            $output = $this->events->handleEditor($this->events->getQueryFromRequest($request));
+            $output = $this->events->handleEditor($this->events->getQueryFromRequest($request), $request);
 
             if ($request->isAjax()) {
                 if (Current::$message instanceof Message && Current::$message->isSuccess()) {

@@ -5287,12 +5287,6 @@ parameters:
 			path: src/Error/ErrorReport.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Events/Events.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
@@ -5301,12 +5295,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
-			count: 4
-			path: src/Events/Events.php
-
-		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
 			count: 3
 			path: src/Events/Events.php
 
@@ -5318,12 +5306,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Events/Events.php
-
-		-
-			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Events\\Events\:\:getDefinition\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Events/Events.php
