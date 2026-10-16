@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Events\Events;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -58,7 +59,8 @@ final readonly class IndexController implements InvocableController
             $schedulerStatus !== 'DISABLED'
             && ($request->hasBodyParam('editor_process_add') || $request->hasBodyParam('editor_process_edit'))
         ) {
-            $output = $this->events->handleEditor($this->events->getQueryFromRequest($request), $request);
+            $itemQuery = $this->events->getQueryFromRequest($request);
+            $sqlQuery = $this->events->handleEditor($itemQuery, $request);
 
             if ($request->isAjax()) {
                 if (Current::$message instanceof Message && Current::$message->isSuccess()) {
@@ -99,7 +101,7 @@ final readonly class IndexController implements InvocableController
                     );
 
                     $this->response->addJSON('insert', true);
-                    $this->response->addJSON('message', $output);
+                    $this->response->addJSON('message', Generator::getMessage(Current::$message, $sqlQuery));
                 } else {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Current::$message);

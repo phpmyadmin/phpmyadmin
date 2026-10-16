@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Events;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -70,93 +69,102 @@ final class Events
      */
     public function handleEditor(string $itemQuery, ServerRequest $request): string
     {
+        if ($itemQuery === '') {
+            return '';
+        }
+
         $sqlQuery = '';
 
-        // set by getQueryFromRequest()
-        if ($this->errors === []) {
-            // Execute the created query
-            if ($request->hasBodyParam('editor_process_edit')) {
-                // Backup the old trigger, in case something goes wrong
-                $createItem = self::getDefinition($this->dbi, Current::$database, $request->getParsedBodyParamAsString('item_original_name'));
-                $dropItem = 'DROP EVENT IF EXISTS '
-                    . Util::backquote($request->getParsedBodyParamAsString('item_original_name'))
-                    . ";\n";
-                $result = $this->dbi->tryQuery($dropItem);
-                if ($result === false) {
-                    $this->errors[] = sprintf(
-                        __('The following query has failed: "%s"'),
-                        htmlspecialchars($dropItem),
-                    )
-                        . '<br>'
-                        . __('MySQL said: ') . $this->dbi->getError();
-                } else {
-                    $result = $this->dbi->tryQuery($itemQuery);
-                    if (! $result) {
-                        $this->errors[] = sprintf(
-                            __('The following query has failed: "%s"'),
-                            htmlspecialchars($itemQuery),
-                        )
-                            . '<br>'
-                            . __('MySQL said: ') . $this->dbi->getError();
-                        // We dropped the old item, but were unable to create
-                        // the new one. Try to restore the backup query
-                        $result = $this->dbi->tryQuery($createItem);
-                        if (! $result) {
-                            // OMG, this is really bad! We dropped the query,
-                            // failed to create a new one
-                            // and now even the backup query does not execute!
-                            // This should not happen, but we better handle
-                            // this just in case.
-                            $this->errors[] = __('Sorry, we failed to restore the dropped event.') . '<br>'
-                                . __('The backed up query was:')
-                                . '"' . htmlspecialchars($createItem) . '"<br>'
-                                . __('MySQL said: ') . $this->dbi->getError();
-                        }
-                    } else {
-                        Current::$message = Message::success(
-                            __('Event %1$s has been modified.'),
-                            [Util::backquote($request->getParsedBodyParamAsString('item_name'))],
-                        );
-                        $sqlQuery = $dropItem . $itemQuery;
-                    }
-                }
+        // Execute the created query
+        if ($request->hasBodyParam('editor_process_edit')) {
+            // Backup the old trigger, in case something goes wrong
+            $itemOriginalName = $request->getParsedBodyParamAsString('item_original_name');
+            $createItem = self::getDefinition($this->dbi, Current::$database, $itemOriginalName);
+            $dropItem = 'DROP EVENT IF EXISTS '
+                . Util::backquote($itemOriginalName)
+                . ";\n";
+            $result = $this->dbi->tryQuery($dropItem);
+            if ($result === false) {
+                $this->errors[] = sprintf(
+                    __('The following query has failed: "%s"'),
+                    htmlspecialchars($dropItem),
+                )
+                    . '<br>'
+                    . __('MySQL said: ') . $this->dbi->getError();
             } else {
-                // 'Add a new item' mode
                 $result = $this->dbi->tryQuery($itemQuery);
                 if (! $result) {
                     $this->errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($itemQuery),
                     )
-                        . '<br><br>'
+                        . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
+                    // We dropped the old item, but were unable to create
+                    // the new one. Try to restore the backup query
+                    $result = $this->dbi->tryQuery($createItem);
+                    if (! $result) {
+                        // OMG, this is really bad! We dropped the query,
+                        // failed to create a new one
+                        // and now even the backup query does not execute!
+                        // This should not happen, but we better handle
+                        // this just in case.
+                        $this->errors[] = __('Sorry, we failed to restore the dropped event.') . '<br>'
+                            . __('The backed up query was:')
+                            . '"' . htmlspecialchars($createItem) . '"<br>'
+                            . __('MySQL said: ') . $this->dbi->getError();
+                    }
                 } else {
                     Current::$message = Message::success(
-                        __('Event %1$s has been created.'),
+                        __('Event %1$s has been modified.'),
                         [Util::backquote($request->getParsedBodyParamAsString('item_name'))],
                     );
-                    $sqlQuery = $itemQuery;
+                    $sqlQuery = $dropItem . $itemQuery;
                 }
+            }
+        } else {
+            // 'Add a new item' mode
+            $result = $this->dbi->tryQuery($itemQuery);
+            if (! $result) {
+                $this->errors[] = sprintf(
+                    __('The following query has failed: "%s"'),
+                    htmlspecialchars($itemQuery),
+                )
+                    . '<br><br>'
+                    . __('MySQL said: ') . $this->dbi->getError();
+            } else {
+                Current::$message = Message::success(
+                    __('Event %1$s has been created.'),
+                    [Util::backquote($request->getParsedBodyParamAsString('item_name'))],
+                );
+                $sqlQuery = $itemQuery;
             }
         }
 
         if ($this->errors !== []) {
-            Current::$message = Message::error(
-                '<b>'
-                . __(
-                    'One or more errors have occurred while processing your request:',
-                )
-                . '</b>',
-            );
-            Current::$message->addHtml('<ul>');
-            foreach ($this->errors as $string) {
-                Current::$message->addHtml('<li>' . $string . '</li>');
-            }
-
-            Current::$message->addHtml('</ul>');
+            Current::$message = $this->handleErrors();
         }
 
-        return Generator::getMessage(Current::$message ?? Message::success(), $sqlQuery);
+        return $sqlQuery;
+    }
+
+    private function handleErrors(): Message
+    {
+        $message = Message::error(
+            '<b>'
+            . __(
+                'One or more errors have occurred while processing your request:',
+            )
+            . '</b>',
+        );
+        $message->addHtml('<ul>');
+        foreach ($this->errors as $string) {
+            $message->addHtml('<li>' . $string . '</li>');
+        }
+
+        $message->addHtml('</ul>');
+
+        return $message;
     }
 
     /**
@@ -326,6 +334,12 @@ final class Events
             $query .= $itemDefinition;
         } else {
             $this->errors[] = __('You must provide an event definition.');
+        }
+
+        if ($this->errors !== []) {
+            Current::$message = $this->handleErrors();
+
+            return '';
         }
 
         return $query;
