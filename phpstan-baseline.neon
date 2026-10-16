@@ -41600,12 +41600,12 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
-			count: 2
+			count: 3
 			path: test/classes/Controllers/Database/EventsControllerTest.php
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 2
+			count: 3
 			path: test/classes/Controllers/Database/EventsControllerTest.php
 
 		-
