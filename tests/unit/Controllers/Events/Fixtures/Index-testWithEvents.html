@@ -50,34 +50,35 @@
       <tbody>
       <tr class="hide"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 
-              <tr>
-          <td>
-            <input type="checkbox" class="checkall" name="item_name[]" value="test_event">
-          </td>
-          <td>
-            <span class="drop_sql hide">DROP EVENT IF EXISTS `test_event`</span>
-            <strong>test_event</strong>
-          </td>
-          <td>
-            ENABLED
-          </td>
-          <td>
-            ONE TIME
-          </td>
-          <td>
-                          <a class="ajax edit_anchor" href="index.php?route=/events&db=test_db&edit_item=1&item_name=test_event&server=2&lang=en">
-                <span class="text-nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit">&nbsp;Edit</span>
-              </a>
-                      </td>
-          <td>
-            <a class="ajax export_anchor" href="index.php?route=/events/export&db=test_db&item_name=test_event&server=2&lang=en">
-              <span class="text-nowrap"><img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export</span>
-            </a>
-          </td>
-          <td>
-                          <a href="index.php" data-post="route=/sql&server=2&lang=en&db=test_db&sql_query=DROP+EVENT+IF+EXISTS+%60test_event%60&goto=index.php%3Froute%3D%2Fevents%26db%3Dtest_db%26server%3D2%26lang%3Den&server=2&lang=en" class="ajax drop_anchor"><span class="text-nowrap"><img src="themes/dot.gif" title="Drop" alt="Drop" class="icon ic_b_drop">&nbsp;Drop</span></a>
-                      </td>
-        </tr>
+      <tr>
+  <td>
+    <input type="checkbox" class="checkall" name="item_name[]" value="test_event">
+  </td>
+  <td>
+    <span class='drop_sql hide'>DROP EVENT IF EXISTS `test_event`</span>
+    <strong>test_event</strong>
+  </td>
+  <td>
+    ENABLED
+  </td>
+  <td>
+    ONE TIME
+  </td>
+  <td>
+          <a class="ajax edit_anchor" href="index.php?route=/events&db=test_db&edit_item=1&item_name=test_event&server=2&lang=en">
+        <span class="text-nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit">&nbsp;Edit</span>
+      </a>
+      </td>
+  <td>
+    <a class="ajax export_anchor" href="index.php?route=/events/export&db=test_db&item_name=test_event&server=2&lang=en">
+      <span class="text-nowrap"><img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export</span>
+    </a>
+  </td>
+  <td>
+          <a href="index.php" data-post="route=/sql&server=2&lang=en&db=test_db&sql_query=DROP+EVENT+IF+EXISTS+%60test_event%60&goto=index.php%3Froute%3D%2Fevents%26db%3Dtest_db%26server%3D2%26lang%3Den&server=2&lang=en" class="ajax drop_anchor"><span class="text-nowrap"><img src="themes/dot.gif" title="Drop" alt="Drop" class="icon ic_b_drop">&nbsp;Drop</span></a>
+      </td>
+</tr>
+
             </tbody>
     </table>
   </form>

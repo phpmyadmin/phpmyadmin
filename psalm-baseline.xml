@@ -792,7 +792,6 @@
       <code><![CDATA[empty($_POST['routine_removeparameter'])]]></code>
       <code><![CDATA[empty($_REQUEST['add_item'])]]></code>
       <code><![CDATA[empty($_REQUEST['add_item'])]]></code>
-      <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
       <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
       <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
     </RiskyTruthyFalsyComparison>

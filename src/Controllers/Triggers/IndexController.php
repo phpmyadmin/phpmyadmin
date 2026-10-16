@@ -120,7 +120,6 @@ final readonly class IndexController implements InvocableController
                                 'trigger' => $trigger,
                                 'has_drop_privilege' => $hasTriggerPrivilege,
                                 'has_edit_privilege' => $hasTriggerPrivilege,
-                                'row_class' => '',
                             ]),
                         );
                         $this->response->addJSON(
@@ -272,7 +271,6 @@ final readonly class IndexController implements InvocableController
             'table' => Current::$table,
             'triggers' => $triggers,
             'has_privilege' => $hasTriggerPrivilege,
-            'is_ajax' => $request->isAjax(),
             'error_message' => $message?->getDisplay() ?? '',
         ]);
 

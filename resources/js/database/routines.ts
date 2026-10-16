@@ -255,11 +255,6 @@ const DatabaseRoutines = {
                             // so we insert it there.
                             $(tableId + '.data').append(data.new_row);
                         }
-
-                        // Fade-in the new row
-                        $('tr.ajaxInsert')
-                            .show('slow')
-                            .removeClass('ajaxInsert');
                     } else if ($(tableId + '.data').find('tr').has('td').length === 0) {
                         // If we are not supposed to insert the new row,
                         // we will now check if the table is empty and

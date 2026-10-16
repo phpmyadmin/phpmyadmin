@@ -92,11 +92,9 @@ final readonly class IndexController implements InvocableController
                         'new_row',
                         $this->template->render('events/row', [
                             'db' => $databaseName->getName(),
-                            'table' => Current::$table,
                             'event' => $event,
                             'has_privilege' => $hasPrivilege,
                             'sql_drop' => $sqlDrop,
-                            'row_class' => '',
                         ]),
                     );
 
@@ -146,7 +144,7 @@ final readonly class IndexController implements InvocableController
 
                         $this->response->addHTML($this->getMessageForMissingItem($request, $databaseName));
 
-                        return $this->showIndexPage($request, $databaseName, $hasPrivilege, $schedulerStatus);
+                        return $this->showIndexPage($databaseName, $hasPrivilege, $schedulerStatus);
                     }
 
                     $item['item_original_name'] = $item['item_name'];
@@ -178,7 +176,7 @@ final readonly class IndexController implements InvocableController
             return $this->response->response();
         }
 
-        return $this->showIndexPage($request, $databaseName, $hasPrivilege, $schedulerStatus);
+        return $this->showIndexPage($databaseName, $hasPrivilege, $schedulerStatus);
     }
 
     private function getMessageForMissingItem(ServerRequest $request, DatabaseName $databaseName): Message
@@ -195,7 +193,7 @@ final readonly class IndexController implements InvocableController
         return Message::error($message);
     }
 
-    private function showIndexPage(ServerRequest $request, DatabaseName $databaseName, bool $hasPrivilege, string $schedulerStatus): Response
+    private function showIndexPage(DatabaseName $databaseName, bool $hasPrivilege, string $schedulerStatus): Response
     {
         $items = [];
         if ($schedulerStatus !== 'DISABLED') {
@@ -207,7 +205,6 @@ final readonly class IndexController implements InvocableController
             'items' => $items,
             'has_privilege' => $hasPrivilege,
             'scheduler_state' => $schedulerStatus,
-            'is_ajax' => $request->isAjax(),
         ]);
 
         return $this->response->response();

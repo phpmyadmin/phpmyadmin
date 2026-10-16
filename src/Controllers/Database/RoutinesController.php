@@ -442,14 +442,9 @@ final readonly class RoutinesController implements InvocableController
 
         $items = Routines::getDetails($this->dbi, Current::$database, $type, limit: $pageSize, offset: $pos);
 
-        $isAjax = $request->isAjax() && empty($_REQUEST['ajax_page_request']);
-
         $rows = '';
         foreach ($items as $item) {
-            $rows .= $this->template->render(
-                'database/routines/row',
-                $this->routines->getRow($item, $isAjax ? 'ajaxInsert hide' : ''),
-            );
+            $rows .= $this->template->render('database/routines/row', $this->routines->getRow($item));
         }
 
         $urlParams = ['pos' => $pos, 'db' => Current::$database];

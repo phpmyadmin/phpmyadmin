@@ -1075,11 +1075,9 @@ class Routines
     /**
      * Creates the contents for a row in the list of routines
      *
-     * @param string $rowClass Additional class
-     *
      * @return mixed[]
      */
-    public function getRow(Routine $routine, string $rowClass = ''): array
+    public function getRow(Routine $routine): array
     {
         $sqlDrop = sprintf(
             'DROP %s IF EXISTS %s',
@@ -1116,7 +1114,6 @@ class Routines
             'table' => Current::$table,
             'sql_drop' => $sqlDrop,
             'routine' => $routine,
-            'row_class' => $rowClass,
             'has_edit_privilege' => $hasEditPrivilege,
             'has_export_privilege' => $hasExportPrivilege,
             'has_execute_privilege' => $hasExecutePrivilege,

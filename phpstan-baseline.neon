@@ -1398,7 +1398,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 21
+			count: 20
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
