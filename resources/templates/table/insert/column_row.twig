@@ -94,6 +94,10 @@
           ({{ blob_value }} {{ blob_value_unit }})
           <input type="hidden" name="fields[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="">
           <input type="hidden" name="fields_type[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="protected">
+          <label class="ms-2" title="{{ t('Replace the content of this column with an empty value') }}">
+            <input type="checkbox" name="fields_empty[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="1">
+            {{ t('Empty') }}
+          </label>
         {% elseif column.isBlob or (column.length > limit_chars) %}
           {{ backup_field|raw }}
           <input type="hidden" name="fields_type[multi_edit][{{ row_id }}][{{ column.md5 }}]" value="hex">
