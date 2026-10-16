@@ -128,10 +128,10 @@ final readonly class IndexController implements InvocableController
                 $item = $this->events->getDataFromRequest();
                 $mode = 'add';
             } else {
-                $itemName = $request->getQueryParam('item_name');
-                Assert::string($itemName);
                 $title = __('Edit event');
                 if (! $request->hasBodyParam('editor_process_edit')) {
+                    $itemName = $request->getQueryParam('item_name');
+                    Assert::string($itemName);
                     $item = $this->events->getDataFromName($itemName);
                     if ($item === null) {
                         if ($request->isAjax()) {

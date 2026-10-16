@@ -5293,12 +5293,6 @@ parameters:
 			path: src/Events/Events.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 3
-			path: src/Events/Events.php
-
-		-
 			message: '#^Parameter \#1 \$query of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:tryQuery\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1

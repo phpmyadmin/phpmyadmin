@@ -73,64 +73,68 @@ final class Events
             return '';
         }
 
-        $sqlQuery = '';
-
         // Execute the created query
-        if ($request->hasBodyParam('editor_process_edit')) {
-            // Backup the old trigger, in case something goes wrong
-            $itemOriginalName = $request->getParsedBodyParamAsString('item_original_name');
-            $createItem = self::getDefinition($this->dbi, Current::$database, $itemOriginalName);
-            $dropItem = 'DROP EVENT IF EXISTS '
-                . Util::backquote($itemOriginalName)
-                . ";\n";
-            $result = $this->dbi->tryQuery($dropItem);
-            if ($result === false) {
-                $this->errors[] = $this->getErrorForFailedQuery($dropItem);
-            } else {
-                $result = $this->dbi->tryQuery($itemQuery);
-                if (! $result) {
-                    $this->errors[] = $this->getErrorForFailedQuery($itemQuery);
-                    // We dropped the old item, but were unable to create
-                    // the new one. Try to restore the backup query
-                    $result = $this->dbi->tryQuery($createItem);
-                    if (! $result) {
-                        // OMG, this is really bad! We dropped the query,
-                        // failed to create a new one
-                        // and now even the backup query does not execute!
-                        // This should not happen, but we better handle
-                        // this just in case.
-                        $this->errors[] = __('Sorry, we failed to restore the dropped event.') . '<br>'
-                            . __('The backed up query was:')
-                            . '"' . htmlspecialchars($createItem) . '"<br>'
-                            . __('MySQL said: ') . $this->dbi->getError();
-                    }
-                } else {
-                    Current::$message = Message::success(
-                        __('Event %1$s has been modified.'),
-                        [Util::backquote($request->getParsedBodyParamAsString('item_name'))],
-                    );
-                    $sqlQuery = $dropItem . $itemQuery;
-                }
-            }
-        } else {
+        if (! $request->hasBodyParam('editor_process_edit')) {
             // 'Add a new item' mode
             $result = $this->dbi->tryQuery($itemQuery);
-            if (! $result) {
+            if ($result === false) {
                 $this->errors[] = $this->getErrorForFailedQuery($itemQuery);
-            } else {
-                Current::$message = Message::success(
-                    __('Event %1$s has been created.'),
-                    [Util::backquote($request->getParsedBodyParamAsString('item_name'))],
-                );
-                $sqlQuery = $itemQuery;
+                Current::$message = $this->handleErrors();
+
+                return '';
             }
+
+            Current::$message = Message::success(
+                __('Event %1$s has been created.'),
+                [Util::backquote($request->getParsedBodyParamAsString('item_name'))],
+            );
+
+            return $itemQuery;
         }
 
-        if ($this->errors !== []) {
+        // Backup the old event, in case something goes wrong
+        $itemOriginalName = $request->getParsedBodyParamAsString('item_original_name');
+        $createItem = self::getDefinition($this->dbi, Current::$database, $itemOriginalName);
+        $dropItem = 'DROP EVENT IF EXISTS '
+            . Util::backquote($itemOriginalName)
+            . ";\n";
+        $result = $this->dbi->tryQuery($dropItem);
+        if ($result === false) {
+            $this->errors[] = $this->getErrorForFailedQuery($dropItem);
             Current::$message = $this->handleErrors();
+
+            return '';
         }
 
-        return $sqlQuery;
+        $result = $this->dbi->tryQuery($itemQuery);
+        if ($result === false) {
+            $this->errors[] = $this->getErrorForFailedQuery($itemQuery);
+            // We dropped the old item, but were unable to create
+            // the new one. Try to restore the backup query
+            $result = $this->dbi->tryQuery($createItem);
+            if ($result === false) {
+                // OMG, this is really bad! We dropped the query,
+                // failed to create a new one
+                // and now even the backup query does not execute!
+                // This should not happen, but we better handle
+                // this just in case.
+                $this->errors[] = __('Sorry, we failed to restore the dropped event.') . '<br>'
+                    . __('The backed up query was:')
+                    . '"' . htmlspecialchars($createItem) . '"<br>'
+                    . __('MySQL said: ') . $this->dbi->getError();
+            }
+
+            Current::$message = $this->handleErrors();
+
+            return '';
+        }
+
+        Current::$message = Message::success(
+            __('Event %1$s has been modified.'),
+            [Util::backquote($request->getParsedBodyParamAsString('item_name'))],
+        );
+
+        return $dropItem . $itemQuery;
     }
 
     private function handleErrors(): Message
