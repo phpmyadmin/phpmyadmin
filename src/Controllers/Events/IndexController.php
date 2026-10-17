@@ -38,6 +38,7 @@ final readonly class IndexController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
+        // selectDatabase is necessary for Events::getEventDefinition()
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             $message = __('No database selected.');
             if (! $request->isAjax()) {
