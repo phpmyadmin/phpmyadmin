@@ -792,7 +792,6 @@ Following people have contributed to translation of phpMyAdmin:
     * Costel Cocerhan <costa1988sv\_at\_gmail.com>
     * Ion Adrian-Ionut <john\_at\_panevo.ro>
     * Raul Molnar <molnar.raul\_at\_wservices.eu>
-    * Deleted User <noreply\_at\_weblate.org>
     * Stefan Murariu <stefan.murariu\_at\_yahoo.com>
 
 * Russian
