@@ -90,7 +90,7 @@ final readonly class IndexController implements InvocableController
         }
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
-            $output = $this->triggers->handleEditor();
+            $output = $this->triggers->handleEditor($this->triggers->getQueryFromRequest($request));
 
             if ($request->isAjax()) {
                 if (Current::$message instanceof Message && Current::$message->isSuccess()) {
