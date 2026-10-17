@@ -13168,12 +13168,6 @@ parameters:
 			path: src/Transformations.php
 
 		-
-			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -13197,7 +13191,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 7
+			count: 1
 			path: src/Triggers/Triggers.php
 
 		-
@@ -13207,21 +13201,9 @@ parameters:
 			path: src/Triggers/Triggers.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 3
-			path: src/Triggers/Triggers.php
-
-		-
-			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
+			count: 2
 			path: src/Triggers/Triggers.php
 
 		-
