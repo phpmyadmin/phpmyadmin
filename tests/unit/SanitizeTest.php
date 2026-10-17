@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\Current;
 use PhpMyAdmin\Sanitize;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -27,119 +26,86 @@ class SanitizeTest extends AbstractTestCase
         $this->setLanguage();
     }
 
-    /**
-     * Tests for proper escaping of XSS.
-     */
-    public function testXssInHref(): void
+    #[DataProvider('convertBBCodeProvider')]
+    public function testConvertBbCode(string $expected, string $message): void
     {
-        self::assertSame(
+        self::assertSame($expected, Sanitize::convertBBCode($message));
+    }
+
+    /** @return iterable<string, array{string, string}> */
+    public static function convertBBCodeProvider(): iterable
+    {
+        yield '[em]' => ['<em>message</em>', '[em]message[/em]'];
+        yield '[strong]' => ['<strong>message</strong>', '[strong]message[/strong]'];
+        yield '[code]' => ['<code>message</code>', '[code]message[/code]'];
+        yield '[kbd]' => ['<kbd>message</kbd>', '[kbd]message[/kbd]'];
+        yield '[br]' => ['message<br>message', 'message[br]message'];
+        yield '[sup]' => ['<sup>message</sup>', '[sup]message[/sup]'];
+        yield '[dochelpicon]' => [
+            'a<br>b<img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help">c',
+            'a[br]b[dochelpicon]c',
+        ];
+
+        yield '[a] link and XSS in href' => [
+            '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>'
+                . '[a@javascript:alert(&#039;XSS&#039;);@target]link</a>',
+            '[a@https://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]',
+        ];
+
+        yield '[a] XSS in href' => [
             '[a@javascript:alert(&#039;XSS&#039;);@target]link</a>',
-            Sanitize::convertBBCode('[a@javascript:alert(\'XSS\');@target]link[/a]'),
-        );
-    }
+            '[a@javascript:alert(\'XSS\');@target]link[/a]',
+        ];
 
-    /**
-     * Tests correct generating of link redirector.
-     */
-    public function testLink(): void
-    {
-        $lang = Current::$lang;
+        yield '[a] XSS escaping after valid link' => [
+            '[a@./Documentation.html&quot; onmouseover=&quot;alert(foo)&quot;]doc</a>',
+            '[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]',
+        ];
 
-        Current::$lang = '';
-        self::assertSame(
+        yield '[a] target' => [
             '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
-            Sanitize::convertBBCode('[a@https://www.phpmyadmin.net/@target]link[/a]'),
-        );
+            '[a@https://www.phpmyadmin.net/@target]link[/a]',
+        ];
 
-        Current::$lang = $lang;
-    }
+        yield '[a] invalid target' => [
+            '[a@./Documentation.html@INVALID9]doc</a>',
+            '[a@./Documentation.html@INVALID9]doc[/a]',
+        ];
 
-    /**
-     * Tests links to documentation.
-     *
-     * @param string $link     link
-     * @param string $expected expected result
-     */
-    #[DataProvider('docLinks')]
-    public function testDoc(string $link, string $expected): void
-    {
-        self::assertSame(
+        yield '[doc] setup' => [
             '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F'
-                . $expected . '" target="documentation">doclink</a>',
-            Sanitize::convertBBCode('[doc@' . $link . ']doclink[/doc]'),
-        );
-    }
+            . 'setup.html%23foo" target="documentation">doclink</a>',
+            '[doc@foo]doclink[/doc]',
+        ];
 
-    /**
-     * Data provider for sanitize [doc@foo] markup
-     *
-     * @return string[][]
-     */
-    public static function docLinks(): array
-    {
-        return [
-            ['foo', 'setup.html%23foo'],
-            ['cfg_TitleTable', 'config.html%23cfg_TitleTable'],
-            ['faq3-11', 'faq.html%23faq3-11'],
-            ['bookmarks@', 'bookmarks.html'],
+        yield '[doc] config' => [
+            '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F'
+            . 'config.html%23cfg_TitleTable" target="documentation">doclink</a>',
+            '[doc@cfg_TitleTable]doclink[/doc]',
+        ];
+
+        yield '[doc] FAQ' => [
+            '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F'
+            . 'faq.html%23faq3-11" target="documentation">doclink</a>',
+            '[doc@faq3-11]doclink[/doc]',
+        ];
+
+        yield '[doc] link' => [
+            '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2F'
+            . 'bookmarks.html" target="documentation">doclink</a>',
+            '[doc@bookmarks@]doclink[/doc]',
         ];
     }
 
-    /**
-     * Tests link target validation.
-     */
-    public function testInvalidTarget(): void
+    public function testConvertBbCodeSafeParam(): void
     {
         self::assertSame(
-            '[a@./Documentation.html@INVALID9]doc</a>',
-            Sanitize::convertBBCode('[a@./Documentation.html@INVALID9]doc[/a]'),
+            'a<em>&lt;div onclick=&quot;alert(&#039;XSS&#039;)&quot;&gt;b&lt;/div&gt;</em>c',
+            Sanitize::convertBBCode('a[em]<div onclick="alert(\'XSS\')">b</div>[/em]c'),
         );
-    }
-
-    /**
-     * Tests XSS escaping after valid link.
-     */
-    public function testLinkDocXss(): void
-    {
         self::assertSame(
-            '[a@./Documentation.html&quot; onmouseover=&quot;alert(foo)&quot;]doc</a>',
-            Sanitize::convertBBCode('[a@./Documentation.html" onmouseover="alert(foo)"]doc[/a]'),
-        );
-    }
-
-    /**
-     * Tests proper handling of multi link code.
-     */
-    public function testLinkAndXssInHref(): void
-    {
-        self::assertSame(
-            '<a href="index.php?route=/url&url=https%3A%2F%2Fdocs.phpmyadmin.net%2F">doc</a>'
-                . '[a@javascript:alert(&#039;XSS&#039;);@target]link</a>',
-            Sanitize::convertBBCode(
-                '[a@https://docs.phpmyadmin.net/]doc[/a][a@javascript:alert(\'XSS\');@target]link[/a]',
-            ),
-        );
-    }
-
-    /**
-     * Test escaping of HTML tags
-     */
-    public function testHtmlTags(): void
-    {
-        self::assertSame(
-            '&lt;div onclick=&quot;&quot;&gt;',
-            Sanitize::convertBBCode('<div onclick="">'),
-        );
-    }
-
-    /**
-     * Tests basic BB code.
-     */
-    public function testBBCode(): void
-    {
-        self::assertSame(
-            '<strong>strong</strong>',
-            Sanitize::convertBBCode('[strong]strong[/strong]'),
+            'a<em><div onclick="alert(\'XSS\')">b</div></em>c',
+            Sanitize::convertBBCode('a[em]<div onclick="alert(\'XSS\')">b</div>[/em]c', true),
         );
     }
 
