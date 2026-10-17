@@ -129,7 +129,7 @@ final class IndexControllerTest extends AbstractTestCase
         Config::$instance = $config;
         $dbi = $this->createDatabaseInterface(config: $config);
         $template = new Template($config);
-        $responseRenderer = new ResponseRenderer();
+        $responseRenderer = new ResponseRenderer($config);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'https://example.com/');
 

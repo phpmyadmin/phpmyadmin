@@ -8690,11 +8690,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="tests/unit/Controllers/PhpInfoControllerTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Controllers/Server/BinlogControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -9969,9 +9964,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="tests/unit/Stubs/ResponseRenderer.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedAssignment>
       <code><![CDATA[$json['error']]]></code>
       <code><![CDATA[$value]]></code>
@@ -10101,11 +10093,6 @@
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/UniqueConditionTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/UrlRedirectorTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>

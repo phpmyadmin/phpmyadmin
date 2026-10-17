@@ -151,7 +151,7 @@ final class ExportControllerTest extends AbstractTestCase
         Config::$instance = $config;
         $dbi = $this->createDatabaseInterface(config: $config);
         $events = new Events($dbi, $config);
-        $responseRenderer = new ResponseRenderer();
+        $responseRenderer = new ResponseRenderer($config);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'https://example.com/');
 
