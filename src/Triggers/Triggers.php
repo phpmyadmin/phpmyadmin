@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Util;
@@ -30,8 +31,7 @@ use const SORT_ASC;
  */
 class Triggers
 {
-    /** @var array<int, string> */
-    private array $time = ['BEFORE', 'AFTER'];
+    private const TIMING = ['BEFORE', 'AFTER'];
 
     private const EVENTS = ['INSERT', 'UPDATE', 'DELETE'];
 
@@ -64,11 +64,9 @@ class Triggers
     /**
      * Handles editor requests for adding or editing an item
      */
-    public function handleEditor(): string
+    public function handleEditor(string $itemQuery): string
     {
         $sqlQuery = '';
-
-        $itemQuery = $this->getQueryFromRequest();
 
         // set by getQueryFromRequest()
         if ($this->errors === []) {
@@ -160,12 +158,13 @@ class Triggers
      *
      * @return string  The CREATE TRIGGER query.
      */
-    public function getQueryFromRequest(): string
+    public function getQueryFromRequest(ServerRequest $request): string
     {
         $query = 'CREATE ';
-        if (! empty($_POST['item_definer'])) {
-            if (str_contains($_POST['item_definer'], '@')) {
-                $arr = explode('@', $_POST['item_definer']);
+        $itemDefiner = $request->getParsedBodyParamAsString('item_definer', '');
+        if ($itemDefiner !== '') {
+            if (str_contains($itemDefiner, '@')) {
+                $arr = explode('@', $itemDefiner);
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
                 $query .= '@' . Util::backquote($arr[1]) . ' ';
             } else {
@@ -174,37 +173,39 @@ class Triggers
         }
 
         $query .= 'TRIGGER ';
-        if (! empty($_POST['item_name'])) {
-            $query .= Util::backquote($_POST['item_name']) . ' ';
+        $itemName = $request->getParsedBodyParamAsString('item_name', '');
+        if ($itemName !== '') {
+            $query .= Util::backquote($itemName) . ' ';
         } else {
             $this->errors[] = __('You must provide a trigger name!');
         }
 
-        if (! empty($_POST['item_timing']) && in_array($_POST['item_timing'], $this->time, true)) {
-            $query .= $_POST['item_timing'] . ' ';
+        $itemTiming = $request->getParsedBodyParamAsString('item_timing', '');
+        if (in_array($itemTiming, self::TIMING, true)) {
+            $query .= $itemTiming . ' ';
         } else {
             $this->errors[] = __('You must provide a valid timing for the trigger!');
         }
 
-        if (! empty($_POST['item_event']) && in_array($_POST['item_event'], self::EVENTS, true)) {
-            $query .= $_POST['item_event'] . ' ';
+        $itemEvent = $request->getParsedBodyParamAsString('item_event', '');
+        if (in_array($itemEvent, self::EVENTS, true)) {
+            $query .= $itemEvent . ' ';
         } else {
             $this->errors[] = __('You must provide a valid event for the trigger!');
         }
 
+        $itemTable = $request->getParsedBodyParamAsString('item_table', '');
         $query .= 'ON ';
-        if (
-            ! empty($_POST['item_table'])
-            && in_array($_POST['item_table'], $this->dbi->getTables(Current::$database), true)
-        ) {
-            $query .= Util::backquote($_POST['item_table']);
+        if (in_array($itemTable, $this->dbi->getTables(Current::$database), true)) {
+            $query .= Util::backquote($itemTable);
         } else {
             $this->errors[] = __('You must provide a valid table name!');
         }
 
         $query .= ' FOR EACH ROW ';
-        if (! empty($_POST['item_definition'])) {
-            $query .= $_POST['item_definition'];
+        $itemDefinition = $request->getParsedBodyParamAsString('item_definition', '');
+        if ($itemDefinition !== '') {
+            $query .= $itemDefinition;
         } else {
             $this->errors[] = __('You must provide a trigger definition.');
         }

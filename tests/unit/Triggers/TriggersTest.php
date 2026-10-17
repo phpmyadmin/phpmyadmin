@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Triggers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
@@ -59,14 +60,17 @@ class TriggersTest extends AbstractTestCase
         string $query,
         int $numErr,
     ): void {
-        $_POST['item_definer'] = $definer;
-        $_POST['item_name'] = $name;
-        $_POST['item_timing'] = $timing;
-        $_POST['item_event'] = $event;
-        $_POST['item_table'] = $table;
-        $_POST['item_definition'] = $definition;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'item_definer' => $definer,
+                'item_name' => $name,
+                'item_timing' => $timing,
+                'item_event' => $event,
+                'item_table' => $table,
+                'item_definition' => $definition,
+            ]);
 
-        self::assertSame($query, $this->triggers->getQueryFromRequest());
+        self::assertSame($query, $this->triggers->getQueryFromRequest($request));
         self::assertSame($numErr, $this->triggers->getErrorCount());
     }
 
