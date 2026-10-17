@@ -43,7 +43,7 @@ jobs:
         run: yarn install --non-interactive
 
       - name: Run tests
-        run: yarn test
+        run: yarn test --color
 
   javascript-lint:
     name: Lint JavaScript files
