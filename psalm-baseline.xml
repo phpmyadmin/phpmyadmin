@@ -6931,12 +6931,6 @@
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
       <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['userGroup']]]></code>
       <code><![CDATA[$_POST['username']]]></code>
       <code><![CDATA[$eachUser]]></code>
@@ -6951,10 +6945,6 @@
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['userGroup']]]></code>
@@ -7026,9 +7016,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST[$currentGrant[0] . '_none'])]]></code>
       <code><![CDATA[empty($_POST[$currentGrant[0] . '_none'])]]></code>
-      <code><![CDATA[empty($_POST['nopass'])]]></code>
-      <code><![CDATA[empty($_POST['pma_pw'])]]></code>
-      <code><![CDATA[empty($_POST['pma_pw2'])]]></code>
       <code><![CDATA[empty($_POST['userGroup'])]]></code>
       <code><![CDATA[empty($row['password'])]]></code>
       <code><![CDATA[empty($row['password'])]]></code>
