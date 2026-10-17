@@ -45,16 +45,10 @@ class EventsTest extends AbstractTestCase
     #[DataProvider('providerGetDataFromRequest')]
     public function testGetDataFromRequestEmpty(array $in, array $out): void
     {
-        unset($_POST);
-        foreach ($in as $key => $value) {
-            if ($value === '') {
-                continue;
-            }
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody($in);
 
-            $_POST[$key] = $value;
-        }
-
-        self::assertEquals($out, $this->events->getDataFromRequest());
+        self::assertEquals($out, $this->events->getDataFromRequest($request));
     }
 
     /**

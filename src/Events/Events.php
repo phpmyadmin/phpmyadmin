@@ -167,32 +167,28 @@ final class Events
     /**
      * This function will generate the values that are required to for the editor
      *
-     * @return mixed[]    Data necessary to create the editor.
+     * @return string[]    Data necessary to create the editor.
      */
-    public function getDataFromRequest(): array
+    public function getDataFromRequest(ServerRequest $request): array
     {
-        $retval = [];
-        $indices = [
-            'item_name',
-            'item_original_name',
-            'item_status',
-            'item_execute_at',
-            'item_interval_value',
-            'item_interval_field',
-            'item_starts',
-            'item_ends',
-            'item_definition',
-            'item_preserve',
-            'item_comment',
-            'item_definer',
+        $retval = [
+            'item_name' => $request->getParsedBodyParamAsString('item_name', ''),
+            'item_original_name' => $request->getParsedBodyParamAsString('item_original_name', ''),
+            'item_status' => $request->getParsedBodyParamAsString('item_status', ''),
+            'item_execute_at' => $request->getParsedBodyParamAsString('item_execute_at', ''),
+            'item_interval_value' => $request->getParsedBodyParamAsString('item_interval_value', ''),
+            'item_interval_field' => $request->getParsedBodyParamAsString('item_interval_field', ''),
+            'item_starts' => $request->getParsedBodyParamAsString('item_starts', ''),
+            'item_ends' => $request->getParsedBodyParamAsString('item_ends', ''),
+            'item_definition' => $request->getParsedBodyParamAsString('item_definition', ''),
+            'item_preserve' => $request->getParsedBodyParamAsString('item_preserve', ''),
+            'item_comment' => $request->getParsedBodyParamAsString('item_comment', ''),
+            'item_definer' => $request->getParsedBodyParamAsString('item_definer', ''),
         ];
-        foreach ($indices as $index) {
-            $retval[$index] = $_POST[$index] ?? '';
-        }
 
         $retval['item_type'] = 'ONE TIME';
         $retval['item_type_toggle'] = 'RECURRING';
-        if (isset($_POST['item_type']) && $_POST['item_type'] === 'RECURRING') {
+        if ($request->getParsedBodyParamAsString('item_type', '') === 'RECURRING') {
             $retval['item_type'] = 'RECURRING';
             $retval['item_type_toggle'] = 'ONE TIME';
         }
@@ -206,7 +202,7 @@ final class Events
      *
      * @param string $name The name of the event.
      *
-     * @return mixed[]|null Data necessary to create the editor.
+     * @return array<string|null>|null Data necessary to create the editor.
      */
     public function getDataFromName(string $name): array|null
     {

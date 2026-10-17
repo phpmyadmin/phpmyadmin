@@ -1054,7 +1054,6 @@
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$itemName]]></code>
-      <code><![CDATA[$item['item_original_name']]]></code>
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Export/CheckTimeOutController.php">

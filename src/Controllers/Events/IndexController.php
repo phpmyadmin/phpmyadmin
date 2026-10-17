@@ -123,7 +123,7 @@ final readonly class IndexController implements InvocableController
         ) {
             if ($request->has('add_item')) {
                 $title = __('Add event');
-                $item = $this->events->getDataFromRequest();
+                $item = $this->events->getDataFromRequest($request);
                 $mode = 'add';
             } else {
                 $title = __('Edit event');
@@ -149,7 +149,7 @@ final readonly class IndexController implements InvocableController
 
                     $item['item_original_name'] = $item['item_name'];
                 } else {
-                    $item = $this->events->getDataFromRequest();
+                    $item = $this->events->getDataFromRequest($request);
                 }
 
                 $mode = 'edit';
