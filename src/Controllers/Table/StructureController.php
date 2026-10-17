@@ -188,7 +188,6 @@ readonly class StructureController implements InvocableController
         $columnsList = [];
         $attributes = [];
         $displayedFields = [];
-        $rowComments = [];
         $extractedColumnSpecs = [];
         $collations = [];
         foreach ($fields as $field) {
@@ -204,11 +203,9 @@ readonly class StructureController implements InvocableController
             $displayedFields[$rownum] = new stdClass();
             $displayedFields[$rownum]->text = $field->field;
             $displayedFields[$rownum]->icon = '';
-            $rowComments[$rownum] = '';
 
             if (isset($commentsMap[$field->field])) {
                 $displayedFields[$rownum]->comment = $commentsMap[$field->field];
-                $rowComments[$rownum] = $commentsMap[$field->field];
             }
 
             if ($primaryIndex !== null && $primaryIndex->hasColumn($field->field)) {
@@ -254,7 +251,6 @@ readonly class StructureController implements InvocableController
             'extracted_columnspecs' => $extractedColumnSpecs,
             'columns_with_index' => $columnsWithIndex,
             'central_list' => $centralList,
-            'comments_map' => $commentsMap,
             'browse_mime' => $this->config->config->BrowseMIME,
             'show_column_comments' => $this->config->config->ShowColumnComments,
             'show_stats' => $this->config->config->ShowStats,
@@ -267,7 +263,6 @@ readonly class StructureController implements InvocableController
             'default_sliders_state' => $this->config->config->InitialSlidersState,
             'attributes' => $attributes,
             'displayed_fields' => $displayedFields,
-            'row_comments' => $rowComments,
             'route' => $route,
         ]);
     }
