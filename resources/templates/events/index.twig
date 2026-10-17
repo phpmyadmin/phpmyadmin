@@ -4,6 +4,7 @@
     {{ show_mysql_docu('EVENTS') }}
   </h2>
 
+{% if scheduler_state != 'DISABLED' %}
   <div class="d-flex flex-wrap my-3">
     {%- if items is not empty %}
     <div>
@@ -112,7 +113,7 @@
       <div class="wrap">
         <div class="wrapper toggleAjax hide">
           <div class="toggleButton">
-            <div title="{{ t('Click to toggle') }}" class="toggle-container {{ scheduler_state ? 'on' : 'off' }}">
+            <div title="{{ t('Click to toggle') }}" class="toggle-container {{ scheduler_state == 'ON' ? 'on' : 'off' }}">
               <img src="{{ image('toggle-' ~ pma.text_dir ~ '.png') }}">
               <table>
                 <tbody>
@@ -184,4 +185,7 @@
       </div>
     </div>
   </div>
+{% else %}
+  {{ t('The event scheduler is disabled.')|notice }}
+{% endif %}
 </div>

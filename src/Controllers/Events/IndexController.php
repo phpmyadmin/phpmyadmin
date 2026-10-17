@@ -51,8 +51,12 @@ final readonly class IndexController implements InvocableController
         $this->response->addScriptFiles(['events.js', 'sql.js']);
 
         $hasPrivilege = $this->events->hasEventPrivilege($databaseName);
+        $schedulerStatus = $this->events->getEventSchedulerStatus();
 
-        if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
+        if (
+            $schedulerStatus !== 'DISABLED'
+            && (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit']))
+        ) {
             $output = $this->events->handleEditor($this->events->getQueryFromRequest($request));
 
             if ($request->isAjax()) {
@@ -109,14 +113,15 @@ final readonly class IndexController implements InvocableController
          * Display a form used to add/edit a trigger, if necessary
          */
         if (
-            $this->events->getErrorCount() > 0
+            $schedulerStatus !== 'DISABLED'
+            && ($this->events->getErrorCount() > 0
             || empty($_POST['editor_process_add'])
             && empty($_POST['editor_process_edit'])
             && (
                 ! empty($_REQUEST['add_item'])
                 || ! empty($_REQUEST['edit_item'])
                 || ! empty($_POST['item_changetype'])
-            )
+            ))
         ) {
             // FIXME: this must be simpler than that
             $operation = '';
@@ -199,13 +204,16 @@ final readonly class IndexController implements InvocableController
             $this->response->addHTML($message);
         }
 
-        $items = $this->events->getDetails($databaseName->getName());
+        $items = [];
+        if ($schedulerStatus !== 'DISABLED') {
+            $items = $this->events->getDetails($databaseName->getName());
+        }
 
         $this->response->render('events/index', [
             'db' => $databaseName->getName(),
             'items' => $items,
             'has_privilege' => $hasPrivilege,
-            'scheduler_state' => $this->events->getEventSchedulerStatus(),
+            'scheduler_state' => $schedulerStatus,
             'is_ajax' => $request->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
 

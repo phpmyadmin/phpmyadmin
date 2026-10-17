@@ -1,3 +1,4 @@
+* text=auto eol=lf
 *.php  text diff=php
 
 .gitattributes export-ignore

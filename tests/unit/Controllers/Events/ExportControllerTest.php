@@ -29,6 +29,11 @@ final class ExportControllerTest extends AbstractTestCase
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('SHOW CREATE EVENT `test_db`.`test_event`', [[$createEventStatement]], ['Create Event']);
+        $dbiDummy->addResult(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            [['event_scheduler', 'ON']],
+            ['Variable_name', 'Value'],
+        );
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $responseRenderer = new ResponseRenderer();
         $events = new Events($dbi, new Config());
@@ -59,6 +64,11 @@ final class ExportControllerTest extends AbstractTestCase
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('SHOW CREATE EVENT `test_db`.`test_event`', [[$createEventStatement]], ['Create Event']);
+        $dbiDummy->addResult(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            [['event_scheduler', 'ON']],
+            ['Variable_name', 'Value'],
+        );
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $responseRenderer = new ResponseRenderer();
         $events = new Events($dbi, new Config());
@@ -86,6 +96,11 @@ final class ExportControllerTest extends AbstractTestCase
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('SHOW CREATE EVENT `test_db`.`test_event`', [], ['Create Event']);
+        $dbiDummy->addResult(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            [['event_scheduler', 'ON']],
+            ['Variable_name', 'Value'],
+        );
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $responseRenderer = new ResponseRenderer();
         $events = new Events($dbi, new Config());
@@ -117,6 +132,11 @@ final class ExportControllerTest extends AbstractTestCase
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('SHOW CREATE EVENT `test_db`.`test_event`', [], ['Create Event']);
+        $dbiDummy->addResult(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            [['event_scheduler', 'ON']],
+            ['Variable_name', 'Value'],
+        );
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $responseRenderer = new ResponseRenderer();
         $events = new Events($dbi, new Config());

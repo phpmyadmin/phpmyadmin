@@ -43,7 +43,7 @@ final class IndexControllerTest extends AbstractTestCase
         );
         $dummyDbi->addResult(
             'SHOW GLOBAL VARIABLES LIKE \'event_scheduler\'',
-            [['event_scheduler', 'OFF']],
+            [['event_scheduler', 'ON']],
             ['Variable_name', 'Value'],
         );
         // phpcs:enable
@@ -187,6 +187,11 @@ final class IndexControllerTest extends AbstractTestCase
             [['EVENT']],
             ['PRIVILEGE_TYPE'],
         );
+        $dbiDummy->addResult(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            [['event_scheduler', 'ON']],
+            ['Variable_name', 'Value'],
+        );
         // phpcs:enable
 
         $dbi = $this->createDatabaseInterface($dbiDummy, $config);
@@ -210,6 +215,47 @@ final class IndexControllerTest extends AbstractTestCase
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         self::assertStringEqualsFile(
             __DIR__ . '/Fixtures/Index-testCreateEvent.html',
+            (string) $response->getBody(),
+        );
+    }
+
+    public function testWithEventSchedulerDisabled(): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addSelectDb('test_db');
+        $dbiDummy->addResult('SELECT CURRENT_USER();', [['definer@localhost']], ['CURRENT_USER()']);
+        $dbiDummy->addResult(
+            "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''definer''@''localhost''' AND PRIVILEGE_TYPE='EVENT'",
+            [['EVENT']],
+            ['PRIVILEGE_TYPE'],
+        );
+        $dbiDummy->addResult(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            [['event_scheduler', 'DISABLED']],
+            ['Variable_name', 'Value'],
+        );
+        // phpcs:enable
+
+        $request = ServerRequestFactory::create()->createServerRequest('GET', 'https://example.com/')
+            ->withQueryParams(['db' => 'test_db']);
+
+        $config = new Config();
+        $dbi = $this->createDatabaseInterface($dbiDummy, $config);
+        $template = new Template($config);
+        $response = (new IndexController(
+            new ResponseRenderer($config),
+            $template,
+            new Events($dbi, $config),
+            new DbTableExists($dbi),
+        ))($request);
+
+        $dbiDummy->assertAllSelectsConsumed();
+        $dbiDummy->assertAllQueriesConsumed();
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
+        self::assertStringEqualsFile(
+            __DIR__ . '/Fixtures/Index-testWithEventSchedulerDisabled.html',
             (string) $response->getBody(),
         );
     }

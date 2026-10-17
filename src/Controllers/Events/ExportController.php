@@ -48,8 +48,9 @@ final readonly class ExportController implements InvocableController
 
         $this->responseRenderer->addScriptFiles(['events.js', 'sql.js']);
 
+        $schedulerStatus = $this->events->getEventSchedulerStatus();
         $eventName = $this->getEventName($request->getQueryParam('item_name'));
-        if ($eventName !== '') {
+        if ($schedulerStatus !== 'DISABLED' && $eventName !== '') {
             $exportData = $this->events->getEventDefinition($databaseName->getName(), $eventName);
 
             if ($exportData === null || $exportData === '') {
