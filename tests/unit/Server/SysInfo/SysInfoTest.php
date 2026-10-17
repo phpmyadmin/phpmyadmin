@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server\SysInfo;
 
 use PhpMyAdmin\Server\SysInfo\Base;
+use PhpMyAdmin\Server\SysInfo\Linux;
+use PhpMyAdmin\Server\SysInfo\SunOs;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
+use PhpMyAdmin\Server\SysInfo\WindowsNt;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -43,7 +46,20 @@ class SysInfoTest extends AbstractTestCase
      */
     public function testGetSysInfo(): void
     {
+        $isSupported = match (SysInfo::getOs()) {
+            'Linux' => Linux::isSupported(),
+            'WINNT' => WindowsNt::isSupported(),
+            'SunOS' => SunOs::isSupported(),
+            default => false,
+        };
+
         $sysInfo = SysInfo::get();
+        if (! $isSupported) {
+            self::assertSame(Base::class, $sysInfo::class);
+
+            return;
+        }
+
         self::assertNotSame(Base::class, $sysInfo::class);
     }
 }
