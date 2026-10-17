@@ -90,6 +90,7 @@
     {% endif %}
 
     {% if current_table['TABLE_ROWS'] is defined
+        and current_table['TABLE_ROWS'] is not null
         and (current_table['ENGINE'] != null or table_is_view) %}
         {# Get the row count #}
         {% set row_count = format_number(current_table['TABLE_ROWS'], 0) %}
