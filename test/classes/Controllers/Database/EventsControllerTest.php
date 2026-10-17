@@ -52,7 +52,7 @@ final class EventsControllerTest extends AbstractTestCase
         );
         $dummyDbi->addResult(
             'SHOW GLOBAL VARIABLES LIKE \'event_scheduler\'',
-            [['event_scheduler', 'OFF']],
+            [['event_scheduler', 'ON']],
             ['Variable_name', 'Value']
         );
         // phpcs:enable
@@ -156,7 +156,7 @@ final class EventsControllerTest extends AbstractTestCase
       <div class="wrap">
         <div class="wrapper toggleAjax hide">
           <div class="toggleButton">
-            <div title="Click to toggle" class="toggle-container off">
+            <div title="Click to toggle" class="toggle-container on">
               <img src="">
               <table>
                 <tbody>
@@ -306,6 +306,63 @@ HTML;
       </div>
     </div>
   </div>
+</div>
+
+HTML;
+        // phpcs:enable
+
+        self::assertSame($expected, $actual);
+    }
+
+    public function testWithEventSchedulerDisabled(): void
+    {
+        $GLOBALS['db'] = 'test_db';
+        $GLOBALS['cfg']['Server']['DisableIS'] = true;
+
+        $dummyDbi = new DbiDummy();
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $dummyDbi->removeDefaultResults();
+        $dummyDbi->addSelectDb('test_db');
+        $dummyDbi->addResult('SHOW TABLES FROM `test_db`;', [['test_table']], ['Tables_in_test_db']);
+        $dummyDbi->addResult(
+            'SHOW TABLE STATUS FROM `test_db` WHERE `Name` IN (\'test_table\')',
+            [['test_table', 'InnoDB', '10', 'Dynamic', '3', '10922', '32768', '0', '32768', '0', '7', '2023-05-29 14:53:55', '2023-05-29 14:53:55', null, 'utf8mb4_general_ci', null, '', '', '0', 'N']],
+            ['Name', 'Engine', 'Version', 'Row_format', 'Rows', 'Avg_row_length', 'Data_length', 'Max_data_length', 'Index_length', 'Data_free', 'Auto_increment', 'Create_time', 'Update_time', 'Check_time', 'Collation', 'Checksum', 'Create_options', 'Comment', 'Max_index_length', 'Temporary']
+        );
+        $dummyDbi->addResult('SELECT CURRENT_USER();', [['definer@localhost']], ['CURRENT_USER()']);
+        $dummyDbi->addResult(
+            "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''definer''@''localhost''' AND PRIVILEGE_TYPE='EVENT'",
+            [['EVENT']],
+            ['PRIVILEGE_TYPE']
+        );
+        $dummyDbi->addResult(
+            'SHOW GLOBAL VARIABLES LIKE \'event_scheduler\'',
+            [['event_scheduler', 'DISABLED']],
+            ['Variable_name', 'Value']
+        );
+        // phpcs:enable
+        $dbi = DatabaseInterface::load($dummyDbi);
+        $GLOBALS['dbi'] = $dbi;
+        $response = new ResponseRenderer();
+        $template = new Template();
+
+        (new EventsController($response, $template, 'test_db', new Events($dbi, $template, $response), $dbi))();
+
+        $dummyDbi->assertAllSelectsConsumed();
+        $dummyDbi->assertAllQueriesConsumed();
+        $actual = $response->getHTMLResult();
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $expected = <<<'HTML'
+<div class="container-fluid my-3">
+  <h2>
+    <span class="text-nowrap"><img src="themes/dot.gif" title="Events" alt="Events" class="icon ic_b_events">&nbsp;Events</span>
+    <a href="./url.php?url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fevents.html" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+  </h2>
+
+  <div class="alert alert-primary" role="alert">
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> The event scheduler is disabled.
+</div>
+
 </div>
 
 HTML;

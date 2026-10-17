@@ -1219,7 +1219,8 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/EventsController.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="5">
+      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
