@@ -66,6 +66,7 @@ final class CheckRelationsControllerTest extends AbstractTestCase
             ->withParsedBody(['create_pmadb' => '1']);
 
         $config = Config::$instance = new Config();
+        $config->selectedServer['pmadb'] = 'phpmyadmin';
 
         $dbiDummy = $this->createDbiDummy();
         $dbi = DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);

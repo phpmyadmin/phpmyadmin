@@ -17,10 +17,14 @@ final class UrlRedirectorTest extends AbstractTestCase
 {
     public function testRedirectWithDisallowedUrl(): void
     {
-        $config = Config::getInstance();
+        $config = new Config();
         $config->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin');
 
-        $urlRedirector = new UrlRedirector(new ResponseRenderer(), new Template($config), ResponseFactory::create());
+        $urlRedirector = new UrlRedirector(
+            new ResponseRenderer($config),
+            new Template($config),
+            ResponseFactory::create(),
+        );
 
         $response = $urlRedirector->redirect('https://user:pass@example.com/');
         self::assertSame('/phpmyadmin/', $response->getHeaderLine('Location'));

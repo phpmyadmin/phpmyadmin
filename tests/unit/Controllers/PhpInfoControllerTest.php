@@ -31,7 +31,7 @@ final class PhpInfoControllerTest extends AbstractTestCase
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
 
-        $controller = new PhpInfoController(new ResponseRenderer(), ResponseFactory::create(), $config);
+        $controller = new PhpInfoController(new ResponseRenderer($config), ResponseFactory::create(), $config);
         $response = $controller($request);
 
         ob_start();
@@ -45,13 +45,13 @@ final class PhpInfoControllerTest extends AbstractTestCase
 
     public function testWithShowPhpInfoEqualsFalse(): void
     {
-        $config = Config::getInstance();
+        $config = new Config();
         $config->settings['ShowPhpInfo'] = false;
         $config->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin');
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
 
-        $controller = new PhpInfoController(new ResponseRenderer(), ResponseFactory::create(), $config);
+        $controller = new PhpInfoController(new ResponseRenderer($config), ResponseFactory::create(), $config);
         $response = $controller($request);
 
         self::assertSame(StatusCodeInterface::STATUS_FOUND, $response->getStatusCode());

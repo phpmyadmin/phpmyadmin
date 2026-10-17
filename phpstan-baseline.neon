@@ -14808,15 +14808,6 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
-			path: tests/unit/Controllers/PhpInfoControllerTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 2
 			path: tests/unit/Controllers/Server/BinlogControllerTest.php
 
@@ -17131,15 +17122,6 @@ parameters:
 			path: tests/unit/SqlTest.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: tests/unit/Stubs/ResponseRenderer.php
-
-		-
 			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
 			identifier: attribute.notFound
 			count: 1
@@ -17348,15 +17330,6 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/UniqueConditionTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: tests/unit/UrlRedirectorTest.php
 
 		-
 			message: '''
