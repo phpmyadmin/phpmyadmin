@@ -79,12 +79,7 @@ final readonly class IndexController implements InvocableController
                     }
 
                     $event = $events[0];
-                    $this->response->addJSON(
-                        'name',
-                        htmlspecialchars(
-                            mb_strtoupper($itemName),
-                        ),
-                    );
+                    $this->response->addJSON('name', mb_strtoupper($itemName));
                     $sqlDrop = sprintf(
                         'DROP EVENT IF EXISTS %s',
                         Util::backquote($event['name']),

@@ -122,14 +122,7 @@ final readonly class IndexController implements InvocableController
                                 'has_edit_privilege' => $hasTriggerPrivilege,
                             ]),
                         );
-                        $this->response->addJSON(
-                            'name',
-                            htmlspecialchars(
-                                mb_strtoupper(
-                                    $_POST['item_name'],
-                                ),
-                            ),
-                        );
+                        $this->response->addJSON('name', mb_strtoupper($_POST['item_name']));
                     }
 
                     $this->response->addJSON('insert', $insert);

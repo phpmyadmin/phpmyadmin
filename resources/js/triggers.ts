@@ -224,7 +224,7 @@ const DatabaseTriggers = {
                         $('table.data').find('tr').each(function () {
                             text = $(this)
                                 .children('td')
-                                .eq(0)
+                                .eq(1)
                                 .find('strong')
                                 .text()
                                 .toUpperCase()

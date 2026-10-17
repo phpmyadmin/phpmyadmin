@@ -118,12 +118,7 @@ final readonly class RoutinesController implements InvocableController
                     $_POST['item_name'],
                 );
                 $routine = $routines[0];
-                $this->response->addJSON(
-                    'name',
-                    htmlspecialchars(
-                        mb_strtoupper($_POST['item_name']),
-                    ),
-                );
+                $this->response->addJSON('name', mb_strtoupper($_POST['item_name']));
                 $this->response->addJSON(
                     'new_row',
                     $this->template->render('database/routines/row', $this->routines->getRow($routine)),
