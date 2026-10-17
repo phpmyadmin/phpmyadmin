@@ -39,28 +39,20 @@
         <tr class="text-nowrap">
           <td>{{ t('Event type') }}</td>
           <td>
-            {% if is_ajax %}
-              <select name="item_type">
-                {% for type in event_type %}
-                  <option value="{{ type }}"{{ type == event.item_type ? ' selected' }}>{{ type }}</option>
-                {% endfor %}
-              </select>
-            {% else %}
-              <input name="item_type" type="hidden" value="{{ event.item_type }}">
-              <div class="fw-bold text-center w-50">
-                {{ event.item_type }}
-              </div>
-              <input type="submit" name="item_changetype" class="w-50" value="{{ t('Change to %s')|format(event.item_type_toggle) }}">
-            {% endif %}
+            <select name="item_type">
+              {% for type in event_type %}
+                <option value="{{ type }}"{{ type == event.item_type ? ' selected' }}>{{ type }}</option>
+              {% endfor %}
+            </select>
           </td>
         </tr>
-        <tr class="onetime_event_row{{ event.item_type != 'ONE TIME' ? ' hide' }}">
+        <tr class="onetime_event_row">
           <td class="text-nowrap">{{ t('Execute at') }}</td>
           <td class="text-nowrap">
             <input type="text" name="item_execute_at" value="{{ event.item_execute_at }}" class="datetimefield">
           </td>
         </tr>
-        <tr class="recurring_event_row{{ event.item_type != 'RECURRING' ? ' hide' }}">
+        <tr class="recurring_event_row">
           <td class="text-nowrap">{{ t('Execute every') }}</td>
           <td>
             <input class="w-50" type="text" name="item_interval_value" value="{{ event.item_interval_value }}">
@@ -71,13 +63,13 @@
             </select>
           </td>
         </tr>
-        <tr class="recurring_event_row{{ event.item_type != 'RECURRING' ? ' hide' }}">
+        <tr class="recurring_event_row">
           <td class="text-nowrap">{{ t('Start', context = 'Start of recurring event') }}</td>
           <td class="text-nowrap">
             <input type="text" name="item_starts" value="{{ event.item_starts }}" class="datetimefield">
           </td>
         </tr>
-        <tr class="recurring_event_row{{ event.item_type != 'RECURRING' ? ' hide' }}">
+        <tr class="recurring_event_row">
           <td class="text-nowrap">{{ t('End', context = 'End of recurring event') }}</td>
           <td class="text-nowrap">
             <input type="text" name="item_ends" value="{{ event.item_ends }}" class="datetimefield">
