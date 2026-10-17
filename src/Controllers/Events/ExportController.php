@@ -16,7 +16,6 @@ use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Util;
 
 use function __;
-use function htmlspecialchars;
 use function is_string;
 use function sprintf;
 use function trim;
@@ -72,12 +71,13 @@ final readonly class ExportController implements InvocableController
 
                 $this->responseRenderer->render('events/export', ['title' => $title, 'data' => $exportData]);
             } else {
-                $message = sprintf(
+                $message = Message::error(
                     __('Error in processing request: No event with name %1$s found in database %2$s.'),
-                    htmlspecialchars($eventName),
-                    htmlspecialchars(Util::backquote($databaseName->getName())),
+                    [
+                        $eventName,
+                        Util::backquote($databaseName->getName()),
+                    ],
                 );
-                $message = Message::error($message);
 
                 if ($request->isAjax()) {
                     $this->responseRenderer->setRequestStatus(false);

@@ -20,7 +20,6 @@ use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
 
 use function __;
-use function htmlspecialchars;
 use function mb_strtoupper;
 use function sprintf;
 
@@ -179,14 +178,14 @@ final readonly class IndexController implements InvocableController
     {
         $itemName = $request->getParam('item_name');
         Assert::string($itemName);
-        $message = __('Error in processing request:') . ' ';
-        $message .= sprintf(
-            __('No event with name %1$s found in database %2$s.'),
-            htmlspecialchars(Util::backquote($itemName)),
-            htmlspecialchars(Util::backquote($databaseName->getName())),
-        );
 
-        return Message::error($message);
+        return Message::error(
+            __('Error in processing request:') . ' ' . __('No event with name %1$s found in database %2$s.'),
+            [
+                Util::backquote($itemName),
+                Util::backquote($databaseName->getName()),
+            ],
+        );
     }
 
     private function showIndexPage(DatabaseName $databaseName, bool $hasPrivilege, string $schedulerStatus): Response
