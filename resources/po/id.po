@@ -3,8 +3,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-18 00:40+0000\n"
-"PO-Revision-Date: 2026-08-21 11:52+0000\n"
-"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
+"PO-Revision-Date: 2026-10-19 01:50+0000\n"
+"Last-Translator: Zahid Rizky Fakhri "
+"<zahidrf@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.9.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
@@ -3192,10 +3193,8 @@ msgid "Export event"
 msgstr "Ekspor event"
 
 #: resources/templates/events/index.twig:189
-#, fuzzy
-#| msgid "The slow query log is disabled."
 msgid "The event scheduler is disabled."
-msgstr "Log kueri lambat dinonaktifkan."
+msgstr "Penjadwal peristiwa dinonaktifkan."
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -12329,10 +12328,8 @@ msgstr "Anda mungkin perlu menyegarkan halaman."
 
 #: src/Controllers/Events/ExportController.php:38
 #: src/Controllers/Events/IndexController.php:40
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No database selected."
-msgstr "Basis data belum dipilih."
+msgstr "Tidak ada basis data terpilih."
 
 #: src/Controllers/Events/ExportController.php:63
 #, php-format
