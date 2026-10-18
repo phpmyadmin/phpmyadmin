@@ -402,7 +402,7 @@ return [
         'class' => Transformations::class,
         'arguments' => [DatabaseInterface::class, Relation::class],
     ],
-    Triggers::class => ['class' => Triggers::class, 'arguments' => [DatabaseInterface::class]],
+    Triggers::class => ['class' => Triggers::class, 'arguments' => [DatabaseInterface::class, DbTableExists::class]],
     UserPassword::class => [
         'class' => UserPassword::class,
         'arguments' => [Privileges::class, AuthenticationPluginFactory::class, DatabaseInterface::class],
