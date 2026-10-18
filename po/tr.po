@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-05-25 18:05+0000\n"
-"PO-Revision-Date: 2026-05-26 19:11+0000\n"
-"Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
+"PO-Revision-Date: 2026-10-19 01:51+0000\n"
+"Last-Translator: Burak Yavuz <bourock@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "tr/>\n"
 "Language: tr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.6.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -927,7 +927,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:599
 msgid "Is InnoDB disabled?"
-msgstr "InnoDB etkisizleştirildi mi?"
+msgstr "InnoDB etkisizleştirilsin mi?"
 
 #: libraries/advisory_rules_generic.php:603
 msgid "You do not have InnoDB enabled."
@@ -1773,7 +1773,7 @@ msgstr "Kullanıcılar yüksek değer ayarlayamazlar"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Eğer etkinleştirilirse, kullanıcı herhangi MySQL sunucusuna tanımlama "
+"Eğer etkinleştirildiyse, kullanıcı herhangi MySQL sunucusuna tanımlama "
 "bilgisi kimlik doğrulamasıyla oturum açma formundan girebilir."
 
 #: libraries/classes/Config/Descriptions.php:92
@@ -1782,8 +1782,8 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
-"Verilen düzenli ifadeye göre MySQL sunucusunun IP veya anamakine adı ile "
-"eşleşen gelişigüzel bir MySQL sunucusuna oturum açıldığında etkinleşen "
+"MySQL sunucusunun IP'sini veya anamakine adını verilen düzenli ifadeyle "
+"eşleştirerek rastgele bir MySQL sunucusunda oturum açma etkinleştirildiğinde "
 "kullanıcının girebileceği MySQL sunucularını kısıtlar."
 
 #: libraries/classes/Config/Descriptions.php:97
@@ -2110,8 +2110,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"Eğer etkinleştirilirse, phpMyAdmin çoklu ifade sorgularını hesaplamaya devam "
-"eder, eğer sorgulardan biri başarısız olsa bile."
+"Eğer etkinleştirildiyse, phpMyAdmin çoklu ifade sorgularını hesaplamaya "
+"devam eder, eğer sorgulardan biri başarısız olsa bile."
 
 #: libraries/classes/Config/Descriptions.php:246
 msgid ""
@@ -2336,9 +2336,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Eğer VT-tabanlı sorgu geçmişi istiyorsanız etkinleştirin (phpMyAdmin "
-"yapılandırma depolaması gerektirir). Eğer etkisizleştirilirse, sorgu "
-"geçmişini görüntülemek için bu, JS-yordamlarından yararlanır (pencerenin "
+"VT-tabanlı sorgu geçmişi istiyorsanız etkinleştirin (phpMyAdmin yapılandırma "
+"depolaması gerektirir). Eğer etkisizleştirildiyse, sorgu geçmişini "
+"görüntülemek için bu, JS-yordamlarından yararlanır (pencerenin "
 "kapatılmasıyla kaybolur)."
 
 #: libraries/classes/Config/Descriptions.php:345
