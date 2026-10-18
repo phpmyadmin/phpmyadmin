@@ -182,22 +182,14 @@ final class IndexControllerTest extends AbstractTestCase
         $config = new Config();
         $config->selectedServer['DisableIS'] = true;
 
-        // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('SELECT CURRENT_USER();', [['definer@localhost']], ['CURRENT_USER()']);
-        $dbiDummy->addResult(
-            "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''definer''@''localhost''' AND PRIVILEGE_TYPE='EVENT'",
-            [['EVENT']],
-            ['PRIVILEGE_TYPE'],
-        );
         $dbiDummy->addResult(
             "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
             [['event_scheduler', 'ON']],
             ['Variable_name', 'Value'],
         );
-        // phpcs:enable
 
         $dbi = $this->createDatabaseInterface($dbiDummy, $config);
         $responseRenderer = new ResponseRenderer();

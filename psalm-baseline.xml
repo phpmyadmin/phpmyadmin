@@ -2648,48 +2648,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Triggers/IndexController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedArgument>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyNullArgument>
-      <code><![CDATA[$this->triggers->getTriggerByName(
-                            Current::$database,
-                            Current::$table,
-                            $_REQUEST['item_name'],
-                        )]]></code>
-    </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
-      <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
-      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
-      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
-      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
-      <code><![CDATA[empty($_REQUEST['add_item'])]]></code>
-      <code><![CDATA[empty($_REQUEST['add_item'])]]></code>
-      <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
-      <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
-      <code><![CDATA[empty($_REQUEST['item_name'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/UserPasswordController.php">
     <PossiblyUnusedMethod>
@@ -7724,31 +7685,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['item_definer']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_original_name']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_original_name']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$_POST['item_definition']]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullReference>
       <code><![CDATA[getCreateSql]]></code>
     </PossiblyNullReference>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
-      <code><![CDATA[empty($_POST['item_definer'])]]></code>
-      <code><![CDATA[empty($_POST['item_definition'])]]></code>
-      <code><![CDATA[empty($_POST['item_event'])]]></code>
-      <code><![CDATA[empty($_POST['item_name'])]]></code>
-      <code><![CDATA[empty($_POST['item_table'])]]></code>
-      <code><![CDATA[empty($_POST['item_timing'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/TwoFactor.php">
     <DeprecatedMethod>
@@ -9960,7 +9899,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/TwoFactorTest.php">

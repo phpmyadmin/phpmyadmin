@@ -10,7 +10,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
-use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -56,12 +55,13 @@ final class IndexControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db']);
 
+        $dbTableExists = new DbTableExists($dbi);
         (new IndexController(
             $response,
             $template,
             $dbi,
-            new Triggers($dbi),
-            new DbTableExists($dbi),
+            new Triggers($dbi, $dbTableExists),
+            $dbTableExists,
         ))($request);
 
         $actual = $response->getHTMLResult();
@@ -226,12 +226,13 @@ final class IndexControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db']);
 
+        $dbTableExists = new DbTableExists($dbi);
         (new IndexController(
             $response,
             $template,
             $dbi,
-            new Triggers($dbi),
-            new DbTableExists($dbi),
+            new Triggers($dbi, $dbTableExists),
+            $dbTableExists,
         ))($request);
 
         $actual = $response->getHTMLResult();
@@ -328,31 +329,23 @@ final class IndexControllerTest extends AbstractTestCase
     #[DataProvider('providerGetDataFromRequest')]
     public function testGetDataFromRequest(array $in, array $out): void
     {
-        unset($_POST);
-        foreach ($in as $key => $value) {
-            if ($value === '') {
-                continue;
-            }
-
-            $_POST[$key] = $value;
-        }
-
         $method = (new ReflectionClass(IndexController::class))->getMethod('getDataFromRequest');
 
         $dbi = self::createStub(DatabaseInterface::class);
         DatabaseInterface::$instance = $dbi;
         $template = new Template(new Config());
         $response = new ResponseRenderer();
+        $dbTableExists = new DbTableExists($dbi);
         $indexController = new IndexController(
             $response,
             $template,
             $dbi,
-            new Triggers($dbi),
-            new DbTableExists($dbi),
+            new Triggers($dbi, $dbTableExists),
+            $dbTableExists,
         );
 
-        $request = $this->createMock(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturn('foo');
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody($in);
 
         $output = $method->invoke($indexController, $request);
         self::assertSame($out, $output);
@@ -384,6 +377,18 @@ final class IndexControllerTest extends AbstractTestCase
                     'item_event_manipulation' => 'foo',
                     'item_definition' => 'foo',
                     'item_definer' => 'foo',
+                ],
+            ],
+            [
+                [],
+                [
+                    'item_name' => '',
+                    'item_table' => '',
+                    'item_original_name' => '',
+                    'item_action_timing' => '',
+                    'item_event_manipulation' => '',
+                    'item_definition' => '',
+                    'item_definer' => '',
                 ],
             ],
         ];

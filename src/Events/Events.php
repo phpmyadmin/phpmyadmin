@@ -141,9 +141,7 @@ final class Events
     {
         $message = Message::error(
             '<b>'
-            . __(
-                'One or more errors have occurred while processing your request:',
-            )
+            . __('One or more errors have occurred while processing your request:')
             . '</b>',
         );
         $message->addHtml('<ul>');
