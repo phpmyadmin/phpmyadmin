@@ -1,0 +1,74 @@
+// Login form: a show/hide password button inside the password field, and the locked look while logging in
+$login-password-toggle-width: 2.25rem;
+
+.login-password {
+  position: relative;
+
+  .form-control {
+    padding-right: $login-password-toggle-width;
+
+    // Edge draws its own reveal button; the form has its own
+    &::-ms-reveal {
+      display: none;
+    }
+  }
+}
+
+.login-password-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $login-password-toggle-width;
+  height: 100%;
+  padding: 0;
+  color: #777;
+  background: transparent;
+  border: 0;
+  border-radius: 0 $input-border-radius $input-border-radius 0;
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    color: #333;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: -2px;
+  }
+
+  &:disabled {
+    color: #aaa;
+    cursor: default;
+  }
+
+  .login-password-hide {
+    display: none;
+  }
+
+  &[aria-pressed="true"] {
+    .login-password-show {
+      display: none;
+    }
+
+    .login-password-hide {
+      display: block;
+    }
+  }
+}
+
+// While the login request is sent, the fields look disabled (they are read-only so their values are still sent)
+#login_form.is-submitting {
+  .form-control,
+  .form-select {
+    color: $input-disabled-color;
+    background-color: $input-disabled-bg;
+    border-color: $input-disabled-border-color;
+  }
+
+  .form-select {
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,20 @@
+// Help and documentation links everywhere use the Lucide "circle-question-mark" icon (https://lucide.dev, ISC License)
+// in place of the b_help image
+$help-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><path d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'/><path d='M12 17h.01'/></svg>");
+
+// Sized to the text; its centre sits at half the capital height above the baseline, so it is centred on the text
+// at any font size
+.icon.ic_b_help {
+  width: 13px;
+  height: 13px;
+  margin-left: 1px;
+  vertical-align: calc(0.38em - 6.5px);
+  background: #8aa4c8;
+  mask: $help-icon center / contain no-repeat;
+  transition: background-color 0.15s ease-in-out;
+}
+
+a:hover > .icon.ic_b_help,
+.pma_hint:hover > .icon.ic_b_help {
+  background: #3b78c4;
+}

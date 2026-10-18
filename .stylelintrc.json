@@ -18,6 +18,15 @@
         "declaration-block-no-redundant-longhand-properties": null,
         "no-descending-specificity": null,
         "no-duplicate-selectors": null,
+        "selector-pseudo-element-no-unknown": [true, {
+            "ignorePseudoElements": ["picker", "picker-icon", "checkmark"]
+        }],
+        "selector-pseudo-class-no-unknown": [true, {
+            "ignorePseudoClasses": ["open"]
+        }],
+        "scss/at-rule-no-unknown": [true, {
+            "ignoreAtRules": ["starting-style"]
+        }],
         "at-rule-empty-line-before": ["always", {
             "except": [
                 "blockless-after-same-name-blockless",

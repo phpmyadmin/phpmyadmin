@@ -8,7 +8,6 @@ import getImageTag from './functions/getImageTag.ts';
 import { ignorePhpErrors } from './functions/ignorePhpErrors.ts';
 import handleRedirectAndReload from './functions/handleRedirectAndReload.ts';
 import checkNumberOfFields from './functions/checkNumberOfFields.ts';
-import mainMenuResizerCallback from './functions/mainMenuResizerCallback.ts';
 import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
@@ -229,7 +228,7 @@ const AJAX = {
                 // TODO: don't send it in the response
                 .children().first().remove();
 
-            $('#topmenu').menuResizer(mainMenuResizerCallback);
+            // All tabs stay in the menu bar, so no "More" menu is set up here either
         }
     },
     /**

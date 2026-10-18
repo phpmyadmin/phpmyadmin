@@ -11,7 +11,6 @@ import handleRedirectAndReload from './functions/handleRedirectAndReload.ts';
 import refreshMainContent from './functions/refreshMainContent.ts';
 import checkIndexType from './indexes/checkIndexType.ts';
 import checkIndexName from './indexes/checkIndexName.ts';
-import mainMenuResizerCallback from './functions/mainMenuResizerCallback.ts';
 import isStorageSupported from './functions/isStorageSupported.ts';
 import adjustTotals from './functions/adjustTotals.ts';
 import { sprintf } from 'locutus/php/strings/sprintf';
@@ -2930,12 +2929,8 @@ export function showHints ($div: JQuery<HTMLElement> | undefined = undefined) {
  */
 export function initializeMenuResizer () {
     return function () {
-        // Initialise the menu resize plugin
-        $('#topmenu').menuResizer(mainMenuResizerCallback);
-        // register resize event
-        $(window).on('resize', function () {
-            $('#topmenu').menuResizer('resize');
-        });
+        // All tabs stay in the menu bar (wrapping onto a second line when needed),
+        // so the "More" menu of the resize plugin is not set up
     };
 }
 

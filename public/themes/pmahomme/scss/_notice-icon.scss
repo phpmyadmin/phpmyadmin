@@ -1,0 +1,7 @@
+// Notices everywhere use the Lucide "triangle-alert" icon (https://lucide.dev, ISC License) in place of the s_notice image
+.icon.ic_s_notice {
+  // It sat 1.6px below the middle of the text and the triangle is heavier at the bottom, so lift it to look centred
+  position: relative;
+  top: -2px;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0a000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3'/><path d='M12 9v4'/><path d='M12 17h.01'/></svg>") center / contain no-repeat;
+}
