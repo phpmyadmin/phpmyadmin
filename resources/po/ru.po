@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-18 00:40+0000\n"
-"PO-Revision-Date: 2026-08-17 13:51+0000\n"
-"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
+"PO-Revision-Date: 2026-10-19 01:51+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.9.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -3190,10 +3190,8 @@ msgid "Export event"
 msgstr "Экспортировать событие"
 
 #: resources/templates/events/index.twig:189
-#, fuzzy
-#| msgid "The slow query log is disabled."
 msgid "The event scheduler is disabled."
-msgstr "Отключен журнал медленных запросов."
+msgstr "Планировщик событий отключён."
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -12358,8 +12356,6 @@ msgstr "Возможно вы хотите перезагрузить стран
 
 #: src/Controllers/Events/ExportController.php:38
 #: src/Controllers/Events/IndexController.php:40
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No database selected."
 msgstr "Ни одна база данных не выбрана."
 
