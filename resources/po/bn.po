@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-11 00:47+0000\n"
+"POT-Creation-Date: 2026-10-18 00:40+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -245,7 +245,6 @@ msgstr "স্তম্ভসমূহ"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:41
 #: resources/templates/database/designer/main.twig:1100
-#: resources/templates/database/events/editor_form.twig:121
 #: resources/templates/database/operations/index.twig:20
 #: resources/templates/database/operations/index.twig:76
 #: resources/templates/database/operations/index.twig:186
@@ -253,6 +252,7 @@ msgstr "স্তম্ভসমূহ"
 #: resources/templates/database/routines/editor_form.twig:186
 #: resources/templates/database/routines/execute_form.twig:63
 #: resources/templates/display/results/table.twig:279
+#: resources/templates/events/editor-form.twig:121
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
 #: resources/templates/modals/enum_set_editor.twig:10
@@ -396,10 +396,6 @@ msgstr "লোডিং…"
 #: resources/templates/columns_definitions/column_definitions_form.twig:179
 #: resources/templates/database/designer/main.twig:1128
 #: resources/templates/database/designer/main.twig:1138
-#: resources/templates/database/events/index.twig:162
-#: resources/templates/database/events/index.twig:170
-#: resources/templates/database/events/index.twig:182
-#: resources/templates/database/events/index.twig:186
 #: resources/templates/database/routines/index.twig:79
 #: resources/templates/database/routines/index.twig:87
 #: resources/templates/database/routines/index.twig:99
@@ -407,6 +403,10 @@ msgstr "লোডিং…"
 #: resources/templates/database/routines/index.twig:114
 #: resources/templates/database/routines/index.twig:122
 #: resources/templates/error/report_modal.twig:14
+#: resources/templates/events/index.twig:159
+#: resources/templates/events/index.twig:167
+#: resources/templates/events/index.twig:179
+#: resources/templates/events/index.twig:183
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:90 resources/templates/export.twig:188
@@ -584,9 +584,9 @@ msgstr "ব্যবস্থাসমূহ"
 #: resources/templates/columns_definitions/partitions.twig:85
 #: resources/templates/config/form_display/input.twig:53
 #: resources/templates/database/data_dictionary/index.twig:82
-#: resources/templates/database/events/editor_form.twig:108
 #: resources/templates/database/routines/editor_form.twig:173
 #: resources/templates/database/structure/table_header.twig:46
+#: resources/templates/events/editor-form.twig:108
 #: resources/templates/indexes.twig:25
 #: resources/templates/table/structure/display_partitions.twig:32
 #: resources/templates/table/structure/display_structure.twig:480
@@ -655,10 +655,10 @@ msgstr "গঠন"
 #: resources/templates/database/central_columns/edit.twig:8
 #: resources/templates/database/central_columns/main.twig:16
 #: resources/templates/database/central_columns/main.twig:226
-#: resources/templates/database/events/index.twig:45
 #: resources/templates/database/routines/editor_form.twig:55
 #: resources/templates/database/routines/execute_form.twig:16
 #: resources/templates/database/routines/index.twig:56
+#: resources/templates/events/index.twig:46
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
@@ -675,14 +675,13 @@ msgstr "নাম"
 #: resources/templates/database/central_columns/main.twig:230
 #: resources/templates/database/data_dictionary/index.twig:24
 #: resources/templates/database/data_dictionary/index.twig:75
-#: resources/templates/database/events/index.twig:47
 #: resources/templates/database/privileges/index.twig:19
 #: resources/templates/database/routines/editor_form.twig:31
 #: resources/templates/database/routines/editor_form.twig:56
 #: resources/templates/database/routines/execute_form.twig:17
 #: resources/templates/database/routines/index.twig:57
 #: resources/templates/database/structure/table_header.twig:30
-#: resources/templates/indexes.twig:18
+#: resources/templates/events/index.twig:48 resources/templates/indexes.twig:18
 #: resources/templates/table/privileges/index.twig:21
 #: resources/templates/table/search/index.twig:39
 #: resources/templates/table/structure/display_structure.twig:22
@@ -1079,16 +1078,15 @@ msgstr "সহ-অনুসন্ধান"
 #: resources/templates/database/central_columns/main.twig:271
 #: resources/templates/database/central_columns/main.twig:381
 #: resources/templates/database/central_columns/main.twig:382
-#: resources/templates/database/events/index.twig:76
-#: resources/templates/database/events/index.twig:79
-#: resources/templates/database/events/row.twig:23
-#: resources/templates/database/events/row.twig:26
 #: resources/templates/database/routines/row.twig:20
 #: resources/templates/database/routines/row.twig:23
 #: resources/templates/database/structure/structure_table_row.twig:66
 #: resources/templates/display/results/table.twig:319
 #: resources/templates/display/results/table.twig:320
-#: resources/templates/indexes.twig:35
+#: resources/templates/events/index.twig:77
+#: resources/templates/events/index.twig:80
+#: resources/templates/events/row.twig:23
+#: resources/templates/events/row.twig:26 resources/templates/indexes.twig:35
 #: resources/templates/server/variables/index.twig:41
 #: resources/templates/server/variables/index.twig:44
 #: resources/templates/setup/home/index.twig:64
@@ -1934,250 +1932,6 @@ msgstr "পাতা নির্বাচন"
 msgid "Select export relational type:"
 msgstr "রফতানীর সম্পর্কের ধরন নিধার্রান"
 
-#: resources/templates/database/events/editor_form.twig:10
-#: resources/templates/database/routines/editor_form.twig:11
-#: resources/templates/triggers/editor_form.twig:14
-#: resources/templates/view_create.twig:11
-msgid "Details"
-msgstr "বিশদ"
-
-#: resources/templates/database/events/editor_form.twig:24
-msgid "Event name"
-msgstr "ইভেন্টের নাম"
-
-#: resources/templates/database/events/editor_form.twig:30
-#: resources/templates/database/events/index.twig:46
-#: resources/templates/database/tracking/tables.twig:17
-#: resources/templates/table/tracking/main.twig:31
-#: src/Config/ConfigFile.php:578
-#: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
-#: src/Server/Status/Processes.php:110 src/Util.php:1372
-msgid "Status"
-msgstr "অবস্থা"
-
-#: resources/templates/database/events/editor_form.twig:40
-#: resources/templates/server/binlog/index.twig:84
-msgid "Event type"
-msgstr "ইভেন্টের ধরন"
-
-#: resources/templates/database/events/editor_form.twig:53
-#: resources/templates/database/routines/editor_form.twig:43
-#, php-format
-msgid "Change to %s"
-msgstr "পরিবর্তন কর %s এ"
-
-#: resources/templates/database/events/editor_form.twig:58
-msgid "Execute at"
-msgstr "নির্বাহ কর"
-
-#: resources/templates/database/events/editor_form.twig:64
-msgid "Execute every"
-msgstr "সবগুলো নির্বাহ কর"
-
-#: resources/templates/database/events/editor_form.twig:75
-msgctxt "Start of recurring event"
-msgid "Start"
-msgstr "আরম্ভ কর"
-
-#: resources/templates/database/events/editor_form.twig:81
-msgctxt "End of recurring event"
-msgid "End"
-msgstr "শেষ"
-
-#: resources/templates/database/events/editor_form.twig:87
-#: resources/templates/database/routines/editor_form.twig:118
-#: resources/templates/triggers/editor_form.twig:62
-#: src/Plugins/Export/ExportHtmlword.php:397
-#: src/Plugins/Export/ExportOdt.php:507
-#: src/Plugins/Export/ExportTexytext.php:372
-#: src/Plugins/Export/Helpers/Pdf.php:318
-msgid "Definition"
-msgstr "সংজ্ঞা"
-
-#: resources/templates/database/events/editor_form.twig:92
-#: resources/templates/database/routines/editor_form.twig:121
-#: resources/templates/import.twig:160 resources/templates/import.twig:162
-#: resources/templates/sql/query.twig:40
-#: resources/templates/table/structure/display_table_stats.twig:81
-#: resources/templates/triggers/editor_form.twig:64
-#: src/Config/Descriptions.php:636 src/Config/Descriptions.php:652
-msgid "Format"
-msgstr "গঠন"
-
-#: resources/templates/database/events/editor_form.twig:96
-msgid "On completion preserve"
-msgstr "শেষ করার পর রক্ষাকর"
-
-#: resources/templates/database/events/editor_form.twig:102
-#: resources/templates/database/routines/editor_form.twig:148
-#: resources/templates/triggers/editor_form.twig:67
-#: resources/templates/view_create.twig:55
-msgid "Definer"
-msgstr "সংজ্ঞা দানকারী"
-
-#: resources/templates/database/events/index.twig:3 src/Menu.php:381
-#: src/Navigation/Nodes/NodeEventContainer.php:23
-#: src/Navigation/Nodes/NodeEventContainer.php:25
-#: src/Plugins/Export/ExportSql.php:977 src/Plugins/Export/ExportXml.php:92
-#: src/Util.php:1394
-msgid "Events"
-msgstr "ইভেন্টসমূহ"
-
-#: resources/templates/database/events/index.twig:14
-#: resources/templates/database/privileges/index.twig:112
-#: resources/templates/database/privileges/index.twig:113
-#: resources/templates/database/routines/index.twig:14
-#: resources/templates/database/structure/check_all_tables.twig:3
-#: resources/templates/database/structure/check_all_tables.twig:4
-#: resources/templates/display/results/table.twig:315
-#: resources/templates/display/results/table.twig:316
-#: resources/templates/select_all.twig:3 resources/templates/select_all.twig:4
-#: resources/templates/server/databases/index.twig:64
-#: resources/templates/server/privileges/edit_routine_privileges.twig:58
-#: resources/templates/server/privileges/privileges_table.twig:269
-#: resources/templates/server/privileges/privileges_table.twig:270
-#: resources/templates/server/privileges/privileges_table.twig:279
-#: resources/templates/server/privileges/privileges_table.twig:356
-#: resources/templates/server/privileges/privileges_table.twig:560
-#: resources/templates/server/privileges/users_overview.twig:120
-#: resources/templates/server/privileges/users_overview.twig:121
-#: resources/templates/server/user_groups/edit_user_groups.twig:21
-#: resources/templates/server/user_groups/edit_user_groups.twig:22
-#: resources/templates/table/privileges/index.twig:116
-#: resources/templates/table/privileges/index.twig:117
-#: resources/templates/triggers/list.twig:14
-#, fuzzy
-#| msgid "Check All"
-msgid "Check all"
-msgstr "সবগুলোতে টিক দাও"
-
-#: resources/templates/database/events/index.twig:17
-#: resources/templates/database/events/index.twig:18
-#: resources/templates/database/events/index.twig:88
-#: resources/templates/database/events/row.twig:36
-#: resources/templates/database/privileges/index.twig:91
-#: resources/templates/database/privileges/index.twig:115
-#: resources/templates/database/privileges/index.twig:116
-#: resources/templates/database/routines/index.twig:17
-#: resources/templates/database/routines/index.twig:18
-#: resources/templates/database/routines/row.twig:50
-#: resources/templates/database/routines/row.twig:53
-#: resources/templates/database/structure/check_all_tables.twig:12
-#: resources/templates/display/results/table.twig:332
-#: resources/templates/display/results/table.twig:333
-#: resources/templates/display/results/table.twig:365
-#: resources/templates/export.twig:3 resources/templates/export.twig:493
-#: resources/templates/preferences/header.twig:42
-#: resources/templates/preferences/manage/main.twig:67
-#: resources/templates/server/privileges/new_user_ajax.twig:63
-#: resources/templates/server/privileges/users_overview.twig:95
-#: resources/templates/server/privileges/users_overview.twig:124
-#: resources/templates/server/privileges/users_overview.twig:125
-#: resources/templates/server/status/monitor/index.twig:75
-#: resources/templates/table/privileges/index.twig:95
-#: resources/templates/table/privileges/index.twig:119
-#: resources/templates/table/privileges/index.twig:120
-#: resources/templates/triggers/list.twig:17
-#: resources/templates/triggers/list.twig:18
-#: resources/templates/triggers/row.twig:41
-#: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
-#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
-#: src/Util.php:1374 src/Util.php:1389 src/Util.php:1406
-msgid "Export"
-msgstr "রফতানী"
-
-#: resources/templates/database/events/index.twig:20
-#: resources/templates/database/events/index.twig:21
-#: resources/templates/database/events/index.twig:98
-#: resources/templates/database/events/index.twig:104
-#: resources/templates/database/events/row.twig:47
-#: resources/templates/database/events/row.twig:53
-#: resources/templates/database/routines/index.twig:20
-#: resources/templates/database/routines/index.twig:21
-#: resources/templates/database/routines/parameter_row.twig:51
-#: resources/templates/database/routines/row.twig:63
-#: resources/templates/database/structure/check_all_tables.twig:16
-#: resources/templates/database/structure/structure_table_row.twig:87
-#: resources/templates/indexes.twig:59
-#: resources/templates/server/databases/index.twig:67
-#: resources/templates/server/databases/index.twig:68
-#: resources/templates/server/databases/index.twig:326
-#: resources/templates/table/relation/foreign_key_row.twig:25
-#: resources/templates/table/structure/display_partitions.twig:146
-#: resources/templates/table/structure/display_structure.twig:120
-#: resources/templates/table/structure/display_structure.twig:279
-#: resources/templates/table/structure/display_structure.twig:522
-#: resources/templates/triggers/list.twig:20
-#: resources/templates/triggers/list.twig:21
-#: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:532
-msgid "Drop"
-msgstr "মুছ"
-
-#: resources/templates/database/events/index.twig:29
-#, fuzzy
-#| msgid "Create event"
-msgid "Create new event"
-msgstr "Server version"
-
-#: resources/templates/database/events/index.twig:38
-msgid "There are no events to display."
-msgstr "প্রদর্শনের জন্য কোন ইভেন্ট নাই।"
-
-#: resources/templates/database/events/index.twig:114
-msgid "Event scheduler status"
-msgstr "ইভেন্ট সময়সূচীর অবস্থা"
-
-#: resources/templates/database/events/index.twig:119
-#: resources/templates/database/tracking/tables.twig:47
-msgid "Click to toggle"
-msgstr "টোগল ক্লীক করুন"
-
-#: resources/templates/database/events/index.twig:132
-msgid "ON"
-msgstr "খোলা"
-
-#: resources/templates/database/events/index.twig:143
-msgid "OFF"
-msgstr "বন্ধ"
-
-#: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
-msgid "Event editor"
-msgstr "Excel সংস্করন"
-
-#: resources/templates/database/events/index.twig:166
-#: resources/templates/database/routines/index.twig:83
-#: resources/templates/database/routines/index.twig:118
-#: resources/templates/home/index.twig:320
-#: resources/templates/modals/index_dialog_modal.twig:26
-#: resources/templates/navigation/main.twig:58
-#: resources/templates/server/privileges/users_overview.twig:172
-#: resources/templates/server/status/monitor/index.twig:94
-#: resources/templates/server/status/monitor/index.twig:296
-#: resources/templates/table/structure/display_structure.twig:348
-#: resources/templates/triggers/list.twig:86
-#: src/Controllers/JavaScriptMessagesController.php:320
-msgid "Loading…"
-msgstr "লোডিং…"
-
-#: resources/templates/database/events/index.twig:171
-#: resources/templates/database/routines/index.twig:88
-#: resources/templates/server/privileges/users_overview.twig:177
-#: resources/templates/triggers/list.twig:91
-#, fuzzy
-#| msgid "Select page"
-msgid "Save changes"
-msgstr "পাতা নির্বাচন"
-
-#: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
-msgid "Export event"
-msgstr "ইভেন্ট %s যোগ কর"
-
 #: resources/templates/database/export/index.twig:61
 #, fuzzy
 #| msgid ", @DATABASE@ will become the database name"
@@ -2576,6 +2330,42 @@ msgstr "রুটিন"
 msgid "Edit privileges"
 msgstr "সুবিধাসমূহ সম্পাদনা:"
 
+#: resources/templates/database/privileges/index.twig:91
+#: resources/templates/database/privileges/index.twig:115
+#: resources/templates/database/privileges/index.twig:116
+#: resources/templates/database/routines/index.twig:17
+#: resources/templates/database/routines/index.twig:18
+#: resources/templates/database/routines/row.twig:50
+#: resources/templates/database/routines/row.twig:53
+#: resources/templates/database/structure/check_all_tables.twig:12
+#: resources/templates/display/results/table.twig:332
+#: resources/templates/display/results/table.twig:333
+#: resources/templates/display/results/table.twig:365
+#: resources/templates/events/index.twig:18
+#: resources/templates/events/index.twig:19
+#: resources/templates/events/index.twig:85
+#: resources/templates/events/row.twig:31 resources/templates/export.twig:3
+#: resources/templates/export.twig:493
+#: resources/templates/preferences/header.twig:42
+#: resources/templates/preferences/manage/main.twig:67
+#: resources/templates/server/privileges/new_user_ajax.twig:63
+#: resources/templates/server/privileges/users_overview.twig:95
+#: resources/templates/server/privileges/users_overview.twig:124
+#: resources/templates/server/privileges/users_overview.twig:125
+#: resources/templates/server/status/monitor/index.twig:75
+#: resources/templates/table/privileges/index.twig:95
+#: resources/templates/table/privileges/index.twig:119
+#: resources/templates/table/privileges/index.twig:120
+#: resources/templates/triggers/list.twig:17
+#: resources/templates/triggers/list.twig:18
+#: resources/templates/triggers/row.twig:41
+#: src/Config/Forms/User/ExportForm.php:148
+#: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
+#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
+#: src/Util.php:1374 src/Util.php:1389 src/Util.php:1406
+msgid "Export"
+msgstr "রফতানী"
+
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
 #: src/Server/Privileges.php:2054
@@ -2596,6 +2386,34 @@ msgstr "ব্যবহারকারী নাই।"
 msgid "With selected:"
 msgstr "নিবার্চিত গুলো নিয়ে:"
 
+#: resources/templates/database/privileges/index.twig:112
+#: resources/templates/database/privileges/index.twig:113
+#: resources/templates/database/routines/index.twig:14
+#: resources/templates/database/structure/check_all_tables.twig:3
+#: resources/templates/database/structure/check_all_tables.twig:4
+#: resources/templates/display/results/table.twig:315
+#: resources/templates/display/results/table.twig:316
+#: resources/templates/events/index.twig:15
+#: resources/templates/select_all.twig:3 resources/templates/select_all.twig:4
+#: resources/templates/server/databases/index.twig:64
+#: resources/templates/server/privileges/edit_routine_privileges.twig:58
+#: resources/templates/server/privileges/privileges_table.twig:269
+#: resources/templates/server/privileges/privileges_table.twig:270
+#: resources/templates/server/privileges/privileges_table.twig:279
+#: resources/templates/server/privileges/privileges_table.twig:356
+#: resources/templates/server/privileges/privileges_table.twig:560
+#: resources/templates/server/privileges/users_overview.twig:120
+#: resources/templates/server/privileges/users_overview.twig:121
+#: resources/templates/server/user_groups/edit_user_groups.twig:21
+#: resources/templates/server/user_groups/edit_user_groups.twig:22
+#: resources/templates/table/privileges/index.twig:116
+#: resources/templates/table/privileges/index.twig:117
+#: resources/templates/triggers/list.twig:14
+#, fuzzy
+#| msgid "Check All"
+msgid "Check all"
+msgstr "সবগুলোতে টিক দাও"
+
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
 #: src/Server/Privileges.php:1212
@@ -2613,9 +2431,22 @@ msgstr ""
 msgid "Add user account"
 msgstr "ব্যবহারকারীর দল যোগ কর"
 
+#: resources/templates/database/routines/editor_form.twig:11
+#: resources/templates/events/editor-form.twig:10
+#: resources/templates/triggers/editor_form.twig:14
+#: resources/templates/view_create.twig:11
+msgid "Details"
+msgstr "বিশদ"
+
 #: resources/templates/database/routines/editor_form.twig:25
 msgid "Routine name"
 msgstr "রুটিনের নাম"
+
+#: resources/templates/database/routines/editor_form.twig:43
+#: resources/templates/events/editor-form.twig:53
+#, php-format
+msgid "Change to %s"
+msgstr "পরিবর্তন কর %s এ"
 
 #: resources/templates/database/routines/editor_form.twig:48
 msgid "Parameters"
@@ -2652,6 +2483,26 @@ msgstr "রুটিনের পছন্দসমূহ"
 msgid "Charset"
 msgstr "বর্ণ রাশি"
 
+#: resources/templates/database/routines/editor_form.twig:118
+#: resources/templates/events/editor-form.twig:87
+#: resources/templates/triggers/editor_form.twig:62
+#: src/Plugins/Export/ExportHtmlword.php:397
+#: src/Plugins/Export/ExportOdt.php:507
+#: src/Plugins/Export/ExportTexytext.php:372
+#: src/Plugins/Export/Helpers/Pdf.php:318
+msgid "Definition"
+msgstr "সংজ্ঞা"
+
+#: resources/templates/database/routines/editor_form.twig:121
+#: resources/templates/events/editor-form.twig:92
+#: resources/templates/import.twig:160 resources/templates/import.twig:162
+#: resources/templates/sql/query.twig:40
+#: resources/templates/table/structure/display_table_stats.twig:81
+#: resources/templates/triggers/editor_form.twig:64
+#: src/Config/Descriptions.php:636 src/Config/Descriptions.php:652
+msgid "Format"
+msgstr "গঠন"
+
 #: resources/templates/database/routines/editor_form.twig:125
 msgid "Is deterministic"
 msgstr "নির্ধারক"
@@ -2663,6 +2514,13 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr "এই মূহুর্তে এখানে থাকার জন্য আপনার পর্যাপ্ত অধিকার নাই!"
+
+#: resources/templates/database/routines/editor_form.twig:148
+#: resources/templates/events/editor-form.twig:102
+#: resources/templates/triggers/editor_form.twig:67
+#: resources/templates/view_create.twig:55
+msgid "Definer"
+msgstr "সংজ্ঞা দানকারী"
 
 #: resources/templates/database/routines/editor_form.twig:154
 msgid "Security type"
@@ -2694,6 +2552,33 @@ msgstr "এই পাতায় কোন টেবল নাই!"
 #: src/Util.php:1393
 msgid "Routines"
 msgstr "রুটিনসমূহ"
+
+#: resources/templates/database/routines/index.twig:20
+#: resources/templates/database/routines/index.twig:21
+#: resources/templates/database/routines/parameter_row.twig:51
+#: resources/templates/database/routines/row.twig:63
+#: resources/templates/database/structure/check_all_tables.twig:16
+#: resources/templates/database/structure/structure_table_row.twig:87
+#: resources/templates/events/index.twig:21
+#: resources/templates/events/index.twig:22
+#: resources/templates/events/index.twig:95
+#: resources/templates/events/index.twig:101
+#: resources/templates/events/row.twig:42
+#: resources/templates/events/row.twig:48 resources/templates/indexes.twig:59
+#: resources/templates/server/databases/index.twig:67
+#: resources/templates/server/databases/index.twig:68
+#: resources/templates/server/databases/index.twig:326
+#: resources/templates/table/relation/foreign_key_row.twig:25
+#: resources/templates/table/structure/display_partitions.twig:146
+#: resources/templates/table/structure/display_structure.twig:120
+#: resources/templates/table/structure/display_structure.twig:279
+#: resources/templates/table/structure/display_structure.twig:522
+#: resources/templates/triggers/list.twig:20
+#: resources/templates/triggers/list.twig:21
+#: resources/templates/triggers/row.twig:52
+#: resources/templates/triggers/row.twig:58 src/Operations.php:532
+msgid "Drop"
+msgstr "মুছ"
 
 #: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
@@ -2727,6 +2612,30 @@ msgstr "ফেরৎ দিয়াছে"
 #| msgid "Routine name"
 msgid "Routine editor"
 msgstr "রুটিনের নাম"
+
+#: resources/templates/database/routines/index.twig:83
+#: resources/templates/database/routines/index.twig:118
+#: resources/templates/events/index.twig:163
+#: resources/templates/home/index.twig:320
+#: resources/templates/modals/index_dialog_modal.twig:26
+#: resources/templates/navigation/main.twig:58
+#: resources/templates/server/privileges/users_overview.twig:172
+#: resources/templates/server/status/monitor/index.twig:94
+#: resources/templates/server/status/monitor/index.twig:296
+#: resources/templates/table/structure/display_structure.twig:348
+#: resources/templates/triggers/list.twig:86
+#: src/Controllers/JavaScriptMessagesController.php:320
+msgid "Loading…"
+msgstr "লোডিং…"
+
+#: resources/templates/database/routines/index.twig:88
+#: resources/templates/events/index.twig:168
+#: resources/templates/server/privileges/users_overview.twig:177
+#: resources/templates/triggers/list.twig:91
+#, fuzzy
+#| msgid "Select page"
+msgid "Save changes"
+msgstr "পাতা নির্বাচন"
 
 #: resources/templates/database/routines/index.twig:98
 #, fuzzy
@@ -3222,6 +3131,21 @@ msgstr "তৈরী হয়েছে"
 msgid "Updated"
 msgstr "আধুনিকায়ন হয়েছে"
 
+#: resources/templates/database/tracking/tables.twig:17
+#: resources/templates/events/editor-form.twig:30
+#: resources/templates/events/index.twig:47
+#: resources/templates/table/tracking/main.twig:31
+#: src/Config/ConfigFile.php:578
+#: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
+#: src/Server/Status/Processes.php:110 src/Util.php:1372
+msgid "Status"
+msgstr "অবস্থা"
+
+#: resources/templates/database/tracking/tables.twig:47
+#: resources/templates/events/index.twig:116
+msgid "Click to toggle"
+msgstr "টোগল ক্লীক করুন"
+
 #: resources/templates/database/tracking/tables.twig:61
 #: resources/templates/table/tracking/main.twig:10
 #: resources/templates/table/tracking/main.twig:53
@@ -3492,6 +3416,85 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:352
 msgid "Go back"
 msgstr ""
+
+#: resources/templates/events/editor-form.twig:24
+msgid "Event name"
+msgstr "ইভেন্টের নাম"
+
+#: resources/templates/events/editor-form.twig:40
+#: resources/templates/server/binlog/index.twig:84
+msgid "Event type"
+msgstr "ইভেন্টের ধরন"
+
+#: resources/templates/events/editor-form.twig:58
+msgid "Execute at"
+msgstr "নির্বাহ কর"
+
+#: resources/templates/events/editor-form.twig:64
+msgid "Execute every"
+msgstr "সবগুলো নির্বাহ কর"
+
+#: resources/templates/events/editor-form.twig:75
+msgctxt "Start of recurring event"
+msgid "Start"
+msgstr "আরম্ভ কর"
+
+#: resources/templates/events/editor-form.twig:81
+msgctxt "End of recurring event"
+msgid "End"
+msgstr "শেষ"
+
+#: resources/templates/events/editor-form.twig:96
+msgid "On completion preserve"
+msgstr "শেষ করার পর রক্ষাকর"
+
+#: resources/templates/events/index.twig:3 src/Menu.php:381
+#: src/Navigation/Nodes/NodeEventContainer.php:23
+#: src/Navigation/Nodes/NodeEventContainer.php:25
+#: src/Plugins/Export/ExportSql.php:977 src/Plugins/Export/ExportXml.php:92
+#: src/Util.php:1394
+msgid "Events"
+msgstr "ইভেন্টসমূহ"
+
+#: resources/templates/events/index.twig:30
+#, fuzzy
+#| msgid "Create event"
+msgid "Create new event"
+msgstr "Server version"
+
+#: resources/templates/events/index.twig:39
+msgid "There are no events to display."
+msgstr "প্রদর্শনের জন্য কোন ইভেন্ট নাই।"
+
+#: resources/templates/events/index.twig:111
+msgid "Event scheduler status"
+msgstr "ইভেন্ট সময়সূচীর অবস্থা"
+
+#: resources/templates/events/index.twig:129
+msgid "ON"
+msgstr "খোলা"
+
+#: resources/templates/events/index.twig:140
+msgid "OFF"
+msgstr "বন্ধ"
+
+#: resources/templates/events/index.twig:158
+#, fuzzy
+#| msgid "Excel edition"
+msgid "Event editor"
+msgstr "Excel সংস্করন"
+
+#: resources/templates/events/index.twig:178
+#, fuzzy
+#| msgid "Export of event %s"
+msgid "Export event"
+msgstr "ইভেন্ট %s যোগ কর"
+
+#: resources/templates/events/index.twig:189
+#, fuzzy
+#| msgid "The slow query log is disabled."
+msgid "The event scheduler is disabled."
+msgstr "slow_query_log নিষ্ক্রিয় করা হয়েছে।"
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -12970,7 +12973,6 @@ msgstr ""
 
 #: src/Controllers/Database/DesignerController.php:175
 #: src/Controllers/Database/DesignerController.php:180
-#: src/Controllers/Database/EventsController.php:53
 #: src/Controllers/Database/ExportController.php:57
 #: src/Controllers/Database/ExportController.php:62
 #: src/Controllers/Database/ImportController.php:62
@@ -13037,44 +13039,6 @@ msgstr ""
 #: src/Controllers/View/CreateController.php:73
 msgid "No databases selected."
 msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
-
-#: src/Controllers/Database/EventsController.php:70
-msgid "The event was dropped immediately after creation."
-msgstr ""
-
-#: src/Controllers/Database/EventsController.php:137
-msgid "Add event"
-msgstr "ইভেন্ট যোগ কর"
-
-#: src/Controllers/Database/EventsController.php:141
-msgid "Edit event"
-msgstr "ইভেন্ট সম্পাদনা"
-
-#: src/Controllers/Database/EventsController.php:190
-#: src/Controllers/Database/RoutinesController.php:255
-#: src/Controllers/Database/RoutinesController.php:285
-#: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Triggers/IndexController.php:207
-msgid "Error in processing request:"
-msgstr "নির্দেশ প্রক্রিয়া করনে সমস্যা হয়েছে:"
-
-#: src/Controllers/Database/EventsController.php:192
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
-msgid "No event with name %1$s found in database %2$s."
-msgstr "ডাটাবেইজ %2$s এ %1$s নামের কোন ইভেন্ট পাওয়া যায়নি"
-
-#: src/Controllers/Database/EventsController.php:218
-#, php-format
-msgid "Export of event %s"
-msgstr "ইভেন্ট %s যোগ কর"
-
-#: src/Controllers/Database/EventsController.php:238
-#, fuzzy, php-format
-#| msgid "No event with name %1$s found in database %2$s"
-msgid ""
-"Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "ডাটাবেইজ %2$s এ %1$s নামের কোন ইভেন্ট পাওয়া যায়নি"
 
 #: src/Controllers/Database/ExportController.php:127
 #: src/Controllers/Server/ExportController.php:57
@@ -13167,6 +13131,14 @@ msgstr "রুটিন যোগকর"
 #: src/Controllers/Database/RoutinesController.php:175
 msgid "Edit routine"
 msgstr "রুটিন সম্পাদনা"
+
+#: src/Controllers/Database/RoutinesController.php:255
+#: src/Controllers/Database/RoutinesController.php:285
+#: src/Controllers/Database/RoutinesController.php:351
+#: src/Controllers/Events/IndexController.php:190
+#: src/Controllers/Triggers/IndexController.php:207
+msgid "Error in processing request:"
+msgstr "নির্দেশ প্রক্রিয়া করনে সমস্যা হয়েছে:"
 
 #: src/Controllers/Database/RoutinesController.php:258
 #, php-format
@@ -13274,6 +13246,43 @@ msgstr ""
 #: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "আপনি পাতাটি রিফ্রেশ করে নিতে পারেন."
+
+#: src/Controllers/Events/ExportController.php:38
+#: src/Controllers/Events/IndexController.php:40
+#, fuzzy
+#| msgid "No databases selected."
+msgid "No database selected."
+msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
+
+#: src/Controllers/Events/ExportController.php:63
+#, php-format
+msgid "Export of event %s"
+msgstr "ইভেন্ট %s যোগ কর"
+
+#: src/Controllers/Events/ExportController.php:83
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid ""
+"Error in processing request: No event with name %1$s found in database %2$s."
+msgstr "ডাটাবেইজ %2$s এ %1$s নামের কোন ইভেন্ট পাওয়া যায়নি"
+
+#: src/Controllers/Events/IndexController.php:69
+msgid "The event was dropped immediately after creation."
+msgstr ""
+
+#: src/Controllers/Events/IndexController.php:137
+msgid "Add event"
+msgstr "ইভেন্ট যোগ কর"
+
+#: src/Controllers/Events/IndexController.php:141
+msgid "Edit event"
+msgstr "ইভেন্ট সম্পাদনা"
+
+#: src/Controllers/Events/IndexController.php:192
+#, fuzzy, php-format
+#| msgid "No event with name %1$s found in database %2$s"
+msgid "No event with name %1$s found in database %2$s."
+msgstr "ডাটাবেইজ %2$s এ %1$s নামের কোন ইভেন্ট পাওয়া যায়নি"
 
 #: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:677
 msgid "Bad type!"
@@ -16847,91 +16856,48 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন"
 
-#: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:134 src/Database/Routines.php:103
-#: src/Database/Routines.php:129 src/Database/Routines.php:205
-#: src/Database/Routines.php:977 src/Triggers/Triggers.php:84
-#: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:126
-#, php-format
-msgid "The following query has failed: \"%s\""
-msgstr "নিন্মোক্ত অনুসন্ধানটি ব্যার্থ হয়েছে: \"%s\""
-
-#: src/Database/Events.php:97 src/Database/Events.php:106
-#: src/Database/Events.php:119 src/Database/Events.php:138
-#: src/Database/Routines.php:107 src/Database/Routines.php:133
-#: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:981 src/Html/Generator.php:793
-#: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
-#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:130
-msgid "MySQL said: "
-msgstr "MySQL বলেছে: "
-
-#: src/Database/Events.php:116
-msgid "Sorry, we failed to restore the dropped event."
-msgstr "দুঃখিত, আমরা মুছে ফেলা ইভেন্ট ফিরিয়ে আনতে পারিনি।"
-
-#: src/Database/Events.php:117 src/Database/Routines.php:221
-#: src/Triggers/Triggers.php:109
-msgid "The backed up query was:"
-msgstr "ব্যাকআপকৃত অনুসন্ধানটি ছিল:"
-
-#: src/Database/Events.php:123
-#, php-format
-msgid "Event %1$s has been modified."
-msgstr "ইভেন্ট %1$s পরিবর্তন হয়েছে।"
-
-#: src/Database/Events.php:141
-#, php-format
-msgid "Event %1$s has been created."
-msgstr "ইভেন্ট %1$s তৈরী হয়েছে।"
-
-#: src/Database/Events.php:153 src/Database/Routines.php:147
-#: src/Triggers/Triggers.php:145
-msgid "One or more errors have occurred while processing your request:"
-msgstr "আপনার কাজ প্রক্রিয়া করার সময় এক বা একাধীক ভুল হয়েছে:"
-
-#: src/Database/Events.php:263 src/Database/Routines.php:783
-#: src/Triggers/Triggers.php:187
-#, fuzzy
-#| msgid "The definer must be in the \"username@hostname\" format"
-msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "সংজ্ঞা দানকারী অবশ্যই \"username@hostname\" গঠনে হবে"
-
-#: src/Database/Events.php:271
-#, fuzzy
-#| msgid "You must provide an event name"
-msgid "You must provide an event name!"
-msgstr "আপনাকে অবশ্যই একটি ইভেন্টের নাম দিতে হবে"
-
-#: src/Database/Events.php:285
-msgid "You must provide a valid interval value for the event."
-msgstr "আপনাকে এই ইভেন্টের জন্য অবশ্যই একটি কার্যকর বিরাম মান দিতে হবে।"
-
-#: src/Database/Events.php:298
-msgid "You must provide a valid execution time for the event."
-msgstr "আপনাকে অবশ্য্ই এই ইভেন্টের জন্য একটি কার্যকর সম্পাদন সময় দিতে হবে।"
-
-#: src/Database/Events.php:301
-msgid "You must provide a valid type for the event."
-msgstr "আপনাকে অবশ্যই এই ইভেন্টের জন্য একটি কার্যকর ধরন দিতে হবে।"
-
-#: src/Database/Events.php:327
-msgid "You must provide an event definition."
-msgstr "আপনাকে অবশ্যই ইভেন্টের সংজ্ঞা দিতে হবে।"
-
 #: src/Database/Routines.php:84
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "অকার্যকর রুটিন ধরন:\"%s\""
+
+#: src/Database/Routines.php:103 src/Database/Routines.php:129
+#: src/Database/Routines.php:205 src/Database/Routines.php:977
+#: src/Events/Events.php:87 src/Events/Events.php:96 src/Events/Events.php:128
+#: src/Triggers/Triggers.php:84 src/Triggers/Triggers.php:93
+#: src/Triggers/Triggers.php:126
+#, php-format
+msgid "The following query has failed: \"%s\""
+msgstr "নিন্মোক্ত অনুসন্ধানটি ব্যার্থ হয়েছে: \"%s\""
+
+#: src/Database/Routines.php:107 src/Database/Routines.php:133
+#: src/Database/Routines.php:209 src/Database/Routines.php:223
+#: src/Database/Routines.php:981 src/Events/Events.php:91
+#: src/Events/Events.php:100 src/Events/Events.php:113
+#: src/Events/Events.php:132 src/Html/Generator.php:793
+#: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
+#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:130
+msgid "MySQL said: "
+msgstr "MySQL বলেছে: "
 
 #: src/Database/Routines.php:136
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "রুটিন %1$s তৈরী করা হয়েছে।"
 
+#: src/Database/Routines.php:147 src/Events/Events.php:147
+#: src/Triggers/Triggers.php:145
+msgid "One or more errors have occurred while processing your request:"
+msgstr "আপনার কাজ প্রক্রিয়া করার সময় এক বা একাধীক ভুল হয়েছে:"
+
 #: src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "দুখিত, মুছে ফেলা রুটিনটি ফেরত আনা যায়নি।"
+
+#: src/Database/Routines.php:221 src/Events/Events.php:111
+#: src/Triggers/Triggers.php:109
+msgid "The backed up query was:"
+msgstr "ব্যাকআপকৃত অনুসন্ধানটি ছিল:"
 
 #: src/Database/Routines.php:269
 #, fuzzy, php-format
@@ -16964,6 +16930,13 @@ msgstr ""
 #: src/Database/Routines.php:713
 msgid "You must provide a valid return type for the routine."
 msgstr "আপনাকে অবশ্যই রুটিনের কার্যকর ফেরত ধরণ দিতে হবে।"
+
+#: src/Database/Routines.php:783 src/Events/Events.php:258
+#: src/Triggers/Triggers.php:187
+#, fuzzy
+#| msgid "The definer must be in the \"username@hostname\" format"
+msgid "The definer must be in the \"username@hostname\" format!"
+msgstr "সংজ্ঞা দানকারী অবশ্যই \"username@hostname\" গঠনে হবে"
 
 #: src/Database/Routines.php:790
 #, fuzzy
@@ -17322,6 +17295,42 @@ msgstr "অনেক বেশী ভুল সংক্রান্ত তথ�
 #| msgid "Import"
 msgid "Report"
 msgstr "আমদানি"
+
+#: src/Events/Events.php:110
+msgid "Sorry, we failed to restore the dropped event."
+msgstr "দুঃখিত, আমরা মুছে ফেলা ইভেন্ট ফিরিয়ে আনতে পারিনি।"
+
+#: src/Events/Events.php:117
+#, php-format
+msgid "Event %1$s has been modified."
+msgstr "ইভেন্ট %1$s পরিবর্তন হয়েছে।"
+
+#: src/Events/Events.php:135
+#, php-format
+msgid "Event %1$s has been created."
+msgstr "ইভেন্ট %1$s তৈরী হয়েছে।"
+
+#: src/Events/Events.php:267
+#, fuzzy
+#| msgid "You must provide an event name"
+msgid "You must provide an event name!"
+msgstr "আপনাকে অবশ্যই একটি ইভেন্টের নাম দিতে হবে"
+
+#: src/Events/Events.php:281
+msgid "You must provide a valid interval value for the event."
+msgstr "আপনাকে এই ইভেন্টের জন্য অবশ্যই একটি কার্যকর বিরাম মান দিতে হবে।"
+
+#: src/Events/Events.php:296
+msgid "You must provide a valid execution time for the event."
+msgstr "আপনাকে অবশ্য্ই এই ইভেন্টের জন্য একটি কার্যকর সম্পাদন সময় দিতে হবে।"
+
+#: src/Events/Events.php:299
+msgid "You must provide a valid type for the event."
+msgstr "আপনাকে অবশ্যই এই ইভেন্টের জন্য একটি কার্যকর ধরন দিতে হবে।"
+
+#: src/Events/Events.php:328
+msgid "You must provide an event definition."
+msgstr "আপনাকে অবশ্যই ইভেন্টের সংজ্ঞা দিতে হবে।"
 
 #: src/Exceptions/AuthenticationFailure.php:35
 #, fuzzy
