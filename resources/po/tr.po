@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-18 00:40+0000\n"
-"PO-Revision-Date: 2026-08-16 08:11+0000\n"
-"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
+"PO-Revision-Date: 2026-10-19 01:51+0000\n"
+"Last-Translator: Burak Yavuz <bourock@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
 "Language: tr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.9.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -3186,10 +3186,8 @@ msgid "Export event"
 msgstr "Olayı dışa aktar"
 
 #: resources/templates/events/index.twig:189
-#, fuzzy
-#| msgid "The event scheduler is disabled"
 msgid "The event scheduler is disabled."
-msgstr "Olay zamanlayıcısı etkisiz"
+msgstr "Olay zamanlayıcısı etkisizleştirildi."
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -8390,7 +8388,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:632
 msgid "Is InnoDB disabled?"
-msgstr "InnoDB etkisizleştirildi mi?"
+msgstr "InnoDB etkisizleştirilsin mi?"
 
 #: src/Advisory/Rules.php:636
 msgid "You do not have InnoDB enabled."
@@ -9220,7 +9218,7 @@ msgstr "Kullanıcılar yüksek değer ayarlayamazlar"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Eğer etkinleştirilirse, kullanıcı herhangi MySQL sunucusuna tanımlama "
+"Eğer etkinleştirildiyse, kullanıcı herhangi MySQL sunucusuna tanımlama "
 "bilgisi kimlik doğrulamasıyla oturum açma formundan girebilir."
 
 #: src/Config/Descriptions.php:80
@@ -9229,8 +9227,8 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
-"Verilen düzenli ifadeye göre MySQL sunucusunun IP veya anamakine adı ile "
-"eşleşen gelişigüzel bir MySQL sunucusuna oturum açıldığında etkinleşen "
+"MySQL sunucusunun IP'sini veya anamakine adını verilen düzenli ifadeyle "
+"eşleştirerek rastgele bir MySQL sunucusunda oturum açma etkinleştirildiğinde "
 "kullanıcının girebileceği MySQL sunucularını kısıtlar."
 
 #: src/Config/Descriptions.php:85
@@ -9549,8 +9547,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
-"Eğer etkinleştirilirse, phpMyAdmin çoklu ifade sorgularını hesaplamaya devam "
-"eder, eğer sorgulardan biri başarısız olsa bile."
+"Eğer etkinleştirildiyse, phpMyAdmin çoklu ifade sorgularını hesaplamaya "
+"devam eder, eğer sorgulardan biri başarısız olsa bile."
 
 #: src/Config/Descriptions.php:234
 msgid ""
@@ -9774,9 +9772,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Eğer VT-tabanlı sorgu geçmişi istiyorsanız etkinleştirin (phpMyAdmin "
-"yapılandırma depolaması gerektirir). Eğer etkisizleştirilirse, sorgu "
-"geçmişini görüntülemek için bu, JS-yordamlarından yararlanır (pencerenin "
+"VT-tabanlı sorgu geçmişi istiyorsanız etkinleştirin (phpMyAdmin yapılandırma "
+"depolaması gerektirir). Eğer etkisizleştirildiyse, sorgu geçmişini "
+"görüntülemek için bu, JS-yordamlarından yararlanır (pencerenin "
 "kapatılmasıyla kaybolur)."
 
 #: src/Config/Descriptions.php:332
@@ -12329,10 +12327,8 @@ msgstr "Sayfayı yenilemek isteyebilirsiniz."
 
 #: src/Controllers/Events/ExportController.php:38
 #: src/Controllers/Events/IndexController.php:40
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No database selected."
-msgstr "Seçilen veritabanları yok."
+msgstr "Seçilen veritabanı yok."
 
 #: src/Controllers/Events/ExportController.php:63
 #, php-format
