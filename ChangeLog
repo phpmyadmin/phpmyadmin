@@ -2,11 +2,99 @@ phpMyAdmin - ChangeLog
 ======================
 
 5.2.4 (not yet released)
-- issue #19976 Fix Bootstrap theme icons are not visible on bigger screens
-- issue #19339 Re-apply JSON syntax highlighting after AJAX updates
-- issue        Improve table list access error messages when available
-- issue #19964 Fix error when importing a CSV with more decimals than the column
-- issue #19950 Fix tooltip doesn't disappear when searching on date type
+- issue #19883 Fix PHP 8.5 deprecations
+- issue #19879 Fix warning when using roles in MariaDB
+- issue #19923 Fix collation error when checking for grant permission
+- issue #19867 Remove background color from select on focus
+- issue #19944 Display table comment as preformatted text
+- issue #19958 Show correct result size with parser error
+- issue #19969 Fix JSON column support check for MariaDB
+- issue #19970 Support creating and changing VECTOR column
+- issue #19989 Fix case where Bootstrap theme icons are not visible on bigger screens
+- issue #19930 Re-apply JSON syntax highlighting after AJAX updates
+- issue #19986 Improve table list access error messages when available
+- issue #19966 Fix error when importing a CSV with more decimals than the column
+- issue #19959 Fix tooltip doesn't disappear when searching on date type
+- issue #19740 Fix issue when renaming timestamp column names
+- issue #19925 Fix issue with two-factor authentication settings
+- issue #19946 Browse table from first row when clicking on table name
+- issue #20001 Fix bug in Util::userDir()
+- issue #19995 Fix PHP warning when casting a string to int
+- issue #20061 Set sql mode for sql-parser when connecting to db
+- issue #20060 Fix virtual column collation support for MariaDB
+- issue #20070 Fix event creation when server drops past event
+- issue #20020 Fix reopening a function removes charset
+- issue #19956 Fix descending index being converted to ascending
+- issue #19866 Fix X-ob_mode HTTP header name
+- issue #19942 Add DELIMITER $$ when exporting triggers
+- issue #20117 Make sure fullscreen is enabled
+- issue #20132 Fix importing XML files with columns that are binary or geometry
+- issue #20131 Fix exporting geometry and binary fields
+- issue #20091 Make POST requests for encrypted queries
+- issue #20163 Set user-agent to null if not defined
+- issue #20165 Improve the way phpMyAdmin uses the user-agent
+- issue #20149 Show sql-highlight div only if CodeMirror is enabled
+- issue #20087 Add Refresh button for EXPLAIN queries
+- issue #20092 Add warning message if URLQueryEncryptionSecretKey is not valid
+- issue #20021 Fix stale grid edit state after AJAX table refresh
+- issue #20164 Fix CodeMirror.runMode is not a function
+- issue #20162 Fix call to a member function count() on null
+- issue #20151 Add VECTOR description
+- issue #20196 Fix error when generating charts for columns with int column names
+- issue #20176 Fix undefined global variable $sql_insert_syntax
+- issue #20209 Don't show invalid Gis download options
+- issue #20203 Unregister all click events when the modal is hidden
+- issue #20201 Fix data is undefined in Plugins page
+- issue #20199 Fix indexDialogPreviewModal is null
+- issue #20205 Fix submission of 'Save page as' form using Enter keypress
+- issue #20206 Fix data is undefined navigation sidebar
+- issue #20223 Fix fetchValue call with connection parameter
+- issue #20170 Fix error when importing XML with no database
+- issue #20241 Add required referrer when loading tiles from openstreetmap.org
+- issue #20227 Fix default engine retrieval logic
+- issue #20154 Fix gis export to pdf and svg
+- issue #20105 Fix invalid $cfg['Export']['format'] or $cfg['Import']['format'] defaulting to sql in dropdown
+- issue #20161 Show grid edit hint for truncated values
+- issue #20214 Fix undefined array key 0 when there are no statements
+- issue #20150 Add support for XMLTYPE data type
+- issue #20246 Fix create new user with single quote in password
+- issue #20240 Relax allowed characters in file names
+- issue #20224 Skip tables that cannot be read
+- issue #20255 Only hide processes in status Sleep and inactive Daemon
+- issue #20189 Fixes drag & drop difference between Firefox & Chromium browsers
+- issue #20259 Skip user link for non-real users in processes list
+- issue #20262 Fix unknown system variable 'innodb_version' since MariaDB 10.10
+- issue #20238 Reduce simulate-query memory
+- issue #20286 Fix server selection icon alignment in home page
+- issue #20278 Fix wrong row count when column alias shadows existing column name
+- issue #20279 Show correct query in confirmation prompt after inline edit
+- issue #20281 Use TEXT instead of VARCHAR when CSV column exceeds max length
+- issue #20282 Skip CREATE DATABASE when exporting data only
+- issue #20296 Preserve numeric strings in XML imports
+- issue #20333 Fix status monitor autocomplete menu behind modal
+- issue #20342 Fix PSR-7 host header parsing
+- issue #20339 Add support for UUID_v4() and UUID_v7()
+- issue #20367 Avoid TypeError when adding a column without index data
+- issue #20344 Fix compressed columns not detected in MariaDB
+- issue #20378 Fix MySQL documentation links
+- issue #20361 Use utf8mb4 when creating pma tables
+- issue #20353 Cache foreign key display values and add limit 1 to query
+- issue #20372 Add LIMIT 1 to some queries
+- issue #20405 Add support for PHPUnit 10, 11, 12 and 13
+- issue #20410 Fix editing column structure for varchar with empty string as default
+- issue #20397 Add support for INET4 data type
+- issue #20358 Remove usergroup from primary key of pma__users
+- issue #20401 Don't do an unnecessary query per table when exporting sql
+- issue #20471 Fix Uncaught ReferenceError: CodeMirror is not defined
+- issue #20315 Strip port from host when linking to user privileges in processes list
+- issue #20426 Fix OOM error when creating a view
+- issue #20474 Fix search of INET4 with = operator
+- issue #20449 Fix undefined array key "Name" in Export page
+- issue #20356 Fix CSV table size calculation with multi-byte characters
+- issue #20423 Fix db structure summary timestamp
+- issue #20499 Fix WebAuthn\CustomServer credential save
+- issue #20497 Escape the username in the user group lookup
+- issue #20531 Disable Events page when event scheduler is disabled
 
 5.2.3 (2025-10-07)
 - issue #19548 Fix missing tooltip in status monitor log table
