@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { prepareForAjaxRequest, setSelectOptions } from '../modules/functions.ts';
+import { setSelectOptions } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -138,7 +138,6 @@ AJAX.registerOnload('database/search.js', function () {
         const url = $(this).data('href') + '#searchresults';
         const browseSql = $(this).data('browse-sql');
         const params = {
-            'ajax_request': true,
             'is_js_confirmed': true,
             'sql_query': browseSql,
         };
@@ -181,7 +180,6 @@ AJAX.registerOnload('database/search.js', function () {
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
             const params = {
-                'ajax_request': true,
                 'is_js_confirmed': true,
                 'sql_query': $(this).data('delete-sql'),
             };
@@ -227,8 +225,6 @@ AJAX.registerOnload('database/search.js', function () {
         // jQuery object to reuse
         const $form = $(this);
 
-        prepareForAjaxRequest($form);
-
         const url = $form.serialize() + CommonParams.get('arg_separator') + 'submit_search=' + $('#buttonGo').val();
         $.post($form.attr('action'), url, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
@@ -244,7 +240,6 @@ AJAX.registerOnload('database/search.js', function () {
                     .show();
 
                 $('#searchresults').show();
-
 
                 $('#db_search_form')
                     // workaround for Chrome problem (bug #3168569)

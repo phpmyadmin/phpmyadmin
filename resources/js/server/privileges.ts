@@ -59,7 +59,6 @@ const EditUserGroup = {
         $.get(
             'index.php?route=/server/user-groups/edit-form',
             {
-                'ajax_request': true,
                 'username': username,
                 'server': CommonParams.get('server')
             },
@@ -81,7 +80,7 @@ const EditUserGroup = {
 
                     $.post(
                         'index.php?route=/server/privileges',
-                        form.serialize() + CommonParams.get('arg_separator') + 'ajax_request=1',
+                        form.serialize(),
                         data => {
                             if (typeof data === 'undefined' || data.success !== true) {
                                 ajaxShowMessage(data.error, false, 'error');
@@ -116,7 +115,6 @@ const AccountLocking = {
         const params = {
             'username': button.dataset.userName,
             'hostname': button.dataset.hostName,
-            'ajax_request': true,
             'server': CommonParams.get('server'),
         };
 
@@ -156,7 +154,6 @@ const AddUserLoginCheckUsername = {
         if ($('#select_pred_username').val() === 'userdefined' && username !== '') {
             const href = $('form[name=\'usersForm\']').attr('action');
             const params = {
-                'ajax_request': true,
                 'server': CommonParams.get('server'),
                 'validate_username': true,
                 'username': username,
@@ -254,7 +251,7 @@ const RevokeUser = {
             ajaxShowMessage(window.Messages.strRemovingSelectedUsers);
 
             const argsep = CommonParams.get('arg_separator');
-            $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val() + argsep + 'ajax_request=true', function (data) {
+            $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     ajaxShowMessage(data.message);
                     // Refresh navigation, if we dropped some databases with the name
@@ -318,7 +315,7 @@ const ExportPrivileges = {
         const argsep = CommonParams.get('arg_separator');
         const serverId = CommonParams.get('server');
         const selectedUsers = $('#usersForm input[name*=\'selected_usr\']:checkbox').serialize();
-        const postStr = selectedUsers + '&submit_mult=export' + argsep + 'ajax_request=true&server=' + serverId;
+        const postStr = selectedUsers + '&submit_mult=export' + argsep + 'server=' + serverId;
 
         $.post($(this.form).prop('action'), postStr, function (data) {
             exportPrivilegesModalHandler(data, msgbox);
@@ -336,7 +333,7 @@ const ExportUser = {
     handleEvent: function (event) {
         event.preventDefault();
         const msgbox = ajaxShowMessage();
-        $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
+        $.get($(this).attr('href'), function (data) {
             exportPrivilegesModalHandler(data, msgbox);
         });
     }

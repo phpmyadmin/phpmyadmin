@@ -98,7 +98,6 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 'server': sessionStorage.server,
                 'db': $('#db_name').val(),
                 'tables': Object.keys(tableAliases),
-                'ajax_request': '1',
                 'token': CommonParams.get('token')
             },
             success: function (response) {
@@ -156,7 +155,6 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         const data = {
             'db': $('#db_name').val(),
             'sql_query': query,
-            'ajax_request': '1',
             'server': CommonParams.get('server'),
             'token': CommonParams.get('token'),
         };

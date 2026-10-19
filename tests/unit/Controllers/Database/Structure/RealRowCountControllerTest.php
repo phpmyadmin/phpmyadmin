@@ -32,7 +32,8 @@ class RealRowCountControllerTest extends AbstractTestCase
         $response = new ResponseStub();
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
-            ->withQueryParams(['db' => 'world', 'table' => 'City', 'ajax_request' => '1']);
+            ->withHeader('X-Requested-With', 'XMLHttpRequest')
+            ->withQueryParams(['db' => 'world', 'table' => 'City']);
 
         (new RealRowCountController($response, $dbi, new DbTableExists($dbi)))($request);
 

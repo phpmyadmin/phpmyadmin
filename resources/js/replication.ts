@@ -100,7 +100,6 @@ AJAX.registerOnload('replication.js', function () {
             AJAX.source = $anchor;
             const params = getJsConfirmCommonParam({
                 'ajax_page_request': true,
-                'ajax_request': true,
             }, $anchor.getPostData());
             $.post(url, params, AJAX.responseHandler);
         });

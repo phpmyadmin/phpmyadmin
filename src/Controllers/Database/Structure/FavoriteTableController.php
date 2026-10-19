@@ -108,7 +108,6 @@ final readonly class FavoriteTableController implements InvocableController
         // Check if current table is already in favorite list.
         $favoriteParams = [
             'db' => Current::$database,
-            'ajax_request' => true,
             'favorite_table' => $favoriteTableName,
             ($alreadyFavorite ? 'remove' : 'add') . '_favorite' => true,
         ];

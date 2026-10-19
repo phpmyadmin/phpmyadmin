@@ -76,7 +76,6 @@ class ReplaceControllerTest extends AbstractTestCase
         UrlParams::$params = [];
         $_POST['db'] = Current::$database;
         $_POST['table'] = Current::$table;
-        $_POST['ajax_request'] = 'true';
         $_POST['relational_display'] = 'K';
 
         $request = self::createStub(ServerRequest::class);

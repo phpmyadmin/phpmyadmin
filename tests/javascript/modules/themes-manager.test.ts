@@ -23,7 +23,7 @@ describe('ThemeColorModeToggle event listener', () => {
 
         expect($.post).toHaveBeenCalledWith(
             'https://example.com/index.php?route=/themes/set',
-            { 'ajax_request': '1', 'themeColorMode': 'color3' }
+            { 'themeColorMode': 'color3' }
         );
 
         expect(document.querySelector('html').dataset.bsTheme).toEqual('color3');

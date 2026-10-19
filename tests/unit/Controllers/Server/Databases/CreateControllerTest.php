@@ -59,8 +59,8 @@ final class CreateControllerTest extends AbstractTestCase
         $controller = new CreateController($response, $this->dbi, $config);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+        ->withHeader('X-Requested-With', 'XMLHttpRequest')
         ->withParsedBody([
-            'ajax_request' => 'true',
             'new_db' => 'test_db',
             'db_collation' => 'utf8_general_ci',
         ]);

@@ -25,7 +25,6 @@ function appendHtmlColumnsList () {
     $.post(
         'index.php?route=/normalization/get-columns',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
@@ -47,7 +46,6 @@ function goTo3NFStep1 (newTables) {
     $.post(
         'index.php?route=/normalization/3nf/step1',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'server': CommonParams.get('server'),
             'tables': tables,
@@ -87,7 +85,6 @@ function goTo2NFStep1 () {
     $.post(
         'index.php?route=/normalization/2nf/step1',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
@@ -142,7 +139,6 @@ function goToStep4 () {
     $.post(
         'index.php?route=/normalization/1nf/step4',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
@@ -174,7 +170,6 @@ function goToStep3 () {
     $.post(
         'index.php?route=/normalization/1nf/step3',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
@@ -197,7 +192,6 @@ function goToStep2 (extra = undefined) {
     $.post(
         'index.php?route=/normalization/1nf/step2',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server')
@@ -235,7 +229,6 @@ function goTo2NFFinish (pd) {
     }
 
     const datastring = {
-        'ajax_request': true,
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'server': CommonParams.get('server'),
@@ -286,7 +279,6 @@ function goTo3NFFinish (newTables) {
     }
 
     const datastring = {
-        'ajax_request': true,
         'db': CommonParams.get('db'),
         'server': CommonParams.get('server'),
         'newTables': JSON.stringify(newTables),
@@ -338,7 +330,6 @@ function goTo2NFStep2 (pd, primaryKey) {
     } else {
         extra += '</div>';
         const datastring = {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
@@ -389,7 +380,6 @@ function goTo3NFStep2 (pd, tablesTds) {
     } else {
         extra += '</div>';
         const datastring = {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'tables': JSON.stringify(tablesTds),
             'server': CommonParams.get('server'),
@@ -496,7 +486,6 @@ function moveRepeatingGroup (repeatingCols) {
     }
 
     const datastring = {
-        'ajax_request': true,
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'server': CommonParams.get('server'),
@@ -560,7 +549,6 @@ AJAX.registerOnload('normalization.js', function () {
         $.post(
             'index.php?route=/normalization/create-new-column',
             {
-                'ajax_request': true,
                 'db': CommonParams.get('db'),
                 'table': CommonParams.get('table'),
                 'server': CommonParams.get('server'),
@@ -610,13 +598,12 @@ AJAX.registerOnload('normalization.js', function () {
 
         const argsep = CommonParams.get('arg_separator');
         let datastring = $('#newCols :input').serialize();
-        datastring += argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
+        datastring += argsep + 'do_save_data=1' + argsep + 'field_where=last';
         $.post('index.php?route=/table/add-field', datastring, function (data) {
             if (data.success) {
                 $.post(
                     'index.php?route=/sql',
                     {
-                        'ajax_request': true,
                         'db': CommonParams.get('db'),
                         'table': CommonParams.get('table'),
                         'server': CommonParams.get('server'),
@@ -647,7 +634,6 @@ AJAX.registerOnload('normalization.js', function () {
         $.post(
             'index.php?route=/normalization/add-new-primary',
             {
-                'ajax_request': true,
                 'db': CommonParams.get('db'),
                 'table': CommonParams.get('table'),
                 'server': CommonParams.get('server'),
@@ -691,7 +677,7 @@ AJAX.registerOnload('normalization.js', function () {
     $('#mainContent .card-footer').on('click', '#saveNewPrimary', function () {
         let datastring = $('#newCols :input').serialize();
         const argsep = CommonParams.get('arg_separator');
-        datastring += argsep + 'field_key[0]=primary_0' + argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
+        datastring += argsep + 'field_key[0]=primary_0' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
         $.post('index.php?route=/table/add-field', datastring, function (data) {
             if (data.success === true) {
                 $('#mainContent h4').html(window.Messages.strPrimaryKeyAdded);
@@ -718,7 +704,6 @@ AJAX.registerOnload('normalization.js', function () {
         $.post(
             'index.php?route=/sql',
             {
-                'ajax_request': true,
                 'db': CommonParams.get('db'),
                 'table': CommonParams.get('table'),
                 'server': CommonParams.get('server'),
@@ -786,7 +771,6 @@ AJAX.registerOnload('normalization.js', function () {
             'added_fields': 1,
             'add_fields': 1,
             'index': { 'Key_name': 'PRIMARY' },
-            'ajax_request': true,
         };
         const title = window.Messages.strAddPrimaryKey;
         indexEditorDialog(url, title, function () {
@@ -826,7 +810,6 @@ AJAX.registerOnload('normalization.js', function () {
         $.post(
             'index.php?route=/normalization/partial-dependencies',
             {
-                'ajax_request': true,
                 'db': CommonParams.get('db'),
                 'table': CommonParams.get('table'),
                 'server': CommonParams.get('server'),

@@ -6,7 +6,7 @@ import { CommonParams } from './common.ts';
  */
 export const ThemesManager = {
     handleEvent: () => {
-        $.get('index.php?route=/themes', { 'server': CommonParams.get('server'), 'ajax_request': true }, data => {
+        $.get('index.php?route=/themes', { 'server': CommonParams.get('server') }, data => {
             $('#themesModal .modal-body').html(data.themes);
         });
     }
@@ -23,7 +23,6 @@ export const ThemeColorModeToggle: EventListenerObject = {
         setColorModeToHtmlTag(toggleSelect.options.item(toggleSelect.selectedIndex).value);
         const toggleForm = toggleSelect.form;
         const formData = new FormData(toggleForm);
-        formData.set('ajax_request', '1');
         $.post(toggleForm.action, Object.fromEntries(formData.entries())).done(function (data): void {
             setColorModeToHtmlTag(data.themeColorMode);
         });

@@ -164,7 +164,7 @@ function loadChildNodes (isNode, $expandElem, callback): void {
         };
     }
 
-    $.post('index.php?route=/navigation&ajax_request=1', params, function (data) {
+    $.post('index.php?route=/navigation', params, function (data) {
         if (typeof data === 'undefined') {
             return;
         }
@@ -621,7 +621,7 @@ function ensureSettings (selflink): void {
             getNaviSettings: true,
             server: CommonParams.get('server'),
         };
-        $.post('index.php?route=/navigation&ajax_request=1', params, function (data) {
+        $.post('index.php?route=/navigation', params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
                 $('#pma_navi_settings_container').html(data.message);
                 Config.setupRestoreField();
@@ -660,7 +660,7 @@ function reload (callback = null, paths = null): void {
     requestNaviReload(params);
 
     function requestNaviReload (params) {
-        $.post('index.php?route=/navigation&ajax_request=1', params, function (data) {
+        $.post('index.php?route=/navigation', params, function (data) {
             if (typeof data === 'undefined') {
                 return;
             }
@@ -713,11 +713,11 @@ function treePagination ($this): void {
     const $msgbox = ajaxShowMessage();
     const isDbSelector = $this.closest('div.pageselector').is('.dbselector');
     const url = 'index.php?route=/navigation';
-    let params = 'ajax_request=true';
+    let params: string;
     if ($this[0].tagName === 'A') {
-        params += CommonParams.get('arg_separator') + $this.getPostData();
+        params = $this.getPostData();
     } else { // tagName === 'SELECT'
-        params += CommonParams.get('arg_separator') + $this.closest('form').serialize();
+        params = $this.closest('form').serialize();
     }
 
     const searchClause = Navigation.FastFilter.getSearchClause();
@@ -1296,7 +1296,7 @@ FastFilter.Filter.prototype.request = function (): void {
     }
 
     self.xhr = $.ajax({
-        url: 'index.php?route=/navigation&ajax_request=1&server=' + CommonParams.get('server'),
+        url: 'index.php?route=/navigation&server=' + CommonParams.get('server'),
         type: 'post',
         dataType: 'json',
         data: params,

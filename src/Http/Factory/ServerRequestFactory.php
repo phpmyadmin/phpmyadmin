@@ -71,7 +71,7 @@ final class ServerRequestFactory implements ServerRequestFactoryInterface
         );
 
         foreach ($this->getAllHeaders() as $name => $value) {
-            $serverRequest = $serverRequest->withAddedHeader($name, $value);
+            $serverRequest = $serverRequest->withHeader($name, $value);
         }
 
         $serverRequest = $serverRequest->withQueryParams($_GET);

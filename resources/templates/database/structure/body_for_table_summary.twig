@@ -17,7 +17,6 @@
     {% set row_sum_url = [] %}
     {% if approx_rows is defined %}
         {% set row_sum_url = {
-            'ajax_request': true,
             'db': db,
             'real_row_count_all': 'true'
         } %}

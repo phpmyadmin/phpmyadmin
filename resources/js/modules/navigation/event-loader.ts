@@ -202,7 +202,7 @@ export default function onloadNavigation () {
             event.preventDefault();
             const argSep = CommonParams.get('arg_separator');
             let params = $(this).getPostData();
-            params += argSep + 'ajax_request=true' + argSep + 'server=' + CommonParams.get('server');
+            params += argSep + 'server=' + CommonParams.get('server');
             $.ajax({
                 type: 'POST',
                 data: params,
@@ -222,8 +222,7 @@ export default function onloadNavigation () {
             event.preventDefault();
             const $msg = ajaxShowMessage();
             const argSep = CommonParams.get('arg_separator');
-            let params = $(this).getPostData();
-            params += argSep + 'ajax_request=true';
+            const params = $(this).getPostData();
             $.post($(this).attr('href'), params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     ajaxRemoveMessage($msg);
@@ -242,7 +241,7 @@ export default function onloadNavigation () {
             const $msg = ajaxShowMessage();
             const argSep = CommonParams.get('arg_separator');
             let params = $(this).getPostData();
-            params += argSep + 'ajax_request=true' + argSep + 'server=' + CommonParams.get('server');
+            params += argSep + 'server=' + CommonParams.get('server');
             $.ajax({
                 type: 'POST',
                 data: params,

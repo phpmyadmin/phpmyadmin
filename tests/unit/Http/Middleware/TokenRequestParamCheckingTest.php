@@ -58,7 +58,8 @@ final class TokenRequestParamCheckingTest extends TestCase
         $responseRenderer->setAjax(true);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
-            ->withParsedBody(['token' => 'token', 'ajax_request' => 'true']);
+            ->withHeader('X-Requested-With', 'XMLHttpRequest')
+            ->withParsedBody(['token' => 'token']);
         $response = $middleware->checkTokenRequestParam($request);
         self::assertInstanceOf(ResponseInterface::class, $response);
     }

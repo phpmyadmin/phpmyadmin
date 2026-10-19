@@ -98,8 +98,8 @@ final class LintControllerTest extends AbstractTestCase
         self::assertNotFalse($expectedJson);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withHeader('X-Requested-With', 'XMLHttpRequest')
             ->withParsedBody([
-                'ajax_request' => '1',
                 'sql_query' => 'SELECT * FROM `actor` WHEREE `actor_id` = 1',
                 'options' => null,
             ]);

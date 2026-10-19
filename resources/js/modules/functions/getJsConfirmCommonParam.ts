@@ -21,7 +21,7 @@ export default function getJsConfirmCommonParam (elem, parameters) {
         params = '';
     }
 
-    params += 'is_js_confirmed=1' + sep + 'ajax_request=true' + sep + 'fk_checks=' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
+    params += 'is_js_confirmed=1' + sep + 'fk_checks=' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
 
     return params;
 }

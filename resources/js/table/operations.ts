@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { getForeignKeyCheckboxLoader, loadForeignKeyCheckbox, prepareForAjaxRequest } from '../modules/functions.ts';
+import { getForeignKeyCheckboxLoader, loadForeignKeyCheckbox } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
@@ -81,7 +81,6 @@ AJAX.registerOnload('table/operations.js', function () {
     $(document).on('submit', '#copyTable.ajax', function (event) {
         event.preventDefault();
         const $form = $(this);
-        prepareForAjaxRequest($form);
         const argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_copy=Go', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
@@ -118,7 +117,6 @@ AJAX.registerOnload('table/operations.js', function () {
     $(document).on('submit', '#moveTableForm', function (event) {
         event.preventDefault();
         const $form = $(this);
-        prepareForAjaxRequest($form);
         const argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_move=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
@@ -152,7 +150,6 @@ AJAX.registerOnload('table/operations.js', function () {
 
         if ($tblNameField.val() !== $tblNameField[0].defaultValue) {
             // reload page and navigation if the table has been renamed
-            prepareForAjaxRequest($form);
 
             if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
                 $form.confirm(question, $form.attr('action'), function () {
@@ -207,7 +204,6 @@ AJAX.registerOnload('table/operations.js', function () {
 
         // variables which stores the common attributes
         let params = $.param({
-            'ajax_request': 1,
             'server': CommonParams.get('server'),
         });
         const postData = $link.getPostData();
@@ -263,7 +259,7 @@ AJAX.registerOnload('table/operations.js', function () {
 
         function submitPartitionMaintenance () {
             const argsep = CommonParams.get('arg_separator');
-            const submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+            const submitData = $form.serialize() + argsep + 'ajax_page_request=true';
             ajaxShowMessage(window.Messages.strProcessingRequest);
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);

@@ -111,44 +111,14 @@ class ServerRequestTest extends TestCase
     public static function isAjaxProvider(): iterable
     {
         return [
-            [true, 'GET', 'http://example.com/index.php?route=/&ajax_request=1', [], null],
-            [true, 'GET', 'http://example.com/index.php?route=/&ajax_request=0', [], null],
-            [true, 'GET', 'http://example.com/index.php?route=/&ajax_request=true', [], null],
             [true, 'GET', 'http://example.com/index.php?route=/', ['X-Requested-With' => 'XMLHttpRequest'], null],
-            [
-                true,
-                'GET',
-                'http://example.com/index.php?route=/&ajax_request=1',
-                ['X-Requested-With' => 'XMLHttpRequest'],
-                null,
-            ],
             [false, 'GET', 'http://example.com/index.php?route=/', [], null],
-            [true, 'POST', 'http://example.com/index.php?route=/&ajax_request=1', [], []],
+            [false, 'GET', 'http://example.com/index.php?route=/&ajax_request=1', [], null],
+            [false, 'GET', 'http://example.com/index.php?route=/', ['X-Requested-With' => 'other'], null],
             [true, 'POST', 'http://example.com/index.php?route=/', ['X-Requested-With' => 'XMLHttpRequest'], []],
-            [
-                true,
-                'POST',
-                'http://example.com/index.php?route=/&ajax_request=1',
-                ['X-Requested-With' => 'XMLHttpRequest'],
-                [],
-            ],
-            [true, 'POST', 'http://example.com/index.php?route=/&ajax_request=1', [], ['ajax_request' => '1']],
-            [
-                true,
-                'POST',
-                'http://example.com/index.php?route=/&ajax_request=1',
-                ['X-Requested-With' => 'XMLHttpRequest'],
-                ['ajax_request' => '1'],
-            ],
-            [
-                true,
-                'POST',
-                'http://example.com/index.php?route=/',
-                ['X-Requested-With' => 'XMLHttpRequest'],
-                ['ajax_request' => '1'],
-            ],
-            [true, 'POST', 'http://example.com/index.php?route=/', [], ['ajax_request' => '1']],
             [false, 'POST', 'http://example.com/index.php?route=/', [], []],
+            [false, 'POST', 'http://example.com/index.php?route=/&ajax_request=1', [], []],
+            [false, 'POST', 'http://example.com/index.php?route=/', [], ['ajax_request' => '1']],
         ];
     }
 }

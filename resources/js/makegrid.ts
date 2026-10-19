@@ -430,7 +430,6 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 }
 
                 const postParams = {
-                    'ajax_request': true,
                     'db': g.db,
                     'table': g.table,
                     'token': g.token,
@@ -976,7 +975,6 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                      * @var postParams Object containing parameters for the POST request
                      */
                     postParams = {
-                        'ajax_request': true,
                         'server': g.server,
                         'db': g.db,
                         'table': g.table,
@@ -1022,7 +1020,6 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                      * @var postParams Object containing parameters for the POST request
                      */
                     postParams = {
-                        'ajax_request': true,
                         'server': g.server,
                         'db': g.db,
                         'table': g.table,
@@ -1054,7 +1051,6 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     // if the data is truncated, get the full data
                     if ($td.is('.truncated')) {
                         postParams = {
-                            'ajax_request': true,
                             'server': g.server,
                             'db': g.db,
                             'table': g.table,
@@ -1065,7 +1061,6 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         };
                     } else {
                         postParams = {
-                            'ajax_request': true,
                             'server': g.server,
                             'db': g.db,
                             'table': g.table,
@@ -1122,7 +1117,6 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         g.lastXHR = $.post('index.php?route=/sql', {
                             'server': g.server,
                             'db': g.db,
-                            'ajax_request': true,
                             'sql_query': sqlQuery,
                             'grid_edit': true,
                         }, function (data) {
@@ -1418,7 +1412,6 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
              * @var postParams Object containing parameters for the POST request
              */
             const postParams = {
-                'ajax_request': true,
                 'sql_query': fullSqlQuery,
                 'server': g.server,
                 'db': g.db,
