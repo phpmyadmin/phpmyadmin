@@ -59,7 +59,7 @@ final readonly class DestroyController implements InvocableController
             && $database !== $pmadb);
 
         if ($selectedDbs === []) {
-            $message = Message::error(__('No databases selected.'));
+            $message = Message::error(__('No database selected.'));
             $json = ['message' => $message];
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON($json);

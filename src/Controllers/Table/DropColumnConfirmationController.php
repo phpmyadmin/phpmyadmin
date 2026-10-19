@@ -47,7 +47,7 @@ final readonly class DropColumnConfirmationController implements InvocableContro
         }
 
         if (! $this->dbTableExists->selectDatabase($db)) {
-            return $this->response->respondWithErrorMessage(__('No databases selected.'));
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         if (! $this->dbTableExists->hasTable($db, $table)) {

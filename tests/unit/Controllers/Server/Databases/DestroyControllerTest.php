@@ -56,6 +56,6 @@ class DestroyControllerTest extends AbstractTestCase
         self::assertArrayHasKey('message', $actual);
         self::assertIsString($actual['message']);
         self::assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
-        self::assertStringContainsString(__('No databases selected.'), $actual['message']);
+        self::assertStringContainsString(__('No database selected.'), $actual['message']);
     }
 }

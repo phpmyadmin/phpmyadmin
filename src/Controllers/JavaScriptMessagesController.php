@@ -328,7 +328,7 @@ final readonly class JavaScriptMessagesController implements InvocableController
                 'It seems that the connection to server has been lost. Please check your ' .
                 'network connectivity and server status.',
             ),
-            'strNoDatabasesSelected' => __('No databases selected.'),
+            'strNoDatabasesSelected' => __('No database selected.'),
             'strNoTableSelected' => __('No table selected.'),
             'strNoAccountSelected' => __('No accounts selected.'),
             'strDroppingColumn' => __('Dropping column'),

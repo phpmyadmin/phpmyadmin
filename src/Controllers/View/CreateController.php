@@ -63,7 +63,7 @@ final class CreateController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            return $this->response->respondWithErrorMessage(__('No databases selected.'));
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         UrlParams::$params['goto'] = Url::getFromRoute('/table/structure');

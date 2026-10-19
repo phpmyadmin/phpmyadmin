@@ -81,7 +81,7 @@ final readonly class ChartController implements InvocableController
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                return $this->response->respondWithErrorMessage(__('No databases selected.'));
+                return $this->response->respondWithErrorMessage(__('No database selected.'));
             }
 
             $tableName = TableName::tryFrom($request->getParam('table'));
@@ -98,7 +98,7 @@ final readonly class ChartController implements InvocableController
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                return $this->response->respondWithErrorMessage(__('No databases selected.'));
+                return $this->response->respondWithErrorMessage(__('No database selected.'));
             }
         } else {
             $urlParams['goto'] = Url::getFromRoute($this->config->config->DefaultTabServer);
@@ -175,7 +175,7 @@ final readonly class ChartController implements InvocableController
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                 $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
+                $this->response->addJSON('message', Message::error(__('No database selected.')));
 
                 return;
             }
