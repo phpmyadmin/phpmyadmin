@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-19 17:00+0000\n"
-"PO-Revision-Date: 2026-10-19 01:51+0000\n"
+"PO-Revision-Date: 2026-10-20 17:00+0000\n"
 "Last-Translator: Burak Yavuz <bourock@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "tr/>\n"
@@ -13290,10 +13290,8 @@ msgstr ""
 "etkinleştirir ve saklar"
 
 #: libraries/classes/Types.php:441
-#, fuzzy
-#| msgid "Intended for storage of XML data"
 msgid "Intended for storage of IPv4 addresses"
-msgstr "XML verilerinin depolanması için tasarlanmıştır"
+msgstr "IPv4 adreslerinin depolanması için tasarlanmıştır"
 
 #: libraries/classes/Types.php:444
 msgid ""
@@ -14622,10 +14620,8 @@ msgid "OFF"
 msgstr "KAPALI"
 
 #: templates/database/events/index.twig:158
-#, fuzzy
-#| msgid "The event scheduler is disabled"
 msgid "The event scheduler is disabled."
-msgstr "Olay zamanlayıcısı etkisiz"
+msgstr "Olay zamanlayıcısı etkisizleştirildi."
 
 #: templates/database/export/index.twig:61
 msgid ""
