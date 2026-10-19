@@ -37,8 +37,8 @@ class AccountUnlockControllerTest extends AbstractTestCase
         $this->dbiStub->method('isMariaDB')->willReturn(true);
 
         $this->requestStub = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withHeader('X-Requested-With', 'XMLHttpRequest')
             ->withParsedBody([
-                'ajax_request' => 'true',
                 'username' => 'test.user',
                 'hostname' => 'test.host',
             ]);

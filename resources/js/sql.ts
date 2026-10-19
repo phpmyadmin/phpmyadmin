@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import * as bootstrap from 'bootstrap';
 import { AJAX } from './modules/ajax.ts';
-import { checkFormElementInRange, checkSqlQuery, emptyCheckTheField, prepareForAjaxRequest } from './modules/functions.ts';
+import { checkFormElementInRange, checkSqlQuery, emptyCheckTheField } from './modules/functions.ts';
 import { Navigation } from './modules/navigation.ts';
 import { CommonParams } from './modules/common.ts';
 import createProfilingChart from './modules/functions/createProfilingChart.ts';
@@ -284,7 +284,6 @@ const insertQuery = function (queryType) {
                 window.themeImagePath + 'ajax_clock_small.gif" alt="">');
 
             const params = {
-                'ajax_request': true,
                 'sql': window.codeMirrorEditor.getValue(),
                 'server': CommonParams.get('server'),
                 'formatSingleLine': queryType === 'formatSingleLine',
@@ -533,7 +532,7 @@ AJAX.registerOnload('sql.js', function () {
         $link.confirm(question, $link.attr('href'), function (url) {
             ajaxShowMessage();
             const argsep = CommonParams.get('arg_separator');
-            let params = 'ajax_request=1' + argsep + 'is_js_confirmed=1';
+            let params = 'is_js_confirmed=1';
             const postData = $link.getPostData();
             if (postData) {
                 params += argsep + postData;
@@ -562,7 +561,7 @@ AJAX.registerOnload('sql.js', function () {
 
         ajaxShowMessage();
         const argsep = CommonParams.get('arg_separator');
-        $.post($(this).attr('action'), 'ajax_request=1' + argsep + $(this).serialize(), function (data) {
+        $.post($(this).attr('action'), $(this).serialize(), function (data) {
             if (data.success) {
                 ajaxShowMessage(data.message);
             } else {
@@ -720,7 +719,6 @@ AJAX.registerOnload('sql.js', function () {
         });
     }
 
-
     /**
      * Event handler for sqlqueryform.ajax button_submit_query
      *
@@ -829,8 +827,6 @@ AJAX.registerOnload('sql.js', function () {
 
         const $msgbox = ajaxShowMessage();
         const $sqlqueryresultsouter = $('#sqlqueryresultsouter');
-
-        prepareForAjaxRequest($form);
 
         const argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_page_request=true', function (data) {
@@ -949,7 +945,7 @@ AJAX.registerOnload('sql.js', function () {
 
         const $msgbox = ajaxShowMessage();
         const argsep = CommonParams.get('arg_separator');
-        $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_request=true', function (data) {
+        $.post($form.attr('action'), $form.serialize(), function (data) {
             ajaxRemoveMessage($msgbox);
             const $sqlqueryresults = $form.parents('.sqlqueryresults');
             $sqlqueryresults
@@ -994,7 +990,7 @@ AJAX.registerOnload('sql.js', function () {
 
         const submitShowAllForm = function () {
             const argsep = CommonParams.get('arg_separator');
-            const submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+            const submitData = $form.serialize() + argsep + 'ajax_page_request=true';
             ajaxShowMessage();
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
@@ -1042,7 +1038,6 @@ AJAX.registerOnload('sql.js', function () {
             data: {
                 'server': CommonParams.get('server'),
                 'db': dbName,
-                'ajax_request': '1',
                 'sql_query': query,
                 'sql_delimiter': delimiter
             },
@@ -1097,7 +1092,7 @@ AJAX.registerOnload('sql.js', function () {
         const action = $button.val();
         const $form = $button.closest('form');
         const argsep = CommonParams.get('arg_separator');
-        let submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep;
+        let submitData = $form.serialize() + argsep + 'ajax_page_request=true' + argsep;
         ajaxShowMessage();
         AJAX.source = $form;
 
@@ -1206,8 +1201,7 @@ function browseForeignDialog ($thisA) {
     const tableId = '#browse_foreign_table';
     const filterId = '#input_foreign_filter';
     const argSep = CommonParams.get('arg_separator');
-    let params = $thisA.getPostData();
-    params += argSep + 'ajax_request=true';
+    const params = $thisA.getPostData();
 
     let browseForeignModal = document.getElementById('browseForeignModal');
     if (browseForeignModal === null) {
@@ -1286,7 +1280,7 @@ function browseForeignDialog ($thisA) {
             }
 
             // updates values in dialog
-            $.post($(this).attr('action') + '&ajax_request=1', postParams, function (data) {
+            $.post($(this).attr('action'), postParams, function (data) {
                 const $obj = $('<div>').html(data.message);
                 $(formId).html($obj.find(formId).html());
                 $(tableId).html($obj.find(tableId).html());

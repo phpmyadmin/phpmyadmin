@@ -433,7 +433,6 @@ final readonly class RoutinesController implements InvocableController
                 'reload' => 1,
             ];
             if ($this->response->isAjax()) {
-                $redirParams['ajax_request'] = 'true';
                 $redirParams['ajax_page_request'] = 'true';
             }
 

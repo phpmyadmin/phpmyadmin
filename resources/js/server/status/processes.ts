@@ -52,7 +52,7 @@ const processList = {
         event.preventDefault();
         const argSep = CommonParams.get('arg_separator');
         let params = $(this).getPostData();
-        params += argSep + 'ajax_request=1' + argSep + 'server=' + CommonParams.get('server');
+        params += argSep + 'server=' + CommonParams.get('server');
         // Get row element of the process to be killed.
         const $tr = $(this).closest('tr');
         $.post($(this).attr('href'), params, function (data) {
@@ -150,7 +150,6 @@ const processList = {
     getUrlParams: function () {
         const urlParams: { [k: string]: any } = {
             'server': CommonParams.get('server'),
-            'ajax_request': true,
             'refresh': true,
             'full': $('input[name="full"]').val(),
             'order_by_field': $('input[name="order_by_field"]').val(),

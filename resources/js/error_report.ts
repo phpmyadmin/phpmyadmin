@@ -72,7 +72,6 @@ const ErrorReport = {
         ErrorReport.lastException = exception;
         if (ErrorReport.errorReportData === null) {
             $.post('index.php?route=/error-report', {
-                'ajax_request': true,
                 'server': CommonParams.get('server'),
                 'get_settings': true,
                 'exception_type': 'js',
@@ -231,13 +230,11 @@ const ErrorReport = {
         const reportData: {
             exception: any;
             server: any;
-            ajax_request: boolean;
             exception_type: string;
             url: string,
             scripts?: any[]
         } = {
             'server': CommonParams.get('server'),
-            'ajax_request': true,
             'exception': exception,
             'url': window.location.href,
             'exception_type': 'js',

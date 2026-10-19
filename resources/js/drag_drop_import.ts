@@ -406,7 +406,6 @@ const DragDropImport = {
                     fd.append('format', ext);
                     fd.append('sql_compatibility', 'NONE');
                     fd.append('sql_no_auto_value_on_zero', 'something');
-                    fd.append('ajax_request', 'true');
                     fd.append('hash', hash.toString());
 
                     // init uploading

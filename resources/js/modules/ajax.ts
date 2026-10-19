@@ -313,7 +313,7 @@ const AJAX = {
 
         const url = isLink ? href : $(this).attr('action');
         const argsep = CommonParams.get('arg_separator');
-        let params = 'ajax_request=true' + argsep + 'ajax_page_request=true';
+        let params = 'ajax_page_request=true';
         const dataPost = AJAX.source.getPostData();
         if (! isLink) {
             params += argsep + $(this).serialize();
@@ -915,7 +915,7 @@ const AJAX = {
                 const state = event.originalEvent.state;
                 if (state && state.menu) {
                     AJAX.$msgbox = ajaxShowMessage();
-                    const params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
+                    const params = 'ajax_page_request=true';
                     const url = state.url || location.href;
                     $.get(url, params, AJAX.responseHandler);
                     // TODO: Check if sometimes menu is not retrieved from server,

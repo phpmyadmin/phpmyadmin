@@ -39,7 +39,6 @@ AJAX.registerOnload('server/user_groups.js', function () {
                 {
                     'deleteUserGroup': true,
                     'userGroup': userGroupName,
-                    'ajax_request': true,
                 },
                 AJAX.responseHandler
             );

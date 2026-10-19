@@ -334,7 +334,6 @@ class CreateAddFieldTest extends AbstractTestCase
                     'field_input_transformation_options' => [''],
                     'do_save_data' => '1',
                     'preview_sql' => '1',
-                    'ajax_request' => '1',
                 ],
             ],
             [
@@ -371,7 +370,6 @@ class CreateAddFieldTest extends AbstractTestCase
                     'field_input_transformation_options' => [''],
                     'do_save_data' => '1',
                     'preview_sql' => '1',
-                    'ajax_request' => '1',
                     'online_transaction' => 'ONLINE_TRANSACTION_ENABLED',
                 ],
             ],
@@ -450,7 +448,6 @@ class CreateAddFieldTest extends AbstractTestCase
                     'field_input_transformation_options' => [''],
                     'do_save_data' => '1',
                     'preview_sql' => '1',
-                    'ajax_request' => '1',
                     'online_transaction' => 'ONLINE_TRANSACTION_ENABLED',
                 ],
             ],
@@ -503,7 +500,6 @@ class CreateAddFieldTest extends AbstractTestCase
             'field_input_transformation_options' => [''],
             'do_save_data' => '1',
             'preview_sql' => '1',
-            'ajax_request' => '1',
         ];
 
         $sqlQuery = $this->createAddField->getColumnCreationQuery('my_table');

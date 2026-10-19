@@ -57,8 +57,8 @@ class SlowLogControllerTest extends AbstractTestCase
         );
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+        ->withHeader('X-Requested-With', 'XMLHttpRequest')
         ->withParsedBody([
-            'ajax_request' => 'true',
             'time_start' => '0',
             'time_end' => '10',
         ]);

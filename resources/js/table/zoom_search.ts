@@ -157,7 +157,6 @@ AJAX.registerOnload('table/zoom_search.js', function () {
     $('#tableid_0').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('index.php?route=/table/zoom-search', {
-            'ajax_request': true,
             'change_tbl_info': true,
             'server': CommonParams.get('server'),
             'db': CommonParams.get('db'),
@@ -182,7 +181,6 @@ AJAX.registerOnload('table/zoom_search.js', function () {
     $('#tableid_1').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('index.php?route=/table/zoom-search', {
-            'ajax_request': true,
             'change_tbl_info': true,
             'server': CommonParams.get('server'),
             'db': CommonParams.get('db'),
@@ -206,7 +204,6 @@ AJAX.registerOnload('table/zoom_search.js', function () {
     $('#tableid_2').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('index.php?route=/table/zoom-search', {
-            'ajax_request': true,
             'change_tbl_info': true,
             'server': CommonParams.get('server'),
             'db': CommonParams.get('db'),
@@ -228,7 +225,6 @@ AJAX.registerOnload('table/zoom_search.js', function () {
     $('#tableid_3').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('index.php?route=/table/zoom-search', {
-            'ajax_request': true,
             'change_tbl_info': true,
             'server': CommonParams.get('server'),
             'db': CommonParams.get('db'),
@@ -425,7 +421,6 @@ AJAX.registerOnload('table/zoom_search.js', function () {
             $.post('index.php?route=/sql', {
                 'server': CommonParams.get('server'),
                 'db': CommonParams.get('db'),
-                'ajax_request': true,
                 'sql_query': sqlQuery,
                 'inline_edit': false,
             }, function (data) {
@@ -649,7 +644,6 @@ AJAX.registerOnload('table/zoom_search.js', function () {
                     searchedDataKey = data[4]; // key from searchedData (global)
                     let fieldId = 0;
                     const postParams = {
-                        'ajax_request': true,
                         'get_data_row': true,
                         'server': CommonParams.get('server'),
                         'db': CommonParams.get('db'),

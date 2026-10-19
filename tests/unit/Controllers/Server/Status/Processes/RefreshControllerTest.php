@@ -64,8 +64,8 @@ class RefreshControllerTest extends AbstractTestCase
         );
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withHeader('X-Requested-With', 'XMLHttpRequest')
             ->withParsedBody([
-                'ajax_request' => 'true',
                 'column_name' => '',
                 'order_by_field' => 'process',
                 'sort_order' => 'DESC',

@@ -956,7 +956,6 @@ const ConsoleMessages = {
                     {
                         'server': CommonParams.get('server'),
                         'action_bookmark': 2,
-                        'ajax_request': true,
                         'id_bookmark': $message.attr('bookmarkid')
                     },
                     function () {
@@ -1111,7 +1110,6 @@ const ConsoleBookmarks = {
     refresh: function () {
         $.get('index.php?route=/console/bookmark/refresh',
             {
-                'ajax_request': true,
                 'server': CommonParams.get('server'),
             },
             function (data) {
@@ -1149,7 +1147,6 @@ const ConsoleBookmarks = {
             $(this).prop('disabled', true);
             $.post('index.php?route=/console/bookmark/add',
                 {
-                    'ajax_request': true,
                     'label': $('#pma_bookmarks').find('.card.add [name=label]').val(),
                     'server': CommonParams.get('server'),
                     'db': $('#pma_bookmarks').find('.card.add [name=targetdb]').val(),

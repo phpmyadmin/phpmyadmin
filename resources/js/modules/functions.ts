@@ -359,18 +359,6 @@ function verifyColumnsProperties () {
     });
 }
 
-/**
- * Add a hidden field to the form to indicate that this will be an
- * Ajax request (only if this hidden field does not exist)
- *
- * @param {object} $form the form
- */
-export function prepareForAjaxRequest ($form) {
-    if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-        $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true">');
-    }
-}
-
 export function checkPasswordStrength (value, meterObject, meterObjectLabel, username) {
     // List of words we don't want to appear in the password
     const customDict = [
@@ -856,7 +844,6 @@ export function onloadIdleEvent () {
         }
 
         const params = {
-            'ajax_request': true,
             'server': CommonParams.get('server'),
             'db': CommonParams.get('db'),
             'guid': guid,
@@ -1017,7 +1004,6 @@ export function setSelectOptions (theForm, theSelect, doCheck) {
     return true;
 }
 
-
 /**
  * Updates the input fields for the parameters based on the query
  */
@@ -1081,7 +1067,6 @@ export function getForeignKeyCheckboxLoader () {
 export function loadForeignKeyCheckbox () {
     // Load default foreign key check value
     const params = {
-        'ajax_request': true,
         'server': CommonParams.get('server'),
     };
     $.get('index.php?route=/sql/get-default-fk-check-value', params, function (data) {
@@ -1215,7 +1200,6 @@ export function codeMirrorAutoCompleteOnInputRead (instance) {
             sqlAutoCompleteInProgress = true;
 
             const params = {
-                'ajax_request': true,
                 'server': CommonParams.get('server'),
                 'db': CommonParams.get('db'),
                 'no_debug': true,
@@ -1393,8 +1377,7 @@ export function previewSql ($form): void {
     const sep = CommonParams.get('arg_separator');
     const formData = $form.serialize() +
         sep + 'do_save_data=1' +
-        sep + 'preview_sql=1' +
-        sep + 'ajax_request=1';
+        sep + 'preview_sql=1';
     const $messageBox = ajaxShowMessage();
     $.ajax({
         type: 'POST',
@@ -1825,7 +1808,6 @@ export function onloadCreateTableEvents (): void {
          */
 
         if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
-            prepareForAjaxRequest($form);
             if (! checkReservedWordColumns($form)) {
                 return;
             }
@@ -1892,7 +1874,7 @@ export function onloadCreateTableEvents (): void {
                 Navigation.reload();
                 // Redirect to table structure page on creation of new table
                 const argsep = CommonParams.get('arg_separator');
-                const params12 = 'ajax_request=true' + argsep + 'ajax_page_request=true';
+                const params12 = 'ajax_page_request=true';
                 const tableStructureUrl = 'index.php?route=/table/structure' + argsep + 'server=' + data.params.server +
                     argsep + 'db=' + data.params.db + argsep + 'token=' + data.params.token +
                     argsep + 'goto=' + encodeURIComponent('index.php?route=/database/structure') + argsep + 'table=' + data.params.table + '';
@@ -1914,7 +1896,6 @@ export function onloadCreateTableEvents (): void {
         const $form = $('form.create_table_form.ajax');
 
         const $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
-        prepareForAjaxRequest($form);
 
         // User wants to add more fields to the table
         $.post($form.attr('action'), $form.serialize() + '&' + actionParam, function (data) {
@@ -2128,7 +2109,6 @@ export function onloadChangePasswordEvents (): void {
 
             const submitForm = function () {
                 const $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
-                $theForm.append('<input type="hidden" name="ajax_request" value="true">');
 
                 $.post($theForm.attr('action'), $theForm.serialize() + CommonParams.get('arg_separator') + 'change_pw=' + thisValue, function (data) {
                     if (typeof data === 'undefined' || data.success !== true) {
@@ -2155,7 +2135,7 @@ export function onloadChangePasswordEvents (): void {
             }
         });
 
-        $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
+        $.get($(this).attr('href'), function (data) {
             if (typeof data === 'undefined' || ! data.success) {
                 ajaxShowMessage(data.error, false);
 
@@ -2494,7 +2474,6 @@ export function onloadEnumSetEditor (): void {
         }
 
         const params = {
-            'ajax_request': true,
             'server': CommonParams.get('server'),
             'db': CommonParams.get('db'),
             'cur_table': CommonParams.get('table'),
@@ -2726,8 +2705,7 @@ function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailur
         const sep = CommonParams.get('arg_separator');
         const formData = $form.serialize() +
             sep + 'do_save_data=1' +
-            sep + 'preview_sql=1' +
-            sep + 'ajax_request=1';
+            sep + 'preview_sql=1';
         $.post({
             url: formUrl,
             data: formData,
@@ -2760,7 +2738,6 @@ function indexDialogModal (routeUrl, url, title, callbackSuccess, callbackFailur
          */
         const $form = $('#index_frm');
         ajaxShowMessage(window.Messages.strProcessingRequest);
-        prepareForAjaxRequest($form);
         // User wants to submit the form
         $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
             const $sqlqueryresults = $('.sqlqueryresults');
@@ -3054,7 +3031,7 @@ function toggleButton ($obj) {
         }
 
         const parts = url.split('?');
-        $.post(parts[0], parts[1] + '&ajax_request=true', function (data) {
+        $.post(parts[0], parts[1], function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 ajaxRemoveMessage($msg);
                 $container

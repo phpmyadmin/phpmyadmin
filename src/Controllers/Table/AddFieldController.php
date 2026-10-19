@@ -147,7 +147,6 @@ final readonly class AddFieldController implements InvocableController
                 Url::getFromRoute('/table/structure', [
                     'db' => Current::$database,
                     'table' => Current::$table,
-                    'ajax_request' => '1',
                 ]),
             );
 

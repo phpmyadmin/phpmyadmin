@@ -115,7 +115,6 @@
 
     {% if is_ajax %}
       <input type="hidden" name="editor_process_{{ mode }}" value="true">
-      <input type="hidden" name="ajax_request" value="true">
     {% else %}
       <div class="card-footer">
         <input class="btn btn-primary" type="submit" name="editor_process_{{ mode }}" value="{{ t('Go') }}">

@@ -53,8 +53,8 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         );
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withHeader('X-Requested-With', 'XMLHttpRequest')
             ->withParsedBody([
-                'ajax_request' => 'true',
                 'database' => 'database',
                 'query' => 'query',
             ]);

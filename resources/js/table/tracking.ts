@@ -60,7 +60,7 @@ AJAX.registerOnload('table/tracking.js', function () {
         const $button = $(this);
         const $form = $button.parent('form');
         const argsep = CommonParams.get('arg_separator');
-        const submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
+        const submitData = $form.serialize() + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
 
         if ($button.val() === 'delete_version') {
             const question = window.Messages.strDeleteTrackingVersionMultiple;
