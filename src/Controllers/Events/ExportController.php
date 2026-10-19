@@ -35,7 +35,7 @@ final readonly class ExportController implements InvocableController
     {
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            return $this->responseRenderer->respondWithErrorMessage(__('No databases selected.'));
+            return $this->responseRenderer->respondWithErrorMessage(__('No database selected.'));
         }
 
         $this->responseRenderer->addScriptFiles(['events.js', 'sql.js']);

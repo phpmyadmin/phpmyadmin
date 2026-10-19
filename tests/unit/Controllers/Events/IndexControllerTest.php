@@ -154,6 +154,7 @@ final class IndexControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface(config: $config);
         $template = new Template($config);
         $responseRenderer = new ResponseRenderer();
+        $responseRenderer->setAjax(true);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'https://example.com/')
             ->withHeader('X-Requested-With', 'XMLHttpRequest');
@@ -166,8 +167,12 @@ final class IndexControllerTest extends AbstractTestCase
         ))($request);
 
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
-        self::assertSame('', (string) $response->getBody());
-        self::assertSame(['message' => 'No database selected.'], $responseRenderer->getJSONResult());
+        self::assertSame(
+            '{"success":false,"error":"<div class=\"alert alert-danger\" role=\"alert\">\n'
+            . '  <img src=\"themes\/dot.gif\" title=\"\" alt=\"\" class=\"icon ic_s_error\"> No database selected.\n'
+            . '<\/div>\n"}',
+            (string) $response->getBody(),
+        );
         self::assertFalse($responseRenderer->hasSuccessState());
     }
 
