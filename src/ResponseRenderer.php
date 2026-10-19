@@ -461,4 +461,16 @@ class ResponseRenderer
     {
         $this->addHTML($this->template->render($templatePath, $templateData));
     }
+
+    public function respondWithErrorMessage(string $errorMessage): Response
+    {
+        if ($this->isAjax()) {
+            $this->setRequestStatus(false);
+            $this->addJSON('message', Message::error($errorMessage));
+
+            return $this->response();
+        }
+
+        return $this->redirectToRoute('/', ['reload' => true, 'message' => $errorMessage]);
+    }
 }
