@@ -51,7 +51,7 @@ final readonly class CollationController implements InvocableController
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', Message::error(__('No databases selected.')));
+            $this->response->addJSON('message', Message::error(__('No database selected.')));
 
             return $this->response->response();
         }

@@ -37,15 +37,7 @@ final readonly class IndexController implements InvocableController
     {
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            $message = __('No database selected.');
-            if (! $request->isAjax()) {
-                return $this->response->redirectToRoute('/', ['reload' => true, 'message' => $message]);
-            }
-
-            $this->response->addJSON('message', $message);
-            $this->response->setRequestStatus(false);
-
-            return $this->response->response();
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         $this->response->addScriptFiles(['events.js', 'sql.js']);
