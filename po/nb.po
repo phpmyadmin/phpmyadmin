@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-05-25 18:05+0000\n"
+"POT-Creation-Date: 2026-10-19 17:00+0000\n"
 "PO-Revision-Date: 2025-05-10 06:01+0000\n"
 "Last-Translator: ClearanceClarence <adrian.thomassen92@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -3692,7 +3692,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:477
-#: libraries/classes/Util.php:1946 libraries/config.values.php:155
+#: libraries/classes/Util.php:1958 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
@@ -3809,8 +3809,8 @@ msgstr "Endringssporing"
 #: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:255
 #: libraries/classes/Menu.php:362 libraries/classes/Menu.php:482
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
-#: libraries/classes/Util.php:1496 libraries/classes/Util.php:1947
-#: libraries/classes/Util.php:1962 libraries/classes/Util.php:1979
+#: libraries/classes/Util.php:1492 libraries/classes/Util.php:1959
+#: libraries/classes/Util.php:1974 libraries/classes/Util.php:1991
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
@@ -4516,7 +4516,7 @@ msgstr "Ignorer låste tabeller"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:122
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:387
-#: libraries/classes/Display/Results.php:2978
+#: libraries/classes/Display/Results.php:2982
 #: libraries/classes/Html/Generator.php:614
 #: libraries/classes/Html/Generator.php:868
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -4524,8 +4524,8 @@ msgstr "Ignorer låste tabeller"
 #: templates/database/central_columns/main.twig:265
 #: templates/database/central_columns/main.twig:376
 #: templates/database/central_columns/main.twig:377
-#: templates/database/events/index.twig:76
-#: templates/database/events/index.twig:79
+#: templates/database/events/index.twig:77
+#: templates/database/events/index.twig:80
 #: templates/database/events/row.twig:23 templates/database/events/row.twig:26
 #: templates/database/routines/row.twig:20
 #: templates/database/routines/row.twig:23
@@ -4588,7 +4588,7 @@ msgstr "CHAR textarea rader"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:126
 #: libraries/classes/Server/Privileges.php:1819
 #: libraries/classes/Server/Privileges.php:1821
-#: libraries/classes/Server/Status/Processes.php:131
+#: libraries/classes/Server/Status/Processes.php:133
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
 #: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
@@ -4862,8 +4862,8 @@ msgstr "Egendefinert"
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:51
 #: libraries/classes/Navigation/Nodes/NodeTable.php:301
-#: libraries/classes/Util.php:1495 libraries/classes/Util.php:1961
-#: libraries/classes/Util.php:1978 libraries/config.values.php:60
+#: libraries/classes/Util.php:1491 libraries/classes/Util.php:1973
+#: libraries/classes/Util.php:1990 libraries/config.values.php:60
 #: libraries/config.values.php:74 libraries/config.values.php:165
 #: libraries/config.values.php:175
 #: templates/columns_definitions/table_fields_definitions.twig:4
@@ -4911,10 +4911,10 @@ msgstr "Open Document tekst"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 #: libraries/classes/Menu.php:277 libraries/classes/Menu.php:382
 #: libraries/classes/Menu.php:510 libraries/classes/Server/Privileges.php:1513
-#: libraries/classes/Util.php:1950 libraries/classes/Util.php:1965
-#: libraries/classes/Util.php:1982 templates/database/events/index.twig:17
-#: templates/database/events/index.twig:18
-#: templates/database/events/index.twig:88
+#: libraries/classes/Util.php:1962 libraries/classes/Util.php:1977
+#: libraries/classes/Util.php:1994 templates/database/events/index.twig:18
+#: templates/database/events/index.twig:19
+#: templates/database/events/index.twig:89
 #: templates/database/events/row.twig:36
 #: templates/database/privileges/index.twig:91
 #: templates/database/privileges/index.twig:116
@@ -4955,8 +4955,8 @@ msgstr "CSV med LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:309
 #: libraries/classes/Menu.php:286 libraries/classes/Menu.php:392
-#: libraries/classes/Menu.php:515 libraries/classes/Util.php:1951
-#: libraries/classes/Util.php:1966 libraries/classes/Util.php:1983
+#: libraries/classes/Menu.php:515 libraries/classes/Util.php:1963
+#: libraries/classes/Util.php:1978 libraries/classes/Util.php:1995
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
@@ -5324,7 +5324,7 @@ msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: libraries/classes/Controllers/Database/ExportController.php:81
+#: libraries/classes/Controllers/Database/ExportController.php:82
 #: libraries/classes/Controllers/Database/TrackingController.php:130
 #: libraries/classes/Controllers/Export/ExportController.php:443
 #: libraries/classes/Database/Qbe.php:322
@@ -5333,7 +5333,7 @@ msgstr ""
 msgid "No tables found in database."
 msgstr "Databasen har ingen tabeller."
 
-#: libraries/classes/Controllers/Database/ExportController.php:143
+#: libraries/classes/Controllers/Database/ExportController.php:147
 #: libraries/classes/Controllers/Server/ExportController.php:73
 #: libraries/classes/Controllers/Table/ExportController.php:104
 msgid "Could not load export plugins, please check your installation!"
@@ -5411,7 +5411,7 @@ msgstr "Ingen tabeller er valgt."
 msgid "Success!"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/StructureController.php:370
+#: libraries/classes/Controllers/Database/StructureController.php:372
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, fuzzy, php-format
@@ -5419,29 +5419,29 @@ msgstr ""
 msgid "View %s has been dropped."
 msgstr "Visningen %s har blitt slettet"
 
-#: libraries/classes/Controllers/Database/StructureController.php:370
+#: libraries/classes/Controllers/Database/StructureController.php:372
 #: templates/table/operations/index.twig:451
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
 msgstr "Tabellen %s har blitt slettet"
 
-#: libraries/classes/Controllers/Database/StructureController.php:417
+#: libraries/classes/Controllers/Database/StructureController.php:419
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabellen %s har blitt tømt."
 
-#: libraries/classes/Controllers/Database/StructureController.php:589
-#: libraries/classes/Display/Results.php:4006
+#: libraries/classes/Controllers/Database/StructureController.php:591
+#: libraries/classes/Display/Results.php:4010
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
 "%sdocumentation%s."
 msgstr "Denne visningen har minst dette antall rader. Sjekk %sdocumentation%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:786
+#: libraries/classes/Controllers/Database/StructureController.php:788
 msgid "unknown"
 msgstr "ukjent"
 
@@ -5491,7 +5491,7 @@ msgstr "Ja"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:75
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:416
+#: libraries/classes/Controllers/Table/ReplaceController.php:418
 #: libraries/classes/Core.php:741 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Ingen endring"
@@ -6179,13 +6179,13 @@ msgstr "Annet"
 
 #. l10n: Thousands separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:151
-#: libraries/classes/Util.php:551 libraries/classes/Util.php:583
+#: libraries/classes/Util.php:547 libraries/classes/Util.php:579
 msgid ","
 msgstr "."
 
 #. l10n: Decimal separator
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:153
-#: libraries/classes/Util.php:549 libraries/classes/Util.php:581
+#: libraries/classes/Util.php:545 libraries/classes/Util.php:577
 msgid "."
 msgstr ","
 
@@ -6295,45 +6295,45 @@ msgstr "Prosesser"
 
 #. l10n: shortcuts for Byte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:192
-#: libraries/classes/Util.php:459
+#: libraries/classes/Util.php:455
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Kilobyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:193
-#: libraries/classes/Util.php:461
+#: libraries/classes/Util.php:457
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
-#: libraries/classes/Util.php:463
+#: libraries/classes/Util.php:459
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:195
-#: libraries/classes/Util.php:465
+#: libraries/classes/Util.php:461
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
-#: libraries/classes/Util.php:467
+#: libraries/classes/Util.php:463
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
-#: libraries/classes/Util.php:469
+#: libraries/classes/Util.php:465
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
-#: libraries/classes/Util.php:471
+#: libraries/classes/Util.php:467
 msgid "EiB"
 msgstr "EiB"
 
@@ -6353,7 +6353,7 @@ msgid "Traffic"
 msgstr "Trafikk"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:204
-#: libraries/classes/Menu.php:520 libraries/classes/Util.php:1952
+#: libraries/classes/Menu.php:520 libraries/classes/Util.php:1964
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Innstillinger"
@@ -6368,12 +6368,12 @@ msgid "Please add at least one variable to the series!"
 msgstr "Legg minst én variabel til serien!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:207
-#: libraries/classes/Display/Results.php:1274
+#: libraries/classes/Display/Results.php:1278
 #: libraries/classes/Plugins/Export/ExportSql.php:2263
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
-#: templates/columns_definitions/column_attributes.twig:217
-#: templates/columns_definitions/column_attributes.twig:240
+#: templates/columns_definitions/column_attributes.twig:227
+#: templates/columns_definitions/column_attributes.twig:250
 #: templates/database/central_columns/main.twig:305
 #: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
@@ -6586,10 +6586,10 @@ msgstr "Forklar utdata"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:274
 #: libraries/classes/Menu.php:487
-#: libraries/classes/Server/Status/Processes.php:143
-#: libraries/classes/Util.php:1948 libraries/config.values.php:157
+#: libraries/classes/Server/Status/Processes.php:145
+#: libraries/classes/Util.php:1960 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
-#: templates/database/events/index.twig:46
+#: templates/database/events/index.twig:47
 #: templates/database/tracking/tables.twig:17
 #: templates/table/tracking/main.twig:31
 msgid "Status"
@@ -6600,7 +6600,7 @@ msgstr "Status"
 #: libraries/classes/Plugins/Export/ExportOdt.php:602
 #: libraries/classes/Plugins/Export/ExportTexytext.php:468
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:371
-#: libraries/classes/Server/Status/Processes.php:139
+#: libraries/classes/Server/Status/Processes.php:141
 #: templates/database/triggers/list.twig:49
 #: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
@@ -6982,7 +6982,7 @@ msgid "Edit query"
 msgstr "Kjør spørring"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3046
+#: libraries/classes/Display/Results.php:3050
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -7247,7 +7247,7 @@ msgstr "Datapunktinnhold"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2020
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2039
 #: templates/table/index_form.twig:170 templates/table/index_form.twig:213
 msgid "Ignore"
 msgstr "Ignorer"
@@ -7258,7 +7258,7 @@ msgid "Copy to clipboard"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:477
-#: libraries/classes/Display/Results.php:2982
+#: libraries/classes/Display/Results.php:2986
 #: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:234
 #: templates/display/results/table.twig:235
@@ -7892,7 +7892,7 @@ msgid "No such column"
 msgstr "Fjern kolonne(r)"
 
 #: libraries/classes/Controllers/NormalizationController.php:46
-#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:854
+#: libraries/classes/Normalization.php:250 libraries/classes/Types.php:869
 msgctxt "string types"
 msgid "String"
 msgstr "Streng"
@@ -8735,7 +8735,7 @@ msgid "The number of threads that are not sleeping."
 msgstr "Antall tråder som ikke sover."
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
-#: libraries/classes/Util.php:841
+#: libraries/classes/Util.php:837
 msgid "Missing parameter:"
 msgstr "Mangler parametere:"
 
@@ -8846,7 +8846,7 @@ msgstr "Tabel %s eksisterer allerede!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1237
-#: libraries/classes/Display/Results.php:3704 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3708 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "Kommandoen/spørringen er utført."
@@ -8888,7 +8888,7 @@ msgstr "Ugylding tabellnavn"
 msgid "There is an issue with your request."
 msgstr "Det er ingen filer å laste opp"
 
-#: libraries/classes/Controllers/Table/GetFieldController.php:86
+#: libraries/classes/Controllers/Table/GetFieldController.php:87
 #: libraries/classes/Database/Routines.php:1256
 #: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:230
 #: libraries/classes/Sql.php:1010
@@ -8936,7 +8936,7 @@ msgstr "Tråd %s ble avsluttet med suksess."
 msgid "Internal relationships were successfully updated."
 msgstr "Intern relasjon lagt til"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:295
+#: libraries/classes/Controllers/Table/ReplaceController.php:297
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rad: %1$s, Kolonne: %2$s, Feil: %3$s"
@@ -8947,7 +8947,7 @@ msgid "Failed to get description of column %s!"
 msgstr "Kunne ikke hente beskrivelsen av kolonne %s!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:220
-#: templates/columns_definitions/column_attributes.twig:112
+#: templates/columns_definitions/column_attributes.twig:122
 #: templates/database/data_dictionary/index.twig:42
 #: templates/table/structure/display_structure.twig:137
 #: templates/table/structure/display_structure.twig:145
@@ -8958,7 +8958,7 @@ msgstr "Primær"
 
 #: libraries/classes/Controllers/Table/StructureController.php:224
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:28
-#: templates/columns_definitions/column_attributes.twig:120
+#: templates/columns_definitions/column_attributes.twig:130
 #: templates/columns_definitions/table_fields_definitions.twig:46
 #: templates/table/structure/display_structure.twig:167
 #: templates/table/structure/display_structure.twig:175
@@ -9155,7 +9155,7 @@ msgstr "Følgende spørringer har blitt utført:"
 #: libraries/classes/Database/Events.php:108
 #: libraries/classes/Database/Events.php:117
 #: libraries/classes/Database/Events.php:143
-#: libraries/classes/Database/Events.php:515
+#: libraries/classes/Database/Events.php:518
 #: libraries/classes/Database/Routines.php:229
 #: libraries/classes/Database/Routines.php:250
 #: libraries/classes/Database/Routines.php:352
@@ -9231,17 +9231,17 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:512
+#: libraries/classes/Database/Events.php:515
 msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
-#: libraries/classes/Database/Events.php:513
+#: libraries/classes/Database/Events.php:516
 #: libraries/classes/Database/Routines.php:1551
 #: libraries/classes/Database/Triggers.php:435
 msgid "The backed up query was:"
 msgstr ""
 
-#: libraries/classes/Database/Events.php:544
+#: libraries/classes/Database/Events.php:547
 #: libraries/classes/Database/Routines.php:151
 #: libraries/classes/Database/Routines.php:1156
 #: libraries/classes/Database/Routines.php:1325
@@ -9251,19 +9251,19 @@ msgstr ""
 msgid "Error in processing request:"
 msgstr "Feil i prosesseringsforespørsel"
 
-#: libraries/classes/Database/Events.php:546
+#: libraries/classes/Database/Events.php:549
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Ingen tabeller funnet i databasen"
 
-#: libraries/classes/Database/Events.php:578
+#: libraries/classes/Database/Events.php:581
 #, fuzzy, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
 msgstr "Eksporter innhold"
 
-#: libraries/classes/Database/Events.php:599
+#: libraries/classes/Database/Events.php:602
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid ""
@@ -9293,7 +9293,7 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Tilkoblingen for kontrollbrukeren som definert i din konfigurasjon feilet."
 
-#: libraries/classes/DatabaseInterface.php:2421
+#: libraries/classes/DatabaseInterface.php:2435
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9561,56 +9561,56 @@ msgid ""
 "%2$s."
 msgstr "Ingen tabeller funnet i databasen"
 
-#: libraries/classes/Dbal/DbiMysqli.php:153
+#: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
-#: libraries/classes/Dbal/DbiMysqli.php:165
+#: libraries/classes/Dbal/DbiMysqli.php:166
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:910 templates/list_navigator.twig:8
+#: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
 msgctxt "First page"
 msgid "Begin"
 msgstr "Start"
 
-#: libraries/classes/Display/Results.php:917 templates/list_navigator.twig:16
+#: libraries/classes/Display/Results.php:921 templates/list_navigator.twig:16
 #: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Forrige"
 
-#: libraries/classes/Display/Results.php:943 templates/list_navigator.twig:33
+#: libraries/classes/Display/Results.php:947 templates/list_navigator.twig:33
 #: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Neste"
 
-#: libraries/classes/Display/Results.php:973 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:977 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr "Siste"
 
-#: libraries/classes/Display/Results.php:1481
+#: libraries/classes/Display/Results.php:1485
 #: templates/display/results/table.twig:132
 msgid "Partial texts"
 msgstr "Delvise tekster"
 
-#: libraries/classes/Display/Results.php:1485
+#: libraries/classes/Display/Results.php:1489
 #: templates/display/results/table.twig:136
 msgid "Full texts"
 msgstr "Hele tekster"
 
-#: libraries/classes/Display/Results.php:1828
-#: libraries/classes/Display/Results.php:1854 libraries/classes/Util.php:2575
-#: libraries/classes/Util.php:2598 libraries/config.values.php:113
+#: libraries/classes/Display/Results.php:1832
+#: libraries/classes/Display/Results.php:1858 libraries/classes/Util.php:2587
+#: libraries/classes/Util.php:2610 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:111
@@ -9622,9 +9622,9 @@ msgstr "Hele tekster"
 msgid "Descending"
 msgstr "Synkende"
 
-#: libraries/classes/Display/Results.php:1836
-#: libraries/classes/Display/Results.php:1846 libraries/classes/Util.php:2567
-#: libraries/classes/Util.php:2590 libraries/config.values.php:112
+#: libraries/classes/Display/Results.php:1840
+#: libraries/classes/Display/Results.php:1850 libraries/classes/Util.php:2579
+#: libraries/classes/Util.php:2602 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:109
@@ -9636,42 +9636,42 @@ msgstr "Synkende"
 msgid "Ascending"
 msgstr "Stigende"
 
-#: libraries/classes/Display/Results.php:3022
-#: libraries/classes/Display/Results.php:3037
+#: libraries/classes/Display/Results.php:3026
+#: libraries/classes/Display/Results.php:3041
 msgid "The row has been deleted."
 msgstr "Raden er slettet."
 
-#: libraries/classes/Display/Results.php:3069
+#: libraries/classes/Display/Results.php:3073
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Avslutt"
 
-#: libraries/classes/Display/Results.php:3637
+#: libraries/classes/Display/Results.php:3641
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Kan være unøyaktig. Se [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3709
-#: libraries/classes/Display/Results.php:4047 libraries/classes/Sql.php:1016
+#: libraries/classes/Display/Results.php:3713
+#: libraries/classes/Display/Results.php:4051 libraries/classes/Sql.php:1016
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Spørring tok %01.4f sekunder."
 
-#: libraries/classes/Display/Results.php:4015
+#: libraries/classes/Display/Results.php:4019
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Viser radene %1s - %2s"
 
-#: libraries/classes/Display/Results.php:4029
+#: libraries/classes/Display/Results.php:4033
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d total, %2$d i spørring"
 
-#: libraries/classes/Display/Results.php:4034
+#: libraries/classes/Display/Results.php:4038
 #, php-format
 msgid "%d total"
 msgstr "%d totalt"
 
-#: libraries/classes/Display/Results.php:4378
+#: libraries/classes/Display/Results.php:4380
 msgid "Link not found!"
 msgstr "Link ikke funnet!"
 
@@ -10349,7 +10349,7 @@ msgstr "Funksjon"
 #: templates/database/central_columns/main.twig:224
 #: templates/database/data_dictionary/index.twig:24
 #: templates/database/data_dictionary/index.twig:75
-#: templates/database/events/index.twig:47
+#: templates/database/events/index.twig:48
 #: templates/database/privileges/index.twig:19
 #: templates/database/routines/editor_form.twig:26
 #: templates/database/routines/editor_form.twig:51
@@ -10396,7 +10396,7 @@ msgstr "Viser SQL spørring"
 msgid "Inserted row id: %1$d"
 msgstr "Insatt rad id: %1$d"
 
-#: libraries/classes/LanguageManager.php:982
+#: libraries/classes/LanguageManager.php:989
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -10412,7 +10412,7 @@ msgstr ""
 
 #: libraries/classes/Menu.php:240
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
-#: libraries/classes/Util.php:1499 libraries/classes/Util.php:1977
+#: libraries/classes/Util.php:1495 libraries/classes/Util.php:1989
 #: libraries/config.values.php:68 libraries/config.values.php:82
 #: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
@@ -10422,8 +10422,8 @@ msgstr "Se på"
 
 #: libraries/classes/Menu.php:259 libraries/classes/Menu.php:366
 #: libraries/classes/Navigation/Nodes/NodeTable.php:304
-#: libraries/classes/Util.php:1497 libraries/classes/Util.php:1963
-#: libraries/classes/Util.php:1980 libraries/config.values.php:64
+#: libraries/classes/Util.php:1493 libraries/classes/Util.php:1975
+#: libraries/classes/Util.php:1992 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
 #: libraries/config.values.php:179 templates/database/routines/index.twig:28
 #: templates/database/routines/index.twig:29
@@ -10435,7 +10435,7 @@ msgstr "Søk"
 
 #: libraries/classes/Menu.php:270
 #: libraries/classes/Navigation/Nodes/NodeTable.php:307
-#: libraries/classes/Util.php:1498 libraries/classes/Util.php:1981
+#: libraries/classes/Util.php:1494 libraries/classes/Util.php:1993
 #: libraries/config.values.php:66 libraries/config.values.php:80
 #: libraries/config.values.php:181
 #: templates/database/qbe/ins_del_and_or_cell.twig:6
@@ -10445,8 +10445,8 @@ msgid "Insert"
 msgstr "Sett inn"
 
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:406
-#: libraries/classes/Server/Privileges.php:2843 libraries/classes/Util.php:1968
-#: libraries/classes/Util.php:1984 libraries/config.values.php:161
+#: libraries/classes/Server/Privileges.php:2843 libraries/classes/Util.php:1980
+#: libraries/classes/Util.php:1996 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
 #: templates/server/sub_page_header.twig:2
@@ -10455,14 +10455,14 @@ msgid "Privileges"
 msgstr "Privilegier"
 
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:317
-#: libraries/classes/Menu.php:397 libraries/classes/Util.php:1500
-#: libraries/classes/Util.php:1967 libraries/classes/Util.php:1985
+#: libraries/classes/Menu.php:397 libraries/classes/Util.php:1496
+#: libraries/classes/Util.php:1979 libraries/classes/Util.php:1997
 #: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr "Operasjoner"
 
 #: libraries/classes/Menu.php:323 libraries/classes/Menu.php:432
-#: libraries/classes/Util.php:1972 libraries/classes/Util.php:1986
+#: libraries/classes/Util.php:1984 libraries/classes/Util.php:1998
 msgid "Tracking"
 msgstr "Overvåkning"
 
@@ -10475,7 +10475,7 @@ msgstr "Overvåkning"
 #: libraries/classes/Plugins/Export/ExportSql.php:2120
 #: libraries/classes/Plugins/Export/ExportTexytext.php:554
 #: libraries/classes/Plugins/Export/ExportXml.php:121
-#: libraries/classes/Util.php:1971 libraries/classes/Util.php:1987
+#: libraries/classes/Util.php:1983 libraries/classes/Util.php:1999
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Triggere"
@@ -10485,11 +10485,11 @@ msgstr "Triggere"
 msgid "Database seems to be empty!"
 msgstr "Databasen ser ut til å være tom!"
 
-#: libraries/classes/Menu.php:374 libraries/classes/Util.php:1964
+#: libraries/classes/Menu.php:374 libraries/classes/Util.php:1976
 msgid "Query"
 msgstr "Spørring"
 
-#: libraries/classes/Menu.php:412 libraries/classes/Util.php:1969
+#: libraries/classes/Menu.php:412 libraries/classes/Util.php:1981
 #: templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Rutiner"
@@ -10499,15 +10499,15 @@ msgstr "Rutiner"
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1030
 #: libraries/classes/Plugins/Export/ExportXml.php:101
-#: libraries/classes/Util.php:1970 templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1982 templates/database/events/index.twig:3
 msgid "Events"
 msgstr "Hendelser"
 
-#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1973
+#: libraries/classes/Menu.php:439 libraries/classes/Util.php:1985
 msgid "Designer"
 msgstr "Designer"
 
-#: libraries/classes/Menu.php:446 libraries/classes/Util.php:1974
+#: libraries/classes/Menu.php:446 libraries/classes/Util.php:1986
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Hovedkolonner"
@@ -10517,12 +10517,12 @@ msgid "User accounts"
 msgstr "Brukerkontoer"
 
 #: libraries/classes/Menu.php:535 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1953 templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1965 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Binærlogg"
 
 #: libraries/classes/Menu.php:542 libraries/classes/Server/Status/Data.php:157
-#: libraries/classes/Util.php:1954
+#: libraries/classes/Util.php:1966
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
 #: templates/server/replication/index.twig:5
@@ -10530,21 +10530,21 @@ msgid "Replication"
 msgstr "Replikering"
 
 #: libraries/classes/Menu.php:548 libraries/classes/Server/Status/Data.php:229
-#: libraries/classes/Util.php:1955 libraries/config.values.php:159
+#: libraries/classes/Util.php:1967 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Variabler"
 
-#: libraries/classes/Menu.php:553 libraries/classes/Util.php:1956
+#: libraries/classes/Menu.php:553 libraries/classes/Util.php:1968
 msgid "Charsets"
 msgstr "Tegnsett"
 
-#: libraries/classes/Menu.php:558 libraries/classes/Util.php:1958
+#: libraries/classes/Menu.php:558 libraries/classes/Util.php:1970
 msgid "Engines"
 msgstr "Motorer"
 
-#: libraries/classes/Menu.php:563 libraries/classes/Util.php:1957
+#: libraries/classes/Menu.php:563 libraries/classes/Util.php:1969
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Programtillegg"
@@ -11088,10 +11088,10 @@ msgstr "Reparer"
 msgid "Truncate"
 msgstr ""
 
-#: libraries/classes/Operations.php:565 templates/database/events/index.twig:20
-#: templates/database/events/index.twig:21
-#: templates/database/events/index.twig:98
-#: templates/database/events/index.twig:104
+#: libraries/classes/Operations.php:565 templates/database/events/index.twig:21
+#: templates/database/events/index.twig:22
+#: templates/database/events/index.twig:99
+#: templates/database/events/index.twig:105
 #: templates/database/events/row.twig:47 templates/database/events/row.twig:53
 #: templates/database/routines/index.twig:20
 #: templates/database/routines/index.twig:21
@@ -11430,7 +11430,7 @@ msgstr "Lenker til"
 #: templates/database/central_columns/edit.twig:8
 #: templates/database/central_columns/main.twig:16
 #: templates/database/central_columns/main.twig:220
-#: templates/database/events/index.twig:45
+#: templates/database/events/index.twig:46
 #: templates/database/routines/editor_form.twig:50
 #: templates/database/routines/execute_form.twig:15
 #: templates/database/routines/index.twig:52
@@ -12228,7 +12228,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:72
-#: libraries/classes/Util.php:710
+#: libraries/classes/Util.php:706
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d. %B, %Y %H:%M %p"
 
@@ -12439,13 +12439,13 @@ msgstr ""
 "Konverterer en (IPv4) Internett nettverksadresse til en streng i "
 "Internettstandard prikkete format."
 
-#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:44
+#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:45
 #, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
 msgstr "Formaterer tekst som en SQL spørring med syntaksutheving."
 
-#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:44
+#: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:45
 #, fuzzy
 #| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
@@ -12505,11 +12505,11 @@ msgstr "Rekkefølge for vertsautentisering"
 msgid "For testing purposes only!"
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:180
+#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:183
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
+#: libraries/classes/Plugins/TwoFactor/WebAuthn.php:189
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
@@ -13063,7 +13063,7 @@ msgid "Privileges for %s"
 msgstr "Privilegier"
 
 #: libraries/classes/Server/Privileges.php:2869
-#: libraries/classes/Server/Status/Processes.php:123
+#: libraries/classes/Server/Status/Processes.php:125
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Bruker"
@@ -13117,7 +13117,7 @@ msgid "You have added a new user."
 msgstr "Du har lagt til en ny bruker."
 
 #: libraries/classes/Server/Status/Data.php:146
-#: libraries/classes/Server/Status/Processes.php:156
+#: libraries/classes/Server/Status/Processes.php:158
 #: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr "SQL-spørring"
@@ -13194,22 +13194,22 @@ msgstr "Vis slavestatus"
 msgid "Flush query cache"
 msgstr "Flush spørringsbufferen"
 
-#: libraries/classes/Server/Status/Processes.php:119
+#: libraries/classes/Server/Status/Processes.php:121
 msgid "ID"
 msgstr "ID"
 
-#: libraries/classes/Server/Status/Processes.php:127
+#: libraries/classes/Server/Status/Processes.php:129
 #: templates/server/replication/primary_add_replica_user.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
 msgid "Host"
 msgstr "Vert"
 
-#: libraries/classes/Server/Status/Processes.php:135
+#: libraries/classes/Server/Status/Processes.php:137
 msgid "Command"
 msgstr "Kommando"
 
-#: libraries/classes/Server/Status/Processes.php:150
+#: libraries/classes/Server/Status/Processes.php:152
 msgid "Progress"
 msgstr "Framdrift"
 
@@ -13321,7 +13321,7 @@ msgstr "%s har blitt dekativert for denne MySQL tjeneren."
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denne MySQL tjeneren har ikke støtte for %s lagringsmotoren."
 
-#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2122
+#: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2134
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "Navnet til primærnøkkelen må være \"PRIMARY\"!"
 
@@ -13334,34 +13334,34 @@ msgstr "Problemer med indeksene i tabellen `%s`"
 msgid "Unknown table status:"
 msgstr "Ukjent tabellstatus:"
 
-#: libraries/classes/Table.php:1028
+#: libraries/classes/Table.php:1040
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Kildedatabasen \"%s\" ble ikke funnet!"
 
-#: libraries/classes/Table.php:1037
+#: libraries/classes/Table.php:1049
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Måldatabasen %s ble ikke funnet!"
 
-#: libraries/classes/Table.php:1499
+#: libraries/classes/Table.php:1511
 msgid "Invalid database:"
 msgstr "Ugylding database:"
 
-#: libraries/classes/Table.php:1517
+#: libraries/classes/Table.php:1529
 msgid "Invalid table name:"
 msgstr "Ugyldig tabellnavn:"
 
-#: libraries/classes/Table.php:1569
+#: libraries/classes/Table.php:1581
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabellen %1$s har endret navn til %2$s."
 
-#: libraries/classes/Table.php:1814
+#: libraries/classes/Table.php:1826
 msgid "Could not save table UI preferences!"
 msgstr "Kunne ikke lagre preferanser for tabellgrensesnitt!"
 
-#: libraries/classes/Table.php:1840
+#: libraries/classes/Table.php:1852
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -13370,7 +13370,7 @@ msgstr ""
 "Feil ved opprydning av preferansene for tabellgrensesnitt (se $cfg['Servers']"
 "[$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/classes/Table.php:1975
+#: libraries/classes/Table.php:1987
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -13381,15 +13381,15 @@ msgstr ""
 "etter at du har lastet denne siden på nytt. Vennligst sjekk om "
 "tabellstrukturen har blitt endret."
 
-#: libraries/classes/Table.php:2134
+#: libraries/classes/Table.php:2146
 msgid "Can't rename index to PRIMARY!"
 msgstr "Kan ikke endre indeks til PRIMARY!"
 
-#: libraries/classes/Table.php:2169
+#: libraries/classes/Table.php:2181
 msgid "No index parts defined!"
 msgstr "Ingen indeksdeler definert!"
 
-#: libraries/classes/Table.php:2469
+#: libraries/classes/Table.php:2481
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -13844,38 +13844,42 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Types.php:441
+msgid "Intended for storage of IPv4 addresses"
+msgstr ""
+
+#: libraries/classes/Types.php:444
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: libraries/classes/Types.php:446
+#: libraries/classes/Types.php:449
 #, fuzzy
 #| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "Lagrer en Universally Unique Identifier (UUID)"
 
-#: libraries/classes/Types.php:449
+#: libraries/classes/Types.php:452
 msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
 
-#: libraries/classes/Types.php:453
+#: libraries/classes/Types.php:456
 msgid "Intended for storage of XML data"
 msgstr ""
 
-#: libraries/classes/Types.php:802
+#: libraries/classes/Types.php:812
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numerisk"
 
-#: libraries/classes/Types.php:820
+#: libraries/classes/Types.php:830
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Dato og tid"
 
-#: libraries/classes/Types.php:856
+#: libraries/classes/Types.php:871
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Romtyper"
@@ -13909,78 +13913,78 @@ msgstr "Maksimum størrelse: %s%s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:667 templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:663 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:669 templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:665 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:671 templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:667 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:673 templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:669 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: libraries/classes/Util.php:675
+#: libraries/classes/Util.php:671
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:677 templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:673 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:679 templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:675 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:681 templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:677 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:683 templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:679 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:685 templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:681 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:687 templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:683 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:689 templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:685 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr "Des"
 
 #. l10n: Short week day name for Sunday
-#: libraries/classes/Util.php:693
+#: libraries/classes/Util.php:689
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
@@ -13988,55 +13992,55 @@ msgid "Sun"
 msgstr "Søn"
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:695 templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:691 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr "Man"
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:697 templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:693 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr "Tir"
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:699 templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:695 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr "Ons"
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:701 templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:697 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr "Tor"
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:703 templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:699 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr "Fre"
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:705 templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:701 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr "Lør"
 
-#: libraries/classes/Util.php:733
+#: libraries/classes/Util.php:729
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: libraries/classes/Util.php:735
+#: libraries/classes/Util.php:731
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: libraries/classes/Util.php:807
+#: libraries/classes/Util.php:803
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dager, %s timer, %s minutter og %s sekunder"
 
-#: libraries/classes/Util.php:1949
+#: libraries/classes/Util.php:1961
 msgid "Users"
 msgstr "Brukere"
 
-#: libraries/classes/Util.php:2559
+#: libraries/classes/Util.php:2571
 #: templates/database/multi_table_query/form.twig:67
 msgid "Sort"
 msgstr "Sorter"
@@ -14254,7 +14258,7 @@ msgstr "Ingen"
 msgid "As defined:"
 msgstr "Som definert:"
 
-#: templates/columns_definitions/column_attributes.twig:102
+#: templates/columns_definitions/column_attributes.twig:112
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
@@ -14262,7 +14266,7 @@ msgid ""
 "to the documentation for more details"
 msgstr "Du har ikke nok rettigheter til å være her nå!"
 
-#: templates/columns_definitions/column_attributes.twig:116
+#: templates/columns_definitions/column_attributes.twig:126
 #: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:18
 #: templates/table/structure/display_structure.twig:152
 #: templates/table/structure/display_structure.twig:160
@@ -14272,32 +14276,32 @@ msgstr "Du har ikke nok rettigheter til å være her nå!"
 msgid "Unique"
 msgstr "Unik"
 
-#: templates/columns_definitions/column_attributes.twig:124
+#: templates/columns_definitions/column_attributes.twig:134
 #: templates/table/structure/display_structure.twig:219
 #: templates/table/structure/display_structure.twig:222
 #: templates/table/structure/display_structure.twig:307
 msgid "Fulltext"
 msgstr "Fulltekst"
 
-#: templates/columns_definitions/column_attributes.twig:128
+#: templates/columns_definitions/column_attributes.twig:138
 #: templates/table/structure/display_structure.twig:192
 #: templates/table/structure/display_structure.twig:200
 #: templates/table/structure/display_structure.twig:304
 msgid "Spatial"
 msgstr ""
 
-#: templates/columns_definitions/column_attributes.twig:165
+#: templates/columns_definitions/column_attributes.twig:175
 #: templates/table/structure/display_partitions.twig:26
 #, fuzzy
 #| msgid "Compression"
 msgid "Expression"
 msgstr "Kompresjon"
 
-#: templates/columns_definitions/column_attributes.twig:186
+#: templates/columns_definitions/column_attributes.twig:196
 msgid "first"
 msgstr ""
 
-#: templates/columns_definitions/column_attributes.twig:191
+#: templates/columns_definitions/column_attributes.twig:201
 #: templates/table/structure/display_structure.twig:450
 #, fuzzy, php-format
 #| msgid "After %s"
@@ -15287,7 +15291,7 @@ msgstr "Komplette inserts"
 msgid "Definer"
 msgstr ""
 
-#: templates/database/events/index.twig:14
+#: templates/database/events/index.twig:15
 #: templates/database/privileges/index.twig:113
 #: templates/database/privileges/index.twig:114
 #: templates/database/routines/index.twig:14
@@ -15313,34 +15317,40 @@ msgstr ""
 msgid "Check all"
 msgstr "Merk alle"
 
-#: templates/database/events/index.twig:29
+#: templates/database/events/index.twig:30
 #, fuzzy
 #| msgid "Create event"
 msgid "Create new event"
 msgstr "Opprett bruker"
 
-#: templates/database/events/index.twig:38
+#: templates/database/events/index.twig:39
 #, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no events to display."
 msgstr "Det er ingen filer å laste opp"
 
-#: templates/database/events/index.twig:114
+#: templates/database/events/index.twig:115
 msgid "Event scheduler status"
 msgstr ""
 
-#: templates/database/events/index.twig:119
+#: templates/database/events/index.twig:120
 #: templates/database/tracking/tables.twig:47
 msgid "Click to toggle"
 msgstr "Klikk for å endre"
 
-#: templates/database/events/index.twig:132
+#: templates/database/events/index.twig:133
 msgid "ON"
 msgstr ""
 
-#: templates/database/events/index.twig:143
+#: templates/database/events/index.twig:144
 msgid "OFF"
 msgstr ""
+
+#: templates/database/events/index.twig:158
+#, fuzzy
+#| msgid "slow_query_log is enabled."
+msgid "The event scheduler is disabled."
+msgstr "slow_query_log er aktivert."
 
 #: templates/database/export/index.twig:61
 #, fuzzy
