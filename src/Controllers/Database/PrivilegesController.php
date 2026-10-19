@@ -44,10 +44,8 @@ final readonly class PrivilegesController implements InvocableController
             if ($this->dbi->getLowerCaseNames() === 1) {
                 $db = DatabaseName::from(mb_strtolower($db->getName()));
             }
-        } catch (InvalidDatabaseName $exception) {
-            $this->response->addHTML(Message::error($exception->getMessage()));
-
-            return $this->response->response();
+        } catch (InvalidDatabaseName) {
+            return $this->response->missingParameterError('db');
         }
 
         $this->response->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
