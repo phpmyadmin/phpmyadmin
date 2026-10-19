@@ -419,10 +419,9 @@ class PrivilegesTest extends AbstractTestCase
 
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $_POST['pma_pw'] = 'pma_pw';
         $_POST['authentication_plugin'] = 'mysql_native_password';
 
-        $message = $serverPrivileges->updatePassword($username, $hostname);
+        $message = $serverPrivileges->updatePassword($username, $hostname, 'pma_pw', 'pma_pw', false);
 
         self::assertSame(
             'The password for \'pma_username\'@\'pma_hostname\' was changed successfully.',

@@ -259,6 +259,9 @@ final readonly class PrivilegesController implements InvocableController
                 Current::$message = $serverPrivileges->updatePassword(
                     $serverPrivileges->username ?? '',
                     $serverPrivileges->hostname ?? '',
+                    $request->getParsedBodyParamAsString('pma_pw', ''),
+                    $request->getParsedBodyParamAsString('pma_pw2', ''),
+                    (bool) $request->getParsedBodyParam('nopass'),
                 );
             } catch (UpdateAuthPluginFailure | UserPasswordUpdateFailure $exception) {
                 if ($request->isAjax()) {
