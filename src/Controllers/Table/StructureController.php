@@ -23,7 +23,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Indexes\Index;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
@@ -88,26 +87,12 @@ readonly class StructureController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
         if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No table selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
+            return $this->response->respondWithErrorMessage(__('No table selected.'));
         }
 
         $primary = Index::getPrimary($this->dbi, Current::$table, Current::$database);

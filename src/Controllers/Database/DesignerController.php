@@ -13,7 +13,6 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Template;
@@ -170,14 +169,7 @@ final readonly class DesignerController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         $scriptDisplayField = $this->designerCommon->getTablesInfo();
