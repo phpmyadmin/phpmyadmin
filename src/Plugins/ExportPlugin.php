@@ -34,9 +34,6 @@ abstract class ExportPlugin implements Plugin
      */
     protected ExportPluginProperties $properties;
 
-    public static ExportType $exportType = ExportType::Raw;
-    public static bool $singleTable = false;
-
     protected StructureOrData $structureOrData = StructureOrData::Data;
 
     final public function __construct(
@@ -45,6 +42,8 @@ abstract class ExportPlugin implements Plugin
         protected readonly Transformations $transformations,
         protected readonly DatabaseInterface $dbi,
         protected readonly Config $config,
+        protected readonly ExportType $exportType = ExportType::Raw,
+        protected readonly bool $singleTable = false,
     ) {
         $this->properties = $this->setProperties();
     }

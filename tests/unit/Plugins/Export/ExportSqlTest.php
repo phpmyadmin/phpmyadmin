@@ -16,7 +16,6 @@ use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportSql;
-use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -63,15 +62,11 @@ final class ExportSqlTest extends AbstractTestCase
         Current::$table = '';
         Current::$lang = 'en';
         OutputHandler::$asFile = false;
-        ExportPlugin::$exportType = ExportType::Table;
-        ExportPlugin::$singleTable = false;
     }
 
     public function testSetPropertiesWithHideSql(): void
     {
         // test with hide structure and hide sql as true
-        ExportPlugin::$exportType = ExportType::Table;
-        ExportPlugin::$singleTable = false;
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
         $exportSql = $this->getExportSql();
@@ -91,9 +86,6 @@ final class ExportSqlTest extends AbstractTestCase
             ->method('getCompatibilities')
             ->willReturn(['v1', 'v2']);
 
-        ExportPlugin::$exportType = ExportType::Server;
-        ExportPlugin::$singleTable = false;
-
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::DATABASE => 'db',
             RelationParameters::RELATION => 'relation',
@@ -104,7 +96,7 @@ final class ExportSqlTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
-        $exportSql = $this->getExportSql($dbi);
+        $exportSql = $this->getExportSql($dbi, ExportType::Server);
         $properties = $method->invoke($exportSql, null);
 
         self::assertInstanceOf(ExportPluginProperties::class, $properties);
@@ -953,8 +945,9 @@ final class ExportSqlTest extends AbstractTestCase
         );
 
         // case 3
+        $exportSql = $this->getExportSql(exportType: ExportType::Raw);
+        $exportSql->setExportOptions($request, new Export());
         $exportSql->useSqlBackquotes(false);
-        ExportPlugin::$exportType = ExportType::Raw;
 
         ob_start();
         $exportSql->exportStructure('test_db', 'test_table', 'create_view');
@@ -1476,12 +1469,21 @@ final class ExportSqlTest extends AbstractTestCase
         self::assertSame($expectedQuery, $result);
     }
 
-    private function getExportSql(DatabaseInterface|null $dbi = null): ExportSql
-    {
+    private function getExportSql(
+        DatabaseInterface|null $dbi = null,
+        ExportType $exportType = ExportType::Table,
+    ): ExportSql {
         $dbi ??= $this->createDatabaseInterface();
         $config = new Config();
         $relation = new Relation($dbi, $config);
 
-        return new ExportSql($relation, new OutputHandler(), new Transformations($dbi, $relation), $dbi, $config);
+        return new ExportSql(
+            $relation,
+            new OutputHandler(),
+            new Transformations($dbi, $relation),
+            $dbi,
+            $config,
+            $exportType,
+        );
     }
 }

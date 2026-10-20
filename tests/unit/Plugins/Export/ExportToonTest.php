@@ -12,8 +12,6 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportToon;
-use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
@@ -38,8 +36,6 @@ class ExportToonTest extends AbstractTestCase
         parent::setUp();
 
         OutputHandler::$asFile = false;
-        ExportPlugin::$exportType = ExportType::Table;
-        ExportPlugin::$singleTable = false;
         Current::$database = '';
         Current::$table = '';
         Current::$lang = 'en';

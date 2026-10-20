@@ -16,7 +16,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Plugins\Export\ExportSql;
-use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
@@ -148,14 +147,20 @@ class ExportTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
 
-        ExportPlugin::$exportType = ExportType::Database;
         $relation = new Relation($dbi, $config);
         $export->exportDatabase(
             DatabaseName::from('test_db'),
             ['test_table'],
             ['test_table'],
             ['test_table'],
-            new ExportSql($relation, $export->outputHandler, new Transformations($dbi, $relation), $dbi, $config),
+            new ExportSql(
+                $relation,
+                $export->outputHandler,
+                new Transformations($dbi, $relation),
+                $dbi,
+                $config,
+                ExportType::Database,
+            ),
             [],
             SeparateFiles::None,
         );
@@ -178,7 +183,6 @@ class ExportTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = '';
-        ExportPlugin::$exportType = ExportType::Server;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy = $this->createDbiDummy();
@@ -225,7 +229,14 @@ class ExportTest extends AbstractTestCase
         $relation = new Relation($dbi, $config);
         $export->exportServer(
             ['test_db'],
-            new ExportSql($relation, $export->outputHandler, new Transformations($dbi, $relation), $dbi, $config),
+            new ExportSql(
+                $relation,
+                $export->outputHandler,
+                new Transformations($dbi, $relation),
+                $dbi,
+                $config,
+                ExportType::Server,
+            ),
             [],
             SeparateFiles::None,
         );

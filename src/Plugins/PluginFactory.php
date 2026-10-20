@@ -43,16 +43,21 @@ final readonly class PluginFactory
         ExportType $exportType = ExportType::Raw,
         bool $singleTable = false,
     ): ExportPlugin|null {
-        ExportPlugin::$exportType = $exportType;
-        ExportPlugin::$singleTable = $singleTable;
-
         $pluginFormat = mb_strtoupper($format[0]) . mb_strtolower(mb_substr($format, 1));
         $class = sprintf('PhpMyAdmin\\Plugins\\Export\\Export%s', $pluginFormat);
         if (! class_exists($class) || ! is_subclass_of($class, ExportPlugin::class)) {
             return null;
         }
 
-        return new $class($this->relation, $this->outputHandler, $this->transformations, $this->dbi, $this->config);
+        return new $class(
+            $this->relation,
+            $this->outputHandler,
+            $this->transformations,
+            $this->dbi,
+            $this->config,
+            $exportType,
+            $singleTable,
+        );
     }
 
     public function getSchemaPlugin(string $format): SchemaPlugin|null
@@ -72,9 +77,6 @@ final readonly class PluginFactory
      */
     public function getAllExportPlugins(ExportType $type, bool $singleTable): array
     {
-        ExportPlugin::$exportType = $type;
-        ExportPlugin::$singleTable = $singleTable;
-
         $plugins = [];
         foreach (self::getAvailableClasses('Export') as $class) {
             if (! is_subclass_of($class, ExportPlugin::class)) {
@@ -87,6 +89,8 @@ final readonly class PluginFactory
                 $this->transformations,
                 $this->dbi,
                 $this->config,
+                $type,
+                $singleTable,
             );
         }
 

@@ -146,7 +146,7 @@ class ExportSql extends ExportPlugin
 
     protected function setProperties(): ExportPluginProperties
     {
-        $hideSql = ExportPlugin::$exportType === ExportType::Table && ! ExportPlugin::$singleTable;
+        $hideSql = $this->exportType === ExportType::Table && ! $this->singleTable;
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('SQL');
@@ -276,7 +276,7 @@ class ExportSql extends ExportPlugin
         $subgroup->setSubgroupHeader($leaf);
 
         // server export options
-        if (ExportPlugin::$exportType === ExportType::Server) {
+        if ($this->exportType === ExportType::Server) {
             $leaf = new BoolPropertyItem(
                 'sql_drop_database',
                 sprintf(__('Add %s statement'), '<code>DROP DATABASE IF EXISTS</code>'),
@@ -284,7 +284,7 @@ class ExportSql extends ExportPlugin
             $subgroup->addProperty($leaf);
         }
 
-        if (ExportPlugin::$exportType === ExportType::Database) {
+        if ($this->exportType === ExportType::Database) {
             $createClause = '<code>CREATE DATABASE / USE</code>';
             $leaf = new BoolPropertyItem(
                 'sql_create_database',
@@ -293,7 +293,7 @@ class ExportSql extends ExportPlugin
             $subgroup->addProperty($leaf);
         }
 
-        if (ExportPlugin::$exportType === ExportType::Table) {
+        if ($this->exportType === ExportType::Table) {
             $dropClause = $this->dbi->getTable(Current::$database, Current::$table)->isView()
                 ? '<code>DROP VIEW</code>'
                 : '<code>DROP TABLE</code>';
@@ -837,7 +837,7 @@ class ExportSql extends ExportPlugin
             );
         }
 
-        if (ExportPlugin::$exportType === ExportType::Database && ! $this->createDatabase) {
+        if ($this->exportType === ExportType::Database && ! $this->createDatabase) {
             return;
         }
 
@@ -1884,7 +1884,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if (ExportPlugin::$exportType !== ExportType::Table) {
+                    if ($this->exportType !== ExportType::Table) {
                         $dump .= 'DROP TABLE IF EXISTS '
                             . Util::backquote($tableAlias) . ';' . "\n";
                     }
@@ -1899,7 +1899,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if (ExportPlugin::$exportType !== ExportType::Table) {
+                    if ($this->exportType !== ExportType::Table) {
                         $dump .= 'DROP TABLE IF EXISTS '
                         . Util::backquote($tableAlias) . ';' . "\n";
                     }

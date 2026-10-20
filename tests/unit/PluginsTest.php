@@ -46,11 +46,22 @@ class PluginsTest extends AbstractTestCase
         $pluginFactory = $this->createPluginFactory($this->createDatabaseInterface());
         $plugins = $pluginFactory->getAllExportPlugins(ExportType::Database, false);
         $isCurl = extension_loaded('curl');
-        self::assertSame(ExportType::Database, ExportPlugin::$exportType);
-        self::assertFalse(ExportPlugin::$singleTable);
         $pluginCount = $isCurl ? 15 : 14;
         self::assertCount($pluginCount, $plugins);
         self::assertContainsOnlyInstancesOf(ExportPlugin::class, $plugins);
+    }
+
+    public function testGetExportPluginUsesExportTypeAndSingleTable(): void
+    {
+        $pluginFactory = $this->createPluginFactory($this->createDatabaseInterface());
+
+        $plugin = $pluginFactory->getExportPlugin('sql', ExportType::Table, false);
+        self::assertInstanceOf(ExportSql::class, $plugin);
+        self::assertNull($plugin->getProperties()->getOptions());
+
+        $plugin = $pluginFactory->getExportPlugin('sql', ExportType::Database, false);
+        self::assertInstanceOf(ExportSql::class, $plugin);
+        self::assertNotNull($plugin->getProperties()->getOptions());
     }
 
     public function testGetImport(): void
