@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
@@ -45,7 +46,7 @@ class NavigationTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config);
+        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config, new ThemeManager());
     }
 
     /**
@@ -65,7 +66,7 @@ class NavigationTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
         $config = Config::getInstance();
-        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config);
+        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config, new ThemeManager());
         $this->object->hideNavigationItem('itemName', 'itemType', 'db');
     }
 
@@ -86,7 +87,7 @@ class NavigationTest extends AbstractTestCase
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
         $config = Config::getInstance();
-        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config);
+        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config, new ThemeManager());
         $this->object->unhideNavigationItem('itemName', 'itemType', 'db');
     }
 

@@ -4537,6 +4537,11 @@
       <code><![CDATA[Current::$sqlQuery]]></code>
     </MixedArgument>
   </file>
+  <file src="src/Http/Middleware/ThemeInitialization.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="src/Http/Middleware/UriSchemeUpdating.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
