@@ -17,8 +17,6 @@ use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportTexytext;
-use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -47,8 +45,6 @@ final class ExportTexytextTest extends AbstractTestCase
         parent::setUp();
 
         OutputHandler::$asFile = false;
-        ExportPlugin::$exportType = ExportType::Table;
-        ExportPlugin::$singleTable = false;
         Current::$database = '';
         Current::$table = '';
         Current::$lang = 'en';
