@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-18 00:40+0000\n"
-"PO-Revision-Date: 2026-04-27 16:31+0000\n"
-"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
+"PO-Revision-Date: 2026-10-20 14:45+0000\n"
+"Last-Translator: dingo thirteen <dingo13@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
 "Language: nl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2283,7 +2283,7 @@ msgstr ""
 #: resources/templates/triggers/editor_form.twig:67
 #: resources/templates/view_create.twig:55
 msgid "Definer"
-msgstr "DEFINER"
+msgstr "Definer"
 
 #: resources/templates/database/routines/editor_form.twig:154
 msgid "Security type"
@@ -2666,7 +2666,7 @@ msgstr "Voeg AUTO INCREMENT-waarde toe"
 #: resources/templates/table/structure/drop_confirm.twig:7
 #: resources/templates/table/structure/primary.twig:3
 msgid "Do you really want to execute the following query?"
-msgstr "Weet u zeker dat u de volgende SQL-query wil uitvoeren?"
+msgstr "Weet u zeker dat u de volgende query wil uitvoeren?"
 
 #: resources/templates/database/structure/drop_form.twig:15
 #: resources/templates/database/structure/empty_form.twig:15
@@ -2746,7 +2746,7 @@ msgstr "View"
 #: resources/templates/sql/no_results_returned.twig:14
 #: resources/templates/view_create.twig:14
 msgid "Create view"
-msgstr "VIEW aanmaken"
+msgstr "View aanmaken"
 
 #: resources/templates/database/structure/structure_table_row.twig:17
 #: resources/templates/server/databases/index.twig:219
@@ -3189,10 +3189,8 @@ msgid "Export event"
 msgstr "Export gebeurtenis"
 
 #: resources/templates/events/index.twig:189
-#, fuzzy
-#| msgid "The slow query log is disabled."
 msgid "The event scheduler is disabled."
-msgstr "De trage query log is uitgeschakeld."
+msgstr "De event scheduler is uitgeschakeld."
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -4545,10 +4543,9 @@ msgid "Check privileges"
 msgstr "Controleer rechten"
 
 #: resources/templates/server/databases/index.twig:244
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL queries on database \"%s\"."
-msgstr "Voer SQL-query/-query's uit op database %s"
+msgstr "Voer SQL queries uit op database \" %s\"."
 
 #: resources/templates/server/databases/index.twig:245
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
@@ -4685,7 +4682,7 @@ msgstr "Exporteer meerdere databases vanuit de huidige server"
 
 #: resources/templates/server/import/index.twig:3
 msgid "Importing into the current server"
-msgstr "Importeren naar de huidige MySQL-server"
+msgstr "Importeren in de huidige server"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:522
 #: src/Util.php:1381
@@ -5433,9 +5430,9 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"Let er op dat u op iedere MySQL-server een uniek server-id heeft ingesteld "
-"in het configuratiebestand (my.cnf). Voeg anders de onderstaande regels toe "
-"aan de sectie [mysqld]:"
+"Let er op dat u een uniek server-id heeft ingesteld in het "
+"configuratiebestand (my.cnf). Voeg anders de onderstaande regels toe aan de "
+"sectie [mysqld]:"
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
@@ -5993,7 +5990,7 @@ msgstr "Kies het logbestand waarvan u de statistieken wil genereren."
 
 #: resources/templates/server/status/monitor/index.twig:250
 msgid "Results are grouped by query text."
-msgstr "Resultaten worden gegroepeerd door de tekst van de SQL-query."
+msgstr "Resultaten worden gegroepeerd door de tekst van de query."
 
 #: resources/templates/server/status/monitor/index.twig:256
 msgid "From slow log"
@@ -6206,8 +6203,7 @@ msgstr ""
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
-"Deze MySQL-server is ingesteld als <b>replica</b> in een <b>replicatie</"
-"b>proces."
+"Deze MySQL-server werkt als <b>replica</b> in een <b>replicatie</b>proces."
 
 #: resources/templates/server/status/status/index.twig:69
 msgid "Replication status"
@@ -7883,11 +7879,11 @@ msgstr "Gemiddelde aantal gesorteerde regels: %s"
 
 #: src/Advisory/Rules.php:275
 msgid "Rate of joins without indexes"
-msgstr "Aandeel JOINS zonder index"
+msgstr "Aantal joins zonder indexen"
 
 #: src/Advisory/Rules.php:278
 msgid "There are too many joins without indexes."
-msgstr "Er zijn teveel JOINS zonder indexen."
+msgstr "Er zijn teveel joins zonder indexen."
 
 #: src/Advisory/Rules.php:280
 msgid ""
@@ -7952,7 +7948,7 @@ msgid ""
 "applicable."
 msgstr ""
 "Dit wijst erop dat veel query's resultaten moeten sorteren en/of een tabel "
-"volledig doorzoeken, inbegrepen JOIN-query's die geen gebruik maken van "
+"volledig doorzoeken, inbegrepen join-query's die geen gebruik maken van "
 "indexen. Voeg indexen toe waar nodig."
 
 #: src/Advisory/Rules.php:313
@@ -8793,7 +8789,7 @@ msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "De maximale grootte van een resultatenset in de querycache is de standaard "
-"van 1 MB."
+"van 1 MiB."
 
 #: src/Advisory/Rules.php:876
 msgid ""
@@ -10180,10 +10176,10 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
-"Let op: Deze functie heeft niet de verwachte werking wanneer u gebruik maakt "
-"van [kbd]config[/kbd] authenticatie, gezien uw wachtwoord dan vast in het "
-"configuratiebestand staat opgeslagen; dit beperkt echter niet de "
-"mogelijkheid om de bijbehorende SQL-opdracht handmatig uit te voeren."
+"Let op dat deze functie niet de verwachte werking heeft wanneer u gebruik "
+"maakt van [kbd]config[/kbd] authenticatie, gezien uw wachtwoord dan vast in "
+"het configuratiebestand staat opgeslagen; dit beperkt echter niet de "
+"mogelijkheid om de bijbehorende opdracht handmatig uit te voeren."
 
 #: src/Config/Descriptions.php:470
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -10886,7 +10882,7 @@ msgstr "%s view"
 
 #: src/Config/Descriptions.php:708
 msgid "Use ignore inserts"
-msgstr "'INSERT IGNORE' gebruiken"
+msgstr "Gebruik ignore inserts"
 
 #: src/Config/Descriptions.php:710
 msgid "Syntax to use when inserting data"
@@ -11061,7 +11057,7 @@ msgstr "Breek een handeling niet af bij een INSERT-fout"
 
 #: src/Config/Descriptions.php:775 src/Plugins/Import/ImportCsv.php:157
 msgid "Import empty values as NULL"
-msgstr ""
+msgstr "Importeer lege velden als NULL"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:783
 msgid "Add ON DUPLICATE KEY UPDATE"
@@ -12408,10 +12404,8 @@ msgstr "Misschien wilt u de pagina vernieuwen."
 
 #: src/Controllers/Events/ExportController.php:38
 #: src/Controllers/Events/IndexController.php:40
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No database selected."
-msgstr "Er zijn geen databases geselecteerd."
+msgstr "Geen database geselecteerd."
 
 #: src/Controllers/Events/ExportController.php:63
 #, php-format
@@ -12428,7 +12422,7 @@ msgstr ""
 
 #: src/Controllers/Events/IndexController.php:69
 msgid "The event was dropped immediately after creation."
-msgstr ""
+msgstr "De gebeurtenis werd direct na de aanmaak verwijderd."
 
 #: src/Controllers/Events/IndexController.php:137
 msgid "Add event"
@@ -12493,9 +12487,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"De geldigheid van het cookie gedefinieerd door een PHP-parameter is korter "
-"dan die instelling in phpMyAdmin. Hierdoor verloopt uw sessie eerder dan in "
-"phpMyAdmin is ingesteld."
+"De opslagduur van de login cookie is korter dan de geldigheidsduur van "
+"cookies zoals geconfigureerd in phpMyAdmin. Hierdoor zal uw inlogsessie "
+"eerder verlopen dan in phpMyAdmin is ingesteld."
 
 #: src/Controllers/HomeController.php:300
 msgid ""
@@ -12530,34 +12524,25 @@ msgstr ""
 "[doc@cfg_blowfish_secret]documentatie[/doc]."
 
 #: src/Controllers/HomeController.php:349
-#, fuzzy
-#| msgid ""
-#| "The configuration file needs a valid key for cookie encryption. A "
-#| "temporary key was automatically generated for you. Please refer to the "
-#| "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgid ""
 "The configuration file needs a valid key for query encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"Het configuratiebestand heeft een geldige sleutel nodig voor cookie "
+"Het configuratiebestand heeft een geldige sleutel nodig voor query "
 "encryptie. Een tijdelijke sleutel is automatisch voor u gegenereerd. Voor "
-"meer informatie zie [doc@cfg_blowfish_secret]documentatie[/doc]."
+"meer informatie zie [doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 
 #: src/Controllers/HomeController.php:359
-#, fuzzy, php-format
-#| msgid ""
-#| "The cookie encryption key in the configuration file is longer than "
-#| "necessary. It should only be %d bytes long. Please refer to the "
-#| "[doc@cfg_blowfish_secret]documentation[/doc]."
+#, php-format
 msgid ""
 "The query encryption key in the configuration file is longer than necessary. "
 "It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"De cookie encryptie sleutel in het configuratiebestand is langer dan nodig. "
+"De query encryptie sleutel in het configuratiebestand is langer dan nodig. "
 "Het hoeft maar %d bytes lang te zijn. Voor meer informatie zie "
-"[doc@cfg_blowfish_secret]documentatie[/doc]."
+"[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 
 #: src/Controllers/HomeController.php:377
 msgid ""
@@ -12625,7 +12610,7 @@ msgstr "Onjuist parameterformaat"
 
 #: src/Controllers/Import/ImportController.php:252
 msgid "Sorry an unexpected error happened!"
-msgstr "Sorry, er is een onverwachte fout opgetreden!"
+msgstr "Sorry een onverwachte fout is opgetreden!"
 
 #: src/Controllers/Import/ImportController.php:297
 #: src/Controllers/Import/ImportController.php:508
@@ -12671,7 +12656,7 @@ msgid ""
 msgstr ""
 "Tijdens de laatste poging zijn er geen gegevens gelezen; meestal betekent "
 "dit dat phpMyAdmin het importeren niet kan afmaken, tenzij de "
-"tijdsbeperkingen van PHP worden versoepeld."
+"tijdsbeperkingen van php worden versoepeld."
 
 #: src/Controllers/Import/ImportController.php:634
 #: src/Controllers/Sql/SqlController.php:138
@@ -13465,11 +13450,11 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:378
 msgid "Hide query box"
-msgstr "SQL-queryveld verbergen"
+msgstr "Verberg query veld"
 
 #: src/Controllers/JavaScriptMessagesController.php:379
 msgid "Show query box"
-msgstr "SQL-queryveld tonen"
+msgstr "Toon query veld"
 
 #: src/Controllers/JavaScriptMessagesController.php:381
 msgid "Edit query"
@@ -14206,6 +14191,8 @@ msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
+"Het verzoek voor volledig scherm werd geweigerd omdat de Fullscreen API in "
+"de browser is uitgeschakeld op basis van gebruikersvoorkeuren."
 
 #: src/Controllers/JavaScriptMessagesController.php:701
 msgctxt "Month name"
@@ -14774,7 +14761,7 @@ msgstr ""
 
 #: src/Controllers/Server/Status/VariablesController.php:238
 msgid "How many temporary files mysqld has created."
-msgstr "Het aantal tijdelijke bestanden dat door MySQL is aangemaakt."
+msgstr "Hoeveel tijdelijke bestanden mysqld heeft aangemaakt."
 
 #: src/Controllers/Server/Status/VariablesController.php:240
 msgid ""
@@ -16385,10 +16372,8 @@ msgstr ""
 "1.11[/doc]."
 
 #: src/File.php:372
-#, fuzzy
-#| msgid "Cannot read uploaded file."
 msgid "Cannot create temporary file."
-msgstr "Kan het geüploade bestand niet lezen."
+msgstr "Kan geen tijdelijk bestand maken."
 
 #: src/File.php:383
 msgid "Error while moving uploaded file."
@@ -16446,10 +16431,8 @@ msgid "Skip Explain SQL"
 msgstr "Uitleg SQL overslaan"
 
 #: src/Html/Generator.php:504
-#, fuzzy
-#| msgid "Skip Validate SQL"
 msgid "Skip Analyze SQL"
-msgstr "SQL-validatie overslaan"
+msgstr "SQL Analyze overslaan"
 
 #: src/Html/Generator.php:536
 msgid "Without PHP code"
@@ -17219,7 +17202,7 @@ msgstr "Vervang NULL door:"
 
 #: src/Plugins/Export/ExportCsv.php:93 src/Plugins/Export/ExportExcel.php:73
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Verwijder CRLF-tekens uit kolommen"
+msgstr "Verwijder carriage return/line feed tekens in de kolommen"
 
 #: src/Plugins/Export/ExportExcel.php:83
 msgid "Excel edition:"
@@ -19046,7 +19029,7 @@ msgstr ""
 
 #: src/Types.php:290
 msgid "Intended for storage of IPv4 addresses"
-msgstr ""
+msgstr "Bedoeld voor het opslaan van IPv4 adressen"
 
 #: src/Types.php:291
 msgid ""
@@ -19065,10 +19048,12 @@ msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
+"Slaat vectordata op die is geoptimaliseerd voor bewerkingen zoals "
+"gelijksoortige zoekopdrachten en machine learning toepassingen"
 
 #: src/Types.php:297
 msgid "Intended for storage of XML data"
-msgstr ""
+msgstr "Bedoeld voor het opslaan van XML data"
 
 #: src/Types.php:615
 msgctxt "numeric types"
