@@ -60,12 +60,13 @@ class HeaderTest extends AbstractTestCase
         $template = new Template($config);
         $history = new History($dbi, $relation, $config);
         $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
+        $themeManager = new ThemeManager();
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
             $userPreferences,
             new LanguageManager($config),
-            new ThemeManager(),
+            $themeManager,
         );
 
         return new Header(
@@ -76,6 +77,7 @@ class HeaderTest extends AbstractTestCase
             $relation,
             $userPreferences,
             $userPreferencesHandler,
+            $themeManager,
         );
     }
 
@@ -91,14 +93,24 @@ class HeaderTest extends AbstractTestCase
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation, $config), $history);
         $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
+        $themeManager = new ThemeManager();
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
             $userPreferences,
             new LanguageManager($config),
-            new ThemeManager(),
+            $themeManager,
         );
-        $header = new Header($template, $console, $config, $dbi, $relation, $userPreferences, $userPreferencesHandler);
+        $header = new Header(
+            $template,
+            $console,
+            $config,
+            $dbi,
+            $relation,
+            $userPreferences,
+            $userPreferencesHandler,
+            $themeManager,
+        );
 
         $header->setBodyId('PMA_header_id');
         $actual = $header->getDisplay(new ResponseRenderer());

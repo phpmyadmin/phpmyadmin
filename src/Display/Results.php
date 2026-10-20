@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Display;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\SpecialSchemaLinks;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -220,6 +219,7 @@ class Results
         private readonly int $server,
         private readonly string $goto,
         private readonly string $sqlQuery,
+        private readonly ThemeManager $themeManager,
         Randomizer $randomizer = new Randomizer(),
     ) {
         $this->relation = new Relation($this->dbi);
@@ -1105,10 +1105,8 @@ class Results
             $urlParamsFullText['pftext'] = self::DISPLAY_FULL_TEXT;
         }
 
-        $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
-
         $tmpImage = '<img class="fulltext" src="'
-            . $themeManager->getThemeImagePath($tmpImageFile)
+            . $this->themeManager->getThemeImagePath($tmpImageFile)
             . '" alt="' . $tmpTxt . '" title="' . $tmpTxt . '">';
 
         return Generator::linkOrButton(Url::getFromRoute('/sql', $urlParamsFullText, false), null, $tmpImage);
