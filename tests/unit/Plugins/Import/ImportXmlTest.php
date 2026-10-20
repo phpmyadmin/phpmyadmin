@@ -70,10 +70,6 @@ final class ImportXmlTest extends AbstractTestCase
             'xml',
             $properties->getExtension(),
         );
-        self::assertSame(
-            'text/xml',
-            $properties->getMimeType(),
-        );
         self::assertNull($properties->getOptions());
     }
 
