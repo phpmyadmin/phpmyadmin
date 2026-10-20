@@ -11,9 +11,9 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\ExportType;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parser;
@@ -36,8 +36,11 @@ class TableMover
      */
     public string $sqlConstraintsQuery = '';
 
-    public function __construct(private readonly DatabaseInterface $dbi, private readonly Relation $relation)
-    {
+    public function __construct(
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        private readonly PluginFactory $pluginFactory,
+    ) {
     }
 
     public function moveCopy(
@@ -474,8 +477,11 @@ class TableMover
     ): bool {
         $maintainRelations = false;
 
-        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', ExportType::Table);
-        assert($exportSqlPlugin instanceof ExportSql);
+        $exportSqlPlugin = $this->pluginFactory->getExportPlugin('sql', ExportType::Table);
+        if (! $exportSqlPlugin instanceof ExportSql) {
+            return false;
+        }
+
         // Setting required export settings.
         OutputHandler::$asFile = true;
         // It is better that all identifiers are quoted

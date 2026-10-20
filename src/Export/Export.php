@@ -16,10 +16,9 @@ use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
-use PhpMyAdmin\Plugins\SchemaPlugin;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -53,8 +52,11 @@ class Export
     /** @var array<string> */
     public static array $tableData = [];
 
-    public function __construct(private DatabaseInterface $dbi, public OutputHandler $outputHandler)
-    {
+    public function __construct(
+        private DatabaseInterface $dbi,
+        public OutputHandler $outputHandler,
+        private PluginFactory $pluginFactory,
+    ) {
     }
 
     /**
@@ -669,8 +671,7 @@ class Export
         }
 
         // get the specific plugin
-        /** @var SchemaPlugin|null $exportPlugin */
-        $exportPlugin = Plugins::getPlugin('schema', $format);
+        $exportPlugin = $this->pluginFactory->getSchemaPlugin($format);
 
         // Check schema export type
         if ($exportPlugin === null) {

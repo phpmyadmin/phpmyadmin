@@ -69,12 +69,15 @@ final class ExportControllerTest extends AbstractTestCase
             new ThemeManager(),
         );
 
+        $pluginFactory = $this->createPluginFactory($dbi, $config);
+
         return new ExportController(
             $responseRenderer,
-            new Export($dbi, new OutputHandler()),
+            new Export($dbi, new OutputHandler(), $pluginFactory),
             new Options($relation, new TemplateModel($dbi), $userPreferencesHandler),
             new PageSettings($userPreferences, $responseRenderer),
             new DbTableExists($dbi),
+            $pluginFactory,
         );
     }
 }

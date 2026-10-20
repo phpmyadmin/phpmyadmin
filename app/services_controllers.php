@@ -70,6 +70,7 @@ use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\ResponseRenderer;
@@ -163,6 +164,7 @@ return [
             Options::class,
             PageSettings::class,
             DbTableExists::class,
+            PluginFactory::class,
         ],
     ],
     Database\ImportController::class => [
@@ -174,6 +176,7 @@ return [
             DbTableExists::class,
             Config::class,
             Ajax::class,
+            PluginFactory::class,
         ],
     ],
     Database\MultiTableQuery\QueryController::class => [
@@ -208,6 +211,7 @@ return [
             DatabaseInterface::class,
             DbTableExists::class,
             Config::class,
+            PluginFactory::class,
         ],
     ],
     Database\PrivilegesController::class => [
@@ -386,6 +390,7 @@ return [
             Config::class,
             UserPreferencesHandler::class,
             DatabaseInterface::class,
+            PluginFactory::class,
         ],
     ],
     Export\TablesController::class => [
@@ -646,7 +651,13 @@ return [
     ],
     Server\ExportController::class => [
         'class' => Server\ExportController::class,
-        'arguments' => [ResponseRenderer::class, Options::class, DatabaseInterface::class, PageSettings::class],
+        'arguments' => [
+            ResponseRenderer::class,
+            Options::class,
+            DatabaseInterface::class,
+            PageSettings::class,
+            PluginFactory::class,
+        ],
     ],
     Server\ImportController::class => [
         'class' => Server\ImportController::class,
@@ -656,6 +667,7 @@ return [
             PageSettings::class,
             Config::class,
             Ajax::class,
+            PluginFactory::class,
         ],
     ],
     Server\PluginsController::class => [
@@ -917,7 +929,7 @@ return [
     ],
     Table\ExportController::class => [
         'class' => Table\ExportController::class,
-        'arguments' => [ResponseRenderer::class, Options::class, PageSettings::class],
+        'arguments' => [ResponseRenderer::class, Options::class, PageSettings::class, PluginFactory::class],
     ],
     Table\ExportRowsController::class => [
         'class' => Table\ExportRowsController::class,
@@ -957,6 +969,7 @@ return [
             DbTableExists::class,
             Config::class,
             Ajax::class,
+            PluginFactory::class,
         ],
     ],
     Table\IndexesController::class => [

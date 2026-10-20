@@ -611,7 +611,7 @@ final class ExportHtmlwordTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['htmlword_structure_or_data' => 'structure']);
         $exportHtmlword->setExportOptions($request, new SettingsExport());
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         ob_start();
         $export->exportTable(
             'test_db',

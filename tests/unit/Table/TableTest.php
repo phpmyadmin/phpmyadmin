@@ -1099,7 +1099,11 @@ class TableTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $object = new TableMover($this->mockedDbi, new Relation($this->mockedDbi));
+        $object = new TableMover(
+            $this->mockedDbi,
+            new Relation($this->mockedDbi),
+            $this->createPluginFactory($this->mockedDbi),
+        );
         $ret = $object->duplicateInfo(
             RelationParameters::REL_WORK,
             RelationParameters::RELATION,
@@ -1502,7 +1506,11 @@ class TableTest extends AbstractTestCase
 
         $this->mockedDbi->method('getTable')->willReturnMap($getTableMap);
 
-        $object = new TableMover($this->mockedDbi, new Relation($this->mockedDbi));
+        $object = new TableMover(
+            $this->mockedDbi,
+            new Relation($this->mockedDbi),
+            $this->createPluginFactory($this->mockedDbi),
+        );
 
         $return = $object->moveCopy(
             $sourceDb,

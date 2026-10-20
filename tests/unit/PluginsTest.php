@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Import\Import;
@@ -29,7 +28,6 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Psr\Container\ContainerInterface;
 
 use function extension_loaded;
 
@@ -45,7 +43,8 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetExport(): void
     {
-        $plugins = Plugins::getExport(ExportType::Database, false);
+        $pluginFactory = $this->createPluginFactory($this->createDatabaseInterface());
+        $plugins = $pluginFactory->getAllExportPlugins(ExportType::Database, false);
         $isCurl = extension_loaded('curl');
         self::assertSame(ExportType::Database, ExportPlugin::$exportType);
         self::assertFalse(ExportPlugin::$singleTable);
@@ -57,14 +56,14 @@ class PluginsTest extends AbstractTestCase
     public function testGetImport(): void
     {
         ImportSettings::$importType = 'database';
-        $plugins = Plugins::getImport();
+        $plugins = $this->createPluginFactory($this->createDatabaseInterface())->getAllImportPlugins();
         self::assertCount(6, $plugins);
         self::assertContainsOnlyInstancesOf(ImportPlugin::class, $plugins);
     }
 
     public function testGetSchema(): void
     {
-        $plugins = Plugins::getSchema();
+        $plugins = $this->createPluginFactory($this->createDatabaseInterface())->getAllSchemaPlugins();
         self::assertCount(4, $plugins);
         self::assertContainsOnlyInstancesOf(SchemaPlugin::class, $plugins);
     }
@@ -139,21 +138,20 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetPlugin(): void
     {
-        ContainerBuilder::$container = null;
-        self::assertNull(Plugins::getPlugin('export', 'unknown'));
-        self::assertInstanceOf(ExportSql::class, Plugins::getPlugin('export', 'sql', ExportType::Table, true));
-        self::assertInstanceOf(ImportSql::class, Plugins::getPlugin('import', 'sql'));
-        self::assertInstanceOf(SchemaPdf::class, Plugins::getPlugin('schema', 'pdf'));
+        $pluginFactory = $this->createPluginFactory($this->createDatabaseInterface());
+        self::assertNull($pluginFactory->getExportPlugin('unknown'));
+        self::assertInstanceOf(ExportSql::class, $pluginFactory->getExportPlugin('sql', ExportType::Table, true));
+        self::assertInstanceOf(SchemaPdf::class, $pluginFactory->getSchemaPlugin('pdf'));
     }
 
     public function testGetOptionsForImport(): void
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SELECT @@local_infile;', [['1']]);
-        ContainerBuilder::$container = $this->getContainerForGetOptions($this->createDatabaseInterface($dbiDummy));
+        $pluginFactory = $this->createPluginFactory($this->createDatabaseInterface($dbiDummy));
         ImportSettings::$importType = 'table';
 
-        $options = Plugins::getOptions(PluginType::Import, Plugins::getImport());
+        $options = Plugins::getOptions(PluginType::Import, $pluginFactory->getAllImportPlugins());
         $dbiDummy->assertAllQueriesConsumed();
 
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -216,9 +214,10 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetOptionsForExport(): void
     {
-        ContainerBuilder::$container = $this->getContainerForGetOptions($this->createDatabaseInterface());
+        $pluginFactory = $this->createPluginFactory($this->createDatabaseInterface());
 
-        $options = Plugins::getOptions(PluginType::Export, Plugins::getExport(ExportType::Table, true));
+        $pluginList = $pluginFactory->getAllExportPlugins(ExportType::Table, true);
+        $options = Plugins::getOptions(PluginType::Export, $pluginList);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
@@ -435,8 +434,8 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetOptionsForSchema(): void
     {
-        ContainerBuilder::$container = $this->getContainerForGetOptions($this->createDatabaseInterface());
-        $options = Plugins::getOptions(PluginType::Schema, Plugins::getSchema());
+        $pluginFactory = $this->createPluginFactory($this->createDatabaseInterface());
+        $options = Plugins::getOptions(PluginType::Schema, $pluginFactory->getAllSchemaPlugins());
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
@@ -484,37 +483,6 @@ class PluginsTest extends AbstractTestCase
         // phpcs:enable
 
         self::assertSame($expected, $options);
-    }
-
-    private function getContainerForGetOptions(DatabaseInterface $dbi): ContainerInterface
-    {
-        return new class ($dbi) implements ContainerInterface {
-            public function __construct(private readonly DatabaseInterface $dbi)
-            {
-            }
-
-            /** @psalm-suppress MethodSignatureMismatch */
-            public function get(string $id): mixed
-            {
-                $config = new Config();
-                $relation = new Relation($this->dbi, $config);
-
-                return match ($id) {
-                    DatabaseInterface::class => $this->dbi,
-                    Config::class => $config,
-                    Import::class => new Import($this->dbi, new ResponseRenderer(), $config),
-                    Relation::class => $relation,
-                    Transformations::class => new Transformations($this->dbi, $relation),
-                    OutputHandler::class => new OutputHandler(),
-                    default => null,
-                };
-            }
-
-            public function has(string $id): bool
-            {
-                return true;
-            }
-        };
     }
 
     public function testValidatePluginNameOrUseDefaultForExport(): void

@@ -33,8 +33,9 @@ class ExportTest extends AbstractTestCase
 {
     public function testMergeAliases(): void
     {
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
-        $export = new Export(DatabaseInterface::getInstance(), new OutputHandler());
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $aliases1 = [
             'test_db' => [
                 'alias' => 'aliastest',
@@ -68,7 +69,7 @@ class ExportTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $config = new Config();
         $relation = new Relation($dbi, $config);
         $exportPlugin = new ExportPhparray(
@@ -94,7 +95,7 @@ class ExportTest extends AbstractTestCase
     {
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $config = new Config();
         $relation = new Relation($dbi, $config);
         $exportPlugin = new ExportPhparray(
@@ -145,7 +146,7 @@ class ExportTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
 
         ExportPlugin::$exportType = ExportType::Database;
         $relation = new Relation($dbi, $config);
@@ -219,7 +220,7 @@ class ExportTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
 
         $relation = new Relation($dbi, $config);
         $export->exportServer(
@@ -248,7 +249,7 @@ class ExportTest extends AbstractTestCase
         Current::$server = 2;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $location = $export->getPageLocationAndSaveMessage(ExportType::Server, Message::error('Error message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
@@ -263,7 +264,7 @@ class ExportTest extends AbstractTestCase
         Current::$server = 2;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $location = $export->getPageLocationAndSaveMessage(ExportType::Server, Message::success('Success message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
@@ -279,7 +280,7 @@ class ExportTest extends AbstractTestCase
         Current::$database = 'test_db';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $location = $export->getPageLocationAndSaveMessage(ExportType::Database, Message::error('Error message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
@@ -295,7 +296,7 @@ class ExportTest extends AbstractTestCase
         Current::$database = 'test_db';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $location = $export->getPageLocationAndSaveMessage(ExportType::Database, Message::success('Success message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
@@ -312,7 +313,7 @@ class ExportTest extends AbstractTestCase
         Current::$table = 'test_table';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $location = $export->getPageLocationAndSaveMessage(ExportType::Table, Message::error('Error message!'));
         self::assertSame(
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
@@ -332,7 +333,7 @@ class ExportTest extends AbstractTestCase
         Current::$table = 'test_table';
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $location = $export->getPageLocationAndSaveMessage(ExportType::Table, Message::success('Success message!'));
         self::assertSame(
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',

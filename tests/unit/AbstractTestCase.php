@@ -13,13 +13,18 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\I18n\LanguageManager;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Tracking\Tracker;
+use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\TestCase;
 use ReflectionProperty;
 
@@ -83,6 +88,23 @@ abstract class AbstractTestCase extends TestCase
         Config|null $config = null,
     ): DatabaseInterface {
         return DatabaseInterface::getInstanceForTest($extension ?? $this->createDbiDummy(), $config);
+    }
+
+    protected function createPluginFactory(
+        DatabaseInterface $dbi,
+        Config $config = new Config(),
+        OutputHandler $outputHandler = new OutputHandler(),
+    ): PluginFactory {
+        $relation = new Relation($dbi);
+
+        return new PluginFactory(
+            $relation,
+            $outputHandler,
+            new Transformations($dbi, $relation),
+            $dbi,
+            $config,
+            new Import($dbi, new ResponseRenderer(), $config),
+        );
     }
 
     protected function createDbiDummy(): DbiDummy

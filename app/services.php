@@ -44,6 +44,7 @@ use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\ResponseRenderer;
@@ -99,7 +100,13 @@ return [
     DbTableExists::class => ['class' => DbTableExists::class, 'arguments' => [DatabaseInterface::class]],
     Designer::class => [
         'class' => Designer::class,
-        'arguments' => [DatabaseInterface::class, Relation::class, Template::class, Config::class],
+        'arguments' => [
+            DatabaseInterface::class,
+            Relation::class,
+            Template::class,
+            Config::class,
+            PluginFactory::class,
+        ],
     ],
     Common::class => [
         'class' => Common::class,
@@ -111,7 +118,10 @@ return [
         'arguments' => [HttpRequest::class, Relation::class, Template::class, Config::class],
     ],
     Events::class => ['class' => Events::class, 'arguments' => [DatabaseInterface::class, Config::class]],
-    Export::class => ['class' => Export::class, 'arguments' => [DatabaseInterface::class, OutputHandler::class]],
+    Export::class => [
+        'class' => Export::class,
+        'arguments' => [DatabaseInterface::class, OutputHandler::class, PluginFactory::class],
+    ],
     Options::class => [
         'class' => Options::class,
         'arguments' => [Relation::class, TemplateModel::class, UserPreferencesHandler::class],
@@ -360,6 +370,17 @@ return [
         'class' => \PhpMyAdmin\Table\Maintenance::class,
         'arguments' => [DatabaseInterface::class],
     ],
+    PluginFactory::class => [
+        'class' => PluginFactory::class,
+        'arguments' => [
+            Relation::class,
+            OutputHandler::class,
+            Transformations::class,
+            DatabaseInterface::class,
+            Config::class,
+            Import::class,
+        ],
+    ],
     Search::class => ['class' => Search::class, 'arguments' => [DatabaseInterface::class]],
     Template::class => ['class' => Template::class, 'arguments' => [Config::class]],
     ThemeManager::class => ['class' => ThemeManager::class],
@@ -409,7 +430,10 @@ return [
         'class' => Console::class,
         'arguments' => [Relation::class, Template::class, BookmarkRepository::class, History::class],
     ],
-    TableMover::class => ['class' => TableMover::class, 'arguments' => [DatabaseInterface::class, Relation::class]],
+    TableMover::class => [
+        'class' => TableMover::class,
+        'arguments' => [DatabaseInterface::class, Relation::class, PluginFactory::class],
+    ],
     History::class => [
         'class' => History::class,
         'arguments' => [DatabaseInterface::class, Relation::class, Config::class],
