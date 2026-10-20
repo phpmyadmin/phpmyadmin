@@ -50,7 +50,7 @@ class ImportControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         ImportSettings::$importType = 'table';
-        $importList = Plugins::getImport();
+        $importList = $this->createPluginFactory($dbi, $config)->getAllImportPlugins();
         $choice = Plugins::getChoice($importList, 'xml');
         $options = Plugins::getOptions(PluginType::Import, $importList);
 
@@ -105,6 +105,7 @@ class ImportControllerTest extends AbstractTestCase
             new DbTableExists($dbi),
             $config,
             new Ajax(new Randomizer(new Mt19937(42))),
+            $this->createPluginFactory($dbi, $config),
         ))($request);
         self::assertSame($expected, $response->getHTMLResult());
     }

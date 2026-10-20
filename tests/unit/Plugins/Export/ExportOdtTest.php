@@ -815,7 +815,7 @@ final class ExportOdtTest extends AbstractTestCase
 
         $exportOdt = $this->getExportOdt($dbi);
         $exportOdt->setExportOptions($request, new SettingsExport());
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $export->exportTable(
             'testdb',
             'testtable',

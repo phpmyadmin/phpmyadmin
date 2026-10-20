@@ -13,8 +13,8 @@ use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportType;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 
@@ -29,6 +29,7 @@ final readonly class ExportController implements InvocableController
         private Options $export,
         private DatabaseInterface $dbi,
         private PageSettings $pageSettings,
+        private PluginFactory $pluginFactory,
     ) {
     }
 
@@ -50,7 +51,7 @@ final readonly class ExportController implements InvocableController
             Export::$singleTable = (bool) $request->getParam('single_table');
         }
 
-        $exportList = Plugins::getExport(ExportType::Server, Export::$singleTable);
+        $exportList = $this->pluginFactory->getAllExportPlugins(ExportType::Server, Export::$singleTable);
 
         if ($exportList === []) {
             $this->response->addHTML(Message::error(

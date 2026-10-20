@@ -717,7 +717,7 @@ final class ExportLatexTest extends AbstractTestCase
         $exportLatex = $this->getExportLatex($dbi);
         $exportLatex->setExportOptions($request, new SettingsExport());
         ob_start();
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $export->exportTable(
             'testdb',
             'testtable',

@@ -11,11 +11,12 @@ use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
@@ -169,7 +170,8 @@ class Tracker
             $trackingSet = $config->selectedServer['tracking_default_statements'];
         }
 
-        $exportSqlPlugin = Plugins::getPlugin('export', 'sql');
+        $pluginFactory = ContainerBuilder::getContainer()->get(PluginFactory::class);
+        $exportSqlPlugin = $pluginFactory->getExportPlugin('sql');
         if (! $exportSqlPlugin instanceof ExportSql) {
             return false;
         }

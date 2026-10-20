@@ -188,7 +188,7 @@ final class DesignerControllerTest extends AbstractTestCase
         return new DesignerController(
             new ResponseRenderer(),
             $template,
-            new Designer($dbi, $relation, $template, $config),
+            new Designer($dbi, $relation, $template, $config, $this->createPluginFactory($dbi, $config)),
             new Common($dbi, $relation, $config),
             new DbTableExists($dbi),
             new Randomizer(new Mt19937(42)),

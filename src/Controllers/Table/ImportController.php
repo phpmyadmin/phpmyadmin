@@ -21,6 +21,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Plugins\PluginType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
@@ -43,6 +44,7 @@ final readonly class ImportController implements InvocableController
         private DbTableExists $dbTableExists,
         private Config $config,
         private Ajax $ajax,
+        private PluginFactory $pluginFactory,
     ) {
     }
 
@@ -80,7 +82,7 @@ final readonly class ImportController implements InvocableController
         $uploadId = $this->ajax->uploadProgressSetup();
 
         ImportSettings::$importType = 'table';
-        $importList = Plugins::getImport();
+        $importList = $this->pluginFactory->getAllImportPlugins();
 
         if ($importList === []) {
             $this->response->addHTML(Message::error(__(

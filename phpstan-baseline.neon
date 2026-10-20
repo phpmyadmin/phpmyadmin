@@ -1987,12 +1987,6 @@ parameters:
 			path: src/Controllers/Operations/DatabaseController.php
 
 		-
-			message: '#^Parameter \#2 \$exportSqlPlugin of method PhpMyAdmin\\Operations\:\:getViewsAndCreateSqlViewStandIn\(\) expects PhpMyAdmin\\Plugins\\Export\\ExportSql, object\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 4
@@ -15805,15 +15799,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 2
-			path: tests/unit/Export/ExportTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
 			path: tests/unit/Export/ExportTest.php
 
 		-

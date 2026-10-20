@@ -82,7 +82,13 @@ class DesignerTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $config = new Config();
-        $this->designer = new Designer($dbi, new Relation($dbi), new Template($config), $config);
+        $this->designer = new Designer(
+            $dbi,
+            new Relation($dbi),
+            new Template($config),
+            $config,
+            $this->createPluginFactory($dbi, $config),
+        );
 
         $method = new ReflectionMethod(Designer::class, 'getPageIdsAndNames');
         $result = $method->invokeArgs($this->designer, [$db]);
@@ -104,7 +110,13 @@ class DesignerTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $config = new Config();
-        $this->designer = new Designer($dbi, new Relation($dbi), new Template($config), $config);
+        $this->designer = new Designer(
+            $dbi,
+            new Relation($dbi),
+            new Template($config),
+            $config,
+            $this->createPluginFactory($dbi, $config),
+        );
 
         $result = $this->designer->getHtmlForEditOrDeletePages($db, $operation);
         self::assertStringContainsString('<input type="hidden" name="operation" value="' . $operation . '">', $result);
@@ -126,7 +138,13 @@ class DesignerTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $config = new Config();
-        $this->designer = new Designer($dbi, new Relation($dbi), new Template($config), $config);
+        $this->designer = new Designer(
+            $dbi,
+            new Relation($dbi),
+            new Template($config),
+            $config,
+            $this->createPluginFactory($dbi, $config),
+        );
 
         $result = $this->designer->getHtmlForPageSaveAs($db);
         self::assertStringContainsString('<input type="hidden" name="operation" value="savePage">', $result);
@@ -158,7 +176,13 @@ class DesignerTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $config = new Config();
-        $this->designer = new Designer($dbi, new Relation($dbi), new Template($config), $config);
+        $this->designer = new Designer(
+            $dbi,
+            new Relation($dbi),
+            new Template($config),
+            $config,
+            $this->createPluginFactory($dbi, $config),
+        );
 
         $result = $this->designer->getHtmlForSchemaExport($db, $page, null, null);
         // export type
