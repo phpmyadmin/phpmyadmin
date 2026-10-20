@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-10-14 12:15+0000\n"
-"Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
+"PO-Revision-Date: 2026-10-20 17:00+0000\n"
+"Last-Translator: dingo thirteen <dingo13@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-1/nl/>"
 "\n"
 "Language: nl\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -378,11 +378,11 @@ msgstr "Gemiddelde aantal gesorteerde regels: %s"
 
 #: libraries/advisory_rules_generic.php:248
 msgid "Rate of joins without indexes"
-msgstr "Aandeel JOINS zonder index"
+msgstr "Aantal joins zonder indexen"
 
 #: libraries/advisory_rules_generic.php:251
 msgid "There are too many joins without indexes."
-msgstr "Er zijn teveel JOINS zonder indexen."
+msgstr "Er zijn teveel joins zonder indexen."
 
 #: libraries/advisory_rules_generic.php:253
 msgid ""
@@ -447,7 +447,7 @@ msgid ""
 "applicable."
 msgstr ""
 "Dit wijst erop dat veel query's resultaten moeten sorteren en/of een tabel "
-"volledig doorzoeken, inbegrepen JOIN-query's die geen gebruik maken van "
+"volledig doorzoeken, inbegrepen join-query's die geen gebruik maken van "
 "indexen. Voeg indexen toe waar nodig."
 
 #: libraries/advisory_rules_generic.php:285
@@ -1302,7 +1302,7 @@ msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "De maximale grootte van een resultatenset in de querycache is de standaard "
-"van 1 MB."
+"van 1 MiB."
 
 #: libraries/advisory_rules_mysql_before80003.php:113
 msgid ""
@@ -2670,10 +2670,10 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
-"Let op: Deze functie heeft niet de verwachte werking wanneer u gebruik maakt "
-"van [kbd]config[/kbd] authenticatie, gezien uw wachtwoord dan vast in het "
-"configuratiebestand staat opgeslagen; dit beperkt echter niet de "
-"mogelijkheid om de bijbehorende SQL-opdracht handmatig uit te voeren."
+"Let op dat deze functie niet de verwachte werking heeft wanneer u gebruik "
+"maakt van [kbd]config[/kbd] authenticatie, gezien uw wachtwoord dan vast in "
+"het configuratiebestand staat opgeslagen; dit beperkt echter niet de "
+"mogelijkheid om de bijbehorende opdracht handmatig uit te voeren."
 
 #: libraries/classes/Config/Descriptions.php:494
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
@@ -3480,7 +3480,7 @@ msgstr "%s view"
 
 #: libraries/classes/Config/Descriptions.php:739
 msgid "Use ignore inserts"
-msgstr "'INSERT IGNORE' gebruiken"
+msgstr "Gebruik ignore inserts"
 
 #: libraries/classes/Config/Descriptions.php:741
 msgid "Syntax to use when inserting data"
@@ -5375,9 +5375,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"De geldigheid van het cookie gedefinieerd door een PHP-parameter is korter "
-"dan die instelling in phpMyAdmin. Hierdoor verloopt uw sessie eerder dan in "
-"phpMyAdmin is ingesteld."
+"De opslagduur van de login cookie is korter dan de geldigheidsduur van "
+"cookies zoals geconfigureerd in phpMyAdmin. Hierdoor zal uw inlogsessie "
+"eerder verlopen dan in phpMyAdmin is ingesteld."
 
 #: libraries/classes/Controllers/HomeController.php:390
 msgid ""
@@ -5503,7 +5503,7 @@ msgid ""
 msgstr ""
 "Tijdens de laatste poging zijn er geen gegevens gelezen; meestal betekent "
 "dit dat phpMyAdmin het importeren niet kan afmaken, tenzij de "
-"tijdsbeperkingen van PHP worden versoepeld."
+"tijdsbeperkingen van php worden versoepeld."
 
 #: libraries/classes/Controllers/ImportController.php:787
 #: libraries/classes/Controllers/SqlController.php:169
@@ -6576,11 +6576,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:387
 msgid "Hide query box"
-msgstr "SQL-queryveld verbergen"
+msgstr "Verberg query veld"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 msgid "Show query box"
-msgstr "SQL-queryveld tonen"
+msgstr "Toon query veld"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:390
 #: libraries/classes/Display/Results.php:3362
@@ -7298,7 +7298,7 @@ msgstr "meest recent"
 #: templates/display/results/table.twig:286
 #: templates/sql/no_results_returned.twig:13 templates/view_create.twig:11
 msgid "Create view"
-msgstr "VIEW aanmaken"
+msgstr "View aanmaken"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:640
 msgid "Send error report"
@@ -7737,7 +7737,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:270
 msgid "How many temporary files mysqld has created."
-msgstr "Het aantal tijdelijke bestanden dat door MySQL is aangemaakt."
+msgstr "Hoeveel tijdelijke bestanden mysqld heeft aangemaakt."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:273
 msgid ""
@@ -9211,7 +9211,7 @@ msgstr ""
 #: libraries/classes/Database/Triggers.php:450
 #: templates/database/events/editor_form.twig:89 templates/view_create.twig:45
 msgid "Definer"
-msgstr "Naam"
+msgstr "Definer"
 
 #: libraries/classes/Database/Routines.php:1001
 msgid "Security type"
@@ -11215,7 +11215,7 @@ msgstr "Vervang NULL door:"
 #: libraries/classes/Plugins/Export/ExportCsv.php:86
 #: libraries/classes/Plugins/Export/ExportExcel.php:53
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Verwijder CRLF-tekens uit kolommen"
+msgstr "Verwijder carriage return/line feed tekens in de kolommen"
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:63
 msgid "Excel edition:"
@@ -15231,8 +15231,8 @@ msgstr[1] "%1$s overeenkomsten in <strong>%2$s</strong>"
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong> Totaal:</strong> <em> %count% </em> overeenkomst"
-msgstr[1] "<strong> Totaal:</strong> <em> %count% </em> overeenkomsten"
+msgstr[0] "<strong>Totaal:</strong> <em>%count%</em> overeenkomst"
+msgstr[1] "<strong>Totaal:</strong> <em>%count%</em> overeenkomsten"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -15355,7 +15355,7 @@ msgstr "Voeg AUTO INCREMENT-waarde toe"
 #: templates/table/structure/drop_confirm.twig:6
 #: templates/table/structure/primary.twig:6
 msgid "Do you really want to execute the following query?"
-msgstr "Weet u zeker dat u de volgende SQL-query wil uitvoeren?"
+msgstr "Weet u zeker dat u de volgende query wil uitvoeren?"
 
 #: templates/database/structure/favorite_anchor.twig:4
 msgid "Add to Favorites"
@@ -16797,7 +16797,7 @@ msgstr "Databases:"
 
 #: templates/server/import/index.twig:3
 msgid "Importing into the current server"
-msgstr "Importeren naar de huidige MySQL-server"
+msgstr "Importeren in de huidige server"
 
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
@@ -17259,9 +17259,9 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"Let er op dat u op iedere MySQL-server een uniek server-id heeft ingesteld "
-"in het configuratiebestand (my.cnf). Voeg anders de onderstaande regels toe "
-"aan de sectie [mysqld]:"
+"Let er op dat u een uniek server-id heeft ingesteld in het "
+"configuratiebestand (my.cnf). Voeg anders de onderstaande regels toe aan de "
+"sectie [mysqld]:"
 
 #: templates/server/replication/change_master.twig:26
 msgid "Port:"
@@ -17750,7 +17750,7 @@ msgstr "Kies het logbestand waarvan u de statistieken wil genereren."
 
 #: templates/server/status/monitor/index.twig:233
 msgid "Results are grouped by query text."
-msgstr "Resultaten worden gegroepeerd door de tekst van de SQL-query."
+msgstr "Resultaten worden gegroepeerd door de tekst van de query."
 
 #: templates/server/status/monitor/index.twig:237
 msgid "Query analyzer"
