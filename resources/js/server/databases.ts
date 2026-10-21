@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { prepareForAjaxRequest } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -111,7 +110,6 @@ const CreateDatabase = {
         // end remove
 
         ajaxShowMessage(window.Messages.strProcessingRequest);
-        prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
@@ -125,7 +123,7 @@ const CreateDatabase = {
                 // make ajax request to load db structure page - taken from ajax.js
                 let dbStructUrl = data.url;
                 dbStructUrl = dbStructUrl.replace(/amp;/ig, '');
-                const params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
+                const params = 'ajax_page_request=true';
                 $.get(dbStructUrl, params, AJAX.responseHandler);
             } else {
                 ajaxShowMessage(data.error, false);

@@ -752,7 +752,6 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     function loadLogVars (getvars = undefined) {
         const vars = {
-            'ajax_request': true,
             'server': CommonParams.get('server'),
         };
         if (getvars) {
@@ -1443,7 +1442,6 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     function refreshChartGrid () {
         /* Send to server */
         runtime.refreshRequest = $.post('index.php?route=/server/status/monitor/chart', {
-            'ajax_request': true,
             'requiredData': JSON.stringify(runtime.dataList),
             'server': CommonParams.get('server')
         }, function (data) {
@@ -1708,7 +1706,6 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         logRequest = $.post(
             url,
             {
-                'ajax_request': true,
                 'time_start': Math.round(opts.start / 1000),
                 'time_end': Math.round(opts.end / 1000),
                 'removeVariables': opts.removeVariables,
@@ -2122,7 +2119,6 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             window.themeImagePath + 'ajax_clock_small.gif" alt="">');
 
         $.post('index.php?route=/server/status/monitor/query', {
-            'ajax_request': true,
             'query': window.codeMirrorEditor ? window.codeMirrorEditor.getValue() : $('#sqlquery').val(),
             'database': db,
             'server': CommonParams.get('server')

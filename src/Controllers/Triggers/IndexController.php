@@ -63,7 +63,7 @@ final readonly class IndexController implements InvocableController
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     return $this->response->redirectToRoute(
                         '/',
-                        ['reload' => true, 'message' => __('No databases selected.')],
+                        ['reload' => true, 'message' => __('No database selected.')],
                     );
                 }
 
@@ -81,7 +81,7 @@ final readonly class IndexController implements InvocableController
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     return $this->response->redirectToRoute(
                         '/',
-                        ['reload' => true, 'message' => __('No databases selected.')],
+                        ['reload' => true, 'message' => __('No database selected.')],
                     );
                 }
             }

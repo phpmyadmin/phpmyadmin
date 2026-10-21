@@ -108,7 +108,7 @@ AJAX.registerOnload('database/structure.js', function () {
                 $('#makeConsistentWithCentralListContinue').on('click', function () {
                     const $form = $('#tablesForm');
                     const argSep = CommonParams.get('arg_separator');
-                    const data = $form.serialize() + argSep + 'ajax_request=true' + argSep + 'ajax_page_request=true';
+                    const data = $form.serialize() + argSep + 'ajax_page_request=true';
 
                     ajaxShowMessage();
                     AJAX.source = $form;
@@ -206,7 +206,7 @@ AJAX.registerOnload('database/structure.js', function () {
 
         const $form = $(this).parents('form');
         const argsep = CommonParams.get('arg_separator');
-        const data = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+        const data = $form.serialize() + argsep + 'ajax_page_request=true';
 
         ajaxShowMessage();
         AJAX.source = $form;

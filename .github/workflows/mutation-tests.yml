@@ -46,11 +46,10 @@ jobs:
           ref: ${{ github.base_ref }}
           persist-credentials: false
 
-      - name: Install Gettext
-        run: sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./bin/generate-mo --quiet
+      - name: Install gettext and generate translation files
+        run: |
+          sudo apt-get install -y gettext
+          ./bin/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2

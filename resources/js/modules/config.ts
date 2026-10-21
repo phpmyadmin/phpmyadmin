@@ -686,7 +686,6 @@ function savePrefsToLocalStorage (form) {
         cache: false,
         type: 'POST',
         data: {
-            'ajax_request': true,
             'server': CommonParams.get('server'),
             'submit_get_json': true
         },

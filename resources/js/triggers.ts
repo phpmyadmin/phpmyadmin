@@ -85,7 +85,7 @@ const DatabaseTriggers = {
             exportAnchors.each(function () {
                 const h = $(this).attr('href');
                 p = p.then(function () {
-                    return $.get(h, { 'ajax_request': true }, function (data) {
+                    return $.get(h, function (data) {
                         returnCount++;
                         if (data.success === true) {
                             combined.message += '\n' + data.message + '\n';
@@ -104,7 +104,7 @@ const DatabaseTriggers = {
                 });
             });
         } else {
-            $.get($this.attr('href'), { 'ajax_request': true }, showExport);
+            $.get($this.attr('href'), showExport);
         }
 
         function showExport (data) {
@@ -152,7 +152,7 @@ const DatabaseTriggers = {
          *           the AJAX message shown to the user
          */
         let $msg = ajaxShowMessage();
-        $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
+        $.get($this.attr('href'), function (data) {
             if (data.success !== true) {
                 ajaxShowMessage(data.error, false);
 

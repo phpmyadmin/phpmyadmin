@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import * as bootstrap from 'bootstrap';
 import { AJAX } from '../modules/ajax.ts';
-import { addDatepicker, prepareForAjaxRequest } from '../modules/functions.ts';
+import { addDatepicker } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -128,8 +128,6 @@ AJAX.registerOnload('table/select.js', function () {
         // empty previous search results while we are waiting for new results
         $('#sqlqueryresultsouter').empty();
         const $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
-
-        prepareForAjaxRequest($searchForm);
 
         const values: { [k: string]: any } = {};
         ($searchForm.find(':input') as JQuery<HTMLInputElement>).each(function () {
@@ -325,7 +323,6 @@ AJAX.registerOnload('table/select.js', function () {
                 type: 'POST',
                 data: {
                     'server': CommonParams.get('server'),
-                    'ajax_request': 1,
                     'db': $('input[name="db"]').val(),
                     'table': $('input[name="table"]').val(),
                     'column': columnName,

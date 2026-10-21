@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { checkReservedWordColumns, checkTableEditForm, prepareForAjaxRequest } from '../modules/functions.ts';
+import { checkReservedWordColumns, checkTableEditForm } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
@@ -32,7 +32,7 @@ import { sprintf } from 'locutus/php/strings/sprintf';
  * Reload fields table
  */
 function reloadFieldForm () {
-    $.post($('#fieldsForm').attr('action'), $('#fieldsForm').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true', function (formData) {
+    $.post($('#fieldsForm').attr('action'), $('#fieldsForm').serialize(), function (formData) {
         const $tempDiv = $('<div id=\'temp_div\'><div>').append(formData.message);
         $('#fieldsForm').replaceWith($tempDiv.find('#fieldsForm'));
         $('#addColumns').replaceWith($tempDiv.find('#addColumns'));
@@ -156,7 +156,6 @@ AJAX.registerOnload('table/structure.js', function () {
         if (checkTableEditForm($form[0], fieldCnt)) {
             // OK, form passed validation step
 
-            prepareForAjaxRequest($form);
             if (checkReservedWordColumns($form)) {
                 // User wants to submit the form
 
@@ -344,8 +343,7 @@ AJAX.registerOnload('table/structure.js', function () {
             const formUrl = $form.attr('action');
             const sep = CommonParams.get('arg_separator');
             const formData = serialized +
-                sep + 'preview_sql=1' +
-                sep + 'ajax_request=1';
+                sep + 'preview_sql=1';
             $.post({
                 url: formUrl,
                 data: formData,
@@ -386,7 +384,7 @@ AJAX.registerOnload('table/structure.js', function () {
                 return;
             }
 
-            $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
+            $.post($form.prop('action'), serialized, function (data) {
                 if (data.success === false) {
                     ajaxRemoveMessage($msgbox);
                     const errorModal = $('#moveColumnsErrorModal');
@@ -431,7 +429,7 @@ AJAX.registerOnload('table/structure.js', function () {
         e.preventDefault();
         const $form = $(this).parents('form');
         const argsep = CommonParams.get('arg_separator');
-        const submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+        const submitData = $form.serialize() + argsep + 'ajax_page_request=true';
 
         ajaxShowMessage();
         AJAX.source = $form;
@@ -447,7 +445,7 @@ AJAX.registerOnload('table/structure.js', function () {
         const $link = $(this);
 
         function submitPartitionAction (url) {
-            const params = 'ajax_request=true&ajax_page_request=true&' + $link.getPostData();
+            const params = 'ajax_page_request=true&' + $link.getPostData();
             ajaxShowMessage();
             AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
@@ -475,7 +473,6 @@ AJAX.registerOnload('table/structure.js', function () {
         const question = window.Messages.strRemovePartitioningWarning;
         $link.confirm(question, $link.attr('href'), function (url) {
             const params = getJsConfirmCommonParam({
-                'ajax_request': true,
                 'ajax_page_request': true,
             }, $link.getPostData());
             ajaxShowMessage();

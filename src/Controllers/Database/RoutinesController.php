@@ -75,7 +75,7 @@ final readonly class RoutinesController implements InvocableController
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     return $this->response->redirectToRoute(
                         '/',
-                        ['reload' => true, 'message' => __('No databases selected.')],
+                        ['reload' => true, 'message' => __('No database selected.')],
                     );
                 }
 
@@ -93,7 +93,7 @@ final readonly class RoutinesController implements InvocableController
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     return $this->response->redirectToRoute(
                         '/',
-                        ['reload' => true, 'message' => __('No databases selected.')],
+                        ['reload' => true, 'message' => __('No database selected.')],
                     );
                 }
             }
@@ -433,7 +433,6 @@ final readonly class RoutinesController implements InvocableController
                 'reload' => 1,
             ];
             if ($this->response->isAjax()) {
-                $redirParams['ajax_request'] = 'true';
                 $redirParams['ajax_page_request'] = 'true';
             }
 

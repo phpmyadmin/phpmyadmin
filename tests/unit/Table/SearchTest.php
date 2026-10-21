@@ -197,7 +197,6 @@ class SearchTest extends AbstractTestCase
         $_POST['orderByColumn'] = '--nil--';
         $_POST['order'] = 'ASC';
         $_POST['submit'] = 'Go';
-        $_POST['ajax_request'] = 'true';
         $_POST['displayAllColumns'] = 'true';
 
         self::assertSame('SELECT * FROM `world_cities`', $this->search->buildSqlQuery());

@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { prepareForAjaxRequest } from '../modules/functions.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 
 /**
@@ -36,7 +35,6 @@ AJAX.registerOnload('table/find_replace.js', function () {
     $('#find_replace_form').on('submit', function (e) {
         e.preventDefault();
         const findReplaceForm = $('#find_replace_form');
-        prepareForAjaxRequest(findReplaceForm);
         const $msgbox = ajaxShowMessage();
         $.post(findReplaceForm.attr('action'), findReplaceForm.serialize(), function (data) {
             ajaxRemoveMessage($msgbox);

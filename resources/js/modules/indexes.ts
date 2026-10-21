@@ -316,7 +316,6 @@ function showAddIndexDialog (sourceArray, arrayIndex, targetColumns, colIndex, i
         'server': CommonParams.get('server'),
         'db': $('input[name="db"]').val(),
         'table': table,
-        'ajax_request': 1,
         'create_edit_table': 1,
         'index': index,
         'columns': '',
@@ -601,7 +600,7 @@ function on () {
             event.preventDefault();
             const $form = $('#index_frm');
             const argsep = CommonParams.get('arg_separator');
-            const submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+            const submitData = $form.serialize() + argsep + 'do_save_data=1' + argsep + 'ajax_page_request=true';
             ajaxShowMessage(window.Messages.strProcessingRequest);
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
@@ -711,7 +710,6 @@ function on () {
                 title = window.Messages.strEditIndex;
             }
 
-            url += CommonParams.get('arg_separator') + 'ajax_request=true';
             indexEditorDialog(url, title, function (data) {
                 Navigation.update(CommonParams.set('db', data.params.db));
                 Navigation.update(CommonParams.set('table', data.params.table));
@@ -724,9 +722,8 @@ function on () {
          **/
         $(document).on('click', '#table_index tbody tr td.rename_index.ajax', function (event) {
             event.preventDefault();
-            let url = $(this).find('a').getPostData();
+            const url = $(this).find('a').getPostData();
             const title = window.Messages.strRenameIndex;
-            url += CommonParams.get('arg_separator') + 'ajax_request=true';
             indexRenameDialog(url, title, function (data) {
                 Navigation.update(CommonParams.set('db', data.params.db));
                 Navigation.update(CommonParams.set('table', data.params.table));

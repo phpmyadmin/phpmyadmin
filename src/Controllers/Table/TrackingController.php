@@ -64,14 +64,7 @@ final readonly class TrackingController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         $activeMessage = '';

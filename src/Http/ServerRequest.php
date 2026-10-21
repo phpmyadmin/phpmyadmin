@@ -296,8 +296,7 @@ class ServerRequest implements ServerRequestInterface
 
     public function isAjax(): bool
     {
-        return $this->serverRequest->getHeaderLine('X-Requested-With') === 'XMLHttpRequest'
-            || $this->has('ajax_request');
+        return $this->serverRequest->getHeaderLine('X-Requested-With') === 'XMLHttpRequest';
     }
 
     public function getParsedBodyParamAsString(string $param, string|null $default = null): string

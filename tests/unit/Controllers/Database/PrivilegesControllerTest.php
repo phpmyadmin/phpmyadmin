@@ -119,6 +119,6 @@ class PrivilegesControllerTest extends AbstractTestCase
         $actual = $response->getHTMLResult();
 
         self::assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual);
-        self::assertStringContainsString('The database name must be a non-empty string.', $actual);
+        self::assertStringContainsString('Missing parameter: db', $actual);
     }
 }

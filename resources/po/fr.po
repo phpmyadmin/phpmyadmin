@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-11 00:47+0000\n"
+"POT-Creation-Date: 2026-10-18 00:40+0000\n"
 "PO-Revision-Date: 2026-06-02 06:01+0000\n"
 "Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -227,7 +227,6 @@ msgstr "colonne(s)"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:41
 #: resources/templates/database/designer/main.twig:1100
-#: resources/templates/database/events/editor_form.twig:121
 #: resources/templates/database/operations/index.twig:20
 #: resources/templates/database/operations/index.twig:76
 #: resources/templates/database/operations/index.twig:186
@@ -235,6 +234,7 @@ msgstr "colonne(s)"
 #: resources/templates/database/routines/editor_form.twig:186
 #: resources/templates/database/routines/execute_form.twig:63
 #: resources/templates/display/results/table.twig:279
+#: resources/templates/events/editor-form.twig:121
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
 #: resources/templates/modals/enum_set_editor.twig:10
@@ -370,10 +370,6 @@ msgstr "Chargement en cours"
 #: resources/templates/columns_definitions/column_definitions_form.twig:179
 #: resources/templates/database/designer/main.twig:1128
 #: resources/templates/database/designer/main.twig:1138
-#: resources/templates/database/events/index.twig:162
-#: resources/templates/database/events/index.twig:170
-#: resources/templates/database/events/index.twig:182
-#: resources/templates/database/events/index.twig:186
 #: resources/templates/database/routines/index.twig:79
 #: resources/templates/database/routines/index.twig:87
 #: resources/templates/database/routines/index.twig:99
@@ -381,6 +377,10 @@ msgstr "Chargement en cours"
 #: resources/templates/database/routines/index.twig:114
 #: resources/templates/database/routines/index.twig:122
 #: resources/templates/error/report_modal.twig:14
+#: resources/templates/events/index.twig:159
+#: resources/templates/events/index.twig:167
+#: resources/templates/events/index.twig:179
+#: resources/templates/events/index.twig:183
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:90 resources/templates/export.twig:188
@@ -535,9 +535,9 @@ msgstr "Moteur"
 #: resources/templates/columns_definitions/partitions.twig:85
 #: resources/templates/config/form_display/input.twig:53
 #: resources/templates/database/data_dictionary/index.twig:82
-#: resources/templates/database/events/editor_form.twig:108
 #: resources/templates/database/routines/editor_form.twig:173
 #: resources/templates/database/structure/table_header.twig:46
+#: resources/templates/events/editor-form.twig:108
 #: resources/templates/indexes.twig:25
 #: resources/templates/table/structure/display_partitions.twig:32
 #: resources/templates/table/structure/display_structure.twig:480
@@ -594,10 +594,10 @@ msgstr "Structure"
 #: resources/templates/database/central_columns/edit.twig:8
 #: resources/templates/database/central_columns/main.twig:16
 #: resources/templates/database/central_columns/main.twig:226
-#: resources/templates/database/events/index.twig:45
 #: resources/templates/database/routines/editor_form.twig:55
 #: resources/templates/database/routines/execute_form.twig:16
 #: resources/templates/database/routines/index.twig:56
+#: resources/templates/events/index.twig:46
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
@@ -614,14 +614,13 @@ msgstr "Nom"
 #: resources/templates/database/central_columns/main.twig:230
 #: resources/templates/database/data_dictionary/index.twig:24
 #: resources/templates/database/data_dictionary/index.twig:75
-#: resources/templates/database/events/index.twig:47
 #: resources/templates/database/privileges/index.twig:19
 #: resources/templates/database/routines/editor_form.twig:31
 #: resources/templates/database/routines/editor_form.twig:56
 #: resources/templates/database/routines/execute_form.twig:17
 #: resources/templates/database/routines/index.twig:57
 #: resources/templates/database/structure/table_header.twig:30
-#: resources/templates/indexes.twig:18
+#: resources/templates/events/index.twig:48 resources/templates/indexes.twig:18
 #: resources/templates/table/privileges/index.twig:21
 #: resources/templates/table/search/index.twig:39
 #: resources/templates/table/structure/display_structure.twig:22
@@ -1004,16 +1003,15 @@ msgstr "Exécuter la requête à nouveau"
 #: resources/templates/database/central_columns/main.twig:271
 #: resources/templates/database/central_columns/main.twig:381
 #: resources/templates/database/central_columns/main.twig:382
-#: resources/templates/database/events/index.twig:76
-#: resources/templates/database/events/index.twig:79
-#: resources/templates/database/events/row.twig:23
-#: resources/templates/database/events/row.twig:26
 #: resources/templates/database/routines/row.twig:20
 #: resources/templates/database/routines/row.twig:23
 #: resources/templates/database/structure/structure_table_row.twig:66
 #: resources/templates/display/results/table.twig:319
 #: resources/templates/display/results/table.twig:320
-#: resources/templates/indexes.twig:35
+#: resources/templates/events/index.twig:77
+#: resources/templates/events/index.twig:80
+#: resources/templates/events/row.twig:23
+#: resources/templates/events/row.twig:26 resources/templates/indexes.twig:35
 #: resources/templates/server/variables/index.twig:41
 #: resources/templates/server/variables/index.twig:44
 #: resources/templates/setup/home/index.twig:64
@@ -1741,240 +1739,6 @@ msgstr "Sélectionner la page"
 msgid "Select export relational type:"
 msgstr "Sélectionner le type d'exportation des relations :"
 
-#: resources/templates/database/events/editor_form.twig:10
-#: resources/templates/database/routines/editor_form.twig:11
-#: resources/templates/triggers/editor_form.twig:14
-#: resources/templates/view_create.twig:11
-msgid "Details"
-msgstr "Détails"
-
-#: resources/templates/database/events/editor_form.twig:24
-msgid "Event name"
-msgstr "Nom de l'évènement"
-
-#: resources/templates/database/events/editor_form.twig:30
-#: resources/templates/database/events/index.twig:46
-#: resources/templates/database/tracking/tables.twig:17
-#: resources/templates/table/tracking/main.twig:31
-#: src/Config/ConfigFile.php:578
-#: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
-#: src/Server/Status/Processes.php:110 src/Util.php:1372
-msgid "Status"
-msgstr "État"
-
-#: resources/templates/database/events/editor_form.twig:40
-#: resources/templates/server/binlog/index.twig:84
-msgid "Event type"
-msgstr "Type d'évènement"
-
-#: resources/templates/database/events/editor_form.twig:53
-#: resources/templates/database/routines/editor_form.twig:43
-#, php-format
-msgid "Change to %s"
-msgstr "Changer pour %s"
-
-#: resources/templates/database/events/editor_form.twig:58
-msgid "Execute at"
-msgstr "Exécuter à"
-
-#: resources/templates/database/events/editor_form.twig:64
-msgid "Execute every"
-msgstr "Exécuter chaque"
-
-#: resources/templates/database/events/editor_form.twig:75
-msgctxt "Start of recurring event"
-msgid "Start"
-msgstr "Départ"
-
-#: resources/templates/database/events/editor_form.twig:81
-msgctxt "End of recurring event"
-msgid "End"
-msgstr "Fin"
-
-#: resources/templates/database/events/editor_form.twig:87
-#: resources/templates/database/routines/editor_form.twig:118
-#: resources/templates/triggers/editor_form.twig:62
-#: src/Plugins/Export/ExportHtmlword.php:397
-#: src/Plugins/Export/ExportOdt.php:507
-#: src/Plugins/Export/ExportTexytext.php:372
-#: src/Plugins/Export/Helpers/Pdf.php:318
-msgid "Definition"
-msgstr "Définition"
-
-#: resources/templates/database/events/editor_form.twig:92
-#: resources/templates/database/routines/editor_form.twig:121
-#: resources/templates/import.twig:160 resources/templates/import.twig:162
-#: resources/templates/sql/query.twig:40
-#: resources/templates/table/structure/display_table_stats.twig:81
-#: resources/templates/triggers/editor_form.twig:64
-#: src/Config/Descriptions.php:636 src/Config/Descriptions.php:652
-msgid "Format"
-msgstr "Format"
-
-#: resources/templates/database/events/editor_form.twig:96
-msgid "On completion preserve"
-msgstr "Suite à l'exécution, conserver"
-
-#: resources/templates/database/events/editor_form.twig:102
-#: resources/templates/database/routines/editor_form.twig:148
-#: resources/templates/triggers/editor_form.twig:67
-#: resources/templates/view_create.twig:55
-msgid "Definer"
-msgstr "Créateur"
-
-#: resources/templates/database/events/index.twig:3 src/Menu.php:381
-#: src/Navigation/Nodes/NodeEventContainer.php:23
-#: src/Navigation/Nodes/NodeEventContainer.php:25
-#: src/Plugins/Export/ExportSql.php:977 src/Plugins/Export/ExportXml.php:92
-#: src/Util.php:1394
-msgid "Events"
-msgstr "Évènements"
-
-#: resources/templates/database/events/index.twig:14
-#: resources/templates/database/privileges/index.twig:112
-#: resources/templates/database/privileges/index.twig:113
-#: resources/templates/database/routines/index.twig:14
-#: resources/templates/database/structure/check_all_tables.twig:3
-#: resources/templates/database/structure/check_all_tables.twig:4
-#: resources/templates/display/results/table.twig:315
-#: resources/templates/display/results/table.twig:316
-#: resources/templates/select_all.twig:3 resources/templates/select_all.twig:4
-#: resources/templates/server/databases/index.twig:64
-#: resources/templates/server/privileges/edit_routine_privileges.twig:58
-#: resources/templates/server/privileges/privileges_table.twig:269
-#: resources/templates/server/privileges/privileges_table.twig:270
-#: resources/templates/server/privileges/privileges_table.twig:279
-#: resources/templates/server/privileges/privileges_table.twig:356
-#: resources/templates/server/privileges/privileges_table.twig:560
-#: resources/templates/server/privileges/users_overview.twig:120
-#: resources/templates/server/privileges/users_overview.twig:121
-#: resources/templates/server/user_groups/edit_user_groups.twig:21
-#: resources/templates/server/user_groups/edit_user_groups.twig:22
-#: resources/templates/table/privileges/index.twig:116
-#: resources/templates/table/privileges/index.twig:117
-#: resources/templates/triggers/list.twig:14
-msgid "Check all"
-msgstr "Tout cocher"
-
-#: resources/templates/database/events/index.twig:17
-#: resources/templates/database/events/index.twig:18
-#: resources/templates/database/events/index.twig:88
-#: resources/templates/database/events/row.twig:36
-#: resources/templates/database/privileges/index.twig:91
-#: resources/templates/database/privileges/index.twig:115
-#: resources/templates/database/privileges/index.twig:116
-#: resources/templates/database/routines/index.twig:17
-#: resources/templates/database/routines/index.twig:18
-#: resources/templates/database/routines/row.twig:50
-#: resources/templates/database/routines/row.twig:53
-#: resources/templates/database/structure/check_all_tables.twig:12
-#: resources/templates/display/results/table.twig:332
-#: resources/templates/display/results/table.twig:333
-#: resources/templates/display/results/table.twig:365
-#: resources/templates/export.twig:3 resources/templates/export.twig:493
-#: resources/templates/preferences/header.twig:42
-#: resources/templates/preferences/manage/main.twig:67
-#: resources/templates/server/privileges/new_user_ajax.twig:63
-#: resources/templates/server/privileges/users_overview.twig:95
-#: resources/templates/server/privileges/users_overview.twig:124
-#: resources/templates/server/privileges/users_overview.twig:125
-#: resources/templates/server/status/monitor/index.twig:75
-#: resources/templates/table/privileges/index.twig:95
-#: resources/templates/table/privileges/index.twig:119
-#: resources/templates/table/privileges/index.twig:120
-#: resources/templates/triggers/list.twig:17
-#: resources/templates/triggers/list.twig:18
-#: resources/templates/triggers/row.twig:41
-#: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
-#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
-#: src/Util.php:1374 src/Util.php:1389 src/Util.php:1406
-msgid "Export"
-msgstr "Exporter"
-
-#: resources/templates/database/events/index.twig:20
-#: resources/templates/database/events/index.twig:21
-#: resources/templates/database/events/index.twig:98
-#: resources/templates/database/events/index.twig:104
-#: resources/templates/database/events/row.twig:47
-#: resources/templates/database/events/row.twig:53
-#: resources/templates/database/routines/index.twig:20
-#: resources/templates/database/routines/index.twig:21
-#: resources/templates/database/routines/parameter_row.twig:51
-#: resources/templates/database/routines/row.twig:63
-#: resources/templates/database/structure/check_all_tables.twig:16
-#: resources/templates/database/structure/structure_table_row.twig:87
-#: resources/templates/indexes.twig:59
-#: resources/templates/server/databases/index.twig:67
-#: resources/templates/server/databases/index.twig:68
-#: resources/templates/server/databases/index.twig:326
-#: resources/templates/table/relation/foreign_key_row.twig:25
-#: resources/templates/table/structure/display_partitions.twig:146
-#: resources/templates/table/structure/display_structure.twig:120
-#: resources/templates/table/structure/display_structure.twig:279
-#: resources/templates/table/structure/display_structure.twig:522
-#: resources/templates/triggers/list.twig:20
-#: resources/templates/triggers/list.twig:21
-#: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:532
-msgid "Drop"
-msgstr "Supprimer"
-
-#: resources/templates/database/events/index.twig:29
-msgid "Create new event"
-msgstr "Créer un événement"
-
-#: resources/templates/database/events/index.twig:38
-msgid "There are no events to display."
-msgstr "Aucun évènement à afficher."
-
-#: resources/templates/database/events/index.twig:114
-msgid "Event scheduler status"
-msgstr "État du planificateur d'évènements"
-
-#: resources/templates/database/events/index.twig:119
-#: resources/templates/database/tracking/tables.twig:47
-msgid "Click to toggle"
-msgstr "Cliquer pour commuter"
-
-#: resources/templates/database/events/index.twig:132
-msgid "ON"
-msgstr "Activé"
-
-#: resources/templates/database/events/index.twig:143
-msgid "OFF"
-msgstr "Désactivé"
-
-#: resources/templates/database/events/index.twig:161
-msgid "Event editor"
-msgstr "Éditeur d'évènements"
-
-#: resources/templates/database/events/index.twig:166
-#: resources/templates/database/routines/index.twig:83
-#: resources/templates/database/routines/index.twig:118
-#: resources/templates/home/index.twig:320
-#: resources/templates/modals/index_dialog_modal.twig:26
-#: resources/templates/navigation/main.twig:58
-#: resources/templates/server/privileges/users_overview.twig:172
-#: resources/templates/server/status/monitor/index.twig:94
-#: resources/templates/server/status/monitor/index.twig:296
-#: resources/templates/table/structure/display_structure.twig:348
-#: resources/templates/triggers/list.twig:86
-#: src/Controllers/JavaScriptMessagesController.php:320
-msgid "Loading…"
-msgstr "Chargement en cours…"
-
-#: resources/templates/database/events/index.twig:171
-#: resources/templates/database/routines/index.twig:88
-#: resources/templates/server/privileges/users_overview.twig:177
-#: resources/templates/triggers/list.twig:91
-msgid "Save changes"
-msgstr "Enregistrer les modifications"
-
-#: resources/templates/database/events/index.twig:181
-msgid "Export event"
-msgstr "Exporter l'évènement"
-
 #: resources/templates/database/export/index.twig:61
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
@@ -2334,6 +2098,42 @@ msgstr "Procédure stockée"
 msgid "Edit privileges"
 msgstr "Éditer les privilèges"
 
+#: resources/templates/database/privileges/index.twig:91
+#: resources/templates/database/privileges/index.twig:115
+#: resources/templates/database/privileges/index.twig:116
+#: resources/templates/database/routines/index.twig:17
+#: resources/templates/database/routines/index.twig:18
+#: resources/templates/database/routines/row.twig:50
+#: resources/templates/database/routines/row.twig:53
+#: resources/templates/database/structure/check_all_tables.twig:12
+#: resources/templates/display/results/table.twig:332
+#: resources/templates/display/results/table.twig:333
+#: resources/templates/display/results/table.twig:365
+#: resources/templates/events/index.twig:18
+#: resources/templates/events/index.twig:19
+#: resources/templates/events/index.twig:85
+#: resources/templates/events/row.twig:31 resources/templates/export.twig:3
+#: resources/templates/export.twig:493
+#: resources/templates/preferences/header.twig:42
+#: resources/templates/preferences/manage/main.twig:67
+#: resources/templates/server/privileges/new_user_ajax.twig:63
+#: resources/templates/server/privileges/users_overview.twig:95
+#: resources/templates/server/privileges/users_overview.twig:124
+#: resources/templates/server/privileges/users_overview.twig:125
+#: resources/templates/server/status/monitor/index.twig:75
+#: resources/templates/table/privileges/index.twig:95
+#: resources/templates/table/privileges/index.twig:119
+#: resources/templates/table/privileges/index.twig:120
+#: resources/templates/triggers/list.twig:17
+#: resources/templates/triggers/list.twig:18
+#: resources/templates/triggers/row.twig:41
+#: src/Config/Forms/User/ExportForm.php:148
+#: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
+#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
+#: src/Util.php:1374 src/Util.php:1389 src/Util.php:1406
+msgid "Export"
+msgstr "Exporter"
+
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
 #: src/Server/Privileges.php:2054
@@ -2354,6 +2154,32 @@ msgstr "Aucun utilisateur n'a été trouvé."
 msgid "With selected:"
 msgstr "Avec la sélection :"
 
+#: resources/templates/database/privileges/index.twig:112
+#: resources/templates/database/privileges/index.twig:113
+#: resources/templates/database/routines/index.twig:14
+#: resources/templates/database/structure/check_all_tables.twig:3
+#: resources/templates/database/structure/check_all_tables.twig:4
+#: resources/templates/display/results/table.twig:315
+#: resources/templates/display/results/table.twig:316
+#: resources/templates/events/index.twig:15
+#: resources/templates/select_all.twig:3 resources/templates/select_all.twig:4
+#: resources/templates/server/databases/index.twig:64
+#: resources/templates/server/privileges/edit_routine_privileges.twig:58
+#: resources/templates/server/privileges/privileges_table.twig:269
+#: resources/templates/server/privileges/privileges_table.twig:270
+#: resources/templates/server/privileges/privileges_table.twig:279
+#: resources/templates/server/privileges/privileges_table.twig:356
+#: resources/templates/server/privileges/privileges_table.twig:560
+#: resources/templates/server/privileges/users_overview.twig:120
+#: resources/templates/server/privileges/users_overview.twig:121
+#: resources/templates/server/user_groups/edit_user_groups.twig:21
+#: resources/templates/server/user_groups/edit_user_groups.twig:22
+#: resources/templates/table/privileges/index.twig:116
+#: resources/templates/table/privileges/index.twig:117
+#: resources/templates/triggers/list.twig:14
+msgid "Check all"
+msgstr "Tout cocher"
+
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
 #: src/Server/Privileges.php:1212
@@ -2369,9 +2195,22 @@ msgstr "Privilèges insuffisants pour visualiser les utilisateurs."
 msgid "Add user account"
 msgstr "Ajouter un compte d'utilisateur"
 
+#: resources/templates/database/routines/editor_form.twig:11
+#: resources/templates/events/editor-form.twig:10
+#: resources/templates/triggers/editor_form.twig:14
+#: resources/templates/view_create.twig:11
+msgid "Details"
+msgstr "Détails"
+
 #: resources/templates/database/routines/editor_form.twig:25
 msgid "Routine name"
 msgstr "Nom de la procédure"
+
+#: resources/templates/database/routines/editor_form.twig:43
+#: resources/templates/events/editor-form.twig:53
+#, php-format
+msgid "Change to %s"
+msgstr "Changer pour %s"
 
 #: resources/templates/database/routines/editor_form.twig:48
 msgid "Parameters"
@@ -2408,6 +2247,26 @@ msgstr "Options de retour"
 msgid "Charset"
 msgstr "Jeu de caractères"
 
+#: resources/templates/database/routines/editor_form.twig:118
+#: resources/templates/events/editor-form.twig:87
+#: resources/templates/triggers/editor_form.twig:62
+#: src/Plugins/Export/ExportHtmlword.php:397
+#: src/Plugins/Export/ExportOdt.php:507
+#: src/Plugins/Export/ExportTexytext.php:372
+#: src/Plugins/Export/Helpers/Pdf.php:318
+msgid "Definition"
+msgstr "Définition"
+
+#: resources/templates/database/routines/editor_form.twig:121
+#: resources/templates/events/editor-form.twig:92
+#: resources/templates/import.twig:160 resources/templates/import.twig:162
+#: resources/templates/sql/query.twig:40
+#: resources/templates/table/structure/display_table_stats.twig:81
+#: resources/templates/triggers/editor_form.twig:64
+#: src/Config/Descriptions.php:636 src/Config/Descriptions.php:652
+msgid "Format"
+msgstr "Format"
+
 #: resources/templates/database/routines/editor_form.twig:125
 msgid "Is deterministic"
 msgstr "Est déterministe"
@@ -2419,6 +2278,13 @@ msgid ""
 msgstr ""
 "L'utilisateur n'a pas de privilèges suffisants pour effectuer cette "
 "opération ; merci de se reporter à la documentation pour plus de détails."
+
+#: resources/templates/database/routines/editor_form.twig:148
+#: resources/templates/events/editor-form.twig:102
+#: resources/templates/triggers/editor_form.twig:67
+#: resources/templates/view_create.twig:55
+msgid "Definer"
+msgstr "Créateur"
 
 #: resources/templates/database/routines/editor_form.twig:154
 msgid "Security type"
@@ -2449,6 +2315,33 @@ msgstr "Cette procédure ne requiert aucun paramètre."
 msgid "Routines"
 msgstr "Procédures stockées"
 
+#: resources/templates/database/routines/index.twig:20
+#: resources/templates/database/routines/index.twig:21
+#: resources/templates/database/routines/parameter_row.twig:51
+#: resources/templates/database/routines/row.twig:63
+#: resources/templates/database/structure/check_all_tables.twig:16
+#: resources/templates/database/structure/structure_table_row.twig:87
+#: resources/templates/events/index.twig:21
+#: resources/templates/events/index.twig:22
+#: resources/templates/events/index.twig:95
+#: resources/templates/events/index.twig:101
+#: resources/templates/events/row.twig:42
+#: resources/templates/events/row.twig:48 resources/templates/indexes.twig:59
+#: resources/templates/server/databases/index.twig:67
+#: resources/templates/server/databases/index.twig:68
+#: resources/templates/server/databases/index.twig:326
+#: resources/templates/table/relation/foreign_key_row.twig:25
+#: resources/templates/table/structure/display_partitions.twig:146
+#: resources/templates/table/structure/display_structure.twig:120
+#: resources/templates/table/structure/display_structure.twig:279
+#: resources/templates/table/structure/display_structure.twig:522
+#: resources/templates/triggers/list.twig:20
+#: resources/templates/triggers/list.twig:21
+#: resources/templates/triggers/row.twig:52
+#: resources/templates/triggers/row.twig:58 src/Operations.php:532
+msgid "Drop"
+msgstr "Supprimer"
+
 #: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
 #: resources/templates/database/search/main.twig:72
@@ -2477,6 +2370,28 @@ msgstr "Retourne"
 #: resources/templates/database/routines/index.twig:78
 msgid "Routine editor"
 msgstr "Éditeur de procédures"
+
+#: resources/templates/database/routines/index.twig:83
+#: resources/templates/database/routines/index.twig:118
+#: resources/templates/events/index.twig:163
+#: resources/templates/home/index.twig:320
+#: resources/templates/modals/index_dialog_modal.twig:26
+#: resources/templates/navigation/main.twig:58
+#: resources/templates/server/privileges/users_overview.twig:172
+#: resources/templates/server/status/monitor/index.twig:94
+#: resources/templates/server/status/monitor/index.twig:296
+#: resources/templates/table/structure/display_structure.twig:348
+#: resources/templates/triggers/list.twig:86
+#: src/Controllers/JavaScriptMessagesController.php:320
+msgid "Loading…"
+msgstr "Chargement en cours…"
+
+#: resources/templates/database/routines/index.twig:88
+#: resources/templates/events/index.twig:168
+#: resources/templates/server/privileges/users_overview.twig:177
+#: resources/templates/triggers/list.twig:91
+msgid "Save changes"
+msgstr "Enregistrer les modifications"
 
 #: resources/templates/database/routines/index.twig:98
 msgid "Export routine"
@@ -2932,6 +2847,21 @@ msgstr "Créé"
 msgid "Updated"
 msgstr "Mis à jour"
 
+#: resources/templates/database/tracking/tables.twig:17
+#: resources/templates/events/editor-form.twig:30
+#: resources/templates/events/index.twig:47
+#: resources/templates/table/tracking/main.twig:31
+#: src/Config/ConfigFile.php:578
+#: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
+#: src/Server/Status/Processes.php:110 src/Util.php:1372
+msgid "Status"
+msgstr "État"
+
+#: resources/templates/database/tracking/tables.twig:47
+#: resources/templates/events/index.twig:116
+msgid "Click to toggle"
+msgstr "Cliquer pour commuter"
+
 #: resources/templates/database/tracking/tables.twig:61
 #: resources/templates/table/tracking/main.twig:10
 #: resources/templates/table/tracking/main.twig:53
@@ -3194,6 +3124,79 @@ msgstr "Quelque chose s'est mal passé"
 #: resources/templates/table/structure/display_structure.twig:352
 msgid "Go back"
 msgstr "Retour"
+
+#: resources/templates/events/editor-form.twig:24
+msgid "Event name"
+msgstr "Nom de l'évènement"
+
+#: resources/templates/events/editor-form.twig:40
+#: resources/templates/server/binlog/index.twig:84
+msgid "Event type"
+msgstr "Type d'évènement"
+
+#: resources/templates/events/editor-form.twig:58
+msgid "Execute at"
+msgstr "Exécuter à"
+
+#: resources/templates/events/editor-form.twig:64
+msgid "Execute every"
+msgstr "Exécuter chaque"
+
+#: resources/templates/events/editor-form.twig:75
+msgctxt "Start of recurring event"
+msgid "Start"
+msgstr "Départ"
+
+#: resources/templates/events/editor-form.twig:81
+msgctxt "End of recurring event"
+msgid "End"
+msgstr "Fin"
+
+#: resources/templates/events/editor-form.twig:96
+msgid "On completion preserve"
+msgstr "Suite à l'exécution, conserver"
+
+#: resources/templates/events/index.twig:3 src/Menu.php:381
+#: src/Navigation/Nodes/NodeEventContainer.php:23
+#: src/Navigation/Nodes/NodeEventContainer.php:25
+#: src/Plugins/Export/ExportSql.php:977 src/Plugins/Export/ExportXml.php:92
+#: src/Util.php:1394
+msgid "Events"
+msgstr "Évènements"
+
+#: resources/templates/events/index.twig:30
+msgid "Create new event"
+msgstr "Créer un événement"
+
+#: resources/templates/events/index.twig:39
+msgid "There are no events to display."
+msgstr "Aucun évènement à afficher."
+
+#: resources/templates/events/index.twig:111
+msgid "Event scheduler status"
+msgstr "État du planificateur d'évènements"
+
+#: resources/templates/events/index.twig:129
+msgid "ON"
+msgstr "Activé"
+
+#: resources/templates/events/index.twig:140
+msgid "OFF"
+msgstr "Désactivé"
+
+#: resources/templates/events/index.twig:158
+msgid "Event editor"
+msgstr "Éditeur d'évènements"
+
+#: resources/templates/events/index.twig:178
+msgid "Export event"
+msgstr "Exporter l'évènement"
+
+#: resources/templates/events/index.twig:189
+#, fuzzy
+#| msgid "The event scheduler is disabled"
+msgid "The event scheduler is disabled."
+msgstr "Le planificateur d'évènements est désactivé"
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -12171,7 +12174,6 @@ msgstr ""
 
 #: src/Controllers/Database/DesignerController.php:175
 #: src/Controllers/Database/DesignerController.php:180
-#: src/Controllers/Database/EventsController.php:53
 #: src/Controllers/Database/ExportController.php:57
 #: src/Controllers/Database/ExportController.php:62
 #: src/Controllers/Database/ImportController.php:62
@@ -12238,45 +12240,6 @@ msgstr ""
 #: src/Controllers/View/CreateController.php:73
 msgid "No databases selected."
 msgstr "Aucune base de données n'a été sélectionnée."
-
-#: src/Controllers/Database/EventsController.php:70
-msgid "The event was dropped immediately after creation."
-msgstr "L'événement a été abandonné immédiatement après sa création."
-
-#: src/Controllers/Database/EventsController.php:137
-msgid "Add event"
-msgstr "Ajouter un évènement"
-
-#: src/Controllers/Database/EventsController.php:141
-msgid "Edit event"
-msgstr "Modifier l'évènement"
-
-#: src/Controllers/Database/EventsController.php:190
-#: src/Controllers/Database/RoutinesController.php:255
-#: src/Controllers/Database/RoutinesController.php:285
-#: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Triggers/IndexController.php:207
-msgid "Error in processing request:"
-msgstr "Erreur dans le traitement de la requête :"
-
-#: src/Controllers/Database/EventsController.php:192
-#, php-format
-msgid "No event with name %1$s found in database %2$s."
-msgstr ""
-"Aucun évènement nommé %1$s n'a été trouvé dans la base de données %2$s."
-
-#: src/Controllers/Database/EventsController.php:218
-#, php-format
-msgid "Export of event %s"
-msgstr "Exporter l'évènement %s"
-
-#: src/Controllers/Database/EventsController.php:238
-#, php-format
-msgid ""
-"Error in processing request: No event with name %1$s found in database %2$s."
-msgstr ""
-"Erreur dans le traitement de la demande : aucun évènement nommé %1$s n'a été "
-"trouvé dans la base de données %2$s."
 
 #: src/Controllers/Database/ExportController.php:127
 #: src/Controllers/Server/ExportController.php:57
@@ -12370,6 +12333,14 @@ msgstr "Ajouter une procédure"
 #: src/Controllers/Database/RoutinesController.php:175
 msgid "Edit routine"
 msgstr "Éditer une procédure"
+
+#: src/Controllers/Database/RoutinesController.php:255
+#: src/Controllers/Database/RoutinesController.php:285
+#: src/Controllers/Database/RoutinesController.php:351
+#: src/Controllers/Events/IndexController.php:190
+#: src/Controllers/Triggers/IndexController.php:207
+msgid "Error in processing request:"
+msgstr "Erreur dans le traitement de la requête :"
 
 #: src/Controllers/Database/RoutinesController.php:258
 #, php-format
@@ -12486,6 +12457,44 @@ msgstr ""
 #: src/Controllers/ErrorReportController.php:110
 msgid "You may want to refresh the page."
 msgstr "Merci de rafraîchir la page."
+
+#: src/Controllers/Events/ExportController.php:38
+#: src/Controllers/Events/IndexController.php:40
+#, fuzzy
+#| msgid "No databases selected."
+msgid "No database selected."
+msgstr "Aucune base de données n'a été sélectionnée."
+
+#: src/Controllers/Events/ExportController.php:63
+#, php-format
+msgid "Export of event %s"
+msgstr "Exporter l'évènement %s"
+
+#: src/Controllers/Events/ExportController.php:83
+#, php-format
+msgid ""
+"Error in processing request: No event with name %1$s found in database %2$s."
+msgstr ""
+"Erreur dans le traitement de la demande : aucun évènement nommé %1$s n'a été "
+"trouvé dans la base de données %2$s."
+
+#: src/Controllers/Events/IndexController.php:69
+msgid "The event was dropped immediately after creation."
+msgstr "L'événement a été abandonné immédiatement après sa création."
+
+#: src/Controllers/Events/IndexController.php:137
+msgid "Add event"
+msgstr "Ajouter un évènement"
+
+#: src/Controllers/Events/IndexController.php:141
+msgid "Edit event"
+msgstr "Modifier l'évènement"
+
+#: src/Controllers/Events/IndexController.php:192
+#, php-format
+msgid "No event with name %1$s found in database %2$s."
+msgstr ""
+"Aucun évènement nommé %1$s n'a été trouvé dans la base de données %2$s."
 
 #: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:677
 msgid "Bad type!"
@@ -15832,87 +15841,48 @@ msgstr ""
 "Chargement impossible des extensions de schéma, merci de vérifier "
 "l'installation !"
 
-#: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:134 src/Database/Routines.php:103
-#: src/Database/Routines.php:129 src/Database/Routines.php:205
-#: src/Database/Routines.php:977 src/Triggers/Triggers.php:84
-#: src/Triggers/Triggers.php:93 src/Triggers/Triggers.php:126
-#, php-format
-msgid "The following query has failed: \"%s\""
-msgstr "La requête « %s » a échoué"
-
-#: src/Database/Events.php:97 src/Database/Events.php:106
-#: src/Database/Events.php:119 src/Database/Events.php:138
-#: src/Database/Routines.php:107 src/Database/Routines.php:133
-#: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:981 src/Html/Generator.php:793
-#: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
-#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:130
-msgid "MySQL said: "
-msgstr "MySQL a répondu : "
-
-#: src/Database/Events.php:116
-msgid "Sorry, we failed to restore the dropped event."
-msgstr "Il a été impossible de restaurer l'évènement."
-
-#: src/Database/Events.php:117 src/Database/Routines.php:221
-#: src/Triggers/Triggers.php:109
-msgid "The backed up query was:"
-msgstr "La requête conservée est :"
-
-#: src/Database/Events.php:123
-#, php-format
-msgid "Event %1$s has been modified."
-msgstr "L'évènement %1$s a été modifié."
-
-#: src/Database/Events.php:141
-#, php-format
-msgid "Event %1$s has been created."
-msgstr "L'évènement %1$s a été créé."
-
-#: src/Database/Events.php:153 src/Database/Routines.php:147
-#: src/Triggers/Triggers.php:145
-msgid "One or more errors have occurred while processing your request:"
-msgstr "Au moins une erreur s'est produite lors du traitement de la requête :"
-
-#: src/Database/Events.php:263 src/Database/Routines.php:783
-#: src/Triggers/Triggers.php:187
-msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "Le créateur doit suivre le format « utilisateur@machine » !"
-
-#: src/Database/Events.php:271
-msgid "You must provide an event name!"
-msgstr "Il faut fournir un nom pour l'évènement !"
-
-#: src/Database/Events.php:285
-msgid "You must provide a valid interval value for the event."
-msgstr "Il faut fournir un intervalle valide pour l'évènement."
-
-#: src/Database/Events.php:298
-msgid "You must provide a valid execution time for the event."
-msgstr "Il faut fournir un moment d'exécution valide pour l'évènement."
-
-#: src/Database/Events.php:301
-msgid "You must provide a valid type for the event."
-msgstr "Il faut fournir un type valide pour l'évènement."
-
-#: src/Database/Events.php:327
-msgid "You must provide an event definition."
-msgstr "Il faut fournir une définition pour l'évènement."
-
 #: src/Database/Routines.php:84
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Type de procédure invalide : « %s »"
+
+#: src/Database/Routines.php:103 src/Database/Routines.php:129
+#: src/Database/Routines.php:205 src/Database/Routines.php:977
+#: src/Events/Events.php:87 src/Events/Events.php:96 src/Events/Events.php:128
+#: src/Triggers/Triggers.php:84 src/Triggers/Triggers.php:93
+#: src/Triggers/Triggers.php:126
+#, php-format
+msgid "The following query has failed: \"%s\""
+msgstr "La requête « %s » a échoué"
+
+#: src/Database/Routines.php:107 src/Database/Routines.php:133
+#: src/Database/Routines.php:209 src/Database/Routines.php:223
+#: src/Database/Routines.php:981 src/Events/Events.php:91
+#: src/Events/Events.php:100 src/Events/Events.php:113
+#: src/Events/Events.php:132 src/Html/Generator.php:793
+#: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
+#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:130
+msgid "MySQL said: "
+msgstr "MySQL a répondu : "
 
 #: src/Database/Routines.php:136
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "La procédure %1$s a été créée."
 
+#: src/Database/Routines.php:147 src/Events/Events.php:147
+#: src/Triggers/Triggers.php:145
+msgid "One or more errors have occurred while processing your request:"
+msgstr "Au moins une erreur s'est produite lors du traitement de la requête :"
+
 #: src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Il a été impossible de restaurer la procédure."
+
+#: src/Database/Routines.php:221 src/Events/Events.php:111
+#: src/Triggers/Triggers.php:109
+msgid "The backed up query was:"
+msgstr "La requête conservée est :"
 
 #: src/Database/Routines.php:269
 #, php-format
@@ -15944,6 +15914,11 @@ msgstr ""
 #: src/Database/Routines.php:713
 msgid "You must provide a valid return type for the routine."
 msgstr "Il faut fournir un type de retour valide pour la procédure."
+
+#: src/Database/Routines.php:783 src/Events/Events.php:258
+#: src/Triggers/Triggers.php:187
+msgid "The definer must be in the \"username@hostname\" format!"
+msgstr "Le créateur doit suivre le format « utilisateur@machine » !"
 
 #: src/Database/Routines.php:790
 msgid "Invalid routine type!"
@@ -16318,6 +16293,40 @@ msgstr ""
 #: src/Error/ErrorHandler.php:413
 msgid "Report"
 msgstr "Rapporter"
+
+#: src/Events/Events.php:110
+msgid "Sorry, we failed to restore the dropped event."
+msgstr "Il a été impossible de restaurer l'évènement."
+
+#: src/Events/Events.php:117
+#, php-format
+msgid "Event %1$s has been modified."
+msgstr "L'évènement %1$s a été modifié."
+
+#: src/Events/Events.php:135
+#, php-format
+msgid "Event %1$s has been created."
+msgstr "L'évènement %1$s a été créé."
+
+#: src/Events/Events.php:267
+msgid "You must provide an event name!"
+msgstr "Il faut fournir un nom pour l'évènement !"
+
+#: src/Events/Events.php:281
+msgid "You must provide a valid interval value for the event."
+msgstr "Il faut fournir un intervalle valide pour l'évènement."
+
+#: src/Events/Events.php:296
+msgid "You must provide a valid execution time for the event."
+msgstr "Il faut fournir un moment d'exécution valide pour l'évènement."
+
+#: src/Events/Events.php:299
+msgid "You must provide a valid type for the event."
+msgstr "Il faut fournir un type valide pour l'évènement."
+
+#: src/Events/Events.php:328
+msgid "You must provide an event definition."
+msgstr "Il faut fournir une définition pour l'évènement."
 
 #: src/Exceptions/AuthenticationFailure.php:35
 msgid "Cannot log in to the database server."
@@ -21727,9 +21736,6 @@ msgstr "Aucun fichier présent dans l'archive Zip !"
 
 #~ msgid "Export of event \"%s\""
 #~ msgstr "Exporter l'évènement «%s»"
-
-#~ msgid "The event scheduler is disabled"
-#~ msgstr "Le planificateur d'évènements est désactivé"
 
 #~ msgid "Turn it on"
 #~ msgstr "L'activer"

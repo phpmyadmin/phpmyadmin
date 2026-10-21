@@ -35,21 +35,14 @@ final readonly class ExportController implements InvocableController
     {
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            $message = __('No database selected.');
-            if (! $request->isAjax()) {
-                return $this->responseRenderer->redirectToRoute('/', ['reload' => true, 'message' => $message]);
-            }
-
-            $this->responseRenderer->addJSON('message', $message);
-            $this->responseRenderer->setRequestStatus(false);
-
-            return $this->responseRenderer->response();
+            return $this->responseRenderer->respondWithErrorMessage(__('No database selected.'));
         }
 
         $this->responseRenderer->addScriptFiles(['events.js', 'sql.js']);
 
+        $schedulerStatus = $this->events->getEventSchedulerStatus();
         $eventName = $this->getEventName($request->getQueryParam('item_name'));
-        if ($eventName !== '') {
+        if ($schedulerStatus !== 'DISABLED' && $eventName !== '') {
             $exportData = $this->events->getEventDefinition($databaseName->getName(), $eventName);
 
             if ($exportData === null || $exportData === '') {

@@ -81,26 +81,12 @@ final readonly class TableController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
         if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No table selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
+            return $this->response->respondWithErrorMessage(__('No table selected.'));
         }
 
         UrlParams::$params['goto'] = UrlParams::$params['back'] = Url::getFromRoute('/table/operations');

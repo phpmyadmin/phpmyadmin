@@ -29,6 +29,11 @@ final class ExportControllerTest extends AbstractTestCase
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('SHOW CREATE EVENT `test_db`.`test_event`', [[$createEventStatement]], ['Create Event']);
+        $dbiDummy->addResult(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            [['event_scheduler', 'ON']],
+            ['Variable_name', 'Value'],
+        );
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $responseRenderer = new ResponseRenderer();
         $events = new Events($dbi, new Config());
@@ -59,6 +64,11 @@ final class ExportControllerTest extends AbstractTestCase
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('SHOW CREATE EVENT `test_db`.`test_event`', [[$createEventStatement]], ['Create Event']);
+        $dbiDummy->addResult(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            [['event_scheduler', 'ON']],
+            ['Variable_name', 'Value'],
+        );
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $responseRenderer = new ResponseRenderer();
         $events = new Events($dbi, new Config());
@@ -86,6 +96,11 @@ final class ExportControllerTest extends AbstractTestCase
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('SHOW CREATE EVENT `test_db`.`test_event`', [], ['Create Event']);
+        $dbiDummy->addResult(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            [['event_scheduler', 'ON']],
+            ['Variable_name', 'Value'],
+        );
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $responseRenderer = new ResponseRenderer();
         $events = new Events($dbi, new Config());
@@ -117,6 +132,11 @@ final class ExportControllerTest extends AbstractTestCase
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('SHOW CREATE EVENT `test_db`.`test_event`', [], ['Create Event']);
+        $dbiDummy->addResult(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            [['event_scheduler', 'ON']],
+            ['Variable_name', 'Value'],
+        );
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $responseRenderer = new ResponseRenderer();
         $events = new Events($dbi, new Config());
@@ -151,7 +171,7 @@ final class ExportControllerTest extends AbstractTestCase
         Config::$instance = $config;
         $dbi = $this->createDatabaseInterface(config: $config);
         $events = new Events($dbi, $config);
-        $responseRenderer = new ResponseRenderer();
+        $responseRenderer = new ResponseRenderer($config);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'https://example.com/');
 
@@ -171,6 +191,7 @@ final class ExportControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface(config: $config);
         $events = new Events($dbi, $config);
         $responseRenderer = new ResponseRenderer();
+        $responseRenderer->setAjax(true);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'https://example.com/')
             ->withHeader('X-Requested-With', 'XMLHttpRequest');
@@ -178,8 +199,12 @@ final class ExportControllerTest extends AbstractTestCase
         $response = (new ExportController($responseRenderer, $events, new DbTableExists($dbi)))($request);
 
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
-        self::assertSame('', (string) $response->getBody());
-        self::assertSame(['message' => 'No database selected.'], $responseRenderer->getJSONResult());
+        self::assertSame(
+            '{"success":false,"error":"<div class=\"alert alert-danger\" role=\"alert\">\n'
+            . '  <img src=\"themes\/dot.gif\" title=\"\" alt=\"\" class=\"icon ic_s_error\"> No database selected.\n'
+            . '<\/div>\n"}',
+            (string) $response->getBody(),
+        );
         self::assertFalse($responseRenderer->hasSuccessState());
     }
 }

@@ -23,7 +23,10 @@ env:
 jobs:
   javascript-test:
     name: Test JavaScript files
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest ]
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
@@ -40,7 +43,7 @@ jobs:
         run: yarn install --non-interactive
 
       - name: Run tests
-        run: yarn test
+        run: yarn test --color
 
   javascript-lint:
     name: Lint JavaScript files

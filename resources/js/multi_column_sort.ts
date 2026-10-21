@@ -20,13 +20,13 @@ AJAX.registerOnload('multi_column_sort.js', function () {
             event.preventDefault();
             AJAX.source = $(this);
             ajaxShowMessage();
-            orderUrlRemove += argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+            orderUrlRemove += argsep + 'ajax_page_request=true';
             $.post('index.php?route=/sql', orderUrlRemove, AJAX.responseHandler);
         } else if (event.shiftKey) {
             event.preventDefault();
             AJAX.source = $(this);
             ajaxShowMessage();
-            orderUrlAdd += argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+            orderUrlAdd += argsep + 'ajax_page_request=true';
             $.post('index.php?route=/sql', orderUrlAdd, AJAX.responseHandler);
         }
     });

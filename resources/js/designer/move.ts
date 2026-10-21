@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import { prepareForAjaxRequest } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import refreshMainContent from '../modules/functions/refreshMainContent.ts';
@@ -338,7 +337,6 @@ const reload = function () {
                         rowOffsetTop +
                         heightField;
 
-
                     rowOffsetTop = 0;
                     tabHideButton = document.getElementById('id_hide_tbody_' + DesignerConfig.contr[K][key][key2][key3][0]);
                     if (tabHideButton.innerHTML === 'v') {
@@ -655,7 +653,6 @@ const addOtherDbTables = function () {
     $selectTable.append('<option value="">' + window.Messages.strNone + '</option>');
 
     $.post('index.php?route=/sql', {
-        'ajax_request': true,
         'sql_query': 'SHOW databases;',
         'server': CommonParams.get('server')
     }, function (data) {
@@ -685,7 +682,6 @@ const addOtherDbTables = function () {
         }
 
         $.post('index.php?route=/database/designer', {
-            'ajax_request': true,
             'dialog': 'add_table',
             'db': db,
             'table': table,
@@ -714,7 +710,6 @@ const addOtherDbTables = function () {
             const dbName = $(this).val();
             const sqlQuery = 'SHOW tables;';
             $.post('index.php?route=/sql', {
-                'ajax_request': true,
                 'sql_query': sqlQuery,
                 'db': dbName,
                 'server': CommonParams.get('server')
@@ -793,7 +788,7 @@ const getUrlPos = function (forceString = undefined) {
 const save2 = function (callback) {
     if (DesignerConfig.designerTablesEnabled) {
         const argsep = CommonParams.get('arg_separator');
-        let poststr = 'operation=savePage' + argsep + 'save_page=same' + argsep + 'ajax_request=true';
+        let poststr = 'operation=savePage' + argsep + 'save_page=same';
         poststr += argsep + 'server=' + DesignerConfig.server + argsep + 'db=' + encodeURIComponent(DesignerConfig.db) + argsep + 'selected_page=' + DesignerConfig.selectedPage;
         poststr += DesignerMove.getUrlPos();
 
@@ -834,7 +829,6 @@ const submitSaveDialogAndClose = function (callback, modal) {
 
     if (DesignerConfig.designerTablesEnabled) {
         const $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
-        prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
             if (data.success === false) {
                 ajaxShowMessage(data.error, false);
@@ -897,7 +891,6 @@ const editPages = function () {
     DesignerMove.promptToSaveCurrentPage(function () {
         const $msgbox = ajaxShowMessage();
         $.post('index.php?route=/database/designer', {
-            'ajax_request': true,
             'server': DesignerConfig.server,
             'db': DesignerConfig.db,
             'dialog': 'edit'
@@ -935,7 +928,6 @@ const editPages = function () {
 const deletePages = function () {
     const $msgbox = ajaxShowMessage();
     $.post('index.php?route=/database/designer', {
-        'ajax_request': true,
         'server': DesignerConfig.server,
         'db': DesignerConfig.db,
         'dialog': 'delete'
@@ -963,7 +955,6 @@ const deletePages = function () {
 
                 const $messageBox = ajaxShowMessage(window.Messages.strProcessingRequest);
                 const deletingCurrentPage = parseInt(selected) === DesignerConfig.selectedPage;
-                prepareForAjaxRequest($form);
 
                 if (DesignerConfig.designerTablesEnabled) {
                     $.post($form.attr('action'), $form.serialize(), function (data) {
@@ -1003,7 +994,6 @@ const deletePages = function () {
 const saveAs = function () {
     const $msgbox = ajaxShowMessage();
     $.post('index.php?route=/database/designer', {
-        'ajax_request': true,
         'server': DesignerConfig.server,
         'db': DesignerConfig.db,
         'dialog': 'save_as'
@@ -1048,7 +1038,6 @@ const saveAs = function () {
 
                 const $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
                 if (DesignerConfig.designerTablesEnabled) {
-                    prepareForAjaxRequest($form);
                     $.post($form.attr('action'), $form.serialize() + DesignerMove.getUrlPos(), function (data) {
                         if (data.success === false) {
                             ajaxShowMessage(data.error, false);
@@ -1126,7 +1115,6 @@ const exportPages = function () {
     const argsep = CommonParams.get('arg_separator');
 
     $.post('index.php?route=/database/designer', {
-        'ajax_request': true,
         'server': DesignerConfig.server,
         'db': DesignerConfig.db,
         'dialog': 'export',
@@ -1226,7 +1214,6 @@ const saveValueInConfig = function (indexSent, valueSent) {
         {
             'operation': 'save_setting_value',
             'index': indexSent,
-            'ajax_request': true,
             'server': DesignerConfig.server,
             'value': valueSent
         },
@@ -1336,7 +1323,6 @@ const clickTableField = function (db, T, f, pk) {
         $.post('index.php?route=/database/designer',
             {
                 'operation': 'setDisplayField',
-                'ajax_request': true,
                 'server': DesignerConfig.server,
                 'db': db,
                 'table': T,
@@ -1358,7 +1344,7 @@ const newRelation = function () {
     const argsep = CommonParams.get('arg_separator');
     linkRelation += argsep + 'server=' + DesignerConfig.server + argsep + 'db=' + DesignerConfig.db + argsep + 'db2=p';
     linkRelation += argsep + 'on_delete=' + (document.getElementById('on_delete') as HTMLSelectElement).value + argsep + 'on_update=' + (document.getElementById('on_update') as HTMLSelectElement).value;
-    linkRelation += argsep + 'operation=addNewRelation' + argsep + 'ajax_request=true';
+    linkRelation += argsep + 'operation=addNewRelation';
 
     const $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
     $.post('index.php?route=/database/designer', linkRelation, function (data) {
@@ -1594,7 +1580,7 @@ const updRelation = function () {
     document.getElementById('layer_upd_relation').style.display = 'none';
     const argsep = CommonParams.get('arg_separator');
     linkRelation += argsep + 'server=' + DesignerConfig.server + argsep + 'db=' + DesignerConfig.db;
-    linkRelation += argsep + 'operation=removeRelation' + argsep + 'ajax_request=true';
+    linkRelation += argsep + 'operation=removeRelation';
 
     const $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
     $.post('index.php?route=/database/designer', linkRelation, function (data) {

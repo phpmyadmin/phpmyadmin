@@ -124,7 +124,6 @@ const GitInfo = {
             'index.php?route=/git-revision',
             {
                 'server': CommonParams.get('server'),
-                'ajax_request': true,
                 'no_debug': true
             }
         ).done(function (data): void {

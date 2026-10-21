@@ -52,14 +52,11 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     /**
      * Creates a new class instance
      */
-    public function __construct()
+    public function __construct(Config $config = new Config())
     {
         Current::$lang = 'en';
-        $config = Config::getInstance();
-        $config->selectedServer['pmadb'] = 'phpmyadmin';
         $template = new Template($config);
         $dummyDbi = new DbiDummy();
-        $dummyDbi->addSelectDb('phpmyadmin');
         $dbi = DatabaseInterface::getInstanceForTest($dummyDbi, $config);
         $relation = new Relation($dbi, $config);
         $history = new History($dbi, $relation, $config);

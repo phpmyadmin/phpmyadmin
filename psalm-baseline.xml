@@ -6931,12 +6931,6 @@
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
       <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['userGroup']]]></code>
       <code><![CDATA[$_POST['username']]]></code>
       <code><![CDATA[$eachUser]]></code>
@@ -6951,10 +6945,6 @@
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['pma_pw']]]></code>
       <code><![CDATA[$_POST['userGroup']]]></code>
@@ -7026,9 +7016,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST[$currentGrant[0] . '_none'])]]></code>
       <code><![CDATA[empty($_POST[$currentGrant[0] . '_none'])]]></code>
-      <code><![CDATA[empty($_POST['nopass'])]]></code>
-      <code><![CDATA[empty($_POST['pma_pw'])]]></code>
-      <code><![CDATA[empty($_POST['pma_pw2'])]]></code>
       <code><![CDATA[empty($_POST['userGroup'])]]></code>
       <code><![CDATA[empty($row['password'])]]></code>
       <code><![CDATA[empty($row['password'])]]></code>
@@ -8690,11 +8677,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="tests/unit/Controllers/PhpInfoControllerTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="tests/unit/Controllers/Server/BinlogControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -9969,9 +9951,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="tests/unit/Stubs/ResponseRenderer.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedAssignment>
       <code><![CDATA[$json['error']]]></code>
       <code><![CDATA[$value]]></code>
@@ -10101,11 +10080,6 @@
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/UniqueConditionTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/UrlRedirectorTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>

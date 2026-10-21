@@ -89,7 +89,7 @@ const getDropdownValues = function ($dropdown): void {
     const $db = $form.find('input[name="db"]').val();
     const $table = $form.find('input[name="table"]').val();
     const argsep = CommonParams.get('arg_separator');
-    let params = 'getDropdownValues=true' + argsep + 'ajax_request=true' +
+    let params = 'getDropdownValues=true' +
         argsep + 'db=' + encodeURIComponent($db) +
         argsep + 'table=' + encodeURIComponent($table) +
         argsep + 'foreign=' + (foreign !== '') +

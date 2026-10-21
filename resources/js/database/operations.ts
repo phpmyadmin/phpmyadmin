@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { emptyCheckTheField, prepareForAjaxRequest } from '../modules/functions.ts';
+import { emptyCheckTheField } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -62,8 +62,6 @@ AJAX.registerOnload('database/operations.js', function () {
 
         const question = escapeHtml('CREATE DATABASE ' + newDbName + ' / DROP DATABASE ' + oldDbName);
 
-        prepareForAjaxRequest($form);
-
         $form.confirm(question, $form.attr('action'), function (url) {
             ajaxShowMessage(window.Messages.strRenamingDatabases, false);
             $.post(url, $('#rename_db_form').serialize() + CommonParams.get('arg_separator') + 'is_js_confirmed=1', function (data) {
@@ -103,7 +101,6 @@ AJAX.registerOnload('database/operations.js', function () {
 
         ajaxShowMessage(window.Messages.strCopyingDatabase, false);
         const $form = $(this);
-        prepareForAjaxRequest($form);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             // use messages that stay on screen
             $('.alert-success, .alert-danger').fadeOut();
@@ -140,7 +137,6 @@ AJAX.registerOnload('database/operations.js', function () {
     $(document).on('submit', '#change_db_charset_form.ajax', function (event) {
         event.preventDefault();
         const $form = $(this);
-        prepareForAjaxRequest($form);
         ajaxShowMessage(window.Messages.strChangingCharset);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' && data.success === true) {

@@ -29,12 +29,21 @@ use const JSON_HEX_TAG;
  */
 class Sanitize
 {
-    /**
-     * Interpret bb code
-     *
-     * @var array<string, string>
-     */
-    private static array $replacePairs = [];
+    private const BB_CODE_REPLACE_PAIRS = [
+        '[em]' => '<em>',
+        '[/em]' => '</em>',
+        '[strong]' => '<strong>',
+        '[/strong]' => '</strong>',
+        '[code]' => '<code>',
+        '[/code]' => '</code>',
+        '[kbd]' => '<kbd>',
+        '[/kbd]' => '</kbd>',
+        '[br]' => '<br>',
+        '[/a]' => '</a>',
+        '[/doc]' => '</a>',
+        '[sup]' => '<sup>',
+        '[/sup]' => '</sup>',
+    ];
 
     /**
      * Checks whether given link is valid
@@ -170,27 +179,8 @@ class Sanitize
             $message = strtr($message, ['<' => '&lt;', '>' => '&gt;', '"' => '&quot;', "'" => '&#039;']);
         }
 
-        if (self::$replacePairs === []) {
-            self::$replacePairs = [
-                '[em]' => '<em>',
-                '[/em]' => '</em>',
-                '[strong]' => '<strong>',
-                '[/strong]' => '</strong>',
-                '[code]' => '<code>',
-                '[/code]' => '</code>',
-                '[kbd]' => '<kbd>',
-                '[/kbd]' => '</kbd>',
-                '[br]' => '<br>',
-                '[/a]' => '</a>',
-                '[/doc]' => '</a>',
-                '[sup]' => '<sup>',
-                '[/sup]' => '</sup>',
-                // used in libraries/Util.php
-                '[dochelpicon]' => Html\Generator::getImage('b_help', __('Documentation')),
-            ];
-        }
-
-        $message = strtr($message, self::$replacePairs);
+        $message = strtr($message, self::BB_CODE_REPLACE_PAIRS);
+        $message = strtr($message, ['[dochelpicon]' => Html\Generator::getImage('b_help', __('Documentation'))]);
 
         /* Match links in bb code ([a@url@target], where @target is options) */
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';

@@ -180,7 +180,6 @@
 
     {% if is_ajax %}
       <input type="hidden" name="{{ is_edit_mode ? 'editor_process_edit' : 'editor_process_add' }}" value="true">
-      <input type="hidden" name="ajax_request" value="true">
     {% else %}
       <div class="card-footer">
         <input class="btn btn-primary" type="submit" name="{{ is_edit_mode ? 'editor_process_edit' : 'editor_process_add' }}" value="{{ t('Go') }}">

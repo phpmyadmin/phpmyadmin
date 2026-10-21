@@ -262,4 +262,36 @@ class EventsTest extends AbstractTestCase
             ],
         ];
     }
+
+    #[DataProvider('eventSchedulerStatusProvider')]
+    public function testGetEventSchedulerStatus(string $expected, string $variableValue): void
+    {
+        $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult(
+            "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
+            [['event_scheduler', $variableValue]],
+            ['Variable_name', 'Value'],
+        );
+
+        $config = new Config();
+        $events = new Events($this->createDatabaseInterface($dbiDummy, $config), $config);
+
+        self::assertSame($expected, $events->getEventSchedulerStatus());
+        $dbiDummy->assertAllQueriesConsumed();
+    }
+
+    /** @return iterable<int, array{string, string}> */
+    public static function eventSchedulerStatusProvider(): iterable
+    {
+        yield ['ON', 'ON'];
+        yield ['OFF', 'OFF'];
+        yield ['DISABLED', 'DISABLED'];
+        yield ['ON', 'On'];
+        yield ['OFF', 'Off'];
+        yield ['DISABLED', 'Disabled'];
+        yield ['ON', '1'];
+        yield ['OFF', '0'];
+        yield ['OFF', 'Unknown'];
+    }
 }

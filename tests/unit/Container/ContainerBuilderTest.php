@@ -6,7 +6,6 @@ namespace PhpMyAdmin\Tests\Container;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Events\Events;
 use PhpMyAdmin\FlashMessenger;
@@ -49,10 +48,7 @@ final class ContainerBuilderTest extends AbstractTestCase
     #[DataProvider('servicesProvider')]
     public function testContainerEntries(string $service): void
     {
-        Current::$lang = 'en';
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
         self::assertInstanceOf($service, self::$container->get($service));
-        ContainerBuilder::$container = null;
     }
 
     /** @return array<int, array<int, class-string>> */

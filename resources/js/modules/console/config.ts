@@ -127,7 +127,6 @@ function setConfigValue (key: string, value: boolean|number|string): void {
     $.post(
         'index.php?route=/console/update-config',
         {
-            'ajax_request': true,
             server: CommonParams.get('server'),
             key: key,
             value: value,

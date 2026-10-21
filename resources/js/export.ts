@@ -91,7 +91,6 @@ function createTemplate (name) {
     const templateData = Export.getTemplateData();
 
     const params = {
-        'ajax_request': true,
         'server': CommonParams.get('server'),
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
@@ -125,7 +124,6 @@ function createTemplate (name) {
  */
 function loadTemplate (id) {
     const params = {
-        'ajax_request': true,
         'server': CommonParams.get('server'),
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
@@ -182,7 +180,6 @@ function updateTemplate (id) {
     const templateData = Export.getTemplateData();
 
     const params = {
-        'ajax_request': true,
         'server': CommonParams.get('server'),
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
@@ -208,7 +205,6 @@ function updateTemplate (id) {
  */
 function deleteTemplate (id) {
     const params = {
-        'ajax_request': true,
         'server': CommonParams.get('server'),
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
@@ -784,7 +780,6 @@ function checkTimeOut (timeLimit) {
     timeOut = setTimeout(function () {
         $.get('index.php?route=/export/check-time-out',
             {
-                'ajax_request': true,
                 'server': CommonParams.get('server')
             },
             function (data) {
@@ -818,7 +813,6 @@ function createAliasModal (event): void {
             $('#db_alias_select').append(option).val(db).trigger('change');
         } else {
             const params = {
-                'ajax_request': true,
                 'server': CommonParams.get('server'),
             };
             $.post('index.php?route=/databases', params, function (response) {
@@ -965,7 +959,6 @@ AJAX.registerOnload('export.js', function () {
         } else {
             const database = $(this).val();
             const params = {
-                'ajax_request': true,
                 'server': CommonParams.get('server'),
                 'db': database,
             };
@@ -990,7 +983,6 @@ AJAX.registerOnload('export.js', function () {
         const database = $('#db_alias_select').val();
         const table = $(this).val();
         const params = {
-            'ajax_request': true,
             'server': CommonParams.get('server'),
             'db': database,
             'table': table,
