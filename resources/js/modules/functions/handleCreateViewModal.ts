@@ -16,7 +16,7 @@ export default function handleCreateViewModal ($this): void {
     $.post($this.attr('href'), params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             ajaxRemoveMessage($msg);
-            $('#createViewModalGoButton').on('click', function () {
+            $('#createViewModalGoButton').off('click').on('click', function () {
                 if (typeof window.CodeMirror !== 'undefined') {
                     window.codeMirrorEditor.save();
                 }
