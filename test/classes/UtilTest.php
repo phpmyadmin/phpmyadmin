@@ -10,6 +10,9 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
@@ -1849,6 +1852,28 @@ class UtilTest extends AbstractTestCase
                 "'test'test",
             ],
         ];
+    }
+
+    public function testGetQueryWithDelimiter(): void
+    {
+        $query = 'CREATE PROCEDURE `p`() BEGIN SELECT 1; SELECT 2; END';
+
+        $delimited = Util::getQueryWithDelimiter($query);
+
+        self::assertSame("DELIMITER $$\n" . $query . "$$\nDELIMITER ;\n", $delimited);
+
+        // The procedure body contains ";", the result must still be parsed as one statement.
+        $parser = new Parser($delimited);
+        self::assertCount(0, $parser->errors);
+        self::assertCount(1, $parser->statements);
+        self::assertInstanceOf(CreateStatement::class, $parser->statements[0]);
+
+        // When editing, the DROP statement is shown before the DELIMITER line.
+        $parser = new Parser("DROP PROCEDURE `p`;\n" . $delimited);
+        self::assertCount(0, $parser->errors);
+        self::assertCount(2, $parser->statements);
+        self::assertInstanceOf(DropStatement::class, $parser->statements[0]);
+        self::assertInstanceOf(CreateStatement::class, $parser->statements[1]);
     }
 
     /**

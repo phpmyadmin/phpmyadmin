@@ -377,6 +377,18 @@ class Util
     /* ----------------------- Set of misc functions ----------------------- */
 
     /**
+     * Wraps a compound statement (CREATE PROCEDURE, EVENT, TRIGGER, ...) in
+     * DELIMITER $$ ... $$ DELIMITER ; so that the query can be run again
+     * from the SQL tab or the mysql client, even when its body contains ";".
+     *
+     * @param string $query the statement to wrap
+     */
+    public static function getQueryWithDelimiter(string $query): string
+    {
+        return "DELIMITER $$\n" . $query . "$$\nDELIMITER ;\n";
+    }
+
+    /**
      * Adds backquotes on both sides of a database, table or field name.
      * and escapes backquotes inside the name with another backquote
      *
