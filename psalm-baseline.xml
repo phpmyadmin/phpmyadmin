@@ -5769,9 +5769,6 @@
       <code><![CDATA[$foreigners->data[$fieldName]['foreign_table']]]></code>
     </PossiblyNullOperand>
     <PropertyNotSetInConstructor>
-      <code><![CDATA[$results]]></code>
-      <code><![CDATA[Pdf]]></code>
-      <code><![CDATA[Pdf]]></code>
       <code><![CDATA[Pdf]]></code>
       <code><![CDATA[Pdf]]></code>
     </PropertyNotSetInConstructor>

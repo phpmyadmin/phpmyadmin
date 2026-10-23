@@ -9280,12 +9280,6 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Class PhpMyAdmin\\Plugins\\Export\\Helpers\\Pdf has an uninitialized property \$results\. Give it default value or assign it in the constructor\.$#'
-			identifier: property.uninitialized
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 2
