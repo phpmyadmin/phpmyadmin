@@ -95,6 +95,7 @@ phpMyAdmin - ChangeLog
 - issue #20499 Fix WebAuthn\CustomServer credential save
 - issue #20497 Escape the username in the user group lookup
 - issue #20531 Disable Events page when event scheduler is disabled
+- issue #20544 Add collation description for uca1400 collations
 
 5.2.3 (2025-10-07)
 - issue #19548 Fix missing tooltip in status monitor log table
