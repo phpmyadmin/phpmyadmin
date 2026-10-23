@@ -184,6 +184,10 @@ return [
         'class' => Middleware\UrlParamsSetting::class,
         'arguments' => [Config::class],
     ],
+    Middleware\ResponseRendererAjaxSetting::class => [
+        'class' => Middleware\ResponseRendererAjaxSetting::class,
+        'arguments' => [ResponseRenderer::class],
+    ],
     Middleware\TokenRequestParamChecking::class => [
         'class' => Middleware\TokenRequestParamChecking::class,
         'arguments' => [ResponseRenderer::class],
