@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export\Helpers;
 
+use PhpMyAdmin\ConfigStorage\Foreigners;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -354,17 +355,15 @@ class Pdf extends PdfLib
             foreach ($data as $col => $txt) {
                 $this->page = $currpage;
                 $this->setXY($l, $h);
-                if ($this->tablewidths[$col] > 0) {
-                    $this->MultiCell(
-                        $this->tablewidths[$col],
-                        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-                        $this->FontSizePt,
-                        $txt,
-                        0,
-                        $this->colAlign[$col],
-                    );
-                    $l += $this->tablewidths[$col];
-                }
+                $this->MultiCell(
+                    $this->tablewidths[$col],
+                    // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+                    $this->FontSizePt,
+                    $txt,
+                    0,
+                    $this->colAlign[$col],
+                );
+                $l += $this->tablewidths[$col];
 
                 if (! isset($tmpheight[$row . '-' . $this->page])) {
                     $tmpheight[$row . '-' . $this->page] = 0;
@@ -453,6 +452,7 @@ class Pdf extends PdfLib
          */
         // Check if we can use Relations
         $haveRel = false;
+        $foreigners = new Foreigners();
         if ($doRelation) {
             // Find which tables are related with the current one and write it in
             // an array
@@ -505,10 +505,12 @@ class Pdf extends PdfLib
 
         // Now let's start to write the table structure
 
+        $comments = [];
         if ($doComments) {
             $comments = $relation->getComments($db, $table);
         }
 
+        $mimeMap = null;
         if ($doMime && $relationParameters->browserTransformationFeature !== null) {
             $mimeMap = $transformations->getMime($db, $table, true);
         }
@@ -569,21 +571,18 @@ class Pdf extends PdfLib
             // write the horizontal borders
             $this->Line($l, $h, $fullwidth + $l, $h);
             // write the content and remember the height of the highest col
-            /** @var array<int<0,6>, string> $data */
             foreach ($data as $col => $txt) {
                 $this->page = $currpage;
                 $this->setXY($l, $h);
-                if ($this->tablewidths[$col] > 0) {
-                    $this->MultiCell(
-                        $this->tablewidths[$col],
-                        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-                        $this->FontSizePt,
-                        $txt,
-                        0,
-                        $this->colAlign[$col],
-                    );
-                    $l += $this->tablewidths[$col];
-                }
+                $this->MultiCell(
+                    $this->tablewidths[$col],
+                    // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+                    $this->FontSizePt,
+                    $txt,
+                    0,
+                    $this->colAlign[$col],
+                );
+                $l += $this->tablewidths[$col];
 
                 if (! isset($tmpheight[$row . '-' . $this->page])) {
                     $tmpheight[$row . '-' . $this->page] = 0;
