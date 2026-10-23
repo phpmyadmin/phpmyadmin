@@ -696,7 +696,7 @@ function on () {
                 const valid = checkFormElementInRange(
                     $(this).closest('form')[0],
                     'added_fields',
-                    'Column count has to be larger than zero.',
+                    window.Messages.strColumnCountPositive,
                 );
                 if (! valid) {
                     return;

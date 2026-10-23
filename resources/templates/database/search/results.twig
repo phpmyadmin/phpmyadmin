@@ -1,7 +1,7 @@
 <table class="table table-striped caption-top w-auto">
     <caption>
-        {{- 'Search results for "<em>%s</em>" %s:'|format(
-            criteria_search_string|e,
+        {{- t('Search results for "%s" %s:')|format(
+            '<em>' ~ criteria_search_string|e ~ '</em>',
             search_type_description
         )|raw -}}
     </caption>
