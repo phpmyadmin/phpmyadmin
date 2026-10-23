@@ -30,6 +30,7 @@ use PhpMyAdmin\Http\Middleware\PhpSettingsConfiguration;
 use PhpMyAdmin\Http\Middleware\ProfilingChecking;
 use PhpMyAdmin\Http\Middleware\RecentTableHandling;
 use PhpMyAdmin\Http\Middleware\RequestProblemChecking;
+use PhpMyAdmin\Http\Middleware\ResponseRendererAjaxSetting;
 use PhpMyAdmin\Http\Middleware\ResponseRendererLoading;
 use PhpMyAdmin\Http\Middleware\RouteParsing;
 use PhpMyAdmin\Http\Middleware\ServerConfigurationChecking;
@@ -79,6 +80,7 @@ readonly class Application
         $requestHandler->add(SessionHandling::class);
         $requestHandler->add(EncryptedQueryParamsHandling::class);
         $requestHandler->add(UrlParamsSetting::class);
+        $requestHandler->add(ResponseRendererAjaxSetting::class);
         $requestHandler->add(TokenRequestParamChecking::class);
         $requestHandler->add(DatabaseAndTableSetting::class);
         $requestHandler->add(SqlQueryGlobalSetting::class);
