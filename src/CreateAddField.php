@@ -13,6 +13,7 @@ use PhpMyAdmin\Table\Table;
 use function count;
 use function implode;
 use function in_array;
+use function is_string;
 use function json_decode;
 use function preg_replace;
 use function rtrim;
@@ -79,6 +80,8 @@ class CreateAddField
                 $_POST['field_comments'][$i] ?? '',
                 $_POST['field_virtuality'][$i] ?? '',
                 $_POST['field_expression'][$i] ?? '',
+                invisible: Util::getValueByKey($_POST, ['field_invisible', $i], '') === '1',
+                check: $this->getCheckExpression($i),
             );
 
             $definition .= $this->setColumnCreationStatementSuffix($previousField, $isCreateTable);
@@ -87,6 +90,17 @@ class CreateAddField
         }
 
         return $definitions;
+    }
+
+    /**
+     * Expression of the column-level CHECK constraint typed in the form
+     */
+    private function getCheckExpression(int $columnNumber): string
+    {
+        /** @psalm-suppress MixedAssignment */
+        $check = Util::getValueByKey($_POST, ['field_check', $columnNumber], '');
+
+        return is_string($check) ? trim($check) : '';
     }
 
     /**

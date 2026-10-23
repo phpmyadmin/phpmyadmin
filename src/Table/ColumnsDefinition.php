@@ -136,6 +136,11 @@ final class ColumnsDefinition
             $regenerate = true;
         }
 
+        $serverVersion = $this->dbi->getVersion();
+        $isInvisibleColumnsSupported = Compatibility::isInvisibleColumnsSupported($this->dbi, $serverVersion);
+        $isColumnCheckSupported = Compatibility::isColumnCheckSupported($this->dbi, $serverVersion);
+        $columnChecks = $fieldsMeta !== null && $isColumnCheckSupported ? $this->getColumnChecks() : [];
+
         $foreigners = $this->relation->getForeignKeysData(Current::$database, Current::$table);
         $childReferences = null;
         // From MySQL 5.6.6 onwards columns with foreign keys can be renamed.
@@ -187,6 +192,8 @@ final class ColumnsDefinition
                     $columnMeta['Null'] === 'YES',
                 );
                 $columnMeta = array_merge($columnMeta, $columnMetaDefault);
+                $columnMeta['Invisible'] = self::isInvisible($columnMeta['Extra']);
+                $columnMeta['Check'] = $columnChecks[$columnMeta['Field']] ?? '';
             }
 
             if (isset($columnMeta['Type'])) {
@@ -258,6 +265,9 @@ final class ColumnsDefinition
                         'field_attribute_orig[' . $columnNumber . ']' => trim($extractedColumnSpec['attribute'] ?? ''),
                         'field_null_orig[' . $columnNumber . ']' => $columnMeta['Null'] ?? '',
                         'field_extra_orig[' . $columnNumber . ']' => $columnMeta['Extra'] ?? '',
+                        'field_invisible_orig[' . $columnNumber . ']' =>
+                            ($columnMeta['Invisible'] ?? false) === true ? '1' : '',
+                        'field_check_orig[' . $columnNumber . ']' => $columnMeta['Check'] ?? '',
                         'field_comments_orig[' . $columnNumber . ']' => $columnMeta['Comment'] ?? '',
                         'field_virtuality_orig[' . $columnNumber . ']' => $columnMeta['Virtuality'] ?? '',
                         'field_expression_orig[' . $columnNumber . ']' => $columnMeta['Expression'] ?? '',
@@ -345,6 +355,8 @@ final class ColumnsDefinition
                 $this->dbi,
                 $this->dbi->getVersion(),
             ),
+            'is_invisible_columns_supported' => $isInvisibleColumnsSupported,
+            'is_column_check_supported' => $isColumnCheckSupported,
             'is_integers_length_restricted' => $isIntegersLengthRestricted,
             'browse_mime' => $config->config->BrowseMIME ,
             'supports_stored_keyword' => Compatibility::supportsStoredKeywordForVirtualColumns(
@@ -380,6 +392,34 @@ final class ColumnsDefinition
     }
 
     /**
+     * Whether the Extra value of SHOW COLUMNS marks the column as INVISIBLE
+     */
+    public static function isInvisible(string $extra): bool
+    {
+        return in_array('INVISIBLE', explode(' ', mb_strtoupper($extra)), true);
+    }
+
+    /**
+     * Column-level CHECK constraints of the current table (MariaDB names them after the column)
+     *
+     * @return array<string, string> column name => CHECK expression
+     */
+    private function getColumnChecks(): array
+    {
+        /** @var array<string, string> $checks */
+        $checks = $this->dbi->fetchResult(
+            'SELECT `CONSTRAINT_NAME`, `CHECK_CLAUSE` FROM `information_schema`.`CHECK_CONSTRAINTS`'
+            . ' WHERE `CONSTRAINT_SCHEMA` = ' . $this->dbi->quoteString(Current::$database)
+            . ' AND `TABLE_NAME` = ' . $this->dbi->quoteString(Current::$table)
+            . " AND `LEVEL` = 'Column'",
+            'CONSTRAINT_NAME',
+            'CHECK_CLAUSE',
+        );
+
+        return $checks;
+    }
+
+    /**
      * @return array{
      *  Field: mixed,
      *  Type: mixed,
@@ -390,6 +430,8 @@ final class ColumnsDefinition
      *  Extra: mixed,
      *  Virtuality: mixed,
      *  Expression: mixed,
+     *  Invisible: bool,
+     *  Check: mixed,
      *  Key: string,
      *  Comment: false,
      *  Default: mixed
@@ -407,6 +449,8 @@ final class ColumnsDefinition
             'Extra' => Util::getValueByKey($_POST, ['field_extra', $columnNumber]),
             'Virtuality' => Util::getValueByKey($_POST, ['field_virtuality', $columnNumber], ''),
             'Expression' => Util::getValueByKey($_POST, ['field_expression', $columnNumber], ''),
+            'Invisible' => Util::getValueByKey($_POST, ['field_invisible', $columnNumber], '') === '1',
+            'Check' => Util::getValueByKey($_POST, ['field_check', $columnNumber], ''),
             'Key' => '',
             'Comment' => false,
         ];

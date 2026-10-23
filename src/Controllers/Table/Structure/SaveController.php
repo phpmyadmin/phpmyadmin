@@ -31,9 +31,11 @@ use function count;
 use function implode;
 use function in_array;
 use function is_array;
+use function is_string;
 use function sprintf;
 use function str_contains;
 use function strlen;
+use function trim;
 
 #[Route('/table/structure/save', ['POST'])]
 final class SaveController implements InvocableController
@@ -102,6 +104,8 @@ final class SaveController implements InvocableController
                 Util::getValueByKey($_POST, ['field_expression', $i], ''),
                 Util::getValueByKey($_POST, ['field_move_to', $i], ''),
                 $columnsWithIndex,
+                Util::getValueByKey($_POST, ['field_invisible', $i], '') === '1',
+                $this->getFormValue('field_check', $i),
             );
 
             // find the remembered sort expression
@@ -261,6 +265,8 @@ final class SaveController implements InvocableController
                         Util::getValueByKey($_POST, ['field_virtuality_orig', $i], ''),
                         Util::getValueByKey($_POST, ['field_expression_orig', $i], ''),
                         Util::getValueByKey($_POST, ['field_move_to_orig', $i], ''),
+                        invisible: Util::getValueByKey($_POST, ['field_invisible_orig', $i], '') === '1',
+                        check: $this->getFormValue('field_check_orig', $i),
                     );
                 }
 
@@ -326,6 +332,14 @@ final class SaveController implements InvocableController
         return $regenerate;
     }
 
+    private function getFormValue(string $field, int $columnNumber): string
+    {
+        /** @psalm-suppress MixedAssignment */
+        $value = Util::getValueByKey($_POST, [$field, $columnNumber], '');
+
+        return is_string($value) ? trim($value) : '';
+    }
+
     /**
      * Verifies if some elements of a column have changed
      *
@@ -355,13 +369,15 @@ final class SaveController implements InvocableController
             'field_default_value',
             'field_default_type',
             'field_extra',
+            'field_invisible',
+            'field_check',
             'field_length',
             'field_null',
             'field_type',
             'field_virtuality',
         ];
         foreach ($fields as $field) {
-            if ($_POST[$field][$i] != $_POST[$field . '_orig'][$i]) {
+            if (($_POST[$field][$i] ?? '') != ($_POST[$field . '_orig'][$i] ?? '')) {
                 return true;
             }
         }

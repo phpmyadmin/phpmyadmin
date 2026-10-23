@@ -96,7 +96,10 @@ class ColumnsDefinitionTest extends AbstractTestCase
 
         $contentCell = [
             'column_number' => 0,
-            'column_meta' => array_merge($columnMeta, ['DefaultType' => 'NONE', 'DefaultValue' => '']),
+            'column_meta' => array_merge(
+                $columnMeta,
+                ['DefaultType' => 'NONE', 'DefaultValue' => '', 'Invisible' => false, 'Check' => ''],
+            ),
             'type_upper' => 'SMALLINT',
             'default_value' => '',
             'length_values_input_size' => 8,
@@ -147,6 +150,8 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 'field_attribute_orig[0]' => 'UNSIGNED',
                 'field_null_orig[0]' => 'NO',
                 'field_extra_orig[0]' => 'auto_increment',
+                'field_invisible_orig[0]' => '',
+                'field_check_orig[0]' => '',
                 'field_comments_orig[0]' => '',
                 'field_virtuality_orig[0]' => '',
                 'field_expression_orig[0]' => '',
@@ -202,6 +207,8 @@ class ColumnsDefinitionTest extends AbstractTestCase
             'connection' => null,
             'change_column' => null,
             'is_virtual_columns_supported' => true,
+            'is_invisible_columns_supported' => false,
+            'is_column_check_supported' => false,
             'is_integers_length_restricted' => false,
             'browse_mime' => true,
             'supports_stored_keyword' => true,
@@ -312,6 +319,24 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 false,
                 ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => ''],
             ],
+        ];
+    }
+
+    #[DataProvider('providerIsInvisible')]
+    public function testIsInvisible(bool $expected, string $extra): void
+    {
+        self::assertSame($expected, ColumnsDefinition::isInvisible($extra));
+    }
+
+    /** @return array<string, array{bool, string}> */
+    public static function providerIsInvisible(): array
+    {
+        return [
+            'MariaDB' => [true, 'INVISIBLE'],
+            'MySQL generated invisible primary key' => [true, 'auto_increment INVISIBLE'],
+            'MySQL' => [true, 'DEFAULT_GENERATED INVISIBLE'],
+            'visible' => [false, 'auto_increment'],
+            'empty' => [false, ''],
         ];
     }
 }

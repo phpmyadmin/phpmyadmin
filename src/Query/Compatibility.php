@@ -136,6 +136,35 @@ class Compatibility
     }
 
     /**
+     * Returns whether the database server supports invisible columns
+     */
+    public static function isInvisibleColumnsSupported(DatabaseInterface $dbi, int $serverVersion): bool
+    {
+        // @see https://dev.mysql.com/doc/refman/8.0/en/invisible-columns.html
+        if (self::isMySqlOrPerconaDb($dbi)) {
+            return $serverVersion >= 80023;
+        }
+
+        // @see https://mariadb.com/kb/en/invisible-columns/
+        if (self::isMariaDb($dbi)) {
+            return $serverVersion >= 100303;
+        }
+
+        return false;
+    }
+
+    /**
+     * Returns whether a column-level CHECK constraint can be read back and edited as part of the column
+     *
+     * Only MariaDB keeps column-level constraints apart from table-level ones
+     * (information_schema.CHECK_CONSTRAINTS.LEVEL, since MariaDB 10.5.10).
+     */
+    public static function isColumnCheckSupported(DatabaseInterface $dbi, int $serverVersion): bool
+    {
+        return self::isMariaDb($dbi) && $serverVersion >= 100510;
+    }
+
+    /**
      * Returns whether the database server supports virtual columns
      */
     public static function isVirtualColumnsSupported(DatabaseInterface $dbi, int $serverVersion): bool
