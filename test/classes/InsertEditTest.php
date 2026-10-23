@@ -2697,6 +2697,24 @@ class InsertEditTest extends AbstractTestCase
         ], $result);
     }
 
+    public function testGetTableColumnsSkipsInvisibleColumns(): void
+    {
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('getColumns')->willReturn([
+            'my_row_id' => ['Field' => 'my_row_id', 'Extra' => 'auto_increment INVISIBLE'],
+            'id' => ['Field' => 'id', 'Extra' => ''],
+            'hidden' => ['Field' => 'hidden', 'Extra' => 'INVISIBLE'],
+            'name' => ['Field' => 'name', 'Extra' => ''],
+        ]);
+
+        $insertEdit = new InsertEdit($dbi);
+
+        self::assertSame([
+            ['Field' => 'id', 'Extra' => ''],
+            ['Field' => 'name', 'Extra' => ''],
+        ], $insertEdit->getTableColumns('db', 'table'));
+    }
+
     /**
      * Test for determineInsertOrEdit
      */
