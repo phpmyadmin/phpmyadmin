@@ -105,7 +105,7 @@ class MySQLDocumentation
          * Check if we have built local documentation, however
          * provide consistent URL for testsuite
          */
-        if (! defined('TESTSUITE') && @file_exists(ROOT_PATH . 'docs/html/index.html')) {
+        if (! defined('TESTSUITE') && @file_exists(ROOT_PATH . 'public/docs/html/index.html')) {
             return $pathPrefix . 'docs/html/' . $url;
         }
 
