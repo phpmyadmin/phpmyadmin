@@ -5612,9 +5612,6 @@
       <code><![CDATA[$this->FontSizePt]]></code>
       <code><![CDATA[$this->FontSizePt]]></code>
       <code><![CDATA[$this->FontSizePt]]></code>
-      <code><![CDATA[$this->colAlign[$col]]]></code>
-      <code><![CDATA[$this->colAlign[$col]]]></code>
-      <code><![CDATA[$this->colAlign[$col]]]></code>
       <code><![CDATA[$this->lMargin]]></code>
       <code><![CDATA[$this->tMargin]]></code>
       <code><![CDATA[$this->tMargin]]></code>
@@ -5625,17 +5622,7 @@
       <code><![CDATA[$this->tMargin]]></code>
       <code><![CDATA[$this->tMargin - ($this->FontSizePt / $this->k) * 2.5]]></code>
       <code><![CDATA[$this->tMargin - ($this->FontSizePt / $this->k) * 5]]></code>
-      <code><![CDATA[$this->tablewidths[$col]]]></code>
-      <code><![CDATA[$this->tablewidths[$col]]]></code>
-      <code><![CDATA[$this->tablewidths[$col]]]></code>
-      <code><![CDATA[$this->tablewidths[$col]]]></code>
-      <code><![CDATA[$this->tablewidths[$col]]]></code>
-      <code><![CDATA[$this->tablewidths[$col]]]></code>
       <code><![CDATA[$this->titleFontSize !== 0 ? $this->titleFontSize : $this->FontSizePt]]></code>
-      <code><![CDATA[$txt ?? 'NULL']]></code>
-      <code><![CDATA[$txt ?? 'NULL']]></code>
-      <code><![CDATA[$txt ?? 'NULL']]></code>
-      <code><![CDATA[$txt ?? 'NULL']]></code>
       <code><![CDATA[$y]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -5676,9 +5663,6 @@
       <code><![CDATA[$currpage]]></code>
       <code><![CDATA[$data[]]]></code>
       <code><![CDATA[$data[]]]></code>
-      <code><![CDATA[$fullwidth]]></code>
-      <code><![CDATA[$fullwidth]]></code>
-      <code><![CDATA[$fullwidth]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$i]]></code>
@@ -5727,16 +5711,6 @@
       <code><![CDATA[$t]]></code>
       <code><![CDATA[$thisPageOlm]]></code>
       <code><![CDATA[$thisPageOrm]]></code>
-      <code><![CDATA[$txt]]></code>
-      <code><![CDATA[$txt]]></code>
-      <code><![CDATA[$txt]]></code>
-      <code><![CDATA[$txt]]></code>
-      <code><![CDATA[$width]]></code>
-      <code><![CDATA[$width]]></code>
-      <code><![CDATA[$width]]></code>
-      <code><![CDATA[$width]]></code>
-      <code><![CDATA[$width]]></code>
-      <code><![CDATA[$width]]></code>
       <code><![CDATA[$x]]></code>
       <code><![CDATA[$y]]></code>
     </MixedAssignment>
@@ -5744,15 +5718,15 @@
       <code><![CDATA[$availableWidth]]></code>
       <code><![CDATA[$foreigners->data[$fieldName]['foreign_field']]]></code>
       <code><![CDATA[$foreigners->data[$fieldName]['foreign_table']]]></code>
-      <code><![CDATA[$fullwidth]]></code>
-      <code><![CDATA[$fullwidth]]></code>
-      <code><![CDATA[$fullwidth]]></code>
-      <code><![CDATA[$fullwidth]]></code>
-      <code><![CDATA[$fullwidth]]></code>
-      <code><![CDATA[$fullwidth]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$i]]></code>
+      <code><![CDATA[$l]]></code>
+      <code><![CDATA[$l]]></code>
+      <code><![CDATA[$l]]></code>
+      <code><![CDATA[$l]]></code>
+      <code><![CDATA[$l]]></code>
+      <code><![CDATA[$l]]></code>
       <code><![CDATA[$l]]></code>
       <code><![CDATA[$l]]></code>
       <code><![CDATA[$l]]></code>
@@ -5791,9 +5765,6 @@
       <code><![CDATA[$this->tMargin]]></code>
       <code><![CDATA[$this->w]]></code>
       <code><![CDATA[$thisPageOrm]]></code>
-      <code><![CDATA[$width]]></code>
-      <code><![CDATA[$width]]></code>
-      <code><![CDATA[$width]]></code>
       <code><![CDATA[$x]]></code>
       <code><![CDATA[$x]]></code>
       <code><![CDATA[$y]]></code>
@@ -5802,10 +5773,13 @@
     <MixedPropertyFetch>
       <code><![CDATA[$foreigners->data]]></code>
     </MixedPropertyFetch>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$this->colTitles]]></code>
+      <code><![CDATA[$this->tablewidths]]></code>
+      <code><![CDATA[$this->tablewidths]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyUndefinedVariable>
       <code><![CDATA[$comments]]></code>
-      <code><![CDATA[$data]]></code>
-      <code><![CDATA[$data]]></code>
       <code><![CDATA[$foreigners]]></code>
       <code><![CDATA[$foreigners]]></code>
       <code><![CDATA[$mimeMap]]></code>
