@@ -9007,7 +9007,7 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Binary operation "\+" between 40\|int\<80, max\> and mixed results in an error\.$#'
+			message: '#^Binary operation "\+" between 330\|450\|570\|690 and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
 			path: src/Plugins/Export/Helpers/Pdf.php
@@ -9421,12 +9421,6 @@ parameters:
 			message: '#^Property PhpMyAdmin\\Plugins\\Export\\Helpers\\Pdf\:\:\$colTitles \(array\<int, string\|null\>\) does not accept array\<int\<0, max\>, mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: '#^Variable \$columnsCnt might not be defined\.$#'
-			identifier: variable.undefined
-			count: 6
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
