@@ -25211,7 +25211,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 15
+			count: 16
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
@@ -25226,7 +25226,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'SignonSession' on mixed\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
@@ -25281,12 +25281,12 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$newid of function session_id expects string, mixed given\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
 			message: "#^Parameter \\#1 \\$newname of function session_name expects string, mixed given\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/Plugins/Auth/AuthenticationSignon.php
 
 		-
@@ -46228,37 +46228,37 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'LogoutURL' on mixed\\.$#"
-			count: 2
+			count: 3
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Cannot access offset 'Server' on mixed\\.$#"
-			count: 35
+			count: 44
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Cannot access offset 'SignonCookieParams' on mixed\\.$#"
-			count: 3
+			count: 4
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Cannot access offset 'SignonScript' on mixed\\.$#"
-			count: 3
+			count: 4
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Cannot access offset 'SignonSession' on mixed\\.$#"
-			count: 8
+			count: 11
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Cannot access offset 'SignonURL' on mixed\\.$#"
-			count: 7
+			count: 8
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
 			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 3
+			count: 4
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
@@ -46268,7 +46268,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'port' on mixed\\.$#"
-			count: 3
+			count: 4
 			path: test/classes/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
