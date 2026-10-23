@@ -84,7 +84,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         });
 
         if (Object.keys(tableAliases).length === 0) {
-            ajaxShowMessage('Nothing selected', false, 'error');
+            ajaxShowMessage(window.Messages.strNothingSelected, false, 'error');
 
             return;
         }
@@ -225,7 +225,12 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 showTwoFields($(this));
             } else {
                 const options: JQuery<HTMLElement> = $(this).closest('table').find('.options');
-                options.parent().prepend('<input type="text" class="rhs_text_val query-form__input--wide" placeholder="Enter criteria as free text"></input>');
+                options.parent().prepend($('<input>', {
+                    type: 'text',
+                    class: 'rhs_text_val query-form__input--wide',
+                    placeholder: window.Messages.strEnterCriteriaFreeText,
+                }));
+
                 options.remove();
             }
         });
@@ -239,12 +244,17 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         if (critetiaCol.find('.binary').length === 0) {
             critetiaCol.empty();
 
-            critetiaCol.append(`
-                <div class="options binary">
-                    <input type="text" class="val" placeholder="${window.Messages.strFirstValuePlaceholder}" value="${criteriaInput.val()}" />
-                    <input type="text" class="val" placeholder="${window.Messages.strSecondValuePlaceholder}" />
-                </div>
-            `);
+            critetiaCol.append(
+                $('<div>', { class: 'options binary' }).append(
+                    $('<input>', {
+                        type: 'text',
+                        class: 'val',
+                        placeholder: window.Messages.strFirstValuePlaceholder,
+                        value: String(criteriaInput.val() ?? ''),
+                    }),
+                    $('<input>', { type: 'text', class: 'val', placeholder: window.Messages.strSecondValuePlaceholder }),
+                ),
+            );
         }
     }
 
@@ -256,14 +266,19 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         if (critetiaCol.find('.multi').length === 0) {
             critetiaCol.empty();
 
-            critetiaCol.append(`
-                <div class="options multi">
-                    <div class="option">
-                        <input type="text" class="val" placeholder="Enter an option" value="${criteriaInput.val()}" />
-                        <input type="button" class="btn btn-secondary add-option" value="+" />
-                    </div>
-                </div>
-            `);
+            critetiaCol.append(
+                $('<div>', { class: 'options multi' }).append(
+                    $('<div>', { class: 'option' }).append(
+                        $('<input>', {
+                            type: 'text',
+                            class: 'val',
+                            placeholder: window.Messages.strEnterAnOption,
+                            value: String(criteriaInput.val() ?? ''),
+                        }),
+                        $('<input>', { type: 'button', class: 'btn btn-secondary add-option', value: '+' }),
+                    ),
+                ),
+            );
         }
     }
 

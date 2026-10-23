@@ -28,7 +28,7 @@ function exportPrivilegesModalHandler (data, msgbox) {
         const modal = $('#exportPrivilegesModal');
         // Remove any previous privilege modal data, if any
         modal.find('.modal-body').first().html('');
-        $('#exportPrivilegesModalLabel').first().html('Loading');
+        $('#exportPrivilegesModalLabel').first().text(window.Messages.strLoading);
         modal.modal('show');
         modal.on('shown.bs.modal', function () {
             modal.find('.modal-body').first().html(data.message);
