@@ -33,7 +33,7 @@ class Pdf extends PdfLib
     /** @var array<int|float> */
     private array $tablewidths = [];
 
-    /** @var array<int|float> */
+    /** @var array<1> */
     private array $headerset = [];
 
     private int|float $dataY = 0;
@@ -50,8 +50,6 @@ class Pdf extends PdfLib
 
     /** @var array<int, string|null> */
     private array $colTitles = [];
-
-    private ResultInterface $results;
 
     /** @var array<int, 'L'|'R'> */
     private array $colAlign = [];
@@ -186,9 +184,9 @@ class Pdf extends PdfLib
      * Generate table
      *
      * @param int|float           $lineheight Height of line
-     * @param list<FieldMetadata> $fields     meta info for fields in $this->results
+     * @param list<FieldMetadata> $fields     meta info for fields in $mysqlResult
      */
-    public function morepagestable(int|float $lineheight, array $fields): void
+    public function morepagestable(int|float $lineheight, array $fields, ResultInterface $mysqlResult): void
     {
         // some things to set and 'remember'
         $l = $this->lMargin;
@@ -206,7 +204,7 @@ class Pdf extends PdfLib
         $tmpheight = [];
         $maxpage = $this->page;
 
-        while ($data = $this->results->fetchRow()) {
+        while ($data = $mysqlResult->fetchRow()) {
             $this->page = $currpage;
             // write the horizontal borders
             $this->Line($l, $h, $fullwidth + $l, $h);
@@ -644,9 +642,9 @@ class Pdf extends PdfLib
         /**
          * Pass 1 for column widths
          */
-        $this->results = $dbi->query($query, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
-        $numFields = $this->results->numFields();
-        $fields = $dbi->getFieldsMeta($this->results);
+        $mysqlResult = $dbi->query($query, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
+        $numFields = $mysqlResult->numFields();
+        $fields = $dbi->getFieldsMeta($mysqlResult);
 
         // sColWidth = starting col width (an average size width)
         $availableWidth = $this->w - $this->lMargin - $this->rMargin;
@@ -719,7 +717,7 @@ class Pdf extends PdfLib
         // loop through the data; any column whose contents
         // is greater than the column size is resized
         /** @todo force here a LIMIT to avoid reading all rows */
-        while ($row = $this->results->fetchRow()) {
+        while ($row = $mysqlResult->fetchRow()) {
             foreach ($colFits as $key => $val) {
                 $stringWidth = $this->GetStringWidth($row[$key] ?? 'NULL');
                 $stringWidth += 6;
@@ -766,13 +764,13 @@ class Pdf extends PdfLib
 
         // Pass 2
 
-        $this->results = $dbi->query($query, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
-        $fields = $dbi->getFieldsMeta($this->results);
+        $mysqlResult = $dbi->query($query, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
+        $fields = $dbi->getFieldsMeta($mysqlResult);
         $this->setY($this->tMargin);
         $this->AddPage();
         $this->setFont(PdfLib::PMA_PDF_FONT, '', 9);
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        $this->morepagestable($this->FontSizePt, $fields);
+        $this->morepagestable($this->FontSizePt, $fields, $mysqlResult);
     }
 
     public function setTitleFontSize(int $titleFontSize): void
