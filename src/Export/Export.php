@@ -115,8 +115,8 @@ class Export
     public function getMemoryLimit(): int
     {
         $memoryLimit = Util::getRealSize(ini_get('memory_limit'));
-        // No limit (-1) or an empty value: use 2 MB, as in phpMyAdmin 5.2
         if ($memoryLimit <= 0) {
+            // No limit (-1) or an empty value: use 2 MB
             $memoryLimit = 2 * 1024 * 1024;
         }
 
