@@ -230,7 +230,7 @@ class Routines
                     } else {
                         [$newErrors, $message] = $this->create($routine_query, $create_routine, $privilegesBackup);
                         if (empty($newErrors)) {
-                            $sql_query = $drop_routine . $routine_query;
+                            $sql_query = $drop_routine . Util::getQueryWithDelimiter($routine_query);
                         } else {
                             $errors = array_merge($errors, $newErrors);
                         }
@@ -255,7 +255,7 @@ class Routines
                     $message->addParam(
                         Util::backquote($_POST['item_name'])
                     );
-                    $sql_query = $routine_query;
+                    $sql_query = Util::getQueryWithDelimiter($routine_query);
                 }
             }
         }

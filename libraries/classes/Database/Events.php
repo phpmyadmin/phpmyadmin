@@ -128,7 +128,7 @@ class Events
                             $message->addParam(
                                 Util::backquote($_POST['item_name'])
                             );
-                            $sql_query = $drop_item . $item_query;
+                            $sql_query = $drop_item . Util::getQueryWithDelimiter($item_query);
                         }
                     }
                 } else {
@@ -148,7 +148,7 @@ class Events
                         $message->addParam(
                             Util::backquote($_POST['item_name'])
                         );
-                        $sql_query = $item_query;
+                        $sql_query = Util::getQueryWithDelimiter($item_query);
                     }
                 }
             }
