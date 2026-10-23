@@ -539,6 +539,7 @@ Following people have contributed to translation of phpMyAdmin:
     * شادي جعفر Shadi Gaafar <shadialaghbari\_at\_gmail.com>
     * ‫حمودي الجيلاني‬‎ <darhost56\_at\_gmail.com>
     * Ayoub Rejal <ayoubrejal\_at\_gmail.com>
+    * Ali H.Abdulhadi <a.h.alsaady1998\_at\_gmail.com>
 
 * Armenian
 
@@ -607,6 +608,7 @@ Following people have contributed to translation of phpMyAdmin:
     * Filip Obretenov <filip.obretenovbg\_at\_gmail.com>
     * Ivo Peev <igpeev\_at\_yahoo.com>
     * Светлозар Ковачев <svetliok26\_at\_gmail.com>
+    * Мария Рангелова <rangelova1186\_at\_gmail.com>
 
 * Burmese
 
@@ -746,6 +748,7 @@ Following people have contributed to translation of phpMyAdmin:
     * Herman Peeren <herman\_at\_yepr.nl>
     * dannybeckett <daniel.beckett\_at\_gmail.com>
     * theking2 <theking2\_at\_king.ma>
+    * Marijn Scholtus <linkable\_at\_gmail.com>
 
 * English (United Kingdom)
 
@@ -808,6 +811,7 @@ Following people have contributed to translation of phpMyAdmin:
     * Julien ITARD <julienitard\_at\_gmail.com>
     * Nathan <bonnemainsnathan\_at\_gmail.com>
     * Rajekevin DOUREPOULLE <rajekevin\_at\_hotmail.fr>
+    * Emmanuel HEMERIT <emmanuel\_at\_hemer.it>
 
 * Frisian
 
@@ -875,6 +879,8 @@ Following people have contributed to translation of phpMyAdmin:
     * Ramona Hapke <ramona.hapke\_at\_gmail.com>
     * Tobias Bannert <tobannert\_at\_gmail.com>
     * Tobias Groza <tooobi14\_at\_gmail.com>
+    * Ettore Atalan <atalanttore\_at\_googlemail.com>
+    * Eric Marcel Black Stiller <marcelstiller2005\_at\_gmail.com>
 
 * Greek
 
@@ -1198,6 +1204,7 @@ Following people have contributed to translation of phpMyAdmin:
     * Ronny André Løkken <rlo012\_at\_post.uit.no>
     * jasasa <jarlesa\_at\_gmail.com>
     * paalfe <paalfe\_at\_gmail.com>
+    * IsakBH <isak\_at\_brunhenriksen.net>
 
 * Norwegian Nynorsk
 
@@ -1372,6 +1379,7 @@ Following people have contributed to translation of phpMyAdmin:
     * Vinicius Moreira (Vm Creative) <vinnisao13\_at\_gmail.com>
     * Yury Vidal <yuryvidal\_at\_gmail.com>
     * ronniery borges <thenewodre\_at\_gmail.com>
+    * Marco Aurélio Cardoso <marcoaurelio.cardoso\_at\_gmail.com>
 
 * Punjabi
 
@@ -1539,6 +1547,7 @@ Following people have contributed to translation of phpMyAdmin:
     * AefghThreenine <aefgh39622\_at\_gmail.com>
     * Phongphan A Bunlom <phongphan117\_at\_hotmail.co.th>
     * Setthawut Sawaengkit <defpico2\_at\_hotmail.com>
+    * Jakkarach Dumdee <armada1\_at\_hotmail.co.th>
 
 * Turkish
 
