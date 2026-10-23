@@ -207,6 +207,7 @@ final class Collation
     private function getVariant(string $part): string|null
     {
         return match ($part) {
+            'uca1400' => 'UCA 14.0.0',
             '0900' => 'UCA 9.0.0',
             '520' => 'UCA 5.2.0',
             'mysql561' => 'MySQL 5.6.1',
