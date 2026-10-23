@@ -62,6 +62,12 @@ return [
     'localePath' => ROOT_PATH . 'resources' . DIRECTORY_SEPARATOR . 'locale' . DIRECTORY_SEPARATOR,
 
     /**
+     * Directory with the built HTML documentation (index.html)
+     */
+    'docsHtmlDir' => ROOT_PATH . 'public' . DIRECTORY_SEPARATOR . 'docs' . DIRECTORY_SEPARATOR . 'html'
+        . DIRECTORY_SEPARATOR,
+
+    /**
      * Define the cache directory for routing cache and other cache files
      */
     'cacheDir' => ROOT_PATH . 'app' . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR,

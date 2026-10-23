@@ -640,6 +640,7 @@ class ConfigTest extends AbstractTestCase
         self::assertIsString($vendorConfig['localePath']);
         self::assertIsString($vendorConfig['cacheDir']);
         self::assertDirectoryExists($vendorConfig['cacheDir']);
+        self::assertIsString($vendorConfig['docsHtmlDir']);
         self::assertIsString($vendorConfig['versionSuffix']);
     }
 
