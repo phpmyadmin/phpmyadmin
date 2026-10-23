@@ -115,6 +115,10 @@ class Export
     public function getMemoryLimit(): int
     {
         $memoryLimit = Util::getRealSize(ini_get('memory_limit'));
+        if ($memoryLimit <= 0) {
+            // No limit (-1) or an empty value: use 2 MB
+            $memoryLimit = 2 * 1024 * 1024;
+        }
 
         // Some of memory is needed for other things and as threshold.
         // During export I had allocated (see memory_get_usage function)

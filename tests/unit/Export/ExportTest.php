@@ -21,9 +21,12 @@ use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Large;
 
 use function htmlspecialchars;
+use function ini_get;
+use function ini_set;
 
 use const ENT_COMPAT;
 
@@ -62,6 +65,28 @@ class ExportTest extends AbstractTestCase
         ];
         $actual = $export->mergeAliases($aliases1, $aliases2);
         self::assertSame($expected, $actual);
+    }
+
+    #[DataProvider('providerForTestGetMemoryLimit')]
+    public function testGetMemoryLimit(string $memoryLimit, int $expected): void
+    {
+        $originalMemoryLimit = ini_get('memory_limit');
+        ini_set('memory_limit', $memoryLimit);
+
+        $export = new Export($this->createDatabaseInterface(), new OutputHandler());
+        $actual = $export->getMemoryLimit();
+
+        ini_set('memory_limit', $originalMemoryLimit);
+
+        self::assertSame($expected, $actual);
+    }
+
+    /** @return iterable<string, array{string, int}> */
+    public static function providerForTestGetMemoryLimit(): iterable
+    {
+        yield 'unlimited' => ['-1', 74644]; // (2 MiB - 1500000) / 8
+
+        yield '1G' => ['1G', 134030228]; // (1 GiB - 1500000) / 8
     }
 
     public function testGetFinalFilename(): void
