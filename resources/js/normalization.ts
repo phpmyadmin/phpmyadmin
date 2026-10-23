@@ -729,16 +729,19 @@ AJAX.registerOnload('normalization.js', function () {
         if (repeatingCols !== '') {
             const newColName = ($('#extra input[type=checkbox]:checked').first().val() as string);
             repeatingCols = repeatingCols.slice(0, -2);
-            let confirmStr = sprintf(window.Messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(CommonParams.get('table'))) as string;
-            confirmStr += '<input type="text" name="repeatGroupTable">' +
-                '( ' + escapeHtml(primaryKey.toString()) + ', <input type="text" name="repeatGroupColumn">)' +
-                '</ol>';
+            const confirmStr = sprintf(window.Messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(CommonParams.get('table'))) as string;
 
-            $('#newCols').html(confirmStr);
-            $('#newCols input[name="repeatGroupTable"]').attr('placeholder', window.Messages.strNewTablePlaceholder);
-            $('#newCols input[name="repeatGroupColumn"]')
-                .attr('placeholder', window.Messages.strNewColumnPlaceholder)
-                .val(newColName);
+            $('#newCols').html(confirmStr).find('ol').first().append(
+                $('<input>', { type: 'text', name: 'repeatGroupTable', placeholder: window.Messages.strNewTablePlaceholder }),
+                document.createTextNode('( ' + primaryKey.toString() + ', '),
+                $('<input>', {
+                    type: 'text',
+                    name: 'repeatGroupColumn',
+                    placeholder: window.Messages.strNewColumnPlaceholder,
+                    value: newColName,
+                }),
+                document.createTextNode(')'),
+            );
 
             $('<input>')
                 .attr({

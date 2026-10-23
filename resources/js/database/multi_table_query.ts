@@ -225,11 +225,12 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 showTwoFields($(this));
             } else {
                 const options: JQuery<HTMLElement> = $(this).closest('table').find('.options');
-                const criteriaValueInput = $('<input>', {
+                options.parent().prepend($('<input>', {
                     type: 'text',
                     class: 'rhs_text_val query-form__input--wide',
-                }).attr('placeholder', window.Messages.strEnterCriteriaFreeText);
-                options.parent().prepend(criteriaValueInput);
+                    placeholder: window.Messages.strEnterCriteriaFreeText,
+                }));
+
                 options.remove();
             }
         });
@@ -245,11 +246,13 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
 
             critetiaCol.append(
                 $('<div>', { class: 'options binary' }).append(
-                    $('<input>', { type: 'text', class: 'val' })
-                        .attr('placeholder', window.Messages.strFirstValuePlaceholder)
-                        .val(String(criteriaInput.val() ?? '')),
-                    $('<input>', { type: 'text', class: 'val' })
-                        .attr('placeholder', window.Messages.strSecondValuePlaceholder),
+                    $('<input>', {
+                        type: 'text',
+                        class: 'val',
+                        placeholder: window.Messages.strFirstValuePlaceholder,
+                        value: String(criteriaInput.val() ?? ''),
+                    }),
+                    $('<input>', { type: 'text', class: 'val', placeholder: window.Messages.strSecondValuePlaceholder }),
                 ),
             );
         }
@@ -266,9 +269,12 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             critetiaCol.append(
                 $('<div>', { class: 'options multi' }).append(
                     $('<div>', { class: 'option' }).append(
-                        $('<input>', { type: 'text', class: 'val' })
-                            .attr('placeholder', window.Messages.strEnterAnOption)
-                            .val(String(criteriaInput.val() ?? '')),
+                        $('<input>', {
+                            type: 'text',
+                            class: 'val',
+                            placeholder: window.Messages.strEnterAnOption,
+                            value: String(criteriaInput.val() ?? ''),
+                        }),
                         $('<input>', { type: 'button', class: 'btn btn-secondary add-option', value: '+' }),
                     ),
                 ),
