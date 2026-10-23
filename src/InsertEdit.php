@@ -1456,7 +1456,8 @@ class InsertEdit
             $tableColumn->default,
             $tableColumn->extra,
             $columnLength,
-            $this->isColumn($tableColumn->type, ['binary', 'varbinary']),
+            // VECTOR values are binary strings, they cannot be edited as text
+            $this->isColumn($tableColumn->type, ['binary', 'varbinary', 'vector']),
             $this->isColumn($tableColumn->type, ['blob', 'tinyblob', 'mediumblob', 'longblob']),
             $this->isColumn($tableColumn->type, ['char', 'varchar']),
             $insertMode,
