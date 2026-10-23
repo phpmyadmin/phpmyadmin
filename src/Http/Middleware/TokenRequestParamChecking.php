@@ -38,20 +38,37 @@ final readonly class TokenRequestParamChecking implements MiddlewareInterface
         assert($request instanceof ServerRequest);
 
         if ($request->isPost()) {
-            $response = $this->checkTokenRequestParam($request);
-            if ($response !== null) {
-                return $response;
+            $result = $this->checkTokenRequestParam($request);
+            if ($result === false) {
+                if ($request->isAjax()) {
+                    // There is no point in even attempting to process an ajax request if there is a token mismatch
+                    $this->responseRenderer->setRequestStatus(false);
+                    $this->responseRenderer->addJSON('message', Message::error(__('Error: Token mismatch')));
+
+                    return $this->responseRenderer->response();
+                }
+
+                /**
+                 * We don't allow any POST operation parameters if the token is mismatched
+                 * or is not provided. The request is also sent to the home page, so that
+                 * no controller acts on a request that may come from another site.
+                 */
+                $_REQUEST = $_POST = $_GET = $_COOKIE = [];
+                $request = $request->withParsedBody([])
+                    ->withQueryParams([])
+                    ->withCookieParams([])
+                    ->withAttribute('route', '/');
             }
         }
 
         return $handler->handle($request);
     }
 
-    public function checkTokenRequestParam(ServerRequest $request): ResponseInterface|null
+    public function checkTokenRequestParam(ServerRequest $request): bool
     {
         $token = $request->getParsedBodyParamAsString('token', '');
         if ($token !== '' && hash_equals(Session::getToken(), $token)) {
-            return null;
+            return true;
         }
 
         // Warn in case the mismatch is result of failed setting of session cookie
@@ -63,20 +80,6 @@ final readonly class TokenRequestParamChecking implements MiddlewareInterface
             );
         }
 
-        if ($request->isAjax()) {
-            // There is no point in even attempting to process an ajax request if there is a token mismatch
-            $this->responseRenderer->setRequestStatus(false);
-            $this->responseRenderer->addJSON('message', Message::error(__('Error: Token mismatch')));
-
-            return $this->responseRenderer->response();
-        }
-
-        /**
-         * We don't allow any POST operation parameters if the token is mismatched
-         * or is not provided.
-         */
-        $_REQUEST = $_POST = $_GET = $_COOKIE = [];
-
-        return null;
+        return false;
     }
 }
