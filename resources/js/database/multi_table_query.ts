@@ -3,7 +3,7 @@ import { AJAX } from '../modules/ajax.ts';
 import { copyToClipboard, displayCopyNotification, getSqlEditor } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
-import { escapeBacktick, escapeHtml } from '../modules/functions/escape.ts';
+import { escapeBacktick } from '../modules/functions/escape.ts';
 
 /**
  * @fileoverview    function used in QBE for DB
@@ -225,7 +225,11 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 showTwoFields($(this));
             } else {
                 const options: JQuery<HTMLElement> = $(this).closest('table').find('.options');
-                options.parent().prepend('<input type="text" class="rhs_text_val query-form__input--wide" placeholder="' + escapeHtml(window.Messages.strEnterCriteriaFreeText) + '"></input>');
+                const criteriaValueInput = $('<input>', {
+                    type: 'text',
+                    class: 'rhs_text_val query-form__input--wide',
+                }).attr('placeholder', window.Messages.strEnterCriteriaFreeText);
+                options.parent().prepend(criteriaValueInput);
                 options.remove();
             }
         });
@@ -239,12 +243,15 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         if (critetiaCol.find('.binary').length === 0) {
             critetiaCol.empty();
 
-            critetiaCol.append(`
-                <div class="options binary">
-                    <input type="text" class="val" placeholder="${window.Messages.strFirstValuePlaceholder}" value="${criteriaInput.val()}" />
-                    <input type="text" class="val" placeholder="${window.Messages.strSecondValuePlaceholder}" />
-                </div>
-            `);
+            critetiaCol.append(
+                $('<div>', { class: 'options binary' }).append(
+                    $('<input>', { type: 'text', class: 'val' })
+                        .attr('placeholder', window.Messages.strFirstValuePlaceholder)
+                        .val(String(criteriaInput.val() ?? '')),
+                    $('<input>', { type: 'text', class: 'val' })
+                        .attr('placeholder', window.Messages.strSecondValuePlaceholder),
+                ),
+            );
         }
     }
 
@@ -256,14 +263,16 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         if (critetiaCol.find('.multi').length === 0) {
             critetiaCol.empty();
 
-            critetiaCol.append(`
-                <div class="options multi">
-                    <div class="option">
-                        <input type="text" class="val" placeholder="${escapeHtml(window.Messages.strEnterAnOption)}" value="${criteriaInput.val()}" />
-                        <input type="button" class="btn btn-secondary add-option" value="+" />
-                    </div>
-                </div>
-            `);
+            critetiaCol.append(
+                $('<div>', { class: 'options multi' }).append(
+                    $('<div>', { class: 'option' }).append(
+                        $('<input>', { type: 'text', class: 'val' })
+                            .attr('placeholder', window.Messages.strEnterAnOption)
+                            .val(String(criteriaInput.val() ?? '')),
+                        $('<input>', { type: 'button', class: 'btn btn-secondary add-option', value: '+' }),
+                    ),
+                ),
+            );
         }
     }
 
