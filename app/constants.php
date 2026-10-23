@@ -16,6 +16,7 @@ if (
         $vendorConfig['versionCheckDefault'],
         $vendorConfig['localePath'],
         $vendorConfig['cacheDir'],
+        $vendorConfig['docsHtmlDir'],
         $vendorConfig['versionSuffix'],
     )
 ) {
@@ -34,6 +35,7 @@ define('CUSTOM_FOOTER_FILE', (string) $vendorConfig['customFooterFile']);
 define('VERSION_CHECK_DEFAULT', (bool) $vendorConfig['versionCheckDefault']);
 define('LOCALE_PATH', (string) $vendorConfig['localePath']);
 define('CACHE_DIR', (string) $vendorConfig['cacheDir']);
+define('DOCS_HTML_DIR', (string) $vendorConfig['docsHtmlDir']);
 define('VERSION_SUFFIX', (string) $vendorConfig['versionSuffix']);
 
 /**
