@@ -5626,13 +5626,6 @@
       <code><![CDATA[$y]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$comments[$fieldName]]]></code>
-      <code><![CDATA[$foreigners->data[$fieldName]]]></code>
-      <code><![CDATA[$foreigners->data[$fieldName]]]></code>
-      <code><![CDATA[$foreigners->data[$fieldName]['foreign_field']]]></code>
-      <code><![CDATA[$foreigners->data[$fieldName]['foreign_table']]]></code>
-      <code><![CDATA[$mimeMap[$fieldName]]]></code>
-      <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code><![CDATA[$this->pagedim[$oldpage]]]></code>
       <code><![CDATA[$this->pagedim[$oldpage]]]></code>
       <code><![CDATA[$this->pagedim[$oldpage]['olm']]]></code>
@@ -5661,8 +5654,6 @@
       <code><![CDATA[$currpage]]></code>
       <code><![CDATA[$currpage]]></code>
       <code><![CDATA[$currpage]]></code>
-      <code><![CDATA[$data[]]]></code>
-      <code><![CDATA[$data[]]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$i]]></code>
@@ -5716,8 +5707,6 @@
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$availableWidth]]></code>
-      <code><![CDATA[$foreigners->data[$fieldName]['foreign_field']]]></code>
-      <code><![CDATA[$foreigners->data[$fieldName]['foreign_table']]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$i]]></code>
@@ -5770,20 +5759,15 @@
       <code><![CDATA[$y]]></code>
       <code><![CDATA[count($colFits) * $sColWidth]]></code>
     </MixedOperand>
-    <MixedPropertyFetch>
-      <code><![CDATA[$foreigners->data]]></code>
-    </MixedPropertyFetch>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[$this->colTitles]]></code>
       <code><![CDATA[$this->tablewidths]]></code>
       <code><![CDATA[$this->tablewidths]]></code>
     </MixedPropertyTypeCoercion>
-    <PossiblyUndefinedVariable>
-      <code><![CDATA[$comments]]></code>
-      <code><![CDATA[$foreigners]]></code>
-      <code><![CDATA[$foreigners]]></code>
-      <code><![CDATA[$mimeMap]]></code>
-    </PossiblyUndefinedVariable>
+    <PossiblyNullOperand>
+      <code><![CDATA[$foreigners->data[$fieldName]['foreign_field']]]></code>
+      <code><![CDATA[$foreigners->data[$fieldName]['foreign_table']]]></code>
+    </PossiblyNullOperand>
     <PropertyNotSetInConstructor>
       <code><![CDATA[$results]]></code>
       <code><![CDATA[Pdf]]></code>
