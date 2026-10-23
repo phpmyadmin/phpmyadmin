@@ -477,26 +477,24 @@ class Pdf extends PdfLib
         }
 
         if ($doRelation && $haveRel) {
-            $this->colTitles[$columnsCnt] = __('Links to');
-            $this->displayColumn[$columnsCnt] = true;
-            $this->colAlign[$columnsCnt] = 'L';
-            $this->tablewidths[$columnsCnt] = 120;
+            $this->colTitles[] = __('Links to');
+            $this->displayColumn[] = true;
+            $this->colAlign[] = 'L';
+            $this->tablewidths[] = 120;
         }
 
         if ($doComments) {
-            $columnsCnt++;
-            $this->colTitles[$columnsCnt] = __('Comments');
-            $this->displayColumn[$columnsCnt] = true;
-            $this->colAlign[$columnsCnt] = 'L';
-            $this->tablewidths[$columnsCnt] = 120;
+            $this->colTitles[] = __('Comments');
+            $this->displayColumn[] = true;
+            $this->colAlign[] = 'L';
+            $this->tablewidths[] = 120;
         }
 
         if ($doMime && $relationParameters->browserTransformationFeature !== null) {
-            $columnsCnt++;
-            $this->colTitles[$columnsCnt] = __('Media type');
-            $this->displayColumn[$columnsCnt] = true;
-            $this->colAlign[$columnsCnt] = 'L';
-            $this->tablewidths[$columnsCnt] = 120;
+            $this->colTitles[] = __('Media type');
+            $this->displayColumn[] = true;
+            $this->colAlign[] = 'L';
+            $this->tablewidths[] = 120;
         }
 
         // Starting to fill table with required info
@@ -561,7 +559,7 @@ class Pdf extends PdfLib
                 $data[] = $comments[$fieldName] ?? '';
             }
 
-            if ($doMime) {
+            if ($doMime && $relationParameters->browserTransformationFeature !== null) {
                 $data[] = isset($mimeMap[$fieldName])
                     ? $mimeMap[$fieldName]['mimetype']
                     : '';
@@ -575,7 +573,7 @@ class Pdf extends PdfLib
             foreach ($data as $col => $txt) {
                 $this->page = $currpage;
                 $this->setXY($l, $h);
-                if (isset($this->tablewidths[$col]) && $this->tablewidths[$col] > 0) {
+                if ($this->tablewidths[$col] > 0) {
                     $this->MultiCell(
                         $this->tablewidths[$col],
                         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
