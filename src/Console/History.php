@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Console;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\Features\SqlHistoryFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -20,15 +19,6 @@ readonly class History
 {
     public function __construct(private DatabaseInterface $dbi, private Relation $relation, private Config $config)
     {
-    }
-
-    /**
-     * The relation parameters are only known after the connection to the server,
-     * while this service can be created earlier (e.g. by the response renderer).
-     */
-    private function getSqlHistoryFeature(): SqlHistoryFeature|null
-    {
-        return $this->relation->getRelationParameters()->sqlHistoryFeature;
     }
 
     public function setHistory(string $db, string $table, string $username, string $sqlquery): void
@@ -48,7 +38,7 @@ readonly class History
             array_shift($_SESSION['sql_history']);
         }
 
-        $sqlHistoryFeature = $this->getSqlHistoryFeature();
+        $sqlHistoryFeature = $this->relation->getRelationParameters()->sqlHistoryFeature;
         if ($sqlHistoryFeature === null || ! $this->config->config->QueryHistoryDB) {
             return;
         }
@@ -80,7 +70,7 @@ readonly class History
      */
     public function getHistory(string $username): array|false
     {
-        $sqlHistoryFeature = $this->getSqlHistoryFeature();
+        $sqlHistoryFeature = $this->relation->getRelationParameters()->sqlHistoryFeature;
         if ($sqlHistoryFeature === null) {
             return false;
         }
@@ -108,7 +98,7 @@ readonly class History
 
     private function purgeHistory(string $username): void
     {
-        $sqlHistoryFeature = $this->getSqlHistoryFeature();
+        $sqlHistoryFeature = $this->relation->getRelationParameters()->sqlHistoryFeature;
         if (! $this->config->config->QueryHistoryDB || $sqlHistoryFeature === null) {
             return;
         }
