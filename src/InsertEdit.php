@@ -16,6 +16,7 @@ use PhpMyAdmin\Utils\Gis;
 
 use function __;
 use function array_fill;
+use function array_filter;
 use function array_key_exists;
 use function array_merge;
 use function array_values;
@@ -38,6 +39,7 @@ use function preg_replace;
 use function str_contains;
 use function str_replace;
 use function str_starts_with;
+use function stripos;
 use function stripslashes;
 use function trim;
 
@@ -1297,7 +1299,12 @@ class InsertEdit
     {
         $this->dbi->selectDb($db);
 
-        return array_values($this->dbi->getColumns($db, $table));
+        // Invisible columns are not returned by SELECT *, so they cannot be shown in the form
+        // without shifting the result metadata of the following columns.
+        return array_values(array_filter(
+            $this->dbi->getColumns($db, $table),
+            static fn (Column $column): bool => stripos($column->extra, 'INVISIBLE') === false,
+        ));
     }
 
     /**

@@ -2069,6 +2069,46 @@ class InsertEditTest extends AbstractTestCase
     /**
      * Test for getTableColumns
      */
+    public function testGetTableColumnsSkipsInvisibleColumns(): void
+    {
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('getColumns')->willReturn([
+            'my_row_id' => new Column(
+                'my_row_id',
+                'bigint',
+                null,
+                false,
+                'PRI',
+                null,
+                'auto_increment INVISIBLE',
+                '',
+                '',
+            ),
+            'id' => new Column('id', 'char(36)', null, false, 'UNI', null, '', '', ''),
+            'hidden' => new Column('hidden', 'int', null, true, '', null, 'INVISIBLE', '', ''),
+            'name' => new Column('name', 'varchar(20)', null, true, '', null, '', '', ''),
+        ]);
+
+        $config = new Config();
+        $relation = new Relation($dbi, $config);
+        $insertEdit = new InsertEdit(
+            $dbi,
+            $relation,
+            new Transformations($dbi, $relation),
+            new FileListing(),
+            new Template($config),
+            $config,
+            new ResponseRenderer(),
+        );
+
+        $fields = [];
+        foreach ($insertEdit->getTableColumns('db', 'table') as $column) {
+            $fields[] = $column->field;
+        }
+
+        self::assertSame(['id', 'name'], $fields);
+    }
+
     public function testGetTableColumns(): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
