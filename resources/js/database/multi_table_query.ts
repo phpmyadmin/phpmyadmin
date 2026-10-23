@@ -3,7 +3,7 @@ import { AJAX } from '../modules/ajax.ts';
 import { copyToClipboard, displayCopyNotification, getSqlEditor } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
-import { escapeBacktick } from '../modules/functions/escape.ts';
+import { escapeBacktick, escapeHtml } from '../modules/functions/escape.ts';
 
 /**
  * @fileoverview    function used in QBE for DB
@@ -84,7 +84,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         });
 
         if (Object.keys(tableAliases).length === 0) {
-            ajaxShowMessage('Nothing selected', false, 'error');
+            ajaxShowMessage(window.Messages.strNothingSelected, false, 'error');
 
             return;
         }
@@ -225,7 +225,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 showTwoFields($(this));
             } else {
                 const options: JQuery<HTMLElement> = $(this).closest('table').find('.options');
-                options.parent().prepend('<input type="text" class="rhs_text_val query-form__input--wide" placeholder="Enter criteria as free text"></input>');
+                options.parent().prepend('<input type="text" class="rhs_text_val query-form__input--wide" placeholder="' + escapeHtml(window.Messages.strEnterCriteriaFreeText) + '"></input>');
                 options.remove();
             }
         });
@@ -259,7 +259,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             critetiaCol.append(`
                 <div class="options multi">
                     <div class="option">
-                        <input type="text" class="val" placeholder="Enter an option" value="${criteriaInput.val()}" />
+                        <input type="text" class="val" placeholder="${escapeHtml(window.Messages.strEnterAnOption)}" value="${criteriaInput.val()}" />
                         <input type="button" class="btn btn-secondary add-option" value="+" />
                     </div>
                 </div>

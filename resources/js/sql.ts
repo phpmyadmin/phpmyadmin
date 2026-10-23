@@ -665,7 +665,7 @@ AJAX.registerOnload('sql.js', function () {
         try {
             document.execCommand('copy');
         } catch (err) {
-            alert('Sorry! Unable to copy');
+            alert(window.Messages.strCopyQueryButtonFailure);
         }
 
         // eslint-disable-next-line compat/compat

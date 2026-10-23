@@ -126,6 +126,7 @@ final readonly class JavaScriptMessagesController implements InvocableController
             'strCreateCompositeIndex' => __('Create composite index'),
             'strCompositeWith' => __('Composite with:'),
             'strMissingColumn' => __('Please select column(s) for the index.'),
+            'strColumnCountPositive' => __('Column count has to be larger than zero.'),
 
             /* For Preview SQL*/
             'strPreviewSQL' => __('Preview SQL'),
@@ -140,6 +141,9 @@ final readonly class JavaScriptMessagesController implements InvocableController
 
             /* Database multi-table query */
             'strEmptyQuery' => __('Please enter the SQL query first.'),
+            'strNothingSelected' => __('Nothing selected'),
+            'strEnterCriteriaFreeText' => __('Enter criteria as free text'),
+            'strEnterAnOption' => __('Enter an option'),
 
             /* For server/privileges.js */
             'strHostEmpty' => __('The host name is empty!'),
@@ -419,8 +423,8 @@ final readonly class JavaScriptMessagesController implements InvocableController
             'strMoveRepeatingGroup' => '<ol><b>' . __('The following actions will be performed:') . '</b>'
                 . '<li>' . __('DROP columns %s from the table %s') . '</li>'
                 . '<li>' . __('Create the following table') . '</li>',
-            'strNewTablePlaceholder' => 'Enter new table name',
-            'strNewColumnPlaceholder' => 'Enter column name',
+            'strNewTablePlaceholder' => __('Enter new table name'),
+            'strNewColumnPlaceholder' => __('Enter column name'),
             'str3NFNormalization' => __('Third step of normalization (3NF)'),
             'strConfirmTd' => __('Confirm transitive dependencies'),
             'strSelectedTd' => __('Selected dependencies are as follows:'),
@@ -455,7 +459,7 @@ final readonly class JavaScriptMessagesController implements InvocableController
                 . '</li><li>'
                 . __('The plot can be resized by dragging it along the bottom right corner.')
                 . '</li></ul>',
-            'strHelpTitle' => 'Zoom search instructions',
+            'strHelpTitle' => __('Zoom search instructions'),
             'strInputNull' => '<strong>' . __('Select two columns') . '</strong>',
             'strSameInputs' => '<strong>'
                 . __('Select two different columns')
