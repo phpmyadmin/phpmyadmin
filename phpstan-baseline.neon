@@ -9073,9 +9073,21 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Binary operation "\+" between \(float\|int\) and mixed results in an error\.$#'
+			message: '#^Binary operation "\+" between 330\|450\|570\|690 and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 6
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '#^Binary operation "\+" between 450 and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '#^Binary operation "\+" between float\|int and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -9091,15 +9103,27 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Binary operation "\+\=" between \(float\|int\) and mixed results in an error\.$#'
+			message: '#^Binary operation "\+\=" between mixed and 40\|80\|90\|120 results in an error\.$#'
+			identifier: assignOp.invalid
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '#^Binary operation "\+\=" between mixed and 40\|80\|90\|240 results in an error\.$#'
+			identifier: assignOp.invalid
+			count: 2
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
+			message: '#^Binary operation "\+\=" between mixed and float\|int results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 3
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Binary operation "\+\=" between mixed and mixed results in an error\.$#'
+			message: '#^Binary operation "\+\=" between mixed and float\|int\<1, max\> results in an error\.$#'
 			identifier: assignOp.invalid
-			count: 8
+			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -9322,20 +9346,8 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Class PhpMyAdmin\\Plugins\\Export\\Helpers\\Pdf has an uninitialized property \$results\. Give it default value or assign it in the constructor\.$#'
-			identifier: property.uninitialized
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: '#^Implicit array creation is not allowed \- variable \$data might not exist\.$#'
-			identifier: variable.implicitArray
 			count: 2
 			path: src/Plugins/Export/Helpers/Pdf.php
 
@@ -9352,9 +9364,9 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
+			message: '#^Offset 0\|1\|2\|3\|4\|5\|6 might not exist on list\{0\: 90, 1\: 80, 2\: 40, 3\: 120, 4\?\: 120, 5\?\: 120, 6\?\: 120\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -9394,27 +9406,9 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Parameter \#1 \$w of method TCPDF\:\:Cell\(\) expects float, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: '#^Parameter \#1 \$w of method TCPDF\:\:MultiCell\(\) expects float, mixed given\.$#'
-			identifier: argument.type
-			count: 5
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: '#^Parameter \#1 \$x of method TCPDF\:\:setXY\(\) expects float, mixed given\.$#'
 			identifier: argument.type
 			count: 7
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: '#^Parameter \#1 \$x1 of method TCPDF\:\:Line\(\) expects float, \(array\|float\|int\) given\.$#'
-			identifier: argument.type
-			count: 3
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -9460,25 +9454,7 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Parameter \#3 \$txt of method TCPDF\:\:MultiCell\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: '#^Parameter \#3 \$x2 of method TCPDF\:\:Line\(\) expects float, \(array\|float\|int\) given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: '#^Parameter \#3 \$x2 of method TCPDF\:\:Line\(\) expects float, mixed given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
-			message: '#^Parameter \#5 \$align of method TCPDF\:\:MultiCell\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
 			path: src/Plugins/Export/Helpers/Pdf.php
@@ -9490,15 +9466,15 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Variable \$columnsCnt might not be defined\.$#'
-			identifier: variable.undefined
-			count: 6
+			message: '#^Property PhpMyAdmin\\Plugins\\Export\\Helpers\\Pdf\:\:\$colTitles \(array\<int, string\|null\>\) does not accept array\<int, mixed\>\.$#'
+			identifier: assign.propertyType
+			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Variable \$txt on left side of \?\? always exists and is not nullable\.$#'
-			identifier: nullCoalesce.variable
-			count: 2
+			message: '#^Property PhpMyAdmin\\Plugins\\Export\\Helpers\\Pdf\:\:\$colTitles \(array\<int, string\|null\>\) does not accept array\<int\<0, max\>, mixed\>\.$#'
+			identifier: assign.propertyType
+			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
