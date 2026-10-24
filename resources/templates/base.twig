@@ -22,7 +22,7 @@
     {% endif %}
   {% endif %}
   <link rel="stylesheet" type="text/css" href="{{ header.theme_path }}/css/theme{{ pma.text_dir == 'rtl' ? '.rtl' }}.css?v={{ pma.version|url_encode }}">
-  <title>{{ header.title }}</title>
+  <title>{{ header.title|raw }}</title>
   {{ header.scripts|raw }}
   <noscript><style>html{display:block}</style></noscript>
 </head>
