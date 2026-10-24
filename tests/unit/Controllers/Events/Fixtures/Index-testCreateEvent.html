@@ -36,12 +36,11 @@
         <tr class="text-nowrap">
           <td>Event type</td>
           <td>
-                          <input name="item_type" type="hidden" value="ONE TIME">
-              <div class="fw-bold text-center w-50">
-                ONE TIME
-              </div>
-              <input type="submit" name="item_changetype" class="w-50" value="Change to RECURRING">
-                      </td>
+            <select name="item_type">
+                              <option value="RECURRING">RECURRING</option>
+                              <option value="ONE TIME" selected>ONE TIME</option>
+                          </select>
+          </td>
         </tr>
         <tr class="onetime_event_row">
           <td class="text-nowrap">Execute at</td>
@@ -49,7 +48,7 @@
             <input type="text" name="item_execute_at" value="" class="datetimefield">
           </td>
         </tr>
-        <tr class="recurring_event_row hide">
+        <tr class="recurring_event_row">
           <td class="text-nowrap">Execute every</td>
           <td>
             <input class="w-50" type="text" name="item_interval_value" value="">
@@ -72,13 +71,13 @@
                           </select>
           </td>
         </tr>
-        <tr class="recurring_event_row hide">
+        <tr class="recurring_event_row">
           <td class="text-nowrap">Start</td>
           <td class="text-nowrap">
             <input type="text" name="item_starts" value="" class="datetimefield">
           </td>
         </tr>
-        <tr class="recurring_event_row hide">
+        <tr class="recurring_event_row">
           <td class="text-nowrap">End</td>
           <td class="text-nowrap">
             <input type="text" name="item_ends" value="" class="datetimefield">

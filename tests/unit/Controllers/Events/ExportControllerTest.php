@@ -47,8 +47,19 @@ final class ExportControllerTest extends AbstractTestCase
         $dbiDummy->assertAllQueriesConsumed();
 
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
-        // phpcs:ignore Generic.Files.LineLength.TooLong
-        $expected = '<div class="container"><h2>Export of event `test_event`</h2><div class="card"><div class="card-body"><textarea rows="15" class="form-control">CREATE DEFINER=`test_user`@`localhost` EVENT `test_event` ON SCHEDULE AT &#039;2026-10-11 17:56:42&#039; ON COMPLETION NOT PRESERVE ENABLE DO BEGIN END</textarea></div></div></div>';
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $expected = <<<'HTML'
+            <div class="container">
+              <h2>Export of event `test_event`</h2>
+              <div class="card">
+                <div class="card-body">
+                  <textarea rows="15" class="form-control">CREATE DEFINER=`test_user`@`localhost` EVENT `test_event` ON SCHEDULE AT &#039;2026-10-11 17:56:42&#039; ON COMPLETION NOT PRESERVE ENABLE DO BEGIN END</textarea>
+                </div>
+              </div>
+            </div>
+            
+            HTML;
+        // phpcs:enable
         self::assertSame($expected, (string) $response->getBody());
     }
 

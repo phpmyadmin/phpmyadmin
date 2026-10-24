@@ -118,12 +118,7 @@ final readonly class RoutinesController implements InvocableController
                     $_POST['item_name'],
                 );
                 $routine = $routines[0];
-                $this->response->addJSON(
-                    'name',
-                    htmlspecialchars(
-                        mb_strtoupper($_POST['item_name']),
-                    ),
-                );
+                $this->response->addJSON('name', mb_strtoupper($_POST['item_name']));
                 $this->response->addJSON(
                     'new_row',
                     $this->template->render('database/routines/row', $this->routines->getRow($routine)),
@@ -441,14 +436,9 @@ final readonly class RoutinesController implements InvocableController
 
         $items = Routines::getDetails($this->dbi, Current::$database, $type, limit: $pageSize, offset: $pos);
 
-        $isAjax = $request->isAjax() && empty($_REQUEST['ajax_page_request']);
-
         $rows = '';
         foreach ($items as $item) {
-            $rows .= $this->template->render(
-                'database/routines/row',
-                $this->routines->getRow($item, $isAjax ? 'ajaxInsert hide' : ''),
-            );
+            $rows .= $this->template->render('database/routines/row', $this->routines->getRow($item));
         }
 
         $urlParams = ['pos' => $pos, 'db' => Current::$database];
