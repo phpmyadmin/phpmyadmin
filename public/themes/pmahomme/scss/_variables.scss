@@ -117,6 +117,10 @@ $dropdown-item-padding-x: 0;
 
 $form-check-input-margin-y: 0.1rem;
 $form-check-input-checked-bg-color: #0075ff;
+// Lucide "chevron-down" icon
+$form-select-indicator-color: #343a40;
+$form-select-indicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='#{$form-select-indicator-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9 6 6 6-6'/></svg>");
+$form-select-bg-size: 16px 16px;
 
 // Navs
 
@@ -159,7 +163,7 @@ $accordion-button-active-bg: $navi-background;
 
 // Breadcrumbs
 
-$breadcrumb-navbar-padding-y: 0.5rem;
+$breadcrumb-navbar-padding-y: 0.3rem;
 $breadcrumb-navbar-padding-x: 2.2em;
 $breadcrumb-navbar-margin-bottom: 0;
 $breadcrumb-navbar-bg: #888;

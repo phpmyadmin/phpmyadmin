@@ -1,0 +1,41 @@
+$scrollbar-size: 10px;
+$scrollbar-track: transparent;
+$scrollbar-thumb: #b5b5b5;
+$scrollbar-thumb-hover: #8f8f8f;
+$scrollbar-thumb-active: #6f6f6f;
+
+::-webkit-scrollbar {
+  width: $scrollbar-size;
+  height: $scrollbar-size;
+}
+
+::-webkit-scrollbar-track {
+  background: $scrollbar-track;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-thumb;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: $scrollbar-size;
+
+  &:hover {
+    background-color: $scrollbar-thumb-hover;
+  }
+
+  &:active {
+    background-color: $scrollbar-thumb-active;
+  }
+}
+
+::-webkit-scrollbar-corner {
+  background: $scrollbar-track;
+}
+
+// Firefox; kept out of WebKit browsers since scrollbar-color overrides ::-webkit-scrollbar there
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: $scrollbar-thumb $scrollbar-track;
+  }
+}

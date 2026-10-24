@@ -1,17 +1,32 @@
+// Tab text is a little smaller than the body text, so all server tabs fit on one line
+$navbar-tab-font-scale: 0.95;
+
 .navbar.bg-light {
   background: linear-gradient(#fff, #dcdcdc);
 }
 
+// No "More" menu: tabs that do not fit wrap onto another line
 .navbar-nav {
+  flex-wrap: wrap;
+  font-size: #{$navbar-tab-font-scale}em;
   font-weight: bold;
 }
 
 .navbar-nav .icon {
-  margin-right: 0.5em;
+  margin-right: 4px;
   vertical-align: -3px;
 }
 
+// Compact tabs, so the whole server menu fits on one line without the "More" list
+.navbar-nav .nav-link {
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+// Every tab grows to share the spare width, so no row (also a wrapped one) ends in empty space
 .navbar-nav .nav-item {
+  flex-grow: 1;
+  text-align: center;
   background: linear-gradient(#fff, #dcdcdc);
   border-right: 1px solid #fff;
   border-left: 1px solid #ccc;
@@ -29,4 +44,93 @@
     background: #fff;
     border-bottom: 0;
   }
+}
+
+// The fixed bar is pinned to both viewport edges and shifted right by the navigation panel's width;
+// its .w-100 class would keep it as wide as the viewport, pushing the last tabs off screen
+#floating_menubar {
+  width: auto !important; // stylelint-disable-line declaration-no-important
+}
+
+// The tab list spans the whole menu bar, up to its right edge
+#topmenucontainer {
+  padding-right: 0;
+
+  #topmenu {
+    width: 100%;
+  }
+}
+
+// Breadcrumb icons sat 1.1px below the text centre; lift them so both line up
+#server-breadcrumb .icon {
+  position: relative;
+  top: -1px;
+}
+
+// Icons at the right end of the breadcrumb bar: Lucide (https://lucide.dev, ISC License)
+// "user" for the account menu, "settings" for page settings and "chevron-up" for back to top
+$page-nav-icons: (
+  "user": "<path d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/>",
+  "s_cog": "<path d='M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915'/><circle cx='12' cy='12' r='3'/>",
+  "s_top": "<path d='m18 15-6-6-6 6'/>",
+);
+
+#page_nav_icons {
+  // The same gap between the account button, the page settings icon and the back to top icon
+  --bs-gutter-x: 0;
+
+  column-gap: 8px;
+  // As tall as the breadcrumb bar, with the icons centred in it
+  height: calc(#{$breadcrumb-navbar-padding-y * 2} + #{$font-size-base * $line-height-base});
+  padding-top: 0 !important; // stylelint-disable-line declaration-no-important
+  padding-bottom: 0 !important; // stylelint-disable-line declaration-no-important
+
+  // A slimmer account button, so it fits in the bar
+  #userAccountDropdown > .btn {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  > .col-12:last-child {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+  }
+
+  // Only shown once the page is locked
+  #lock_page_icon:empty {
+    display: none;
+  }
+
+  @each $name, $paths in $page-nav-icons {
+    .icon.ic_#{$name} {
+      background: #eee;
+      mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>#{$paths}</svg>") center / contain no-repeat;
+      transition: background-color 0.15s ease-in-out;
+    }
+  }
+
+  #page_settings_icon:hover .icon,
+  #goto_pagetop:hover .icon,
+  #userAccountDropdown > .btn:hover .icon {
+    background: #fff;
+  }
+
+  // The open account button turns light, and its menu opens on a white background
+  #userAccountDropdown > .btn.show .icon {
+    background: #555;
+  }
+
+  .dropdown-menu .icon.ic_user {
+    background: #3b78c4;
+  }
+
+  .dropdown-menu .icon.ic_s_cog {
+    background: #777;
+  }
+}
+
+// Room for the wider navigation panel collapser button that sits over the start of the breadcrumb bar
+#server-breadcrumb .breadcrumb-navbar {
+  padding-left: 36px;
 }
