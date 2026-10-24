@@ -2463,6 +2463,7 @@
     <MixedAssignment>
       <code><![CDATA[$newCol]]></code>
       <code><![CDATA[$sortedCol]]></code>
+      <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['field_attribute'][$i]]]></code>
@@ -2842,6 +2843,7 @@
       <code><![CDATA[$indexFields[$key]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
+      <code><![CDATA[$check]]></code>
       <code><![CDATA[$column]]></code>
       <code><![CDATA[$fieldFullText]]></code>
       <code><![CDATA[$fieldIndex]]></code>

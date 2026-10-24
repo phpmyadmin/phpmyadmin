@@ -334,7 +334,6 @@ final class SaveController implements InvocableController
 
     private function getFormValue(string $field, int $columnNumber): string
     {
-        /** @psalm-suppress MixedAssignment */
         $value = Util::getValueByKey($_POST, [$field, $columnNumber], '');
 
         return is_string($value) ? trim($value) : '';

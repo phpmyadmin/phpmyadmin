@@ -28,6 +28,7 @@ use function mb_strtoupper;
 use function preg_quote;
 use function preg_replace;
 use function rtrim;
+use function str_contains;
 use function trim;
 
 /**
@@ -139,7 +140,9 @@ final class ColumnsDefinition
         $serverVersion = $this->dbi->getVersion();
         $isInvisibleColumnsSupported = Compatibility::isInvisibleColumnsSupported($this->dbi, $serverVersion);
         $isColumnCheckSupported = Compatibility::isColumnCheckSupported($this->dbi, $serverVersion);
-        $columnChecks = $fieldsMeta !== null && $isColumnCheckSupported ? $this->getColumnChecks() : [];
+        $columnChecks = $fieldsMeta !== null && $isColumnCheckSupported
+            ? $this->getColumnChecks(Current::$database, Current::$table)
+            : [];
 
         $foreigners = $this->relation->getForeignKeysData(Current::$database, Current::$table);
         $childReferences = null;
@@ -391,26 +394,19 @@ final class ColumnsDefinition
         };
     }
 
-    /**
-     * Whether the Extra value of SHOW COLUMNS marks the column as INVISIBLE
-     */
     public static function isInvisible(string $extra): bool
     {
-        return in_array('INVISIBLE', explode(' ', mb_strtoupper($extra)), true);
+        return str_contains($extra, 'INVISIBLE');
     }
 
-    /**
-     * Column-level CHECK constraints of the current table (MariaDB names them after the column)
-     *
-     * @return array<string, string> column name => CHECK expression
-     */
-    private function getColumnChecks(): array
+    /** @return array<string, string> column name => CHECK expression */
+    private function getColumnChecks(string $db, string $table): array
     {
         /** @var array<string, string> $checks */
         $checks = $this->dbi->fetchResult(
             'SELECT `CONSTRAINT_NAME`, `CHECK_CLAUSE` FROM `information_schema`.`CHECK_CONSTRAINTS`'
-            . ' WHERE `CONSTRAINT_SCHEMA` = ' . $this->dbi->quoteString(Current::$database)
-            . ' AND `TABLE_NAME` = ' . $this->dbi->quoteString(Current::$table)
+            . ' WHERE `CONSTRAINT_SCHEMA` = ' . $this->dbi->quoteString($db)
+            . ' AND `TABLE_NAME` = ' . $this->dbi->quoteString($table)
             . " AND `LEVEL` = 'Column'",
             'CONSTRAINT_NAME',
             'CHECK_CLAUSE',

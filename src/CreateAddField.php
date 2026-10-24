@@ -92,12 +92,8 @@ class CreateAddField
         return $definitions;
     }
 
-    /**
-     * Expression of the column-level CHECK constraint typed in the form
-     */
     private function getCheckExpression(int $columnNumber): string
     {
-        /** @psalm-suppress MixedAssignment */
         $check = Util::getValueByKey($_POST, ['field_check', $columnNumber], '');
 
         return is_string($check) ? trim($check) : '';
