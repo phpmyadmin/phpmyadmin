@@ -716,10 +716,10 @@ const AJAX = {
             // Clear loaded scripts if they are from another version of phpMyAdmin.
             // Depends on common params being set before loading scripts in responseHandler
             if (self.scriptsVersion === null) {
-                self.scriptsVersion = CommonParams.get('version');
-            } else if (self.scriptsVersion !== CommonParams.get('version')) {
+                self.scriptsVersion = CommonParams.get('asset_version');
+            } else if (self.scriptsVersion !== CommonParams.get('asset_version')) {
                 self.scripts = [];
-                self.scriptsVersion = CommonParams.get('version');
+                self.scriptsVersion = CommonParams.get('asset_version');
             }
 
             self.scriptsCompleted = false;
@@ -786,7 +786,7 @@ const AJAX = {
             const script = document.createElement('script');
             const self = this;
 
-            script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(CommonParams.get('version'));
+            script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(CommonParams.get('asset_version'));
             script.async = false;
             script.onload = function () {
                 self.done(name, callback);

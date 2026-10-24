@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Scripts;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Version;
@@ -18,6 +19,8 @@ class ScriptsTest extends AbstractTestCase
 {
     protected Scripts $object;
 
+    private string $assetVersion;
+
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -26,7 +29,10 @@ class ScriptsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->object = new Scripts(new Template(new Config()));
+        $config = new Config();
+        $config->config = new Settings(['blowfish_secret' => 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa']);
+        $this->object = new Scripts(new Template($config), $config);
+        $this->assetVersion = $config->getAssetVersion();
     }
 
     /**
@@ -40,14 +46,12 @@ class ScriptsTest extends AbstractTestCase
 
         $actual = $this->object->getDisplay();
 
+        self::assertStringContainsString('src="js/common.js?v=' . $this->assetVersion . '"', $actual);
         self::assertStringContainsString(
-            'src="js/common.js?v=' . rawurlencode(Version::VERSION) . '"',
+            'src="index.php?route=%2Fmessages&l=en&v=' . $this->assetVersion . '&lang=en"',
             $actual,
         );
-        self::assertStringContainsString(
-            'src="index.php?route=%2Fmessages&l=en&v=' . rawurlencode(Version::VERSION) . '&lang=en"',
-            $actual,
-        );
+        self::assertStringNotContainsString(rawurlencode(Version::VERSION), $actual);
         self::assertStringContainsString(
             'window.AJAX.scriptHandler.add(\'vendor\/codemirror\/lib\/codemirror.js\', false);',
             $actual,
