@@ -62,9 +62,24 @@
         <th>
             <abbr title="AUTO_INCREMENT">A_I</abbr>
         </th>
+
+        {% if is_invisible_columns_supported %}
+            <th>
+                {{ t('Invisible') }}
+                {{ show_hint(t('Invisible columns are not returned by SELECT * unless they are listed explicitly.')) }}
+            </th>
+        {% endif %}
+
         <th>
             {{ t('Comments') }}
         </th>
+
+        {% if is_column_check_supported %}
+            <th>
+                {{ t('Check constraint') }}
+                {{ show_hint(t('Expression of a column-level CHECK constraint, for example: price > 0')) }}
+            </th>
+        {% endif %}
 
         {% if is_virtual_columns_supported %}
             <th>
@@ -118,6 +133,8 @@
                 'options': options,
                 'change_column': change_column,
                 'is_virtual_columns_supported': is_virtual_columns_supported,
+                'is_invisible_columns_supported': is_invisible_columns_supported,
+                'is_column_check_supported': is_column_check_supported,
                 'browse_mime': browse_mime,
                 'max_rows': max_rows,
                 'char_editing': char_editing,

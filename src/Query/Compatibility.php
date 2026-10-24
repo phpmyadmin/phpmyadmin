@@ -135,6 +135,26 @@ class Compatibility
         return ! (self::isIntegersLengthRestricted($dbi) && $typeLengthNotAllowed);
     }
 
+    public static function isInvisibleColumnsSupported(DatabaseInterface $dbi, int $serverVersion): bool
+    {
+        // @see https://dev.mysql.com/doc/refman/8.0/en/invisible-columns.html
+        if (self::isMySqlOrPerconaDb($dbi)) {
+            return $serverVersion >= 80023;
+        }
+
+        // @see https://mariadb.com/kb/en/invisible-columns/
+        if (self::isMariaDb($dbi)) {
+            return $serverVersion >= 100303;
+        }
+
+        return false;
+    }
+
+    public static function isColumnCheckSupported(DatabaseInterface $dbi, int $serverVersion): bool
+    {
+        return self::isMariaDb($dbi) && $serverVersion >= 100510;
+    }
+
     /**
      * Returns whether the database server supports virtual columns
      */

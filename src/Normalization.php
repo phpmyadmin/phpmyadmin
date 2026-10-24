@@ -174,6 +174,8 @@ class Normalization
                 $this->dbi,
                 $this->dbi->getVersion(),
             ),
+            'is_invisible_columns_supported' => false,
+            'is_column_check_supported' => false,
             'browse_mime' => $this->config->config->BrowseMIME,
             'supports_stored_keyword' => Compatibility::supportsStoredKeywordForVirtualColumns(
                 $this->dbi,
