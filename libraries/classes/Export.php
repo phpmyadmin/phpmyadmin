@@ -335,6 +335,7 @@ class Export
      * @param ExportPlugin $exportPlugin     the export plugin
      * @param string       $compression      compression asked
      * @param string       $filenameTemplate the filename template
+     * @param mixed[]      $aliases          alias information for db/table/column
      *
      * @return string[] the filename template and mime type
      */
@@ -343,7 +344,8 @@ class Export
         string $rememberTemplate,
         ExportPlugin $exportPlugin,
         string $compression,
-        string $filenameTemplate
+        string $filenameTemplate,
+        array $aliases = []
     ): array {
         if ($exportType === 'server') {
             if (! empty($rememberTemplate)) {
@@ -379,7 +381,20 @@ class Export
             }
         }
 
-        $filename = Util::expandUserString($filenameTemplate);
+        // Substitute the database and table aliases in the filename template
+        // so that @DATABASE@ and @TABLE@ reflect the renamed values.
+        $db = $GLOBALS['db'] ?? '';
+        $table = $GLOBALS['table'] ?? '';
+        $updates = [];
+        if (! empty($aliases[$db]['alias'])) {
+            $updates['database'] = (string) $aliases[$db]['alias'];
+        }
+
+        if (! empty($aliases[$db]['tables'][$table]['alias'])) {
+            $updates['table'] = (string) $aliases[$db]['tables'][$table]['alias'];
+        }
+
+        $filename = Util::expandUserString($filenameTemplate, null, $updates);
         // remove dots in filename (coming from either the template or already
         // part of the filename) to avoid a remote code execution vulnerability
         $filename = Sanitize::sanitizeFilename($filename, true);
