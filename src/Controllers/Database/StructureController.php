@@ -38,11 +38,12 @@ use PhpMyAdmin\Util;
 use Throwable;
 
 use function __;
+use function array_column;
 use function array_map;
-use function array_reduce;
 use function array_reverse;
 use function array_search;
 use function array_slice;
+use function array_sum;
 use function ceil;
 use function count;
 use function implode;
@@ -853,24 +854,15 @@ final class StructureController implements InvocableController
             ->countRecords(true);
 
         if ($this->isShowStats) {
-            // Get column names
-            /** @var list<array{COLUMN_NAME: string, HAS_QUOTES: numeric-string}> $columns */
-            $columns = $this->dbi->fetchValue(
+            /** @var list<array{COLUMN_NAME: string, HAS_QUOTES: '0'|'1'}> $columns */
+            $columns = $this->dbi->fetchResultSimple(
                 'SELECT COLUMN_NAME, NUMERIC_SCALE IS NULL AS HAS_QUOTES'
                 . ' FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '
                 . $this->dbi->quoteString(Current::$database) . ' AND TABLE_NAME = '
                 . $this->dbi->quoteString($currentTable['TABLE_NAME']) . ';',
             );
 
-            $columnsString = implode(',', array_map(
-                static function (array $column): string {
-                    return Util::backquote($column['COLUMN_NAME']);
-                },
-                $columns,
-            ));
-
-            // 10Mb buffer for CONCAT not sure if is needed
-            $this->dbi->query('SET SESSION group_concat_max_len = 10 * 1024 * 1024');
+            $columnsString = implode(',', array_map(Util::backquote(...), array_column($columns, 'COLUMN_NAME')));
 
             // Calculate data length
             // literal new line, double quote and backslash characters are escaped in csv
@@ -878,7 +870,7 @@ final class StructureController implements InvocableController
             $dataLength = (int) $this->dbi->fetchValue('
                 SELECT SUM(LENGTH(REPLACE(
                     REPLACE(
-                        REPLACE(CONCAT(' . $columnsString . "), '\\n', 'nl'),
+                        REPLACE(REPLACE(CONCAT(' . $columnsString . "), '\\r', 'rn'), '\\n', 'nl'),
                         '\"',
                         'qu'
                     ),
@@ -886,9 +878,8 @@ final class StructureController implements InvocableController
                     'bs'
                 ))) FROM " . Util::backquote(Current::$database) . '.' . Util::backquote($currentTable['TABLE_NAME']));
 
-            $quotedColumns = array_reduce($columns, static function (int $sum, array $column): int {
-                return $sum + (int) $column['HAS_QUOTES'];
-            }, 0);
+            /** @psalm-var positive-int|0 $quotedColumns */
+            $quotedColumns = array_sum(array_column($columns, 'HAS_QUOTES'));
             $separatorsAndNewLine = count($columns);
 
             $tblsize = $dataLength + $currentTable['TABLE_ROWS'] * ($quotedColumns * 2 + $separatorsAndNewLine);

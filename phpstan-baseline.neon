@@ -1579,12 +1579,6 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '#^PHPDoc tag @var with type list\<array\{COLUMN_NAME\: string, HAS_QUOTES\: numeric\-string\}\> is not subtype of native type string\|false\|null\.$#'
-			identifier: varTag.nativeType
-			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
 			message: '#^Parameter \#1 \$db of method PhpMyAdmin\\Controllers\\Database\\StructureController\:\:hasTable\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 2
