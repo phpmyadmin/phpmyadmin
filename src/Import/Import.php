@@ -73,7 +73,6 @@ final class Import
         private readonly ResponseRenderer $responseRenderer,
         private readonly Config $config,
     ) {
-        $this->config->selectedServer['DisableIS'] = false;
     }
 
     /**

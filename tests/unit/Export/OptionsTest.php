@@ -76,7 +76,7 @@ class OptionsTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
 
-        $exportList = Plugins::getExport($exportType, true);
+        $exportList = $this->createPluginFactory($dbi, $config)->getAllExportPlugins($exportType, true);
         $dropdown = Plugins::getChoice($exportList, 'sql');
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['user'] = 'pma_user';

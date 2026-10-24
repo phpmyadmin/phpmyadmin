@@ -58,7 +58,8 @@ class ExportControllerTest extends AbstractTestCase
         $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
         $pageSettings = new PageSettings($userPreferences, $response);
         $pageSettings->init('Export');
-        $exportList = Plugins::getExport(ExportType::Table, true);
+        $pluginFactory = $this->createPluginFactory($dbi, $config);
+        $exportList = $pluginFactory->getAllExportPlugins(ExportType::Table, true);
 
         $expected = $template->render('table/export/index', [
             'export_type' => 'table',
@@ -121,7 +122,8 @@ class ExportControllerTest extends AbstractTestCase
         );
         $options = new Options($relation, new TemplateModel($dbi), $userPreferencesHandler);
 
-        (new ExportController($response, $options, $pageSettings))(self::createStub(ServerRequest::class));
+        $controller = new ExportController($response, $options, $pageSettings, $pluginFactory);
+        $controller(self::createStub(ServerRequest::class));
         self::assertSame($expected, $response->getHTMLResult());
     }
 
@@ -154,7 +156,9 @@ class ExportControllerTest extends AbstractTestCase
         $request = self::createStub(ServerRequest::class);
         $request->method('has')->willReturnMap([['raw_query', true], ['single_table', false]]);
 
-        $result = (new ExportController($response, $options, $pageSettings))($request);
+        $pluginFactory = $this->createPluginFactory($dbi, $config);
+        $controller = new ExportController($response, $options, $pageSettings, $pluginFactory);
+        $result = $controller($request);
 
         // Should return 200 instead of 400 for missing db/table params
         self::assertSame(200, $result->getStatusCode());

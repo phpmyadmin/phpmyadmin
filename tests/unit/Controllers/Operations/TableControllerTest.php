@@ -129,7 +129,11 @@ class TableControllerTest extends AbstractTestCase
         $relation = new Relation($this->dbi);
         $controller = new TableController(
             $responseRenderer,
-            new Operations($this->dbi, $relation, new TableMover($this->dbi, $relation)),
+            new Operations(
+                $this->dbi,
+                $relation,
+                new TableMover($this->dbi, $relation, $this->createPluginFactory($this->dbi, $config)),
+            ),
             new UserPrivilegesFactory($this->dbi),
             $relation,
             $this->dbi,

@@ -17,7 +17,6 @@ use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
-use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -57,15 +56,10 @@ final class ExportOdtTest extends AbstractTestCase
         parent::setUp();
 
         OutputHandler::$asFile = true;
-        ExportPlugin::$exportType = ExportType::Table;
-        ExportPlugin::$singleTable = false;
     }
 
     public function testSetProperties(): void
     {
-        ExportPlugin::$exportType = ExportType::Raw;
-        ExportPlugin::$singleTable = false;
-
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::DATABASE => 'db',
             RelationParameters::RELATION => 'relation',
@@ -75,7 +69,7 @@ final class ExportOdtTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $exportOdt = $this->getExportOdt();
+        $exportOdt = $this->getExportOdt(exportType: ExportType::Raw);
 
         $method = new ReflectionMethod(ExportOdt::class, 'setProperties');
         $properties = $method->invoke($exportOdt, null);
@@ -251,14 +245,13 @@ final class ExportOdtTest extends AbstractTestCase
         );
 
         // case 2
-        ExportPlugin::$exportType = ExportType::Table;
-        ExportPlugin::$singleTable = false;
-
-        $method->invoke($exportOdt, null);
+        $exportOdt = $this->getExportOdt(exportType: ExportType::Table);
+        $options = $exportOdt->getProperties()->getOptions();
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $generalOptionsArray = $options->getProperties();
 
-        self::assertCount(3, $generalOptionsArray);
+        self::assertCount(2, $generalOptionsArray);
     }
 
     public function testExportHeader(): void
@@ -815,7 +808,7 @@ final class ExportOdtTest extends AbstractTestCase
 
         $exportOdt = $this->getExportOdt($dbi);
         $exportOdt->setExportOptions($request, new SettingsExport());
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $export->exportTable(
             'testdb',
             'testtable',
@@ -829,12 +822,21 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertStringContainsString('Table structure for table testtable', $exportOdt->buffer);
     }
 
-    private function getExportOdt(DatabaseInterface|null $dbi = null): ExportOdt
-    {
+    private function getExportOdt(
+        DatabaseInterface|null $dbi = null,
+        ExportType $exportType = ExportType::Table,
+    ): ExportOdt {
         $dbi ??= $this->createDatabaseInterface();
         $config = new Config();
         $relation = new Relation($dbi, $config);
 
-        return new ExportOdt($relation, new OutputHandler(), new Transformations($dbi, $relation), $dbi, $config);
+        return new ExportOdt(
+            $relation,
+            new OutputHandler(),
+            new Transformations($dbi, $relation),
+            $dbi,
+            $config,
+            $exportType,
+        );
     }
 }

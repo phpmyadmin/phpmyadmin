@@ -15,7 +15,6 @@ use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportLatex;
-use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -44,17 +43,12 @@ final class ExportLatexTest extends AbstractTestCase
         parent::setUp();
 
         OutputHandler::$asFile = true;
-        ExportPlugin::$exportType = ExportType::Table;
-        ExportPlugin::$singleTable = false;
         Current::$database = 'db';
         Current::$table = 'table';
     }
 
     public function testSetProperties(): void
     {
-        ExportPlugin::$exportType = ExportType::Raw;
-        ExportPlugin::$singleTable = false;
-
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::DATABASE => 'db',
             RelationParameters::RELATION => 'relation',
@@ -64,7 +58,7 @@ final class ExportLatexTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $exportLatex = $this->getExportLatex();
+        $exportLatex = $this->getExportLatex(exportType: ExportType::Raw);
 
         $method = new ReflectionMethod(ExportLatex::class, 'setProperties');
         $properties = $method->invoke($exportLatex, null);
@@ -383,14 +377,13 @@ final class ExportLatexTest extends AbstractTestCase
         );
 
         // case 2
-        ExportPlugin::$exportType = ExportType::Table;
-        ExportPlugin::$singleTable = false;
-
-        $method->invoke($exportLatex, null);
+        $exportLatex = $this->getExportLatex(exportType: ExportType::Table);
+        $options = $exportLatex->getProperties()->getOptions();
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $generalOptionsArray = $options->getProperties();
 
-        self::assertCount(4, $generalOptionsArray);
+        self::assertCount(3, $generalOptionsArray);
     }
 
     public function testExportHeader(): void
@@ -717,7 +710,7 @@ final class ExportLatexTest extends AbstractTestCase
         $exportLatex = $this->getExportLatex($dbi);
         $exportLatex->setExportOptions($request, new SettingsExport());
         ob_start();
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $export->exportTable(
             'testdb',
             'testtable',
@@ -734,12 +727,22 @@ final class ExportLatexTest extends AbstractTestCase
         self::assertStringContainsString('% Structure: testtable', $output);
     }
 
-    private function getExportLatex(DatabaseInterface|null $dbi = null, Config|null $config = null): ExportLatex
-    {
+    private function getExportLatex(
+        DatabaseInterface|null $dbi = null,
+        Config|null $config = null,
+        ExportType $exportType = ExportType::Table,
+    ): ExportLatex {
         $dbi ??= $this->createDatabaseInterface();
         $config ??= new Config();
         $relation = new Relation($dbi, $config);
 
-        return new ExportLatex($relation, new OutputHandler(), new Transformations($dbi, $relation), $dbi, $config);
+        return new ExportLatex(
+            $relation,
+            new OutputHandler(),
+            new Transformations($dbi, $relation),
+            $dbi,
+            $config,
+            $exportType,
+        );
     }
 }
