@@ -18,6 +18,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use function sprintf;
@@ -123,7 +124,7 @@ class NavigationControllerTest extends AbstractTestCase
         $relation = new Relation($this->dbi, $config);
         $navigationController = new NavigationController(
             $responseRenderer,
-            new Navigation($template, $relation, $this->dbi, $config),
+            new Navigation($template, $relation, $this->dbi, $config, new ThemeManager()),
             $relation,
             new PageSettings(
                 new UserPreferences($this->dbi, $relation, $template, $config, new Clock()),
@@ -276,7 +277,7 @@ class NavigationControllerTest extends AbstractTestCase
         $relation = new Relation($this->dbi, $config);
         $navigationController = new NavigationController(
             $responseRenderer,
-            new Navigation($template, $relation, $this->dbi, $config),
+            new Navigation($template, $relation, $this->dbi, $config, new ThemeManager()),
             $relation,
             new PageSettings(
                 new UserPreferences($this->dbi, $relation, $template, $config, new Clock()),

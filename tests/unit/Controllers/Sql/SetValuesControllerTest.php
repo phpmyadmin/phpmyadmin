@@ -17,6 +17,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -73,6 +74,7 @@ class SetValuesControllerTest extends AbstractTestCase
             $bookmarkRepository,
             $config,
             $responseRenderer,
+            new ThemeManager(),
         );
 
         $sqlController = new SetValuesController($responseRenderer, $template, $sql);
@@ -136,6 +138,7 @@ class SetValuesControllerTest extends AbstractTestCase
             $bookmarkRepository,
             $config,
             $responseRenderer,
+            new ThemeManager(),
         );
 
         $sqlController = new SetValuesController($responseRenderer, $template, $sql);

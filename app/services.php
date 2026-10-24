@@ -130,6 +130,7 @@ return [
             Relation::class,
             UserPreferences::class,
             UserPreferencesHandler::class,
+            ThemeManager::class,
         ],
     ],
     HttpRequest::class => ['class' => HttpRequest::class],
@@ -203,7 +204,10 @@ return [
         'class' => Middleware\CurrentServerGlobalSetting::class,
         'arguments' => [Config::class],
     ],
-    Middleware\ThemeInitialization::class => ['class' => Middleware\ThemeInitialization::class],
+    Middleware\ThemeInitialization::class => [
+        'class' => Middleware\ThemeInitialization::class,
+        'arguments' => [ThemeManager::class],
+    ],
     Middleware\UrlRedirection::class => [
         'class' => Middleware\UrlRedirection::class,
         'arguments' => [UrlRedirector::class, UserPreferencesHandler::class],
@@ -218,7 +222,7 @@ return [
     ],
     Middleware\LanguageAndThemeCookieSaving::class => [
         'class' => Middleware\LanguageAndThemeCookieSaving::class,
-        'arguments' => [Config::class],
+        'arguments' => [Config::class, ThemeManager::class],
     ],
     Middleware\LoginCookieValiditySetting::class => [
         'class' => Middleware\LoginCookieValiditySetting::class,
@@ -266,7 +270,13 @@ return [
     ],
     Navigation::class => [
         'class' => Navigation::class,
-        'arguments' => [Template::class, Relation::class, DatabaseInterface::class, Config::class],
+        'arguments' => [
+            Template::class,
+            Relation::class,
+            DatabaseInterface::class,
+            Config::class,
+            ThemeManager::class,
+        ],
     ],
     Normalization::class => [
         'class' => Normalization::class,
@@ -327,6 +337,7 @@ return [
             BookmarkRepository::class,
             Config::class,
             ResponseRenderer::class,
+            ThemeManager::class,
         ],
     ],
     SqlQueryForm::class => [

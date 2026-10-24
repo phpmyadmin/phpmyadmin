@@ -18,6 +18,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -78,6 +79,7 @@ final class QueryControllerTest extends AbstractTestCase
             new BookmarkRepository($dbi, $relation, $config),
             $config,
             $responseRenderer,
+            new ThemeManager(),
         );
 
         return new QueryController($responseRenderer, $sql);

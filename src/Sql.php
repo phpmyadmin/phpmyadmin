@@ -27,6 +27,7 @@ use PhpMyAdmin\SqlParser\Utils\StatementInfo;
 use PhpMyAdmin\SqlParser\Utils\StatementType;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Table\UiProperty;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
@@ -69,6 +70,7 @@ class Sql
         private readonly BookmarkRepository $bookmarkRepository,
         private readonly Config $config,
         private readonly ResponseRenderer $responseRenderer,
+        private readonly ThemeManager $themeManager,
     ) {
     }
 
@@ -1540,6 +1542,7 @@ class Sql
             Current::$server,
             $goto,
             $sqlQuery,
+            $this->themeManager,
         );
         $displayResultsObject->setConfigParamsForDisplayTable($request, $statementInfo);
 

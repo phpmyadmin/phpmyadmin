@@ -12,7 +12,6 @@ use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console\Console;
-use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\I18n\LanguageManager;
@@ -64,6 +63,7 @@ class Header
         private readonly Relation $relation,
         private readonly UserPreferences $userPreferences,
         private readonly UserPreferencesHandler $userPreferencesHandler,
+        private readonly ThemeManager $themeManager,
     ) {
     }
 
@@ -214,8 +214,7 @@ class Header
     /** @return array<string, mixed> */
     public function getDisplay(ResponseRenderer $responseRenderer): array
     {
-        $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
-        $theme = $themeManager->theme;
+        $theme = $this->themeManager->theme;
         $scripts = $this->getScripts();
         $userAgent = Core::getEnv('HTTP_USER_AGENT');
 
@@ -253,8 +252,13 @@ class Header
         $scripts->addFiles($this->console->getScripts());
 
         if ($this->isMenuEnabled() && Current::$server > 0) {
-            $navigation = (new Navigation($this->template, $this->relation, $this->dbi, $this->config))
-                ->getDisplay($responseRenderer);
+            $navigation = (new Navigation(
+                $this->template,
+                $this->relation,
+                $this->dbi,
+                $this->config,
+                $this->themeManager,
+            ))->getDisplay($responseRenderer);
         }
 
         $customHeader = self::renderHeader();

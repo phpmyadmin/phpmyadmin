@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Http\Middleware;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Theme\ThemeManager;
 use Psr\Http\Message\ResponseInterface;
@@ -15,15 +14,14 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 final readonly class LanguageAndThemeCookieSaving implements MiddlewareInterface
 {
-    public function __construct(private Config $config)
+    public function __construct(private Config $config, private ThemeManager $themeManager)
     {
     }
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $this->config->setCookie('pma_lang', Current::$lang);
-        $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
-        $themeManager->setThemeCookie();
+        $this->themeManager->setThemeCookie();
 
         return $handler->handle($request);
     }
