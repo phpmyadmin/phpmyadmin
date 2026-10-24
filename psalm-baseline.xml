@@ -8045,9 +8045,6 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/IpAllowDeny.php">
-    <InvalidOperand occurrences="1">
-      <code>$regs[5]</code>
-    </InvalidOperand>
     <InvalidScalarArgument occurrences="1">
       <code>$remote_ip</code>
     </InvalidScalarArgument>

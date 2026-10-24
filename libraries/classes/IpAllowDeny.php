@@ -14,14 +14,17 @@ use function explode;
 use function hash_equals;
 use function hexdec;
 use function inet_pton;
-use function ip2long;
+use function intdiv;
 use function is_array;
 use function mb_strpos;
 use function mb_strtolower;
 use function mb_substr;
 use function min;
+use function ord;
 use function preg_match;
 use function str_replace;
+use function strlen;
+use function substr;
 use function substr_replace;
 
 /**
@@ -67,23 +70,8 @@ class IpAllowDeny
     public function ipv4MaskTest($testRange, $ipToTest): bool
     {
         $result = true;
-        $match = preg_match('|([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)/([0-9]+)|', $testRange, $regs);
-        if ($match) {
-            // performs a mask match
-            $ipl = ip2long($ipToTest);
-            $rangel = ip2long($regs[1] . '.' . $regs[2] . '.' . $regs[3] . '.' . $regs[4]);
-
-            $maskl = 0;
-
-            for ($i = 0; $i < 31; $i++) {
-                if ($i >= $regs[5] - 1) {
-                    continue;
-                }
-
-                $maskl += 2 ** (30 - $i);
-            }
-
-            return ($maskl & $rangel) == ($maskl & $ipl);
+        if (preg_match('|^([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/([0-9]+)$|', $testRange, $regs) === 1) {
+            return $this->cidrMatch($regs[1], (int) $regs[2], $ipToTest);
         }
 
         // range based
@@ -104,6 +92,31 @@ class IpAllowDeny
         }
 
         return $result;
+    }
+
+    private function cidrMatch(string $subnet, int $prefix, string $ipToTest): bool
+    {
+        $subnetBin = @inet_pton($subnet);
+        $ipBin = @inet_pton($ipToTest);
+        if ($subnetBin === false || $ipBin === false || strlen($subnetBin) !== strlen($ipBin)) {
+            return false;
+        }
+
+        $prefix = min($prefix, strlen($subnetBin) * 8);
+        $fullBytes = intdiv($prefix, 8);
+        if (substr($subnetBin, 0, $fullBytes) !== substr($ipBin, 0, $fullBytes)) {
+            return false;
+        }
+
+        $remainingBits = $prefix % 8;
+        if ($remainingBits === 0) {
+            return true;
+        }
+
+        // phpcs:ignore SlevomatCodingStandard.PHP.UselessParentheses
+        $mask = (0xFF << 8 - $remainingBits) & 0xFF;
+
+        return (ord($subnetBin[$fullBytes]) & $mask) === (ord($ipBin[$fullBytes]) & $mask);
     }
 
     /**
