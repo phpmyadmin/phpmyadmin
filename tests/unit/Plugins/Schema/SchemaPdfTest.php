@@ -25,7 +25,6 @@ final class SchemaPdfTest extends AbstractTestCase
         $properties = (new SchemaPdf())->getProperties();
         self::assertSame('PDF', $properties->getText());
         self::assertSame('pdf', $properties->getExtension());
-        self::assertSame('application/pdf', $properties->getMimeType());
         $options = $properties->getOptions();
         self::assertNotNull($options);
         self::assertSame('Format Specific Options', $options->getName());

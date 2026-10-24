@@ -25,7 +25,6 @@ final class SchemaEpsTest extends AbstractTestCase
         $properties = (new SchemaEps())->getProperties();
         self::assertSame('EPS', $properties->getText());
         self::assertSame('eps', $properties->getExtension());
-        self::assertSame('application/eps', $properties->getMimeType());
         $options = $properties->getOptions();
         self::assertNotNull($options);
         self::assertSame('Format Specific Options', $options->getName());

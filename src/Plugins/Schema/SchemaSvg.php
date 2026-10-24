@@ -38,7 +38,6 @@ class SchemaSvg extends SchemaPlugin
         $schemaPluginProperties = new SchemaPluginProperties();
         $schemaPluginProperties->setText('SVG');
         $schemaPluginProperties->setExtension('svg');
-        $schemaPluginProperties->setMimeType('application/svg');
 
         // create the root group that will be the options field for
         // $schemaPluginProperties

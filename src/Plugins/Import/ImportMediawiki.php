@@ -57,7 +57,6 @@ class ImportMediawiki extends ImportPlugin
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('MediaWiki Table'));
         $importPluginProperties->setExtension('txt');
-        $importPluginProperties->setMimeType('text/plain');
 
         return $importPluginProperties;
     }
