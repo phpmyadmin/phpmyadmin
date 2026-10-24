@@ -153,6 +153,25 @@ final class Indexes
 
         $sqlQuery .= ';';
 
+        // For non-PRIMARY indexes, append a second statement to set the
+        // index's visibility explicitly. We can't reliably set it inline in
+        // the compound `DROP INDEX x, ADD INDEX x ...` above: MySQL silently
+        // ignores `VISIBLE` in that position (and depending on option order
+        // even `INVISIBLE` may be ignored), so the new index would inherit
+        // the visibility of the dropped one. A separate `ALTER TABLE ...
+        // ALTER INDEX x VISIBLE/INVISIBLE` always applies cleanly. Primary
+        // keys cannot be invisible, so we never emit the keyword for them.
+        $indexName = $index->getName();
+        if ($index->getChoice() !== 'PRIMARY' && $indexName !== '') {
+            $sqlQuery .= sprintf(
+                ' ALTER TABLE %s.%s ALTER INDEX %s %s;',
+                Util::backquote($dbName),
+                Util::backquote($tableName),
+                Util::backquote($indexName),
+                $index->isVisible() ? 'VISIBLE' : 'INVISIBLE',
+            );
+        }
+
         return $sqlQuery;
     }
 
