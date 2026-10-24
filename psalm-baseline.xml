@@ -4721,9 +4721,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidOperand>
-      <code><![CDATA[$regs[5]]]></code>
-    </InvalidOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$remoteIp]]></code>
     </PossiblyInvalidArgument>
