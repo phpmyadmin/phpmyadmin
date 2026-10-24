@@ -34,6 +34,7 @@ All notable changes of the phpMyAdmin 6.0 release series are documented in this 
 * [#19691](https://github.com/phpmyadmin/phpmyadmin/pull/19691): Show hostname on main page
 * [#19751](https://github.com/phpmyadmin/phpmyadmin/pull/19751): Add Go button at the top of the insert row table
 * [#19812](https://github.com/phpmyadmin/phpmyadmin/pull/19812): Add show create table shortcuts when viewing tables
+* [#15561](https://github.com/phpmyadmin/phpmyadmin/issues/15561): Add a checkbox to empty protected BLOB and binary columns in the insert/edit form
 
 ### Changed
 
