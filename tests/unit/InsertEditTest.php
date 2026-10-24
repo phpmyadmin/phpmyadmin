@@ -2355,6 +2355,48 @@ class InsertEditTest extends AbstractTestCase
         );
     }
 
+    public function testGetHtmlForInsertEditFormColumnWithVector(): void
+    {
+        InsertEdit::$pluginScripts = [];
+        $tableColumn = new Column('vec', 'vector(2)', null, false, '', null, '', 'select,insert,update,references', '');
+        // VEC_FromText('[1,2]')
+        $currentRow = ['vec' => "\x00\x00\x80\x3f\x00\x00\x00\x40"];
+
+        $actual = (new ReflectionMethod(InsertEdit::class, 'getHtmlForInsertEditFormColumn'))->invokeArgs(
+            $this->insertEdit,
+            [
+                $tableColumn,
+                0,
+                [],
+                8,
+                false,
+                $currentRow,
+                0,
+                false,
+                new Foreigners(),
+                'table',
+                'db',
+                0,
+                '',
+                [],
+                [],
+                '',
+            ],
+        );
+        $actual = $this->parseString($actual);
+
+        $md5 = md5('vec');
+        self::assertStringContainsString(
+            '<input type="hidden" name="fields_type[multi_edit][0][' . $md5 . ']" value="hex">',
+            $actual,
+        );
+        self::assertStringContainsString(
+            '<input type="text" name="fields[multi_edit][0][' . $md5 . ']"' . "\n"
+            . '            value="0000803f00000040"',
+            $actual,
+        );
+    }
+
     /**
      * Test for getHtmlForInsertEditRow
      */
