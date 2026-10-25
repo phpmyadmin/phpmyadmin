@@ -15,6 +15,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Query\Utilities;
 
 use function __;
+use function assert;
 use function defined;
 use function method_exists;
 use function mysqli_connect_errno;
@@ -300,6 +301,7 @@ class DbiMysqli implements DbiExtension
     {
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
+        assert($query !== '', 'Query cannot be empty');
         $result = $mysqli->execute_query($query, $params);
 
         if ($result === false) {
