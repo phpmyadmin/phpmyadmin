@@ -9,6 +9,9 @@ use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
 use function array_keys;
@@ -19,7 +22,6 @@ use const E_CORE_WARNING;
 use const E_ERROR;
 use const E_NOTICE;
 use const E_RECOVERABLE_ERROR;
-use const E_STRICT;
 use const E_USER_DEPRECATED;
 use const E_USER_ERROR;
 use const E_USER_NOTICE;
@@ -29,7 +31,10 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\ErrorHandler
+ * @medium
  */
+#[CoversClass(ErrorHandler::class)]
+#[Medium]
 class ErrorHandlerTest extends AbstractTestCase
 {
     /** @var ErrorHandler */
@@ -59,97 +64,41 @@ class ErrorHandlerTest extends AbstractTestCase
         unset($this->object);
     }
 
-    /**
-     * Data provider for testHandleError
-     *
-     * @return array data for testHandleError
-     */
+    /** @return array<array{int, string, string, int, string, string}> */
     public static function providerForTestHandleError(): array
     {
         return [
-            [
-                E_RECOVERABLE_ERROR,
-                'Compile Error',
-                'error.txt',
-                12,
-                'Compile Error',
-                '',
-            ],
-            [
-                E_USER_NOTICE,
-                'User notice',
-                'error.txt',
-                12,
-                'User notice',
-                'User notice',
-            ],
+            [E_RECOVERABLE_ERROR, 'Compile Error', 'error.txt', 12, 'never', ''],
+            [E_RECOVERABLE_ERROR, 'Compile Error', 'error.txt', 12, 'always', 'Compile Error'],
+            [E_RECOVERABLE_ERROR, 'Compile Error', 'error.txt', 12, 'ask', 'Compile Error'],
+            [E_USER_NOTICE, 'User notice', 'error.txt', 12, 'never', 'User notice'],
+            [E_USER_NOTICE, 'User notice', 'error.txt', 12, 'always', 'User notice'],
+            [E_USER_NOTICE, 'User notice', 'error.txt', 12, 'ask', 'User notice'],
         ];
     }
 
-    /**
-     * Test for getDispErrors when PHP errors are not shown
-     *
-     * @param int    $errno       error number
-     * @param string $errstr      error string
-     * @param string $errfile     error file
-     * @param int    $errline     error line
-     * @param string $output_show expected output if showing of errors is
-     *                            enabled
-     * @param string $output_hide expected output if showing of errors is
-     *                            disabled and 'sendErrorReports' is set to 'never'
-     *
-     * @dataProvider providerForTestHandleError
-     */
-    public function testGetDispErrorsForDisplayFalse(
-        int $errno,
-        string $errstr,
-        string $errfile,
-        int $errline,
-        string $output_show,
-        string $output_hide
+    /** @dataProvider providerForTestHandleError */
+    #[DataProvider('providerForTestHandleError')]
+    public function testGetDisplayErrors(
+        int $errorNumber,
+        string $errorMessage,
+        string $errorFile,
+        int $errorLine,
+        string $reportErrorConfig,
+        string $expected
     ): void {
-        // TODO: Add other test cases for all combination of 'sendErrorReports'
-        $GLOBALS['cfg']['SendErrorReports'] = 'never';
+        $GLOBALS['cfg']['environment'] = 'production';
+        $GLOBALS['cfg']['SendErrorReports'] = $reportErrorConfig;
 
-        $this->object->handleError($errno, $errstr, $errfile, $errline);
+        $error = new Error($errorNumber, $errorMessage, $errorFile, $errorLine);
+        $_SESSION['errors'] = [$error->getHash() => $error];
 
-        $output = $this->object->getDispErrors();
-
-        if ($output_hide === '') {
-            self::assertSame('', $output);
+        $handler = new ErrorHandler();
+        if ($expected === '') {
+            self::assertSame('', $handler->getDispErrors());
         } else {
-            self::assertNotEmpty($output_show);// Useless check
-            self::assertStringContainsString($output_hide, $output);
+            self::assertStringContainsString($expected, $handler->getDispErrors());
         }
-    }
-
-    /**
-     * Test for getDispErrors when PHP errors are shown
-     *
-     * @param int    $errno       error number
-     * @param string $errstr      error string
-     * @param string $errfile     error file
-     * @param int    $errline     error line
-     * @param string $output_show expected output if showing of errors is
-     *                            enabled
-     * @param string $output_hide expected output if showing of errors is
-     *                            disabled
-     *
-     * @dataProvider providerForTestHandleError
-     * @requires PHPUnit < 10
-     */
-    public function testGetDispErrorsForDisplayTrue(
-        int $errno,
-        string $errstr,
-        string $errfile,
-        int $errline,
-        string $output_show,
-        string $output_hide
-    ): void {
-        $this->object->handleError($errno, $errstr, $errfile, $errline);
-
-        self::assertIsString($output_hide);// Useless check
-        self::assertStringContainsString($output_show, $this->object->getDispErrors());
     }
 
     /**
@@ -168,8 +117,6 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for countErrors
-     *
-     * @group medium
      */
     public function testCountErrors(): void
     {
@@ -178,6 +125,7 @@ class ErrorHandlerTest extends AbstractTestCase
     }
 
     /** @dataProvider addErrorProvider */
+    #[DataProvider('addErrorProvider')]
     public function testAddError(int $errorNumber, string $expected): void
     {
         $errorHandler = new ErrorHandler();
@@ -192,7 +140,7 @@ class ErrorHandlerTest extends AbstractTestCase
     /** @return iterable<string, array{int, string}> */
     public static function addErrorProvider(): iterable
     {
-        yield 'E_STRICT' => [@E_STRICT, '[em]Error[/em]'];
+        yield 'E_STRICT' => [2048, '[em]Error[/em]'];
         yield 'E_NOTICE' => [E_NOTICE, '[em]Error[/em]'];
         yield 'E_WARNING' => [E_WARNING, '[em]Error[/em]'];
         yield 'E_CORE_WARNING' => [E_CORE_WARNING, '[em]Error[/em]'];
@@ -206,8 +154,6 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for sliceErrors
-     *
-     * @group medium
      */
     public function testSliceErrors(): void
     {
@@ -222,8 +168,6 @@ class ErrorHandlerTest extends AbstractTestCase
 
     /**
      * Test for sliceErrors with 10 elements as an example
-     *
-     * @group medium
      */
     public function testSliceErrorsOtherExample(): void
     {

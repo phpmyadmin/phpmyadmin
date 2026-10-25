@@ -7,16 +7,20 @@ namespace PhpMyAdmin\Tests\Query;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Query\Compatibility;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \PhpMyAdmin\Query\Compatibility
  */
+#[CoversClass(Compatibility::class)]
 class CompatibilityTest extends TestCase
 {
     /**
      * @dataProvider providerForTestHasAccountLocking
      */
+    #[DataProvider('providerForTestHasAccountLocking')]
     public function testHasAccountLocking(bool $expected, bool $isMariaDb, int $version): void
     {
         self::assertSame($expected, Compatibility::hasAccountLocking($isMariaDb, $version));
@@ -41,6 +45,7 @@ class CompatibilityTest extends TestCase
     /**
      * @dataProvider providerForTestIsUUIDSupported
      */
+    #[DataProvider('providerForTestIsUUIDSupported')]
     public function testIsUUIDSupported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);
@@ -49,6 +54,34 @@ class CompatibilityTest extends TestCase
         $dbiStub->method('getVersion')->willReturn($version);
 
         self::assertSame($expected, Compatibility::isUUIDSupported($dbiStub));
+    }
+
+    /**
+     * @dataProvider providerForTestIsUUIDv4Supported
+     */
+    #[DataProvider('providerForTestIsUUIDv4Supported')]
+    public function testIsUUIDv4Supported(bool $expected, bool $isMariaDb, int $version): void
+    {
+        $dbiStub = $this->createStub(DatabaseInterface::class);
+
+        $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
+        $dbiStub->method('getVersion')->willReturn($version);
+
+        self::assertSame($expected, Compatibility::isUUIDv4Supported($dbiStub));
+    }
+
+    /**
+     * @dataProvider providerForTestIsUUIDv7Supported
+     */
+    #[DataProvider('providerForTestIsUUIDv7Supported')]
+    public function testIsUUIDv7Supported(bool $expected, bool $isMariaDb, int $version): void
+    {
+        $dbiStub = $this->createStub(DatabaseInterface::class);
+
+        $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
+        $dbiStub->method('getVersion')->willReturn($version);
+
+        self::assertSame($expected, Compatibility::isUUIDv7Supported($dbiStub));
     }
 
     /**
@@ -68,6 +101,7 @@ class CompatibilityTest extends TestCase
     /**
      * @dataProvider providerForTestIsVectorSupported
      */
+    #[DataProvider('providerForTestIsVectorSupported')]
     public function testIsVectorSupported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);
@@ -93,6 +127,7 @@ class CompatibilityTest extends TestCase
     /**
      * @dataProvider providerForTestIsXmlTypeSupported
      */
+    #[DataProvider('providerForTestIsXmlTypeSupported')]
     public function testIsXmlTypeSupported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);
@@ -118,8 +153,37 @@ class CompatibilityTest extends TestCase
     }
 
     /**
+     * @return array[]
+     * @psalm-return array<string, array{bool, bool, int}>
+     */
+    public static function providerForTestIsUUIDv4Supported(): array
+    {
+        return [
+            'MySQL 5.7.5' => [false, false, 50705],
+            'MySQL 8.0.30' => [false, false, 80030],
+            'MariaDB 10.6.0' => [false, true, 100600],
+            'MariaDB 11.7.0' => [true, true, 110700],
+        ];
+    }
+
+    /**
+     * @return array[]
+     * @psalm-return array<string, array{bool, bool, int}>
+     */
+    public static function providerForTestIsUUIDv7Supported(): array
+    {
+        return [
+            'MySQL 5.7.5' => [false, false, 50705],
+            'MySQL 8.0.30' => [false, false, 80030],
+            'MariaDB 10.6.0' => [false, true, 100600],
+            'MariaDB 11.7.0' => [true, true, 110700],
+        ];
+    }
+
+    /**
      * @dataProvider providerForTestIsJsonSupported
      */
+    #[DataProvider('providerForTestIsJsonSupported')]
     public function testIsJsonSupported(bool $expected, bool $isMariaDb, int $version): void
     {
         $dbiStub = $this->createStub(DatabaseInterface::class);
@@ -145,6 +209,7 @@ class CompatibilityTest extends TestCase
     }
 
     /** @dataProvider showBinLogStatusProvider */
+    #[DataProvider('showBinLogStatusProvider')]
     public function testGetShowBinLogStatusStmt(string $serverName, int $version, string $expected): void
     {
         $dbal = self::createStub(DbalInterface::class);

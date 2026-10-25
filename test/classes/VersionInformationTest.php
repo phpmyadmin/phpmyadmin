@@ -5,13 +5,22 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\VersionInformation;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 use stdClass;
 
 use function count;
 
 /**
  * @covers \PhpMyAdmin\VersionInformation
+ * @large
  */
+#[CoversClass(VersionInformation::class)]
+#[Large]
+#[AllowMockObjectsWithoutExpectations]
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var stdClass[] */
@@ -54,9 +63,9 @@ class VersionInformationTest extends AbstractTestCase
     /**
      * Test version checking
      *
-     * @group large
      * @group network
      */
+    #[Group('network')]
     public function testGetLatestVersion(): void
     {
         $this->setProxySettings();
@@ -77,6 +86,7 @@ class VersionInformationTest extends AbstractTestCase
      *
      * @dataProvider dataVersions
      */
+    #[DataProvider('dataVersions')]
     public function testVersionToInt(string $version, int $numeric): void
     {
         $versionInformation = new VersionInformation();
@@ -170,8 +180,6 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Tests getLatestCompatibleVersion() when there is only one server configured
-     *
-     * @requires PHPUnit < 10
      */
     public function testGetLatestCompatibleVersionWithSingleServer(): void
     {
@@ -183,20 +191,17 @@ class VersionInformationTest extends AbstractTestCase
             ->onlyMethods(['evaluateVersionCondition'])
             ->getMock();
 
-        $mockVersionInfo->expects($this->exactly(9))
-            ->method('evaluateVersionCondition')
-            ->withConsecutive(
-                ['PHP', '>=5.3'],
-                ['PHP', '<7.1'],
-                ['MySQL', '>=5.5'],
-                ['PHP', '>=5.3'],
-                ['PHP', '<7.0'],
-                ['MySQL', '>=5.5'],
-                ['PHP', '>=5.2'],
-                ['PHP', '<5.3'],
-                ['MySQL', '>=5.0']
-            )
-            ->willReturnOnConsecutiveCalls(true, true, true, true, true, true, true, true, true);
+        $mockVersionInfo->expects(self::exactly(9))->method('evaluateVersionCondition')->willReturnMap([
+            ['PHP', '>=5.3', true],
+            ['PHP', '<7.1', true],
+            ['MySQL', '>=5.5', true],
+            ['PHP', '>=5.3', true],
+            ['PHP', '<7.0', true],
+            ['MySQL', '>=5.5', true],
+            ['PHP', '>=5.2', true],
+            ['PHP', '<5.3', true],
+            ['MySQL', '>=5.0', true],
+        ]);
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         self::assertIsArray($compatible);
@@ -205,8 +210,6 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Tests getLatestCompatibleVersion() when there are multiple servers configured
-     *
-     * @requires PHPUnit < 10
      */
     public function testGetLatestCompatibleVersionWithMultipleServers(): void
     {
@@ -219,13 +222,10 @@ class VersionInformationTest extends AbstractTestCase
             ->onlyMethods(['evaluateVersionCondition'])
             ->getMock();
 
-        $mockVersionInfo->expects($this->atLeast(4))
-            ->method('evaluateVersionCondition')
-            ->withConsecutive(
-                ['PHP', '>=5.3'],
-                ['PHP', '<7.1']
-            )
-            ->willReturnOnConsecutiveCalls(true, true);
+        $mockVersionInfo->expects(self::atLeast(4))->method('evaluateVersionCondition')->willReturnMap([
+            ['PHP', '>=5.3', true],
+            ['PHP', '<7.1', true],
+        ]);
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         self::assertIsArray($compatible);
@@ -234,8 +234,6 @@ class VersionInformationTest extends AbstractTestCase
 
     /**
      * Tests getLatestCompatibleVersion() with an old PHP version
-     *
-     * @requires PHPUnit < 10
      */
     public function testGetLatestCompatibleVersionWithOldPHPVersion(): void
     {
@@ -248,15 +246,12 @@ class VersionInformationTest extends AbstractTestCase
             ->onlyMethods(['evaluateVersionCondition'])
             ->getMock();
 
-        $mockVersionInfo->expects($this->atLeast(2))
-            ->method('evaluateVersionCondition')
-            ->withConsecutive(
-                ['PHP', '>=5.3'],
-                ['PHP', '>=5.3'],
-                ['PHP', '>=5.2'],
-                ['PHP', '<5.3']
-            )
-            ->willReturnOnConsecutiveCalls(false, false, true, true);
+        $mockVersionInfo->expects(self::atLeast(2))->method('evaluateVersionCondition')->willReturnMap([
+            ['PHP', '>=5.3', false],
+            ['PHP', '>=5.3', false],
+            ['PHP', '>=5.2', true],
+            ['PHP', '<5.3', true],
+        ]);
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($this->releases);
         self::assertIsArray($compatible);
@@ -271,8 +266,8 @@ class VersionInformationTest extends AbstractTestCase
      * @param string|null $matchedLastVersion The version that will be matched
      *
      * @dataProvider dataProviderVersionConditions
-     * @requires PHPUnit < 10
      */
+    #[DataProvider('dataProviderVersionConditions')]
     public function testGetLatestCompatibleVersionWithNewPHPVersion(
         array $versions,
         array $conditions,
@@ -285,20 +280,17 @@ class VersionInformationTest extends AbstractTestCase
             ->getMock();
 
         $conditionsCalls = [];
-        $returnValues = [];
         foreach ($conditions as $conditionArray) {
             [
                 $condition,
                 $returnValue,
             ] = $conditionArray;
-            $conditionsCalls[] = ['PHP', $condition];
-            $returnValues[] = $returnValue;
+            $conditionsCalls[] = ['PHP', $condition, $returnValue];
         }
 
-        $mockVersionInfo->expects($this->exactly(count($conditionsCalls)))
+        $mockVersionInfo->expects(self::exactly(count($conditionsCalls)))
             ->method('evaluateVersionCondition')
-            ->withConsecutive(...$conditionsCalls)
-            ->willReturnOnConsecutiveCalls(...$returnValues);
+            ->willReturnMap($conditionsCalls);
 
         $compatible = $mockVersionInfo->getLatestCompatibleVersion($versions);
         self::assertSame($matchedLastVersion, $compatible['version'] ?? null);
@@ -346,7 +338,7 @@ class VersionInformationTest extends AbstractTestCase
                         false,
                     ],
                 ],
-                '4.9.3',
+                '5.0.0',
             ],
             [
                 [
@@ -554,9 +546,7 @@ class VersionInformationTest extends AbstractTestCase
             ->onlyMethods(['getPHPVersion'])
             ->getMock();
 
-        $mockVersionInfo->expects($this->any())
-            ->method('getPHPVersion')
-            ->will($this->returnValue('5.2.4'));
+        $mockVersionInfo->method('getPHPVersion')->willReturn('5.2.4');
 
         self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<=5.3'));
         self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<5.3'));

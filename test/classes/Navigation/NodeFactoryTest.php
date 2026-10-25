@@ -7,10 +7,19 @@ namespace PhpMyAdmin\Tests\Navigation;
 use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+
+use function restore_error_handler;
+use function set_error_handler;
+
+use const E_USER_ERROR;
+use const E_USER_WARNING;
+use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Navigation\NodeFactory
  */
+#[CoversClass(NodeFactory::class)]
 class NodeFactoryTest extends AbstractTestCase
 {
     /**
@@ -46,25 +55,33 @@ class NodeFactoryTest extends AbstractTestCase
         self::assertTrue($node->isGroup);
     }
 
-    /**
-     * @group with-trigger-error
-     * @requires PHPUnit < 10
-     */
     public function testFileError(): void
     {
-        $this->expectError();
-        $this->expectErrorMessage('Could not load class "PhpMyAdmin\Navigation\Nodes\Node"');
+        $message = '';
+        set_error_handler(static function (int $errno, string $errstr) use (&$message): bool {
+            $message = $errstr;
+
+            return true;
+        }, PHP_VERSION_ID < 80400 ? E_USER_ERROR : E_USER_WARNING);
+
         NodeFactory::getInstance('NodeDoesNotExist');
+        restore_error_handler();
+
+        self::assertSame('Could not load class "PhpMyAdmin\Navigation\Nodes\Node"', $message);
     }
 
-    /**
-     * @group with-trigger-error
-     * @requires PHPUnit < 10
-     */
     public function testClassNameError(): void
     {
-        $this->expectError();
-        $this->expectErrorMessage('Invalid class name "Node", using default of "Node"');
+        $message = '';
+        set_error_handler(static function (int $errno, string $errstr) use (&$message): bool {
+            $message = $errstr;
+
+            return true;
+        }, PHP_VERSION_ID < 80400 ? E_USER_ERROR : E_USER_WARNING);
+
         NodeFactory::getInstance('Invalid');
+        restore_error_handler();
+
+        self::assertSame('Invalid class name "Node", using default of "Node"', $message);
     }
 }

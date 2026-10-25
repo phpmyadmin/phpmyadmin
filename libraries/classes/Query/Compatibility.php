@@ -228,6 +228,28 @@ class Compatibility
     }
 
     /**
+     * Check whether the database supports UUID_v4 function
+     *
+     * @return bool true if UUID_v4 is supported
+     */
+    public static function isUUIDv4Supported(DatabaseInterface $dbi): bool
+    {
+        // https://mariadb.com/docs/server/reference/sql-functions/secondary-functions/miscellaneous-functions/uuid_v4
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 110700; // 11.7.0
+    }
+
+    /**
+     * Check whether the database supports UUID_v7 function
+     *
+     * @return bool true if UUID_v7 is supported
+     */
+    public static function isUUIDv7Supported(DatabaseInterface $dbi): bool
+    {
+        // https://mariadb.com/docs/server/reference/sql-functions/secondary-functions/miscellaneous-functions/uuid_v7
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 110700; // 11.7.0
+    }
+
+    /**
      * Check whether the database supports VECTOR data type
      *
      * @return bool true if VECTOR is supported

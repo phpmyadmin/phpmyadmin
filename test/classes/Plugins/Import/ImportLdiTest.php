@@ -9,13 +9,20 @@ use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\MockObject\MockObject;
 
 use function __;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportLdi
+ * @medium
  */
+#[CoversClass(ImportLdi::class)]
+#[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class ImportLdiTest extends AbstractTestCase
 {
     /** @var ImportLdi */
@@ -56,9 +63,7 @@ class ImportLdiTest extends AbstractTestCase
         $GLOBALS['table'] = 'phpmyadmintest';
 
         //Mock DBI
-        $this->dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->dbi = $this->createMock(DatabaseInterface::class);
         $GLOBALS['dbi'] = $this->dbi;
 
         $this->object = new ImportLdi();
@@ -76,8 +81,6 @@ class ImportLdiTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
     public function testGetProperties(): void
     {
@@ -88,8 +91,6 @@ class ImportLdiTest extends AbstractTestCase
 
     /**
      * Test for getProperties for ldi_local_option = auto
-     *
-     * @group medium
      */
     public function testGetPropertiesAutoLdi(): void
     {
@@ -102,14 +103,11 @@ class ImportLdiTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi->expects($this->any())->method('tryQuery')
-            ->will($this->returnValue($resultStub));
+        $dbi->method('tryQuery')->willReturn($resultStub);
 
-        $resultStub->expects($this->any())->method('numRows')
-            ->will($this->returnValue(10));
+        $resultStub->method('numRows')->willReturn(10);
 
-        $resultStub->expects($this->any())->method('fetchValue')
-            ->will($this->returnValue('ON'));
+        $resultStub->method('fetchValue')->willReturn('ON');
 
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $this->object = new ImportLdi();
@@ -121,8 +119,6 @@ class ImportLdiTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
     public function testDoImport(): void
     {
@@ -135,8 +131,7 @@ class ImportLdiTest extends AbstractTestCase
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
@@ -156,8 +151,6 @@ class ImportLdiTest extends AbstractTestCase
 
     /**
      * Test for doImport : invalid import file
-     *
-     * @group medium
      */
     public function testDoImportInvalidFile(): void
     {
@@ -178,8 +171,6 @@ class ImportLdiTest extends AbstractTestCase
 
     /**
      * Test for doImport with LDI setting
-     *
-     * @group medium
      */
     public function testDoImportLDISetting(): void
     {
@@ -195,8 +186,7 @@ class ImportLdiTest extends AbstractTestCase
          * @var MockObject $dbi
          */
         $dbi = $this->dbi;
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $ldi_local_option = true;

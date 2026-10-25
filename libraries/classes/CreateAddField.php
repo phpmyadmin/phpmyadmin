@@ -42,11 +42,11 @@ class CreateAddField
     private function getIndexedColumns(): array
     {
         $fieldCount = count($_POST['field_name']);
-        $fieldPrimary = json_decode($_POST['primary_indexes'], true);
-        $fieldIndex = json_decode($_POST['indexes'], true);
-        $fieldUnique = json_decode($_POST['unique_indexes'], true);
-        $fieldFullText = json_decode($_POST['fulltext_indexes'], true);
-        $fieldSpatial = json_decode($_POST['spatial_indexes'], true);
+        $fieldPrimary = json_decode($_POST['primary_indexes'] ?? '[]', true);
+        $fieldIndex = json_decode($_POST['indexes'] ?? '[]', true);
+        $fieldUnique = json_decode($_POST['unique_indexes'] ?? '[]', true);
+        $fieldFullText = json_decode($_POST['fulltext_indexes'] ?? '[]', true);
+        $fieldSpatial = json_decode($_POST['spatial_indexes'] ?? '[]', true);
 
         return [
             $fieldCount,

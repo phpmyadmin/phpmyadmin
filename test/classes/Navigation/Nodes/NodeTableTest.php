@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\NodeTable;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeTable
  */
+#[CoversClass(NodeTable::class)]
 class NodeTableTest extends AbstractTestCase
 {
     /**
@@ -54,6 +58,7 @@ class NodeTableTest extends AbstractTestCase
      *
      * @dataProvider providerForTestIcon
      */
+    #[DataProvider('providerForTestIcon')]
     public function testIcon(string $target, string $imageName, string $imageTitle): void
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;

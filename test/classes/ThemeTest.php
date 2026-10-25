@@ -6,6 +6,10 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Theme;
 use PhpMyAdmin\ThemeManager;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function filemtime;
 
@@ -14,7 +18,10 @@ use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Theme
+ * @medium
  */
+#[CoversClass(Theme::class)]
+#[Medium]
 class ThemeTest extends AbstractTestCase
 {
     /** @var Theme */
@@ -55,8 +62,6 @@ class ThemeTest extends AbstractTestCase
 
     /**
      * Test for Theme::loadInfo
-     *
-     * @group medium
      */
     public function testCheckImgPathNotExisted(): void
     {
@@ -161,6 +166,7 @@ class ThemeTest extends AbstractTestCase
      *
      * @depends testLoadInfo
      */
+    #[Depends('testLoadInfo')]
     public function testGetSetCheckVersion(): void
     {
         self::assertSame('0.0.0.0', $this->object->getVersion(), 'Version 0.0.0.0 by default');
@@ -214,6 +220,7 @@ class ThemeTest extends AbstractTestCase
      *
      * @dataProvider providerForGetImgPath
      */
+    #[DataProvider('providerForGetImgPath')]
     public function testGetImgPath(?string $file, ?string $fallback, string $output): void
     {
         self::assertSame($this->object->getImgPath($file, $fallback), $output);

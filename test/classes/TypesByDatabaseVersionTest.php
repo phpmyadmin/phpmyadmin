@@ -6,11 +6,14 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\Stub;
 
 /**
  * @covers \PhpMyAdmin\Types
  */
+#[CoversClass(Types::class)]
 class TypesByDatabaseVersionTest extends AbstractTestCase
 {
     /** @var DatabaseInterface&Stub */
@@ -53,6 +56,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
+    #[DataProvider('providerFortTestGetFunctionsClass')]
     public function testGetFunctionsClass(
         string $database,
         int $dbVersion,
@@ -278,6 +282,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetFunctions
      */
+    #[DataProvider('providerFortTestGetFunctions')]
     public function testGetFunctions(string $database, int $dbVersion, array $includes, array $excludes): void
     {
         $this->createObject($database, $dbVersion);
@@ -354,6 +359,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetAllFunctions
      */
+    #[DataProvider('providerFortTestGetAllFunctions')]
     public function testGetAllFunctions(string $database, int $dbVersion, array $includes, array $excludes): void
     {
         $this->createObject($database, $dbVersion);
@@ -601,6 +607,32 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                     'MPolyFromWKB',
                 ],
             ],
+            'mariadb 11.7.0 - support UUID_v4 and UUID_v7' => [
+                'mariadb',
+                110700,
+                [
+                    'UUID_v4',
+                    'UUID_v7',
+                ],
+                [
+                    'GeomFromText',
+                    'GeomFromWKB',
+                    'GeomCollFromText',
+                    'LineFromText',
+                    'MLineFromText',
+                    'PointFromText',
+                    'MPointFromText',
+                    'PolyFromText',
+                    'MPolyFromText',
+                    'GeomCollFromWKB',
+                    'LineFromWKB',
+                    'MLineFromWKB',
+                    'PointFromWKB',
+                    'MPointFromWKB',
+                    'PolyFromWKB',
+                    'MPolyFromWKB',
+                ],
+            ],
         ];
     }
 
@@ -614,6 +646,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
      *
      * @dataProvider providerFortTestGetColumns
      */
+    #[DataProvider('providerFortTestGetColumns')]
     public function testGetColumns(string $database, int $dbVersion, array $expected): void
     {
         $this->createObject($database, $dbVersion);
@@ -1001,6 +1034,75 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                         'ENUM',
                         'SET',
                         '-',
+                        'INET6',
+                    ],
+                    'Spatial' => [
+                        'GEOMETRY',
+                        'POINT',
+                        'LINESTRING',
+                        'POLYGON',
+                        'MULTIPOINT',
+                        'MULTILINESTRING',
+                        'MULTIPOLYGON',
+                        'GEOMETRYCOLLECTION',
+                    ],
+                    'JSON' => [ 'JSON' ],
+                    'UUID' => [ 'UUID' ],
+                ],
+            ],
+            'mariadb 10.10.0 - support INET4, INET6, JSON and UUID' => [
+                'mariadb',
+                101000,
+                [
+                    0 => 'INT',
+                    1 => 'VARCHAR',
+                    2 => 'TEXT',
+                    3 => 'DATE',
+                    4 => 'UUID',
+                    'Numeric' => [
+                        'TINYINT',
+                        'SMALLINT',
+                        'MEDIUMINT',
+                        'INT',
+                        'BIGINT',
+                        '-',
+                        'DECIMAL',
+                        'FLOAT',
+                        'DOUBLE',
+                        'REAL',
+                        '-',
+                        'BIT',
+                        'BOOLEAN',
+                        'SERIAL',
+                    ],
+                    'Date and time' => [
+                        'DATE',
+                        'DATETIME',
+                        'TIMESTAMP',
+                        'TIME',
+                        'YEAR',
+                    ],
+                    'String' => [
+                        'CHAR',
+                        'VARCHAR',
+                        '-',
+                        'TINYTEXT',
+                        'TEXT',
+                        'MEDIUMTEXT',
+                        'LONGTEXT',
+                        '-',
+                        'BINARY',
+                        'VARBINARY',
+                        '-',
+                        'TINYBLOB',
+                        'BLOB',
+                        'MEDIUMBLOB',
+                        'LONGBLOB',
+                        '-',
+                        'ENUM',
+                        'SET',
+                        '-',
+                        'INET4',
                         'INET6',
                     ],
                     'Spatial' => [

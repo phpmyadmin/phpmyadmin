@@ -15,12 +15,15 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function count;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Import\SimulateDmlController
  */
+#[CoversClass(SimulateDmlController::class)]
 class SimulateDmlControllerTest extends AbstractTestCase
 {
     /**
@@ -35,6 +38,7 @@ class SimulateDmlControllerTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetMatchedRows
      */
+    #[DataProvider('providerForTestGetMatchedRows')]
     public function testGetMatchedRows(string $sqlQuery, array $expectedPerQuery): void
     {
         $GLOBALS['db'] = 'PMA';

@@ -6,13 +6,15 @@ namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisMultiLineString;
 use PhpMyAdmin\Image\ImageWrapper;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use TCPDF;
-
-use function preg_match;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisMultiLineString
  */
+#[CoversClass(GisMultiLineString::class)]
 class GisMultiLineStringTest extends GisGeomTestCase
 {
     /** @var    GisMultiLineString */
@@ -248,6 +250,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * @requires extension gd
      */
+    #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
@@ -274,6 +277,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
+    #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -319,6 +323,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
+    #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -327,7 +332,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        self::assertSame(1, preg_match($output, $string));
+        self::assertMatchesRegularExpressionCompat($output, $string);
     }
 
     /**
@@ -369,6 +374,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @dataProvider providerForPrepareRowAsOl
      */
+    #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,

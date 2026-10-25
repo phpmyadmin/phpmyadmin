@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionProperty;
 
 use const PHP_VERSION_ID;
@@ -14,6 +17,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\ResponseRenderer
  */
+#[CoversClass(ResponseRenderer::class)]
 class ResponseRendererTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -30,6 +34,8 @@ class ResponseRendererTest extends AbstractTestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      */
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testSetAjax(): void
     {
         $_REQUEST = [];

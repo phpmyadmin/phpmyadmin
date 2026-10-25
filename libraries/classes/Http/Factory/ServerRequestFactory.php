@@ -20,17 +20,20 @@ use function class_exists;
 use function count;
 use function current;
 use function explode;
-use function function_exists;
-use function getallheaders;
+use function filter_var;
 use function in_array;
+use function is_callable;
 use function is_numeric;
 use function is_string;
 use function parse_url;
 use function preg_match;
-use function strpos;
-use function strstr;
+use function str_contains;
+use function str_starts_with;
+use function strlen;
 use function substr;
 
+use const FILTER_FLAG_IPV6;
+use const FILTER_VALIDATE_IP;
 use const PHP_URL_QUERY;
 
 class ServerRequestFactory
@@ -40,6 +43,9 @@ class ServerRequestFactory
 
     /** @var UriFactoryInterface */
     private $uriFactory;
+
+    /** @var mixed */
+    private static $getAllHeaders = 'getallheaders';
 
     public function __construct(
         ?ServerRequestFactoryInterface $serverRequestFactory = null,
@@ -107,7 +113,7 @@ class ServerRequestFactory
     protected function getallheaders(): array
     {
         /** @var array<string, string> $headers */
-        $headers = function_exists('getallheaders') ? getallheaders() : [];
+        $headers = is_callable(self::$getAllHeaders) ? (self::$getAllHeaders)() : [];
 
         return $headers;
     }
@@ -162,30 +168,10 @@ class ServerRequestFactory
             );
         }
 
-        if (isset($server['HTTP_HOST']) && is_string($server['HTTP_HOST'])) {
-            $uri = $uri->withHost($server['HTTP_HOST']);
-        } elseif (isset($server['SERVER_NAME']) && is_string($server['SERVER_NAME'])) {
-            $uri = $uri->withHost($server['SERVER_NAME']);
-        }
-
-        if (isset($server['SERVER_PORT']) && is_numeric($server['SERVER_PORT']) && $server['SERVER_PORT'] >= 1) {
-            $uri = $uri->withPort((int) $server['SERVER_PORT']);
-        } else {
-            $uri = $uri->withPort($uri->getScheme() === 'https' ? 443 : 80);
-        }
-
-        if (preg_match('/^(\[[a-fA-F0-9:.]+])(:\d+)?\z/', $uri->getHost(), $matches)) {
-            $uri = $uri->withHost($matches[1]);
-            if (isset($matches[2])) {
-                $uri = $uri->withPort((int) substr($matches[2], 1));
-            }
-        } else {
-            $pos = strpos($uri->getHost(), ':');
-            if ($pos !== false) {
-                $port = (int) substr($uri->getHost(), $pos + 1);
-                $host = (string) strstr($uri->getHost(), ':', true);
-                $uri = $uri->withHost($host)->withPort($port);
-            }
+        [$host, $port] = $this->getHostAndPort($server);
+        $uri = $uri->withHost($host !== '' ? $host : 'localhost');
+        if ($port !== null) {
+            $uri = $uri->withPort($port);
         }
 
         if (isset($server['QUERY_STRING']) && is_string($server['QUERY_STRING'])) {
@@ -203,6 +189,60 @@ class ServerRequestFactory
             }
         }
 
+        $path = $uri->getPath();
+        if (! str_starts_with($path, '/')) {
+            $uri = $uri->withPath('/' . $path);
+        }
+
         return $uri;
+    }
+
+    /**
+     * @param array<mixed> $server
+     *
+     * @return array{string, int|null}
+     */
+    private function getHostAndPort(array $server): array
+    {
+        $host = '';
+        if (isset($server['HTTP_HOST']) && is_string($server['HTTP_HOST'])) {
+            $host = $server['HTTP_HOST'];
+        } elseif (isset($server['SERVER_NAME']) && is_string($server['SERVER_NAME'])) {
+            $host = $server['SERVER_NAME'];
+        } elseif (isset($server['SERVER_ADDR']) && is_string($server['SERVER_ADDR'])) {
+            $host = $server['SERVER_ADDR'];
+        }
+
+        $serverPort = $this->getPort($server['SERVER_PORT'] ?? null);
+        if (preg_match('/[\x00-\x20\x7F\/\?#@\\\\,]/', $host) !== 0) {
+            return ['', $serverPort];
+        }
+
+        if (
+            preg_match('/^(\[[a-fA-F0-9:.]+])(:\d+)?\z/', $host, $matches) === 1
+            && filter_var(substr($matches[1], 1, -1), FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false
+        ) {
+            $port = isset($matches[2]) ? $this->getPort(substr($matches[2], 1)) : null;
+
+            return [$matches[1], $port ?? $serverPort];
+        }
+
+        $port = null;
+        if (preg_match('/:(\d+)$/', $host, $matches) === 1) {
+            $port = $this->getPort($matches[1]);
+            $host = (string) substr($host, 0, (strlen($matches[1]) + 1) * -1);
+        }
+
+        if ($host === '' || str_contains($host, ':') || str_contains($host, '[') || str_contains($host, ']')) {
+            return ['', $serverPort];
+        }
+
+        return [$host, $port ?? $serverPort];
+    }
+
+    /** @param mixed $port */
+    private function getPort($port): ?int
+    {
+        return is_numeric($port) && $port >= 1 && $port <= 65535 ? (int) $port : null;
     }
 }

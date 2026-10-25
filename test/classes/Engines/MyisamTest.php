@@ -6,12 +6,14 @@ namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Myisam;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 
 /**
  * @covers \PhpMyAdmin\Engines\Myisam
  */
+#[CoversClass(Myisam::class)]
 class MyisamTest extends AbstractTestCase
 {
     /** @var Myisam */

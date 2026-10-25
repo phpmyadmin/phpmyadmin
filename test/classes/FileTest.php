@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\File;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function bin2hex;
 use function file_get_contents;
@@ -12,6 +15,7 @@ use function file_get_contents;
 /**
  * @covers \PhpMyAdmin\File
  */
+#[CoversClass(File::class)]
 class FileTest extends AbstractTestCase
 {
     /**
@@ -31,6 +35,7 @@ class FileTest extends AbstractTestCase
      *
      * @dataProvider compressedFiles
      */
+    #[DataProvider('compressedFiles')]
     public function testMIME(string $file, string $mime): void
     {
         $arr = new File($file);
@@ -44,7 +49,8 @@ class FileTest extends AbstractTestCase
      *
      * @dataProvider compressedFiles
      */
-    public function testBinaryContent(string $file): void
+    #[DataProvider('compressedFiles')]
+    public function testBinaryContent(string $file, string $mime): void
     {
         $data = '0x' . bin2hex((string) file_get_contents($file));
         $file = new File($file);
@@ -57,10 +63,13 @@ class FileTest extends AbstractTestCase
      * @param string $file file string
      *
      * @dataProvider compressedFiles
-     * @requires extension bz2 1
+     * @requires extension bz2
      * @requires extension zip
      */
-    public function testReadCompressed(string $file): void
+    #[DataProvider('compressedFiles')]
+    #[RequiresPhpExtension('bz2')]
+    #[RequiresPhpExtension('zip')]
+    public function testReadCompressed(string $file, string $mime): void
     {
         $file = new File($file);
         $file->setDecompressContent(true);

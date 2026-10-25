@@ -12,11 +12,13 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
 use const PHP_VERSION_ID;
 
 /** @covers \PhpMyAdmin\Controllers\Table\IndexRenameController */
+#[CoversClass(IndexRenameController::class)]
 final class IndexRenameControllerTest extends AbstractTestCase
 {
     public function testPreviewSqlWithOldStatement(): void

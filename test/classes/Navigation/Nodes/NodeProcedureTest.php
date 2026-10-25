@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
+use PhpMyAdmin\Navigation\Nodes\NodeProcedure;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\NodeProcedure
  */
+#[CoversClass(NodeProcedure::class)]
 class NodeProcedureTest extends AbstractTestCase
 {
     /**

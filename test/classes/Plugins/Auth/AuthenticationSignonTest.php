@@ -8,20 +8,22 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Auth\AuthenticationSignon;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function ob_get_clean;
 use function ob_start;
-use function phpversion;
 use function session_get_cookie_params;
 use function session_id;
 use function session_name;
-use function version_compare;
 
 use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationSignon
  */
+#[CoversClass(AuthenticationSignon::class)]
+#[AllowMockObjectsWithoutExpectations]
 class AuthenticationSignonTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationSignon */
@@ -268,13 +270,11 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $this->object->expects($this->exactly(1))
             ->method('showLoginForm');
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue('error<123>'));
+            ->willReturn('error<123>');
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -297,13 +297,11 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $this->object->expects($this->exactly(1))
             ->method('showLoginForm');
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue(''));
+            ->willReturn('');
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -327,11 +325,16 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
             'domain' => '',
             'secure' => false,
             'partitioned' => false,
-            'httponly' => false,
-            'samesite' => '',
+            'httponly' => true,
+            'samesite' => 'Lax',
         ];
+        if (PHP_VERSION_ID < 80600) {
+            $defaultOptions['httponly'] = false;
+            $defaultOptions['samesite'] = '';
+        }
+
         // php did not set 'samesite' attribute in session_get_cookie_params since not yet implemented
-        if (version_compare((string) phpversion(), '7.3.0', '<')) {
+        if (PHP_VERSION_ID < 70300) {
             unset($defaultOptions['samesite']);
         }
 

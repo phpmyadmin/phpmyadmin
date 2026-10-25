@@ -159,6 +159,8 @@ final class ReplaceController extends AbstractController
             'UTC_TIMESTAMP',
             'UUID',
             'UUID_SHORT',
+            'UUID_v4',
+            'UUID_v7',
             'VERSION',
         ];
         $func_optional_param = [

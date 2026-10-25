@@ -10,10 +10,12 @@ use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\Monitor\SlowLogController
  */
+#[CoversClass(SlowLogController::class)]
 class SlowLogControllerTest extends AbstractTestCase
 {
     /** @var Data */

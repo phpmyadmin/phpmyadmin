@@ -14,6 +14,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
 
@@ -26,6 +28,8 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\VariablesController
  */
+#[CoversClass(VariablesController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class VariablesControllerTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -42,9 +46,7 @@ class VariablesControllerTest extends AbstractTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
         $serverSessionVariables = [
@@ -77,8 +79,7 @@ class VariablesControllerTest extends AbstractTestCase
             ],
         ];
 
-        $dbi->expects($this->any())->method('fetchResult')
-            ->will($this->returnValueMap($fetchResult));
+        $dbi->method('fetchResult')->willReturnMap($fetchResult);
 
         $GLOBALS['dbi'] = $dbi;
     }
@@ -87,7 +88,7 @@ class VariablesControllerTest extends AbstractTestCase
     {
         $response = new ResponseStub();
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
         /** @var MockObject&DatabaseInterface $dbi */
         $dbi = $GLOBALS['dbi'];
@@ -131,7 +132,7 @@ class VariablesControllerTest extends AbstractTestCase
             $nameForValueByte,
             '3',
         ];
-        $voidProviderMock = $this->getMockBuilder(ServerVariablesVoidProvider::class)->getMock();
+        $voidProviderMock = $this->createMock(ServerVariablesVoidProvider::class);
 
         $voidProviderMock
             ->expects($this->exactly(2))

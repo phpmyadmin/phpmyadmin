@@ -8,13 +8,20 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
 use function basename;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportCsv
+ * @medium
  */
+#[CoversClass(ImportCsv::class)]
+#[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class ImportCsvTest extends AbstractTestCase
 {
     /** @var ImportCsv */
@@ -55,9 +62,7 @@ class ImportCsvTest extends AbstractTestCase
         //$_SESSION
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
     }
 
@@ -73,8 +78,6 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
     public function testGetProperties(): void
     {
@@ -85,8 +88,6 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
     public function testDoImport(): void
     {
@@ -112,8 +113,6 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for partial import/setting table and database names in doImport
-     *
-     * @group medium
      */
     public function testDoPartialImport(): void
     {
@@ -145,8 +144,6 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for getProperties for Table param
-     *
-     * @group medium
      */
     public function testGetPropertiesForTable(): void
     {
@@ -159,8 +156,6 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for doImport for _getAnalyze = false, should be OK as well
-     *
-     * @group medium
      */
     public function testDoImportNotAnalysis(): void
     {
@@ -187,8 +182,6 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for doImport in the most basic and normal way
-     *
-     * @group medium
      */
     public function testDoImportNormal(): void
     {
@@ -226,8 +219,6 @@ class ImportCsvTest extends AbstractTestCase
 
     /**
      * Test for doImport skipping headers
-     *
-     * @group medium
      */
     public function testDoImportSkipHeaders(): void
     {

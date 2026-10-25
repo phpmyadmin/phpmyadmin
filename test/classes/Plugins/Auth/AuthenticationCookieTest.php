@@ -11,6 +11,10 @@ use PhpMyAdmin\Header;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionException;
 use ReflectionMethod;
 
@@ -31,7 +35,11 @@ use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Auth\AuthenticationCookie
+ * @medium
  */
+#[CoversClass(AuthenticationCookie::class)]
+#[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class AuthenticationCookieTest extends AbstractNetworkTestCase
 {
     /** @var AuthenticationCookie */
@@ -65,9 +73,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         unset($this->object);
     }
 
-    /**
-     * @group medium
-     */
     public function testAuthErrorAJAX(): void
     {
         $mockResponse = $this->mockResponse();
@@ -75,7 +80,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('isAjax')
             ->with()
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $mockResponse->expects($this->once())
             ->method('setRequestStatus')
@@ -96,7 +101,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('isAjax')
             ->with()
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         // mock footer
         $mockFooter = $this->getMockBuilder(Footer::class)
@@ -143,12 +148,12 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('getFooter')
             ->with()
-            ->will($this->returnValue($mockFooter));
+            ->willReturn($mockFooter);
 
         $mockResponse->expects($this->once())
             ->method('getHeader')
             ->with()
-            ->will($this->returnValue($mockHeader));
+            ->willReturn($mockHeader);
 
         $GLOBALS['cfg']['Servers'] = [
             1,
@@ -165,14 +170,11 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockErrorHandler->expects($this->once())
             ->method('hasDisplayErrors')
             ->with()
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $GLOBALS['errorHandler'] = $mockErrorHandler;
     }
 
-    /**
-     * @group medium
-     */
     public function testAuthError(): void
     {
         $_REQUEST = [];
@@ -233,9 +235,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         self::assertStringContainsString('<input type="hidden" name="table" value="testTable">', $result);
     }
 
-    /**
-     * @group medium
-     */
     public function testAuthCaptcha(): void
     {
         $mockResponse = $this->mockResponse();
@@ -243,17 +242,17 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('isAjax')
             ->with()
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $mockResponse->expects($this->once())
             ->method('getFooter')
             ->with()
-            ->will($this->returnValue(new Footer()));
+            ->willReturn(new Footer());
 
         $mockResponse->expects($this->once())
             ->method('getHeader')
             ->with()
-            ->will($this->returnValue(new Header()));
+            ->willReturn(new Header());
 
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
@@ -302,9 +301,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         . ' data-callback="Functions_recaptchaCallback" value="Log in" type="submit" id="input_go">', $result);
     }
 
-    /**
-     * @group medium
-     */
     public function testAuthCaptchaCheckbox(): void
     {
         $mockResponse = $this->mockResponse();
@@ -312,17 +308,17 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $mockResponse->expects($this->once())
             ->method('isAjax')
             ->with()
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $mockResponse->expects($this->once())
             ->method('getFooter')
             ->with()
-            ->will($this->returnValue(new Footer()));
+            ->willReturn(new Footer());
 
         $mockResponse->expects($this->once())
             ->method('getHeader')
             ->with()
-            ->will($this->returnValue(new Header()));
+            ->willReturn(new Header());
 
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['LoginCookieRecall'] = false;
@@ -546,7 +542,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->object->expects($this->once())
             ->method('cookieDecrypt')
-            ->will($this->returnValue('testBF'));
+            ->willReturn('testBF');
 
         self::assertFalse($this->object->readCredentials());
 
@@ -580,7 +576,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->object->expects($this->exactly(2))
             ->method('cookieDecrypt')
-            ->will($this->returnValue('{"password":""}'));
+            ->willReturn('{"password":""}');
 
         self::assertTrue($this->object->readCredentials());
 
@@ -616,7 +612,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
 
         $this->object->expects($this->once())
             ->method('cookieDecrypt')
-            ->will($this->returnValue('testBF'));
+            ->willReturn('testBF');
 
         $this->object->expects($this->once())
             ->method('showFailure');
@@ -690,9 +686,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $this->object->rememberCredentials();
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testAuthFailsNoPass(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -746,6 +739,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
     /**
      * @dataProvider dataProviderPasswordLength
      */
+    #[DataProvider('dataProviderPasswordLength')]
     public function testAuthFailsTooLongPass(string $password, bool $trueFalse, ?string $connError): void
     {
         $_POST['pma_username'] = str_shuffle('123456987rootfoobar');
@@ -760,9 +754,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         self::assertSame($GLOBALS['conn_error'], $connError);
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testAuthFailsDeny(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -782,9 +773,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         self::assertSame($GLOBALS['conn_error'], 'Access denied!');
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testAuthFailsActivity(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -810,9 +798,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         );
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testAuthFailsDBI(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -823,13 +808,11 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         $GLOBALS['server'] = 2;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue(''));
+            ->willReturn('');
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['errno'] = 42;
@@ -843,9 +826,6 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
         self::assertSame($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testAuthFailsErrno(): void
     {
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -853,13 +833,11 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
             ->onlyMethods(['showLoginForm'])
             ->getMock();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->once())
             ->method('getError')
-            ->will($this->returnValue(''));
+            ->willReturn('');
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['server'] = 2;
@@ -1009,6 +987,7 @@ class AuthenticationCookieTest extends AbstractNetworkTestCase
      *
      * @dataProvider checkRulesProvider
      */
+    #[DataProvider('checkRulesProvider')]
     public function testCheckRules(
         string $user,
         string $pass,

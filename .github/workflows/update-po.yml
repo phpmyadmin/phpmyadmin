@@ -21,7 +21,7 @@ jobs:
         php-version: ["8.1"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Install Gettext
         run: |
@@ -32,9 +32,10 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           tools: composer:v2
+          coverage: none
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           dependency-versions: highest
 

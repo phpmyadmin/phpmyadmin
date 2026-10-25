@@ -483,6 +483,20 @@ class DbiDummy implements DbiExtension
         return addslashes($string);
     }
 
+    /**
+     * Returns properly quoted string for use in SQL statements.
+     *
+     * @param mixed $link
+     *
+     * @return non-empty-string
+     *
+     * @psalm-taint-escape sql
+     */
+    public function quoteString($link, string $string): string
+    {
+        return "'" . addslashes($string) . "'";
+    }
+
     public function addSelectDb(string $databaseName): void
     {
         $this->fifoDatabasesToSelect[] = $databaseName;
@@ -2174,7 +2188,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `process` DESC',
                 'columns' => ['Id', 'User', 'Host', 'db', 'Command', 'Time', 'State', 'Info'],
-                'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
+                'result' => [['Id1', 'User1', 'Host1:12345', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
             ],
             [
                 'query' => 'SELECT UNIX_TIMESTAMP() - 36000',
@@ -2327,7 +2341,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT * FROM `testdb`.`mytable` LIMIT 1',
+                'query' => 'SELECT * FROM `testdb`.`mytable` LIMIT 0',
                 'columns' => ['aid', '_id'],
                 'result' => [
                     [
@@ -2570,7 +2584,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT * FROM `test_table` WHERE `id` = 4;',
+                'query' => 'SELECT * FROM `test_table` WHERE `id` = 4 LIMIT 1;',
                 'columns' => ['id', 'name', 'datetimefield'],
                 'result' => [['4', '101', '2013-01-20 02:00:02']],
             ],

@@ -11,10 +11,12 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\StatusController
  */
+#[CoversClass(StatusController::class)]
 class StatusControllerTest extends AbstractTestCase
 {
     protected function setUp(): void

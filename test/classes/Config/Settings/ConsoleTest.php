@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Config\Settings;
 
 use PhpMyAdmin\Config\Settings\Console;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function array_keys;
@@ -13,6 +15,7 @@ use function array_merge;
 /**
  * @covers \PhpMyAdmin\Config\Settings\Console
  */
+#[CoversClass(Console::class)]
 class ConsoleTest extends TestCase
 {
     /** @var array<string, bool|int|string> */
@@ -35,6 +38,7 @@ class ConsoleTest extends TestCase
      *
      * @dataProvider providerForTestConstructor
      */
+    #[DataProvider('providerForTestConstructor')]
     public function testConstructor(array $values): void
     {
         $actualValues = [];

@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Mime;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function chr;
 
 /**
  * @covers \PhpMyAdmin\Mime
  */
+#[CoversClass(Mime::class)]
 class MimeTest extends AbstractTestCase
 {
     /**
@@ -21,6 +24,7 @@ class MimeTest extends AbstractTestCase
      *
      * @dataProvider providerForTestDetect
      */
+    #[DataProvider('providerForTestDetect')]
     public function testDetect(string $test, string $output): void
     {
         self::assertSame(Mime::detect($test), $output);

@@ -18,16 +18,18 @@ use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Engines\PerformanceSchema;
 use PhpMyAdmin\StorageEngine;
-use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function json_encode;
 
 /**
  * @covers \PhpMyAdmin\StorageEngine
  */
+#[CoversClass(StorageEngine::class)]
 class StorageEngineTest extends AbstractTestCase
 {
-    /** @var StorageEngine|MockObject */
+    /** @var StorageEngine */
     protected $object;
 
     /**
@@ -38,10 +40,7 @@ class StorageEngineTest extends AbstractTestCase
     {
         parent::setUp();
         $GLOBALS['server'] = 1;
-        $this->object = $this->getMockForAbstractClass(
-            StorageEngine::class,
-            ['dummy']
-        );
+        $this->object = new StorageEngine('dummy');
     }
 
     /**
@@ -105,6 +104,7 @@ class StorageEngineTest extends AbstractTestCase
      *
      * @dataProvider providerGetEngine
      */
+    #[DataProvider('providerGetEngine')]
     public function testGetEngine(string $expectedClass, string $engineName): void
     {
         $actual = StorageEngine::getEngine($engineName);

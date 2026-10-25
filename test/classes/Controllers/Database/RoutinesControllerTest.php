@@ -6,16 +6,20 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
+use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Database\RoutinesController
  * @covers \PhpMyAdmin\Database\Routines
  */
+#[CoversClass(RoutinesController::class)]
+#[CoversClass(Routines::class)]
 final class RoutinesControllerTest extends AbstractTestCase
 {
     public function testWithRoutines(): void

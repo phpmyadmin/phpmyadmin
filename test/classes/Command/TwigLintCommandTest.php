@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Command;
 
 use PhpMyAdmin\Command\TwigLintCommand;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\Console\Command\Command;
 use Twig\Error\SyntaxError;
 
@@ -21,6 +22,7 @@ use const TEST_PATH;
 /**
  * @covers \PhpMyAdmin\Command\TwigLintCommand
  */
+#[CoversClass(TwigLintCommand::class)]
 class TwigLintCommandTest extends AbstractTestCase
 {
     /** @var TwigLintCommand */
@@ -113,8 +115,8 @@ class TwigLintCommandTest extends AbstractTestCase
         self::assertArrayHasKey('exception', $filesFound[1]);
         $exception = $filesFound[1]['exception'];
         self::assertInstanceOf(SyntaxError::class, $exception);
-        self::assertSame(
-            'Unexpected "}" in "' . $path . DIRECTORY_SEPARATOR . 'foo-invalid.twig" at line 1.',
+        self::assertStringMatchesFormat(
+            'Unexpected "}" in "%s%efoo-invalid.twig" at line %s.',
             $exception->getMessage()
         );
     }

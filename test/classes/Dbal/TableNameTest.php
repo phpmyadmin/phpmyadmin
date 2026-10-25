@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Dbal;
 
 use PhpMyAdmin\Dbal\TableName;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Webmozart\Assert\InvalidArgumentException;
 
@@ -13,6 +15,7 @@ use function str_repeat;
 /**
  * @covers \PhpMyAdmin\Dbal\TableName
  */
+#[CoversClass(TableName::class)]
 class TableNameTest extends TestCase
 {
     public function testEmptyName(): void
@@ -51,6 +54,7 @@ class TableNameTest extends TestCase
      *
      * @dataProvider providerForTestInvalidMixedNames
      */
+    #[DataProvider('providerForTestInvalidMixedNames')]
     public function testInvalidMixedNames($name, string $exceptionMessage): void
     {
         $this->expectException(InvalidArgumentException::class);

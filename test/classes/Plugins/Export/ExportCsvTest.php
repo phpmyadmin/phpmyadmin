@@ -12,6 +12,8 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -23,8 +25,10 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportCsv
- * @group medium
+ * @medium
  */
+#[Medium]
+#[CoversClass(ExportCsv::class)]
 class ExportCsvTest extends AbstractTestCase
 {
     /** @var ExportCsv */

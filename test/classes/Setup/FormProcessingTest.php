@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Setup;
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Tests\AbstractNetworkTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function ob_get_clean;
 use function ob_start;
@@ -14,6 +15,7 @@ use function ob_start;
 /**
  * @covers \PhpMyAdmin\Setup\FormProcessing
  */
+#[CoversClass(FormProcessing::class)]
 class FormProcessingTest extends AbstractNetworkTestCase
 {
     /**
@@ -32,8 +34,6 @@ class FormProcessingTest extends AbstractNetworkTestCase
 
     /**
      * Test for process_formset()
-     *
-     * @requires PHPUnit < 10
      */
     public function testProcessFormSet(): void
     {
@@ -54,7 +54,7 @@ class FormProcessingTest extends AbstractNetworkTestCase
         $formDisplay->expects($this->once())
             ->method('process')
             ->with(false)
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $formDisplay->expects($this->once())
             ->method('getDisplay');
@@ -70,12 +70,12 @@ class FormProcessingTest extends AbstractNetworkTestCase
         $formDisplay->expects($this->once())
             ->method('process')
             ->with(false)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $formDisplay->expects($this->once())
             ->method('hasErrors')
             ->with()
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         ob_start();
         FormProcessing::process($formDisplay);
@@ -100,12 +100,12 @@ class FormProcessingTest extends AbstractNetworkTestCase
         $formDisplay->expects($this->once())
             ->method('process')
             ->with(false)
-            ->will($this->returnValue(true));
+            ->willReturn(true);
 
         $formDisplay->expects($this->once())
             ->method('hasErrors')
             ->with()
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         FormProcessing::process($formDisplay);
     }

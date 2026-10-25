@@ -228,6 +228,7 @@ cleanup_composer_vendors() {
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.*/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
+        vendor/tecnickcom/tcpdf/Makefile \
         vendor/thecodingmachine/safe/generated/Exceptions/.gitkeep \
         vendor/thecodingmachine/safe/rector-migrate-0.7.php \
         vendor/bacon/bacon-qr-code/phpunit.xml.dist \
@@ -239,12 +240,8 @@ cleanup_composer_vendors() {
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-slim.json \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.php \
-        vendor/nikic/fast-route/.travis.yml \
         vendor/nikic/fast-route/.hhconfig \
         vendor/nikic/fast-route/FastRoute.hhi \
-        vendor/nikic/fast-route/phpunit.xml \
-        vendor/nikic/fast-route/psalm.xml \
-        vendor/nikic/fast-route/test/ \
         vendor/twig/twig/README.rst \
         vendor/webmozart/assert/.php-cs-fixer.php \
         vendor/twig/twig/src/Test/ \
@@ -261,7 +258,6 @@ cleanup_composer_vendors() {
         vendor/paragonie/sodium_compat/composer-php52.json \
         vendor/paragonie/sodium_compat/src/PHP52/SplFixedArray.php \
         vendor/paragonie/sodium_compat/src/PHP52 \
-        vendor/pragmarx/google2fa/.github/ \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
@@ -279,16 +275,21 @@ cleanup_composer_vendors() {
         vendor/google/recaptcha/tests/
 
     rm \
-        vendor/slim/psr7/MAINTAINERS.md \
+        vendor/brick/math/SECURITY.md \
         vendor/google/recaptcha/ARCHITECTURE.md \
         vendor/google/recaptcha/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/PERFORMANCE.md \
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
-        vendor/brick/math/SECURITY.md \
+        vendor/pragmarx/google2fa/CODE_OF_CONDUCT.md \
+        vendor/pragmarx/google2fa/CONTRIBUTING.md \
+        vendor/pragmarx/google2fa/SECURITY.md \
+        vendor/pragmarx/google2fa/SUPPORT.md \
         vendor/ramsey/collection/SECURITY.md \
-        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md
+        vendor/slim/psr7/MAINTAINERS.md \
+        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md \
+        vendor/tecnickcom/tcpdf/SECURITY.md
 
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
@@ -758,6 +759,7 @@ done
 if [ $do_daily -eq 1 ] ; then
     cat > $kit_prefix.json << EOT
 {
+    "version": "$version",
     "date": "`date --iso-8601=seconds`",
     "commit": "$git_head"
 }

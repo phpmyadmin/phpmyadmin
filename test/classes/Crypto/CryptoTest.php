@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Crypto;
 
 use PhpMyAdmin\Crypto\Crypto;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function mb_strlen;
 use function str_repeat;
@@ -13,6 +14,7 @@ use function str_repeat;
 /**
  * @covers \PhpMyAdmin\Crypto\Crypto
  */
+#[CoversClass(Crypto::class)]
 class CryptoTest extends AbstractTestCase
 {
     public function testWithValidKeyFromConfig(): void

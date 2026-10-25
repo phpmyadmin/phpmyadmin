@@ -17,11 +17,15 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionMethod;
 use stdClass;
 
 use function __;
 use function array_shift;
+use function bin2hex;
 
 use const MYSQLI_BLOB_FLAG;
 use const MYSQLI_NUM_FLAG;
@@ -33,8 +37,11 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportOdt
  * @requires extension zip
- * @group medium
+ * @medium
  */
+#[RequiresPhpExtension('zip')]
+#[Medium]
+#[CoversClass(ExportOdt::class)]
 class ExportOdtTest extends AbstractTestCase
 {
     /** @var ExportOdt */
@@ -215,17 +222,14 @@ class ExportOdtTest extends AbstractTestCase
         self::assertStringContainsString('office:version', $GLOBALS['odt_buffer']);
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testExportFooter(): void
     {
         $GLOBALS['odt_buffer'] = 'header';
 
-        $this->expectOutputRegex('/^504b.*636f6e74656e742e786d6c/');
-        $this->setOutputCallback('bin2hex');
-
         self::assertTrue($this->object->exportFooter());
+
+        $output = $this->getActualOutputForAssertion();
+        self::assertMatchesRegularExpressionCompat('/^504b.*636f6e74656e742e786d6c/', bin2hex($output));
 
         self::assertStringContainsString('header', $GLOBALS['odt_buffer']);
 
@@ -258,9 +262,7 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $flags = [];
         $a = new stdClass();
@@ -279,16 +281,16 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->willReturn($flags);
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numFields')
-            ->will($this->returnValue(4));
+            ->willReturn(4);
 
         $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
@@ -330,9 +332,7 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testExportDataWithFieldNames(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $flags = [];
         $a = new stdClass();
@@ -349,20 +349,20 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->willReturn($flags);
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numFields')
-            ->will($this->returnValue(2));
+            ->willReturn(2);
 
         $resultStub->expects($this->exactly(1))
             ->method('fetchRow')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['what'] = 'foo';
@@ -386,9 +386,7 @@ class ExportOdtTest extends AbstractTestCase
         '</text:p></table:table-cell></table:table-row></table:table>', $GLOBALS['odt_buffer']);
 
         // with no row count
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $flags = [];
 
@@ -397,20 +395,20 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->willReturn($flags);
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numFields')
-            ->will($this->returnValue(0));
+            ->willReturn(0);
 
         $resultStub->expects($this->once())
             ->method('fetchRow')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
@@ -474,9 +472,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
@@ -495,19 +491,19 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue([$columns]));
+            ->willReturn([$columns]);
 
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue(1));
+            ->willReturn(1);
 
         $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue(['comment' => 'testComment']));
+            ->willReturn(['comment' => 'testComment']);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
@@ -515,7 +511,7 @@ class ExportOdtTest extends AbstractTestCase
         $this->object->expects($this->exactly(2))
             ->method('formatOneColumnDefinition')
             ->with(['Field' => 'fieldname'])
-            ->will($this->returnValue(1));
+            ->willReturn(1);
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
@@ -561,9 +557,7 @@ class ExportOdtTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
@@ -588,19 +582,19 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue([$columns]));
+            ->willReturn([$columns]);
 
         $dbi->expects($this->once())
             ->method('tryQueryAsControlUser')
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numRows')
-            ->will($this->returnValue(1));
+            ->willReturn(1);
 
         $resultStub->expects($this->once())
             ->method('fetchAssoc')
-            ->will($this->returnValue(['comment' => 'testComment']));
+            ->willReturn(['comment' => 'testComment']);
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->relation = new Relation($dbi);
@@ -630,9 +624,7 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testGetTriggers(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $triggers = [
             [
@@ -646,7 +638,7 @@ class ExportOdtTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getTriggers')
             ->with('database', 'ta<ble')
-            ->will($this->returnValue($triggers));
+            ->willReturn($triggers);
 
         $GLOBALS['dbi'] = $dbi;
 

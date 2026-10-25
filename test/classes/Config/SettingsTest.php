@@ -13,6 +13,8 @@ use PhpMyAdmin\Config\Settings\Schema;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Config\Settings\SqlQueryBox;
 use PhpMyAdmin\Config\Settings\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 use function array_keys;
@@ -22,7 +24,6 @@ use const DIRECTORY_SEPARATOR;
 use const ROOT_PATH;
 
 // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps, Generic.Files.LineLength.TooLong
-
 /**
  * @covers \PhpMyAdmin\Config\Settings
  * @covers \PhpMyAdmin\Config\Settings\Console
@@ -34,6 +35,15 @@ use const ROOT_PATH;
  * @covers \PhpMyAdmin\Config\Settings\SqlQueryBox
  * @covers \PhpMyAdmin\Config\Settings\Transformations
  */
+#[CoversClass(Settings::class)]
+#[CoversClass(Console::class)]
+#[CoversClass(Debug::class)]
+#[CoversClass(Export::class)]
+#[CoversClass(Import::class)]
+#[CoversClass(Schema::class)]
+#[CoversClass(Server::class)]
+#[CoversClass(SqlQueryBox::class)]
+#[CoversClass(Transformations::class)]
 class SettingsTest extends TestCase
 {
     /** @var array<string, array|bool|int|string|null> */
@@ -307,6 +317,7 @@ class SettingsTest extends TestCase
      *
      * @dataProvider providerForTestConstructor
      */
+    #[DataProvider('providerForTestConstructor')]
     public function testConstructor(array $values): void
     {
         $actualValues = [];

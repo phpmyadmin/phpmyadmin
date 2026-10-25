@@ -6,6 +6,8 @@ namespace PhpMyAdmin\Tests\Properties\Options;
 
 use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionProperty;
 
@@ -14,6 +16,8 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Properties\Options\OptionsPropertyGroup
  */
+#[CoversClass(OptionsPropertyGroup::class)]
+#[AllowMockObjectsWithoutExpectations]
 class OptionsPropertyGroupTest extends AbstractTestCase
 {
     /** @var OptionsPropertyGroup|MockObject */
@@ -25,7 +29,7 @@ class OptionsPropertyGroupTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->stub = $this->getMockForAbstractClass(OptionsPropertyGroup::class);
+        $this->stub = $this->getMockBuilder(OptionsPropertyGroup::class)->onlyMethods(['getItemType'])->getMock();
     }
 
     /**

@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Partitioning;
 
 use PhpMyAdmin\Partitioning\SubPartition;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \PhpMyAdmin\Partitioning\SubPartition
  */
+#[CoversClass(SubPartition::class)]
 class SubPartitionTest extends TestCase
 {
     public function testSubPartition(): void

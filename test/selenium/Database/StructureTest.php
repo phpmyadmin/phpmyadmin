@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Selenium\Database;
 
 use PhpMyAdmin\Tests\Selenium\TestBase;
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
 
 /**
  * @coversNothing
+ * @large
  */
+#[CoversNothing]
+#[Large]
 class StructureTest extends TestBase
 {
     /**
@@ -41,8 +46,6 @@ class StructureTest extends TestBase
 
     /**
      * Test for truncating a table
-     *
-     * @group large
      */
     public function testTruncateTable(): void
     {
@@ -67,8 +70,6 @@ class StructureTest extends TestBase
 
     /**
      * Tests for dropping multiple tables
-     *
-     * @group large
      */
     public function testDropMultipleTables(): void
     {

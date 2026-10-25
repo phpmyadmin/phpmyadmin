@@ -269,6 +269,9 @@ final class Collation
     private function getVariant(string $part): ?string
     {
         switch ($part) {
+            case 'uca1400':
+                return 'UCA 14.0.0';
+
             case '0900':
                 return 'UCA 9.0.0';
 

@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests\Partitioning;
 
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Partitioning\Partition
  */
+#[CoversClass(Partition::class)]
 class PartitionTest extends AbstractTestCase
 {
     public function testGetPartitionMethodReturnsNull(): void

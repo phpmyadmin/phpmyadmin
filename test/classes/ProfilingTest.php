@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Utils\SessionCache;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Profiling
  */
+#[CoversClass(Profiling::class)]
 class ProfilingTest extends AbstractTestCase
 {
     public function testIsSupported(): void

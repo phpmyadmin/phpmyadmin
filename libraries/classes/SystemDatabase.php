@@ -60,7 +60,7 @@ class SystemDatabase
      * Get SQL query for store new transformation details of a VIEW
      *
      * @param ResultInterface $transformationData Result set of SQL execution
-     * @param array           $columnMap          Details of VIEW columns
+     * @param string[]        $view_columns       Details of VIEW columns
      * @param string          $viewName           Name of the VIEW
      * @param string          $db                 Database name of the VIEW
      *
@@ -68,7 +68,8 @@ class SystemDatabase
      */
     public function getNewTransformationDataSql(
         ResultInterface $transformationData,
-        array $columnMap,
+        array $view_columns,
+        string $viewSql,
         $viewName,
         $db
     ) {
@@ -76,6 +77,8 @@ class SystemDatabase
         if ($browserTransformationFeature === null) {
             return '';
         }
+
+        $columnMap = $this->dbi->getColumnMapFromSql($viewSql, $view_columns);
 
         // Need to store new transformation details for VIEW
         $newTransformationsSql = sprintf(

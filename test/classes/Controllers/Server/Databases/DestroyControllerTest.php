@@ -12,12 +12,14 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Databases\DestroyController
  */
+#[CoversClass(DestroyController::class)]
 class DestroyControllerTest extends AbstractTestCase
 {
     public function testDropDatabases(): void
@@ -28,9 +30,7 @@ class DestroyControllerTest extends AbstractTestCase
         $GLOBALS['text_dir'] = 'ltr';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $response = new ResponseRenderer();
         $response->setAjax(true);

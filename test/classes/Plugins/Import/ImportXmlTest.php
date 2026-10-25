@@ -8,6 +8,10 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportXml;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
 
@@ -15,7 +19,13 @@ use function __;
  * @covers \PhpMyAdmin\Plugins\Import\ImportXml
  * @requires extension xml
  * @requires extension xmlwriter
+ * @medium
  */
+#[RequiresPhpExtension('xml')]
+#[RequiresPhpExtension('xmlwriter')]
+#[CoversClass(ImportXml::class)]
+#[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class ImportXmlTest extends AbstractTestCase
 {
     /** @var ImportXml */
@@ -57,8 +67,6 @@ class ImportXmlTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
     public function testGetProperties(): void
     {
@@ -73,20 +81,17 @@ class ImportXmlTest extends AbstractTestCase
     /**
      * Test for doImport
      *
-     * @group medium
      * @requires extension simplexml
      */
+    #[RequiresPhpExtension('simplexml')]
     public function testDoImport(): void
     {
         //$import_notice will show the import detail result
         global $sql_query;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
@@ -122,18 +127,15 @@ SQL;
     /**
      * Test for doImport using the GIS dataset
      *
-     * @group medium
      * @requires extension simplexml
      */
+    #[RequiresPhpExtension('simplexml')]
     public function testDoImportDatasetGIS(): void
     {
         global $import_notice, $sql_query;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_GIS_For_Testing.xml';
@@ -184,18 +186,15 @@ SQL;
     /**
      * Test for doImport with numeric-looking string values
      *
-     * @group medium
      * @requires extension simplexml
      */
+    #[RequiresPhpExtension('simplexml')]
     public function testDoImportNumericStringValues(): void
     {
         global $sql_query;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_Numeric_String_For_Testing.xml';
@@ -229,18 +228,15 @@ SQL;
     /**
      * Test for doImport using no database dataset
      *
-     * @group medium
      * @requires extension simplexml
      */
+    #[RequiresPhpExtension('simplexml')]
     public function testDoImportDatasetNoDatabase(): void
     {
         global $import_notice, $sql_query;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['import_file'] = 'test/test_data/phpmyadmin_importXML_No_Database_For_Testing.xml';

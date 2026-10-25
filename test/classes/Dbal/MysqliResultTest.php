@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Dbal;
 
 use mysqli_result;
+use PhpMyAdmin\Dbal\DbiMysqli;
 use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Dbal\DbiMysqli
  */
+#[CoversClass(DbiMysqli::class)]
 class MysqliResultTest extends AbstractTestCase
 {
     /**
@@ -56,7 +59,7 @@ class MysqliResultTest extends AbstractTestCase
         $mysqliResult = $this->createMock(mysqli_result::class);
         $mysqliResult->expects($this->once())
             ->method('data_seek')
-            ->with($this->equalTo($offset))
+            ->with($offset)
             ->willReturn(true);
 
         $result = new MysqliResult($mysqliResult);

@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Common;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Common
  */
+#[CoversClass(Common::class)]
 class CommonTest extends AbstractTestCase
 {
     /**
@@ -19,6 +22,7 @@ class CommonTest extends AbstractTestCase
      *
      * @dataProvider providerForTestCleanupPathInfo
      */
+    #[DataProvider('providerForTestCleanupPathInfo')]
     public function testCleanupPathInfo(string $php_self, string $request, string $path_info, string $expected): void
     {
         $_SERVER['PHP_SELF'] = $php_self;

@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests\Engines;
 
 use PhpMyAdmin\Engines\Binlog;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Engines\Binlog
  */
+#[CoversClass(Binlog::class)]
 class BinlogTest extends AbstractTestCase
 {
     /** @var Binlog */

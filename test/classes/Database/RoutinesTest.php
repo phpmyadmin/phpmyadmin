@@ -10,10 +10,16 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Depends;
 
 /**
  * @covers \PhpMyAdmin\Database\Routines
  */
+#[CoversClass(Routines::class)]
+#[AllowMockObjectsWithoutExpectations]
 class RoutinesTest extends AbstractTestCase
 {
     /** @var Routines */
@@ -53,6 +59,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @dataProvider providerGetDataFromRequest
      */
+    #[DataProvider('providerGetDataFromRequest')]
     public function testGetDataFromRequest(array $in, array $out): void
     {
         unset($_POST);
@@ -315,6 +322,8 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRowEmpty
      * @dataProvider providerGetParameterRow
      */
+    #[DataProvider('providerGetParameterRow')]
+    #[Depends('testGetParameterRowEmpty')]
     public function testGetParameterRow(array $data, int $index, string $matcher): void
     {
         self::assertStringContainsString($matcher, $this->routines->getParameterRow($data, $index));
@@ -390,6 +399,8 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRow
      * @dataProvider providerGetParameterRowAjax
      */
+    #[DataProvider('providerGetParameterRowAjax')]
+    #[Depends('testGetParameterRow')]
     public function testGetParameterRowAjax(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
@@ -462,6 +473,8 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm1
      */
+    #[DataProvider('providerGetEditorForm1')]
+    #[Depends('testGetParameterRowAjax')]
     public function testGetEditorForm1(array $data, string $matcher): void
     {
         self::assertStringContainsString($matcher, $this->routines->getEditorForm('add', '', $data));
@@ -576,6 +589,8 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm2
      */
+    #[DataProvider('providerGetEditorForm2')]
+    #[Depends('testGetParameterRowAjax')]
     public function testGetEditorForm2(array $data, string $matcher): void
     {
         self::assertStringContainsString($matcher, $this->routines->getEditorForm('edit', 'change', $data));
@@ -690,6 +705,8 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm3
      */
+    #[DataProvider('providerGetEditorForm3')]
+    #[Depends('testGetParameterRowAjax')]
     public function testGetEditorForm3(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
@@ -802,6 +819,8 @@ class RoutinesTest extends AbstractTestCase
      * @depends testGetParameterRowAjax
      * @dataProvider providerGetEditorForm4
      */
+    #[DataProvider('providerGetEditorForm4')]
+    #[Depends('testGetParameterRowAjax')]
     public function testGetEditorForm4(array $data, string $matcher): void
     {
         self::assertStringContainsString($matcher, $this->routines->getEditorForm('edit', 'change', $data));
@@ -855,6 +874,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @dataProvider providerGetExecuteForm1
      */
+    #[DataProvider('providerGetExecuteForm1')]
     public function testGetExecuteForm1(array $data, string $matcher): void
     {
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
@@ -995,6 +1015,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @dataProvider providerGetExecuteForm2
      */
+    #[DataProvider('providerGetExecuteForm2')]
     public function testGetExecuteForm2(array $data, string $matcher): void
     {
         ResponseRenderer::getInstance()->setAjax(true);
@@ -1113,6 +1134,7 @@ class RoutinesTest extends AbstractTestCase
      *
      * @dataProvider providerGetQueryFromRequest
      */
+    #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(array $request, string $query, int $num_err): void
     {
         global $errors, $cfg;
@@ -1122,33 +1144,14 @@ class RoutinesTest extends AbstractTestCase
         $errors = [];
 
         $old_dbi = $GLOBALS['dbi'] ?? null;
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
-        $dbi->expects($this->any())
-            ->method('escapeString')
-            ->will(
-                $this->returnValueMap(
-                    [
-                        [
-                            'foo',
-                            DatabaseInterface::CONNECT_USER,
-                            'foo',
-                        ],
-                        [
-                            "foo's bar",
-                            DatabaseInterface::CONNECT_USER,
-                            "foo\'s bar",
-                        ],
-                        [
-                            '',
-                            DatabaseInterface::CONNECT_USER,
-                            '',
-                        ],
-                    ]
-                )
-            );
+        $dbi->method('escapeString')
+            ->willReturnMap([
+                ['foo', DatabaseInterface::CONNECT_USER, 'foo'],
+                ["foo's bar", DatabaseInterface::CONNECT_USER, "foo\'s bar"],
+                ['', DatabaseInterface::CONNECT_USER, ''],
+            ]);
         $GLOBALS['dbi'] = $dbi;
 
         $routines = new Routines(

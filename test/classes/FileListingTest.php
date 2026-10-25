@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\FileListing;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function array_values;
 use function extension_loaded;
@@ -15,6 +17,7 @@ use const TEST_PATH;
 /**
  * @covers \PhpMyAdmin\FileListing
  */
+#[CoversClass(FileListing::class)]
 class FileListingTest extends AbstractTestCase
 {
     /** @var FileListing $fileListing */
@@ -83,8 +86,9 @@ class FileListingTest extends AbstractTestCase
     }
 
     /**
-     * @requires extension bz2 1
+     * @requires extension bz2
      */
+    #[RequiresPhpExtension('bz2')]
     public function testSupportedDecompressionsFull(): void
     {
         $GLOBALS['cfg']['ZipDump'] = true;

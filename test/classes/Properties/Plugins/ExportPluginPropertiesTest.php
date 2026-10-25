@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Properties\Plugins;
 
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Properties\Plugins\ExportPluginProperties
  */
+#[CoversClass(ExportPluginProperties::class)]
 class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
 {
     /** @var ExportPluginProperties */

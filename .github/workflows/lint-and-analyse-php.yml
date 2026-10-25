@@ -16,24 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 12
-
-      - name: Get Yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - name: Cache Yarn dependencies
-        uses: actions/cache@v5
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
 
       - name: Install modules
         run: yarn install --non-interactive
@@ -51,12 +40,13 @@ jobs:
         php-version: ["7.2"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
+          coverage: none
 
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
@@ -64,7 +54,7 @@ jobs:
       - name: Install Composer dependencies
         # Allow the previous check to fail but not abort
         if: always()
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           dependency-versions: highest
           # Ignore zip for php-webdriver/webdriver
@@ -73,7 +63,7 @@ jobs:
       - name: Cache coding-standard
         # Allow the previous check to fail but not abort
         if: always()
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .phpcs-cache
           key: phpcs-cache
@@ -100,16 +90,17 @@ jobs:
         php-version: ["7.2"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
+          coverage: none
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           dependency-versions: highest
 
@@ -119,4 +110,9 @@ jobs:
       - name: Analyse files with Psalm
         # Allow the previous check to fail but not abort
         if: always()
-        run: composer psalm -- --shepherd
+        run: |
+          if [ ${{ github.repository }} == 'phpmyadmin/phpmyadmin' ]; then
+            composer psalm -- --shepherd
+          else
+            composer psalm
+          fi

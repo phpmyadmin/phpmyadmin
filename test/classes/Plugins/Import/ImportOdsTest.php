@@ -7,6 +7,10 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
 use function str_repeat;
@@ -14,7 +18,11 @@ use function str_repeat;
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportOds
  * @requires extension zip
+ * @medium
  */
+#[RequiresPhpExtension('zip')]
+#[CoversClass(ImportOds::class)]
+#[Medium]
 class ImportOdsTest extends AbstractTestCase
 {
     /** @var ImportOds */
@@ -60,8 +68,6 @@ class ImportOdsTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
     public function testGetProperties(): void
     {
@@ -73,8 +79,6 @@ class ImportOdsTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
     public function testDoImport(): void
     {
@@ -130,10 +134,11 @@ class ImportOdsTest extends AbstractTestCase
     /**
      * Test for doImport using second dataset
      *
-     * @group medium
      * @dataProvider dataProviderOdsEmptyRows
      * @requires extension simplexml
      */
+    #[DataProvider('dataProviderOdsEmptyRows')]
+    #[RequiresPhpExtension('simplexml')]
     public function testDoImportDataset2(bool $odsEmptyRowsMode): void
     {
         //$sql_query_disabled will show the import SQL detail

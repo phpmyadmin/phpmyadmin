@@ -9,16 +9,18 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @covers \PhpMyAdmin\ConfigStorage\RelationCleanup
  */
+#[CoversClass(RelationCleanup::class)]
+#[AllowMockObjectsWithoutExpectations]
 class RelationCleanupTest extends AbstractTestCase
 {
-    /** @var Relation|MockObject */
-    private $relation;
-
     /** @var RelationCleanup */
     private $relationCleanup;
 
@@ -33,7 +35,7 @@ class RelationCleanupTest extends AbstractTestCase
         parent::setUp();
         $GLOBALS['server'] = 1;
 
-        $this->relation = $this->getMockBuilder(Relation::class)
+        $relation = $this->getMockBuilder(Relation::class)
             ->disableOriginalConstructor()
             ->onlyMethods([])
             ->getMock();
@@ -41,7 +43,7 @@ class RelationCleanupTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->onlyMethods(['queryAsControlUser'])
             ->getMock();
-        $this->relationCleanup = new RelationCleanup($this->dbi, $this->relation);
+        $this->relationCleanup = new RelationCleanup($this->dbi, $relation);
     }
 
     /**
@@ -57,8 +59,6 @@ class RelationCleanupTest extends AbstractTestCase
 
     /**
      * Test for column method
-     *
-     * @requires PHPUnit < 10
      */
     public function testColumnWithRelations(): void
     {
@@ -74,34 +74,29 @@ class RelationCleanupTest extends AbstractTestCase
             'column_info' => 'column_info',
         ])->toArray();
 
-        $this->dbi->expects($this->exactly(4))
-            ->method('queryAsControlUser')
-            ->withConsecutive(
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database' AND"
-                        . " table_name = 'table' AND column_name = 'column'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database' AND"
-                        . " table_name = 'table' AND display_field = 'column'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database' AND"
-                        . " master_table = 'table' AND master_field = 'column'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database' AND"
-                        . " foreign_table = 'table' AND foreign_field = 'column'"
-                    ),
-                ]
-            );
+        $resultStub = self::createStub(DummyResult::class);
+        $this->dbi->expects(self::exactly(4))->method('queryAsControlUser')->willReturnMap([
+            [
+                "DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database' AND"
+                    . " table_name = 'table' AND column_name = 'column'",
+                $resultStub,
+            ],
+            [
+                "DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database' AND"
+                    . " table_name = 'table' AND display_field = 'column'",
+                $resultStub,
+            ],
+            [
+                "DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database' AND"
+                    . " master_table = 'table' AND master_field = 'column'",
+                $resultStub,
+            ],
+            [
+                "DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database' AND"
+                    . " foreign_table = 'table' AND foreign_field = 'column'",
+                $resultStub,
+            ],
+        ]);
 
         $this->relationCleanup->column('database', 'table', 'column');
     }
@@ -119,8 +114,6 @@ class RelationCleanupTest extends AbstractTestCase
 
     /**
      * Test for table method
-     *
-     * @requires PHPUnit < 10
      */
     public function testTableWithRelations(): void
     {
@@ -143,46 +136,20 @@ class RelationCleanupTest extends AbstractTestCase
             'navigationhiding' => 'navigationhiding',
         ])->toArray();
 
-        $this->dbi->expects($this->exactly(7))
-            ->method('queryAsControlUser')
-            ->withConsecutive(
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database' AND table_name = 'table'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database' AND table_name = 'table'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`table_coords` WHERE db_name  = 'database' AND table_name = 'table'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database' AND master_table = 'table'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database' AND foreign_table = 'table'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`table_uiprefs` WHERE db_name  = 'database' AND table_name = 'table'"
-                    ),
-                ],
-                [
-                    $this->equalTo(
-                        "DELETE FROM `pmadb`.`navigationhiding` WHERE db_name  = 'database' AND"
-                        . " (table_name = 'table' OR (item_name = 'table' AND item_type = 'table'))"
-                    ),
-                ]
-            );
+        $resultStub = self::createStub(DummyResult::class);
+        $this->dbi->expects(self::exactly(7))->method('queryAsControlUser')->willReturnMap([
+            ["DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database' AND table_name = 'table'", $resultStub],
+            ["DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database' AND table_name = 'table'", $resultStub],
+            ["DELETE FROM `pmadb`.`table_coords` WHERE db_name  = 'database' AND table_name = 'table'", $resultStub],
+            ["DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database' AND master_table = 'table'", $resultStub],
+            ["DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database' AND foreign_table = 'table'", $resultStub],
+            ["DELETE FROM `pmadb`.`table_uiprefs` WHERE db_name  = 'database' AND table_name = 'table'", $resultStub],
+            [
+                "DELETE FROM `pmadb`.`navigationhiding` WHERE db_name  = 'database' AND"
+                    . " (table_name = 'table' OR (item_name = 'table' AND item_type = 'table'))",
+                $resultStub,
+            ],
+        ]);
 
         $this->relationCleanup->table('database', 'table');
     }
@@ -200,8 +167,6 @@ class RelationCleanupTest extends AbstractTestCase
 
     /**
      * Test for database method
-     *
-     * @requires PHPUnit < 10
      */
     public function testDatabaseWithRelations(): void
     {
@@ -230,21 +195,20 @@ class RelationCleanupTest extends AbstractTestCase
             'central_columns' => 'central_columns',
         ])->toArray();
 
-        $this->dbi->expects($this->exactly(11))
-            ->method('queryAsControlUser')
-            ->withConsecutive(
-                [$this->equalTo("DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`bookmark` WHERE dbase  = 'database'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`pdf_pages` WHERE db_name  = 'database'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`table_coords` WHERE db_name  = 'database'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`table_uiprefs` WHERE db_name  = 'database'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`navigationhiding` WHERE db_name  = 'database'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`savedsearches` WHERE db_name  = 'database'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`central_columns` WHERE db_name  = 'database'")]
-            );
+        $resultStub = self::createStub(DummyResult::class);
+        $this->dbi->expects(self::exactly(11))->method('queryAsControlUser')->willReturnMap([
+            ["DELETE FROM `pmadb`.`column_info` WHERE db_name  = 'database'", $resultStub],
+            ["DELETE FROM `pmadb`.`bookmark` WHERE dbase  = 'database'", $resultStub],
+            ["DELETE FROM `pmadb`.`table_info` WHERE db_name  = 'database'", $resultStub],
+            ["DELETE FROM `pmadb`.`pdf_pages` WHERE db_name  = 'database'", $resultStub],
+            ["DELETE FROM `pmadb`.`table_coords` WHERE db_name  = 'database'", $resultStub],
+            ["DELETE FROM `pmadb`.`relation` WHERE master_db  = 'database'", $resultStub],
+            ["DELETE FROM `pmadb`.`relation` WHERE foreign_db  = 'database'", $resultStub],
+            ["DELETE FROM `pmadb`.`table_uiprefs` WHERE db_name  = 'database'", $resultStub],
+            ["DELETE FROM `pmadb`.`navigationhiding` WHERE db_name  = 'database'", $resultStub],
+            ["DELETE FROM `pmadb`.`savedsearches` WHERE db_name  = 'database'", $resultStub],
+            ["DELETE FROM `pmadb`.`central_columns` WHERE db_name  = 'database'", $resultStub],
+        ]);
 
         $this->relationCleanup->database('database');
     }
@@ -262,8 +226,6 @@ class RelationCleanupTest extends AbstractTestCase
 
     /**
      * Test for user method
-     *
-     * @requires PHPUnit < 10
      */
     public function testUserWithRelations(): void
     {
@@ -294,20 +256,19 @@ class RelationCleanupTest extends AbstractTestCase
             'designer_settings' => 'designer_settings',
         ])->toArray();
 
-        $this->dbi->expects($this->exactly(10))
-            ->method('queryAsControlUser')
-            ->withConsecutive(
-                [$this->equalTo("DELETE FROM `pmadb`.`bookmark` WHERE `user`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`history` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`recent` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`favorite` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`table_uiprefs` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`userconfig` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`users` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`navigationhiding` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`savedsearches` WHERE `username`  = 'user'")],
-                [$this->equalTo("DELETE FROM `pmadb`.`designer_settings` WHERE `username`  = 'user'")]
-            );
+        $resultStub = self::createStub(DummyResult::class);
+        $this->dbi->expects(self::exactly(10))->method('queryAsControlUser')->willReturnMap([
+            ["DELETE FROM `pmadb`.`bookmark` WHERE `user`  = 'user'", $resultStub],
+            ["DELETE FROM `pmadb`.`history` WHERE `username`  = 'user'", $resultStub],
+            ["DELETE FROM `pmadb`.`recent` WHERE `username`  = 'user'", $resultStub],
+            ["DELETE FROM `pmadb`.`favorite` WHERE `username`  = 'user'", $resultStub],
+            ["DELETE FROM `pmadb`.`table_uiprefs` WHERE `username`  = 'user'", $resultStub],
+            ["DELETE FROM `pmadb`.`userconfig` WHERE `username`  = 'user'", $resultStub],
+            ["DELETE FROM `pmadb`.`users` WHERE `username`  = 'user'", $resultStub],
+            ["DELETE FROM `pmadb`.`navigationhiding` WHERE `username`  = 'user'", $resultStub],
+            ["DELETE FROM `pmadb`.`savedsearches` WHERE `username`  = 'user'", $resultStub],
+            ["DELETE FROM `pmadb`.`designer_settings` WHERE `username`  = 'user'", $resultStub],
+        ]);
 
         $this->relationCleanup->user('user');
     }

@@ -6,10 +6,15 @@ namespace PhpMyAdmin\Tests\Plugins\Schema;
 
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Schema\ExportRelationSchema
+ * @medium
  */
+#[CoversClass(ExportRelationSchema::class)]
+#[Medium]
 class ExportRelationSchemaTest extends AbstractTestCase
 {
     /** @var ExportRelationSchema */
@@ -38,8 +43,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setPageNumber
-     *
-     * @group medium
      */
     public function testSetPageNumber(): void
     {
@@ -49,8 +52,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setShowColor
-     *
-     * @group medium
      */
     public function testSetShowColor(): void
     {
@@ -62,8 +63,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setOrientation
-     *
-     * @group medium
      */
     public function testSetOrientation(): void
     {
@@ -75,8 +74,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setTableDimension
-     *
-     * @group medium
      */
     public function testSetTableDimension(): void
     {
@@ -88,8 +85,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setPaper
-     *
-     * @group medium
      */
     public function testSetPaper(): void
     {
@@ -101,8 +96,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setAllTablesSameWidth
-     *
-     * @group medium
      */
     public function testSetAllTablesSameWidth(): void
     {
@@ -114,8 +107,6 @@ class ExportRelationSchemaTest extends AbstractTestCase
 
     /**
      * Test for setShowKeys
-     *
-     * @group medium
      */
     public function testSetShowKeys(): void
     {

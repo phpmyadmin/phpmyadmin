@@ -24,7 +24,7 @@ jobs:
       tests: ${{ steps.tests-list.outputs.tests }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - id: tests-list
         name: Send test names to outputs
         run: |
@@ -78,26 +78,25 @@ jobs:
         include: ${{ fromJSON(needs.generate-matrix.outputs.tests) }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
-      - name: Install gettext
-        run: sudo apt-get update && sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
+      - name: Install gettext and generate translation files
+        run: |
+          sudo apt-get install -y gettext
+          ./scripts/generate-mo --quiet
 
       - name: Set up PHP ${{ env.php-version }}
         uses: shivammathur/setup-php@v2
         with:
-          coverage: "none"
           php-version: ${{ env.php-version }}
           extensions: :opcache, mbstring, iconv, mysqli, zip, gd, bz2
+          coverage: none
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Set up Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: '${{ env.node-version }}'
           cache: 'yarn'
@@ -144,7 +143,7 @@ jobs:
           ./test/stop-local-server
 
       - name: Upload screenshots
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: ${{ failure() }}
         with:
           name: selenium-screenshots-${{ strategy.job-index }}

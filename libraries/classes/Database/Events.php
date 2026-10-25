@@ -489,11 +489,14 @@ class Events
         return $query;
     }
 
-    public function getEventSchedulerStatus(): bool
+    public function getEventSchedulerStatus(): string
     {
-        $state = (string) $this->dbi->fetchValue('SHOW GLOBAL VARIABLES LIKE \'event_scheduler\'', 1);
+        $state = strtoupper((string) $this->dbi->fetchValue('SHOW GLOBAL VARIABLES LIKE \'event_scheduler\'', 1));
+        if ($state === 'DISABLED') {
+            return 'DISABLED';
+        }
 
-        return strtoupper($state) === 'ON' || $state === '1';
+        return $state === 'ON' || $state === '1' ? 'ON' : 'OFF';
     }
 
     /**

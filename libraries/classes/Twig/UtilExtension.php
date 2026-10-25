@@ -87,6 +87,14 @@ class UtilExtension extends AbstractExtension
                 [Util::class, 'isUUIDSupported']
             ),
             new TwigFunction(
+                'is_uuid_v4_supported',
+                [Util::class, 'isUUIDv4Supported']
+            ),
+            new TwigFunction(
+                'is_uuid_v7_supported',
+                [Util::class, 'isUUIDv7Supported']
+            ),
+            new TwigFunction(
                 'is_foreign_key_supported',
                 [ForeignKey::class, 'isSupported']
             ),

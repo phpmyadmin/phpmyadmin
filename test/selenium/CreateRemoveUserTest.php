@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
+
 /**
  * @coversNothing
+ * @large
  */
+#[CoversNothing]
+#[Large]
 class CreateRemoveUserTest extends TestBase
 {
     /**
@@ -43,8 +49,6 @@ class CreateRemoveUserTest extends TestBase
 
     /**
      * Creates and removes a user
-     *
-     * @group large
      */
     public function testCreateRemoveUser(): void
     {

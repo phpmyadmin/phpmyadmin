@@ -35,7 +35,8 @@ class Text_Plain_XmlEditor extends CodeMirrorEditorTransformationPlugin
     public function getScripts()
     {
         $scripts = [];
-        if ($GLOBALS['cfg']['CodemirrorEnable']) {
+        // See #20159, why we need to check for HTTP_USER_AGENT here
+        if ($GLOBALS['cfg']['CodemirrorEnable'] && isset($_SERVER['HTTP_USER_AGENT'])) {
             $scripts[] = 'vendor/codemirror/lib/codemirror.js';
             $scripts[] = 'vendor/codemirror/mode/xml/xml.js';
             $scripts[] = 'transformations/xml_editor.js';

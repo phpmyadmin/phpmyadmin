@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
+
 /**
  * @coversNothing
+ * @large
  */
+#[CoversNothing]
+#[Large]
 class XssTest extends TestBase
 {
     /**
@@ -18,8 +24,6 @@ class XssTest extends TestBase
 
     /**
      * Tests the SQL query tab with a null query
-     *
-     * @group large
      */
     public function testQueryTabWithNullValue(): void
     {

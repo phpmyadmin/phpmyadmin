@@ -77,7 +77,8 @@ class GetFieldController extends AbstractController
         /* Grab data */
         $sql = 'SELECT ' . Util::backquote($_GET['transform_key'])
             . ' FROM ' . Util::backquote($table)
-            . ' WHERE ' . $_GET['where_clause'] . ';';
+            . ' WHERE ' . $_GET['where_clause']
+            . ' LIMIT 1;';
         $result = $this->dbi->fetchValue($sql);
 
         /* Check return code */

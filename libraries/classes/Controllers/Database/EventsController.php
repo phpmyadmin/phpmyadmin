@@ -69,16 +69,20 @@ final class EventsController extends AbstractController
          */
         $errors = [];
 
-        $this->events->handleEditor();
-        $this->events->export();
+        $schedulerStatus = $this->events->getEventSchedulerStatus();
+        $items = [];
+        if ($schedulerStatus !== 'DISABLED') {
+            $this->events->handleEditor();
+            $this->events->export();
 
-        $items = $this->dbi->getEvents($db);
+            $items = $this->dbi->getEvents($db);
+        }
 
         $this->render('database/events/index', [
             'db' => $db,
             'items' => $items,
             'has_privilege' => Util::currentUserHasPrivilege('EVENT', $db),
-            'scheduler_state' => $this->events->getEventSchedulerStatus(),
+            'scheduler_state' => $schedulerStatus,
             'text_dir' => $text_dir,
             'is_ajax' => $this->response->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);

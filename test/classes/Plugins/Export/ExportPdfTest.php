@@ -12,6 +12,8 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -22,8 +24,10 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportPdf
- * @group medium
+ * @medium
  */
+#[Medium]
+#[CoversClass(ExportPdf::class)]
 class ExportPdfTest extends AbstractTestCase
 {
     /** @var ExportPdf */
@@ -128,9 +132,7 @@ class ExportPdfTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $pdf = $this->getMockBuilder(Pdf::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $pdf = $this->createMock(Pdf::class);
 
         $pdf->expects($this->once())
             ->method('Open');
@@ -150,9 +152,7 @@ class ExportPdfTest extends AbstractTestCase
 
     public function testExportFooter(): void
     {
-        $pdf = $this->getMockBuilder(Pdf::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $pdf = $this->createMock(Pdf::class);
 
         $pdf->expects($this->once())
             ->method('getPDFData');
@@ -184,9 +184,7 @@ class ExportPdfTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $pdf = $this->getMockBuilder(Pdf::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $pdf = $this->createMock(Pdf::class);
 
         $pdf->expects($this->once())
             ->method('mysqlReport')

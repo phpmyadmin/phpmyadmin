@@ -6,11 +6,16 @@ namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisGeometry
  */
+#[CoversClass(GisGeometry::class)]
+#[AllowMockObjectsWithoutExpectations]
 class GisGeometryTest extends AbstractTestCase
 {
     /** @var GisGeometry|MockObject */
@@ -23,7 +28,16 @@ class GisGeometryTest extends AbstractTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->object = $this->getMockForAbstractClass(GisGeometry::class);
+        $this->object = $this->getMockBuilder(GisGeometry::class)
+            ->onlyMethods([
+                'prepareRowAsSvg',
+                'prepareRowAsPng',
+                'prepareRowAsPdf',
+                'prepareRowAsOl',
+                'scaleRow',
+                'generateWkt',
+            ])
+            ->getMock();
     }
 
     /**
@@ -45,6 +59,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestSetMinMax
      */
+    #[DataProvider('providerForTestSetMinMax')]
     public function testSetMinMax(string $point_set, array $min_max, array $output): void
     {
         self::assertEquals($output, $this->callFunction(
@@ -102,6 +117,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGenerateParams
      */
+    #[DataProvider('providerForTestGenerateParams')]
     public function testGenerateParams(string $value, array $output): void
     {
         self::assertEquals($output, $this->callFunction(
@@ -154,6 +170,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestExtractPoints
      */
+    #[DataProvider('providerForTestExtractPoints')]
     public function testExtractPoints(string $point_set, ?array $scale_data, bool $linear, array $output): void
     {
         self::assertEquals($output, $this->callFunction(
@@ -267,6 +284,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetBoundsForOl
      */
+    #[DataProvider('providerForTestGetBoundsForOl')]
     public function testGetBoundsForOl(int $srid, array $scale_data, string $output): void
     {
         self::assertSame($output, $this->callFunction(
@@ -316,6 +334,7 @@ class GisGeometryTest extends AbstractTestCase
      *
      * @dataProvider providerForTestGetPolygonArrayForOpenLayers
      */
+    #[DataProvider('providerForTestGetPolygonArrayForOpenLayers')]
     public function testGetPolygonArrayForOpenLayers(array $polygons, int $srid, string $output): void
     {
         self::assertSame($output, $this->callFunction(

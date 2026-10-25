@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
+
 /**
  * @coversNothing
+ * @large
  */
+#[CoversNothing]
+#[Large]
 class TrackingTest extends TestBase
 {
     /**
@@ -49,8 +55,6 @@ class TrackingTest extends TestBase
 
     /**
      * Tests basic tracking functionality
-     *
-     * @group large
      */
     public function testTrackingData(): void
     {
@@ -120,8 +124,6 @@ class TrackingTest extends TestBase
 
     /**
      * Tests deactivation of tracking
-     *
-     * @group large
      */
     public function testDeactivateTracking(): void
     {
@@ -133,8 +135,6 @@ class TrackingTest extends TestBase
 
     /**
      * Tests dropping a tracking
-     *
-     * @group large
      */
     public function testDropTracking(): void
     {
@@ -172,8 +172,6 @@ class TrackingTest extends TestBase
 
     /**
      * Tests structure snapshot of a tracking
-     *
-     * @group large
      */
     public function testStructureSnapshot(): void
     {

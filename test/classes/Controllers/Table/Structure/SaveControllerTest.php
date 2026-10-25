@@ -11,6 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 
 use const PHP_VERSION_ID;
@@ -18,6 +19,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Controllers\Table\Structure\SaveController
  */
+#[CoversClass(SaveController::class)]
 class SaveControllerTest extends AbstractTestCase
 {
     public function testSaveController(): void

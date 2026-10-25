@@ -15,11 +15,15 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
 
 use function array_shift;
+use function bin2hex;
 
 use const MYSQLI_BLOB_FLAG;
 use const MYSQLI_TYPE_DATE;
@@ -33,8 +37,11 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportOds
  * @requires extension zip
- * @group medium
+ * @medium
  */
+#[RequiresPhpExtension('zip')]
+#[Medium]
+#[CoversClass(ExportOds::class)]
 class ExportOdsTest extends AbstractTestCase
 {
     /** @var ExportOds */
@@ -137,17 +144,14 @@ class ExportOdsTest extends AbstractTestCase
         self::assertTrue($this->object->exportHeader());
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testExportFooter(): void
     {
         $GLOBALS['ods_buffer'] = 'header';
 
-        $this->expectOutputRegex('/^504b.*636f6e74656e742e786d6c/');
-        $this->setOutputCallback('bin2hex');
-
         self::assertTrue($this->object->exportFooter());
+
+        $output = $this->getActualOutputForAssertion();
+        self::assertMatchesRegularExpressionCompat('/^504b.*636f6e74656e742e786d6c/', bin2hex($output));
 
         self::assertStringContainsString('header', $GLOBALS['ods_buffer']);
 
@@ -175,9 +179,7 @@ class ExportOdsTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $flags = [];
         $flags[] = new FieldMetadata(-1, 0, (object) []);
@@ -203,16 +205,16 @@ class ExportOdsTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->willReturn($flags);
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numFields')
-            ->will($this->returnValue(8));
+            ->willReturn(8);
 
         $resultStub->expects($this->exactly(2))
             ->method('fetchRow')
@@ -264,9 +266,7 @@ class ExportOdsTest extends AbstractTestCase
 
     public function testExportDataWithFieldNames(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $flags = [];
         $a = new stdClass();
@@ -283,20 +283,20 @@ class ExportOdsTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->willReturn($flags);
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numFields')
-            ->will($this->returnValue(2));
+            ->willReturn(2);
 
         $resultStub->expects($this->exactly(1))
             ->method('fetchRow')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
@@ -320,9 +320,7 @@ class ExportOdsTest extends AbstractTestCase
         '</table:table>', $GLOBALS['ods_buffer']);
 
         // with no row count
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $flags = [];
 
@@ -331,20 +329,20 @@ class ExportOdsTest extends AbstractTestCase
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
             ->with($resultStub)
-            ->will($this->returnValue($flags));
+            ->willReturn($flags);
 
         $dbi->expects($this->once())
             ->method('query')
             ->with('SELECT', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
 
         $resultStub->expects($this->once())
             ->method('numFields')
-            ->will($this->returnValue(0));
+            ->willReturn(0);
 
         $resultStub->expects($this->once())
             ->method('fetchRow')
-            ->will($this->returnValue([]));
+            ->willReturn([]);
 
         $GLOBALS['dbi'] = $dbi;
         $GLOBALS['mediawiki_caption'] = true;

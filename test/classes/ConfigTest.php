@@ -7,6 +7,12 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\DatabaseInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Depends;
+use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Large;
 
 use function array_merge;
 use function array_replace_recursive;
@@ -17,19 +23,27 @@ use function file_put_contents;
 use function fileperms;
 use function get_defined_constants;
 use function realpath;
+use function restore_error_handler;
+use function set_error_handler;
 use function stristr;
 use function sys_get_temp_dir;
 use function tempnam;
 use function unlink;
 
 use const DIRECTORY_SEPARATOR;
+use const E_USER_ERROR;
+use const E_USER_WARNING;
 use const PHP_EOL;
 use const PHP_OS;
+use const PHP_VERSION_ID;
 use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Config
+ * @large
  */
+#[CoversClass(Config::class)]
+#[Large]
 class ConfigTest extends AbstractTestCase
 {
     /** @var Config */
@@ -155,8 +169,6 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * Test for CheckSystem
-     *
-     * @group medium
      */
     public function testCheckSystem(): void
     {
@@ -194,6 +206,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider userAgentProvider
      */
+    #[DataProvider('userAgentProvider')]
     public function testCheckClient(string $agent, string $os, ?string $browser = null, ?string $version = null): void
     {
         $_SERVER['HTTP_USER_AGENT'] = $agent;
@@ -341,6 +354,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider serverNames
      */
+    #[DataProvider('serverNames')]
     public function testCheckWebServer(string $server, int $iis): void
     {
         $_SERVER['SERVER_SOFTWARE'] = $server;
@@ -397,8 +411,6 @@ class ConfigTest extends AbstractTestCase
 
     /**
      * Tests loading of default values
-     *
-     * @group large
      */
     public function testLoadDefaults(): void
     {
@@ -479,6 +491,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider httpsParams
      */
+    #[DataProvider('httpsParams')]
     public function testIsHttps(
         string $scheme,
         string $https,
@@ -735,6 +748,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider rootUris
      */
+    #[DataProvider('rootUris')]
     public function testGetRootPath(string $request, string $absolute, string $expected): void
     {
         $GLOBALS['PMA_PHP_SELF'] = $request;
@@ -841,6 +855,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider configPaths
      */
+    #[DataProvider('configPaths')]
     public function testLoad(string $source, bool $result): void
     {
         if ($result) {
@@ -875,6 +890,7 @@ class ConfigTest extends AbstractTestCase
      * @todo Test actually preferences loading
      * @doesNotPerformAssertions
      */
+    #[DoesNotPerformAssertions]
     public function testLoadUserPreferences(): void
     {
         $this->object->loadUserPreferences();
@@ -956,6 +972,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @group file-system
      */
+    #[Group('file-system')]
     public function testGetTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
@@ -974,6 +991,8 @@ class ConfigTest extends AbstractTestCase
      * @group file-system
      * @depends testGetTempDir
      */
+    #[Depends('testGetTempDir')]
+    #[Group('file-system')]
     public function testGetUploadTempDir(): void
     {
         $dir = realpath(sys_get_temp_dir());
@@ -994,6 +1013,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider serverSettingsProvider
      */
+    #[DataProvider('serverSettingsProvider')]
     public function testCheckServers(array $settings, array $expected): void
     {
         $this->object->settings['Servers'] = $settings;
@@ -1029,19 +1049,23 @@ class ConfigTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * @group with-trigger-error
-     * @requires PHPUnit < 10
-     */
     public function testCheckServersWithInvalidServer(): void
     {
-        $this->expectError();
-        $this->expectErrorMessage('Invalid server index: invalid');
-
         $this->object->settings['Servers'] = ['invalid' => ['host' => '127.0.0.1'], 1 => ['host' => '127.0.0.1']];
-        $this->object->checkServers();
-        $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
 
+        $message = '';
+        set_error_handler(static function (int $errno, string $errstr) use (&$message): bool {
+            $message = $errstr;
+
+            return true;
+        }, PHP_VERSION_ID < 80400 ? E_USER_ERROR : E_USER_WARNING);
+
+        $this->object->checkServers();
+        restore_error_handler();
+
+        self::assertSame('Invalid server index: invalid', $message);
+
+        $expected = array_merge($this->object->defaultServer, ['host' => '127.0.0.1']);
         self::assertSame($expected, $this->object->settings['Servers'][1]);
     }
 
@@ -1055,6 +1079,8 @@ class ConfigTest extends AbstractTestCase
      * @dataProvider selectServerProvider
      * @depends testCheckServers
      */
+    #[DataProvider('selectServerProvider')]
+    #[Depends('testCheckServers')]
     public function testSelectServer(array $settings, string $request, int $expected): void
     {
         $this->object->settings['Servers'] = $settings;
@@ -1129,6 +1155,7 @@ class ConfigTest extends AbstractTestCase
      *
      * @dataProvider connectionParams
      */
+    #[DataProvider('connectionParams')]
     public function testGetConnectionParams(array $server_cfg, int $mode, ?array $server, array $expected): void
     {
         $GLOBALS['cfg']['Server'] = $server_cfg;

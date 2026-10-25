@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
-
-use function preg_match;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use const DIRECTORY_SEPARATOR;
 use const E_COMPILE_ERROR;
@@ -18,7 +18,6 @@ use const E_ERROR;
 use const E_NOTICE;
 use const E_PARSE;
 use const E_RECOVERABLE_ERROR;
-use const E_STRICT;
 use const E_USER_DEPRECATED;
 use const E_USER_ERROR;
 use const E_USER_NOTICE;
@@ -28,6 +27,7 @@ use const E_WARNING;
 /**
  * @covers \PhpMyAdmin\Error
  */
+#[CoversClass(Error::class)]
 class ErrorTest extends AbstractTestCase
 {
     /** @var Error */
@@ -88,6 +88,7 @@ class ErrorTest extends AbstractTestCase
      *
      * @dataProvider filePathProvider
      */
+    #[DataProvider('filePathProvider')]
     public function testSetFile(string $file, string $expected): void
     {
         $this->object->setFile($file);
@@ -123,18 +124,13 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetHash(): void
     {
-        self::assertSame(1, preg_match('/^([a-z0-9]*)$/', $this->object->getHash()));
+        self::assertMatchesRegularExpressionCompat('/^([a-z0-9]*)$/', $this->object->getHash());
     }
 
-    /**
-     * Test for getBacktraceDisplay
-     *
-     * @requires PHPUnit < 10
-     */
     public function testGetBacktraceDisplay(): void
     {
         self::assertStringContainsString(
-            'PHPUnit\Framework\TestResult->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br>',
+            '->run(<Class:PhpMyAdmin\Tests\ErrorTest>)<br>',
             $this->object->getBacktraceDisplay()
         );
     }
@@ -151,6 +147,7 @@ class ErrorTest extends AbstractTestCase
     }
 
     /** @dataProvider errorLevelProvider */
+    #[DataProvider('errorLevelProvider')]
     public function testGetLevel(int $errorNumber, string $expected): void
     {
         self::assertSame($expected, (new Error($errorNumber, 'Error', 'error.txt', 15))->getLevel());
@@ -171,13 +168,14 @@ class ErrorTest extends AbstractTestCase
         yield 'E_USER_ERROR error' => [E_USER_ERROR, 'error'];
         yield 'E_USER_WARNING error' => [E_USER_WARNING, 'error'];
         yield 'E_USER_NOTICE notice' => [E_USER_NOTICE, 'notice'];
-        yield 'E_STRICT notice' => [@E_STRICT, 'notice'];
+        yield 'E_STRICT notice' => [2048, 'notice'];
         yield 'E_DEPRECATED notice' => [E_DEPRECATED, 'notice'];
         yield 'E_USER_DEPRECATED notice' => [E_USER_DEPRECATED, 'notice'];
         yield 'E_RECOVERABLE_ERROR error' => [E_RECOVERABLE_ERROR, 'error'];
     }
 
     /** @dataProvider errorTypeProvider */
+    #[DataProvider('errorTypeProvider')]
     public function testGetType(int $errorNumber, string $expected): void
     {
         self::assertSame($expected, (new Error($errorNumber, 'Error', 'error.txt', 15))->getType());
@@ -198,7 +196,7 @@ class ErrorTest extends AbstractTestCase
         yield 'E_USER_ERROR error' => [E_USER_ERROR, 'User Error'];
         yield 'E_USER_WARNING warning' => [E_USER_WARNING, 'User Warning'];
         yield 'E_USER_NOTICE notice' => [E_USER_NOTICE, 'User Notice'];
-        yield 'E_STRICT notice' => [@E_STRICT, 'Runtime Notice'];
+        yield 'E_STRICT notice' => [2048, 'Runtime Notice'];
         yield 'E_DEPRECATED notice' => [E_DEPRECATED, 'Deprecation Notice'];
         yield 'E_USER_DEPRECATED notice' => [E_USER_DEPRECATED, 'Deprecation Notice'];
         yield 'E_RECOVERABLE_ERROR error' => [E_RECOVERABLE_ERROR, 'Catchable Fatal Error'];

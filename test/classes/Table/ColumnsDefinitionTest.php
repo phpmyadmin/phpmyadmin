@@ -6,10 +6,13 @@ namespace PhpMyAdmin\Tests\Table;
 
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Table\ColumnsDefinition
  */
+#[CoversClass(ColumnsDefinition::class)]
 class ColumnsDefinitionTest extends AbstractTestCase
 {
     /**
@@ -22,6 +25,7 @@ class ColumnsDefinitionTest extends AbstractTestCase
      *
      * @dataProvider providerColumnMetaDefault
      */
+    #[DataProvider('providerColumnMetaDefault')]
     public function testDecorateColumnMetaDefault(array $columnMeta, array $expected): void
     {
         $result = ColumnsDefinition::decorateColumnMetaDefault($columnMeta);
@@ -58,6 +62,17 @@ class ColumnsDefinitionTest extends AbstractTestCase
                     'DefaultValue' => '',
                 ],
             ],
+            'when Default is empty string' => [
+                [
+                    'Type' => 'varchar(20)',
+                    'Null' => 'NO',
+                    'Default' => '',
+                ],
+                [
+                    'DefaultType' => 'USER_DEFINED',
+                    'DefaultValue' => '',
+                ],
+            ],
             'when Default is CURRENT_TIMESTAMP' => [
                 ['Default' => 'CURRENT_TIMESTAMP'],
                 [
@@ -83,6 +98,34 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 ['Default' => 'uuid()'],
                 [
                     'DefaultType' => 'UUID',
+                    'DefaultValue' => '',
+                ],
+            ],
+            'when Default is UUID_v4' => [
+                ['Default' => 'UUID_v4'],
+                [
+                    'DefaultType' => 'UUID_v4',
+                    'DefaultValue' => '',
+                ],
+            ],
+            'when Default is uuid_v4()' => [
+                ['Default' => 'uuid_v4()'],
+                [
+                    'DefaultType' => 'UUID_v4',
+                    'DefaultValue' => '',
+                ],
+            ],
+            'when Default is UUID_v7' => [
+                ['Default' => 'UUID_v7'],
+                [
+                    'DefaultType' => 'UUID_v7',
+                    'DefaultValue' => '',
+                ],
+            ],
+            'when Default is uuid_v7()' => [
+                ['Default' => 'uuid_v7()'],
+                [
+                    'DefaultType' => 'UUID_v7',
                     'DefaultValue' => '',
                 ],
             ],

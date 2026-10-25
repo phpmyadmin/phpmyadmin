@@ -8,9 +8,14 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\BaseForm;
 use PhpMyAdmin\Config\Forms\BaseFormList;
 use PhpMyAdmin\Config\Forms\Page;
+use PhpMyAdmin\Config\Forms\Page\PageFormList;
 use PhpMyAdmin\Config\Forms\Setup;
+use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Config\Forms\User;
+use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Config\Forms\BaseFormList
@@ -18,6 +23,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
  * @covers \PhpMyAdmin\Config\Forms\Setup\SetupFormList
  * @covers \PhpMyAdmin\Config\Forms\User\UserFormList
  */
+#[CoversClass(BaseFormList::class)]
+#[CoversClass(PageFormList::class)]
+#[CoversClass(SetupFormList::class)]
+#[CoversClass(UserFormList::class)]
 class FormListTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -37,6 +46,7 @@ class FormListTest extends AbstractTestCase
      *
      * @dataProvider formObjects
      */
+    #[DataProvider('formObjects')]
     public function testForms(string $class, string $prefix): void
     {
         $cf = new ConfigFile($GLOBALS['config']->baseSettings);

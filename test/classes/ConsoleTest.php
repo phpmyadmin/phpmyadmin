@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Console;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
 use const PHP_VERSION_ID;
@@ -12,6 +13,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Console
  */
+#[CoversClass(Console::class)]
 class ConsoleTest extends AbstractTestCase
 {
     public function testGetScripts(): void

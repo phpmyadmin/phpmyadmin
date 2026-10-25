@@ -9,6 +9,7 @@ use PhpMyAdmin\Navigation\NodeFactory;
 use PhpMyAdmin\Navigation\Nodes\Node;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
 use const PHP_VERSION_ID;
@@ -16,6 +17,7 @@ use const PHP_VERSION_ID;
 /**
  * @covers \PhpMyAdmin\Navigation\Nodes\Node
  */
+#[CoversClass(Node::class)]
 class NodeTest extends AbstractTestCase
 {
     /**
@@ -304,14 +306,11 @@ class NodeTest extends AbstractTestCase
         // but strangely, mocking private methods is not supported in PHPUnit
         $node = NodeFactory::getInstance();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with($expectedSql);
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->method('escapeString')->willReturnArgument(0);
         $GLOBALS['dbi'] = $dbi;
         $node->getData('', $pos);
     }
@@ -338,14 +337,11 @@ class NodeTest extends AbstractTestCase
         // but strangely, mocking private methods is not supported in PHPUnit
         $node = NodeFactory::getInstance();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('fetchResult')
             ->with($expectedSql);
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $node->getData('', $pos);
@@ -369,13 +365,11 @@ class NodeTest extends AbstractTestCase
 
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' ")
-            ->will($this->returnValue($resultStub));
+            ->willReturn($resultStub);
         $resultStub->expects($this->exactly(3))
             ->method('fetchRow')
             ->willReturnOnConsecutiveCalls(
@@ -391,8 +385,7 @@ class NodeTest extends AbstractTestCase
                 . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"
                 . " OR LOCATE('aa_', CONCAT(`Database`, '_')) = 1 )"
             );
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $node->getData('', $pos, 'db');
@@ -420,9 +413,7 @@ class NodeTest extends AbstractTestCase
         // but strangely, mocking private methods is not supported in PHPUnit
         $node = NodeFactory::getInstance();
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with($query);
@@ -444,9 +435,7 @@ class NodeTest extends AbstractTestCase
         $query .= 'WHERE TRUE ';
 
         $node = NodeFactory::getInstance();
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with($query);
@@ -465,32 +454,26 @@ class NodeTest extends AbstractTestCase
 
         $node = NodeFactory::getInstance();
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
         // test with no search clause
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with('SHOW DATABASES WHERE TRUE ')
-            ->will($this->returnValue($resultStub));
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturn($resultStub);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence();
 
         // test with a search clause
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('tryQuery')
             ->with("SHOW DATABASES WHERE TRUE AND `Database` LIKE '%dbname%' ")
-            ->will($this->returnValue($resultStub));
-        $dbi->expects($this->any())->method('escapeString')
-            ->will($this->returnArgument(0));
+            ->willReturn($resultStub);
+        $dbi->method('escapeString')->willReturnArgument(0);
 
         $GLOBALS['dbi'] = $dbi;
         $node->getPresence('', 'dbname');

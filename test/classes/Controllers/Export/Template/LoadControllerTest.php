@@ -12,10 +12,12 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Export\Template\LoadController
  */
+#[CoversClass(LoadController::class)]
 class LoadControllerTest extends AbstractTestCase
 {
     public function testLoad(): void

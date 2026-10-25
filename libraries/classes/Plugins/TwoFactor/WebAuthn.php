@@ -61,7 +61,9 @@ class WebAuthn extends TwoFactorPlugin
 
     private function createServer(): Server
     {
-        return class_exists(WebauthnServer::class) ? new WebauthnLibServer($this->twofactor) : new CustomServer();
+        return class_exists(WebauthnServer::class)
+            ? new WebauthnLibServer($this->twofactor)
+            : new CustomServer($this->twofactor);
     }
 
     public function setServer(Server $server): void
@@ -117,6 +119,7 @@ class WebAuthn extends TwoFactorPlugin
                 $requestOptions['challenge'],
                 $request
             );
+            $this->twofactor->save();
         } catch (Throwable $exception) {
             $this->message = $exception->getMessage();
 

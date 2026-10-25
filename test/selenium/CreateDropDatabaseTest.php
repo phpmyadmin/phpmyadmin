@@ -4,9 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
+use PHPUnit\Framework\Attributes\Large;
+
 /**
  * @coversNothing
+ * @large
  */
+#[CoversNothing]
+#[Large]
 class CreateDropDatabaseTest extends TestBase
 {
     /**
@@ -21,8 +27,6 @@ class CreateDropDatabaseTest extends TestBase
 
     /**
      * Creates a database and drops it
-     *
-     * @group large
      */
     public function testCreateDropDatabase(): void
     {

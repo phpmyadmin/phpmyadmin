@@ -6,10 +6,13 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\IpAllowDeny;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\IpAllowDeny
  */
+#[CoversClass(IpAllowDeny::class)]
 class IpAllowDenyTest extends AbstractTestCase
 {
     /** @var IpAllowDeny */
@@ -43,6 +46,7 @@ class IpAllowDenyTest extends AbstractTestCase
      *
      * @dataProvider proxyIPs
      */
+    #[DataProvider('proxyIPs')]
     public function testGetIp(?string $remote, ?string $header, $expected, ?string $proxyip = null): void
     {
         unset($_SERVER['REMOTE_ADDR']);

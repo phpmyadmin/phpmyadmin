@@ -11,6 +11,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 use function htmlspecialchars;
@@ -18,6 +19,7 @@ use function htmlspecialchars;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController
  */
+#[CoversClass(RefreshController::class)]
 class RefreshControllerTest extends AbstractTestCase
 {
     /** @var Data */
@@ -44,7 +46,7 @@ class RefreshControllerTest extends AbstractTestCase
     {
         $process = [
             'User' => 'User1',
-            'Host' => 'Host1',
+            'Host' => 'Host1:12345',
             'Id' => 'Id1',
             'Db' => 'db1',
             'Command' => 'Command1',
@@ -98,5 +100,24 @@ class RefreshControllerTest extends AbstractTestCase
 
         //validate 8: $process['info']
         self::assertStringContainsString($process['Info'], $html);
+
+        // The Host column shows the full value including port
+        self::assertStringContainsString('Host1:12345', $html);
+
+        // The privileges link must use the bare hostname (port stripped) so the
+        // link target matches mysql.user.Host which never contains port numbers.
+        self::assertStringContainsString(
+            Url::getFromRoute('/server/privileges', [
+                'username' => $process['User'],
+                'hostname' => 'Host1',
+                'dbname' => $process['Db'],
+                'tablename' => '',
+                'routinename' => '',
+            ]),
+            $html
+        );
+
+        // The privileges link must NOT contain the raw host:port value as hostname
+        self::assertStringNotContainsString('hostname=Host1%3A12345', $html);
     }
 }

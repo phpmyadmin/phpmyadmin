@@ -8,12 +8,17 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportMediawiki;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportMediawiki
+ * @medium
  */
+#[CoversClass(ImportMediawiki::class)]
+#[Medium]
 class ImportMediawikiTest extends AbstractTestCase
 {
     /** @var ImportMediawiki */
@@ -54,8 +59,6 @@ class ImportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for getProperties
-     *
-     * @group medium
      */
     public function testGetProperties(): void
     {
@@ -69,8 +72,6 @@ class ImportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
     public function testDoImport(): void
     {
@@ -78,9 +79,7 @@ class ImportMediawikiTest extends AbstractTestCase
         global $import_notice;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File($GLOBALS['import_file']);
@@ -116,8 +115,6 @@ class ImportMediawikiTest extends AbstractTestCase
 
     /**
      * Test for doImport
-     *
-     * @group medium
      */
     public function testDoImportWithEmptyTable(): void
     {
@@ -125,9 +122,7 @@ class ImportMediawikiTest extends AbstractTestCase
         global $import_notice;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
         $GLOBALS['dbi'] = $dbi;
 
         $importHandle = new File('test/test_data/__slashes.mediawiki');

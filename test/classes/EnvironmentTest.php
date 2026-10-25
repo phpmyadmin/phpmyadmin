@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PHPUnit\Framework\Attributes\CoversNothing;
+
 use function version_compare;
 
 use const PHP_VERSION;
@@ -11,6 +13,7 @@ use const PHP_VERSION;
 /**
  * @coversNothing
  */
+#[CoversNothing]
 class EnvironmentTest extends AbstractTestCase
 {
     /**

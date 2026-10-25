@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Linter;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function str_repeat;
 
 /**
  * @covers \PhpMyAdmin\Linter
  */
+#[CoversClass(Linter::class)]
 class LinterTest extends AbstractTestCase
 {
     /**
@@ -75,6 +78,7 @@ class LinterTest extends AbstractTestCase
      *
      * @dataProvider lintProvider
      */
+    #[DataProvider('lintProvider')]
     public function testLint(array $expected, string $query): void
     {
         self::assertSame($expected, Linter::lint($query));

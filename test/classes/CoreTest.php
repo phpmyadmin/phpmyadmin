@@ -9,6 +9,10 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use stdClass;
 
 use function __;
@@ -26,6 +30,7 @@ use function str_repeat;
 /**
  * @covers \PhpMyAdmin\Core
  */
+#[CoversClass(Core::class)]
 class CoreTest extends AbstractNetworkTestCase
 {
     /**
@@ -258,6 +263,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerTestGotoNowhere
      */
+    #[DataProvider('providerTestGotoNowhere')]
     public function testGotoNowhere(?string $page, array $allowList, bool $include, bool $expected): void
     {
         self::assertSame($expected, Core::checkPageValidity($page, $allowList, $include));
@@ -334,22 +340,22 @@ class CoreTest extends AbstractNetworkTestCase
         Core::fatalError('FatalError!');
     }
 
-    /**
-     * Test for Core::fatalError
-     */
     public function testFatalErrorMessageWithArgs(): void
     {
         $_REQUEST = [];
         ResponseRenderer::getInstance()->setAjax(false);
 
         $message = 'Fatal error #%d in file %s.';
-        $params = [
-            1,
-            'error_file.php',
-        ];
+        $params = [1, 'error_file.php'];
 
         $this->expectOutputRegex('/Fatal error #1 in file error_file.php./');
         Core::fatalError($message, $params);
+    }
+
+    public function testFatalErrorMessageWithSingleArg(): void
+    {
+        $_REQUEST = [];
+        ResponseRenderer::getInstance()->setAjax(false);
 
         $message = 'Fatal error in file %s.';
         $params = 'error_file.php';
@@ -368,6 +374,8 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerTestGetRealSize
      */
+    #[DataProvider('providerTestGetRealSize')]
+    #[Group('32bit-incompatible')]
     public function testGetRealSize(string $size, int $expected): void
     {
         self::assertSame($expected, Core::getRealSize($size));
@@ -450,6 +458,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerTestLinkURL
      */
+    #[DataProvider('providerTestLinkURL')]
     public function testLinkURL(string $link, string $url): void
     {
         self::assertSame(Core::linkURL($link), $url);
@@ -517,6 +526,7 @@ class CoreTest extends AbstractNetworkTestCase
     /**
      * Test for Core::sendHeaderLocation
      */
+    #[AllowMockObjectsWithoutExpectations]
     public function testSendHeaderLocationIisLongUri(): void
     {
         $GLOBALS['server'] = 0;
@@ -565,6 +575,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider provideTestIsAllowedDomain
      */
+    #[DataProvider('provideTestIsAllowedDomain')]
     public function testIsAllowedDomain(string $url, $expected): void
     {
         $_SERVER['SERVER_NAME'] = 'server.local';
@@ -622,6 +633,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider provideTestSafeUnserialize
      */
+    #[DataProvider('provideTestSafeUnserialize')]
     public function testSafeUnserialize(string $data, $expected): void
     {
         self::assertSame($expected, Core::safeUnserialize($data));
@@ -691,6 +703,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider provideTestSanitizeMySQLHost
      */
+    #[DataProvider('provideTestSanitizeMySQLHost')]
     public function testSanitizeMySQLHost(string $host, string $expected): void
     {
         self::assertSame($expected, Core::sanitizeMySQLHost($host));
@@ -897,6 +910,7 @@ class CoreTest extends AbstractNetworkTestCase
      *
      * @dataProvider providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam
      */
+    #[DataProvider('providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam')]
     public function testPopulateRequestWithEncryptedQueryParamsWithInvalidParam(
         array $encrypted,
         array $decrypted

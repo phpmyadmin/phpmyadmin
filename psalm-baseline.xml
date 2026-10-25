@@ -1219,7 +1219,8 @@
     </PossiblyNullIterator>
   </file>
   <file src="libraries/classes/Controllers/Database/EventsController.php">
-    <MixedArgument occurrences="4">
+    <MixedArgument occurrences="5">
+      <code>$db</code>
       <code>$db</code>
       <code>$db</code>
       <code>$db</code>
@@ -1230,13 +1231,9 @@
     </MixedArgumentTypeCoercion>
   </file>
   <file src="libraries/classes/Controllers/Database/ExportController.php">
-    <MixedArgument occurrences="11">
+    <MixedArgument occurrences="7">
       <code>$db</code>
       <code>$db</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
       <code>$num_tables</code>
       <code>$sql_query</code>
       <code>$table</code>
@@ -1246,19 +1243,11 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="5">
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-      <code>$each_table['Name']</code>
-    </MixedArrayAccess>
     <MixedArrayAssignment occurrences="1">
       <code>$urlParams['goto']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>$GLOBALS['single_table']</code>
-      <code>$each_table</code>
     </MixedAssignment>
   </file>
   <file src="libraries/classes/Controllers/Database/ImportController.php">
@@ -1774,7 +1763,7 @@
       <code>$formattedOverhead</code>
       <code>$formattedSize</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="41">
+    <MixedArgument occurrences="40">
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
       <code>$createTime</code>
@@ -1785,7 +1774,6 @@
       <code>$currentTable['Data_free']</code>
       <code>$currentTable['Name']</code>
       <code>$currentTable['TABLE_COMMENT']</code>
-      <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_NAME']</code>
@@ -1841,7 +1829,7 @@
     <MixedArrayAssignment occurrences="1">
       <code>$currentTable['TABLE_ROWS']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="28">
+    <MixedAssignment occurrences="27">
       <code>$charset</code>
       <code>$checkTime</code>
       <code>$checkTimeAll</code>
@@ -1854,7 +1842,6 @@
       <code>$currentTable['TABLE_ROWS']</code>
       <code>$dbTable</code>
       <code>$overheadSize</code>
-      <code>$quotesLength</code>
       <code>$searchDb</code>
       <code>$searchDoDBInDB</code>
       <code>$searchDoDBInTruename</code>
@@ -1874,7 +1861,7 @@
     <MixedMethodCall occurrences="1">
       <code>getCharset</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="9">
+    <MixedOperand occurrences="7">
       <code>$currentTable['Data_free']</code>
       <code>$currentTable['Data_length']</code>
       <code>$currentTable['Data_length']</code>
@@ -1882,12 +1869,7 @@
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_ROWS']</code>
       <code>$currentTable['TABLE_ROWS']</code>
-      <code>$dataLength + $quotesLength</code>
-      <code>$quotesLength</code>
     </MixedOperand>
-    <PossiblyFalseOperand occurrences="1">
-      <code>$columnNames</code>
-    </PossiblyFalseOperand>
     <PossiblyInvalidArgument occurrences="1">
       <code>$_POST['primary_connection'] ?? null</code>
     </PossiblyInvalidArgument>
@@ -1903,9 +1885,6 @@
       <code>$unit</code>
       <code>$unit</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullOperand occurrences="1">
-      <code>$columnNames</code>
-    </PossiblyNullOperand>
     <PropertyNotSetInConstructor occurrences="6">
       <code>$dbIsSystemSchema</code>
       <code>$isShowStats</code>
@@ -3295,6 +3274,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Controllers/Table/GisVisualizationController.php">
+    <DeprecatedClass occurrences="1">
+      <code>TCPDF::class</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="1">
       <code>$urlParams</code>
     </MixedArgument>
@@ -4552,13 +4534,13 @@
       <code>$_POST['field_null'][$i] ?? 'NO'</code>
       <code>$_POST['field_type'][$i]</code>
       <code>$_POST['field_virtuality'][$i] ?? ''</code>
-      <code>$_POST['fulltext_indexes']</code>
-      <code>$_POST['indexes']</code>
-      <code>$_POST['primary_indexes']</code>
-      <code>$_POST['spatial_indexes']</code>
+      <code>$_POST['fulltext_indexes'] ?? '[]'</code>
+      <code>$_POST['indexes'] ?? '[]'</code>
+      <code>$_POST['primary_indexes'] ?? '[]'</code>
+      <code>$_POST['spatial_indexes'] ?? '[]'</code>
       <code>$_POST['tbl_collation'] ?? ''</code>
       <code>$_POST['tbl_storage_engine']</code>
-      <code>$_POST['unique_indexes']</code>
+      <code>$_POST['unique_indexes'] ?? '[]'</code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast occurrences="21">
       <code>$_POST['comment']</code>
@@ -4575,13 +4557,13 @@
       <code>$_POST['field_virtuality'][$i] ?? ''</code>
       <code>$_POST['field_where']</code>
       <code>$_POST['field_where']</code>
-      <code>$_POST['fulltext_indexes']</code>
-      <code>$_POST['indexes']</code>
-      <code>$_POST['primary_indexes']</code>
-      <code>$_POST['spatial_indexes']</code>
+      <code>$_POST['fulltext_indexes'] ?? '[]'</code>
+      <code>$_POST['indexes'] ?? '[]'</code>
+      <code>$_POST['primary_indexes'] ?? '[]'</code>
+      <code>$_POST['spatial_indexes'] ?? '[]'</code>
       <code>$_POST['tbl_collation'] ?? ''</code>
       <code>$_POST['tbl_storage_engine']</code>
-      <code>$_POST['unique_indexes']</code>
+      <code>$_POST['unique_indexes'] ?? '[]'</code>
     </PossiblyInvalidCast>
     <PossiblyInvalidIterator occurrences="1">
       <code>$_POST['partitions']</code>
@@ -5763,7 +5745,7 @@
       <code>$trigger['EVENT_OBJECT_TABLE']</code>
       <code>$trigger['TRIGGER_NAME']</code>
     </MixedArrayAssignment>
-    <MixedArrayOffset occurrences="10">
+    <MixedArrayOffset occurrences="11">
       <code>$databases[$database_name]</code>
       <code>$result_target[$row[$key_index]]</code>
       <code>$result_target[$row[$key_index]]</code>
@@ -5772,6 +5754,7 @@
       <code>$row[$key_index]</code>
       <code>$row[$key_index]</code>
       <code>$row[$key_index]</code>
+      <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
       <code>$this-&gt;links[$link]</code>
     </MixedArrayOffset>
@@ -5899,9 +5882,15 @@
       <code>$host</code>
       <code>$server['host']</code>
     </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>non-empty-string</code>
+    </MixedInferredReturnType>
     <MixedOperand occurrences="1">
       <code>$server['host']</code>
     </MixedOperand>
+    <MixedReturnStatement occurrences="1">
+      <code>$mysqli-&gt;quote_string($string)</code>
+    </MixedReturnStatement>
     <MoreSpecificImplementedParamType occurrences="12">
       <code>$link</code>
       <code>$link</code>
@@ -6739,6 +6728,10 @@
     </TypeDoesNotContainNull>
   </file>
   <file src="libraries/classes/Gis/GisGeometry.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="7">
       <code>$line</code>
       <code>$point</code>
@@ -6768,6 +6761,10 @@
     </PossiblyFalseOperand>
   </file>
   <file src="libraries/classes/Gis/GisGeometryCollection.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <DocblockTypeContradiction occurrences="2">
       <code>! $gis_obj</code>
       <code>$gis_obj</code>
@@ -6811,6 +6808,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisLineString.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="3">
       <code>$temp_point[0]</code>
       <code>$temp_point[1]</code>
@@ -6847,6 +6848,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiLineString.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="3">
       <code>$temp_point[0]</code>
       <code>$temp_point[1]</code>
@@ -6898,6 +6903,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPoint.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="2">
       <code>$point</code>
       <code>$wkt</code>
@@ -6943,6 +6952,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisMultiPolygon.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="9">
       <code>$label_point[0]</code>
       <code>$label_point[0]</code>
@@ -7055,6 +7068,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisPoint.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="1">
       <code>$wkt</code>
     </MixedArgument>
@@ -7095,6 +7112,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisPolygon.php">
+    <DeprecatedClass occurrences="2">
+      <code>TCPDF</code>
+      <code>TCPDF</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="2">
       <code>$wkt</code>
       <code>($y1 - $y0) ** 2 + ($x0 - $x1) ** 2</code>
@@ -7238,6 +7259,10 @@
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="libraries/classes/Gis/GisVisualization.php">
+    <DeprecatedClass occurrences="2">
+      <code>ImageWrapper|TCPDF|string|false</code>
+      <code>new TCPDF('', 'pt', $GLOBALS['cfg']['PDFDefaultPageSize'], true, 'UTF-8', false)</code>
+    </DeprecatedClass>
     <DocblockTypeContradiction occurrences="1">
       <code>$this-&gt;userSpecifiedSettings === null</code>
     </DocblockTypeContradiction>
@@ -9039,6 +9064,13 @@
     </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Pdf.php">
+    <DeprecatedClass occurrences="5">
+      <code>TCPDF</code>
+      <code>TCPDF_FONTS::UTF8ToUTF16BE($name, false, true, $this-&gt;CurrentFont)</code>
+      <code>TCPDF_FONTS::UTF8ToUTF16BE($value, false, true, $this-&gt;CurrentFont)</code>
+      <code>parent::__construct($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa)</code>
+      <code>parent::_putpages()</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="4">
       <code>$pdfData</code>
       <code>$this-&gt;CurrentFont</code>
@@ -9580,6 +9612,9 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="libraries/classes/Plugins/Export/ExportPdf.php">
+    <DeprecatedClass occurrences="1">
+      <code>TCPDF::class</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="1">
       <code>$pdf-&gt;getPDFData()</code>
     </MixedArgument>
@@ -9968,6 +10003,9 @@
     </PossiblyNullArgument>
   </file>
   <file src="libraries/classes/Plugins/Export/Helpers/Pdf.php">
+    <DeprecatedClass occurrences="1">
+      <code>TCPDF_STATIC::empty_string($y)</code>
+    </DeprecatedClass>
     <MixedArgument occurrences="79">
       <code>$col_as</code>
       <code>$column['Type']</code>
@@ -11276,6 +11314,11 @@
     <PossiblyFalseOperand occurrences="1">
       <code>$pos</code>
     </PossiblyFalseOperand>
+  </file>
+  <file src="libraries/classes/Plugins/Schema/SchemaPdf.php">
+    <DeprecatedClass occurrences="1">
+      <code>TCPDF::class</code>
+    </DeprecatedClass>
   </file>
   <file src="libraries/classes/Plugins/Schema/Svg/RelationStatsSvg.php">
     <MixedMethodCall occurrences="7">
@@ -13076,15 +13119,6 @@
     <MixedArgument occurrences="1">
       <code>$column['real_column'] ?? $column['refering_column']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$column['real_column']</code>
-      <code>$column['refering_column']</code>
-      <code>$column['refering_column']</code>
-      <code>$column['table_name']</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$column</code>
-    </MixedAssignment>
     <PossiblyNullArgument occurrences="4">
       <code>$dataRow['comment']</code>
       <code>$dataRow['mimetype']</code>
@@ -13451,6 +13485,10 @@
       <code>$submit_attribute</code>
       <code>$type</code>
     </MixedAssignment>
+    <PossiblyFalseArgument occurrences="2">
+      <code>$columnMeta['Default']</code>
+      <code>$columnMeta['Type']</code>
+    </PossiblyFalseArgument>
     <PossiblyInvalidCast occurrences="1">
       <code>$_POST['after_field']</code>
     </PossiblyInvalidCast>
@@ -14313,9 +14351,22 @@
     </RedundantCast>
   </file>
   <file src="test/classes/AbstractNetworkTestCase.php">
-    <MixedAssignment occurrences="1">
+    <InternalMethod occurrences="1">
+      <code>getInvocationCount</code>
+    </InternalMethod>
+    <MissingClosureParamType occurrences="1">
+      <code>$parameters</code>
+    </MissingClosureParamType>
+    <MixedArrayOffset occurrences="1">
+      <code>$param[$numberOfInvocations - 1]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="2">
       <code>$http_response_code_param</code>
+      <code>$numberOfInvocations</code>
     </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$numberOfInvocations</code>
+    </MixedOperand>
   </file>
   <file src="test/classes/AbstractTestCase.php">
     <PossiblyUndefinedArrayOffset occurrences="5">
@@ -14560,6 +14611,9 @@
       <code>array</code>
       <code>array</code>
     </MixedInferredReturnType>
+    <UnusedClosureParam occurrences="1">
+      <code>$errno</code>
+    </UnusedClosureParam>
   </file>
   <file src="test/classes/Controllers/Database/Structure/FavoriteTableControllerTest.php">
     <MixedArgument occurrences="1">
@@ -14573,10 +14627,8 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Controllers/Database/StructureControllerTest.php">
-    <MixedArgument occurrences="3">
+    <MixedArgument occurrences="1">
       <code>$currentTable</code>
-      <code>$result</code>
-      <code>$result</code>
     </MixedArgument>
     <MixedArrayAccess occurrences="23">
       <code>$currentTable</code>
@@ -14608,9 +14660,7 @@
       <code>$currentTable['ENGINE']</code>
       <code>$currentTable['ENGINE']</code>
     </MixedArrayAssignment>
-    <MixedAssignment occurrences="10">
-      <code>$result</code>
-      <code>$result</code>
+    <MixedAssignment occurrences="8">
       <code>[$currentTable, , , $sumSize]</code>
       <code>[$currentTable, , , $sumSize]</code>
       <code>[$currentTable, , , $sumSize]</code>
@@ -14707,30 +14757,27 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Controllers/Table/IndexesControllerTest.php">
-    <MixedMethodCall occurrences="2">
-      <code>method</code>
-      <code>will</code>
+    <MixedMethodCall occurrences="1">
+      <code>willReturn</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="1">
-      <code>expects</code>
+      <code>method</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/Controllers/Table/RelationControllerTest.php">
-    <MixedMethodCall occurrences="8">
+    <MixedMethodCall occurrences="6">
       <code>method</code>
       <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="4">
       <code>expects</code>
       <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
+      <code>method</code>
+      <code>method</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/Controllers/Table/ReplaceControllerTest.php">
@@ -14741,7 +14788,7 @@
   <file src="test/classes/Controllers/Table/SearchControllerTest.php">
     <MixedMethodCall occurrences="3">
       <code>method</code>
-      <code>will</code>
+      <code>willReturn</code>
       <code>with</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="1">
@@ -14836,7 +14883,7 @@
     <MixedAssignment occurrences="1">
       <code>$list_detail_cols</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="27">
+    <MixedMethodCall occurrences="25">
       <code>method</code>
       <code>method</code>
       <code>method</code>
@@ -14845,17 +14892,15 @@
       <code>method</code>
       <code>method</code>
       <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
       <code>willReturnOnConsecutiveCalls</code>
       <code>with</code>
       <code>with</code>
@@ -14877,8 +14922,8 @@
       <code>expects</code>
       <code>expects</code>
       <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
+      <code>method</code>
+      <code>method</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/Database/EventsTest.php">
@@ -15033,12 +15078,6 @@
     <InvalidScalarArgument occurrences="1">
       <code>$_SESSION</code>
     </InvalidScalarArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <RedundantCondition occurrences="1">
-      <code>assertIsString</code>
-    </RedundantCondition>
   </file>
   <file src="test/classes/ErrorReportTest.php">
     <PossiblyInvalidArgument occurrences="1">
@@ -15099,6 +15138,11 @@
     </UndefinedMethod>
   </file>
   <file src="test/classes/Gis/GisGeometryCollectionTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedInferredReturnType occurrences="6">
       <code>array</code>
       <code>array</code>
@@ -15118,6 +15162,11 @@
     </MixedInferredReturnType>
   </file>
   <file src="test/classes/Gis/GisLineStringTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
@@ -15128,6 +15177,11 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisMultiLineStringTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
@@ -15138,6 +15192,11 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisMultiPointTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedInferredReturnType occurrences="3">
       <code>array</code>
       <code>array</code>
@@ -15148,6 +15207,11 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisMultiPolygonTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedArrayAssignment occurrences="3">
       <code>$temp1[0]['MULTIPOLYGON']['no_of_polygons']</code>
       <code>$temp2[0]['MULTIPOLYGON'][1]</code>
@@ -15164,6 +15228,11 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisPointTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedInferredReturnType occurrences="4">
       <code>array</code>
       <code>array</code>
@@ -15175,6 +15244,11 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="test/classes/Gis/GisPolygonTest.php">
+    <DeprecatedClass occurrences="3">
+      <code>TCPDF</code>
+      <code>TCPDF::class</code>
+      <code>new TCPDF()</code>
+    </DeprecatedClass>
     <MixedArrayAccess occurrences="5">
       <code>$temp1[0]['POLYGON'][1]</code>
       <code>$temp['POLYGON'][0]</code>
@@ -15388,6 +15462,12 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
+  <file src="test/classes/Navigation/NodeFactoryTest.php">
+    <UnusedClosureParam occurrences="2">
+      <code>$errno</code>
+      <code>$errno</code>
+    </UnusedClosureParam>
+  </file>
   <file src="test/classes/Navigation/Nodes/NodeColumnContainerTest.php">
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertIsArray</code>
@@ -15407,7 +15487,7 @@
     </MixedAssignment>
     <MixedMethodCall occurrences="2">
       <code>method</code>
-      <code>will</code>
+      <code>willReturn</code>
     </MixedMethodCall>
     <PossiblyInvalidArgument occurrences="1">
       <code>$this-&gt;object</code>
@@ -15660,9 +15740,6 @@
     </MixedAssignment>
   </file>
   <file src="test/classes/Plugins/Export/ExportOdsTest.php">
-    <InternalMethod occurrences="1">
-      <code>setOutputCallback</code>
-    </InternalMethod>
     <MixedAssignment occurrences="2">
       <code>$property</code>
       <code>$property</code>
@@ -15672,9 +15749,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="test/classes/Plugins/Export/ExportOdtTest.php">
-    <InternalMethod occurrences="1">
-      <code>setOutputCallback</code>
-    </InternalMethod>
     <InvalidArrayOffset occurrences="1">
       <code>$GLOBALS['foo_columns']</code>
     </InvalidArrayOffset>
@@ -15915,17 +15989,21 @@
     </RedundantCondition>
   </file>
   <file src="test/classes/Server/PrivilegesTest.php">
-    <MixedArgument occurrences="5">
+    <MissingClosureParamType occurrences="1">
+      <code>$string</code>
+    </MissingClosureParamType>
+    <MixedArgument occurrences="6">
       <code>$export</code>
       <code>$extra_data['new_privileges']</code>
       <code>$extra_data['new_user_string']</code>
       <code>$extra_data['new_user_string']</code>
+      <code>$string</code>
       <code>$title</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$this-&gt;serverPrivileges-&gt;extractPrivInfo(null, true)</code>
     </MixedArgumentTypeCoercion>
-    <MixedMethodCall occurrences="21">
+    <MixedMethodCall occurrences="15">
       <code>getMessage</code>
       <code>getMessage</code>
       <code>getMessage</code>
@@ -15935,29 +16013,23 @@
       <code>getMessage</code>
       <code>getMessage</code>
       <code>getMessage</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
+      <code>willReturn</code>
     </MixedMethodCall>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>assertNull</code>
     </RedundantConditionGivenDocblockType>
     <UndefinedMethod occurrences="6">
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
     </UndefinedMethod>
     <UnusedVariable occurrences="4">
       <code>$password</code>
@@ -16014,31 +16086,6 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <NoInterfaceProperties occurrences="3">
-      <code>$this-&gt;object-&gt;support</code>
-      <code>$this-&gt;object-&gt;support</code>
-      <code>$this-&gt;object-&gt;support</code>
-    </NoInterfaceProperties>
-    <PossiblyUndefinedMethod occurrences="18">
-      <code>getArray</code>
-      <code>getComment</code>
-      <code>getInfoPages</code>
-      <code>getMysqlHelpPage</code>
-      <code>getPage</code>
-      <code>getStorageEngines</code>
-      <code>getSupportInformationMessage</code>
-      <code>getSupportInformationMessage</code>
-      <code>getSupportInformationMessage</code>
-      <code>getSupportInformationMessage</code>
-      <code>getTitle</code>
-      <code>getVariables</code>
-      <code>getVariablesLikePattern</code>
-      <code>isValid</code>
-      <code>isValid</code>
-      <code>isValid</code>
-      <code>isValid</code>
-      <code>resolveTypeSize</code>
-    </PossiblyUndefinedMethod>
   </file>
   <file src="test/classes/Stubs/DbiDummy.php">
     <MixedArgument occurrences="3">
@@ -16094,12 +16141,11 @@
     <MixedArgument occurrences="1">
       <code>$jsonArray['sql_data']</code>
     </MixedArgument>
-    <MixedMethodCall occurrences="2">
-      <code>method</code>
-      <code>will</code>
+    <MixedMethodCall occurrences="1">
+      <code>willReturn</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="1">
-      <code>expects</code>
+      <code>method</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/TableTest.php">
@@ -16117,18 +16163,15 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
-    <MixedMethodCall occurrences="6">
-      <code>method</code>
-      <code>method</code>
-      <code>method</code>
-      <code>will</code>
-      <code>will</code>
-      <code>will</code>
+    <MixedMethodCall occurrences="3">
+      <code>willReturn</code>
+      <code>willReturnMap</code>
+      <code>willReturnMap</code>
     </MixedMethodCall>
     <UndefinedMethod occurrences="3">
-      <code>expects</code>
-      <code>expects</code>
-      <code>expects</code>
+      <code>method</code>
+      <code>method</code>
+      <code>method</code>
     </UndefinedMethod>
   </file>
   <file src="test/classes/TemplateTest.php">
@@ -16191,8 +16234,7 @@
     </MixedArgument>
   </file>
   <file src="test/classes/TypesTest.php">
-    <MixedInferredReturnType occurrences="5">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="4">
       <code>array</code>
       <code>array</code>
       <code>array</code>
@@ -16331,9 +16373,6 @@
     <MixedArrayAccess occurrences="1">
       <code>$_SESSION['cache']['version_check']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
-      <code>$returnValues[]</code>
-    </MixedAssignment>
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>

@@ -6,10 +6,13 @@ namespace PhpMyAdmin\Tests\Charsets;
 
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @covers \PhpMyAdmin\Charsets\Collation
  */
+#[CoversClass(Collation::class)]
 class CollationTest extends AbstractTestCase
 {
     public function testFromServer(): void
@@ -45,6 +48,7 @@ class CollationTest extends AbstractTestCase
      *
      * @dataProvider providerTestBuildDescription
      */
+    #[DataProvider('providerTestBuildDescription')]
     public function testBuildDescription(string $collation, string $description): void
     {
         $actual = Collation::fromServer(['Collation' => $collation]);
@@ -345,6 +349,21 @@ class CollationTest extends AbstractTestCase
                 'foo_bin_bar',
                 'Unknown, binary',
             ],
+            ['foo_bar_ci', 'Unknown, case-insensitive'],
+            ['foo_bar_cs', 'Unknown, case-sensitive'],
+            ['foo_bar_ai', 'Unknown, accent-insensitive'],
+            ['foo_bar_as', 'Unknown, accent-sensitive'],
+            ['foo_bar_ks', 'Unknown, kana-sensitive'],
+            ['foo_bar_w2', 'Unknown, multi-level'],
+            ['foo_bar_l2', 'Unknown, multi-level'],
+            ['foo_bar_bin', 'Unknown, binary'],
+            ['foo_bar_nopad', 'Unknown, no-pad'],
+            ['foo_0900_ci', 'Unknown (UCA 9.0.0), case-insensitive'],
+            ['foo_520_ci', 'Unknown (UCA 5.2.0), case-insensitive'],
+            ['foo_mysql561_ci', 'Unknown (MySQL 5.6.1), case-insensitive'],
+            ['foo_mysql500_ci', 'Unknown (MySQL 5.0.0), case-insensitive'],
+            ['foo_uca1400_ci', 'Unknown (UCA 14.0.0), case-insensitive'],
+            ['utf8mb4_uca1400_ai_ci', 'Unicode (UCA 14.0.0), accent-insensitive, case-insensitive'],
             [
                 'utf8mb4_0900_ai_ci',
                 'Unicode (UCA 9.0.0), accent-insensitive, case-insensitive',

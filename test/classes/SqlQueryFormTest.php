@@ -11,6 +11,7 @@ use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 use function htmlspecialchars;
@@ -18,6 +19,7 @@ use function htmlspecialchars;
 /**
  * @covers \PhpMyAdmin\SqlQueryForm
  */
+#[CoversClass(SqlQueryForm::class)]
 class SqlQueryFormTest extends AbstractTestCase
 {
     /** @var SqlQueryForm */

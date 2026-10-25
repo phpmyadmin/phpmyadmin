@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Encoding;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function _setlocale;
 use function file_get_contents;
@@ -20,7 +24,10 @@ use const PHP_INT_SIZE;
 
 /**
  * @covers \PhpMyAdmin\Encoding
+ * @medium
  */
+#[CoversClass(Encoding::class)]
+#[Medium]
 class EncodingTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -37,8 +44,6 @@ class EncodingTest extends AbstractTestCase
 
     /**
      * Test for Encoding::convertString
-     *
-     * @group medium
      */
     public function testNoConversion(): void
     {
@@ -55,6 +60,7 @@ class EncodingTest extends AbstractTestCase
     /**
      * @requires extension recode
      */
+    #[RequiresPhpExtension('recode')]
     public function testRecode(): void
     {
         Encoding::setEngine(Encoding::ENGINE_RECODE);
@@ -73,6 +79,8 @@ class EncodingTest extends AbstractTestCase
      * @group extension-iconv
      * @requires extension iconv
      */
+    #[RequiresPhpExtension('iconv')]
+    #[Group('extension-iconv')]
     public function testIconv(): void
     {
         // Set PHP native locale

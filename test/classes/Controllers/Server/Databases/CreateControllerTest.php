@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\Server\Databases\CreateController;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 use function sprintf;
@@ -15,6 +16,7 @@ use function sprintf;
 /**
  * @covers \PhpMyAdmin\Controllers\Server\Databases\CreateController
  */
+#[CoversClass(CreateController::class)]
 final class CreateControllerTest extends AbstractTestCase
 {
     public function testCreateDatabase(): void

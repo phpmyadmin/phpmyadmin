@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Index;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Index
  */
+#[CoversClass(Index::class)]
 class IndexTest extends AbstractTestCase
 {
     /** @var array */

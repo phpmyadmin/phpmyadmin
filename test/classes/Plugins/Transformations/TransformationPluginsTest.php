@@ -23,7 +23,11 @@ use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring;
+use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 
 use function date_default_timezone_set;
@@ -55,7 +59,28 @@ use const MYSQLI_TYPE_TINY;
  * @covers \PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4
  * @covers \PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend
  * @covers \PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring
+ * @medium
  */
+#[CoversClass(TransformationsPlugin::class)]
+#[CoversClass(Image_JPEG_Upload::class)]
+#[CoversClass(Text_Plain_FileUpload::class)]
+#[CoversClass(Text_Plain_Iptolong::class)]
+#[CoversClass(Text_Plain_RegexValidation::class)]
+#[CoversClass(Application_Octetstream_Download::class)]
+#[CoversClass(Application_Octetstream_Hex::class)]
+#[CoversClass(Image_JPEG_Inline::class)]
+#[CoversClass(Image_JPEG_Link::class)]
+#[CoversClass(Image_PNG_Inline::class)]
+#[CoversClass(Text_Plain_Dateformat::class)]
+#[CoversClass(Text_Plain_External::class)]
+#[CoversClass(Text_Plain_Formatted::class)]
+#[CoversClass(Text_Plain_Imagelink::class)]
+#[CoversClass(Text_Plain_Sql::class)]
+#[CoversClass(Text_Plain_Link::class)]
+#[CoversClass(Text_Plain_Longtoipv4::class)]
+#[CoversClass(Text_Plain_PreApPend::class)]
+#[CoversClass(Text_Plain_Substring::class)]
+#[Medium]
 class TransformationPluginsTest extends AbstractTestCase
 {
     /**
@@ -355,7 +380,7 @@ class TransformationPluginsTest extends AbstractTestCase
             [
                 new Image_JPEG_Link(),
                 'applyTransformationNoWrap',
-                null,
+                false,
             ],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline plugin
             [
@@ -726,16 +751,13 @@ class TransformationPluginsTest extends AbstractTestCase
      * @param array  $args     the array of arguments
      *
      * @dataProvider multiDataProvider
-     * @group medium
      */
+    #[DataProvider('multiDataProvider')]
     public function testGetMulti($object, string $method, $expected, array $args = []): void
     {
-        if (! method_exists($object, $method)) {
-            return;
-        }
-
-        $reflectionMethod = new ReflectionMethod($object, $method);
-        self::assertEquals($expected, $reflectionMethod->invokeArgs($object, $args));
+        $testMethod = [$object, $method];
+        self::assertIsCallable($testMethod);
+        self::assertSame($expected, $testMethod(...$args));
     }
 
     /**
@@ -1278,8 +1300,8 @@ class TransformationPluginsTest extends AbstractTestCase
      * @param string     $error       the expected output of getError
      *
      * @dataProvider transformationDataProvider
-     * @group medium
      */
+    #[DataProvider('transformationDataProvider')]
     public function testTransformation(
         $object,
         array $applyArgs,

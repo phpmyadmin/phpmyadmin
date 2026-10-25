@@ -12,10 +12,14 @@ use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Table\Indexes
  */
+#[CoversClass(Indexes::class)]
+#[AllowMockObjectsWithoutExpectations]
 class IndexesTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -38,9 +42,7 @@ class IndexesTest extends AbstractTestCase
             'server' => 1,
         ];
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $indexs = [
             [
@@ -60,8 +62,7 @@ class IndexesTest extends AbstractTestCase
             ],
         ];
 
-        $dbi->expects($this->any())->method('getTableIndexes')
-            ->will($this->returnValue($indexs));
+        $dbi->method('getTableIndexes')->willReturn($indexs);
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -72,14 +73,10 @@ class IndexesTest extends AbstractTestCase
     {
         $sql_query = 'ALTER TABLE `db`.`table` DROP PRIMARY KEY, ADD UNIQUE ;';
 
-        $table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $table->expects($this->any())->method('getSqlQueryForIndexCreateOrEdit')
-            ->will($this->returnValue($sql_query));
+        $table = $this->createMock(Table::class);
+        $table->method('getSqlQueryForIndexCreateOrEdit')->willReturn($sql_query);
 
-        $GLOBALS['dbi']->expects($this->any())->method('getTable')
-            ->will($this->returnValue($table));
+        $GLOBALS['dbi']->method('getTable')->willReturn($table);
 
         $response = new ResponseStub();
         $index = new Index();

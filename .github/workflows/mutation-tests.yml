@@ -19,19 +19,17 @@ jobs:
         operating-system: [ubuntu-latest]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Fetch github.base_ref (for diffing)
         if: ${{ github.base_ref != '' }}
         run: |
           git fetch --depth=1 origin +refs/heads/${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
 
-      - name: Install Gettext
+      - name: Install gettext and generate translation files
         run: |
           sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./scripts/generate-mo --quiet
+          ./scripts/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -42,7 +40,7 @@ jobs:
           tools: composer:v2, infection
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           dependency-versions: highest
 
@@ -58,11 +56,11 @@ jobs:
             --ignore-msi-with-no-mutations \
             --filter=$CHANGED_FILES
         env:
-          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+          INFECTION_DASHBOARD_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
 
       - name: Infection
         if: ${{ github.base_ref == '' }}
         run: |
           infection -j$(nproc) --skip-initial-tests --no-interaction --no-progress --coverage=build/logs
         env:
-          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+          INFECTION_DASHBOARD_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}

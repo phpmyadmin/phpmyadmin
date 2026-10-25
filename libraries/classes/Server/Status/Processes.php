@@ -14,6 +14,7 @@ use function array_keys;
 use function count;
 use function mb_strtolower;
 use function number_format;
+use function preg_replace;
 use function strlen;
 use function ucfirst;
 
@@ -93,6 +94,7 @@ final class Processes
                 'id' => $process['Id'],
                 'user' => $process['User'],
                 'host' => $process['Host'],
+                'user_host' => preg_replace('/:\d+$/', '', $process['Host'] ?? ''),
                 'db' => ! isset($process['Db']) || strlen($process['Db']) === 0 ? '' : $process['Db'],
                 'command' => $process['Command'],
                 'time' => $process['Time'],

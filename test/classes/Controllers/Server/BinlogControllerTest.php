@@ -10,10 +10,12 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Utils\SessionCache;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Controllers\Server\BinlogController
  */
+#[CoversClass(BinlogController::class)]
 class BinlogControllerTest extends AbstractTestCase
 {
     /**

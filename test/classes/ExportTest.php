@@ -6,11 +6,15 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Large;
 
 /**
  * @covers \PhpMyAdmin\Export
- * @group large
+ * @large
  */
+#[Large]
+#[CoversClass(Export::class)]
 class ExportTest extends AbstractTestCase
 {
     /** @var Export */

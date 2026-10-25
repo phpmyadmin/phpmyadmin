@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Advisor;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * @covers \PhpMyAdmin\Advisor
  */
+#[CoversClass(Advisor::class)]
 class AdvisorTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -27,6 +30,7 @@ class AdvisorTest extends AbstractTestCase
      *
      * @dataProvider advisorTimes
      */
+    #[DataProvider('advisorTimes')]
     public function testAdvisorBytime(float $time, string $expected): void
     {
         $result = Advisor::byTime($time, 2);
@@ -68,6 +72,7 @@ class AdvisorTest extends AbstractTestCase
      *
      * @dataProvider rulesProvider
      */
+    #[DataProvider('rulesProvider')]
     public function testAddRule(array $rule, array $expected, ?string $error): void
     {
         parent::setLanguage();

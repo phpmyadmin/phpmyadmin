@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Font;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @covers \PhpMyAdmin\Font
  */
+#[CoversClass(Font::class)]
 class FontTest extends AbstractTestCase
 {
     /** @var Font */

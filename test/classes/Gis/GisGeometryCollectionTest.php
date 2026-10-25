@@ -7,13 +7,15 @@ namespace PhpMyAdmin\Tests\Gis;
 use PhpMyAdmin\Gis\GisGeometryCollection;
 use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use TCPDF;
-
-use function preg_match;
 
 /**
  * @covers \PhpMyAdmin\Gis\GisGeometryCollection
  */
+#[CoversClass(GisGeometryCollection::class)]
 class GisGeometryCollectionTest extends AbstractTestCase
 {
     /** @var GisGeometryCollection */
@@ -47,6 +49,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForScaleRow
      */
+    #[DataProvider('providerForScaleRow')]
     public function testScaleRow(string $spatial, array $output): void
     {
         self::assertEquals($output, $this->object->scaleRow($spatial));
@@ -82,6 +85,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForGenerateWkt
      */
+    #[DataProvider('providerForGenerateWkt')]
     public function testGenerateWkt(array $gis_data, int $index, ?string $empty, string $output): void
     {
         self::assertSame($output, $this->object->generateWkt($gis_data, $index, $empty));
@@ -195,6 +199,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForGenerateParams
      */
+    #[DataProvider('providerForGenerateParams')]
     public function testGenerateParams(string $value, array $output): void
     {
         self::assertSame($output, $this->object->generateParams($value));
@@ -235,6 +240,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
     /**
      * @requires extension gd
      */
+    #[RequiresPhpExtension('gd')]
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
@@ -261,6 +267,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
+    #[DataProvider('providerForPrepareRowAsPdf')]
     public function testPrepareRowAsPdf(
         string $spatial,
         string $label,
@@ -306,6 +313,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
+    #[DataProvider('providerForPrepareRowAsSvg')]
     public function testPrepareRowAsSvg(
         string $spatial,
         string $label,
@@ -314,7 +322,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        self::assertSame(1, preg_match($output, $string));
+        self::assertMatchesRegularExpressionCompat($output, $string);
 
         self::assertMatchesRegularExpressionCompat(
             $output,
@@ -360,6 +368,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @dataProvider providerForPrepareRowAsOl
      */
+    #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
         string $spatial,
         int $srid,

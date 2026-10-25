@@ -11,6 +11,8 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
 
@@ -20,8 +22,10 @@ use const PHP_VERSION_ID;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Export\ExportJson
- * @group medium
+ * @medium
  */
+#[Medium]
+#[CoversClass(ExportJson::class)]
 class ExportJsonTest extends AbstractTestCase
 {
     /** @var ExportJson */

@@ -14,6 +14,10 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function __;
 use function _setlocale;
@@ -47,6 +51,8 @@ const FIELD_TYPE_UNKNOWN = -1;
 /**
  * @covers \PhpMyAdmin\Util
  */
+#[CoversClass(Util::class)]
+#[AllowMockObjectsWithoutExpectations]
 class UtilTest extends AbstractTestCase
 {
     /**
@@ -67,6 +73,10 @@ class UtilTest extends AbstractTestCase
      * @requires extension mbstring
      * @requires extension sodium
      */
+    #[RequiresPhpExtension('mysqli')]
+    #[RequiresPhpExtension('curl')]
+    #[RequiresPhpExtension('mbstring')]
+    #[RequiresPhpExtension('sodium')]
     public function testListPHPExtensions(): void
     {
         self::assertSame([
@@ -268,6 +278,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerGetUniqueConditionForGroupFlag
      */
+    #[DataProvider('providerGetUniqueConditionForGroupFlag')]
     public function testGetUniqueConditionForGroupFlag(array $meta, array $row, array $expected): void
     {
         $fieldsCount = count($meta);
@@ -410,6 +421,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider charsetQueryData
      */
+    #[DataProvider('charsetQueryData')]
     public function testGenerateCharsetQueryPart(string $collation, string $expected): void
     {
         self::assertSame($expected, Util::getCharsetQueryPart($collation));
@@ -515,6 +527,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerConvertBitDefaultValue
      */
+    #[DataProvider('providerConvertBitDefaultValue')]
     public function testConvertBitDefaultValue(?string $bit, string $val): void
     {
         self::assertSame($val, Util::convertBitDefaultValue($bit));
@@ -614,6 +627,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerUnEscapeMysqlWildcards
      */
+    #[DataProvider('providerUnEscapeMysqlWildcards')]
     public function testEscapeMysqlWildcards(string $a, string $b): void
     {
         self::assertSame($a, Util::escapeMysqlWildcards($b));
@@ -627,6 +641,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerUnEscapeMysqlWildcards
      */
+    #[DataProvider('providerUnEscapeMysqlWildcards')]
     public function testUnescapeMysqlWildcards(string $a, string $b): void
     {
         self::assertSame($b, Util::unescapeMysqlWildcards($a));
@@ -640,6 +655,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerExpandUserString
      */
+    #[DataProvider('providerExpandUserString')]
     public function testExpandUserString(string $in, string $out): void
     {
         parent::setGlobalConfig();
@@ -703,6 +719,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerExtractColumnSpec
      */
+    #[DataProvider('providerExtractColumnSpec')]
     public function testExtractColumnSpec(string $in, array $out): void
     {
         $GLOBALS['cfg']['LimitChars'] = 1000;
@@ -851,6 +868,21 @@ class UtilTest extends AbstractTestCase
                     'displayed_type' => 'varchar(11)',
                 ],
             ],
+            [
+                'varchar(11) /*M!100301 COMPRESSED*/',
+                [
+                    'type' => 'varchar',
+                    'print_type' => 'varchar(11)',
+                    'binary' => false,
+                    'unsigned' => false,
+                    'zerofill' => false,
+                    'spec_in_brackets' => '11',
+                    'enum_set_values' => [],
+                    'attribute' => 'COMPRESSED=zlib',
+                    'can_contain_collation' => true,
+                    'displayed_type' => 'varchar(11)',
+                ],
+            ],
         ];
     }
 
@@ -861,6 +893,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerParseEnumSetValues
      */
+    #[DataProvider('providerParseEnumSetValues')]
     public function testParseEnumSetValues(string $in, bool $escapeHTML, array $out): void
     {
         self::assertSame($out, Util::parseEnumSetValues($in, $escapeHTML));
@@ -979,6 +1012,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerExtractValueFromFormattedSize
      */
+    #[DataProvider('providerExtractValueFromFormattedSize')]
     public function testExtractValueFromFormattedSize($size, $expected): void
     {
         self::assertSame($expected, Util::extractValueFromFormattedSize($size));
@@ -1021,6 +1055,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerFormatByteDown
      */
+    #[DataProvider('providerFormatByteDown')]
     public function testFormatByteDown($a, int $b, int $c, array $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
@@ -1230,6 +1265,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerFormatNumber
      */
+    #[DataProvider('providerFormatNumber')]
     public function testFormatNumber($a, int $b, int $c, string $d): void
     {
         $this->assertFormatNumber($a, $b, $c, $d);
@@ -1401,6 +1437,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerGetFormattedMaximumUploadSize
      */
+    #[DataProvider('providerGetFormattedMaximumUploadSize')]
     public function testGetFormattedMaximumUploadSize($size, string $unit, string $res): void
     {
         self::assertSame('(' . __('Max: ') . $res . $unit . ')', Util::getFormattedMaximumUploadSize($size));
@@ -1477,6 +1514,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerGetTitleForTarget
      */
+    #[DataProvider('providerGetTitleForTarget')]
     public function testGetTitleForTarget(string $target, string $result): void
     {
         self::assertSame($result, Util::getTitleForTarget($target));
@@ -1528,6 +1566,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerLocalisedDate
      */
+    #[DataProvider('providerLocalisedDate')]
     public function testLocalisedDate(int $a, string $b, string $e, string $tz, string $locale): void
     {
         // A test case for #15830 could be added for using the php setlocale on a Windows CI
@@ -1549,7 +1588,7 @@ class UtilTest extends AbstractTestCase
      */
     public static function providerLocalisedDate(): array
     {
-        $hasJaTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
+        $hasTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
 
         return [
             [
@@ -1597,21 +1636,21 @@ class UtilTest extends AbstractTestCase
             [
                 1227455558,
                 '%Y-%m-%d %H:%M:%S %a',
-                $hasJaTranslations ? '2008-11-24 00:52:38 月' : '2008-11-24 00:52:38 Mon',
+                $hasTranslations ? '2008-11-24 00:52:38 月' : '2008-11-24 00:52:38 Mon',
                 'Asia/Tokyo',
                 'ja',
             ],
             [
                 1227455558,
                 '%a %A %b %B',
-                $hasJaTranslations ? '月 月 11 月 11 月' : 'Mon Mon Nov Nov',
+                $hasTranslations ? '月 月 11 月 11 月' : 'Mon Mon Nov Nov',
                 'Asia/Tokyo',
                 'ja',
             ],
             [
                 1227455558,
                 '%a %A %b %B %P',
-                $hasJaTranslations ? '月 月 11 月 11 月 午前' : 'Mon Mon Nov Nov AM',
+                $hasTranslations ? '月 月 11 月 11 月 午前' : 'Mon Mon Nov Nov AM',
                 'Asia/Tokyo',
                 'ja',
             ],
@@ -1646,7 +1685,9 @@ class UtilTest extends AbstractTestCase
             [
                 1617153941,
                 '',
-                'mer. 31 mars 2021 à 03:25',// No format uses format "%B %d, %Y at %I:%M %p"
+                $hasTranslations
+                    ? 'mer. 31 mars 2021 à 03:25'
+                    : 'Mar 31, 2021 at 03:25 AM',// No format uses format "%B %d, %Y at %I:%M %p"
                 'Europe/Paris',
                 'fr',
             ],
@@ -1661,6 +1702,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerTimespanFormat
      */
+    #[DataProvider('providerTimespanFormat')]
     public function testTimespanFormat(int $a, string $e): void
     {
         $GLOBALS['timespanfmt'] = '%s days, %s hours, %s minutes and %s seconds';
@@ -1700,6 +1742,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerPrintableBitValue
      */
+    #[DataProvider('providerPrintableBitValue')]
     public function testPrintableBitValue(int $a, int $b, string $e): void
     {
         self::assertSame($e, Util::printableBitValue($a, $b));
@@ -1734,6 +1777,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerUnQuote
      */
+    #[DataProvider('providerUnQuote')]
     public function testUnQuote(string $param, string $expected): void
     {
         self::assertSame($expected, Util::unQuote($param));
@@ -1774,6 +1818,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerUnQuoteSelectedChar
      */
+    #[DataProvider('providerUnQuoteSelectedChar')]
     public function testUnQuoteSelectedChar(string $param, string $expected): void
     {
         self::assertSame($expected, Util::unQuote($param, '"'));
@@ -1809,6 +1854,7 @@ class UtilTest extends AbstractTestCase
     /**
      * @dataProvider providerForTestBackquote
      */
+    #[DataProvider('providerForTestBackquote')]
     public function testBackquote(?string $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
     {
         self::assertSame($expectedNoneOutput, Util::backquote($entry));
@@ -1884,6 +1930,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerUserDir
      */
+    #[DataProvider('providerUserDir')]
     public function testUserDir(string $a, string $e): void
     {
         $GLOBALS['cfg']['Server']['user'] = 'root';
@@ -1909,6 +1956,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerDuplicateFirstNewline
      */
+    #[DataProvider('providerDuplicateFirstNewline')]
     public function testDuplicateFirstNewline(string $a, string $e): void
     {
         self::assertSame($e, Util::duplicateFirstNewline($a));
@@ -1963,6 +2011,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerIsInteger
      */
+    #[DataProvider('providerIsInteger')]
     public function testIsInteger(bool $expected, $input): void
     {
         $isInteger = Util::isInteger($input);
@@ -2008,6 +2057,7 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider providerForwardedHeaders
      */
+    #[DataProvider('providerForwardedHeaders')]
     public function testGetProtoFromForwardedHeader(string $header, string $proto): void
     {
         $protocolDetected = Util::getProtoFromForwardedHeader($header);
@@ -2118,12 +2168,10 @@ class UtilTest extends AbstractTestCase
 
     public function testCurrentUserHasPrivilegeSkipGrantTables(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['', '']));
+            ->willReturn(['', '']);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2133,19 +2181,17 @@ class UtilTest extends AbstractTestCase
 
     public function testCurrentUserHasUserPrivilege(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
+            ->willReturn(['groot_%', '%']);
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with(
                 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
                 . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
             )
-            ->will($this->returnValue('EVENT'));
+            ->willReturn('EVENT');
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2155,19 +2201,17 @@ class UtilTest extends AbstractTestCase
 
     public function testCurrentUserHasNotUserPrivilege(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
+            ->willReturn(['groot_%', '%']);
         $dbi->expects($this->once())
             ->method('fetchValue')
             ->with(
                 'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
                 . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
             )
-            ->will($this->returnValue(false));
+            ->willReturn(false);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2175,9 +2219,6 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testCurrentUserHasNotUserPrivilegeButDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2187,21 +2228,25 @@ class UtilTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(2))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, 'EVENT');
+            ->willReturn(['groot_%', '%']);
+
+        $dbi->expects(self::exactly(2))->method('fetchValue')->willReturnMap([
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                'EVENT',
+            ],
+        ]);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2209,9 +2254,6 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2221,21 +2263,25 @@ class UtilTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(2))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, false);
+            ->willReturn(['groot_%', '%']);
+
+        $dbi->expects(self::exactly(2))->method('fetchValue')->willReturnMap([
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+        ]);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2243,9 +2289,6 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeButTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2255,26 +2298,33 @@ class UtilTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(3))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, false, 'EVENT');
+            ->willReturn(['groot_%', '%']);
+
+        $dbi->expects(self::exactly(3))->method('fetchValue')->willReturnMap([
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                'EVENT',
+            ],
+        ]);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2282,9 +2332,6 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['dbi'] = $oldDbi;
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeAndNotTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2294,26 +2341,33 @@ class UtilTest extends AbstractTestCase
 
         $dbi->expects($this->once())
             ->method('getCurrentUserAndHost')
-            ->will($this->returnValue(['groot_%', '%']));
-        $dbi->expects($this->exactly(3))
-            ->method('fetchValue')
-            ->withConsecutive(
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
-                ],
-                [
-                    'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
-                . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
-                . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
-                ]
-            )
-            ->willReturnOnConsecutiveCalls(false, false, false);
+            ->willReturn(['groot_%', '%']);
+
+        $dbi->expects(self::exactly(3))->method('fetchValue')->willReturnMap([
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA`",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+            [
+                'SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES`'
+                    . " WHERE GRANTEE='''groot_%''@''%''' AND PRIVILEGE_TYPE='EVENT'"
+                    . " AND 'my_data_base' LIKE `TABLE_SCHEMA` AND TABLE_NAME='my_data_table'",
+                0,
+                DatabaseInterface::CONNECT_USER,
+                false,
+            ],
+        ]);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2486,6 +2540,7 @@ class UtilTest extends AbstractTestCase
     /**
      * @dataProvider dataProviderScriptNames
      */
+    #[DataProvider('dataProviderScriptNames')]
     public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
     {
         self::assertSame($finalLink, Util::getScriptNameForOption($target, $location));
@@ -2500,19 +2555,14 @@ class UtilTest extends AbstractTestCase
      *
      * @dataProvider provideForTestIsUUIDSupported
      */
+    #[DataProvider('provideForTestIsUUIDSupported')]
     public function testIsUUIDSupported(bool $isMariaDB, int $version, bool $expected): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects($this->any())
-            ->method('isMariaDB')
-            ->will($this->returnValue($isMariaDB));
+        $dbi->method('isMariaDB')->willReturn($isMariaDB);
 
-        $dbi->expects($this->any())
-            ->method('getVersion')
-            ->will($this->returnValue($version));
+        $dbi->method('getVersion')->willReturn($version);
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
@@ -2547,6 +2597,118 @@ class UtilTest extends AbstractTestCase
             [
                 true,
                 100700,
+                true,
+            ],
+        ];
+    }
+
+    /**
+     * Tests for Util::testIsUUIDv4Supported() method.
+     *
+     * @param bool $isMariaDB True if mariadb
+     * @param int  $version   Database version as integer
+     * @param bool $expected  Expected Result
+     *
+     * @dataProvider provideForTestIsUUIDv4Supported
+     */
+    #[DataProvider('provideForTestIsUUIDv4Supported')]
+    public function testIsUUIDv4Supported(bool $isMariaDB, int $version, bool $expected): void
+    {
+        $dbi = $this->createMock(DatabaseInterface::class);
+
+        $dbi->method('isMariaDB')->willReturn($isMariaDB);
+
+        $dbi->method('getVersion')->willReturn($version);
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        self::assertSame(Util::isUUIDv4Supported(), $expected);
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    /**
+     * Data provider for isUUIDv4Supported() tests.
+     *
+     * @return array
+     * @psalm-return array<int, array{bool, int, bool}>
+     */
+    public static function provideForTestIsUUIDv4Supported(): array
+    {
+        return [
+            [
+                false,
+                60100,
+                false,
+            ],
+            [
+                false,
+                110700,
+                false,
+            ],
+            [
+                true,
+                60100,
+                false,
+            ],
+            [
+                true,
+                110700,
+                true,
+            ],
+        ];
+    }
+
+    /**
+     * Tests for Util::testIsUUIDv7Supported() method.
+     *
+     * @param bool $isMariaDB True if mariadb
+     * @param int  $version   Database version as integer
+     * @param bool $expected  Expected Result
+     *
+     * @dataProvider provideForTestIsUUIDv7Supported
+     */
+    #[DataProvider('provideForTestIsUUIDv7Supported')]
+    public function testIsUUIDv7Supported(bool $isMariaDB, int $version, bool $expected): void
+    {
+        $dbi = $this->createMock(DatabaseInterface::class);
+
+        $dbi->method('isMariaDB')->willReturn($isMariaDB);
+
+        $dbi->method('getVersion')->willReturn($version);
+
+        $oldDbi = $GLOBALS['dbi'];
+        $GLOBALS['dbi'] = $dbi;
+        self::assertSame(Util::isUUIDv7Supported(), $expected);
+        $GLOBALS['dbi'] = $oldDbi;
+    }
+
+    /**
+     * Data provider for isUUIDv7Supported() tests.
+     *
+     * @return array
+     * @psalm-return array<int, array{bool, int, bool}>
+     */
+    public static function provideForTestIsUUIDv7Supported(): array
+    {
+        return [
+            [
+                false,
+                60100,
+                false,
+            ],
+            [
+                false,
+                110700,
+                false,
+            ],
+            [
+                true,
+                60100,
+                false,
+            ],
+            [
+                true,
+                110700,
                 true,
             ],
         ];
