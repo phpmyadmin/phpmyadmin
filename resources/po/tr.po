@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-25 00:40+0000\n"
-"PO-Revision-Date: 2026-10-19 01:51+0000\n"
+"PO-Revision-Date: 2026-10-25 08:31+0000\n"
 "Last-Translator: Burak Yavuz <bourock@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -1867,10 +1867,8 @@ msgstr "Farklı ekle"
 
 #. l10n: Short label for the comparison operator of a criteria row (=, >, LIKE, IN, BETWEEN…)
 #: resources/templates/database/multi_table_query/form.twig:90
-#, fuzzy
-#| msgid "Open"
 msgid "Op"
-msgstr "Açık"
+msgstr "Op"
 
 #: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
@@ -2479,10 +2477,9 @@ msgid "Inside column:"
 msgstr "İç sütun:"
 
 #: resources/templates/database/search/results.twig:3
-#, fuzzy, php-format
-#| msgid "Search results for \"<i>%s</i>\" %s:"
+#, php-format
 msgid "Search results for \"%s\" %s:"
-msgstr "\"<i>%s</i>\" %s için arama sonuçları:"
+msgstr "\"%s\" %s için arama sonuçları:"
 
 #: resources/templates/database/search/results.twig:11
 #, php-format
@@ -3090,10 +3087,8 @@ msgid "Error"
 msgstr "Hata"
 
 #: resources/templates/error/get_display.twig:9
-#, fuzzy
-#| msgid "Back"
 msgid "Backtrace"
-msgstr "Geri"
+msgstr "Geri izleme"
 
 #: resources/templates/error/report_form.twig:3
 msgid ""
@@ -12793,16 +12788,12 @@ msgid "Please enter the SQL query first."
 msgstr "Lütfen önce SQL sorgusu girin."
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#, fuzzy
-#| msgid "With selected:"
 msgid "Nothing selected"
-msgstr "Seçilileri:"
+msgstr "Hiçbir şey seçilmedi"
 
 #: src/Controllers/JavaScriptMessagesController.php:146
-#, fuzzy
-#| msgid "Extra options"
 msgid "Enter an option"
-msgstr "Fazladan seçenekler"
+msgstr "Bir seçenek girin"
 
 #: src/Controllers/JavaScriptMessagesController.php:149
 msgid "The host name is empty!"
@@ -13487,16 +13478,12 @@ msgid "Create the following table"
 msgstr "Aşağıdaki tabloyu oluştur"
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#, fuzzy
-#| msgid "New table name"
 msgid "Enter new table name"
-msgstr "Yeni tablo adı"
+msgstr "Yeni tablo adı girin"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
-#| msgid "New column name"
 msgid "Enter column name"
-msgstr "Yeni sütun adı"
+msgstr "Yeni sütun adı girin"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Third step of normalization (3NF)"
@@ -13576,10 +13563,8 @@ msgstr ""
 "Çizim en alt sağ köşe boyunca sürüklenerek yeniden boyutlandırılabilir."
 
 #: src/Controllers/JavaScriptMessagesController.php:462
-#, fuzzy
-#| msgid "Zoom search"
 msgid "Zoom search instructions"
-msgstr "Odaklı arama"
+msgstr "Odaklı arama talimatları"
 
 #: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Select two columns"
