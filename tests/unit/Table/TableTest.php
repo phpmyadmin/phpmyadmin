@@ -1225,6 +1225,38 @@ class TableTest extends AbstractTestCase
         self::assertSame($expect, $result);
     }
 
+    public function testGenerateAlterWithInvisibleAndCheck(): void
+    {
+        $result = Table::generateAlter(
+            'price',
+            'price',
+            'INT',
+            '',
+            '',
+            '',
+            'NO',
+            'NONE',
+            '',
+            '',
+            'Price',
+            '',
+            '',
+            '',
+            null,
+            true,
+            '`price` > 0',
+        );
+
+        self::assertSame("`price` `price` INT NOT NULL INVISIBLE COMMENT 'Price' CHECK (`price` > 0)", $result);
+    }
+
+    public function testGenerateAlterDropsInvisibleAndCheck(): void
+    {
+        $result = Table::generateAlter('price', 'price', 'INT', '', '', '', 'NO', 'NONE', '', '', '', '', '', '');
+
+        self::assertSame('`price` `price` INT NOT NULL', $result);
+    }
+
     /**
      * Test for rename
      */

@@ -406,6 +406,8 @@ class Table implements Stringable
      * @param string              $moveTo           new position for column
      * @param (string|int)[]|null $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
      * @param string|null         $oldColumnName    Old column name
+     * @param bool                $invisible        whether the column is INVISIBLE
+     * @param string              $check            expression of a column-level CHECK constraint
      *
      * @return string  field specification
      *
@@ -429,6 +431,8 @@ class Table implements Stringable
         string $moveTo = '',
         array|null $columnsWithIndex = null,
         string|null $oldColumnName = null,
+        bool $invisible = false,
+        string $check = '',
     ): string {
         $isTimestamp = mb_stripos($type, 'TIMESTAMP') !== false;
 
@@ -590,8 +594,16 @@ class Table implements Stringable
             }
         }
 
+        if ($invisible) {
+            $query .= ' INVISIBLE';
+        }
+
         if ($comment !== '') {
             $query .= ' COMMENT ' . $dbi->quoteString($comment);
+        }
+
+        if ($check !== '') {
+            $query .= ' CHECK (' . $check . ')';
         }
 
         // move column
@@ -743,6 +755,8 @@ class Table implements Stringable
      * @param string              $expression       expression for the virtual column
      * @param string              $moveTo           new position for column
      * @param (string|int)[]|null $columnsWithIndex Fields having PRIMARY or UNIQUE KEY indexes
+     * @param bool                $invisible        whether the column is INVISIBLE
+     * @param string              $check            expression of a column-level CHECK constraint
      *
      * @return string  field specification
      */
@@ -762,6 +776,8 @@ class Table implements Stringable
         string $expression,
         string $moveTo,
         array|null $columnsWithIndex = null,
+        bool $invisible = false,
+        string $check = '',
     ): string {
         return Util::backquote($oldcol) . ' '
         . self::generateFieldSpec(
@@ -780,6 +796,8 @@ class Table implements Stringable
             $moveTo,
             $columnsWithIndex,
             $oldcol,
+            $invisible,
+            $check,
         );
     }
 

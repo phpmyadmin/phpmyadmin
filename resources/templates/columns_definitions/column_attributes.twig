@@ -134,15 +134,28 @@
 {% endif %}
 <td class="text-center">
   <input name="field_extra[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="AUTO_INCREMENT" class="form-check-input"
-    {{- column_meta['Extra'] is defined and column_meta['Extra']|lower == 'auto_increment' ? ' checked' }}>
+    {{- column_meta['Extra'] is defined and 'auto_increment' in column_meta['Extra']|lower|split(' ') ? ' checked' }}>
   {% set ci = ci + 1 %}
 </td>
+{% if is_invisible_columns_supported %}
+  <td class="text-center">
+    <input name="field_invisible[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="1" class="form-check-input"
+      {{- column_meta['Invisible'] is defined and column_meta['Invisible'] ? ' checked' }}>
+    {% set ci = ci + 1 %}
+  </td>
+{% endif %}
 <td class="text-center">
   <textarea id="field_{{ column_number }}_{{ ci - ci_offset }}" rows="1" name="field_comments[{{ column_number }}]" maxlength="{{ max_length }}" class="form-control" style="resize: both;">
     {{- column_meta['Field'] is defined and comments_map is iterable and comments_map[column_meta['Field']] is defined ? comments_map[column_meta['Field']] -}}
   </textarea>
   {% set ci = ci + 1 %}
 </td>
+{% if is_column_check_supported %}
+  <td class="text-center">
+    <input type="text" name="field_check[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" size="15" value="{{ column_meta['Check'] is defined ? column_meta['Check'] }}" class="textfield form-control">
+    {% set ci = ci + 1 %}
+  </td>
+{% endif %}
  {# column virtuality #}
 {% if is_virtual_columns_supported %}
     <td class="text-center">

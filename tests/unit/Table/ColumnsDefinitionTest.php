@@ -23,6 +23,140 @@ use const MYSQLI_TYPE_STRING;
 #[CoversClass(ColumnsDefinition::class)]
 class ColumnsDefinitionTest extends AbstractTestCase
 {
+    public function testDisplayFormWithInvisibleColumnAndCheck(): void
+    {
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $dbi->setVersion(['@@version' => '10.6.0-MariaDB']);
+        DatabaseInterface::$instance = $dbi;
+
+        // phpcs:disable Generic.Files.LineLength.TooLong
+        $columnMeta = ['Field' => 'actor_id', 'Type' => 'smallint(5) unsigned', 'Collation' => null, 'Null' => 'NO', 'Key' => 'PRI', 'Default' => null, 'Extra' => 'auto_increment INVISIBLE', 'Privileges' => 'select,insert,update,references', 'Comment' => ''];
+        $dummyDbi->addResult(
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'sakila\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'actor\''
+                . ' ORDER BY `ORDINAL_POSITION`',
+            [
+                ['actor_id', 'smallint(5) unsigned', null, 'NO', 'PRI', null, 'auto_increment', 'select,insert,update,references', ''],
+                ['first_name', 'varchar(45)', 'utf8mb4_general_ci', 'NO', '', null, '', 'select,insert,update,references', ''],
+                ['last_name', 'varchar(45)', 'utf8mb4_general_ci', 'NO', 'MUL', null, '', 'select,insert,update,references', ''],
+                ['last_update', 'timestamp', null, 'NO', '', 'current_timestamp()', 'on update current_timestamp()', 'select,insert,update,references', ''],
+            ],
+            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
+        );
+        $dummyDbi->addResult(
+            'SHOW INDEXES FROM `sakila`.`actor`',
+            [
+                ['actor', '0', 'PRIMARY', '1', 'actor_id', 'A', '2', null, null, '', 'BTREE', '', '', 'NO'],
+                ['actor', '1', 'idx_actor_last_name', '1', 'last_name', 'A', '2', null, null, '', 'BTREE', '', '', 'NO'],
+            ],
+            ['Table', 'Non_unique', 'Key_name', 'Seq_in_index', 'Column_name', 'Collation', 'Cardinality', 'Sub_part', 'Packed', 'Null', 'Index_type', 'Comment', 'Index_comment', 'Ignored'],
+        );
+        // phpcs:enable
+        $dummyDbi->addResult(
+            'SELECT * FROM `sakila`.`actor` LIMIT 0',
+            [],
+            ['actor_id', 'first_name', 'last_name', 'last_update'],
+        );
+        $createTable = <<<'SQL'
+            CREATE TABLE `actor` (
+            `actor_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+            `first_name` varchar(45) NOT NULL,
+            `last_name` varchar(45) NOT NULL,
+            `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+            PRIMARY KEY (`actor_id`),
+            KEY `idx_actor_last_name` (`last_name`)
+            ) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8mb4
+            SQL;
+        $dummyDbi->addResult(
+            'SHOW CREATE TABLE `sakila`.`actor`',
+            [['actor', $createTable]],
+            ['actor_id', 'first_name', 'last_name', 'last_update'],
+        );
+
+        $dummyDbi->addResult(
+            'SELECT `CONSTRAINT_NAME`, `CHECK_CLAUSE` FROM `information_schema`.`CHECK_CONSTRAINTS`'
+            . ' WHERE `CONSTRAINT_SCHEMA` = \'sakila\' AND `TABLE_NAME` = \'actor\''
+            . " AND `LEVEL` = 'Column'",
+            [['actor_id', '`actor_id` > 0']],
+            ['CONSTRAINT_NAME', 'CHECK_CLAUSE'],
+        );
+
+        $relation = new Relation($dbi);
+        $columnsDefinition = new ColumnsDefinition($dbi, $relation, new Transformations($dbi, $relation));
+
+        Current::$database = 'sakila';
+        Current::$table = 'actor';
+        $userPrivileges = new UserPrivileges(column: true, isReload: true);
+
+        $actual = $columnsDefinition->displayForm(
+            $userPrivileges,
+            '/table/structure/save',
+            1,
+            ['actor_id'],
+            [$columnMeta],
+        );
+
+        self::assertTrue($actual['is_invisible_columns_supported']);
+        self::assertTrue($actual['is_column_check_supported']);
+        self::assertIsArray($actual['content_cells']);
+        self::assertIsArray($actual['content_cells'][0]);
+        $cellMeta = $actual['content_cells'][0]['column_meta'];
+        self::assertIsArray($cellMeta);
+        self::assertTrue($cellMeta['Invisible']);
+        self::assertSame('`actor_id` > 0', $cellMeta['Check']);
+        self::assertIsArray($actual['form_params']);
+        self::assertSame('1', $actual['form_params']['field_invisible_orig[0]']);
+        self::assertSame('`actor_id` > 0', $actual['form_params']['field_check_orig[0]']);
+    }
+
+    public function testDisplayFormRegeneratesInvisibleAndCheck(): void
+    {
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
+
+        $dummyDbi->addResult(
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'sakila\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'\''
+                . ' ORDER BY `ORDINAL_POSITION`',
+            [],
+            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
+        );
+
+        $_POST = [
+            'submit_num_fields' => '1',
+            'field_name' => ['price'],
+            'field_type' => ['INT'],
+            'field_invisible' => ['1'],
+            'field_check' => ['`price` > 0'],
+        ];
+
+        $relation = new Relation($dbi);
+        $columnsDefinition = new ColumnsDefinition($dbi, $relation, new Transformations($dbi, $relation));
+        Current::$database = 'sakila';
+        Current::$table = '';
+
+        $actual = $columnsDefinition->displayForm(new UserPrivileges(), '/table/create', 1);
+
+        self::assertIsArray($actual['content_cells']);
+        self::assertIsArray($actual['content_cells'][0]);
+        $cellMeta = $actual['content_cells'][0]['column_meta'];
+        self::assertIsArray($cellMeta);
+        self::assertTrue($cellMeta['Invisible']);
+        self::assertSame('`price` > 0', $cellMeta['Check']);
+    }
+
     public function testDisplayForm(): void
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
@@ -96,7 +230,10 @@ class ColumnsDefinitionTest extends AbstractTestCase
 
         $contentCell = [
             'column_number' => 0,
-            'column_meta' => array_merge($columnMeta, ['DefaultType' => 'NONE', 'DefaultValue' => '']),
+            'column_meta' => array_merge(
+                $columnMeta,
+                ['DefaultType' => 'NONE', 'DefaultValue' => '', 'Invisible' => false, 'Check' => ''],
+            ),
             'type_upper' => 'SMALLINT',
             'default_value' => '',
             'length_values_input_size' => 8,
@@ -147,6 +284,8 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 'field_attribute_orig[0]' => 'UNSIGNED',
                 'field_null_orig[0]' => 'NO',
                 'field_extra_orig[0]' => 'auto_increment',
+                'field_invisible_orig[0]' => '',
+                'field_check_orig[0]' => '',
                 'field_comments_orig[0]' => '',
                 'field_virtuality_orig[0]' => '',
                 'field_expression_orig[0]' => '',
@@ -202,6 +341,8 @@ class ColumnsDefinitionTest extends AbstractTestCase
             'connection' => null,
             'change_column' => null,
             'is_virtual_columns_supported' => true,
+            'is_invisible_columns_supported' => false,
+            'is_column_check_supported' => false,
             'is_integers_length_restricted' => false,
             'browse_mime' => true,
             'supports_stored_keyword' => true,
@@ -312,6 +453,24 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 false,
                 ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => ''],
             ],
+        ];
+    }
+
+    #[DataProvider('providerIsInvisible')]
+    public function testIsInvisible(bool $expected, string $extra): void
+    {
+        self::assertSame($expected, ColumnsDefinition::isInvisible($extra));
+    }
+
+    /** @return array<string, array{bool, string}> */
+    public static function providerIsInvisible(): array
+    {
+        return [
+            'MariaDB' => [true, 'INVISIBLE'],
+            'MySQL generated invisible primary key' => [true, 'auto_increment INVISIBLE'],
+            'MySQL' => [true, 'DEFAULT_GENERATED INVISIBLE'],
+            'visible' => [false, 'auto_increment'],
+            'empty' => [false, ''],
         ];
     }
 }

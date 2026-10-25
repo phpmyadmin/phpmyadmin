@@ -301,6 +301,35 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         return [
             [
+                'ALTER TABLE `my_table` ADD `dd` INT NOT NULL DEFAULT \'0\' INVISIBLE CHECK (`dd` >= 0) AFTER `d`;',
+                [
+                    'db' => '2fa',
+                    'field_where' => 'after',
+                    'after_field' => 'd',
+                    'table' => 'aes',
+                    'orig_num_fields' => '1',
+                    'primary_indexes' => '[]',
+                    'unique_indexes' => '[]',
+                    'indexes' => '[]',
+                    'fulltext_indexes' => '[]',
+                    'spatial_indexes' => '[]',
+                    'field_name' => ['dd'],
+                    'field_type' => ['INT'],
+                    'field_length' => [''],
+                    'field_default_type' => ['USER_DEFINED'],
+                    'field_default_value' => ['0'],
+                    'field_collation' => [''],
+                    'field_attribute' => [''],
+                    'field_key' => ['none_0'],
+                    'field_invisible' => ['1'],
+                    'field_comments' => [''],
+                    'field_check' => ['`dd` >= 0'],
+                    'field_virtuality' => [''],
+                    'field_expression' => [''],
+                    'do_save_data' => '1',
+                ],
+            ],
+            [
                 'ALTER TABLE `my_table` ADD `dd` INT NOT NULL AFTER `d`;',
                 [
                     'db' => '2fa',

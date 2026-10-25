@@ -143,6 +143,48 @@ class CompatibilityTest extends TestCase
         ];
     }
 
+    #[DataProvider('providerForTestIsInvisibleColumnsSupported')]
+    public function testIsInvisibleColumnsSupported(bool $expected, bool $isMariaDb, int $version): void
+    {
+        $dbiStub = self::createStub(DatabaseInterface::class);
+
+        $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
+
+        self::assertSame($expected, Compatibility::isInvisibleColumnsSupported($dbiStub, $version));
+    }
+
+    /** @return array<string, array{bool, bool, int}> */
+    public static function providerForTestIsInvisibleColumnsSupported(): array
+    {
+        return [
+            'MySQL 8.0.22' => [false, false, 80022],
+            'MySQL 8.0.23' => [true, false, 80023],
+            'MariaDB 10.3.2' => [false, true, 100302],
+            'MariaDB 10.3.3' => [true, true, 100303],
+        ];
+    }
+
+    #[DataProvider('providerForTestIsColumnCheckSupported')]
+    public function testIsColumnCheckSupported(bool $expected, bool $isMariaDb, int $version): void
+    {
+        $dbiStub = self::createStub(DatabaseInterface::class);
+
+        $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
+
+        self::assertSame($expected, Compatibility::isColumnCheckSupported($dbiStub, $version));
+    }
+
+    /** @return array<string, array{bool, bool, int}> */
+    public static function providerForTestIsColumnCheckSupported(): array
+    {
+        return [
+            'MySQL 8.4.0' => [false, false, 80400],
+            'MariaDB 10.5.9' => [false, true, 100509],
+            'MariaDB 10.5.10' => [true, true, 100510],
+            'MariaDB 11.8.0' => [true, true, 110800],
+        ];
+    }
+
     #[DataProvider('providerForTestIsJsonSupported')]
     public function testIsJsonSupported(bool $expected, bool $isMariaDb, int $version): void
     {
