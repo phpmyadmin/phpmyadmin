@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-18 00:40+0000\n"
+"POT-Creation-Date: 2026-10-25 00:40+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Welsh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -70,7 +70,7 @@ msgstr ""
 
 #: resources/templates/base.twig:99
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:216 src/Menu.php:479
+#: src/Controllers/JavaScriptMessagesController.php:220 src/Menu.php:479
 #: src/Util.php:1376
 #, fuzzy
 #| msgid "General relation features"
@@ -84,7 +84,7 @@ msgid "Log out"
 msgstr ""
 
 #: resources/templates/base.twig:112
-#: src/Controllers/JavaScriptMessagesController.php:316
+#: src/Controllers/JavaScriptMessagesController.php:320
 #, fuzzy
 #| msgid "General relation features"
 msgid "Page-related settings"
@@ -151,7 +151,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:215
+#: src/Controllers/Table/StructureController.php:200
 msgid "Primary"
 msgstr "Cynradd"
 
@@ -173,7 +173,7 @@ msgstr "Unigryw"
 #: resources/templates/table/structure/display_structure.twig:290
 #: resources/templates/table/structure/display_table_stats.twig:22
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:29
-#: src/Controllers/Table/StructureController.php:219
+#: src/Controllers/Table/StructureController.php:204
 #: src/Navigation/Nodes/NodeIndex.php:27
 msgid "Index"
 msgstr "Indecs"
@@ -223,7 +223,7 @@ msgstr ""
 #: resources/templates/table/zoom_search/index.twig:62
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
-#: src/Controllers/JavaScriptMessagesController.php:219
+#: src/Controllers/JavaScriptMessagesController.php:223
 #: src/Display/Results.php:921 src/Plugins/Export/ExportSql.php:1970
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
@@ -257,10 +257,10 @@ msgstr "Colofnau"
 #: resources/templates/database/operations/index.twig:76
 #: resources/templates/database/operations/index.twig:186
 #: resources/templates/database/operations/index.twig:226
-#: resources/templates/database/routines/editor_form.twig:186
+#: resources/templates/database/routines/editor_form.twig:185
 #: resources/templates/database/routines/execute_form.twig:63
 #: resources/templates/display/results/table.twig:279
-#: resources/templates/events/editor-form.twig:121
+#: resources/templates/events/editor-form.twig:120
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
 #: resources/templates/modals/enum_set_editor.twig:10
@@ -299,10 +299,10 @@ msgstr "Colofnau"
 #: resources/templates/table/structure/display_structure.twig:451
 #: resources/templates/table/structure/display_structure.twig:569
 #: resources/templates/table/zoom_search/index.twig:150
-#: resources/templates/triggers/editor_form.twig:75
-#: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
-#: src/Controllers/JavaScriptMessagesController.php:312
-#: src/Controllers/Server/PrivilegesController.php:316
+#: resources/templates/triggers/editor_form.twig:74
+#: resources/templates/view_create.twig:122 src/BrowseForeigners.php:180
+#: src/Controllers/JavaScriptMessagesController.php:316
+#: src/Controllers/Server/PrivilegesController.php:319
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
 msgid "Go"
@@ -363,7 +363,7 @@ msgstr "Trawsffurfiad porwr"
 #: resources/templates/table/relation/common_form.twig:141
 #: resources/templates/table/structure/display_structure.twig:333
 #: resources/templates/table/structure/display_structure.twig:343
-#: src/Controllers/JavaScriptMessagesController.php:131
+#: src/Controllers/JavaScriptMessagesController.php:132
 msgid "Preview SQL"
 msgstr ""
 
@@ -377,7 +377,7 @@ msgstr ""
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:432
+#: src/Controllers/JavaScriptMessagesController.php:436
 msgid "Save"
 msgstr "Cadw"
 
@@ -480,7 +480,7 @@ msgstr "llwytho"
 #: resources/templates/triggers/list.twig:90
 #: resources/templates/triggers/list.twig:102
 #: resources/templates/triggers/list.twig:106
-#: src/Controllers/JavaScriptMessagesController.php:155
+#: src/Controllers/JavaScriptMessagesController.php:159
 #: src/Tracking/Tracking.php:201 src/Tracking/Tracking.php:541
 msgid "Close"
 msgstr "Cau"
@@ -499,6 +499,7 @@ msgstr "Dewis Allwedd Estron"
 #: resources/templates/columns_definitions/column_name.twig:16
 #: resources/templates/database/data_dictionary/index.twig:23
 #: resources/templates/database/data_dictionary/index.twig:78
+#: resources/templates/database/multi_table_query/form.twig:81
 #: resources/templates/indexes.twig:21
 #: resources/templates/table/index_form.twig:141
 #: resources/templates/table/insert/get_head_and_foot_of_insert_row_table.twig:10
@@ -645,7 +646,7 @@ msgstr "Defnyddiwr"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:16
 #: resources/templates/database/central_columns/edit.twig:3
 #: resources/templates/database/export/index.twig:23
-#: resources/templates/database/structure/structure_table_row.twig:48
+#: resources/templates/database/structure/structure_table_row.twig:47
 #: resources/templates/server/privileges/privileges_table.twig:357
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:2
 #: src/Config/ConfigFile.php:518 src/Config/ConfigFile.php:532
@@ -653,7 +654,7 @@ msgstr "Defnyddiwr"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:695
+#: src/Controllers/JavaScriptMessagesController.php:699
 #: src/Import/Import.php:1160 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
@@ -731,7 +732,7 @@ msgstr ""
 #: resources/templates/database/central_columns/main.twig:28
 #: resources/templates/database/central_columns/main.twig:238
 #: resources/templates/database/data_dictionary/index.twig:26
-#: resources/templates/database/structure/body_for_table_summary.twig:43
+#: resources/templates/database/structure/body_for_table_summary.twig:42
 #: resources/templates/server/replication/replica_configuration.twig:9
 #: resources/templates/table/structure/display_structure.twig:26
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:12
@@ -901,14 +902,14 @@ msgstr "Ystadegau cronfeydd data"
 #: resources/templates/components/_preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:44
 #: src/Controllers/Database/Structure/EmptyTableController.php:41
-#: src/Controllers/Operations/TableController.php:334
+#: src/Controllers/Operations/TableController.php:320
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:289
 msgid "No change"
 msgstr "Dim newid"
 
 #: resources/templates/config/form_display/display.twig:46
-#: src/Controllers/JavaScriptMessagesController.php:317
+#: src/Controllers/JavaScriptMessagesController.php:321
 msgid "Apply"
 msgstr ""
 
@@ -925,8 +926,8 @@ msgstr "Ailosod"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:672 src/Html/MySQLDocumentation.php:51
-#: src/Sanitize.php:189
+#: src/Html/Generator.php:672 src/Html/MySQLDocumentation.php:53
+#: src/Sanitize.php:183
 msgid "Documentation"
 msgstr "Dogfennaeth"
 
@@ -987,10 +988,10 @@ msgstr "Analluogwyd"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
 #: src/Controllers/Database/Structure/DropTableController.php:43
 #: src/Controllers/Database/Structure/EmptyTableController.php:40
-#: src/Controllers/JavaScriptMessagesController.php:482
+#: src/Controllers/JavaScriptMessagesController.php:486
 #: src/Controllers/Table/DeleteRowsController.php:35
 #: src/Controllers/Table/DropColumnController.php:46
-#: src/Controllers/Table/Structure/PrimaryController.php:101
+#: src/Controllers/Table/Structure/PrimaryController.php:84
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:474
 #: src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
@@ -1026,7 +1027,7 @@ msgstr "Ie"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:35
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:28
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:29
-#: src/Controllers/JavaScriptMessagesController.php:344
+#: src/Controllers/JavaScriptMessagesController.php:348
 #: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:448
 #: src/Indexes/Index.php:474 src/Plugins/Export/ExportHtmlword.php:515
 #: src/Plugins/Export/ExportLatex.php:532 src/Plugins/Export/ExportOdt.php:623
@@ -1081,7 +1082,7 @@ msgstr "mewn ymholiad"
 #: resources/templates/database/central_columns/main.twig:382
 #: resources/templates/database/routines/row.twig:20
 #: resources/templates/database/routines/row.twig:23
-#: resources/templates/database/structure/structure_table_row.twig:66
+#: resources/templates/database/structure/structure_table_row.twig:65
 #: resources/templates/display/results/table.twig:319
 #: resources/templates/display/results/table.twig:320
 #: resources/templates/events/index.twig:77
@@ -1095,7 +1096,7 @@ msgstr "mewn ymholiad"
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
-#: src/Controllers/JavaScriptMessagesController.php:380
+#: src/Controllers/JavaScriptMessagesController.php:384
 #: src/Display/Results.php:1834 src/Html/Generator.php:520
 #: src/Html/Generator.php:777
 msgid "Edit"
@@ -1114,7 +1115,7 @@ msgstr "Golygu"
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
-#: src/Controllers/JavaScriptMessagesController.php:382
+#: src/Controllers/JavaScriptMessagesController.php:386
 #: src/Display/Results.php:2362 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "Dileu"
@@ -1136,8 +1137,8 @@ msgstr "Dileu"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:932 src/Plugins/Export/ExportHtmlword.php:145
 #: src/Plugins/Export/ExportOdt.php:182
-#: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1561
-#: src/Server/Privileges.php:1563 src/Server/Status/Processes.php:107
+#: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1557
+#: src/Server/Privileges.php:1559 src/Server/Status/Processes.php:107
 msgid "Database"
 msgstr "Cronfa ddata"
 
@@ -1303,7 +1304,7 @@ msgid "Count:"
 msgstr "Colofn"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:645
+#: src/Controllers/JavaScriptMessagesController.php:649
 msgid "Time taken:"
 msgstr ""
 
@@ -1346,7 +1347,7 @@ msgstr "Dilëwch berthynas"
 #: resources/templates/database/designer/main.twig:1059
 #: resources/templates/modals/preview_sql_confirmation.twig:14
 #: resources/templates/table/structure/display_structure.twig:367
-#: src/Controllers/JavaScriptMessagesController.php:336
+#: src/Controllers/JavaScriptMessagesController.php:340
 msgid "OK"
 msgstr ""
 
@@ -1514,7 +1515,7 @@ msgstr "Gweithred"
 #: resources/templates/server/databases/index.twig:325
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
-#: src/Controllers/JavaScriptMessagesController.php:313
+#: src/Controllers/JavaScriptMessagesController.php:317
 msgid "Cancel"
 msgstr "Diddymu"
 
@@ -1650,7 +1651,7 @@ msgid "Page to delete"
 msgstr "Perthynas wedi'i ddileu"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:526
+#: src/Controllers/JavaScriptMessagesController.php:530
 msgid "Untitled"
 msgstr ""
 
@@ -1673,7 +1674,7 @@ msgstr ""
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:518
+#: src/Controllers/JavaScriptMessagesController.php:522
 #, fuzzy
 #| msgid "No tables found in database."
 msgid "Add tables from other databases"
@@ -1688,7 +1689,7 @@ msgstr "Enw'r dudalen"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:522
+#: src/Controllers/JavaScriptMessagesController.php:526
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -1696,7 +1697,7 @@ msgstr "Tudalennau rhydd"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:520
+#: src/Controllers/JavaScriptMessagesController.php:524
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Save page"
@@ -1704,7 +1705,7 @@ msgstr "Dewis Tablau"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:521
+#: src/Controllers/JavaScriptMessagesController.php:525
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Save page as"
@@ -1733,7 +1734,7 @@ msgstr "Crëwch berthynas"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:512
+#: src/Controllers/JavaScriptMessagesController.php:516
 msgid "Choose column to display"
 msgstr "Dewis colofn i'w dangos"
 
@@ -1907,7 +1908,7 @@ msgstr "Gweithredoedd"
 
 #: resources/templates/database/designer/main.twig:1139
 #: resources/templates/sql/query.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:541
 msgid "Submit"
 msgstr "Gyrru"
 
@@ -2029,8 +2030,8 @@ msgstr "Ychwanegu/Dileu colofnau"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:694
-#: src/Controllers/Table/ChangeController.php:223
+#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/Table/ChangeController.php:208
 msgid "Show"
 msgstr "Dangos"
 
@@ -2091,6 +2092,11 @@ msgstr "Disgynnol"
 msgid "Add as"
 msgstr "Ychwanegwch %s"
 
+#. l10n: Short label for the comparison operator of a criteria row (=, >, LIKE, IN, BETWEEN…)
+#: resources/templates/database/multi_table_query/form.twig:90
+msgid "Op"
+msgstr ""
+
 #: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
 #: src/Config/ConfigFile.php:565
@@ -2106,6 +2112,7 @@ msgid "Another column"
 msgstr "Ychwanegu/Dileu colofnau"
 
 #: resources/templates/database/multi_table_query/form.twig:144
+#: src/Controllers/JavaScriptMessagesController.php:145
 msgid "Enter criteria as free text"
 msgstr ""
 
@@ -2297,7 +2304,7 @@ msgstr "Enw'r log"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
-#: src/Controllers/Server/PrivilegesController.php:443 src/Menu.php:257
+#: src/Controllers/Server/PrivilegesController.php:446 src/Menu.php:257
 #: src/Menu.php:369 src/Util.php:1392 src/Util.php:1408
 msgid "Privileges"
 msgstr "Breintiau"
@@ -2343,7 +2350,7 @@ msgstr "Rheolweithiau"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1268
+#: src/Server/Privileges.php:1264
 #, fuzzy
 #| msgid "Privileges"
 msgid "Edit privileges"
@@ -2379,15 +2386,15 @@ msgstr "Breintiau"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:362 src/Menu.php:241
-#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1276
+#: src/Controllers/JavaScriptMessagesController.php:366 src/Menu.php:241
+#: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1272
 #: src/Util.php:1374 src/Util.php:1389 src/Util.php:1406
 msgid "Export"
 msgstr "Allforio"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2054
+#: src/Server/Privileges.php:2050
 msgid "No user found."
 msgstr ""
 
@@ -2435,7 +2442,7 @@ msgstr "Dewis Pob"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1212
+#: src/Server/Privileges.php:1208
 msgid "Not enough privilege to view users."
 msgstr ""
 
@@ -2452,8 +2459,8 @@ msgstr "Unrhyw ddefnyddiwr"
 
 #: resources/templates/database/routines/editor_form.twig:11
 #: resources/templates/events/editor-form.twig:10
-#: resources/templates/triggers/editor_form.twig:14
-#: resources/templates/view_create.twig:11
+#: resources/templates/triggers/editor_form.twig:13
+#: resources/templates/view_create.twig:10
 #, fuzzy
 #| msgid "Details…"
 msgid "Details"
@@ -2515,7 +2522,7 @@ msgstr "Set nodau"
 
 #: resources/templates/database/routines/editor_form.twig:118
 #: resources/templates/events/editor-form.twig:87
-#: resources/templates/triggers/editor_form.twig:62
+#: resources/templates/triggers/editor_form.twig:61
 #: src/Plugins/Export/ExportHtmlword.php:397
 #: src/Plugins/Export/ExportOdt.php:507
 #: src/Plugins/Export/ExportTexytext.php:372
@@ -2530,7 +2537,7 @@ msgstr "Disgrifiad"
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
 #: resources/templates/table/structure/display_table_stats.twig:81
-#: resources/templates/triggers/editor_form.twig:64
+#: resources/templates/triggers/editor_form.twig:63
 #: src/Config/Descriptions.php:636 src/Config/Descriptions.php:652
 msgid "Format"
 msgstr "Fformat"
@@ -2547,8 +2554,8 @@ msgstr ""
 
 #: resources/templates/database/routines/editor_form.twig:148
 #: resources/templates/events/editor-form.twig:102
-#: resources/templates/triggers/editor_form.twig:67
-#: resources/templates/view_create.twig:55
+#: resources/templates/triggers/editor_form.twig:66
+#: resources/templates/view_create.twig:54
 msgid "Definer"
 msgstr ""
 
@@ -2592,7 +2599,7 @@ msgstr "Rheolweithiau"
 #: resources/templates/database/routines/parameter_row.twig:51
 #: resources/templates/database/routines/row.twig:63
 #: resources/templates/database/structure/check_all_tables.twig:16
-#: resources/templates/database/structure/structure_table_row.twig:87
+#: resources/templates/database/structure/structure_table_row.twig:86
 #: resources/templates/events/index.twig:21
 #: resources/templates/events/index.twig:22
 #: resources/templates/events/index.twig:95
@@ -2617,7 +2624,7 @@ msgstr "Gollwng"
 #: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
 #: resources/templates/database/search/main.twig:72
-#: resources/templates/database/structure/structure_table_row.twig:53
+#: resources/templates/database/structure/structure_table_row.twig:52
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
@@ -2662,7 +2669,7 @@ msgstr "Rheolweithiau"
 #: resources/templates/server/status/monitor/index.twig:296
 #: resources/templates/table/structure/display_structure.twig:348
 #: resources/templates/triggers/list.twig:86
-#: src/Controllers/JavaScriptMessagesController.php:320
+#: src/Controllers/JavaScriptMessagesController.php:324
 #, fuzzy
 #| msgid "Load"
 msgid "Loading…"
@@ -2775,6 +2782,12 @@ msgstr "Dad-ddewis Pob"
 msgid "Inside column:"
 msgstr "Tu fewn colofn:"
 
+#: resources/templates/database/search/results.twig:3
+#, fuzzy, php-format
+#| msgid "Search results for \"<i>%s</i>\" %s:"
+msgid "Search results for \"%s\" %s:"
+msgstr "Canlyniadau chwilio am \"<i>%s</i>\" %s:"
+
 #: resources/templates/database/search/results.twig:11
 #, fuzzy, php-format
 #| msgid "%s match(es) inside table <i>%s</i>"
@@ -2784,7 +2797,7 @@ msgstr[0] "%s ergyd mewn tabl <i>%s</i>"
 msgstr[1] "%s ergyd mewn tabl <i>%s</i>"
 
 #: resources/templates/database/search/results.twig:25
-#: resources/templates/database/structure/structure_table_row.twig:43
+#: resources/templates/database/structure/structure_table_row.twig:42
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
@@ -2825,7 +2838,7 @@ msgstr "Dyblygiad"
 msgid "Sum"
 msgstr "Swm"
 
-#: resources/templates/database/structure/body_for_table_summary.twig:37
+#: resources/templates/database/structure/body_for_table_summary.twig:36
 #: src/StorageEngine.php:408
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
@@ -2874,7 +2887,7 @@ msgid "Delete data or table"
 msgstr "Dilëwch data tracio ar gyfer y tabl hwn"
 
 #: resources/templates/database/structure/check_all_tables.twig:15
-#: resources/templates/database/structure/structure_table_row.twig:74
+#: resources/templates/database/structure/structure_table_row.twig:73
 msgid "Empty"
 msgstr "Gwagu"
 
@@ -2931,7 +2944,7 @@ msgid "Replace table prefix"
 msgstr "Ailenwi tabl i"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:657
+#: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Copy table with prefix"
 msgstr ""
 
@@ -3002,7 +3015,7 @@ msgstr "A ydych chi wir am"
 #: resources/templates/database/structure/empty_form.twig:15
 #: resources/templates/import.twig:154 resources/templates/sql/query.twig:145
 #: resources/templates/table/delete/confirm.twig:25
-#: src/Controllers/JavaScriptMessagesController.php:347
+#: src/Controllers/JavaScriptMessagesController.php:351
 #, fuzzy
 #| msgid "Select Foreign Key"
 msgid "Enable foreign key checks"
@@ -3030,8 +3043,8 @@ msgstr "Geiriadur Data"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:72
-#: src/Controllers/Database/TrackingController.php:124
+#: src/Controllers/Database/ExportController.php:65
+#: src/Controllers/Database/TrackingController.php:117
 #: src/Controllers/Export/ExportController.php:286
 msgid "No tables found in database."
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
@@ -3056,10 +3069,10 @@ msgstr "Dangos ymholiadau SQL"
 #: resources/templates/table/relation/common_form.twig:39
 #: resources/templates/table/relation/common_form.twig:102
 #: resources/templates/table/relation/foreign_key_row.twig:102
-#: resources/templates/triggers/editor_form.twig:32
+#: resources/templates/triggers/editor_form.twig:31
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:935
-#: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1567
-#: src/Server/Privileges.php:1569
+#: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1563
+#: src/Server/Privileges.php:1565
 msgid "Table"
 msgstr "Tabl"
 
@@ -3073,11 +3086,11 @@ msgid "Views"
 msgstr "Dangos"
 
 #: resources/templates/database/structure/show_create.twig:35
-#: resources/templates/database/structure/structure_table_row.twig:122
-#: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Operations/TableController.php:118
-#: src/Controllers/Operations/TableController.php:318
-#: src/Controllers/Table/StructureController.php:149
+#: resources/templates/database/structure/structure_table_row.twig:120
+#: resources/templates/database/structure/structure_table_row.twig:184
+#: src/Controllers/Operations/TableController.php:104
+#: src/Controllers/Operations/TableController.php:304
+#: src/Controllers/Table/StructureController.php:134
 #: src/Navigation/Nodes/NodeView.php:25
 msgid "View"
 msgstr "Dangos"
@@ -3086,7 +3099,7 @@ msgstr "Dangos"
 #: resources/templates/display/results/table.twig:390
 #: resources/templates/modals/create_view.twig:5
 #: resources/templates/sql/no_results_returned.twig:14
-#: resources/templates/view_create.twig:14
+#: resources/templates/view_create.twig:13
 #, fuzzy
 #| msgid "Create version"
 msgid "Create view"
@@ -3106,21 +3119,21 @@ msgstr ""
 msgid "Replicated"
 msgstr "Dyblygiad"
 
-#: resources/templates/database/structure/structure_table_row.twig:59
+#: resources/templates/database/structure/structure_table_row.twig:58
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
 #: src/Navigation/Nodes/NodeTable.php:241 src/Util.php:1066 src/Util.php:1405
 msgid "Insert"
 msgstr "Mewnosod"
 
-#: resources/templates/database/structure/structure_table_row.twig:71
+#: resources/templates/database/structure/structure_table_row.twig:70
 #: resources/templates/table/operations/index.twig:418
 #: resources/templates/table/operations/index.twig:436
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Cafodd tabl %s ei wagu."
 
-#: resources/templates/database/structure/structure_table_row.twig:240
+#: resources/templates/database/structure/structure_table_row.twig:238
 msgid "in use"
 msgstr "ar ddefnydd"
 
@@ -3195,7 +3208,7 @@ msgstr "Diweddarwyd"
 #: resources/templates/events/index.twig:47
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
-#: src/Controllers/JavaScriptMessagesController.php:276 src/Menu.php:450
+#: src/Controllers/JavaScriptMessagesController.php:280 src/Menu.php:450
 #: src/Server/Status/Processes.php:110 src/Util.php:1372
 msgid "Status"
 msgstr "Statws"
@@ -3312,7 +3325,7 @@ msgstr "Diwedd"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
 #: src/BrowseForeigners.php:287
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:559
 msgid "Show all"
 msgstr "Dangos pob"
 
@@ -3390,7 +3403,7 @@ msgid "Hide browser transformation"
 msgstr "Trawsffurfiad porwr"
 
 #: resources/templates/display/results/table.twig:263
-#: src/Controllers/JavaScriptMessagesController.php:474
+#: src/Controllers/JavaScriptMessagesController.php:478
 msgid "Geometry"
 msgstr ""
 
@@ -3405,7 +3418,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
-#: src/Controllers/JavaScriptMessagesController.php:468
+#: src/Controllers/JavaScriptMessagesController.php:472
 #: src/Display/Results.php:1835 src/Html/Generator.php:82
 msgid "Copy"
 msgstr ""
@@ -3416,7 +3429,7 @@ msgid "Query results operations"
 msgstr "Gweithrediadau canlyniadau ymholiad"
 
 #: resources/templates/display/results/table.twig:353
-#: src/Controllers/JavaScriptMessagesController.php:467
+#: src/Controllers/JavaScriptMessagesController.php:471
 #: src/Export/Export.php:716
 msgid "Copy to clipboard"
 msgstr ""
@@ -3445,10 +3458,16 @@ msgstr ""
 
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:109 src/Html/Generator.php:728
+#: src/Controllers/Operations/ViewController.php:95 src/Html/Generator.php:728
 #: src/Import/Import.php:122 src/InsertEdit.php:412 src/Message.php:104
 msgid "Error"
 msgstr "Gwall"
+
+#: resources/templates/error/get_display.twig:9
+#, fuzzy
+#| msgid "Back"
+msgid "Backtrace"
+msgstr "Nôl"
 
 #: resources/templates/error/report_form.twig:3
 msgid ""
@@ -3622,7 +3641,7 @@ msgstr "Diweddarwyd"
 
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
-#: src/Controllers/JavaScriptMessagesController.php:135
+#: src/Controllers/JavaScriptMessagesController.php:136
 #: src/Html/Generator.php:752
 #, fuzzy
 #| msgid "SQL query"
@@ -3706,7 +3725,7 @@ msgid "Defined aliases"
 msgstr ""
 
 #: resources/templates/export.twig:204
-#: src/Controllers/JavaScriptMessagesController.php:283
+#: src/Controllers/JavaScriptMessagesController.php:287
 #, fuzzy
 #| msgid "Database"
 msgctxt "Alias"
@@ -3719,7 +3738,7 @@ msgid "Remove"
 msgstr ""
 
 #: resources/templates/export.twig:218
-#: src/Controllers/JavaScriptMessagesController.php:284
+#: src/Controllers/JavaScriptMessagesController.php:288
 #, fuzzy
 #| msgid "Table"
 msgctxt "Alias"
@@ -3727,7 +3746,7 @@ msgid "Table"
 msgstr "Tabl"
 
 #: resources/templates/export.twig:231
-#: src/Controllers/JavaScriptMessagesController.php:285
+#: src/Controllers/JavaScriptMessagesController.php:289
 #, fuzzy
 #| msgid "Column"
 msgctxt "Alias"
@@ -4122,7 +4141,7 @@ msgstr "cymerwch e"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:412
+#: src/Controllers/JavaScriptMessagesController.php:416
 #: src/Export/Export.php:739 src/Html/Generator.php:836
 #: src/Plugins/Schema/ExportRelationSchema.php:258
 msgid "Back"
@@ -4479,7 +4498,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:576
 #, fuzzy
 #| msgid "Log file threshold"
 msgid "Drop files here"
@@ -5123,7 +5142,7 @@ msgstr "SQL"
 
 #: resources/templates/server/databases/index.twig:255
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
-#: src/Controllers/JavaScriptMessagesController.php:294
+#: src/Controllers/JavaScriptMessagesController.php:298
 #, fuzzy
 #| msgid "Total"
 msgid "Total:"
@@ -5147,7 +5166,7 @@ msgid "No databases"
 msgstr "Dim cronfeydd data"
 
 #: resources/templates/server/databases/index.twig:320
-#: src/Controllers/JavaScriptMessagesController.php:338
+#: src/Controllers/JavaScriptMessagesController.php:342
 msgid "Confirm"
 msgstr ""
 
@@ -5399,8 +5418,8 @@ msgstr "Defnyddiwr"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:364
-#: src/Server/Privileges.php:1573 src/Server/Privileges.php:1575
+#: src/Controllers/JavaScriptMessagesController.php:368
+#: src/Server/Privileges.php:1569 src/Server/Privileges.php:1571
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
@@ -5414,7 +5433,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1570
 #, fuzzy
 #| msgid "Check Privileges"
 msgid "Routine-specific privileges"
@@ -5567,7 +5586,7 @@ msgstr "Golygu gweinydd"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1568
+#: src/Server/Privileges.php:1564
 msgid "Table-specific privileges"
 msgstr ""
 
@@ -5736,7 +5755,7 @@ msgid "Global privileges"
 msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1562
+#: src/Server/Privileges.php:1558
 msgid "Database-specific privileges"
 msgstr ""
 
@@ -5987,27 +6006,27 @@ msgid "User group"
 msgstr ""
 
 #: resources/templates/server/privileges/users_overview.twig:100
-#: src/Controllers/JavaScriptMessagesController.php:159
+#: src/Controllers/JavaScriptMessagesController.php:163
 #, fuzzy
 #| msgid "User"
 msgid "Unlock this account."
 msgstr "Defnyddiwr"
 
 #: resources/templates/server/privileges/users_overview.twig:100
-#: src/Controllers/JavaScriptMessagesController.php:158
+#: src/Controllers/JavaScriptMessagesController.php:162
 #, fuzzy
 #| msgid "Log file count"
 msgid "Lock this account."
 msgstr "Cyfrif ffeiliau log"
 
 #: resources/templates/server/privileges/users_overview.twig:102
-#: src/Controllers/JavaScriptMessagesController.php:157
+#: src/Controllers/JavaScriptMessagesController.php:161
 msgctxt "Unlock the account."
 msgid "Unlock"
 msgstr ""
 
 #: resources/templates/server/privileges/users_overview.twig:105
-#: src/Controllers/JavaScriptMessagesController.php:156
+#: src/Controllers/JavaScriptMessagesController.php:160
 msgctxt "Lock the account."
 msgid "Lock"
 msgstr ""
@@ -6093,7 +6112,7 @@ msgid "Generate password:"
 msgstr "Generadu Cyfrinair"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:579
+#: src/Controllers/JavaScriptMessagesController.php:583
 msgid "Generate"
 msgstr "Generadu"
 
@@ -6357,7 +6376,7 @@ msgstr "Gweinydd"
 
 #: resources/templates/server/status/base.twig:11
 #: resources/templates/server/status/processes/list.twig:5
-#: src/Controllers/JavaScriptMessagesController.php:201
+#: src/Controllers/JavaScriptMessagesController.php:205
 msgid "Processes"
 msgstr "Prosesau"
 
@@ -6462,7 +6481,7 @@ msgid "Importing system monitor configuration"
 msgstr "Methu ag ysgrifennu i'r ddisg."
 
 #: resources/templates/server/status/monitor/index.twig:63
-#: src/Controllers/JavaScriptMessagesController.php:302
+#: src/Controllers/JavaScriptMessagesController.php:306
 msgid "Please select the file you want to import:"
 msgstr ""
 
@@ -6558,13 +6577,13 @@ msgstr ""
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:205 src/Util.php:310
+#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:310
 msgid "KiB"
 msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:182
-#: src/Controllers/JavaScriptMessagesController.php:206 src/Util.php:312
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:312
 msgid "MiB"
 msgstr "MiB"
 
@@ -6589,7 +6608,7 @@ msgid "Series in chart:"
 msgstr "Soced gweinydd"
 
 #: resources/templates/server/status/monitor/index.twig:212
-#: src/Controllers/JavaScriptMessagesController.php:217
+#: src/Controllers/JavaScriptMessagesController.php:221
 #, fuzzy
 #| msgid "Snap to grid"
 msgid "Add chart to grid"
@@ -6742,7 +6761,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/status/processes/index.twig:49
-#: src/Controllers/JavaScriptMessagesController.php:224
+#: src/Controllers/JavaScriptMessagesController.php:228
 msgid "Start auto refresh"
 msgstr ""
 
@@ -6811,7 +6830,7 @@ msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr ""
 
 #: resources/templates/server/status/status/index.twig:14
-#: src/Controllers/JavaScriptMessagesController.php:215
+#: src/Controllers/JavaScriptMessagesController.php:219
 msgid "Traffic"
 msgstr ""
 
@@ -6822,7 +6841,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/status/status/index.twig:36
-#: src/Controllers/JavaScriptMessagesController.php:200
+#: src/Controllers/JavaScriptMessagesController.php:204
 msgid "Connections"
 msgstr ""
 
@@ -6936,7 +6955,7 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:446
+#: src/Controllers/Server/PrivilegesController.php:449
 #: src/Server/Status/Processes.php:105
 msgid "User"
 msgstr "Defnyddiwr"
@@ -7102,7 +7121,7 @@ msgstr "Sad"
 
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
-#: src/Controllers/JavaScriptMessagesController.php:277
+#: src/Controllers/JavaScriptMessagesController.php:281
 #: src/Plugins/Export/ExportHtmlword.php:395
 #: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
@@ -7146,7 +7165,7 @@ msgid "Pie chart with profiling results."
 msgstr "Proffilio"
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:109
+#: src/Controllers/Operations/ViewController.php:95
 #: src/Database/Routines.php:1000 src/Message.php:87
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -7227,7 +7246,7 @@ msgid "View only"
 msgstr "Dangos yn unig"
 
 #: resources/templates/sql/query.twig:221
-#: src/Controllers/JavaScriptMessagesController.php:134
+#: src/Controllers/JavaScriptMessagesController.php:135
 #, fuzzy
 #| msgid "in query"
 msgid "Simulate query"
@@ -7236,7 +7255,7 @@ msgstr "mewn ymholiad"
 #: resources/templates/sql/relational_column_dropdown.twig:3
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:384
+#: src/Controllers/JavaScriptMessagesController.php:388
 msgid "Browse foreign values"
 msgstr ""
 
@@ -7522,8 +7541,8 @@ msgstr ""
 
 #: resources/templates/table/index_form.twig:170
 #: resources/templates/table/index_form.twig:213
-#: src/Controllers/JavaScriptMessagesController.php:466
-#: src/Controllers/JavaScriptMessagesController.php:618
+#: src/Controllers/JavaScriptMessagesController.php:470
+#: src/Controllers/JavaScriptMessagesController.php:622
 #: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1394
 msgid "Ignore"
 msgstr "Anwybyddu"
@@ -7711,14 +7730,14 @@ msgstr "Copïwch y gronfa ddata i"
 
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:374
+#: src/Controllers/Database/StructureController.php:366
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Cafodd golwg %s ei ollwng"
 
 #: resources/templates/table/operations/index.twig:459
-#: src/Controllers/Database/StructureController.php:374
+#: src/Controllers/Database/StructureController.php:366
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -8041,7 +8060,7 @@ msgid "Column %s has been dropped."
 msgstr ""
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:582
+#: src/Controllers/JavaScriptMessagesController.php:586
 #, fuzzy
 #| msgid "Mo"
 msgid "More"
@@ -8080,7 +8099,7 @@ msgid "Move the columns by dragging them up and down."
 msgstr ""
 
 #: resources/templates/table/structure/display_structure.twig:378
-#: resources/templates/view_create.twig:16
+#: resources/templates/view_create.twig:15
 #, fuzzy
 #| msgid "Print view"
 msgid "Edit view"
@@ -8269,22 +8288,22 @@ msgstr "Disgrifiad"
 msgid "Available input transformations"
 msgstr "Trawsffurfiad porwr"
 
-#: resources/templates/triggers/editor_form.twig:28
+#: resources/templates/triggers/editor_form.twig:27
 #, fuzzy
 #| msgid "server name"
 msgid "Trigger name"
 msgstr "enw gweinydd"
 
-#: resources/templates/triggers/editor_form.twig:42
+#: resources/templates/triggers/editor_form.twig:41
 #, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Amser"
 
-#: resources/templates/triggers/editor_form.twig:52
+#: resources/templates/triggers/editor_form.twig:51
 #: resources/templates/triggers/list.twig:52
-#: src/Controllers/JavaScriptMessagesController.php:366
+#: src/Controllers/JavaScriptMessagesController.php:370
 #: src/Navigation/Nodes/NodeEvent.php:27
 #: src/Plugins/Export/ExportHtmlword.php:396
 #: src/Plugins/Export/ExportOdt.php:504
@@ -8335,11 +8354,11 @@ msgstr "enw gweinydd"
 msgid "Export trigger"
 msgstr "Allforio fel %s"
 
-#: resources/templates/view_create.twig:75
+#: resources/templates/view_create.twig:74
 msgid "VIEW name"
 msgstr "Enw VIEW"
 
-#: resources/templates/view_create.twig:89
+#: resources/templates/view_create.twig:88
 msgid "Column names"
 msgstr ""
 
@@ -9574,371 +9593,371 @@ msgstr "Chwilio"
 msgid "Unknown"
 msgstr "anhysbys"
 
-#: src/Charsets/Collation.php:144 src/Charsets/Collation.php:407
+#: src/Charsets/Collation.php:144 src/Charsets/Collation.php:408
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
-#: src/Charsets/Collation.php:148 src/Charsets/Collation.php:404
+#: src/Charsets/Collation.php:148 src/Charsets/Collation.php:405
 #, fuzzy
 #| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Geiriadur Data"
 
-#: src/Charsets/Collation.php:157 src/Charsets/Collation.php:482
+#: src/Charsets/Collation.php:157 src/Charsets/Collation.php:483
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
-#: src/Charsets/Collation.php:161 src/Charsets/Collation.php:475
+#: src/Charsets/Collation.php:161 src/Charsets/Collation.php:476
 #, fuzzy
 #| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Sbaeneg"
 
-#: src/Charsets/Collation.php:225
+#: src/Charsets/Collation.php:226
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "cas-ansensitif"
 
-#: src/Charsets/Collation.php:226
+#: src/Charsets/Collation.php:227
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "cas-sensitif"
 
-#: src/Charsets/Collation.php:227
+#: src/Charsets/Collation.php:228
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "cas-ansensitif"
 
-#: src/Charsets/Collation.php:228
+#: src/Charsets/Collation.php:229
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "cas-sensitif"
 
-#: src/Charsets/Collation.php:229
+#: src/Charsets/Collation.php:230
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "cas-sensitif"
 
-#: src/Charsets/Collation.php:230
+#: src/Charsets/Collation.php:231
 #, fuzzy
 #| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "amlieithog"
 
-#: src/Charsets/Collation.php:231
+#: src/Charsets/Collation.php:232
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Deuaidd"
 
-#: src/Charsets/Collation.php:232
+#: src/Charsets/Collation.php:233
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr ""
 
-#: src/Charsets/Collation.php:246
+#: src/Charsets/Collation.php:247
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Deuaidd"
 
-#: src/Charsets/Collation.php:259 src/Charsets/Collation.php:506
+#: src/Charsets/Collation.php:260 src/Charsets/Collation.php:507
 #, fuzzy
 #| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: src/Charsets/Collation.php:269 src/Charsets/Collation.php:453
+#: src/Charsets/Collation.php:270 src/Charsets/Collation.php:454
 #, fuzzy
 #| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Ewropeaidd Gorllewinol"
 
-#: src/Charsets/Collation.php:276
+#: src/Charsets/Collation.php:277
 #, fuzzy
 #| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Ewropeaidd Canolog"
 
-#: src/Charsets/Collation.php:281 src/Charsets/Collation.php:460
+#: src/Charsets/Collation.php:282 src/Charsets/Collation.php:461
 #, fuzzy
 #| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rwseg"
 
-#: src/Charsets/Collation.php:286
+#: src/Charsets/Collation.php:287
 #, fuzzy
 #| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Tsieinëeg Syml"
 
-#: src/Charsets/Collation.php:289
+#: src/Charsets/Collation.php:290
 #, fuzzy
 #| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tsieinëeg Draddodiadol"
 
-#: src/Charsets/Collation.php:292 src/Charsets/Collation.php:375
+#: src/Charsets/Collation.php:293 src/Charsets/Collation.php:376
 msgctxt "Collation"
 msgid "Chinese"
 msgstr ""
 
-#: src/Charsets/Collation.php:300 src/Charsets/Collation.php:424
+#: src/Charsets/Collation.php:301 src/Charsets/Collation.php:425
 #, fuzzy
 #| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Siapaneg"
 
-#: src/Charsets/Collation.php:305
+#: src/Charsets/Collation.php:306
 #, fuzzy
 #| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Balteg"
 
-#: src/Charsets/Collation.php:310
+#: src/Charsets/Collation.php:311
 #, fuzzy
 #| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armeneg"
 
-#: src/Charsets/Collation.php:313
+#: src/Charsets/Collation.php:314
 #, fuzzy
 #| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Syrilig"
 
-#: src/Charsets/Collation.php:316
+#: src/Charsets/Collation.php:317
 #, fuzzy
 #| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabeg"
 
-#: src/Charsets/Collation.php:319 src/Charsets/Collation.php:439
+#: src/Charsets/Collation.php:320 src/Charsets/Collation.php:440
 #, fuzzy
 #| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Corëeg"
 
-#: src/Charsets/Collation.php:322
+#: src/Charsets/Collation.php:323
 #, fuzzy
 #| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Iddeweg"
 
-#: src/Charsets/Collation.php:325
+#: src/Charsets/Collation.php:326
 #, fuzzy
 #| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgeg"
 
-#: src/Charsets/Collation.php:328
+#: src/Charsets/Collation.php:329
 #, fuzzy
 #| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Groegeg"
 
-#: src/Charsets/Collation.php:331
+#: src/Charsets/Collation.php:332
 #, fuzzy
 #| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Tsiec-Slofac"
 
-#: src/Charsets/Collation.php:334 src/Charsets/Collation.php:498
+#: src/Charsets/Collation.php:335 src/Charsets/Collation.php:499
 #, fuzzy
 #| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Wcreineg"
 
-#: src/Charsets/Collation.php:337 src/Charsets/Collation.php:494
+#: src/Charsets/Collation.php:338 src/Charsets/Collation.php:495
 #, fuzzy
 #| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Twrceg"
 
-#: src/Charsets/Collation.php:340 src/Charsets/Collation.php:486
+#: src/Charsets/Collation.php:341 src/Charsets/Collation.php:487
 #, fuzzy
 #| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Swedeg"
 
-#: src/Charsets/Collation.php:343 src/Charsets/Collation.php:490
+#: src/Charsets/Collation.php:344 src/Charsets/Collation.php:491
 #, fuzzy
 #| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tai"
 
-#: src/Charsets/Collation.php:346
+#: src/Charsets/Collation.php:347
 #, fuzzy
 #| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "anhysbys"
 
-#: src/Charsets/Collation.php:369
+#: src/Charsets/Collation.php:370
 #, fuzzy
 #| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bwlgareg"
 
-#: src/Charsets/Collation.php:381
+#: src/Charsets/Collation.php:382
 #, fuzzy
 #| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Croateg"
 
-#: src/Charsets/Collation.php:385
+#: src/Charsets/Collation.php:386
 #, fuzzy
 #| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tsieceg"
 
-#: src/Charsets/Collation.php:389
+#: src/Charsets/Collation.php:390
 #, fuzzy
 #| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Daneg"
 
-#: src/Charsets/Collation.php:393
+#: src/Charsets/Collation.php:394
 #, fuzzy
 #| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Saesneg"
 
-#: src/Charsets/Collation.php:397
+#: src/Charsets/Collation.php:398
 #, fuzzy
 #| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: src/Charsets/Collation.php:401
+#: src/Charsets/Collation.php:402
 #, fuzzy
 #| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estoneg"
 
-#: src/Charsets/Collation.php:416
+#: src/Charsets/Collation.php:417
 #, fuzzy
 #| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Hwngareg"
 
-#: src/Charsets/Collation.php:420
+#: src/Charsets/Collation.php:421
 #, fuzzy
 #| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandeg"
 
-#: src/Charsets/Collation.php:427
+#: src/Charsets/Collation.php:428
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: src/Charsets/Collation.php:431
+#: src/Charsets/Collation.php:432
 #, fuzzy
 #| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Latfieg"
 
-#: src/Charsets/Collation.php:435
+#: src/Charsets/Collation.php:436
 #, fuzzy
 #| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Lithwaneg"
 
-#: src/Charsets/Collation.php:443
+#: src/Charsets/Collation.php:444
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: src/Charsets/Collation.php:446
+#: src/Charsets/Collation.php:447
 #, fuzzy
 #| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perseg"
 
-#: src/Charsets/Collation.php:450
+#: src/Charsets/Collation.php:451
 #, fuzzy
 #| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Pwyleg"
 
-#: src/Charsets/Collation.php:457
+#: src/Charsets/Collation.php:458
 #, fuzzy
 #| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rwmaneg"
 
-#: src/Charsets/Collation.php:464
+#: src/Charsets/Collation.php:465
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr ""
 
-#: src/Charsets/Collation.php:468
+#: src/Charsets/Collation.php:469
 #, fuzzy
 #| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slofaceg"
 
-#: src/Charsets/Collation.php:472
+#: src/Charsets/Collation.php:473
 #, fuzzy
 #| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slofeneg"
 
-#: src/Charsets/Collation.php:502
+#: src/Charsets/Collation.php:503
 #, fuzzy
 #| msgid "Page name"
 msgctxt "Collation"
@@ -10004,7 +10023,7 @@ msgid "Closed"
 msgstr "Cau"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:730
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -10012,7 +10031,7 @@ msgid "Monday"
 msgstr "Dydd Llun"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:731
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -10020,7 +10039,7 @@ msgid "Tuesday"
 msgstr "Dydd Mawrth"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:732
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -10028,7 +10047,7 @@ msgid "Wednesday"
 msgstr "DYdd Mercher"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:729
+#: src/Controllers/JavaScriptMessagesController.php:733
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -10036,7 +10055,7 @@ msgid "Thursday"
 msgstr "Dydd Iau"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:730
+#: src/Controllers/JavaScriptMessagesController.php:734
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -10044,7 +10063,7 @@ msgid "Friday"
 msgstr "Dydd Gwener"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:731
+#: src/Controllers/JavaScriptMessagesController.php:735
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -10052,7 +10071,7 @@ msgid "Saturday"
 msgstr "Dydd Sadwrn"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:729
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -11972,7 +11991,7 @@ msgid "Navigation panel width"
 msgstr "Ffrâm llywio"
 
 #: src/Config/Descriptions.php:810
-#: src/Controllers/JavaScriptMessagesController.php:587
+#: src/Controllers/JavaScriptMessagesController.php:591
 #: src/Navigation/NavigationTree.php:1258
 #, fuzzy
 #| msgid "Use text field"
@@ -12604,7 +12623,7 @@ msgid "Missing data for %s"
 msgstr "Data ar goll ar gyfer %s"
 
 #: src/Config/FormDisplay.php:622 src/Config/Validator.php:589
-#: src/Controllers/JavaScriptMessagesController.php:809
+#: src/Controllers/JavaScriptMessagesController.php:813
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
@@ -12920,28 +12939,28 @@ msgid "Incorrect IP address: %s"
 msgstr ""
 
 #: src/Config/Validator.php:524
-#: src/Controllers/JavaScriptMessagesController.php:808
+#: src/Controllers/JavaScriptMessagesController.php:812
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
 msgstr "Nid yn rhif porth ddilys"
 
 #: src/Config/Validator.php:546
-#: src/Controllers/JavaScriptMessagesController.php:806
+#: src/Controllers/JavaScriptMessagesController.php:810
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "Nid yn rhif bositif"
 
 #: src/Config/Validator.php:568
-#: src/Controllers/JavaScriptMessagesController.php:807
+#: src/Controllers/JavaScriptMessagesController.php:811
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "Nid yn rhif annegyddol"
 
 #: src/Config/Validator.php:607
-#: src/Controllers/JavaScriptMessagesController.php:810
+#: src/Controllers/JavaScriptMessagesController.php:814
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr ""
@@ -12973,7 +12992,7 @@ msgstr ""
 "Dyw'r ffeil %s ddim ar gael ar y system hon. Ewch i %s am wybodaeth bellach."
 
 #: src/Controllers/Console/Bookmark/AddController.php:42
-#: src/Controllers/JavaScriptMessagesController.php:569
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Failed"
 msgstr ""
 
@@ -12997,107 +13016,83 @@ msgstr "Cafodd cronfa ddata %s ei gollwng."
 msgid "Unexpected parameter value."
 msgstr "Dangos dimensiynau'r tabl"
 
-#: src/Controllers/Database/CentralColumnsController.php:148
+#: src/Controllers/Database/CentralColumnsController.php:151
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Yn dangos rhesi %1$s i %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:109
+#: src/Controllers/Database/DesignerController.php:108
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: src/Controllers/Database/DesignerController.php:175
-#: src/Controllers/Database/DesignerController.php:180
-#: src/Controllers/Database/ExportController.php:57
-#: src/Controllers/Database/ExportController.php:62
-#: src/Controllers/Database/ImportController.php:62
-#: src/Controllers/Database/ImportController.php:67
+#: src/Controllers/Database/DesignerController.php:172
+#: src/Controllers/Database/ExportController.php:55
+#: src/Controllers/Database/ImportController.php:60
 #: src/Controllers/Database/RoutinesController.php:78
 #: src/Controllers/Database/RoutinesController.php:96
-#: src/Controllers/Database/SearchController.php:53
-#: src/Controllers/Database/SearchController.php:58
-#: src/Controllers/Database/SqlController.php:54
-#: src/Controllers/Database/SqlController.php:59
-#: src/Controllers/Database/StructureController.php:160
-#: src/Controllers/Database/StructureController.php:165
+#: src/Controllers/Database/SearchController.php:51
+#: src/Controllers/Database/SqlController.php:51
+#: src/Controllers/Database/StructureController.php:157
 #: src/Controllers/Database/Structure/FavoriteTableController.php:65
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
-#: src/Controllers/Database/TrackingController.php:55
-#: src/Controllers/Database/TrackingController.php:60
-#: src/Controllers/JavaScriptMessagesController.php:331
+#: src/Controllers/Database/TrackingController.php:53
+#: src/Controllers/Events/ExportController.php:38
+#: src/Controllers/Events/IndexController.php:40
+#: src/Controllers/JavaScriptMessagesController.php:335
 #: src/Controllers/Operations/Database/CollationController.php:54
-#: src/Controllers/Operations/DatabaseController.php:230
-#: src/Controllers/Operations/DatabaseController.php:235
-#: src/Controllers/Operations/TableController.php:86
-#: src/Controllers/Operations/TableController.php:91
-#: src/Controllers/Operations/ViewController.php:62
-#: src/Controllers/Operations/ViewController.php:67
+#: src/Controllers/Operations/DatabaseController.php:228
+#: src/Controllers/Operations/TableController.php:84
+#: src/Controllers/Operations/ViewController.php:60
 #: src/Controllers/Server/Databases/DestroyController.php:62
-#: src/Controllers/Table/AddFieldController.php:161
-#: src/Controllers/Table/AddFieldController.php:166
-#: src/Controllers/Table/ChangeController.php:70
-#: src/Controllers/Table/ChangeController.php:75
-#: src/Controllers/Table/ChartController.php:86
-#: src/Controllers/Table/ChartController.php:93
-#: src/Controllers/Table/ChartController.php:120
-#: src/Controllers/Table/ChartController.php:127
-#: src/Controllers/Table/ChartController.php:205
-#: src/Controllers/Table/DeleteConfirmController.php:57
-#: src/Controllers/Table/DeleteConfirmController.php:62
-#: src/Controllers/Table/DropColumnConfirmationController.php:52
-#: src/Controllers/Table/DropColumnConfirmationController.php:57
-#: src/Controllers/Table/FindReplaceController.php:76
-#: src/Controllers/Table/FindReplaceController.php:81
-#: src/Controllers/Table/GisVisualizationController.php:70
-#: src/Controllers/Table/GisVisualizationController.php:75
-#: src/Controllers/Table/ImportController.php:71
-#: src/Controllers/Table/ImportController.php:76
-#: src/Controllers/Table/IndexesController.php:66
-#: src/Controllers/Table/IndexesController.php:73
-#: src/Controllers/Table/IndexRenameController.php:54
-#: src/Controllers/Table/IndexRenameController.php:59
-#: src/Controllers/Table/SearchController.php:171
-#: src/Controllers/Table/SearchController.php:176
-#: src/Controllers/Table/SqlController.php:59
-#: src/Controllers/Table/SqlController.php:64
-#: src/Controllers/Table/StructureController.php:93
-#: src/Controllers/Table/StructureController.php:98
-#: src/Controllers/Table/Structure/PrimaryController.php:69
-#: src/Controllers/Table/Structure/PrimaryController.php:76
-#: src/Controllers/Table/TrackingController.php:69
-#: src/Controllers/Table/TrackingController.php:74
-#: src/Controllers/Table/ZoomSearchController.php:102
-#: src/Controllers/Table/ZoomSearchController.php:107
+#: src/Controllers/Table/AddFieldController.php:158
+#: src/Controllers/Table/ChangeController.php:67
+#: src/Controllers/Table/ChartController.php:84
+#: src/Controllers/Table/ChartController.php:101
+#: src/Controllers/Table/ChartController.php:178
+#: src/Controllers/Table/DeleteConfirmController.php:54
+#: src/Controllers/Table/DropColumnConfirmationController.php:50
+#: src/Controllers/Table/FindReplaceController.php:74
+#: src/Controllers/Table/GisVisualizationController.php:68
+#: src/Controllers/Table/ImportController.php:69
+#: src/Controllers/Table/IndexesController.php:64
+#: src/Controllers/Table/IndexRenameController.php:52
+#: src/Controllers/Table/SearchController.php:168
+#: src/Controllers/Table/SqlController.php:56
+#: src/Controllers/Table/StructureController.php:90
+#: src/Controllers/Table/Structure/PrimaryController.php:67
+#: src/Controllers/Table/TrackingController.php:67
+#: src/Controllers/Table/ZoomSearchController.php:99
 #: src/Controllers/Triggers/IndexController.php:66
 #: src/Controllers/Triggers/IndexController.php:84
-#: src/Controllers/View/CreateController.php:68
-#: src/Controllers/View/CreateController.php:73
-msgid "No databases selected."
+#: src/Controllers/View/CreateController.php:66
+#, fuzzy
+#| msgid "No databases selected."
+msgid "No database selected."
 msgstr "Dim cronfeydd data wedi'u dewis."
 
-#: src/Controllers/Database/ExportController.php:127
+#: src/Controllers/Database/ExportController.php:120
 #: src/Controllers/Server/ExportController.php:57
 #: src/Controllers/Table/ExportController.php:92
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
-#: src/Controllers/Database/ImportController.php:77
+#: src/Controllers/Database/ImportController.php:70
 #: src/Controllers/Server/ImportController.php:62
-#: src/Controllers/Table/ImportController.php:101
+#: src/Controllers/Table/ImportController.php:87
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nid oedd modd llwytho ategynnau mewnforio, gwiriwch eich arsefydliad!"
 
-#: src/Controllers/Database/PrivilegesController.php:63
+#: src/Controllers/Database/PrivilegesController.php:61
 #: src/Controllers/Server/PrivilegesController.php:99
 #: src/Controllers/Server/UserGroupsController.php:46
 #: src/Controllers/Table/PrivilegesController.php:66
 msgid "No Privileges"
 msgstr "Dim Breintiau"
 
-#: src/Controllers/Database/PrivilegesController.php:70
+#: src/Controllers/Database/PrivilegesController.php:68
 #: src/Controllers/Server/PrivilegesController.php:106
 #: src/Controllers/Table/PrivilegesController.php:73
 msgid "You do not have the privileges to administrate the users!"
@@ -13114,45 +13109,29 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyFormController.php:33
 #: src/Controllers/Database/Structure/ShowCreateController.php:36
 #: src/Controllers/Export/TablesController.php:29
-#: src/Controllers/JavaScriptMessagesController.php:332
-#: src/Controllers/Operations/TableController.php:98
-#: src/Controllers/Operations/TableController.php:103
-#: src/Controllers/Operations/ViewController.php:74
-#: src/Controllers/Operations/ViewController.php:79
-#: src/Controllers/Table/AddFieldController.php:173
-#: src/Controllers/Table/AddFieldController.php:178
-#: src/Controllers/Table/ChangeController.php:82
-#: src/Controllers/Table/ChangeController.php:87
-#: src/Controllers/Table/ChartController.php:101
-#: src/Controllers/Table/ChartController.php:106
-#: src/Controllers/Table/ChartController.php:213
-#: src/Controllers/Table/DeleteConfirmController.php:69
-#: src/Controllers/Table/DeleteConfirmController.php:74
-#: src/Controllers/Table/DropColumnConfirmationController.php:63
-#: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:88
-#: src/Controllers/Table/FindReplaceController.php:93
-#: src/Controllers/Table/ImportController.php:83
-#: src/Controllers/Table/ImportController.php:88
-#: src/Controllers/Table/IndexesController.php:81
-#: src/Controllers/Table/IndexesController.php:86
-#: src/Controllers/Table/IndexRenameController.php:66
-#: src/Controllers/Table/IndexRenameController.php:71
+#: src/Controllers/JavaScriptMessagesController.php:336
+#: src/Controllers/Operations/TableController.php:89
+#: src/Controllers/Operations/ViewController.php:65
+#: src/Controllers/Table/AddFieldController.php:163
+#: src/Controllers/Table/ChangeController.php:72
+#: src/Controllers/Table/ChartController.php:89
+#: src/Controllers/Table/ChartController.php:186
+#: src/Controllers/Table/DeleteConfirmController.php:59
+#: src/Controllers/Table/DropColumnConfirmationController.php:54
+#: src/Controllers/Table/FindReplaceController.php:79
+#: src/Controllers/Table/ImportController.php:74
+#: src/Controllers/Table/IndexesController.php:69
+#: src/Controllers/Table/IndexRenameController.php:57
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:45
 #: src/Controllers/Table/Maintenance/CheckController.php:45
 #: src/Controllers/Table/Maintenance/ChecksumController.php:45
 #: src/Controllers/Table/Maintenance/OptimizeController.php:45
 #: src/Controllers/Table/Maintenance/RepairController.php:45
-#: src/Controllers/Table/SearchController.php:183
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SqlController.php:71
-#: src/Controllers/Table/SqlController.php:76
-#: src/Controllers/Table/StructureController.php:105
-#: src/Controllers/Table/StructureController.php:110
-#: src/Controllers/Table/Structure/PrimaryController.php:84
-#: src/Controllers/Table/Structure/PrimaryController.php:89
-#: src/Controllers/Table/ZoomSearchController.php:114
-#: src/Controllers/Table/ZoomSearchController.php:119
+#: src/Controllers/Table/SearchController.php:173
+#: src/Controllers/Table/SqlController.php:61
+#: src/Controllers/Table/StructureController.php:95
+#: src/Controllers/Table/Structure/PrimaryController.php:72
+#: src/Controllers/Table/ZoomSearchController.php:104
 #: src/Controllers/Triggers/IndexController.php:74
 #, fuzzy
 #| msgid "No databases selected."
@@ -13174,7 +13153,7 @@ msgstr "Golygu gweinydd"
 #: src/Controllers/Database/RoutinesController.php:255
 #: src/Controllers/Database/RoutinesController.php:285
 #: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Events/IndexController.php:190
+#: src/Controllers/Events/IndexController.php:182
 #: src/Controllers/Triggers/IndexController.php:207
 #, fuzzy
 #| msgid "Processes"
@@ -13209,7 +13188,7 @@ msgid ""
 "routine."
 msgstr ""
 
-#: src/Controllers/Database/SearchController.php:63
+#: src/Controllers/Database/SearchController.php:56
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
@@ -13221,7 +13200,7 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:573
+#: src/Controllers/Database/StructureController.php:565
 #: src/Display/Results.php:3187
 #, php-format
 msgid ""
@@ -13230,7 +13209,7 @@ msgid ""
 msgstr ""
 "Mae gan yr olwg hon o leiaf y nifer hwn o resi. Gweler y %sdogfennaeth%s."
 
-#: src/Controllers/Database/StructureController.php:742
+#: src/Controllers/Database/StructureController.php:734
 msgid "unknown"
 msgstr "anhysbys"
 
@@ -13238,26 +13217,26 @@ msgstr "anhysbys"
 msgid "Favorite List is full!"
 msgstr ""
 
-#: src/Controllers/Database/TrackingController.php:71
-#: src/Controllers/Database/TrackingController.php:97
+#: src/Controllers/Database/TrackingController.php:64
+#: src/Controllers/Database/TrackingController.php:90
 #, fuzzy
 #| msgid "Track these data definition statements:"
 msgid "Tracking data deleted successfully."
 msgstr "Traciwch y datganiadau diffiniad data hyn:"
 
-#: src/Controllers/Database/TrackingController.php:82
+#: src/Controllers/Database/TrackingController.php:75
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
 
-#: src/Controllers/Database/TrackingController.php:114
+#: src/Controllers/Database/TrackingController.php:107
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No tables selected."
 msgstr "Dim cronfeydd data wedi'u dewis."
 
-#: src/Controllers/Database/TrackingController.php:149
+#: src/Controllers/Database/TrackingController.php:142
 msgid "Database Log"
 msgstr "Log cronfa ddata"
 
@@ -13285,43 +13264,36 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr ""
 
-#: src/Controllers/Events/ExportController.php:38
-#: src/Controllers/Events/IndexController.php:40
-#, fuzzy
-#| msgid "No databases selected."
-msgid "No database selected."
-msgstr "Dim cronfeydd data wedi'u dewis."
-
-#: src/Controllers/Events/ExportController.php:63
+#: src/Controllers/Events/ExportController.php:55
 #, fuzzy, php-format
 #| msgid "Export as %s"
 msgid "Export of event %s"
 msgstr "Allforio fel %s"
 
-#: src/Controllers/Events/ExportController.php:83
+#: src/Controllers/Events/ExportController.php:75
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 
-#: src/Controllers/Events/IndexController.php:69
+#: src/Controllers/Events/IndexController.php:61
 msgid "The event was dropped immediately after creation."
 msgstr ""
 
-#: src/Controllers/Events/IndexController.php:137
+#: src/Controllers/Events/IndexController.php:129
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
 msgstr "Ychwanegwch weinydd newydd"
 
-#: src/Controllers/Events/IndexController.php:141
+#: src/Controllers/Events/IndexController.php:133
 #, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
 msgstr "Golygu gweinydd"
 
-#: src/Controllers/Events/IndexController.php:192
+#: src/Controllers/Events/IndexController.php:184
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s."
@@ -13779,207 +13751,223 @@ msgstr "Amgaewyd colofnau gan"
 msgid "Please select column(s) for the index."
 msgstr "Ychwanegwch %s colofn"
 
+#: src/Controllers/JavaScriptMessagesController.php:129
+msgid "Column count has to be larger than zero."
+msgstr ""
+
 #. l10n: Default label for the y-Axis of Charts
-#: src/Controllers/JavaScriptMessagesController.php:139
+#: src/Controllers/JavaScriptMessagesController.php:140
 #, fuzzy
 #| msgid "Value"
 msgid "Y values"
 msgstr "Gwerth"
 
-#: src/Controllers/JavaScriptMessagesController.php:142
+#: src/Controllers/JavaScriptMessagesController.php:143
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter the SQL query first."
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:145
+#: src/Controllers/JavaScriptMessagesController.php:144
+#, fuzzy
+#| msgid "With selected:"
+msgid "Nothing selected"
+msgstr "Gyda'r dewis:"
+
+#: src/Controllers/JavaScriptMessagesController.php:146
+#, fuzzy
+#| msgid "Actions"
+msgid "Enter an option"
+msgstr "Gweithredoedd"
+
+#: src/Controllers/JavaScriptMessagesController.php:149
 msgid "The host name is empty!"
 msgstr "Mae enw'r gwesteiwr yn wag!"
 
-#: src/Controllers/JavaScriptMessagesController.php:146
+#: src/Controllers/JavaScriptMessagesController.php:150
 msgid "The user name is empty!"
 msgstr "Mae enw'r defnyddiwr yn wag!"
 
-#: src/Controllers/JavaScriptMessagesController.php:147
-#: src/Server/Privileges.php:761 src/UserPassword.php:33
+#: src/Controllers/JavaScriptMessagesController.php:151
+#: src/Server/Privileges.php:760 src/UserPassword.php:33
 msgid "The password is empty!"
 msgstr "Mae'r cyfrinair yn wag!"
 
-#: src/Controllers/JavaScriptMessagesController.php:148
-#: src/Server/Privileges.php:759 src/UserPassword.php:38
+#: src/Controllers/JavaScriptMessagesController.php:152
+#: src/Server/Privileges.php:756 src/UserPassword.php:38
 msgid "The passwords aren't the same!"
 msgstr "Nid yw'r cyfrineiriau'n debyg!"
 
-#: src/Controllers/JavaScriptMessagesController.php:150
+#: src/Controllers/JavaScriptMessagesController.php:154
 msgid ""
 "You are trying to set this account to log in with no password, but the "
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:154
+#: src/Controllers/JavaScriptMessagesController.php:158
 msgid "Removing Selected Users"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:162
+#: src/Controllers/JavaScriptMessagesController.php:166
 #, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Template was created."
 msgstr "%s tabl"
 
-#: src/Controllers/JavaScriptMessagesController.php:163
+#: src/Controllers/JavaScriptMessagesController.php:167
 msgid "Template was loaded."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:164
+#: src/Controllers/JavaScriptMessagesController.php:168
 msgid "Template was updated."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:165
+#: src/Controllers/JavaScriptMessagesController.php:169
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "Template was deleted."
 msgstr "Cafodd y rhes ei dileu"
 
 #. l10n: Other, small valued, queries
-#: src/Controllers/JavaScriptMessagesController.php:168
+#: src/Controllers/JavaScriptMessagesController.php:172
 #: src/Server/Status/Data.php:130
 msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:170 src/Util.php:390
+#: src/Controllers/JavaScriptMessagesController.php:174 src/Util.php:390
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:172 src/Util.php:388
+#: src/Controllers/JavaScriptMessagesController.php:176 src/Util.php:388
 msgid "."
 msgstr "."
 
-#: src/Controllers/JavaScriptMessagesController.php:174
+#: src/Controllers/JavaScriptMessagesController.php:178
 msgid "Connections / Processes"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:176
+#: src/Controllers/JavaScriptMessagesController.php:180
 #, fuzzy
 #| msgid "Number of tables"
 msgid "Number of statements"
 msgstr "Nifer y tablau"
 
-#: src/Controllers/JavaScriptMessagesController.php:178
+#: src/Controllers/JavaScriptMessagesController.php:182
 #, fuzzy
 #| msgid "SQL query history table"
 msgid "Query cache efficiency"
 msgstr "Tabl hanes ymholiadau SQL"
 
-#: src/Controllers/JavaScriptMessagesController.php:179
+#: src/Controllers/JavaScriptMessagesController.php:183
 #, fuzzy
 #| msgid "Query results"
 msgid "Query cache usage"
 msgstr "Gweithrediadau canlyniadau ymholiad"
 
-#: src/Controllers/JavaScriptMessagesController.php:180
+#: src/Controllers/JavaScriptMessagesController.php:184
 #, fuzzy
 #| msgid "Query results"
 msgid "Query cache used"
 msgstr "Gweithrediadau canlyniadau ymholiad"
 
-#: src/Controllers/JavaScriptMessagesController.php:182
+#: src/Controllers/JavaScriptMessagesController.php:186
 msgid "System CPU usage"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:183
+#: src/Controllers/JavaScriptMessagesController.php:187
 msgid "System memory"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:184
+#: src/Controllers/JavaScriptMessagesController.php:188
 msgid "System swap"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:186
+#: src/Controllers/JavaScriptMessagesController.php:190
 msgid "Average load"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:187
+#: src/Controllers/JavaScriptMessagesController.php:191
 #, fuzzy
 #| msgid "Log file count"
 msgid "Total memory"
 msgstr "Cyfrif ffeiliau log"
 
-#: src/Controllers/JavaScriptMessagesController.php:188
+#: src/Controllers/JavaScriptMessagesController.php:192
 msgid "Cached memory"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:189
+#: src/Controllers/JavaScriptMessagesController.php:193
 #, fuzzy
 #| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Pwll Byffer"
 
-#: src/Controllers/JavaScriptMessagesController.php:190
+#: src/Controllers/JavaScriptMessagesController.php:194
 msgid "Free memory"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:191
+#: src/Controllers/JavaScriptMessagesController.php:195
 msgid "Used memory"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:193
+#: src/Controllers/JavaScriptMessagesController.php:197
 #, fuzzy
 #| msgid "Total"
 msgid "Total swap"
 msgstr "Cyfanswm"
 
-#: src/Controllers/JavaScriptMessagesController.php:194
+#: src/Controllers/JavaScriptMessagesController.php:198
 msgid "Cached swap"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:195
+#: src/Controllers/JavaScriptMessagesController.php:199
 msgid "Used swap"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:196
+#: src/Controllers/JavaScriptMessagesController.php:200
 #, fuzzy
 #| msgid "Free pages"
 msgid "Free swap"
 msgstr "Tudalennau rhydd"
 
-#: src/Controllers/JavaScriptMessagesController.php:198
+#: src/Controllers/JavaScriptMessagesController.php:202
 msgid "Bytes sent"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:199
+#: src/Controllers/JavaScriptMessagesController.php:203
 msgid "Bytes received"
 msgstr ""
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:204 src/Util.php:308
+#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:308
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:207 src/Util.php:314
+#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:314
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:208 src/Util.php:316
+#: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:316
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:209 src/Util.php:318
+#: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:318
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:320
+#: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:320
 msgid "EiB"
 msgstr "EiB"
 
-#: src/Controllers/JavaScriptMessagesController.php:211
+#: src/Controllers/JavaScriptMessagesController.php:215
 #, fuzzy, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
@@ -13987,60 +13975,60 @@ msgid "%d table(s)"
 msgstr "%s tabl"
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: src/Controllers/JavaScriptMessagesController.php:214
+#: src/Controllers/JavaScriptMessagesController.php:218
 #, fuzzy
 #| msgid "Versions"
 msgid "Questions"
 msgstr "Fersiynau"
 
-#: src/Controllers/JavaScriptMessagesController.php:218
+#: src/Controllers/JavaScriptMessagesController.php:222
 msgid "Please add at least one variable to the series!"
 msgstr ""
 
 #. l10n: SQL Query on modal to show exported query
-#: src/Controllers/JavaScriptMessagesController.php:221
+#: src/Controllers/JavaScriptMessagesController.php:225
 #, fuzzy
 #| msgid "SQL query"
 msgid "SQL Query"
 msgstr "Ymholiad SQL"
 
-#: src/Controllers/JavaScriptMessagesController.php:222
+#: src/Controllers/JavaScriptMessagesController.php:226
 msgid "Resume monitor"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:223
+#: src/Controllers/JavaScriptMessagesController.php:227
 msgid "Pause monitor"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:225
+#: src/Controllers/JavaScriptMessagesController.php:229
 msgid "Stop auto refresh"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:227
+#: src/Controllers/JavaScriptMessagesController.php:231
 msgid "general_log and slow_query_log are enabled."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:228
+#: src/Controllers/JavaScriptMessagesController.php:232
 msgid "general_log is enabled."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:229
+#: src/Controllers/JavaScriptMessagesController.php:233
 msgid "slow_query_log is enabled."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:230
+#: src/Controllers/JavaScriptMessagesController.php:234
 msgid "slow_query_log and general_log are disabled."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:231
+#: src/Controllers/JavaScriptMessagesController.php:235
 msgid "log_output is not set to TABLE."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:232
+#: src/Controllers/JavaScriptMessagesController.php:236
 msgid "log_output is set to TABLE."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:234
+#: src/Controllers/JavaScriptMessagesController.php:238
 #, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
@@ -14048,26 +14036,26 @@ msgid ""
 "depending on your system."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:238
+#: src/Controllers/JavaScriptMessagesController.php:242
 #, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:240
+#: src/Controllers/JavaScriptMessagesController.php:244
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
 
 #. l10n: %s is FILE or TABLE
-#: src/Controllers/JavaScriptMessagesController.php:243
+#: src/Controllers/JavaScriptMessagesController.php:247
 #, fuzzy, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "Cadw fel ffeil"
 
 #. l10n: Enable in this context means setting a status variable to ON
-#: src/Controllers/JavaScriptMessagesController.php:245
+#: src/Controllers/JavaScriptMessagesController.php:249
 #, fuzzy, php-format
 #| msgctxt "BLOB repository"
 #| msgid "Enabled"
@@ -14075,196 +14063,196 @@ msgid "Enable %s"
 msgstr "Galluogwyd"
 
 #. l10n: Disable in this context means setting a status variable to OFF
-#: src/Controllers/JavaScriptMessagesController.php:247
+#: src/Controllers/JavaScriptMessagesController.php:251
 #, fuzzy, php-format
 #| msgid "Disable"
 msgid "Disable %s"
 msgstr "Analluogwch"
 
 #. l10n: %d seconds
-#: src/Controllers/JavaScriptMessagesController.php:249
+#: src/Controllers/JavaScriptMessagesController.php:253
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Set long_query_time to %d seconds."
 msgstr "Cymerodd yr ymholiad %01.4f eiliad"
 
-#: src/Controllers/JavaScriptMessagesController.php:251
+#: src/Controllers/JavaScriptMessagesController.php:255
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:253
+#: src/Controllers/JavaScriptMessagesController.php:257
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change settings"
 msgstr "Nodweddion perthynas cyffredinol"
 
-#: src/Controllers/JavaScriptMessagesController.php:254
+#: src/Controllers/JavaScriptMessagesController.php:258
 #, fuzzy
 #| msgid "General relation features"
 msgid "Current settings"
 msgstr "Nodweddion perthynas cyffredinol"
 
-#: src/Controllers/JavaScriptMessagesController.php:256
+#: src/Controllers/JavaScriptMessagesController.php:260
 #, fuzzy
 #| msgid "Report title"
 msgid "Chart title"
 msgstr "Teitl yr adroddiad"
 
 #. l10n: As in differential values
-#: src/Controllers/JavaScriptMessagesController.php:258
+#: src/Controllers/JavaScriptMessagesController.php:262
 #, fuzzy
 #| msgid "Difference"
 msgid "Differential"
 msgstr "Gwahaniaeth"
 
-#: src/Controllers/JavaScriptMessagesController.php:259
+#: src/Controllers/JavaScriptMessagesController.php:263
 #, php-format
 msgid "Divided by %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:260
+#: src/Controllers/JavaScriptMessagesController.php:264
 msgid "Unit"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:262
+#: src/Controllers/JavaScriptMessagesController.php:266
 msgid "The database name is not known for this query in the server's logs."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:264
+#: src/Controllers/JavaScriptMessagesController.php:268
 msgid ""
 "This column shows the amount of identical queries that are grouped together. "
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:269
+#: src/Controllers/JavaScriptMessagesController.php:273
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:274
+#: src/Controllers/JavaScriptMessagesController.php:278
 #, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing…"
 msgstr "Dadansoddi"
 
-#: src/Controllers/JavaScriptMessagesController.php:275
+#: src/Controllers/JavaScriptMessagesController.php:279
 #, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Esbonio SQL"
 
-#: src/Controllers/JavaScriptMessagesController.php:278
+#: src/Controllers/JavaScriptMessagesController.php:282
 #, fuzzy
 #| msgid "Total"
 msgid "Total time:"
 msgstr "Cyfanswm"
 
-#: src/Controllers/JavaScriptMessagesController.php:279
+#: src/Controllers/JavaScriptMessagesController.php:283
 #, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Proffilio"
 
-#: src/Controllers/JavaScriptMessagesController.php:280
+#: src/Controllers/JavaScriptMessagesController.php:284
 #, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabl"
 
-#: src/Controllers/JavaScriptMessagesController.php:281
+#: src/Controllers/JavaScriptMessagesController.php:285
 #, fuzzy
 #| msgid "Charset"
 msgid "Chart"
 msgstr "Set nodau"
 
 #. l10n: A collection of available filters
-#: src/Controllers/JavaScriptMessagesController.php:288
+#: src/Controllers/JavaScriptMessagesController.php:292
 #, fuzzy
 #| msgid "Databases statistics"
 msgid "Log table filter options"
 msgstr "Ystadegau cronfeydd data"
 
 #. l10n: Filter as in "Start Filtering"
-#: src/Controllers/JavaScriptMessagesController.php:290
+#: src/Controllers/JavaScriptMessagesController.php:294
 msgid "Filter"
 msgstr "Hidlydd"
 
-#: src/Controllers/JavaScriptMessagesController.php:291
+#: src/Controllers/JavaScriptMessagesController.php:295
 msgid "Filter queries by word/regexp:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:292
+#: src/Controllers/JavaScriptMessagesController.php:296
 msgid "Group queries, ignoring variable data in WHERE clauses"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:293
+#: src/Controllers/JavaScriptMessagesController.php:297
 #, fuzzy
 #| msgid "Number of columns"
 msgid "Sum of grouped rows:"
 msgstr "Nifer y colofnau"
 
-#: src/Controllers/JavaScriptMessagesController.php:296
+#: src/Controllers/JavaScriptMessagesController.php:300
 msgid "Affected rows:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:298
+#: src/Controllers/JavaScriptMessagesController.php:302
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:300
+#: src/Controllers/JavaScriptMessagesController.php:304
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:303
+#: src/Controllers/JavaScriptMessagesController.php:307
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid table name."
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:304
+#: src/Controllers/JavaScriptMessagesController.php:308
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid database name."
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:305
+#: src/Controllers/JavaScriptMessagesController.php:309
 msgid "No files available on server for import!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:308
+#: src/Controllers/JavaScriptMessagesController.php:312
 msgid "Formatting SQL…"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:309
+#: src/Controllers/JavaScriptMessagesController.php:313
 #, fuzzy
 #| msgid "Routines"
 msgid "No parameters found!"
 msgstr "Rheolweithiau"
 
-#: src/Controllers/JavaScriptMessagesController.php:321
+#: src/Controllers/JavaScriptMessagesController.php:325
 msgid "Request aborted!!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:322
+#: src/Controllers/JavaScriptMessagesController.php:326
 #, fuzzy
 #| msgid "Processes"
 msgid "Processing request"
 msgstr "Prosesau"
 
-#: src/Controllers/JavaScriptMessagesController.php:323
+#: src/Controllers/JavaScriptMessagesController.php:327
 #, fuzzy
 #| msgid "Query"
 msgid "Request failed!!"
 msgstr "Ymholiad"
 
-#: src/Controllers/JavaScriptMessagesController.php:324
+#: src/Controllers/JavaScriptMessagesController.php:328
 #: src/Controllers/Sql/EnumValuesController.php:38
 #: src/Controllers/Sql/SetValuesController.php:41
 #, fuzzy
@@ -14272,223 +14260,223 @@ msgstr "Ymholiad"
 msgid "Error in processing request"
 msgstr "Prosesau"
 
-#: src/Controllers/JavaScriptMessagesController.php:325
+#: src/Controllers/JavaScriptMessagesController.php:329
 #, php-format
 msgid "Error code: %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:326
+#: src/Controllers/JavaScriptMessagesController.php:330
 #, php-format
 msgid "Error text: %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:328
+#: src/Controllers/JavaScriptMessagesController.php:332
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:333
+#: src/Controllers/JavaScriptMessagesController.php:337
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No accounts selected."
 msgstr "Dim cronfeydd data wedi'u dewis."
 
-#: src/Controllers/JavaScriptMessagesController.php:334
+#: src/Controllers/JavaScriptMessagesController.php:338
 #, fuzzy
 #| msgid "Dropping Procedure"
 msgid "Dropping column"
 msgstr "Gweithdrefnau"
 
-#: src/Controllers/JavaScriptMessagesController.php:335
+#: src/Controllers/JavaScriptMessagesController.php:339
 #, fuzzy
 #| msgid "Add %s column(s)"
 msgid "Adding primary key"
 msgstr "Ychwanegwch %s colofn"
 
-#: src/Controllers/JavaScriptMessagesController.php:337
+#: src/Controllers/JavaScriptMessagesController.php:341
 msgid "Click to dismiss this notification"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:341
+#: src/Controllers/JavaScriptMessagesController.php:345
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Renaming databases"
 msgstr "Ailenwch y gronfa ddata i"
 
-#: src/Controllers/JavaScriptMessagesController.php:342
+#: src/Controllers/JavaScriptMessagesController.php:346
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying database"
 msgstr "Copïwch y gronfa ddata i"
 
-#: src/Controllers/JavaScriptMessagesController.php:343
+#: src/Controllers/JavaScriptMessagesController.php:347
 #, fuzzy
 #| msgid "Charset"
 msgid "Changing charset"
 msgstr "Set nodau"
 
-#: src/Controllers/JavaScriptMessagesController.php:350
+#: src/Controllers/JavaScriptMessagesController.php:354
 #, fuzzy
 #| msgid "Failed to fetch headers"
 msgid "Failed to get real row count."
 msgstr "Methu â nôl penawdau"
 
-#: src/Controllers/JavaScriptMessagesController.php:353
+#: src/Controllers/JavaScriptMessagesController.php:357
 #, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "Chwilio"
 
-#: src/Controllers/JavaScriptMessagesController.php:354
+#: src/Controllers/JavaScriptMessagesController.php:358
 #, fuzzy
 #| msgid "in query"
 msgid "Hide search results"
 msgstr "mewn ymholiad"
 
-#: src/Controllers/JavaScriptMessagesController.php:355
+#: src/Controllers/JavaScriptMessagesController.php:359
 #, fuzzy
 #| msgid "Show insert query"
 msgid "Show search results"
 msgstr "Dangos ymholiad mewnosod"
 
-#: src/Controllers/JavaScriptMessagesController.php:356
+#: src/Controllers/JavaScriptMessagesController.php:360
 #, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "Porwch"
 
-#: src/Controllers/JavaScriptMessagesController.php:357
+#: src/Controllers/JavaScriptMessagesController.php:361
 #, fuzzy
 #| msgid "Delete"
 msgid "Deleting"
 msgstr "Dileu"
 
-#: src/Controllers/JavaScriptMessagesController.php:358
+#: src/Controllers/JavaScriptMessagesController.php:362
 #, php-format
 msgid "Delete the matches for the %s table?"
 msgstr "Dileu'r cydweddau ar gyfer tabl %s?"
 
-#: src/Controllers/JavaScriptMessagesController.php:361
+#: src/Controllers/JavaScriptMessagesController.php:365
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:363
+#: src/Controllers/JavaScriptMessagesController.php:367
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:365
+#: src/Controllers/JavaScriptMessagesController.php:369
 #: src/Navigation/Nodes/NodeTrigger.php:27
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Trigger"
 msgstr "Ychwanegwch weinydd newydd"
 
-#: src/Controllers/JavaScriptMessagesController.php:369
+#: src/Controllers/JavaScriptMessagesController.php:373
 #, fuzzy, php-format
 #| msgid "Number of columns"
 msgid "Values for column %s"
 msgstr "Nifer y colofnau"
 
-#: src/Controllers/JavaScriptMessagesController.php:370
+#: src/Controllers/JavaScriptMessagesController.php:374
 msgid "Values for a new column"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:371
+#: src/Controllers/JavaScriptMessagesController.php:375
 msgid "Enter each value in a separate field."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:372
+#: src/Controllers/JavaScriptMessagesController.php:376
 #, fuzzy, php-format
 #| msgid "Add a new server"
 msgid "Add %d value(s)"
 msgstr "Ychwanegwch weinydd newydd"
 
-#: src/Controllers/JavaScriptMessagesController.php:375
+#: src/Controllers/JavaScriptMessagesController.php:379
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:378
+#: src/Controllers/JavaScriptMessagesController.php:382
 #, fuzzy
 #| msgid "in query"
 msgid "Hide query box"
 msgstr "mewn ymholiad"
 
-#: src/Controllers/JavaScriptMessagesController.php:379
+#: src/Controllers/JavaScriptMessagesController.php:383
 #, fuzzy
 #| msgid "Show insert query"
 msgid "Show query box"
 msgstr "Dangos ymholiad mewnosod"
 
-#: src/Controllers/JavaScriptMessagesController.php:381
+#: src/Controllers/JavaScriptMessagesController.php:385
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Edit query"
 msgstr "Cyflwyno Ymholiad"
 
-#: src/Controllers/JavaScriptMessagesController.php:383
+#: src/Controllers/JavaScriptMessagesController.php:387
 #, php-format
 msgid "%d is not valid row number."
 msgstr "Dydy %d ddim yn rhif rhes dilys."
 
-#: src/Controllers/JavaScriptMessagesController.php:385
+#: src/Controllers/JavaScriptMessagesController.php:389
 #, fuzzy, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
 msgstr "Newidyn"
 
-#: src/Controllers/JavaScriptMessagesController.php:388
+#: src/Controllers/JavaScriptMessagesController.php:392
 #: src/Normalization.php:956
 msgid "Pick"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:389
+#: src/Controllers/JavaScriptMessagesController.php:393
 #, fuzzy
 #| msgid "No databases selected."
 msgid "Column selector"
 msgstr "Dim cronfeydd data wedi'u dewis."
 
-#: src/Controllers/JavaScriptMessagesController.php:390
+#: src/Controllers/JavaScriptMessagesController.php:394
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "Chwilio yn y gronfa ddata"
 
-#: src/Controllers/JavaScriptMessagesController.php:392
+#: src/Controllers/JavaScriptMessagesController.php:396
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:395
+#: src/Controllers/JavaScriptMessagesController.php:399
 msgid "See more"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:398
+#: src/Controllers/JavaScriptMessagesController.php:402
 msgid "Add primary key"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:399
+#: src/Controllers/JavaScriptMessagesController.php:403
 #, fuzzy
 #| msgid "The primary key has been dropped."
 msgid "Primary key added."
 msgstr "Cafodd yr allwedd gynradd ei gollwng."
 
-#: src/Controllers/JavaScriptMessagesController.php:400
+#: src/Controllers/JavaScriptMessagesController.php:404
 #: src/Normalization.php:263
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "Adroddiad tracio"
 
-#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:405
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:402
+#: src/Controllers/JavaScriptMessagesController.php:406
 #: src/Normalization.php:519 src/Normalization.php:578
 #: src/Normalization.php:665 src/Normalization.php:738
 #, fuzzy
@@ -14496,466 +14484,484 @@ msgstr ""
 msgid "End of step"
 msgstr "Diwedd y llinell"
 
-#: src/Controllers/JavaScriptMessagesController.php:403
+#: src/Controllers/JavaScriptMessagesController.php:407
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:404
-#: src/Controllers/JavaScriptMessagesController.php:758
+#: src/Controllers/JavaScriptMessagesController.php:408
+#: src/Controllers/JavaScriptMessagesController.php:762
 #: src/Normalization.php:351
 msgid "Done"
 msgstr "Gorffen"
 
-#: src/Controllers/JavaScriptMessagesController.php:405
+#: src/Controllers/JavaScriptMessagesController.php:409
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:406
+#: src/Controllers/JavaScriptMessagesController.php:410
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:408
+#: src/Controllers/JavaScriptMessagesController.php:412
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:411
+#: src/Controllers/JavaScriptMessagesController.php:415
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "Dim cronfeydd data wedi'u dewis."
 
-#: src/Controllers/JavaScriptMessagesController.php:413
+#: src/Controllers/JavaScriptMessagesController.php:417
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:414
+#: src/Controllers/JavaScriptMessagesController.php:418
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:416
+#: src/Controllers/JavaScriptMessagesController.php:420
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:418
+#: src/Controllers/JavaScriptMessagesController.php:422
 msgid "Step"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:419
+#: src/Controllers/JavaScriptMessagesController.php:423
 msgid "The following actions will be performed:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:420
+#: src/Controllers/JavaScriptMessagesController.php:424
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:421
+#: src/Controllers/JavaScriptMessagesController.php:425
 #, fuzzy
 #| msgid "Create table on database %s"
 msgid "Create the following table"
 msgstr "Creu tabl mewn cronfa ddata %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:424
+#: src/Controllers/JavaScriptMessagesController.php:426
+#, fuzzy
+#| msgid "Page name"
+msgid "Enter new table name"
+msgstr "Enw'r dudalen"
+
+#: src/Controllers/JavaScriptMessagesController.php:427
+#, fuzzy
+#| msgid "Columns"
+msgid "Enter column name"
+msgstr "Colofnau"
+
+#: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:429
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:426
+#: src/Controllers/JavaScriptMessagesController.php:430
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:431
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "Dim cronfeydd data wedi'u dewis."
 
-#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:432
 #, fuzzy
 #| msgid "Use this value"
 msgid "Enter first value"
 msgstr "Defnyddiwch y gwerth hwn"
 
-#: src/Controllers/JavaScriptMessagesController.php:429
+#: src/Controllers/JavaScriptMessagesController.php:433
 msgid "Enter second value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:435
+#: src/Controllers/JavaScriptMessagesController.php:439
 #, fuzzy
 #| msgid "in query"
 msgid "Hide search criteria"
 msgstr "mewn ymholiad"
 
-#: src/Controllers/JavaScriptMessagesController.php:436
+#: src/Controllers/JavaScriptMessagesController.php:440
 #, fuzzy
 #| msgid "Show insert query"
 msgid "Show search criteria"
 msgstr "Dangos ymholiad mewnosod"
 
-#: src/Controllers/JavaScriptMessagesController.php:437
+#: src/Controllers/JavaScriptMessagesController.php:441
 #, fuzzy
 #| msgid "Columns"
 msgid "Column maximum:"
 msgstr "Colofnau"
 
-#: src/Controllers/JavaScriptMessagesController.php:438
+#: src/Controllers/JavaScriptMessagesController.php:442
 #, fuzzy
 #| msgid "Columns"
 msgid "Column minimum:"
 msgstr "Colofnau"
 
-#: src/Controllers/JavaScriptMessagesController.php:441
+#: src/Controllers/JavaScriptMessagesController.php:445
 #, fuzzy
 #| msgid "in query"
 msgid "Hide find and replace criteria"
 msgstr "mewn ymholiad"
 
-#: src/Controllers/JavaScriptMessagesController.php:442
+#: src/Controllers/JavaScriptMessagesController.php:446
 #, fuzzy
 #| msgid "Show insert query"
 msgid "Show find and replace criteria"
 msgstr "Dangos ymholiad mewnosod"
 
-#: src/Controllers/JavaScriptMessagesController.php:446
+#: src/Controllers/JavaScriptMessagesController.php:450
 msgid "Each point represents a data row."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:448
+#: src/Controllers/JavaScriptMessagesController.php:452
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:450
+#: src/Controllers/JavaScriptMessagesController.php:454
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:452
+#: src/Controllers/JavaScriptMessagesController.php:456
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:454
+#: src/Controllers/JavaScriptMessagesController.php:458
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:456
+#: src/Controllers/JavaScriptMessagesController.php:460
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:459
+#: src/Controllers/JavaScriptMessagesController.php:462
+#, fuzzy
+#| msgid "Search"
+msgid "Zoom search instructions"
+msgstr "Chwilio"
+
+#: src/Controllers/JavaScriptMessagesController.php:463
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "Ychwanegu/Dileu colofnau"
 
-#: src/Controllers/JavaScriptMessagesController.php:461
+#: src/Controllers/JavaScriptMessagesController.php:465
 msgid "Select two different columns"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:463
+#: src/Controllers/JavaScriptMessagesController.php:467
 #, fuzzy
 #| msgid "Data definition statement"
 msgid "Data point content"
 msgstr "Datganiad diffiniad data"
 
-#: src/Controllers/JavaScriptMessagesController.php:469
+#: src/Controllers/JavaScriptMessagesController.php:473
 msgid "X"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:470
+#: src/Controllers/JavaScriptMessagesController.php:474
 msgid "Y"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:471
+#: src/Controllers/JavaScriptMessagesController.php:475
 msgid "Point"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:472
+#: src/Controllers/JavaScriptMessagesController.php:476
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Terfynwyd llinellau gan"
 
-#: src/Controllers/JavaScriptMessagesController.php:473
+#: src/Controllers/JavaScriptMessagesController.php:477
 msgid "Polygon"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:475
+#: src/Controllers/JavaScriptMessagesController.php:479
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Inner ring"
 msgstr "Ychwanegwch weinydd newydd"
 
-#: src/Controllers/JavaScriptMessagesController.php:476
+#: src/Controllers/JavaScriptMessagesController.php:480
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Outer ring"
 msgstr "Terfynwyd llinellau gan"
 
-#: src/Controllers/JavaScriptMessagesController.php:477
+#: src/Controllers/JavaScriptMessagesController.php:481
 #, fuzzy
 #| msgid "Routines"
 msgid "Add a point"
 msgstr "Rheolweithiau"
 
-#: src/Controllers/JavaScriptMessagesController.php:478
+#: src/Controllers/JavaScriptMessagesController.php:482
 #, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
 msgstr "Ychwanegwch cyfyngiadau"
 
-#: src/Controllers/JavaScriptMessagesController.php:479
+#: src/Controllers/JavaScriptMessagesController.php:483
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add an inner ring"
 msgstr "Ychwanegwch weinydd newydd"
 
-#: src/Controllers/JavaScriptMessagesController.php:480
+#: src/Controllers/JavaScriptMessagesController.php:484
 msgid "Add a polygon"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:481
+#: src/Controllers/JavaScriptMessagesController.php:485
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add geometry"
 msgstr "Ychwanegwch weinydd newydd"
 
-#: src/Controllers/JavaScriptMessagesController.php:483
+#: src/Controllers/JavaScriptMessagesController.php:487
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:484
+#: src/Controllers/JavaScriptMessagesController.php:488
 msgid "Encryption key"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:487
+#: src/Controllers/JavaScriptMessagesController.php:491
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:492
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:498
+#: src/Controllers/JavaScriptMessagesController.php:502
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:504
+#: src/Controllers/JavaScriptMessagesController.php:508
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:509
+#: src/Controllers/JavaScriptMessagesController.php:513
 msgid "Select referenced key"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:514
 msgid "Select Foreign Key"
 msgstr "Dewis Allwedd Estron"
 
-#: src/Controllers/JavaScriptMessagesController.php:511
+#: src/Controllers/JavaScriptMessagesController.php:515
 msgid "Please select the primary key or a unique key!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:514
+#: src/Controllers/JavaScriptMessagesController.php:518
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:517
+#: src/Controllers/JavaScriptMessagesController.php:521
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:519
+#: src/Controllers/JavaScriptMessagesController.php:523
 msgid "Page name"
 msgstr "Enw'r dudalen"
 
-#: src/Controllers/JavaScriptMessagesController.php:523
+#: src/Controllers/JavaScriptMessagesController.php:527
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Delete page"
 msgstr "Dewis Tablau"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:525
+#: src/Controllers/JavaScriptMessagesController.php:529
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:527
+#: src/Controllers/JavaScriptMessagesController.php:531
 #, fuzzy
 #| msgid "Please select a database"
 msgid "Please select a page to continue"
 msgstr "Dewiswch gronfa ddata"
 
-#: src/Controllers/JavaScriptMessagesController.php:528
+#: src/Controllers/JavaScriptMessagesController.php:532
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:529
+#: src/Controllers/JavaScriptMessagesController.php:533
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:534
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:531
+#: src/Controllers/JavaScriptMessagesController.php:535
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "Golygu neu allforio sgema perthynol"
 
-#: src/Controllers/JavaScriptMessagesController.php:532
+#: src/Controllers/JavaScriptMessagesController.php:536
 msgid "Modifications have been saved"
 msgstr "Cafodd yr addasiadau eu cadw"
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:539
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:540
 #, fuzzy
 #| msgid "Columns"
 msgid "Column name"
 msgstr "Colofnau"
 
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:544
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:542
+#: src/Controllers/JavaScriptMessagesController.php:546
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Drag to reorder."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:552
+#: src/Controllers/JavaScriptMessagesController.php:556
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:557
 #, fuzzy
 #| msgid "Columns"
 msgid "Double-click to copy column name."
 msgstr "Colofnau"
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:558
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:557
+#: src/Controllers/JavaScriptMessagesController.php:561
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:560
+#: src/Controllers/JavaScriptMessagesController.php:564
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:562
+#: src/Controllers/JavaScriptMessagesController.php:566
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:564
+#: src/Controllers/JavaScriptMessagesController.php:568
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "Safle gwreiddiol"
 
-#: src/Controllers/JavaScriptMessagesController.php:567
+#: src/Controllers/JavaScriptMessagesController.php:571
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "Diddymu"
 
-#: src/Controllers/JavaScriptMessagesController.php:568
+#: src/Controllers/JavaScriptMessagesController.php:572
 #: src/Controllers/Server/Status/StatusController.php:185
 msgid "Aborted"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:570
+#: src/Controllers/JavaScriptMessagesController.php:574
 msgid "Success"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:575
 #, fuzzy
 #| msgid "Import files"
 msgid "Import status"
 msgstr "Mewnforiwch ffeiliau"
 
-#: src/Controllers/JavaScriptMessagesController.php:573
+#: src/Controllers/JavaScriptMessagesController.php:577
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "Dewis Tablau"
 
-#: src/Controllers/JavaScriptMessagesController.php:575
+#: src/Controllers/JavaScriptMessagesController.php:579
 #, fuzzy
 #| msgid "Count tables"
 msgid "Go to link:"
 msgstr "Cyfrifwch y tablau"
 
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:582
 #, fuzzy
 #| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Generadu Cyfrinair"
 
-#: src/Controllers/JavaScriptMessagesController.php:585
+#: src/Controllers/JavaScriptMessagesController.php:589
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "Dangos pob"
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:590
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide panel"
 msgstr "Indecsau"
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:592
 #: src/Navigation/NavigationTree.php:1261
 #, fuzzy
 #| msgid "Use text field"
 msgid "Unlink from main panel"
 msgstr "Defnyddiwch faes testun"
 
-#: src/Controllers/JavaScriptMessagesController.php:592 src/Setup/Index.php:154
+#: src/Controllers/JavaScriptMessagesController.php:596 src/Setup/Index.php:154
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -14963,132 +14969,132 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:600
 #, fuzzy
 #| msgid "Check for latest version"
 msgid ", latest stable version:"
 msgstr "Gwiriwch y fersiwn diweddaraf"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:601
 #, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
 msgstr "Neidiwch i'r gronfa ddata"
 
-#: src/Controllers/JavaScriptMessagesController.php:598
+#: src/Controllers/JavaScriptMessagesController.php:602
 msgid "There was an error in loading the Git information."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:601
+#: src/Controllers/JavaScriptMessagesController.php:605
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:602
+#: src/Controllers/JavaScriptMessagesController.php:606
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change report settings"
 msgstr "Nodweddion perthynas cyffredinol"
 
-#: src/Controllers/JavaScriptMessagesController.php:603
+#: src/Controllers/JavaScriptMessagesController.php:607
 #, fuzzy
 #| msgid "Report title"
 msgid "Show report details"
 msgstr "Teitl yr adroddiad"
 
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:608
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:607
+#: src/Controllers/JavaScriptMessagesController.php:611
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:613
-#: src/Controllers/JavaScriptMessagesController.php:626
+#: src/Controllers/JavaScriptMessagesController.php:617
+#: src/Controllers/JavaScriptMessagesController.php:630
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:615
+#: src/Controllers/JavaScriptMessagesController.php:619
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:621
+#: src/Controllers/JavaScriptMessagesController.php:625
 #: src/Error/ErrorHandler.php:429
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "Anwybyddu"
 
-#: src/Controllers/JavaScriptMessagesController.php:628
+#: src/Controllers/JavaScriptMessagesController.php:632
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:632
+#: src/Controllers/JavaScriptMessagesController.php:636
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:637
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:634
+#: src/Controllers/JavaScriptMessagesController.php:638
 msgid "Successfully copied!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:635
+#: src/Controllers/JavaScriptMessagesController.php:639
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying failed!"
 msgstr "Copïwch y gronfa ddata i"
 
-#: src/Controllers/JavaScriptMessagesController.php:638
+#: src/Controllers/JavaScriptMessagesController.php:642
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "Dangoswch  yr ymholiad hwn yma eto"
 
-#: src/Controllers/JavaScriptMessagesController.php:639
+#: src/Controllers/JavaScriptMessagesController.php:643
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
 msgstr "A ydych chi wir am"
 
-#: src/Controllers/JavaScriptMessagesController.php:640
+#: src/Controllers/JavaScriptMessagesController.php:644
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:641
+#: src/Controllers/JavaScriptMessagesController.php:645
 #, fuzzy, php-format
 #| msgid "Execute bookmarked query"
 msgid "%s queries executed %s times in %s seconds."
 msgstr "Gweithredu ymholiad a glustnodwyd"
 
-#: src/Controllers/JavaScriptMessagesController.php:642
+#: src/Controllers/JavaScriptMessagesController.php:646
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:643
+#: src/Controllers/JavaScriptMessagesController.php:647
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "Sylwadau tabl"
 
-#: src/Controllers/JavaScriptMessagesController.php:644
+#: src/Controllers/JavaScriptMessagesController.php:648
 #, fuzzy
 #| msgid "in query"
 msgid "Hide arguments"
 msgstr "mewn ymholiad"
 
-#: src/Controllers/JavaScriptMessagesController.php:647
+#: src/Controllers/JavaScriptMessagesController.php:651
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -15097,96 +15103,96 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:654
+#: src/Controllers/JavaScriptMessagesController.php:658
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "Copïwch y gronfa ddata i"
 
-#: src/Controllers/JavaScriptMessagesController.php:655
+#: src/Controllers/JavaScriptMessagesController.php:659
 #, fuzzy
 #| msgid "Rename table to"
 msgid "Add table prefix"
 msgstr "Ailenwi tabl i"
 
-#: src/Controllers/JavaScriptMessagesController.php:656
+#: src/Controllers/JavaScriptMessagesController.php:660
 #, fuzzy
 #| msgid "Rename table to"
 msgid "Replace table with prefix"
 msgstr "Ailenwi tabl i"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:664
 msgid "Extremely weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:665
 msgid "Very weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:666
 msgid "Weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:663
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid "Good"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:668
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:668
+#: src/Controllers/JavaScriptMessagesController.php:672
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:670
+#: src/Controllers/JavaScriptMessagesController.php:674
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:672
+#: src/Controllers/JavaScriptMessagesController.php:676
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr ""
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:674
+#: src/Controllers/JavaScriptMessagesController.php:678
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:676
+#: src/Controllers/JavaScriptMessagesController.php:680
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:678
+#: src/Controllers/JavaScriptMessagesController.php:682
 #, fuzzy
 #| msgid "Export"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Allforio"
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:685
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:686
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:691
+#: src/Controllers/JavaScriptMessagesController.php:695
 #, fuzzy, php-format
 #| msgid "Error: relation already exists."
 msgctxt ""
@@ -15194,186 +15200,186 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Gwall: perthynas yn bodoli yn barod."
 
-#: src/Controllers/JavaScriptMessagesController.php:693 src/InsertEdit.php:248
+#: src/Controllers/JavaScriptMessagesController.php:697 src/InsertEdit.php:248
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Cuddio"
 
-#: src/Controllers/JavaScriptMessagesController.php:697
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:701
+#: src/Controllers/JavaScriptMessagesController.php:705
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Ionawr"
 
-#: src/Controllers/JavaScriptMessagesController.php:702
+#: src/Controllers/JavaScriptMessagesController.php:706
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Chwefror"
 
-#: src/Controllers/JavaScriptMessagesController.php:703
+#: src/Controllers/JavaScriptMessagesController.php:707
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Mawrth"
 
-#: src/Controllers/JavaScriptMessagesController.php:704
+#: src/Controllers/JavaScriptMessagesController.php:708
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Ebrill"
 
-#: src/Controllers/JavaScriptMessagesController.php:705
+#: src/Controllers/JavaScriptMessagesController.php:709
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Mai"
 
-#: src/Controllers/JavaScriptMessagesController.php:706
+#: src/Controllers/JavaScriptMessagesController.php:710
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Mehefin"
 
-#: src/Controllers/JavaScriptMessagesController.php:707
+#: src/Controllers/JavaScriptMessagesController.php:711
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Gorffennaf"
 
-#: src/Controllers/JavaScriptMessagesController.php:708
+#: src/Controllers/JavaScriptMessagesController.php:712
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "Awst"
 
-#: src/Controllers/JavaScriptMessagesController.php:709
+#: src/Controllers/JavaScriptMessagesController.php:713
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "Medi"
 
-#: src/Controllers/JavaScriptMessagesController.php:710
+#: src/Controllers/JavaScriptMessagesController.php:714
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Hydref"
 
-#: src/Controllers/JavaScriptMessagesController.php:711
+#: src/Controllers/JavaScriptMessagesController.php:715
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "Tachwedd"
 
-#: src/Controllers/JavaScriptMessagesController.php:712
+#: src/Controllers/JavaScriptMessagesController.php:716
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Rhagfyr"
 
-#: src/Controllers/JavaScriptMessagesController.php:713 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:502
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Ion"
 
-#: src/Controllers/JavaScriptMessagesController.php:714 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:503
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Chwe"
 
-#: src/Controllers/JavaScriptMessagesController.php:715 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:504
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Maw"
 
-#: src/Controllers/JavaScriptMessagesController.php:716 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:720 src/Util.php:505
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Ebr"
 
-#: src/Controllers/JavaScriptMessagesController.php:717 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:721 src/Util.php:506
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Mai"
 
-#: src/Controllers/JavaScriptMessagesController.php:718 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:722 src/Util.php:507
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Meh"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:723 src/Util.php:508
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Gor"
 
-#: src/Controllers/JavaScriptMessagesController.php:720 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:724 src/Util.php:509
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Aws"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:725 src/Util.php:510
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Med"
 
-#: src/Controllers/JavaScriptMessagesController.php:722 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:726 src/Util.php:511
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Hyd"
 
-#: src/Controllers/JavaScriptMessagesController.php:723 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:727 src/Util.php:512
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Tach"
 
-#: src/Controllers/JavaScriptMessagesController.php:724 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:728 src/Util.php:513
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Rhag"
 
-#: src/Controllers/JavaScriptMessagesController.php:732 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:516
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -15381,98 +15387,98 @@ msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Sul"
 
-#: src/Controllers/JavaScriptMessagesController.php:733 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:517
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Llun"
 
-#: src/Controllers/JavaScriptMessagesController.php:734 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:518
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Maw"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:519
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:519
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Mer"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:520
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:520
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Iau"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:521
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:521
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Gwe"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:522
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:522
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Sad"
 
-#: src/Controllers/JavaScriptMessagesController.php:739
+#: src/Controllers/JavaScriptMessagesController.php:743
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Su"
 
-#: src/Controllers/JavaScriptMessagesController.php:740
+#: src/Controllers/JavaScriptMessagesController.php:744
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Llu"
 
-#: src/Controllers/JavaScriptMessagesController.php:741
+#: src/Controllers/JavaScriptMessagesController.php:745
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Ma"
 
-#: src/Controllers/JavaScriptMessagesController.php:742
+#: src/Controllers/JavaScriptMessagesController.php:746
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Me"
 
-#: src/Controllers/JavaScriptMessagesController.php:743
+#: src/Controllers/JavaScriptMessagesController.php:747
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Ia"
 
-#: src/Controllers/JavaScriptMessagesController.php:744
+#: src/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Gw"
 
-#: src/Controllers/JavaScriptMessagesController.php:745
+#: src/Controllers/JavaScriptMessagesController.php:749
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Sa"
 
-#: src/Controllers/JavaScriptMessagesController.php:746
+#: src/Controllers/JavaScriptMessagesController.php:750
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -15480,62 +15486,62 @@ msgid "Wk"
 msgstr "Wy"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:748
+#: src/Controllers/JavaScriptMessagesController.php:752
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:749
+#: src/Controllers/JavaScriptMessagesController.php:753
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "Dim"
 
-#: src/Controllers/JavaScriptMessagesController.php:750
+#: src/Controllers/JavaScriptMessagesController.php:754
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Amser"
 
-#: src/Controllers/JavaScriptMessagesController.php:751
+#: src/Controllers/JavaScriptMessagesController.php:755
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Awr"
 
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:756
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Munud"
 
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:757
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Eiliad"
 
-#: src/Controllers/JavaScriptMessagesController.php:754
+#: src/Controllers/JavaScriptMessagesController.php:758
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "Eiliad"
 
-#: src/Controllers/JavaScriptMessagesController.php:755
+#: src/Controllers/JavaScriptMessagesController.php:759
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "Eiliad"
 
-#: src/Controllers/JavaScriptMessagesController.php:756
+#: src/Controllers/JavaScriptMessagesController.php:760
 #, fuzzy
 #| msgid "Time"
 msgctxt "The time zone for a time of day"
@@ -15543,7 +15549,7 @@ msgid "Time zone"
 msgstr "Amser"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:760
+#: src/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
@@ -15551,7 +15557,7 @@ msgid "Prev"
 msgstr "Cynt"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -15559,157 +15565,157 @@ msgid "Next"
 msgstr "Nesaf"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:768
 msgid "Today"
 msgstr "Heddiw"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:771
 msgid "This field is required"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "Defnyddiwch faes testun"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:773
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid email address"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:774
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid URL"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:775
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:776
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date ( ISO )"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:777
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:778
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid credit card number"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:779
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter only digits"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:776
+#: src/Controllers/JavaScriptMessagesController.php:780
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter the same value again"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:781
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:778
+#: src/Controllers/JavaScriptMessagesController.php:782
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter at least {0} characters"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:779
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:784
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value between {0} and {1}"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:781
+#: src/Controllers/JavaScriptMessagesController.php:785
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:786
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:783
+#: src/Controllers/JavaScriptMessagesController.php:787
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date or time"
 msgstr "Nid yn rhif porth ddilys"
 
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:788
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid HEX input"
 msgstr "Nid yn rhif porth ddilys"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:790
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:800
 #, php-format
 msgid "%s of %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:801
 #, php-format
 msgid "%s/sec."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:803
 msgid "About %SEC sec. remaining."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:804
 msgid "The file is being processed, please be patient."
 msgstr "Mae'r ffeil yn cael ei phrosesu. Byddwch yn amyneddgar."
 
-#: src/Controllers/JavaScriptMessagesController.php:801
+#: src/Controllers/JavaScriptMessagesController.php:805
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file…"
 msgstr "Fformat y ffeil a mewnforiwyd"
 
-#: src/Controllers/JavaScriptMessagesController.php:803
+#: src/Controllers/JavaScriptMessagesController.php:807
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -15744,7 +15750,7 @@ msgid "String"
 msgstr "Terfynwyd llinellau gan"
 
 #: src/Controllers/Operations/Database/CollationController.php:42
-#: src/Controllers/Operations/TableController.php:268
+#: src/Controllers/Operations/TableController.php:254
 msgid "No collation provided."
 msgstr ""
 
@@ -15764,7 +15770,7 @@ msgstr "Cafodd cronfa ddata %s ei hailenwi i %s"
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Cafodd y gronfa ddata %s ei chopïo i %s"
 
-#: src/Controllers/Operations/DatabaseController.php:271
+#: src/Controllers/Operations/DatabaseController.php:264
 #, fuzzy, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
@@ -16513,8 +16519,8 @@ msgid "Bookmark not created!"
 msgstr "Clustnodi %s a grëwyd"
 
 #: src/Controllers/Table/AddFieldController.php:136
-#: src/Controllers/Table/IndexesController.php:137
-#: src/Controllers/Table/IndexRenameController.php:122
+#: src/Controllers/Table/IndexesController.php:120
+#: src/Controllers/Table/IndexRenameController.php:108
 #: src/Controllers/Table/Structure/PartitioningController.php:264
 #: src/Controllers/Table/Structure/SaveController.php:227
 #, php-format
@@ -16522,7 +16528,7 @@ msgid "Table %1$s has been altered successfully."
 msgstr ""
 
 #: src/Controllers/Table/ChangeRowsController.php:36
-#: src/Controllers/Table/DeleteConfirmController.php:38
+#: src/Controllers/Table/DeleteConfirmController.php:37
 #: src/Controllers/Table/ExportRowsController.php:33
 #, fuzzy
 #| msgid "No databases selected."
@@ -16530,15 +16536,15 @@ msgid "No row selected."
 msgstr "Dim cronfeydd data wedi'u dewis."
 
 #: src/Controllers/Table/ChartController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:84
+#: src/Controllers/Table/GisVisualizationController.php:77
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: src/Controllers/Table/ChartController.php:164
+#: src/Controllers/Table/ChartController.php:137
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: src/Controllers/Table/ChartController.php:242
+#: src/Controllers/Table/ChartController.php:215
 #, fuzzy
 #| msgid "No databases"
 msgid "No data to display"
@@ -16594,17 +16600,17 @@ msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
-#: src/Controllers/Table/GisVisualizationController.php:93
+#: src/Controllers/Table/GisVisualizationController.php:86
 #, fuzzy
 #| msgid "%s has been disabled for this MySQL server."
 msgid "No spatial column found for this SQL query."
 msgstr "Cafodd %s ei analluogi ar y gweinydd MySQL hwn."
 
-#: src/Controllers/Table/GisVisualizationController.php:117
+#: src/Controllers/Table/GisVisualizationController.php:110
 msgid "Invalid file format, expected one of: "
 msgstr ""
 
-#: src/Controllers/Table/GisVisualizationController.php:125
+#: src/Controllers/Table/GisVisualizationController.php:118
 #, fuzzy
 #| msgid "Failed to open remote URL"
 msgid "Failed to create image"
@@ -16695,23 +16701,23 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Cafodd golwg %s ei ollwng"
 
-#: src/Controllers/Table/TrackingController.php:91
+#: src/Controllers/Table/TrackingController.php:84
 #, fuzzy, php-format
 #| msgid "Tracking is active."
 msgid "Tracking of %s is activated."
 msgstr "Mae tracio'n weithredol"
 
-#: src/Controllers/Table/TrackingController.php:144
+#: src/Controllers/Table/TrackingController.php:137
 msgid "SQL statements executed."
 msgstr ""
 
-#: src/Controllers/Table/TrackingController.php:198
+#: src/Controllers/Table/TrackingController.php:191
 #, fuzzy
 #| msgid "Database %s has been dropped."
 msgid "Tracking versions deleted successfully."
 msgstr "Cafodd cronfa ddata %s ei gollwng."
 
-#: src/Controllers/Table/TrackingController.php:203
+#: src/Controllers/Table/TrackingController.php:196
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No versions selected."
@@ -16747,7 +16753,7 @@ msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr ""
 
-#: src/Controllers/View/CreateController.php:84
+#: src/Controllers/View/CreateController.php:77
 msgid "View name can not be empty!"
 msgstr ""
 
@@ -19295,7 +19301,7 @@ msgid "Error 405! Request method not allowed."
 msgstr ""
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:633
-#: src/Server/Privileges.php:3137
+#: src/Server/Privileges.php:3133
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Native MySQL authentication"
@@ -19338,58 +19344,58 @@ msgstr ""
 msgid "Includes all privileges except GRANT."
 msgstr ""
 
-#: src/Server/Privileges.php:886
+#: src/Server/Privileges.php:888
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
-#: src/Server/Privileges.php:934
+#: src/Server/Privileges.php:930
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr ""
 
-#: src/Server/Privileges.php:1272
+#: src/Server/Privileges.php:1268
 msgid "Revoke"
 msgstr ""
 
-#: src/Server/Privileges.php:1877
+#: src/Server/Privileges.php:1873
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: src/Server/Privileges.php:1880
+#: src/Server/Privileges.php:1876
 msgid "Reloading the privileges"
 msgstr ""
 
-#: src/Server/Privileges.php:1905
+#: src/Server/Privileges.php:1901
 msgid "The selected users have been deleted successfully."
 msgstr ""
 
-#: src/Server/Privileges.php:1980
+#: src/Server/Privileges.php:1976
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
-#: src/Server/Privileges.php:2131
+#: src/Server/Privileges.php:2127
 #, php-format
 msgid "Deleting %s"
 msgstr ""
 
-#: src/Server/Privileges.php:2161
+#: src/Server/Privileges.php:2157
 msgid "The privileges were reloaded successfully."
 msgstr ""
 
-#: src/Server/Privileges.php:2228
+#: src/Server/Privileges.php:2224
 #, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
-#: src/Server/Privileges.php:2382
+#: src/Server/Privileges.php:2378
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Breintiau"
 
-#: src/Server/Privileges.php:2471
+#: src/Server/Privileges.php:2467
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -19398,7 +19404,7 @@ msgid ""
 "%sreload the privileges%s before you continue."
 msgstr ""
 
-#: src/Server/Privileges.php:2487
+#: src/Server/Privileges.php:2483
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -19407,11 +19413,11 @@ msgid ""
 "privilege."
 msgstr ""
 
-#: src/Server/Privileges.php:2775
+#: src/Server/Privileges.php:2771
 msgid "You have added a new user."
 msgstr ""
 
-#: src/Server/Privileges.php:3229
+#: src/Server/Privileges.php:3225
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -20127,6 +20133,9 @@ msgstr ""
 msgid "No files found inside ZIP archive!"
 msgstr ""
 
+#~ msgid "No databases selected."
+#~ msgstr "Dim cronfeydd data wedi'u dewis."
+
 #, fuzzy, php-format
 #~| msgid "Invalid server index: %s"
 #~ msgid "Invalid format of mediawiki input on line: <br>%s."
@@ -20534,9 +20543,6 @@ msgstr ""
 
 #~ msgid "Font size"
 #~ msgstr "Maint ffont"
-
-#~ msgid "Search results for \"<i>%s</i>\" %s:"
-#~ msgstr "Canlyniadau chwilio am \"<i>%s</i>\" %s:"
 
 #, fuzzy
 #~| msgid "Use text field"
