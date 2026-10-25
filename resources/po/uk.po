@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-25 00:40+0000\n"
-"PO-Revision-Date: 2026-10-19 01:51+0000\n"
+"PO-Revision-Date: 2026-10-25 08:31+0000\n"
 "Last-Translator: Hotripak <hotr1pak@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
@@ -1869,10 +1869,8 @@ msgstr "Додати як"
 
 #. l10n: Short label for the comparison operator of a criteria row (=, >, LIKE, IN, BETWEEN…)
 #: resources/templates/database/multi_table_query/form.twig:90
-#, fuzzy
-#| msgid "Open"
 msgid "Op"
-msgstr "Відкрити"
+msgstr "Ві"
 
 #: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
@@ -2481,10 +2479,9 @@ msgid "Inside column:"
 msgstr "Всередині стовпця:"
 
 #: resources/templates/database/search/results.twig:3
-#, fuzzy, php-format
-#| msgid "Search results for \"<i>%s</i>\" %s:"
+#, php-format
 msgid "Search results for \"%s\" %s:"
-msgstr "Результати пошуку для \"<i>%s</i>\" %s:"
+msgstr "Результати пошуку за запитом \"%s\" %s:"
 
 #: resources/templates/database/search/results.twig:11
 #, php-format
@@ -3096,10 +3093,8 @@ msgid "Error"
 msgstr "Помилка"
 
 #: resources/templates/error/get_display.twig:9
-#, fuzzy
-#| msgid "Back"
 msgid "Backtrace"
-msgstr "Назад"
+msgstr "Відстеження стеку"
 
 #: resources/templates/error/report_form.twig:3
 msgid ""
@@ -12775,7 +12770,7 @@ msgstr "Будь ласка, виберіть стовпець(і) для інд
 
 #: src/Controllers/JavaScriptMessagesController.php:129
 msgid "Column count has to be larger than zero."
-msgstr ""
+msgstr "Кількість стовпців має бути більшою за нуль."
 
 #. l10n: Default label for the y-Axis of Charts
 #: src/Controllers/JavaScriptMessagesController.php:140
@@ -12787,16 +12782,12 @@ msgid "Please enter the SQL query first."
 msgstr "Будь ласка, спочатку введіть запит SQL."
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#, fuzzy
-#| msgid "With selected:"
 msgid "Nothing selected"
-msgstr "Вибрані:"
+msgstr "Нічого не вибрано"
 
 #: src/Controllers/JavaScriptMessagesController.php:146
-#, fuzzy
-#| msgid "Extra options"
 msgid "Enter an option"
-msgstr "Екстра параметри"
+msgstr "Введіть параметр"
 
 #: src/Controllers/JavaScriptMessagesController.php:149
 msgid "The host name is empty!"
@@ -13479,16 +13470,12 @@ msgid "Create the following table"
 msgstr "Створити наступну таблицю"
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#, fuzzy
-#| msgid "New table name"
 msgid "Enter new table name"
-msgstr "Ім'я нової таблиці"
+msgstr "Введіть назву нової таблиці"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
-#| msgid "New column name"
 msgid "Enter column name"
-msgstr "Нове ім'я стовпця"
+msgstr "Введіть назву стовпця"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Third step of normalization (3NF)"
@@ -13566,10 +13553,8 @@ msgstr ""
 "Ділянка може бути змінена шляхом перетягування в нижньому правому куті."
 
 #: src/Controllers/JavaScriptMessagesController.php:462
-#, fuzzy
-#| msgid "Zoom search"
 msgid "Zoom search instructions"
-msgstr "Розширений пошук"
+msgstr "Інструкції щодо пошуку в Zoom"
 
 #: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Select two columns"
