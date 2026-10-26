@@ -976,8 +976,8 @@ workaround to this behaviour. News to this item will be posted in `issue
 
 .. _faq3_10:
 
-3.10 Homonyms and no primary key: When the results of a SELECT display more than one column with the same value (for example ``SELECT lastname from employees where firstname like 'A%'`` and two "Smith" values are displayed), if I click Edit I cannot be sure that I am editing the intended row.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3.10 Homonyms and no primary key: When the results of a SELECT display more than one row with the same value (for example ``SELECT lastname from employees where firstname like 'A%'`` and two "Smith" values are displayed), if I click Edit I cannot be sure that I am editing the intended row.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Please make sure that your table has a :term:`primary key`, so that phpMyAdmin
 can use it for the Edit and Delete links.
