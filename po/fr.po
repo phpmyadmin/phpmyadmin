@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-19 17:00+0000\n"
-"PO-Revision-Date: 2026-06-02 06:01+0000\n"
-"Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/fr/"
-">\n"
+"PO-Revision-Date: 2026-10-26 16:55+0000\n"
+"Last-Translator: kjo-sdds <kjo-sdds@users.noreply.hosted.weblate.org>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
+"fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -13476,7 +13476,7 @@ msgstr ""
 
 #: libraries/classes/Types.php:441
 msgid "Intended for storage of IPv4 addresses"
-msgstr ""
+msgstr "Prévu pour le stockage d'adresses IPv4"
 
 #: libraries/classes/Types.php:444
 msgid ""
@@ -14810,10 +14810,8 @@ msgid "OFF"
 msgstr "Désactivé"
 
 #: templates/database/events/index.twig:158
-#, fuzzy
-#| msgid "The event scheduler is disabled"
 msgid "The event scheduler is disabled."
-msgstr "Le planificateur d'évènements est désactivé"
+msgstr "Le planificateur d'évènements est désactivé."
 
 #: templates/database/export/index.twig:61
 msgid ""
