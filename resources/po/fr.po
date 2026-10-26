@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-25 00:40+0000\n"
-"PO-Revision-Date: 2026-06-02 06:01+0000\n"
-"Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
+"PO-Revision-Date: 2026-10-26 16:55+0000\n"
+"Last-Translator: kjo-sdds <kjo-sdds@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1872,10 +1872,8 @@ msgstr "Ajouter en"
 
 #. l10n: Short label for the comparison operator of a criteria row (=, >, LIKE, IN, BETWEEN…)
 #: resources/templates/database/multi_table_query/form.twig:90
-#, fuzzy
-#| msgid "Open"
 msgid "Op"
-msgstr "Ouvert"
+msgstr "Op"
 
 #: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
@@ -2485,10 +2483,9 @@ msgid "Inside column:"
 msgstr "Dans la colonne :"
 
 #: resources/templates/database/search/results.twig:3
-#, fuzzy, php-format
-#| msgid "Search results for \"<i>%s</i>\" %s:"
+#, php-format
 msgid "Search results for \"%s\" %s:"
-msgstr "Résultats de la recherche de « <i>%s</i> » %s :"
+msgstr "Résultats de la recherche de « %s » %s :"
 
 #: resources/templates/database/search/results.twig:11
 #, php-format
@@ -3097,10 +3094,8 @@ msgid "Error"
 msgstr "Erreur"
 
 #: resources/templates/error/get_display.twig:9
-#, fuzzy
-#| msgid "Back"
 msgid "Backtrace"
-msgstr "Retour"
+msgstr "Traçage de pile"
 
 #: resources/templates/error/report_form.twig:3
 msgid ""
@@ -3214,10 +3209,8 @@ msgid "Export event"
 msgstr "Exporter l'évènement"
 
 #: resources/templates/events/index.twig:189
-#, fuzzy
-#| msgid "The event scheduler is disabled"
 msgid "The event scheduler is disabled."
-msgstr "Le planificateur d'évènements est désactivé"
+msgstr "Le planificateur d'évènements est désactivé."
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -12233,8 +12226,6 @@ msgstr ""
 #: src/Controllers/Triggers/IndexController.php:66
 #: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:66
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No database selected."
 msgstr "Aucune base de données n'a été sélectionnée."
 
@@ -12941,16 +12932,12 @@ msgid "Please enter the SQL query first."
 msgstr "Veuillez d'abord entrer la requête SQL."
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#, fuzzy
-#| msgid "With selected:"
 msgid "Nothing selected"
-msgstr "Avec la sélection :"
+msgstr "Aucune sélection"
 
 #: src/Controllers/JavaScriptMessagesController.php:146
-#, fuzzy
-#| msgid "Extra options"
 msgid "Enter an option"
-msgstr "Options supplémentaires"
+msgstr "Saisir une option"
 
 #: src/Controllers/JavaScriptMessagesController.php:149
 msgid "The host name is empty!"
@@ -13646,13 +13633,13 @@ msgstr "Créer la table suivante"
 #, fuzzy
 #| msgid "New table name"
 msgid "Enter new table name"
-msgstr "Nouveau nom de table"
+msgstr "Saisir nouveau nom de table"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
 #, fuzzy
 #| msgid "New column name"
 msgid "Enter column name"
-msgstr "Nouveau nom de colonne"
+msgstr "Saisir nom de colonne"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Third step of normalization (3NF)"
@@ -13734,7 +13721,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Zoom search"
 msgid "Zoom search instructions"
-msgstr "Recherche par zoom"
+msgstr "Instruction de recherche par zoom"
 
 #: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Select two columns"
@@ -19120,10 +19107,8 @@ msgstr ""
 "(JavaScript Object Notation)"
 
 #: src/Types.php:290
-#, fuzzy
-#| msgid "Intended for storage of XML data"
 msgid "Intended for storage of IPv4 addresses"
-msgstr "Prévu pour le stockage de données XML"
+msgstr "Prévu pour le stockage d'adresses IPv4"
 
 #: src/Types.php:291
 msgid ""
