@@ -25,6 +25,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -113,6 +114,7 @@ class ReplaceControllerTest extends AbstractTestCase
                 $bookmarkRepository,
                 $config,
                 $response,
+                new ThemeManager(),
             ),
             $pageSettings,
             $bookmarkRepository,

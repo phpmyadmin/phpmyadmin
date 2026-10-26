@@ -62,18 +62,28 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $history = new History($dbi, $relation, $config);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation, $config), $history);
         $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
+        $themeManager = new ThemeManager();
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
             $userPreferences,
             new LanguageManager($config),
-            new ThemeManager(),
+            $themeManager,
         );
 
         parent::__construct(
             $config,
             $template,
-            new Header($template, $console, $config, $dbi, $relation, $userPreferences, $userPreferencesHandler),
+            new Header(
+                $template,
+                $console,
+                $config,
+                $dbi,
+                $relation,
+                $userPreferences,
+                $userPreferencesHandler,
+                $themeManager,
+            ),
             new Footer($template, $config),
             ErrorHandler::getInstance(),
             $dbi,

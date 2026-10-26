@@ -16,6 +16,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -72,6 +73,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
             new BookmarkRepository($dbi, $relation, $config),
             $config,
             $response,
+            new ThemeManager(),
         );
 
         (new DeleteRowsController($response, $dbi, $sql))($request);

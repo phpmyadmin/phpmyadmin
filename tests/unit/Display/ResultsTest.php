@@ -30,6 +30,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -83,7 +84,7 @@ class ResultsTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi, $config);
         DatabaseInterface::$instance = $this->dbi;
-        $this->object = new DisplayResults($this->dbi, $config, 'as', '', 2, '', '');
+        $this->object = new DisplayResults($this->dbi, $config, 'as', '', 2, '', '', new ThemeManager());
         $_SESSION[' HMAC_secret '] = 'test';
     }
 
@@ -599,7 +600,7 @@ class ResultsTest extends AbstractTestCase
 
         // Basic data
         $query = 'SELECT 1';
-        $this->object = new DisplayResults($this->dbi, $config, 'db', '', 2, '', '');
+        $this->object = new DisplayResults($this->dbi, $config, 'db', '', 2, '', '', new ThemeManager());
 
         // Field meta information
         (new ReflectionProperty(DisplayResults::class, 'fieldsMeta'))->setValue($this->object, [
@@ -793,7 +794,7 @@ class ResultsTest extends AbstractTestCase
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com');
 
-        $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query);
+        $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query, new ThemeManager());
         $object->setConfigParamsForDisplayTable($request, $statementInfo);
 
         self::assertSame('F', $_SESSION['tmpval']['pftext']);
@@ -801,7 +802,7 @@ class ResultsTest extends AbstractTestCase
         $query = 'ANALYZE NO_WRITE_TO_BINLOG TABLE test_table';
         [$statementInfo] = ParseAnalyze::sqlQuery($query, $db, false);
 
-        $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query);
+        $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query, new ThemeManager());
         $object->setConfigParamsForDisplayTable($request, $statementInfo);
 
         self::assertSame('P', $_SESSION['tmpval']['pftext']);
@@ -831,7 +832,16 @@ class ResultsTest extends AbstractTestCase
             ->withQueryParams($queryParams)
             ->withParsedBody($parsedBody);
 
-        $object = new DisplayResults($this->dbi, Config::getInstance(), $db, $table, 2, '', $query);
+        $object = new DisplayResults(
+            $this->dbi,
+            Config::getInstance(),
+            $db,
+            $table,
+            2,
+            '',
+            $query,
+            new ThemeManager(),
+        );
         $object->setConfigParamsForDisplayTable($request, $statementInfo);
 
         self::assertArrayHasKey('tmpval', $_SESSION);
@@ -1064,6 +1074,7 @@ class ResultsTest extends AbstractTestCase
             Current::$server,
             '',
             $query,
+            new ThemeManager(),
             new Randomizer(new Mt19937(42)),
         );
 
@@ -1365,6 +1376,7 @@ class ResultsTest extends AbstractTestCase
             2,
             '',
             $query,
+            new ThemeManager(),
             new Randomizer(new Mt19937(42)),
         );
 

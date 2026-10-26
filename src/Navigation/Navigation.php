@@ -13,7 +13,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -50,6 +49,7 @@ class Navigation
         private Relation $relation,
         private DatabaseInterface $dbi,
         private readonly Config $config,
+        private readonly ThemeManager $themeManager,
     ) {
         $this->tree = new NavigationTree($this->template, $this->dbi, $this->relation, $this->config);
         $this->userPrivilegesFactory = new UserPrivilegesFactory($this->dbi);
@@ -268,8 +268,7 @@ class Navigation
     /** @return string Logo source */
     private function getLogoSource(): string
     {
-        $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
-        $theme = $themeManager->theme;
+        $theme = $this->themeManager->theme;
 
         if (@file_exists($theme->getFsPath() . 'img/logo_left.png')) {
             return $theme->getPath() . '/img/logo_left.png';
