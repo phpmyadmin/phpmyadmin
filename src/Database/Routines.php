@@ -99,12 +99,7 @@ class Routines
                         . ";\n";
                     $result = $this->dbi->tryQuery($dropRoutine);
                     if (! $result) {
-                        $this->errors[] = sprintf(
-                            __('The following query has failed: "%s"'),
-                            htmlspecialchars($dropRoutine),
-                        )
-                        . '<br>'
-                        . __('MySQL said: ') . $this->dbi->getError();
+                        $this->errors[] = $this->getErrorForFailedQuery($dropRoutine);
                     } else {
                         [$newErrors, Current::$message] = $this->create(
                             $userPrivileges,
@@ -125,12 +120,7 @@ class Routines
                 // 'Add a new routine' mode
                 $result = $this->dbi->tryQuery($routineQuery);
                 if (! $result) {
-                    $this->errors[] = sprintf(
-                        __('The following query has failed: "%s"'),
-                        htmlspecialchars($routineQuery),
-                    )
-                    . '<br><br>'
-                    . __('MySQL said: ') . $this->dbi->getError();
+                    $this->errors[] = $this->getErrorForFailedQuery($routineQuery);
                 } else {
                     Current::$message = Message::success(
                         __('Routine %1$s has been created.'),
@@ -201,12 +191,7 @@ class Routines
         $result = $this->dbi->tryQuery($routineQuery);
         if (! $result) {
             $errors = [];
-            $errors[] = sprintf(
-                __('The following query has failed: "%s"'),
-                htmlspecialchars($routineQuery),
-            )
-            . '<br>'
-            . __('MySQL said: ') . $this->dbi->getError();
+            $errors[] = $this->getErrorForFailedQuery($routineQuery);
             // We dropped the old routine,
             // but were unable to create the new one
             // Try to restore the backup query
@@ -973,12 +958,7 @@ class Routines
             // either tryQuery might have produced an error or any of nextResult calls.
             if ($this->dbi->getError() !== '') {
                 $message = Message::error(
-                    sprintf(
-                        __('The following query has failed: "%s"'),
-                        htmlspecialchars($query),
-                    )
-                    . '<br><br>'
-                    . __('MySQL said: ') . $this->dbi->getError(),
+                    $this->getErrorForFailedQuery($query),
                 );
 
                 return ['', $message];
@@ -1095,11 +1075,9 @@ class Routines
     /**
      * Creates the contents for a row in the list of routines
      *
-     * @param string $rowClass Additional class
-     *
      * @return mixed[]
      */
-    public function getRow(Routine $routine, string $rowClass = ''): array
+    public function getRow(Routine $routine): array
     {
         $sqlDrop = sprintf(
             'DROP %s IF EXISTS %s',
@@ -1136,7 +1114,6 @@ class Routines
             'table' => Current::$table,
             'sql_drop' => $sqlDrop,
             'routine' => $routine,
-            'row_class' => $rowClass,
             'has_edit_privilege' => $hasEditPrivilege,
             'has_export_privilege' => $hasExportPrivilege,
             'has_execute_privilege' => $hasExecutePrivilege,
@@ -1233,5 +1210,13 @@ class Routines
     public function getErrorCount(): int
     {
         return count($this->errors);
+    }
+
+    private function getErrorForFailedQuery(string $query): string
+    {
+        return sprintf(
+            '<div class="mb-3">' . __('The following query has failed: "%s"') . '</div>',
+            htmlspecialchars($query),
+        ) . __('MySQL said: ') . $this->dbi->getError();
     }
 }

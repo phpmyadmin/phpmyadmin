@@ -12,7 +12,6 @@ AJAX.registerTeardown('events.js', function () {
     $(document).off('click', '#bulkActionExportButton');
     $(document).off('click', 'a.ajax.drop_anchor');
     $(document).off('click', '#bulkActionDropButton');
-    $(document).off('change', 'select[name=item_type]');
 });
 
 const DatabaseEvents = {
@@ -214,7 +213,7 @@ const DatabaseEvents = {
                             $('table.data').find('tr').each(function () {
                                 text = $(this)
                                     .children('td')
-                                    .eq(0)
+                                    .eq(1)
                                     .find('strong')
                                     .text()
                                     .toUpperCase()
@@ -234,11 +233,6 @@ const DatabaseEvents = {
                                 // so we insert it there.
                                 $('table.data').append(data.new_row);
                             }
-
-                            // Fade-in the new row
-                            $('tr.ajaxInsert')
-                                .show('slow')
-                                .removeClass('ajaxInsert');
                         } else if ($('table.data').find('tr').has('td').length === 0) {
                             // If we are not supposed to insert the new row,
                             // we will now check if the table is empty and
@@ -368,12 +362,12 @@ const DatabaseEvents = {
                  * @var $table Object containing reference
                  *             to the main list of elements
                  */
-                const $table = $currRow.parent();
+                const $table = $currRow.closest('table');
                 // Check how many rows will be left after we remove
                 // the one that the user has requested us to remove
                 if ($table.find('tr').length === 3) {
-                    // If there are two rows left, it means that they are
-                    // the header of the table and the rows that we are
+                    // If there are three rows left, it means that they are
+                    // the header row, the hidden row and the row that we are
                     // about to remove, so after the removal there will be
                     // nothing to show in the table, so we hide it.
                     $table.hide('slow', function () {
@@ -451,12 +445,12 @@ const DatabaseEvents = {
                      * @var $table Object containing reference
                      *             to the main list of elements
                      */
-                    const $table = $currRow.parent();
+                    const $table = $currRow.closest('table');
                     // Check how many rows will be left after we remove
                     // the one that the user has requested us to remove
                     if ($table.find('tr').length === 3) {
-                        // If there are two rows left, it means that they are
-                        // the header of the table and the rows that we are
+                        // If there are three rows left, it means that they are
+                        // the header row, the hidden row and the row that we are
                         // about to remove, so after the removal there will be
                         // nothing to show in the table, so we hide it.
                         $table.hide('slow', function () {
@@ -576,12 +570,4 @@ AJAX.registerOnload('events.js', function () {
         event.preventDefault();
         DatabaseEvents.dropMultipleDialog($(this));
     }); // end $(document).on()
-
-    /**
-     * Attach Ajax event handlers for the "Change event type" functionality, so that the correct
-     * rows are shown in the editor when changing the event type
-     */
-    $(document).on('change', 'select[name=item_type]', function () {
-        $(this).closest('table').find('tr.recurring_event_row, tr.onetime_event_row').toggle();
-    });
 });

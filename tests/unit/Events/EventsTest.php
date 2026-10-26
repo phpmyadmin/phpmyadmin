@@ -45,16 +45,10 @@ class EventsTest extends AbstractTestCase
     #[DataProvider('providerGetDataFromRequest')]
     public function testGetDataFromRequestEmpty(array $in, array $out): void
     {
-        unset($_POST);
-        foreach ($in as $key => $value) {
-            if ($value === '') {
-                continue;
-            }
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody($in);
 
-            $_POST[$key] = $value;
-        }
-
-        self::assertEquals($out, $this->events->getDataFromRequest());
+        self::assertEquals($out, $this->events->getDataFromRequest($request));
     }
 
     /**
@@ -142,7 +136,7 @@ class EventsTest extends AbstractTestCase
      * @param int                   $numErr  Error number
      */
     #[DataProvider('providerGetQueryFromRequest')]
-    public function testGetQueryFromRequest(array $request, string $query, int $numErr): void
+    public function testGetQueryFromRequest(array $request, string $query, int $numErr, string $error): void
     {
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody($request);
@@ -150,116 +144,144 @@ class EventsTest extends AbstractTestCase
         $dbi = $this->createStub(DatabaseInterface::class);
         DatabaseInterface::$instance = $dbi;
 
-        self::assertSame($query, $this->events->getQueryFromRequest($request));
+        $actual = $this->events->getQueryFromRequest($request);
+        if ($error !== '') {
+            self::assertNotNull(Current::$message);
+            self::assertSame($error, Current::$message->getMessage());
+        } else {
+            self::assertNull(Current::$message);
+        }
+
+        self::assertSame($query, $actual);
         self::assertSame($numErr, $this->events->getErrorCount());
     }
 
     /**
      * Data provider for testGetQueryFromRequest
      *
-     * @return array<array{array<string, string>, string, int}>
+     * @return iterable<string, array{array<string, string>, string, int, string}>
      */
-    public static function providerGetQueryFromRequest(): array
+    public static function providerGetQueryFromRequest(): iterable
     {
-        return [
-            // Testing success
+        // Testing success
+        yield 'simple once-off event' => [
             [
-                [ // simple once-off event
-                    'item_name' => 's o m e e v e n t\\',
-                    'item_type' => 'ONE TIME',
-                    'item_execute_at' => '2050-01-01 00:00:00',
-                    'item_definition' => 'SET @A=0;',
-                ],
-                'CREATE EVENT `s o m e e v e n t\` ON SCHEDULE AT \'2050-01-01 ' .
-                '00:00:00\' ON COMPLETION NOT PRESERVE DO SET @A=0;',
-                0,
+                'item_name' => 's o m e e v e n t\\',
+                'item_type' => 'ONE TIME',
+                'item_execute_at' => '2050-01-01 00:00:00',
+                'item_definition' => 'SET @A=0;',
             ],
+            'CREATE EVENT `s o m e e v e n t\` ON SCHEDULE AT \'2050-01-01 ' .
+            '00:00:00\' ON COMPLETION NOT PRESERVE DO SET @A=0;',
+            0,
+            '',
+        ];
+
+        yield 'full once-off event' => [
             [
-                [ // full once-off event
-                    'item_name' => 'evn',
-                    'item_definer' => 'me@home',
-                    'item_type' => 'ONE TIME',
-                    'item_execute_at' => '2050-01-01 00:00:00',
-                    'item_preserve' => 'ON',
-                    'item_status' => 'ENABLED',
-                    'item_definition' => 'SET @A=0;',
-                ],
-                'CREATE DEFINER=`me`@`home` EVENT `evn` ON SCHEDULE AT ' .
-                '\'2050-01-01 00:00:00\' ON COMPLETION PRESERVE ENABLE DO SET @A=0;',
-                0,
+                'item_name' => 'evn',
+                'item_definer' => 'me@home',
+                'item_type' => 'ONE TIME',
+                'item_execute_at' => '2050-01-01 00:00:00',
+                'item_preserve' => 'ON',
+                'item_status' => 'ENABLED',
+                'item_definition' => 'SET @A=0;',
             ],
+            'CREATE DEFINER=`me`@`home` EVENT `evn` ON SCHEDULE AT ' .
+            '\'2050-01-01 00:00:00\' ON COMPLETION PRESERVE ENABLE DO SET @A=0;',
+            0,
+            '',
+        ];
+
+        yield 'simple recurring event' => [
             [
-                [ // simple recurring event
-                    'item_name' => 'rec_``evn',
-                    'item_type' => 'RECURRING',
-                    'item_interval_value' => '365',
-                    'item_interval_field' => 'DAY',
-                    'item_status' => 'DISABLED',
-                    'item_definition' => 'SET @A=0;',
-                ],
-                'CREATE EVENT `rec_````evn` ON SCHEDULE EVERY 365 DAY ON ' .
-                'COMPLETION NOT PRESERVE DISABLE DO SET @A=0;',
-                0,
+                'item_name' => 'rec_``evn',
+                'item_type' => 'RECURRING',
+                'item_interval_value' => '365',
+                'item_interval_field' => 'DAY',
+                'item_status' => 'DISABLED',
+                'item_definition' => 'SET @A=0;',
             ],
+            'CREATE EVENT `rec_````evn` ON SCHEDULE EVERY 365 DAY ON ' .
+            'COMPLETION NOT PRESERVE DISABLE DO SET @A=0;',
+            0,
+            '',
+        ];
+
+        yield 'full recurring event' => [
             [
-                [ // full recurring event
-                    'item_name' => 'rec_evn2',
-                    'item_definer' => 'evil``user><\\@work\\',
-                    'item_type' => 'RECURRING',
-                    'item_interval_value' => '365',
-                    'item_interval_field' => 'DAY',
-                    'item_starts' => '1900-01-01',
-                    'item_ends' => '2050-01-01',
-                    'item_preserve' => 'ON',
-                    'item_status' => 'SLAVESIDE_DISABLED',
-                    'item_definition' => 'SET @A=0;',
-                ],
-                'CREATE DEFINER=`evil````user><\`@`work\` EVENT `rec_evn2` ON ' .
-                'SCHEDULE EVERY 365 DAY STARTS \'1900-01-01\' ENDS \'2050-01-01\' ' .
-                'ON COMPLETION PRESERVE DISABLE ON SLAVE DO SET @A=0;',
-                0,
+                'item_name' => 'rec_evn2',
+                'item_definer' => 'evil``user><\\@work\\',
+                'item_type' => 'RECURRING',
+                'item_interval_value' => '365',
+                'item_interval_field' => 'DAY',
+                'item_starts' => '1900-01-01',
+                'item_ends' => '2050-01-01',
+                'item_preserve' => 'ON',
+                'item_status' => 'SLAVESIDE_DISABLED',
+                'item_definition' => 'SET @A=0;',
             ],
-            // Testing failures
+            'CREATE DEFINER=`evil````user><\`@`work\` EVENT `rec_evn2` ON ' .
+            'SCHEDULE EVERY 365 DAY STARTS \'1900-01-01\' ENDS \'2050-01-01\' ' .
+            'ON COMPLETION PRESERVE DISABLE ON SLAVE DO SET @A=0;',
+            0,
+            '',
+        ];
+
+        // Testing failures
+        yield 'empty request' => [
+            [],
+            '',
+            3,
+            '<b>One or more errors have occurred while processing your request:</b> <ul> ' .
+            '<li>You must provide an event name!</li> ' .
+            '<li>You must provide a valid type for the event.</li> ' .
+            '<li>You must provide an event definition.</li> </ul>',
+        ];
+
+        yield 'invalid definer and no execution time' => [
             [
-                [], // empty request
-                'CREATE EVENT ON SCHEDULE ON COMPLETION NOT PRESERVE DO ',
-                3,
+                'item_name' => 's o m e e v e n t\\',
+                'item_definer' => 'someuser',
+                'item_type' => 'ONE TIME',
+                'item_execute_at' => '',
+                'item_definition' => 'SET @A=0;',
             ],
+            '',
+            2,
+            '<b>One or more errors have occurred while processing your request:</b> <ul> ' .
+            '<li>The definer must be in the "username@hostname" format!</li> ' .
+            '<li>You must provide a valid execution time for the event.</li> </ul>',
+        ];
+
+        yield 'no interval value' => [
             [
-                [
-                    'item_name' => 's o m e e v e n t\\',
-                    'item_definer' => 'someuser', // invalid definer format
-                    'item_type' => 'ONE TIME',
-                    'item_execute_at' => '', // no execution time
-                    'item_definition' => 'SET @A=0;',
-                ],
-                'CREATE EVENT `s o m e e v e n t\` ON SCHEDULE ON COMPLETION NOT PRESERVE DO SET @A=0;',
-                2,
+                'item_name' => 'rec_``evn',
+                'item_type' => 'RECURRING',
+                'item_interval_value' => '',
+                'item_interval_field' => 'DAY',
+                'item_status' => 'DISABLED',
+                'item_definition' => 'SET @A=0;',
             ],
+            '',
+            1,
+            '<b>One or more errors have occurred while processing your request:</b> <ul> ' .
+            '<li>You must provide a valid interval value for the event.</li> </ul>',
+        ];
+
+        yield 'invalid interval field' => [
             [
-                [
-                    'item_name' => 'rec_``evn',
-                    'item_type' => 'RECURRING',
-                    'item_interval_value' => '', // no interval value
-                    'item_interval_field' => 'DAY',
-                    'item_status' => 'DISABLED',
-                    'item_definition' => 'SET @A=0;',
-                ],
-                'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT PRESERVE DISABLE DO SET @A=0;',
-                1,
+                'item_name' => 'rec_``evn',
+                'item_type' => 'RECURRING',
+                'item_interval_value' => '365',
+                'item_interval_field' => 'CENTURIES',
+                'item_status' => 'DISABLED',
+                'item_definition' => 'SET @A=0;',
             ],
-            [
-                [ // simple recurring event
-                    'item_name' => 'rec_``evn',
-                    'item_type' => 'RECURRING',
-                    'item_interval_value' => '365',
-                    'item_interval_field' => 'CENTURIES', // invalid interval field
-                    'item_status' => 'DISABLED',
-                    'item_definition' => 'SET @A=0;',
-                ],
-                'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT PRESERVE DISABLE DO SET @A=0;',
-                1,
-            ],
+            '',
+            1,
+            '<b>One or more errors have occurred while processing your request:</b> <ul> ' .
+            '<li>You must provide a valid interval value for the event.</li> </ul>',
         ];
     }
 

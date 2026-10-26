@@ -661,6 +661,11 @@ textarea#partitiondefinition {
   display: none;
 }
 
+table:has(select[name=item_type] option[value="RECURRING"]:checked) .onetime_event_row,
+table:has(select[name=item_type] option[value="ONE TIME"]:checked) .recurring_event_row {
+  display: none;
+}
+
 #list_server {
   list-style-type: none;
   padding: 0;

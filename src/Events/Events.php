@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Events;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
@@ -68,126 +67,128 @@ final class Events
     /**
      * Handles editor requests for adding or editing an item
      */
-    public function handleEditor(string $itemQuery): string
+    public function handleEditor(string $itemQuery, ServerRequest $request): string
     {
-        $sqlQuery = '';
-
-        // set by getQueryFromRequest()
-        if ($this->errors === []) {
-            // Execute the created query
-            if (! empty($_POST['editor_process_edit'])) {
-                // Backup the old trigger, in case something goes wrong
-                $createItem = self::getDefinition($this->dbi, Current::$database, $_POST['item_original_name']);
-                $dropItem = 'DROP EVENT IF EXISTS '
-                    . Util::backquote($_POST['item_original_name'])
-                    . ";\n";
-                $result = $this->dbi->tryQuery($dropItem);
-                if (! $result) {
-                    $this->errors[] = sprintf(
-                        __('The following query has failed: "%s"'),
-                        htmlspecialchars($dropItem),
-                    )
-                        . '<br>'
-                        . __('MySQL said: ') . $this->dbi->getError();
-                } else {
-                    $result = $this->dbi->tryQuery($itemQuery);
-                    if (! $result) {
-                        $this->errors[] = sprintf(
-                            __('The following query has failed: "%s"'),
-                            htmlspecialchars($itemQuery),
-                        )
-                            . '<br>'
-                            . __('MySQL said: ') . $this->dbi->getError();
-                        // We dropped the old item, but were unable to create
-                        // the new one. Try to restore the backup query
-                        $result = $this->dbi->tryQuery($createItem);
-                        if (! $result) {
-                            // OMG, this is really bad! We dropped the query,
-                            // failed to create a new one
-                            // and now even the backup query does not execute!
-                            // This should not happen, but we better handle
-                            // this just in case.
-                            $this->errors[] = __('Sorry, we failed to restore the dropped event.') . '<br>'
-                                . __('The backed up query was:')
-                                . '"' . htmlspecialchars($createItem) . '"<br>'
-                                . __('MySQL said: ') . $this->dbi->getError();
-                        }
-                    } else {
-                        Current::$message = Message::success(
-                            __('Event %1$s has been modified.'),
-                            [Util::backquote($_POST['item_name'])],
-                        );
-                        $sqlQuery = $dropItem . $itemQuery;
-                    }
-                }
-            } else {
-                // 'Add a new item' mode
-                $result = $this->dbi->tryQuery($itemQuery);
-                if (! $result) {
-                    $this->errors[] = sprintf(
-                        __('The following query has failed: "%s"'),
-                        htmlspecialchars($itemQuery),
-                    )
-                        . '<br><br>'
-                        . __('MySQL said: ') . $this->dbi->getError();
-                } else {
-                    Current::$message = Message::success(
-                        __('Event %1$s has been created.'),
-                        [Util::backquote($_POST['item_name'])],
-                    );
-                    $sqlQuery = $itemQuery;
-                }
-            }
+        if ($itemQuery === '') {
+            return '';
         }
 
-        if ($this->errors !== []) {
-            Current::$message = Message::error(
-                '<b>'
-                . __(
-                    'One or more errors have occurred while processing your request:',
-                )
-                . '</b>',
+        // Execute the created query
+        if (! $request->hasBodyParam('editor_process_edit')) {
+            // 'Add a new item' mode
+            $result = $this->dbi->tryQuery($itemQuery);
+            if ($result === false) {
+                $this->errors[] = $this->getErrorForFailedQuery($itemQuery);
+                Current::$message = $this->handleErrors();
+
+                return '';
+            }
+
+            Current::$message = Message::success(
+                __('Event %1$s has been created.'),
+                [Util::backquote($request->getParsedBodyParamAsString('item_name'))],
             );
-            Current::$message->addHtml('<ul>');
-            foreach ($this->errors as $string) {
-                Current::$message->addHtml('<li>' . $string . '</li>');
-            }
 
-            Current::$message->addHtml('</ul>');
+            return $itemQuery;
         }
 
-        return Generator::getMessage(Current::$message ?? Message::success(), $sqlQuery);
+        // Backup the old event, in case something goes wrong
+        $itemOriginalName = $request->getParsedBodyParamAsString('item_original_name');
+        $createItem = self::getDefinition($this->dbi, Current::$database, $itemOriginalName);
+        $dropItem = 'DROP EVENT IF EXISTS '
+            . Util::backquote($itemOriginalName)
+            . ";\n";
+        $result = $this->dbi->tryQuery($dropItem);
+        if ($result === false) {
+            $this->errors[] = $this->getErrorForFailedQuery($dropItem);
+            Current::$message = $this->handleErrors();
+
+            return '';
+        }
+
+        $result = $this->dbi->tryQuery($itemQuery);
+        if ($result === false) {
+            $this->errors[] = $this->getErrorForFailedQuery($itemQuery);
+            // We dropped the old item, but were unable to create
+            // the new one. Try to restore the backup query
+            $result = $this->dbi->tryQuery($createItem);
+            if ($result === false) {
+                // OMG, this is really bad! We dropped the query,
+                // failed to create a new one
+                // and now even the backup query does not execute!
+                // This should not happen, but we better handle
+                // this just in case.
+                $this->errors[] = __('Sorry, we failed to restore the dropped event.') . '<br>'
+                    . __('The backed up query was:')
+                    . '"' . htmlspecialchars($createItem) . '"<br>'
+                    . __('MySQL said: ') . $this->dbi->getError();
+            }
+
+            Current::$message = $this->handleErrors();
+
+            return '';
+        }
+
+        Current::$message = Message::success(
+            __('Event %1$s has been modified.'),
+            [Util::backquote($request->getParsedBodyParamAsString('item_name'))],
+        );
+
+        return $dropItem . $itemQuery;
+    }
+
+    private function handleErrors(): Message
+    {
+        $message = Message::error(
+            '<b>'
+            . __(
+                'One or more errors have occurred while processing your request:',
+            )
+            . '</b>',
+        );
+        $message->addHtml('<ul>');
+        foreach ($this->errors as $string) {
+            $message->addHtml('<li>' . $string . '</li>');
+        }
+
+        $message->addHtml('</ul>');
+
+        return $message;
+    }
+
+    private function getErrorForFailedQuery(string $query): string
+    {
+        return sprintf(
+            '<div class="mb-3">' . __('The following query has failed: "%s"') . '</div>',
+            htmlspecialchars($query),
+        ) . __('MySQL said: ') . $this->dbi->getError();
     }
 
     /**
      * This function will generate the values that are required to for the editor
      *
-     * @return mixed[]    Data necessary to create the editor.
+     * @return string[]    Data necessary to create the editor.
      */
-    public function getDataFromRequest(): array
+    public function getDataFromRequest(ServerRequest $request): array
     {
-        $retval = [];
-        $indices = [
-            'item_name',
-            'item_original_name',
-            'item_status',
-            'item_execute_at',
-            'item_interval_value',
-            'item_interval_field',
-            'item_starts',
-            'item_ends',
-            'item_definition',
-            'item_preserve',
-            'item_comment',
-            'item_definer',
+        $retval = [
+            'item_name' => $request->getParsedBodyParamAsString('item_name', ''),
+            'item_original_name' => $request->getParsedBodyParamAsString('item_original_name', ''),
+            'item_status' => $request->getParsedBodyParamAsString('item_status', ''),
+            'item_execute_at' => $request->getParsedBodyParamAsString('item_execute_at', ''),
+            'item_interval_value' => $request->getParsedBodyParamAsString('item_interval_value', ''),
+            'item_interval_field' => $request->getParsedBodyParamAsString('item_interval_field', ''),
+            'item_starts' => $request->getParsedBodyParamAsString('item_starts', ''),
+            'item_ends' => $request->getParsedBodyParamAsString('item_ends', ''),
+            'item_definition' => $request->getParsedBodyParamAsString('item_definition', ''),
+            'item_preserve' => $request->getParsedBodyParamAsString('item_preserve', ''),
+            'item_comment' => $request->getParsedBodyParamAsString('item_comment', ''),
+            'item_definer' => $request->getParsedBodyParamAsString('item_definer', ''),
         ];
-        foreach ($indices as $index) {
-            $retval[$index] = $_POST[$index] ?? '';
-        }
 
         $retval['item_type'] = 'ONE TIME';
         $retval['item_type_toggle'] = 'RECURRING';
-        if (isset($_POST['item_type']) && $_POST['item_type'] === 'RECURRING') {
+        if ($request->getParsedBodyParamAsString('item_type', '') === 'RECURRING') {
             $retval['item_type'] = 'RECURRING';
             $retval['item_type_toggle'] = 'ONE TIME';
         }
@@ -201,7 +202,7 @@ final class Events
      *
      * @param string $name The name of the event.
      *
-     * @return mixed[]|null Data necessary to create the editor.
+     * @return array<string|null>|null Data necessary to create the editor.
      */
     public function getDataFromName(string $name): array|null
     {
@@ -326,6 +327,12 @@ final class Events
             $query .= $itemDefinition;
         } else {
             $this->errors[] = __('You must provide an event definition.');
+        }
+
+        if ($this->errors !== []) {
+            Current::$message = $this->handleErrors();
+
+            return '';
         }
 
         return $query;

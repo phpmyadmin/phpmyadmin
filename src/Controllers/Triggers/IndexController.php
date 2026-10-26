@@ -120,17 +120,9 @@ final readonly class IndexController implements InvocableController
                                 'trigger' => $trigger,
                                 'has_drop_privilege' => $hasTriggerPrivilege,
                                 'has_edit_privilege' => $hasTriggerPrivilege,
-                                'row_class' => '',
                             ]),
                         );
-                        $this->response->addJSON(
-                            'name',
-                            htmlspecialchars(
-                                mb_strtoupper(
-                                    $_POST['item_name'],
-                                ),
-                            ),
-                        );
+                        $this->response->addJSON('name', mb_strtoupper($_POST['item_name']));
                     }
 
                     $this->response->addJSON('insert', $insert);
@@ -266,14 +258,12 @@ final readonly class IndexController implements InvocableController
             Current::$database,
             Current::$table,
         );
-        $isAjax = $request->isAjax() && empty($request->getParam('ajax_page_request'));
 
         $this->response->render('triggers/list', [
             'db' => Current::$database,
             'table' => Current::$table,
             'triggers' => $triggers,
             'has_privilege' => $hasTriggerPrivilege,
-            'is_ajax' => $isAjax,
             'error_message' => $message?->getDisplay() ?? '',
         ]);
 
