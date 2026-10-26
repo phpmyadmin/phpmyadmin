@@ -785,9 +785,9 @@ Setup script on openSUSE
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Some openSUSE releases do not include setup script in the package. In case you
-want to generate configuration on these you can either download original
-package from <https://www.phpmyadmin.net/> or use setup script on our demo
-server: <https://demo.phpmyadmin.net/master/setup/>.
+want to generate configuration on these you can download the original package
+from <https://www.phpmyadmin.net/> (which includes the setup script). You can
+also explore a live demo at <https://demo.phpmyadmin.net/master-config/>.
 
 .. _verify:
 
