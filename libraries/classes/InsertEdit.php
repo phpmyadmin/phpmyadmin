@@ -15,6 +15,7 @@ use PhpMyAdmin\Utils\Gis;
 
 use function __;
 use function array_fill;
+use function array_filter;
 use function array_key_exists;
 use function array_keys;
 use function array_merge;
@@ -1924,7 +1925,13 @@ class InsertEdit
     {
         $this->dbi->selectDb($db);
 
-        return array_values($this->dbi->getColumns($db, $table, true));
+        return array_values(array_filter(
+            $this->dbi->getColumns($db, $table, true),
+            static function (array $column): bool {
+                return ! isset($column['Extra']) || ! is_string($column['Extra'])
+                    || ! str_contains($column['Extra'], 'INVISIBLE');
+            }
+        ));
     }
 
     /**
