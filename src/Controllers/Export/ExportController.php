@@ -22,10 +22,10 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sanitize;
@@ -52,6 +52,7 @@ final readonly class ExportController implements InvocableController
         private Config $config,
         private UserPreferencesHandler $userPreferencesHandler,
         private DatabaseInterface $dbi,
+        private PluginFactory $pluginFactory,
     ) {
     }
 
@@ -112,7 +113,7 @@ final readonly class ExportController implements InvocableController
         $exportType = ExportType::from($request->getParsedBodyParamAsString('export_type'));
 
         // export class instance, not array of properties, as before
-        $exportPlugin = Plugins::getPlugin('export', $what, $exportType, Export::$singleTable);
+        $exportPlugin = $this->pluginFactory->getExportPlugin($what, $exportType, Export::$singleTable);
 
         // Check export type
         if (! $exportPlugin instanceof ExportPlugin) {

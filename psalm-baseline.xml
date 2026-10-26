@@ -1320,17 +1320,11 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Operations/DatabaseController.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$exportSqlPlugin]]></code>
-    </ArgumentTypeCoercion>
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-    <PossiblyNullArgument>
-      <code><![CDATA[$exportSqlPlugin]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullReference>
       <code><![CDATA[isSuccess]]></code>
     </PossiblyNullReference>
@@ -9197,7 +9191,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Export/OptionsTest.php">

@@ -21,8 +21,9 @@ use PhpMyAdmin\Identifiers\InvalidDatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Operations;
-use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\ExportType;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
@@ -32,6 +33,7 @@ use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
+use function assert;
 use function mb_strtolower;
 
 /**
@@ -49,6 +51,7 @@ final readonly class DatabaseController implements InvocableController
         private DatabaseInterface $dbi,
         private DbTableExists $dbTableExists,
         private Config $config,
+        private PluginFactory $pluginFactory,
     ) {
     }
 
@@ -100,7 +103,12 @@ final readonly class DatabaseController implements InvocableController
                     $tableNames = $this->dbi->getTables(Current::$database);
 
                     // remove all foreign key constraints, otherwise we can get errors
-                    $exportSqlPlugin = Plugins::getPlugin('export', 'sql', ExportType::Database, Export::$singleTable);
+                    $exportSqlPlugin = $this->pluginFactory->getExportPlugin(
+                        'sql',
+                        ExportType::Database,
+                        Export::$singleTable,
+                    );
+                    assert($exportSqlPlugin instanceof ExportSql);
 
                     // create stand-in tables for views
                     $views = $this->operations->getViewsAndCreateSqlViewStandIn(

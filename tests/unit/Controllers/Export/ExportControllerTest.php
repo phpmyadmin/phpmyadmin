@@ -203,13 +203,16 @@ final class ExportControllerTest extends AbstractTestCase
             new ThemeManager(),
         );
 
+        $outputHandler = new OutputHandler();
+        $pluginFactory = $this->createPluginFactory($dbi, $config, $outputHandler);
         $exportController = new ExportController(
             new ResponseRenderer(),
-            new Export($dbi, new OutputHandler()),
+            new Export($dbi, $outputHandler, $pluginFactory),
             ResponseFactory::create(),
             $config,
             $userPreferencesHandler,
             $dbi,
+            $pluginFactory,
         );
         $response = $exportController($request);
         $output = $this->getActualOutputForAssertion();
@@ -375,13 +378,16 @@ final class ExportControllerTest extends AbstractTestCase
             new ThemeManager(),
         );
 
+        $outputHandler = new OutputHandler();
+        $pluginFactory = $this->createPluginFactory($dbi, $config, $outputHandler);
         $exportController = new ExportController(
             new ResponseRenderer(),
-            new Export($dbi, new OutputHandler()),
+            new Export($dbi, $outputHandler, $pluginFactory),
             ResponseFactory::create(),
             $config,
             $userPreferencesHandler,
             $dbi,
+            $pluginFactory,
         );
         $response = $exportController($request);
         $output = $this->getActualOutputForAssertion();
@@ -545,6 +551,7 @@ final class ExportControllerTest extends AbstractTestCase
             $config,
             $userPreferencesHandler,
             $dbi,
+            $this->createPluginFactory($dbi, $config, $export->outputHandler),
         );
         $response = $exportController($request);
 
@@ -710,6 +717,7 @@ final class ExportControllerTest extends AbstractTestCase
             $config,
             $userPreferencesHandler,
             $dbi,
+            $this->createPluginFactory($dbi, $config, $export->outputHandler),
         );
         $response = $exportController($request);
 

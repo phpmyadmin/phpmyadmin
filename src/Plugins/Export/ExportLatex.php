@@ -78,7 +78,7 @@ class ExportLatex extends ExportPlugin
     protected function setProperties(): ExportPluginProperties
     {
         $hideStructure = false;
-        if (ExportPlugin::$exportType === ExportType::Table && ! ExportPlugin::$singleTable) {
+        if ($this->exportType === ExportType::Table && ! $this->singleTable) {
             $hideStructure = true;
         }
 

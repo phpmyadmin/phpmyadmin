@@ -33,7 +33,8 @@ class OperationsTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
 
         $relation = new Relation($this->dbi);
-        $this->object = new Operations($this->dbi, $relation, new TableMover($this->dbi, $relation));
+        $tableMover = new TableMover($this->dbi, $relation, $this->createPluginFactory($this->dbi));
+        $this->object = new Operations($this->dbi, $relation, $tableMover);
     }
 
     /** @param array<string, string> $extraChoice */

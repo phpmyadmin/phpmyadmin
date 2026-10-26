@@ -73,6 +73,7 @@ final class ImportControllerTest extends AbstractTestCase
             new DbTableExists($dbi),
             $config,
             new Ajax(new Randomizer(new Mt19937(42))),
+            $this->createPluginFactory($dbi, $config),
         );
     }
 }
