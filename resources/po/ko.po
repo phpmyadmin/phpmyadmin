@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-25 00:40+0000\n"
-"PO-Revision-Date: 2026-06-02 06:01+0000\n"
-"Last-Translator: kim8ccf3a4116ec4691 <kim@yong.biz>\n"
+"PO-Revision-Date: 2026-10-26 07:34+0000\n"
+"Last-Translator: kim8ccf3a4116ec4691 "
+"<kim8ccf3a4116ec4691@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ko/>\n"
 "Language: ko\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.6\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1863,10 +1864,8 @@ msgstr "로 추가"
 
 #. l10n: Short label for the comparison operator of a criteria row (=, >, LIKE, IN, BETWEEN…)
 #: resources/templates/database/multi_table_query/form.twig:90
-#, fuzzy
-#| msgid "Open"
 msgid "Op"
-msgstr "열기"
+msgstr "연산"
 
 #: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
@@ -2475,10 +2474,9 @@ msgid "Inside column:"
 msgstr "검색할 컬럼:"
 
 #: resources/templates/database/search/results.twig:3
-#, fuzzy, php-format
-#| msgid "Search results for \"<i>%s</i>\" %s:"
+#, php-format
 msgid "Search results for \"%s\" %s:"
-msgstr "\"<i>%s</i>\"의 검색 결과 %s:"
+msgstr "\"%s\"의 검색 결과 %s:"
 
 #: resources/templates/database/search/results.twig:11
 #, php-format
@@ -3078,10 +3076,8 @@ msgid "Error"
 msgstr "오류"
 
 #: resources/templates/error/get_display.twig:9
-#, fuzzy
-#| msgid "Back"
 msgid "Backtrace"
-msgstr "뒤로"
+msgstr "이전 추적"
 
 #: resources/templates/error/report_form.twig:3
 msgid ""
@@ -3194,10 +3190,8 @@ msgid "Export event"
 msgstr "이벤트 내보내기"
 
 #: resources/templates/events/index.twig:189
-#, fuzzy
-#| msgid "The slow query log is disabled."
 msgid "The event scheduler is disabled."
-msgstr "슬로우 쿼리 로그가 비활성화 되어있습니다."
+msgstr "이벤트 스케줄러가 비활성화 되었습니다."
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -12511,7 +12505,7 @@ msgstr "인덱스에 추가할 열을 선택해주세요."
 
 #: src/Controllers/JavaScriptMessagesController.php:129
 msgid "Column count has to be larger than zero."
-msgstr ""
+msgstr "컬럼 개수가 0보다 커야합니다."
 
 #. l10n: Default label for the y-Axis of Charts
 #: src/Controllers/JavaScriptMessagesController.php:140
@@ -12523,16 +12517,12 @@ msgid "Please enter the SQL query first."
 msgstr "먼저 SQL 쿼리를 입력하세요."
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#, fuzzy
-#| msgid "With selected:"
 msgid "Nothing selected"
-msgstr "선택한 것을:"
+msgstr "선택 항목 없음"
 
 #: src/Controllers/JavaScriptMessagesController.php:146
-#, fuzzy
-#| msgid "Extra options"
 msgid "Enter an option"
-msgstr "추가 옵션"
+msgstr "옵션 입력"
 
 #: src/Controllers/JavaScriptMessagesController.php:149
 msgid "The host name is empty!"
@@ -13205,16 +13195,12 @@ msgid "Create the following table"
 msgstr "다음 테이블을 생성"
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#, fuzzy
-#| msgid "New table name"
 msgid "Enter new table name"
-msgstr "새 테이블 이름"
+msgstr "새 테이블 이름 입력"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
-#| msgid "New column name"
 msgid "Enter column name"
-msgstr "새로운 컬럼 이름"
+msgstr "새 컬럼 이름 입력"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Third step of normalization (3NF)"
@@ -13289,10 +13275,8 @@ msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "우측 하단 코너로 드래그하여 플롯을 확대할 수 있습니다."
 
 #: src/Controllers/JavaScriptMessagesController.php:462
-#, fuzzy
-#| msgid "Zoom search"
 msgid "Zoom search instructions"
-msgstr "확대 검색"
+msgstr "확대 검색 설명"
 
 #: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Select two columns"
@@ -18456,10 +18440,8 @@ msgstr ""
 "로 접근할 수 있습니다"
 
 #: src/Types.php:290
-#, fuzzy
-#| msgid "Intended for storage of XML data"
 msgid "Intended for storage of IPv4 addresses"
-msgstr "XML 데이터 저장용"
+msgstr "IPv4 주소의 저장용"
 
 #: src/Types.php:291
 msgid ""
