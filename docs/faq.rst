@@ -1271,19 +1271,13 @@ refresh, just do this in the right frame.
 
 .. _faq5_8:
 
-5.8 With Mozilla 0.9.7 I have problems sending a query modified in the query box.
----------------------------------------------------------------------------------
-
-Looks like a Mozilla bug: 0.9.6 was OK. We will keep an eye on future
-Mozilla versions.
+5.8 (withdrawn).
+----------------
 
 .. _faq5_9:
 
-5.9 With Mozilla 0.9.? to 1.0 and Netscape 7.0-PR1 I can't type a whitespace in the SQL-Query edit area: the page scrolls down.
--------------------------------------------------------------------------------------------------------------------------------
-
-This is a Mozilla bug (see bug #26882 at `BugZilla
-<https://bugzilla.mozilla.org/>`_).
+5.9 (withdrawn).
+----------------
 
 .. _faq5_10:
 
