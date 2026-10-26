@@ -2009,6 +2009,81 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
+     * Test that the "Empty" checkbox of a protected (binary) column empties its content
+     */
+    public function testGetQueryValueForInsertWithEmptiedProtectedField(): void
+    {
+        Current::$table = 'test_table';
+
+        // The original content of the row is not copied when inserting as a new row
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField('name', '', 'protected', false, false, false, '', null, null, false, true),
+            true,
+            '`id` = 4',
+        );
+        self::assertSame("''", $result);
+
+        // Without a where clause an empty value is inserted
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField('name', '', 'protected', false, false, false, '', null, null, false, true),
+            false,
+            '',
+        );
+        self::assertSame("''", $result);
+
+        // The Null checkbox takes precedence
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField('name', '', 'protected', false, true, false, '', null, null, false, true),
+            true,
+            '`id` = 4',
+        );
+        self::assertSame('NULL', $result);
+
+        // An uploaded file takes precedence
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField('name', '0x616263', 'protected', false, false, false, '', null, null, true, true),
+            true,
+            '`id` = 4',
+        );
+        self::assertSame('0x616263', $result);
+    }
+
+    /**
+     * Test that the "Empty" checkbox of a protected (binary) column empties its content
+     */
+    public function testGetQueryValueForUpdateWithEmptiedProtectedField(): void
+    {
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField('fld', '', 'protected', false, false, false, '', null, null, false, true),
+        );
+        self::assertSame("`fld` = ''", $result);
+
+        // The Null checkbox was checked as well
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField('fld', '', 'protected', false, true, false, '', null, null, false, true),
+        );
+        self::assertSame('`fld` = NULL', $result);
+
+        // The field was already NULL and stays NULL
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField('fld', '', 'protected', false, true, true, '', null, null, false, true),
+        );
+        self::assertSame('', $result);
+
+        // The Null checkbox was unchecked
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField('fld', '', 'protected', false, false, true, '', null, null, false, true),
+        );
+        self::assertSame("`fld` = ''", $result);
+
+        // An uploaded file takes precedence
+        $result = $this->insertEdit->getQueryValueForUpdate(
+            new EditField('fld', '0x616263', 'protected', false, false, false, '', null, null, true, true),
+        );
+        self::assertSame('`fld` = 0x616263', $result);
+    }
+
+    /**
      * Test for verifyWhetherValueCanBeTruncatedAndAppendExtraData
      */
     public function testVerifyWhetherValueCanBeTruncatedAndAppendExtraData(): void
@@ -2353,6 +2428,86 @@ class InsertEditTest extends AbstractTestCase
             . ' name="multi_edit[multi_edit][0][d8578edf8458ce06fbc5bb76a58c5ca4]" value="[multi_edit][0]"',
             $actual,
         );
+    }
+
+    /**
+     * Test the "Empty" checkbox shown for protected binary columns
+     *
+     * @param 'all'|'blob'|'noblob'|false $protectBinary
+     */
+    #[DataProvider('providerForTestEmptyCheckboxForProtectedColumns')]
+    public function testGetHtmlForInsertEditFormColumnWithEmptyCheckbox(
+        string $columnType,
+        string|false $protectBinary,
+        bool $hasEmptyCheckbox,
+    ): void {
+        $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
+        $config = new Config();
+        $config->set('ProtectBinary', $protectBinary);
+        $relation = new Relation($this->dbi, $config);
+        $insertEdit = new InsertEdit(
+            $this->dbi,
+            $relation,
+            new Transformations($this->dbi, $relation),
+            new FileListing(),
+            new Template($config),
+            $config,
+            new ResponseRenderer(),
+        );
+
+        $actual = $this->parseString(
+            (new ReflectionMethod(InsertEdit::class, 'getHtmlForInsertEditFormColumn'))->invokeArgs(
+                $insertEdit,
+                [
+                    new Column('bin_col', $columnType, null, true, '', null, '', 'insert,update,select', ''),
+                    0,
+                    [],
+                    -1,
+                    false,
+                    ['bin_col' => 'abc'],
+                    0,
+                    true,
+                    new Foreigners(),
+                    'table',
+                    'db',
+                    0,
+                    '',
+                    [],
+                    [],
+                    '`id` = 1',
+                ],
+            ),
+        );
+
+        $checkbox = sprintf(
+            '<input type="checkbox" name="fields_empty[multi_edit][0][%s]" value="1">',
+            md5('bin_col'),
+        );
+
+        if (! $hasEmptyCheckbox) {
+            self::assertStringNotContainsString('fields_empty', $actual);
+
+            return;
+        }
+
+        self::assertStringContainsString('Binary - do not edit', $actual);
+        self::assertStringContainsString(
+            '<label class="ms-2" title="Replace the content of this column with an empty value">' . "\n"
+            . '            ' . $checkbox . "\n"
+            . '            Empty' . "\n"
+            . '          </label>',
+            $actual,
+        );
+    }
+
+    /** @return iterable<string, array{string, 'all'|'blob'|'noblob'|false, bool}> */
+    public static function providerForTestEmptyCheckboxForProtectedColumns(): iterable
+    {
+        yield 'protected blob' => ['blob', 'blob', true];
+        yield 'protected binary' => ['varbinary(16)', 'all', true];
+        yield 'protected binary with noblob' => ['varbinary(16)', 'noblob', true];
+        yield 'not protected blob' => ['blob', false, false];
+        yield 'not protected blob with noblob' => ['blob', 'noblob', false];
     }
 
     /**

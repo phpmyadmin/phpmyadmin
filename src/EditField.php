@@ -18,6 +18,7 @@ final class EditField
         public string|null $salt,
         public string|null $previousValue,
         public bool $isUploaded,
+        public bool $isEmptied = false,
     ) {
     }
 }
