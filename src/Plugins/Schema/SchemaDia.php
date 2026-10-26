@@ -38,7 +38,6 @@ class SchemaDia extends SchemaPlugin
         $schemaPluginProperties = new SchemaPluginProperties();
         $schemaPluginProperties->setText('Dia');
         $schemaPluginProperties->setExtension('dia');
-        $schemaPluginProperties->setMimeType('application/dia');
 
         // create the root group that will be the options field for
         // $schemaPluginProperties

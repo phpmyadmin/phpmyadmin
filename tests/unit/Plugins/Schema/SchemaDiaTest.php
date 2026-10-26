@@ -25,7 +25,6 @@ final class SchemaDiaTest extends AbstractTestCase
         $properties = (new SchemaDia())->getProperties();
         self::assertSame('Dia', $properties->getText());
         self::assertSame('dia', $properties->getExtension());
-        self::assertSame('application/dia', $properties->getMimeType());
         $options = $properties->getOptions();
         self::assertNotNull($options);
         self::assertSame('Format Specific Options', $options->getName());

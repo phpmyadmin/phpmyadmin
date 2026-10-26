@@ -66,10 +66,6 @@ final class ImportMediawikiTest extends AbstractTestCase
             'txt',
             $properties->getExtension(),
         );
-        self::assertSame(
-            'text/plain',
-            $properties->getMimeType(),
-        );
         self::assertNull($properties->getOptions());
     }
 

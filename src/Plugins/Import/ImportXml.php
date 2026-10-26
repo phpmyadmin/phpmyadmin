@@ -47,7 +47,6 @@ class ImportXml extends ImportPlugin
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('XML'));
         $importPluginProperties->setExtension('xml');
-        $importPluginProperties->setMimeType('text/xml');
 
         return $importPluginProperties;
     }

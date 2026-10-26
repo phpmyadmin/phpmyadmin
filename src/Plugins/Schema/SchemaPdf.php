@@ -41,7 +41,6 @@ class SchemaPdf extends SchemaPlugin
         $schemaPluginProperties = new SchemaPluginProperties();
         $schemaPluginProperties->setText('PDF');
         $schemaPluginProperties->setExtension('pdf');
-        $schemaPluginProperties->setMimeType('application/pdf');
 
         // create the root group that will be the options field for
         // $schemaPluginProperties
