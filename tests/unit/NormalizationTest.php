@@ -108,8 +108,6 @@ class NormalizationTest extends AbstractTestCase
         $userPrivileges = new UserPrivileges();
         $config->selectedServer['DisableIS'] = false;
         DatabaseInterface::$instance = $this->dbi;
-        $db = 'testdb';
-        $table = 'mytable';
         $numFields = 1;
         $relation = new Relation($this->dbi);
         $normalization = new Normalization(
@@ -118,7 +116,7 @@ class NormalizationTest extends AbstractTestCase
             new Transformations($this->dbi, $relation),
             new Template($config),
         );
-        $result = $normalization->getHtmlForCreateNewColumn($userPrivileges, $numFields, $db, $table);
+        $result = $normalization->getHtmlForCreateNewColumn($userPrivileges, $numFields);
         self::assertStringContainsString('<table id="table_columns"', $result);
     }
 

@@ -102,18 +102,22 @@ final class ColumnsDefinition
 
         $relationParameters = $this->relation->getRelationParameters();
 
-        $commentsMap = $this->relation->getComments(Current::$database, Current::$table);
+        $config = Config::getInstance();
+        $isMimeEnabled = $relationParameters->browserTransformationFeature !== null && $config->config->BrowseMIME;
 
         $moveColumns = [];
+        $commentsMap = [];
+        $mimeMap = [];
         if ($fieldsMeta !== null) {
             $moveColumns = $this->dbi->getTable(Current::$database, Current::$table)->getColumnsMeta();
+            $commentsMap = $this->relation->getComments(Current::$database, Current::$table);
+            if ($isMimeEnabled) {
+                $mimeMap = $this->transformations->getMime(Current::$database, Current::$table) ?? [];
+            }
         }
 
         $availableMime = [];
-        $mimeMap = [];
-        $config = Config::getInstance();
-        if ($relationParameters->browserTransformationFeature !== null && $config->config->BrowseMIME) {
-            $mimeMap = $this->transformations->getMime(Current::$database, Current::$table);
+        if ($isMimeEnabled) {
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }
 
@@ -151,30 +155,38 @@ final class ColumnsDefinition
             $columnMeta = [];
             $submitAttribute = null;
             $extractedColumnSpec = [];
+            $comment = '';
+            $mime = [];
 
             if ($regenerate) {
                 $columnMeta = $this->getColumnMetaForRegeneratedFields($columnNumber);
 
                 $length = Util::getValueByKey($_POST, ['field_length', $columnNumber], $length);
                 $submitAttribute = Util::getValueByKey($_POST, ['field_attribute', $columnNumber], false);
-                $commentsMap[$columnMeta['Field']] = Util::getValueByKey($_POST, ['field_comments', $columnNumber]);
-
-                $mimeMap[$columnMeta['Field']] = array_merge(
-                    $mimeMap[$columnMeta['Field']] ?? [],
-                    [
-                        'mimetype' => Util::getValueByKey($_POST, ['field_mimetype', $columnNumber]),
-                        'transformation' => Util::getValueByKey(
-                            $_POST,
-                            ['field_transformation' , $columnNumber],
-                        ),
-                        'transformation_options' => Util::getValueByKey(
-                            $_POST,
-                            ['field_transformation_options' , $columnNumber],
-                        ),
-                    ],
-                );
+                $comment = Util::getValueByKey($_POST, ['field_comments', $columnNumber], '');
+                $mime = [
+                    'mimetype' => Util::getValueByKey($_POST, ['field_mimetype', $columnNumber], ''),
+                    'transformation' => Util::getValueByKey($_POST, ['field_transformation', $columnNumber], ''),
+                    'transformation_options' => Util::getValueByKey(
+                        $_POST,
+                        ['field_transformation_options', $columnNumber],
+                        '',
+                    ),
+                    'input_transformation' => Util::getValueByKey(
+                        $_POST,
+                        ['field_input_transformation', $columnNumber],
+                        '',
+                    ),
+                    'input_transformation_options' => Util::getValueByKey(
+                        $_POST,
+                        ['field_input_transformation_options', $columnNumber],
+                        '',
+                    ),
+                ];
             } elseif (isset($fieldsMeta[$columnNumber])) {
                 $columnMeta = $fieldsMeta[$columnNumber];
+                $comment = $commentsMap[$columnMeta['Field']] ?? '';
+                $mime = $mimeMap[$columnMeta['Field']] ?? [];
                 $virtual = ['VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'];
                 if (in_array($columnMeta['Extra'], $virtual, true)) {
                     $tableObj = new Table(Current::$table, Current::$database, $this->dbi);
@@ -290,12 +302,12 @@ final class ColumnsDefinition
                 'length' => $length,
                 'extracted_columnspec' => $extractedColumnSpec,
                 'submit_attribute' => $submitAttribute,
-                'comments_map' => $commentsMap,
+                'comment' => $comment,
                 'fields_meta' => $fieldsMeta ?? null,
                 'is_backup' => $isBackup,
                 'move_columns' => $moveColumns,
                 'available_mime' => $availableMime,
-                'mime_map' => $mimeMap ?? [],
+                'mime' => $mime,
             ];
         }
 
