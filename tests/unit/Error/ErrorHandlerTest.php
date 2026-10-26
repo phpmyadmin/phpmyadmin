@@ -16,6 +16,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
+use ReflectionProperty;
 use Throwable;
 
 use function array_keys;
@@ -57,6 +58,7 @@ class ErrorHandlerTest extends AbstractTestCase
 
     public function testUniqueness(): void
     {
+        (new ReflectionProperty(ErrorHandler::class, 'instance'))->setValue(null, null);
         $instanceOne = ErrorHandler::getInstance();
         $instanceTwo = ErrorHandler::getInstance();
         self::assertSame($instanceOne, $instanceTwo);
