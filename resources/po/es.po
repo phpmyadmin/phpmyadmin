@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-25 00:40+0000\n"
-"PO-Revision-Date: 2026-08-24 21:51+0000\n"
-"Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
+"PO-Revision-Date: 2026-10-28 00:51+0000\n"
+"Last-Translator: Salvador Peña <sal@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.9.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1877,10 +1877,8 @@ msgstr "Agregar \"as\""
 # https://www.phpmyadmin.net/documentation/Documentation.html#cfg_InitialSlidersState
 #. l10n: Short label for the comparison operator of a criteria row (=, >, LIKE, IN, BETWEEN…)
 #: resources/templates/database/multi_table_query/form.twig:90
-#, fuzzy
-#| msgid "Open"
 msgid "Op"
-msgstr "Desplegados"
+msgstr "Op"
 
 #: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
@@ -2490,10 +2488,9 @@ msgid "Inside column:"
 msgstr "Dentro de la columna:"
 
 #: resources/templates/database/search/results.twig:3
-#, fuzzy, php-format
-#| msgid "Search results for \"<i>%s</i>\" %s:"
+#, php-format
 msgid "Search results for \"%s\" %s:"
-msgstr "Resultados de la búsqueda para \"<i>%s</i>\" %s:"
+msgstr "Resultados de la búsqueda para \"%s\" %s:"
 
 # singular: %s resultado en la tabla <i>%s</i>
 # plural: %s resultados en la tabla <i>%s</i>
@@ -3108,10 +3105,8 @@ msgid "Error"
 msgstr "Error"
 
 #: resources/templates/error/get_display.twig:9
-#, fuzzy
-#| msgid "Back"
 msgid "Backtrace"
-msgstr "Volver"
+msgstr "Rastreo"
 
 #: resources/templates/error/report_form.twig:3
 msgid ""
@@ -3227,10 +3222,8 @@ msgid "Export event"
 msgstr "Exportar evento"
 
 #: resources/templates/events/index.twig:189
-#, fuzzy
-#| msgid "The slow query log is disabled."
 msgid "The event scheduler is disabled."
-msgstr "El registro de consultas lentas está desactivado."
+msgstr "El planificador de eventos está desactivado."
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -5480,8 +5473,9 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"Asegúrese de tener un ID de servidor único en el archivo de configuración "
-"(my.cnf). Si no, agregue la siguiente línea en la sección [mysqld]:"
+"Asegúrese de tener un identificador de servidor único en el archivo de "
+"configuración (my.cnf). Si no, agregue la siguiente línea en la sección "
+"[mysqld]:"
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
@@ -12261,10 +12255,8 @@ msgstr ""
 #: src/Controllers/Triggers/IndexController.php:66
 #: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:66
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No database selected."
-msgstr "No se seleccionaron bases de datos."
+msgstr "No se seleccionó base de datos."
 
 #: src/Controllers/Database/ExportController.php:120
 #: src/Controllers/Server/ExportController.php:57
@@ -12936,7 +12928,7 @@ msgstr "Seleccione la(s) columna(s) para el índice."
 
 #: src/Controllers/JavaScriptMessagesController.php:129
 msgid "Column count has to be larger than zero."
-msgstr ""
+msgstr "El conteo de columnas debe ser mayor a cero."
 
 #. l10n: Default label for the y-Axis of Charts
 #: src/Controllers/JavaScriptMessagesController.php:140
@@ -12948,16 +12940,12 @@ msgid "Please enter the SQL query first."
 msgstr "Por favor, introduzca primero la consulta SQL."
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#, fuzzy
-#| msgid "With selected:"
 msgid "Nothing selected"
-msgstr "Para los elementos que están marcados:"
+msgstr "Nada seleccionado"
 
 #: src/Controllers/JavaScriptMessagesController.php:146
-#, fuzzy
-#| msgid "Extra options"
 msgid "Enter an option"
-msgstr "Opciones extra"
+msgstr "Introduzca una opción"
 
 #: src/Controllers/JavaScriptMessagesController.php:149
 msgid "The host name is empty!"
@@ -13649,16 +13637,12 @@ msgid "Create the following table"
 msgstr "Crear la siguiente tabla"
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#, fuzzy
-#| msgid "New table name"
 msgid "Enter new table name"
-msgstr "Nombre de la nueva tabla"
+msgstr "Introduzca el nombre de la tabla nueva"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
-#| msgid "New column name"
 msgid "Enter column name"
-msgstr "Nombre de la nueva columna"
+msgstr "Introduzca el nombre de la columna nueva"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Third step of normalization (3NF)"
@@ -13735,10 +13719,8 @@ msgstr ""
 "El gráfico puede redimensionarse arrastrando la esquina inferior derecha."
 
 #: src/Controllers/JavaScriptMessagesController.php:462
-#, fuzzy
-#| msgid "Zoom search"
 msgid "Zoom search instructions"
-msgstr "Búsqueda visual"
+msgstr "Instrucciones de la búsqueda visual"
 
 #: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Select two columns"
