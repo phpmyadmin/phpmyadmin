@@ -38,6 +38,7 @@ jobs:
         # gettext is needed to run generate-mo
         # git is needed to work around a version detection issue with composer, see: https://github.com/Roave/SecurityAdvisories/issues/76
         # ctype for psalm
+        # psalm requires php-64bit and is not needed to run the tests, so it is removed to support 32-bit platforms
         run: |
           printf "set -exu && \
           export V='%s' && \
@@ -48,7 +49,7 @@ jobs:
           musl-locales musl-locales-lang \
           gettext composer git && \
           composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('src/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
-          composer install && \
+          composer remove --dev vimeo/psalm psalm/plugin-phpunit --no-interaction && \
           ./bin/generate-mo && \
           php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-logging --no-coverage --testsuite unit --display-all-issues %s" \
           "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
