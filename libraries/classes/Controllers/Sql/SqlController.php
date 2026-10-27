@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\AbstractController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
@@ -126,9 +127,15 @@ class SqlController extends AbstractController
 
             // set $goto to what will be displayed if query returns 0 rows
             $goto = '';
-        } else {
-            // Now we can check the parameters
-            Util::checkParameters(['sql_query']);
+        } elseif ($sql_query === '') {
+            $errorMessage = __('Missing parameter:') . ' sql_query'
+                . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
+                . '[br]';
+            $this->response->setHttpResponseCode(400);
+            $this->response->setRequestStatus(false);
+            $this->response->addHTML(Message::error($errorMessage)->getDisplay());
+
+            return;
         }
 
         /**
