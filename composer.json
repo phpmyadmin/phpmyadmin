@@ -118,10 +118,10 @@
         "phpstan/phpstan-webmozart-assert": "^2.0",
         "phpunit/phpunit": "^11.5",
         "pragmarx/google2fa-qrcode": "^3.0",
-        "psalm/plugin-phpunit": "^0.19",
+        "psalm/plugin-phpunit": "^0.21",
         "symfony/console": "^7.1",
         "tecnickcom/tcpdf": "^6.4.4",
-        "vimeo/psalm": "^6.0",
+        "vimeo/psalm": "^7.0",
         "web-auth/webauthn-lib": "^5.3"
     },
     "extra": {
