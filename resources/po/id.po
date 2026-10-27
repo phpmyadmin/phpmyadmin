@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-25 00:40+0000\n"
-"PO-Revision-Date: 2026-10-19 01:50+0000\n"
-"Last-Translator: Zahid Rizky Fakhri <zahidrf@users.noreply.hosted.weblate."
-"org>\n"
+"PO-Revision-Date: 2026-10-28 00:51+0000\n"
+"Last-Translator: Zahid Rizky Fakhri "
+"<zahidrf@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -1873,10 +1873,8 @@ msgstr "Tambahkan sebagai"
 
 #. l10n: Short label for the comparison operator of a criteria row (=, >, LIKE, IN, BETWEEN…)
 #: resources/templates/database/multi_table_query/form.twig:90
-#, fuzzy
-#| msgid "Open"
 msgid "Op"
-msgstr "Buka"
+msgstr "Bu"
 
 #: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
@@ -2487,10 +2485,9 @@ msgid "Inside column:"
 msgstr "Dalam kolom:"
 
 #: resources/templates/database/search/results.twig:3
-#, fuzzy, php-format
-#| msgid "Search results for \"<i>%s</i>\" %s:"
+#, php-format
 msgid "Search results for \"%s\" %s:"
-msgstr "Hasil pencarian untuk \"<i>%s</i>\" %s:"
+msgstr "Hasil pencarian untuk \"%s\" %s:"
 
 #: resources/templates/database/search/results.twig:11
 #, php-format
@@ -3097,10 +3094,8 @@ msgid "Error"
 msgstr "Galat"
 
 #: resources/templates/error/get_display.twig:9
-#, fuzzy
-#| msgid "Back"
 msgid "Backtrace"
-msgstr "Kembali"
+msgstr "Penelusuran balik"
 
 #: resources/templates/error/report_form.twig:3
 msgid ""
@@ -12795,16 +12790,12 @@ msgid "Please enter the SQL query first."
 msgstr "Silakan masukkan kueri SQL dulu."
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#, fuzzy
-#| msgid "With selected:"
 msgid "Nothing selected"
-msgstr "Dengan pilihan:"
+msgstr "Tidak ada dipilih"
 
 #: src/Controllers/JavaScriptMessagesController.php:146
-#, fuzzy
-#| msgid "Extra options"
 msgid "Enter an option"
-msgstr "Opsi tambahan"
+msgstr "Masukkan opsi"
 
 #: src/Controllers/JavaScriptMessagesController.php:149
 msgid "The host name is empty!"
@@ -13487,16 +13478,12 @@ msgid "Create the following table"
 msgstr "Buat tabel"
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#, fuzzy
-#| msgid "New table name"
 msgid "Enter new table name"
-msgstr "Nama tabel baru"
+msgstr "Masukkan nama tabel baru"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
-#| msgid "New column name"
 msgid "Enter column name"
-msgstr "Nama kolom baru"
+msgstr "Masukkan nama kolom"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Third step of normalization (3NF)"
@@ -13573,10 +13560,8 @@ msgstr ""
 "bawah."
 
 #: src/Controllers/JavaScriptMessagesController.php:462
-#, fuzzy
-#| msgid "Zoom search"
 msgid "Zoom search instructions"
-msgstr "Perbesar pencarian"
+msgstr "Instruksi pencarian zum"
 
 #: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Select two columns"
