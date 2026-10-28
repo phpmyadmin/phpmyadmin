@@ -1749,31 +1749,33 @@ class InsertEditTest extends AbstractTestCase
         self::assertSame('CONCAT(`table`.`orgname`) IS NULL', $_SESSION['edit_next']);
     }
 
-    /**
-     * Test for getGotoInclude
-     */
-    public function testGetGotoInclude(): void
+    /** @dataProvider gotoIncludeProvider */
+    #[DataProvider('gotoIncludeProvider')]
+    public function testGetGotoInclude(string $expected, string $table, string $goto, ?string $afterInsert): void
     {
-        $GLOBALS['goto'] = '123.php';
-        $GLOBALS['table'] = '';
+        $_POST['after_insert'] = $afterInsert;
+        $GLOBALS['goto'] = $goto;
+        $GLOBALS['table'] = $table;
+        self::assertSame($expected, $this->insertEdit->getGotoInclude());
+    }
 
-        self::assertSame('/database/sql', $this->insertEdit->getGotoInclude('index'));
-
-        $GLOBALS['table'] = 'tbl';
-        self::assertSame('/table/sql', $this->insertEdit->getGotoInclude('index'));
-
-        $GLOBALS['goto'] = 'index.php?route=/database/sql';
-
-        self::assertSame('/database/sql', $this->insertEdit->getGotoInclude('index'));
-
-        self::assertSame('', $GLOBALS['table']);
-
-        $GLOBALS['goto'] = 'index.php?route=/sql&server=2';
-
-        self::assertSame('/sql', $this->insertEdit->getGotoInclude('index'));
-
-        $_POST['after_insert'] = 'new_insert';
-        self::assertSame('/table/change', $this->insertEdit->getGotoInclude('index'));
+    /** @return iterable<int, array{string, string, string, string|null}> */
+    public static function gotoIncludeProvider(): iterable
+    {
+        yield ['/table/change', 'test_table', 'index.php?route=/', 'new_insert'];
+        yield ['/table/change', 'test_table', 'index.php?route=/', 'same_insert'];
+        yield ['/table/change', 'test_table', 'index.php?route=/', 'edit_next'];
+        yield ['/table/sql', 'test_table', 'index.php?route=/', 'invalid'];
+        yield ['/table/sql', 'test_table', '', null];
+        yield ['/table/sql', 'test_table', 'index.php', null];
+        yield ['/table/sql', 'test_table', 'index.php?route=/', null];
+        yield ['/database/sql', '', '', null];
+        yield ['/database/sql', '', 'index.php', null];
+        yield ['/database/sql', '', 'index.php?route=/', null];
+        yield ['/database/sql', 'test_table', 'index.php?route=/database/sql', null];
+        yield ['/database/sql', 'test_table', 'index.php?route=/database/sql&server=2', null];
+        yield ['/sql', '', 'index.php?route=/sql', null];
+        yield ['/sql', '', 'index.php?route=/sql&server=2', null];
     }
 
     /**
