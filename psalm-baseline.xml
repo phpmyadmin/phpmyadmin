@@ -2957,11 +2957,6 @@
       <code><![CDATA[empty($_POST['exception'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Events/Events.php">
-    <PossiblyNullArgument>
-      <code><![CDATA[$createItem]]></code>
-    </PossiblyNullArgument>
-  </file>
   <file src="src/Export/Export.php">
     <MixedArgument>
       <code><![CDATA[$dbAlias]]></code>
@@ -6811,9 +6806,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <PossiblyNullReference>
-      <code><![CDATA[getCreateSql]]></code>
-    </PossiblyNullReference>
   </file>
   <file src="src/TwoFactor.php">
     <DeprecatedMethod>
