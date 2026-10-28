@@ -4,7 +4,6 @@ import {
     addNoCacheToAjaxRequests,
     breadcrumbScrollToTop,
     dismissNotifications,
-    floatingMenuBar,
     initializeMenuResizer
 } from './modules/functions.ts';
 import { KeyHandlerEvents } from './modules/keyhandler.ts';
@@ -43,7 +42,6 @@ AJAX.registerOnload('main.js', onloadFunctions());
 
 $(dismissNotifications());
 $(initializeMenuResizer());
-$(floatingMenuBar());
 $(breadcrumbScrollToTop());
 
 $(onloadNavigation());

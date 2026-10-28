@@ -3359,34 +3359,6 @@ export function onloadCreateView () {
 }
 
 /**
- * Makes the breadcrumbs and the menu bar float at the top of the viewport.
- * @return {function}
- */
-export function floatingMenuBar () {
-    return function () {
-        if (! $('#floating_menubar').length || $('#PMA_disable_floating_menubar').length !== 0) {
-            return;
-        }
-
-        const left = $('html').attr('dir') === 'ltr' ? 'left' : 'right';
-        $('#floating_menubar')
-            .css('margin-' + left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
-            .append($('#server-breadcrumb'))
-            .append($('#topmenucontainer'));
-
-        // Allow the DOM to render, then adjust the padding on the body
-        setTimeout(function () {
-            $('body').css(
-                'padding-top',
-                $('#floating_menubar').outerHeight(true)
-            );
-
-            $('#topmenu').menuResizer('resize');
-        }, 4);
-    };
-}
-
-/**
  * Scrolls the page to the top if clicking the server-breadcrumb bar
  * If the user holds the Ctrl (or Meta on macOS) key, it prevents the scroll
  * so they can open the link in a new tab.

@@ -1611,7 +1611,7 @@ textarea {
 
 #pma_console {
   position: relative;
-  margin-left: 240px;
+  margin-left: var(--navigation-width, 0);
   z-index: 100;
 
   .templates {
