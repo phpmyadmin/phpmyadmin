@@ -205,8 +205,8 @@ const DatabaseTriggers = {
                     // Sometimes, like when moving a trigger from
                     // a table to another one, the new row should
                     // not be inserted into the list. In this case
-                    // "data.insert" will be set to false.
-                    if (data.insert) {
+                    // "data.new_row" will not be set.
+                    if (data.new_row) {
                         // Insert the new row at the correct
                         // location in the list of items
                         /**

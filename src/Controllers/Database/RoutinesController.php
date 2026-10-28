@@ -125,7 +125,6 @@ final readonly class RoutinesController implements InvocableController
                 );
                 $this->response->addJSON('insert', true);
                 $this->response->addJSON('message', $output);
-                $this->response->addJSON('tableType', 'routines');
 
                 return $this->response->response();
             }

@@ -3562,36 +3562,6 @@ parameters:
 			path: src/Controllers/Transformation/WrapperController.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 10
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: '#^Parameter \#1 \$string of function mb_strtoupper expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: '#^Parameter \#1 \$trigger of method PhpMyAdmin\\Controllers\\Triggers\\IndexController\:\:getDataFromTrigger\(\) expects PhpMyAdmin\\Triggers\\Trigger, PhpMyAdmin\\Triggers\\Trigger\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: '#^Parameter \#3 \$name of method PhpMyAdmin\\Triggers\\Triggers\:\:getTriggerByName\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
 			message: '#^Binary operation "\." between "\\r\\n \(" and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -5277,18 +5247,6 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 1
-			path: src/Events/Events.php
-
-		-
-			message: '#^Parameter \#1 \$query of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:tryQuery\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Events/Events.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Events/Events.php
 
@@ -13168,65 +13126,11 @@ parameters:
 			path: src/Transformations.php
 
 		-
-			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
-			message: '#^Cannot call method getCreateSql\(\) on PhpMyAdmin\\Triggers\\Trigger\|null\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
-			message: '#^Cannot call method getDropSql\(\) on PhpMyAdmin\\Triggers\\Trigger\|null\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 7
-			path: src/Triggers/Triggers.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 4
-			path: src/Triggers/Triggers.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
-			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Triggers/Triggers.php
-
-		-
-			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
-			message: '#^Parameter \#3 \$name of method PhpMyAdmin\\Triggers\\Triggers\:\:getTriggerByName\(\) expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Triggers/Triggers.php
 
@@ -17158,15 +17062,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 5
-			path: tests/unit/Triggers/TriggersTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
 			path: tests/unit/Triggers/TriggersTest.php
 
 		-

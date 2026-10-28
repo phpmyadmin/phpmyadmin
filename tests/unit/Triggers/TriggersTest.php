@@ -7,6 +7,9 @@ namespace PhpMyAdmin\Tests\Triggers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
@@ -28,12 +31,18 @@ class TriggersTest extends AbstractTestCase
 
         $this->setLanguage();
 
-        DatabaseInterface::$instance = $this->createDatabaseInterface();
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addResult('SELECT 1 FROM `pma_test`.`table1` LIMIT 1;', []);
+        $dummyDbi->addResult('SELECT 1 FROM `pma_test`.`table``2` LIMIT 1;', false);
+        $dummyDbi->addResult('SELECT 1 FROM `pma_test`.`table3` LIMIT 1;', false);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
         Config::getInstance()->selectedServer['DisableIS'] = false;
         Current::$database = 'pma_test';
         Current::$table = 'table';
 
-        $this->triggers = new Triggers(DatabaseInterface::getInstance());
+        $dbTableExists = new DbTableExists($dbi);
+        $this->triggers = new Triggers($dbi, $dbTableExists);
     }
 
     /**
@@ -58,27 +67,55 @@ class TriggersTest extends AbstractTestCase
         string $definition,
         string $query,
         int $numErr,
+        string $error,
     ): void {
-        $_POST['item_definer'] = $definer;
-        $_POST['item_name'] = $name;
-        $_POST['item_timing'] = $timing;
-        $_POST['item_event'] = $event;
-        $_POST['item_table'] = $table;
-        $_POST['item_definition'] = $definition;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'item_definer' => $definer,
+                'item_name' => $name,
+                'item_timing' => $timing,
+                'item_event' => $event,
+                'item_table' => $table,
+                'item_definition' => $definition,
+            ]);
 
-        self::assertSame($query, $this->triggers->getQueryFromRequest());
+        $actual = $this->triggers->getQueryFromRequest($request, DatabaseName::from('pma_test'));
+        if ($error !== '') {
+            self::assertNotNull(Current::$message);
+            self::assertSame($error, Current::$message->getMessage());
+        } else {
+            self::assertNull(Current::$message);
+        }
+
+        self::assertSame($query, $actual);
         self::assertSame($numErr, $this->triggers->getErrorCount());
     }
 
     /**
      * Data provider for testGetQueryFromRequest
      *
-     * @return array<array{string, string, string, string, string, string, string, int}>
+     * @return array<array{string, string, string, string, string, string, string, int, string}>
      */
     public static function providerGetQueryFromRequest(): array
     {
         return [
-            ['', '', '', '', '', '', 'CREATE TRIGGER ON  FOR EACH ROW ', 5],
+            [
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                5,
+                '<b>One or more errors have occurred while processing your request:</b> <ul> ' .
+                '<li>You must provide a trigger name!</li> ' .
+                '<li>You must provide a valid timing for the trigger!</li> ' .
+                '<li>You must provide a valid event for the trigger!</li> ' .
+                '<li>You must provide a valid table name!</li> ' .
+                '<li>You must provide a trigger definition.</li> ' .
+                '</ul>',
+            ],
             [
                 'root',
                 'trigger',
@@ -86,8 +123,12 @@ class TriggersTest extends AbstractTestCase
                 'INSERT',
                 'table`2',
                 'SET @A=NULL',
-                'CREATE TRIGGER `trigger` BEFORE INSERT ON  FOR EACH ROW SET @A=NULL',
+                '',
                 2,
+                '<b>One or more errors have occurred while processing your request:</b> <ul> ' .
+                '<li>The definer must be in the "username@hostname" format!</li> ' .
+                '<li>You must provide a valid table name!</li> ' .
+                '</ul>',
             ],
             [
                 'foo`s@host',
@@ -96,9 +137,12 @@ class TriggersTest extends AbstractTestCase
                 'foo',
                 'table3',
                 'BEGIN SET @A=1; SET @B=2; END',
-                'CREATE DEFINER=`foo``s`@`host` TRIGGER `trigger``s test`'
-                    . ' AFTER ON  FOR EACH ROW BEGIN SET @A=1; SET @B=2; END',
+                '',
                 2,
+                '<b>One or more errors have occurred while processing your request:</b> <ul> ' .
+                '<li>You must provide a valid event for the trigger!</li> ' .
+                '<li>You must provide a valid table name!</li> ' .
+                '</ul>',
             ],
             [
                 'root@localhost',
@@ -110,6 +154,7 @@ class TriggersTest extends AbstractTestCase
                 'CREATE DEFINER=`root`@`localhost` TRIGGER `trigger`'
                     . ' BEFORE INSERT ON `table1` FOR EACH ROW SET @A=NULL',
                 0,
+                '',
             ],
         ];
     }
