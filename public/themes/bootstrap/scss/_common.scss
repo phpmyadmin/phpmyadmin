@@ -1574,7 +1574,7 @@ div#page_content div {
 
 #pma_console {
   position: relative;
-  margin-left: $navigation-width;
+  margin-left: var(--navigation-width, 0);
 
   .templates {
     display: none;

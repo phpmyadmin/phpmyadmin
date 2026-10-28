@@ -224,10 +224,7 @@ const AJAX = {
     },
     handleMenu: {
         replace: function (content) {
-            $('#floating_menubar').html(content)
-                // Remove duplicate wrapper
-                // TODO: don't send it in the response
-                .children().first().remove();
+            $('#floating_menubar').replaceWith(content);
 
             $('#topmenu').menuResizer(mainMenuResizerCallback);
         }
@@ -889,10 +886,7 @@ const AJAX = {
      */
     loadEventHandler: function () {
         return function () {
-            const menuContent = $('<div></div>')
-                .append($('#server-breadcrumb').clone())
-                .append($('#topmenucontainer').clone())
-                .html();
+            const menuContent = $('#floating_menubar').prop('outerHTML');
 
             // set initial state reload
             let initState = ('state' in window.history && window.history.state !== null);

@@ -291,6 +291,7 @@ class Header
             'scripts' => $scripts->getDisplay(),
             'body_id' => $this->bodyId,
             'navigation' => $navigation ?? '',
+            'navigation_width' => $this->config->config->NavigationWidth,
             'custom_header' => $customHeader,
             'load_user_preferences' => $loadUserPreferences ?? '',
             'show_hint' => $this->config->config->ShowHint,
