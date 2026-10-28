@@ -78,7 +78,7 @@ final class ImportController extends AbstractController
         global $memory_limit, $read_limit, $finished, $offset, $charset_conversion, $charset_of_file;
         global $timestamp, $maximum_time, $timeout_passed, $import_file, $go_sql, $sql_file, $error, $max_sql_len, $msg;
         global $sql_query_disabled, $executed_queries, $run_query, $reset_charset;
-        global $result, $import_file_name, $sql_data, $import_notice, $read_multiply, $my_die, $active_page;
+        global $result, $import_file_name, $sql_data, $import_notice, $read_multiply, $my_die;
         global $show_as_php, $reload, $charset_connection, $is_js_confirmed, $MAX_FILE_SIZE, $message_to_show;
         global $noplugin, $skip_queries;
 
@@ -807,13 +807,9 @@ final class ImportController extends AbstractController
                 'sql_query',
                 Generator::getMessage($msg, $sql_query, 'success')
             );
-        } elseif ($result === false) {
+        } else {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error($msg));
-        } else {
-            $active_page = $goto;
-            /** @psalm-suppress UnresolvableInclude */
-            include ROOT_PATH . $goto;
         }
 
         // If there is request for ROLLBACK in the end.

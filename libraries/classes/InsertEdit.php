@@ -1228,11 +1228,11 @@ class InsertEdit
      * if $GLOBALS['goto'] empty, if $goto_include previously not defined
      * and new_insert, same_insert, edit_next
      *
-     * @param string|false $gotoInclude store some script for include, otherwise it is
-     *                                   boolean false
+     * @phpstan-return '/table/change'|'/sql'|'/database/sql'|'/table/sql'
      */
-    public function getGotoInclude($gotoInclude): string
+    public function getGotoInclude(): string
     {
+        $gotoInclude = false;
         $validOptions = [
             'new_insert',
             'same_insert',
@@ -1243,19 +1243,11 @@ class InsertEdit
         }
 
         if (! empty($GLOBALS['goto'])) {
-            if (! preg_match('@^[a-z_]+\.php$@', $GLOBALS['goto'])) {
-                // this should NOT happen
-                //$GLOBALS['goto'] = false;
-                if (str_contains($GLOBALS['goto'], 'index.php?route=/sql')) {
-                    $gotoInclude = '/sql';
-                } else {
-                    $gotoInclude = false;
-                }
-            } else {
-                $gotoInclude = $GLOBALS['goto'];
+            if (str_contains($GLOBALS['goto'], 'index.php?route=/sql')) {
+                $gotoInclude = '/sql';
             }
 
-            if ($GLOBALS['goto'] === 'index.php?route=/database/sql' && strlen($GLOBALS['table']) > 0) {
+            if (str_contains($GLOBALS['goto'], 'index.php?route=/database/sql') && strlen($GLOBALS['table']) > 0) {
                 $GLOBALS['table'] = '';
             }
         }
