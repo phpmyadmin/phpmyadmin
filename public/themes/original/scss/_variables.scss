@@ -2,8 +2,10 @@
 
 // navi frame
 
-// navi frame width
-$navi-width: 240px;
+// The server sets --navigation-width on <body> only on pages with the navigation panel
+body {
+  --navigation-width: 0;
+}
 
 // foreground (text) color for the navi frame
 $navi-color: #000;
