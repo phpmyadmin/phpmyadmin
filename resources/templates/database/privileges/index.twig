@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container my-3">
   {% if is_superuser %}
     <h2>
-      {{ get_icon('b_usrcheck') }}
+      {{ get_image('b_usrcheck') }}
       {{ t('Users having access to "%s"')|format('<a href="' ~ database_url ~ get_common({'db': db}, '&') ~ '">' ~ db|escape('html') ~ '</a>')|raw }}
     </h2>
 
