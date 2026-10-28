@@ -98,6 +98,13 @@ class Triggers
         // Backup the old trigger, in case something goes wrong
         $itemOriginalName = $request->getParsedBodyParamAsString('item_original_name');
         $trigger = $this->getTriggerByName($databaseName, $table, $itemOriginalName);
+        if ($trigger === null) {
+            $this->errors[] = __('Trigger not found.');
+            Current::$message = $this->handleErrors();
+
+            return '';
+        }
+
         $createItem = $trigger->getCreateSql('');
         $dropItem = $trigger->getDropSql();
         $result = $this->dbi->tryQuery($dropItem);
