@@ -1,6 +1,7 @@
 <div class="container-fluid my-3">
   <h2>
-    {{ get_icon('s_db', has_statistics ? t('Databases statistics') : t('Databases')) }}
+    {{ get_image('s_db') }}
+    {{ has_statistics ? t('Databases statistics') : t('Databases') }}
   </h2>
 
   {% if is_create_database_shown %}

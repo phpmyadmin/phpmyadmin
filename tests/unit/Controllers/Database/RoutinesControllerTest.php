@@ -99,7 +99,8 @@ final class RoutinesControllerTest extends AbstractTestCase
         $expected = <<<'HTML'
             <div class="container-fluid my-3">
               <h2>
-                <span class="text-nowrap"><img src="themes/dot.gif" title="Routines" alt="Routines" class="icon ic_b_routines">&nbsp;Routines</span>
+                <img src="themes/dot.gif" title="" alt="" class="icon ic_b_routines">
+                Routines
                 <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fstored-routines.html" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
               </h2>
 
@@ -335,7 +336,8 @@ final class RoutinesControllerTest extends AbstractTestCase
         $expected = <<<'HTML'
             <div class="container-fluid my-3">
               <h2>
-                <span class="text-nowrap"><img src="themes/dot.gif" title="Routines" alt="Routines" class="icon ic_b_routines">&nbsp;Routines</span>
+                <img src="themes/dot.gif" title="" alt="" class="icon ic_b_routines">
+                Routines
                 <a href="index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Fstored-routines.html" target="mysql_doc"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
               </h2>
 
