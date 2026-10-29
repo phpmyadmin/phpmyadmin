@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Table\Search;
+use PhpMyAdmin\Table\SearchForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -44,8 +45,8 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         $template = new Template($config);
         $controller = new ZoomSearchController(
             $response,
-            $template,
             new Search($dbi),
+            new SearchForm($dbi, new Relation($dbi), $template, $config),
             new Relation($dbi),
             $dbi,
             new DbTableExists($dbi),
@@ -94,8 +95,8 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         $template = new Template($config);
         $controller = new ZoomSearchController(
             $response,
-            $template,
             new Search($dbi),
+            new SearchForm($dbi, new Relation($dbi), $template, $config),
             new Relation($dbi),
             $dbi,
             new DbTableExists($dbi),

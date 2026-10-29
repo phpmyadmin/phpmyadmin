@@ -2974,43 +2974,7 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: '#^Cannot access offset int on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: '#^Class PhpMyAdmin\\Controllers\\Table\\SearchController has an uninitialized property \$foreigners\. Give it default value or assign it in the constructor\.$#'
-			identifier: property.uninitialized
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
 			message: '#^Parameter \#1 \$column of method PhpMyAdmin\\Controllers\\Table\\SearchController\:\:getColumnMinMax\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: '#^Parameter \#1 \$string of function strtoupper expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeOperatorsHtml\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: '#^Parameter \#3 \$selectedOperator of method PhpMyAdmin\\Types\:\:getTypeOperatorsHtml\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/SearchController.php
@@ -3430,12 +3394,6 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: '#^Cannot access offset int on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: '#^Cannot access offset int\<0, 3\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -3448,15 +3406,9 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: '#^Class PhpMyAdmin\\Controllers\\Table\\ZoomSearchController has an uninitialized property \$foreigners\. Give it default value or assign it in the constructor\.$#'
-			identifier: property.uninitialized
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
@@ -3496,31 +3448,7 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: '#^Parameter \#1 \$string of function strtoupper expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeOperatorsHtml\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: '#^Parameter \#2 \$columnIndex of method PhpMyAdmin\\Controllers\\Table\\ZoomSearchController\:\:getColumnProperties\(\) expects int, int\<0, max\>\|false given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
 			message: '#^Parameter \#2 \$signature of static method PhpMyAdmin\\Core\:\:checkSqlQuerySignature\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: '#^Parameter \#3 \$selectedOperator of method PhpMyAdmin\\Types\:\:getTypeOperatorsHtml\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php

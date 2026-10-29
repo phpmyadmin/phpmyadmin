@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\Foreigners;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
@@ -19,12 +18,12 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Search;
-use PhpMyAdmin\Template;
+use PhpMyAdmin\Table\SearchColumns;
+use PhpMyAdmin\Table\SearchForm;
 use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Utils\Gis;
 
 use function __;
 use function array_map;
@@ -34,13 +33,8 @@ use function htmlspecialchars;
 use function in_array;
 use function is_numeric;
 use function json_encode;
-use function mb_strtolower;
 use function md5;
-use function preg_match;
 use function preg_replace;
-use function str_ireplace;
-use function str_replace;
-use function strncasecmp;
 use function strtoupper;
 
 /**
@@ -51,30 +45,10 @@ use function strtoupper;
 #[Route('/table/zoom-search', ['GET', 'POST'])]
 final class ZoomSearchController implements InvocableController
 {
-    /** @var list<string> */
-    private array $columnNames = [];
-
-    /** @var list<string> */
-    private array $columnTypes = [];
-
-    /** @var list<string> */
-    private array $originalColumnTypes = [];
-
-    /** @var list<string> */
-    private array $columnCollations = [];
-
-    /** @var list<bool> */
-    private array $columnNullFlags = [];
-
-    /** @var bool Whether a geometry column is present */
-    private bool $geomColumnFlag = false;
-
-    private Foreigners $foreigners;
-
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Search $search,
+        private readonly SearchForm $searchForm,
         private readonly Relation $relation,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
@@ -104,7 +78,7 @@ final class ZoomSearchController implements InvocableController
             return $this->response->respondWithErrorMessage(__('No table selected.'));
         }
 
-        $this->loadTableInfo();
+        $columns = $this->searchForm->getColumns($databaseName->getName(), $tableName->getName());
 
         $this->response->addScriptFiles([
             'vendor/chart.umd.js',
@@ -132,7 +106,7 @@ final class ZoomSearchController implements InvocableController
          * (value,collation,operators,field values) in input form
          */
         if ($request->hasBodyParam('change_tbl_info')) {
-            $this->changeTableInfoAction();
+            $this->changeTableInfoAction($columns);
 
             return $this->response->response();
         }
@@ -145,7 +119,7 @@ final class ZoomSearchController implements InvocableController
         }
 
         // Displays the zoom search form
-        $this->displaySelectionFormAction($dataLabel);
+        $this->displaySelectionFormAction($dataLabel, $columns);
 
         /**
          * Handle the input criteria and generate the query result
@@ -164,68 +138,15 @@ final class ZoomSearchController implements InvocableController
             UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabTable);
         }
 
-        $this->zoomSubmitAction($dataLabel, UrlParams::$goto);
+        $this->zoomSubmitAction($dataLabel, UrlParams::$goto, $columns);
 
         return $this->response->response();
     }
 
     /**
-     * Gets all the columns of a table along with their types, collations
-     * and whether null or not.
-     */
-    private function loadTableInfo(): void
-    {
-        // Gets the list and number of columns
-        $columns = $this->dbi->getColumns(Current::$database, Current::$table);
-        // Get details about the geometry functions
-        $geomTypes = Gis::getDataTypes();
-
-        foreach ($columns as $row) {
-            // set column name
-            $this->columnNames[] = $row->field;
-
-            $type = $row->type;
-            // before any replacement
-            $this->originalColumnTypes[] = mb_strtolower($type);
-            // check whether table contains geometric columns
-            if (in_array($type, $geomTypes, true)) {
-                $this->geomColumnFlag = true;
-            }
-
-            // reformat mysql query output
-            if (strncasecmp($type, 'set', 3) === 0 || strncasecmp($type, 'enum', 4) === 0) {
-                $type = str_replace(',', ', ', $type);
-            } else {
-                // strip the "BINARY" attribute, except if we find "BINARY(" because
-                // this would be a BINARY or VARBINARY column type
-                if (preg_match('@BINARY[\(]@i', $type) !== 1) {
-                    $type = str_ireplace('BINARY', '', $type);
-                }
-
-                $type = str_ireplace('ZEROFILL', '', $type);
-                $type = str_ireplace('UNSIGNED', '', $type);
-                $type = mb_strtolower($type);
-            }
-
-            if ($type === '') {
-                $type = '&nbsp;';
-            }
-
-            $this->columnTypes[] = $type;
-            $this->columnNullFlags[] = $row->isNull;
-            $this->columnCollations[] = ! empty($row->collation) && $row->collation !== 'NULL'
-                ? $row->collation
-                : '';
-        }
-
-        // Retrieve foreign keys
-        $this->foreigners = $this->relation->getForeigners(Current::$database, Current::$table);
-    }
-
-    /**
      * Display selection form action
      */
-    private function displaySelectionFormAction(string $dataLabel): void
+    private function displaySelectionFormAction(string $dataLabel, SearchColumns $columns): void
     {
         if (UrlParams::$goto === '') {
             UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabTable);
@@ -243,9 +164,11 @@ final class ZoomSearchController implements InvocableController
                 continue;
             }
 
-            $properties[$i] = $this->getColumnProperties(
+            $properties[$i] = $this->searchForm->getColumnProperties(
+                $columns,
                 $i,
-                (int) array_search($criteriaColumnNames[$i], $this->columnNames, true),
+                (int) array_search($criteriaColumnNames[$i], $columns->names, true),
+                'zoom_search_form',
             );
         }
 
@@ -254,8 +177,8 @@ final class ZoomSearchController implements InvocableController
             'table' => Current::$table,
             'goto' => UrlParams::$goto,
             'properties' => $properties,
-            'geom_column_flag' => $this->geomColumnFlag,
-            'column_names' => $this->columnNames,
+            'geom_column_flag' => $columns->hasGeometry,
+            'column_names' => $columns->names,
             'data_label' => $dataLabel,
             'criteria_column_names' => $criteriaColumnNames,
             'criteria_column_types' => $_POST['criteriaColumnTypes'] ?? null,
@@ -299,10 +222,11 @@ final class ZoomSearchController implements InvocableController
     /**
      * Change table info action
      */
-    private function changeTableInfoAction(): void
+    private function changeTableInfoAction(SearchColumns $columns): void
     {
         $field = $_POST['field'];
-        if ($field === 'pma_null') {
+        $key = array_search($field, $columns->names, true);
+        if ($field === 'pma_null' || $key === false) {
             $this->response->addJSON('field_type', '');
             $this->response->addJSON('field_collation', '');
             $this->response->addJSON('field_operators', '');
@@ -311,11 +235,10 @@ final class ZoomSearchController implements InvocableController
             return;
         }
 
-        $key = array_search($field, $this->columnNames, true);
         $searchIndex = isset($_POST['it']) && is_numeric($_POST['it'])
             ? (int) $_POST['it'] : 0;
 
-        $properties = $this->getColumnProperties($searchIndex, $key);
+        $properties = $this->searchForm->getColumnProperties($columns, $searchIndex, $key, 'zoom_search_form');
         $this->response->addJSON(
             'field_type',
             htmlspecialchars($properties['type']),
@@ -331,7 +254,7 @@ final class ZoomSearchController implements InvocableController
      * @param string $dataLabel Data label
      * @param string $goto      Goto
      */
-    private function zoomSubmitAction(string $dataLabel, string $goto): void
+    private function zoomSubmitAction(string $dataLabel, string $goto, SearchColumns $columns): void
     {
         //Query generation part
         $sqlQuery = $this->search->buildSqlQuery();
@@ -369,11 +292,17 @@ final class ZoomSearchController implements InvocableController
         $searchColumnInForeigners = [];
         $foreignData = [];
 
-        foreach ($this->columnNames as $columnIndex => $columnName) {
+        foreach ($columns->names as $columnIndex => $columnName) {
             $columnNamesHashes[$columnName] = md5($columnName);
-            $foreignData[$columnIndex] = $this->relation->getForeignData($this->foreigners, $columnName, false, '', '');
+            $foreignData[$columnIndex] = $this->relation->getForeignData(
+                $columns->foreigners,
+                $columnName,
+                false,
+                '',
+                '',
+            );
             $searchColumnInForeigners[$columnIndex] = $this->relation->searchColumnInForeigners(
-                $this->foreigners,
+                $columns->foreigners,
                 $columnName,
             );
             if (
@@ -401,15 +330,15 @@ final class ZoomSearchController implements InvocableController
             $isFloat = in_array($cleanType, $floatTypes, true);
 
             return $isInteger ? 'INT' : ($isFloat ? 'FLOAT' : strtoupper($cleanType));
-        }, $this->columnTypes);
+        }, $columns->types);
 
         $this->response->render('table/zoom_search/result_form', [
             'db' => Current::$database,
             'table' => Current::$table,
-            'column_names' => $this->columnNames,
+            'column_names' => $columns->names,
             'column_names_hashes' => $columnNamesHashes,
-            'column_null_flags' => $this->columnNullFlags,
-            'column_types' => $this->columnTypes,
+            'column_null_flags' => $columns->nullFlags,
+            'column_types' => $columns->types,
             'column_data_types' => $columnDataTypes,
             'goto' => $goto,
             'data' => $data,
@@ -419,96 +348,5 @@ final class ZoomSearchController implements InvocableController
             'search_columns_in_foreigners' => $searchColumnInForeigners,
             'foreign_data' => $foreignData,
         ]);
-    }
-
-    /**
-     * Provides a column's type, collation, operators list, and criteria value
-     * to display in table search form
-     *
-     * @param int $searchIndex Row number in table search form
-     * @param int $columnIndex Column index in ColumnNames array
-     *
-     * @return array<string, string> Array containing column's properties
-     */
-    private function getColumnProperties(int $searchIndex, int $columnIndex): array
-    {
-        $selectedOperator = $_POST['criteriaColumnOperators'][$searchIndex] ?? '';
-        $enteredValue = $_POST['criteriaValues'] ?? '';
-        //Gets column's type and collation
-        $type = $this->columnTypes[$columnIndex];
-        $collation = $this->columnCollations[$columnIndex];
-        $cleanType = preg_replace('@\(.*@s', '', $type);
-        //Gets column's comparison operators depending on column type
-        $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
-            $cleanType,
-            $this->columnNullFlags[$columnIndex],
-            $selectedOperator,
-        );
-        $func = $this->template->render('table/search/column_comparison_operators', [
-            'search_index' => $searchIndex,
-            'type_operators' => $typeOperators,
-        ]);
-        //Gets link to browse foreign data(if any) and criteria inputbox
-        $foreignData = $this->relation->getForeignData(
-            $this->foreigners,
-            $this->columnNames[$columnIndex],
-            false,
-            '',
-            '',
-        );
-        $htmlAttributes = '';
-        $isInteger = in_array($cleanType, $this->dbi->types->getIntegerTypes(), true);
-        $isFloat = in_array($cleanType, $this->dbi->types->getFloatTypes(), true);
-        if ($isInteger) {
-            $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$columnIndex]);
-            $isUnsigned = $extractedColumnspec['unsigned'];
-            $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $isUnsigned);
-            $htmlAttributes = 'data-min="' . $minMaxValues[0] . '" '
-                            . 'data-max="' . $minMaxValues[1] . '"';
-        }
-
-        $htmlAttributes .= ' onfocus="return '
-                        . 'verifyAfterSearchFieldChange(' . $searchIndex . ', \'#zoom_search_form\')"';
-
-        $foreignDropdown = '';
-        $searchColumnInForeigners = $this->relation->searchColumnInForeigners(
-            $this->foreigners,
-            $this->columnNames[$columnIndex],
-        );
-
-        $hasForeigner = $searchColumnInForeigners !== false && $searchColumnInForeigners !== [];
-
-        if ($hasForeigner && $foreignData->dispRow !== null) {
-            $foreignDropdown = $this->relation->foreignDropdown(
-                $foreignData->dispRow,
-                $foreignData->foreignField ?? '',
-                $foreignData->foreignDisplay,
-                '',
-                $this->config->config->ForeignKeyMaxLimit,
-            );
-        }
-
-        $value = $this->template->render('table/search/input_box', [
-            'str' => '',
-            'column_type' => $type,
-            'column_data_type' => $isInteger ? 'INT' : ($isFloat ? 'FLOAT' : strtoupper($cleanType)),
-            'html_attributes' => $htmlAttributes,
-            'column_id' => 'fieldID_',
-            'in_zoom_search_edit' => false,
-            'column_name' => $this->columnNames[$columnIndex],
-            'column_name_hash' => md5($this->columnNames[$columnIndex]),
-            'foreign_data' => $foreignData,
-            'table' => Current::$table,
-            'column_index' => $searchIndex,
-            'criteria_values' => $enteredValue,
-            'db' => Current::$database,
-            'in_fbs' => true,
-            'foreign_dropdown' => $foreignDropdown,
-            'has_foreigner' => $hasForeigner,
-            'is_integer' => $isInteger,
-            'is_float' => $isFloat,
-        ]);
-
-        return ['type' => $type, 'collation' => $collation, 'func' => $func, 'value' => $value];
     }
 }
