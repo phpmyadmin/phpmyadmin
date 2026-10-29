@@ -18,7 +18,6 @@ use PhpMyAdmin\Url;
 
 use function __;
 use function file_exists;
-use function is_numeric;
 
 use const CONFIG_FILE;
 
@@ -50,7 +49,7 @@ final readonly class ServerDestroyController implements InvocableController
 
         $configFile = SetupHelper::createConfigFile();
 
-        $id = $this->getIdParam($request->getQueryParam('id'));
+        $id = SetupHelper::getServerId($request->getQueryParam('id'));
         $hasServer = $id >= 1 && $configFile->get('Servers/' . $id) !== null;
         if ($hasServer) {
             $configFile->removeServer($id);
@@ -60,17 +59,5 @@ final readonly class ServerDestroyController implements InvocableController
             'Location',
             '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']),
         );
-    }
-
-    /** @psalm-return int<0, max> */
-    private function getIdParam(mixed $idParam): int
-    {
-        if (! is_numeric($idParam)) {
-            return 0;
-        }
-
-        $id = (int) $idParam;
-
-        return $id >= 1 ? $id : 0;
     }
 }
