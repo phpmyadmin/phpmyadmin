@@ -3689,18 +3689,14 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Import/Ajax.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']]]></code>
       <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']]]></code>
     </MixedArrayAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']::getUploadStatus($id)]]></code>
-    </MixedMethodCall>
+    <MixedAssignment>
+      <code><![CDATA[$handler]]></code>
+    </MixedAssignment>
     <PossiblyUnusedMethod>
-      <code><![CDATA[progressCheck]]></code>
       <code><![CDATA[sessionCheck]]></code>
     </PossiblyUnusedMethod>
   </file>
@@ -5700,12 +5696,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-  </file>
-  <file src="src/Plugins/UploadInterface.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getIdKey]]></code>
-      <code><![CDATA[getUploadStatus]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Profiling.php">
     <RiskyTruthyFalsyComparison>

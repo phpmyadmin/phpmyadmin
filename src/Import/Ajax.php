@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Import;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin;
 use PhpMyAdmin\Plugins\Import\Upload\UploadProgress;
+use PhpMyAdmin\Plugins\UploadInterface;
 use Random\Randomizer;
 
 use function bin2hex;
@@ -14,6 +15,8 @@ use function defined;
 use function function_exists;
 use function header;
 use function ini_get;
+use function is_a;
+use function is_string;
 use function json_encode;
 use function sprintf;
 
@@ -24,6 +27,13 @@ final readonly class Ajax
 {
     /** For differentiating array in $_SESSION variable */
     public const SESSION_KEY = '__upload_status';
+
+    private const PLUGINS = [
+        // in PHP 5.4 session-based upload progress was problematic, see closed bug 3964
+        // [UploadSession::class, 'sessionCheck'],
+        [UploadProgress::class, 'progressCheck'],
+        [UploadNoplugin::class, 'nopluginCheck'],
+    ];
 
     public function __construct(private Randomizer $randomizer)
     {
@@ -41,20 +51,8 @@ final readonly class Ajax
          */
         $uploadId = bin2hex($this->randomizer->getBytes(8));
 
-        /**
-         * list of available plugins
-         */
-        $plugins = [
-            // in PHP 5.4 session-based upload progress was problematic, see closed bug 3964
-            // [UploadSession::class, 'sessionCheck'],
-            [UploadProgress::class, 'progressCheck'],
-            [UploadNoplugin::class, 'nopluginCheck'],
-        ];
-
         // select available plugin
-        foreach ($plugins as $plugin) {
-            [$class, $method] = $plugin;
-
+        foreach (self::PLUGINS as [$class, $method]) {
             if (self::$method()) {
                 $_SESSION[self::SESSION_KEY]['handler'] = $class;
                 break;
@@ -62,6 +60,14 @@ final readonly class Ajax
         }
 
         return $uploadId;
+    }
+
+    /** @return class-string<UploadInterface> */
+    public static function getHandlerFromSession(): string
+    {
+        $handler = $_SESSION[self::SESSION_KEY]['handler'] ?? null;
+
+        return is_string($handler) && is_a($handler, UploadInterface::class, true) ? $handler : UploadNoplugin::class;
     }
 
     /**
@@ -103,7 +109,7 @@ final readonly class Ajax
         }
 
         echo json_encode(
-            $_SESSION[self::SESSION_KEY]['handler']::getUploadStatus($id),
+            self::getHandlerFromSession()::getUploadStatus($id),
         );
     }
 }
