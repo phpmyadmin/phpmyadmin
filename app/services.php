@@ -59,6 +59,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Table\Search;
+use PhpMyAdmin\Table\SearchForm;
 use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -382,6 +383,10 @@ return [
         ],
     ],
     Search::class => ['class' => Search::class, 'arguments' => [DatabaseInterface::class]],
+    SearchForm::class => [
+        'class' => SearchForm::class,
+        'arguments' => [DatabaseInterface::class, Relation::class, Template::class, Config::class],
+    ],
     Template::class => ['class' => Template::class, 'arguments' => [Config::class]],
     ThemeManager::class => ['class' => ThemeManager::class],
     Tracking::class => [

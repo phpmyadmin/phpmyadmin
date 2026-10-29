@@ -84,6 +84,7 @@ use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Table\Search;
+use PhpMyAdmin\Table\SearchForm;
 use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -1090,9 +1091,8 @@ return [
         'class' => Table\SearchController::class,
         'arguments' => [
             ResponseRenderer::class,
-            Template::class,
             Search::class,
-            Relation::class,
+            SearchForm::class,
             DatabaseInterface::class,
             DbTableExists::class,
             Config::class,
@@ -1221,8 +1221,8 @@ return [
         'class' => Table\ZoomSearchController::class,
         'arguments' => [
             ResponseRenderer::class,
-            Template::class,
             Search::class,
+            SearchForm::class,
             Relation::class,
             DatabaseInterface::class,
             DbTableExists::class,
