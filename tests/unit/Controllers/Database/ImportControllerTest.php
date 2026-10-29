@@ -15,6 +15,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\Ajax;
+use PhpMyAdmin\Import\ImportForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -68,12 +69,14 @@ final class ImportControllerTest extends AbstractTestCase
 
         return new ImportController(
             $responseRenderer,
-            $dbi,
             new PageSettings($userPreferences, $responseRenderer),
             new DbTableExists($dbi),
-            $config,
-            new Ajax(new Randomizer(new Mt19937(42))),
-            $this->createPluginFactory($dbi, $config),
+            new ImportForm(
+                $dbi,
+                $config,
+                new Ajax(new Randomizer(new Mt19937(42))),
+                $this->createPluginFactory($dbi, $config),
+            ),
         );
     }
 }

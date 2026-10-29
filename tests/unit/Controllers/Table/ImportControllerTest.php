@@ -17,6 +17,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\Ajax;
+use PhpMyAdmin\Import\ImportForm;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin;
@@ -100,12 +101,14 @@ class ImportControllerTest extends AbstractTestCase
 
         (new ImportController(
             $response,
-            $dbi,
             $pageSettings,
             new DbTableExists($dbi),
-            $config,
-            new Ajax(new Randomizer(new Mt19937(42))),
-            $this->createPluginFactory($dbi, $config),
+            new ImportForm(
+                $dbi,
+                $config,
+                new Ajax(new Randomizer(new Mt19937(42))),
+                $this->createPluginFactory($dbi, $config),
+            ),
         ))($request);
         self::assertSame($expected, $response->getHTMLResult());
     }

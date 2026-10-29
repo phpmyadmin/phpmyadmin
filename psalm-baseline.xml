@@ -658,18 +658,6 @@
       <code><![CDATA[$tableStructure]]></code>
     </MixedAssignment>
   </file>
-  <file src="src/Controllers/Database/ImportController.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$idKey]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
-    </MixedMethodCall>
-  </file>
   <file src="src/Controllers/Database/RoutinesController.php">
     <PossiblyInvalidArgument>
       <code><![CDATA[$_GET['item_name']]]></code>
@@ -1227,16 +1215,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Server/ImportController.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$idKey]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -1597,20 +1575,6 @@
       <code><![CDATA[$_POST['pos'] ?? $_GET['pos'] ?? $_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_POST['session_max_rows'] ?? $_GET['session_max_rows']]]></code>
     </RiskyCast>
-  </file>
-  <file src="src/Controllers/Table/ImportController.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$idKey]]></code>
-      <code><![CDATA[$localImportFile]]></code>
-      <code><![CDATA[$timeoutPassed]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
-    </MixedMethodCall>
   </file>
   <file src="src/Controllers/Table/IndexesController.php">
     <MixedArgument>
