@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Plugins\Import\ImportSql;
+use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
@@ -99,7 +100,6 @@ class ImportSqlTest extends AbstractTestCase
     {
         $GLOBALS['dbi'] = $this->createStub(DatabaseInterface::class);
         $GLOBALS['charset_conversion'] = false;
-        $GLOBALS['timeout_passed'] = false;
         $GLOBALS['maximum_time'] = 30;
         $GLOBALS['timestamp'] = time();
 
@@ -123,6 +123,11 @@ class ImportSqlTest extends AbstractTestCase
         $this->object->doImport($importHandle);
         $importHandle->close();
         unlink($fileName);
+
+        // BufferedQuery::extract() keeps the position it stopped at in a static variable, so the
+        // next import in this process would start in the middle of its first statement.
+        // Extracting a complete statement resets it.
+        (new BufferedQuery('SELECT 1;'))->extract(true);
 
         self::assertTrue($GLOBALS['timeout_passed']);
         // The next run skips "offset" bytes, so it has to resume right after the first statement
