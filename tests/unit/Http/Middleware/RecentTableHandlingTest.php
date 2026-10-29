@@ -27,7 +27,7 @@ final class RecentTableHandlingTest extends AbstractTestCase
         $dbiDummy = $this->createDbiDummy();
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
 
         $config = new Config();
 
