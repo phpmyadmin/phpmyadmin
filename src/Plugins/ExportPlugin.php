@@ -327,6 +327,11 @@ abstract class ExportPlugin implements Plugin
             ?? $defaultValue;
     }
 
+    protected function setStringValue(mixed $valueFromRequest, string $valueFromConfig): string
+    {
+        return is_string($valueFromRequest) && $valueFromRequest !== '' ? $valueFromRequest : $valueFromConfig;
+    }
+
     public function getTranslatedText(string $text): string
     {
         return $text;
