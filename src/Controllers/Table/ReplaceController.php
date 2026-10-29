@@ -92,8 +92,7 @@ final readonly class ReplaceController implements InvocableController
             }
         }
 
-        //get $goto_include for different cases
-        $gotoInclude = $this->insertEdit->getGotoInclude(false);
+        $gotoInclude = $this->insertEdit->getGotoInclude();
 
         /**
          * Prepares the update/insert of a row
@@ -287,10 +286,6 @@ final readonly class ReplaceController implements InvocableController
             //
             // Note: logic passes here for inline edit
             Current::$message = Message::success(__('No change'));
-            // Avoid infinite recursion
-            if ($gotoInclude === '/table/replace') {
-                $gotoInclude = '/table/change';
-            }
 
             return $this->moveBackToCallingScript($gotoInclude, $request);
         }
@@ -483,11 +478,11 @@ final readonly class ReplaceController implements InvocableController
             return ($this->databaseSqlController)($request);
         }
 
-        if ($gotoInclude === '/table/sql') {
-            return ($this->tableSqlController)($request);
+        if ($gotoInclude === '/table/change') {
+            return ($this->changeController)($request);
         }
 
-        return ($this->changeController)($request);
+        return ($this->tableSqlController)($request);
     }
 
     /**

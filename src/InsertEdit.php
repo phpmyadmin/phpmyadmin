@@ -764,26 +764,22 @@ class InsertEdit
      * if UrlParams::$goto empty, if $goto_include previously not defined
      * and new_insert, same_insert, edit_next
      *
-     * @param string|false $gotoInclude store some script for include, otherwise it is
-     *                                   boolean false
+     * @phpstan-return '/table/change'|'/sql'|'/database/sql'|'/table/sql'
      */
-    public function getGotoInclude(string|false $gotoInclude): string
+    public function getGotoInclude(): string
     {
+        $gotoInclude = false;
         $validOptions = ['new_insert', 'same_insert', 'edit_next'];
         if (isset($_POST['after_insert']) && in_array($_POST['after_insert'], $validOptions, true)) {
             return '/table/change';
         }
 
         if (UrlParams::$goto !== '') {
-            if (preg_match('@^[a-z_]+\.php$@', UrlParams::$goto) !== 1) {
-                // this should NOT happen
-                //UrlParams::$goto = false;
-                $gotoInclude = str_contains(UrlParams::$goto, 'index.php?route=/sql') ? '/sql' : false;
-            } else {
-                $gotoInclude = UrlParams::$goto;
+            if (str_contains(UrlParams::$goto, 'index.php?route=/sql')) {
+                $gotoInclude = '/sql';
             }
 
-            if (UrlParams::$goto === 'index.php?route=/database/sql' && Current::$table !== '') {
+            if (str_contains(UrlParams::$goto, 'index.php?route=/database/sql') && Current::$table !== '') {
                 Current::$table = '';
             }
         }

@@ -1855,12 +1855,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: '#^Strict comparison using \=\=\= between false and false will always evaluate to true\.$#'
-			identifier: identical.alwaysTrue
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: '#^Strict comparison using \=\=\= between int and \*NEVER\* will always evaluate to false\.$#'
 			identifier: identical.alwaysFalse
 			count: 1

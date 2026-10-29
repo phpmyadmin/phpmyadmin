@@ -4706,7 +4706,6 @@
       <code><![CDATA[$_POST['where_clause'][0]]]></code>
     </PossiblyInvalidOperand>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $gotoInclude]]></code>
       <code><![CDATA[$editField->salt]]></code>
       <code><![CDATA[empty($columnMime['input_transformation'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -9382,7 +9381,6 @@
       <code><![CDATA[$value]]></code>
     </PossiblyInvalidCast>
     <TypeDoesNotContainType>
-      <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
     </TypeDoesNotContainType>

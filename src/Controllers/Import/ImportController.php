@@ -716,12 +716,9 @@ final readonly class ImportController implements InvocableController
                 'sql_query',
                 Generator::getMessage(new Message(ImportSettings::$message, MessageType::Success), Current::$sqlQuery),
             );
-        } elseif (Import::$result === false) {
+        } else {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(ImportSettings::$message));
-        } else {
-            /** @psalm-suppress UnresolvableInclude */
-            include ROOT_PATH . UrlParams::$goto;
         }
 
         return $this->response->response();
