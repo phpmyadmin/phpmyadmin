@@ -9,6 +9,7 @@ use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 
 use function assert;
 use function in_array;
+use function is_numeric;
 
 final class SetupHelper
 {
@@ -30,6 +31,18 @@ final class SetupHelper
         ]);
 
         return $configFile;
+    }
+
+    /** @psalm-return int<0, max> */
+    public static function getServerId(mixed $idParam): int
+    {
+        if (! is_numeric($idParam)) {
+            return 0;
+        }
+
+        $id = (int) $idParam;
+
+        return $id >= 1 ? $id : 0;
     }
 
     /** @return string[][] */

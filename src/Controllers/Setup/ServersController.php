@@ -20,7 +20,6 @@ use PhpMyAdmin\Url;
 use function __;
 use function file_exists;
 use function in_array;
-use function is_numeric;
 use function is_string;
 
 use const CONFIG_FILE;
@@ -53,7 +52,7 @@ final readonly class ServersController implements InvocableController
 
         $configFile = SetupHelper::createConfigFile();
 
-        $id = $this->getIdParam($request->getQueryParam('id'));
+        $id = SetupHelper::getServerId($request->getQueryParam('id'));
         $mode = $this->getModeParam($request->getQueryParam('mode'));
 
         $pages = SetupHelper::getPages();
@@ -126,18 +125,6 @@ final readonly class ServersController implements InvocableController
     private function getModeParam(mixed $modeParam): string
     {
         return in_array($modeParam, ['add', 'edit', 'revert'], true) ? $modeParam : '';
-    }
-
-    /** @psalm-return int<0, max> */
-    private function getIdParam(mixed $idParam): int
-    {
-        if (! is_numeric($idParam)) {
-            return 0;
-        }
-
-        $id = (int) $idParam;
-
-        return $id >= 1 ? $id : 0;
     }
 
     /** @psalm-return 'form'|'config'|'servers'|'index' */
