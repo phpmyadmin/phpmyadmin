@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Setup;
 use PhpMyAdmin\Setup\SetupHelper;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 #[CoversClass(SetupHelper::class)]
 final class SetupHelperTest extends AbstractTestCase
@@ -43,5 +44,24 @@ final class SetupHelperTest extends AbstractTestCase
             'Sql' => ['name' => 'SQL queries', 'formset' => 'Sql'],
         ];
         self::assertSame($expected, SetupHelper::getPages());
+    }
+
+    #[DataProvider('serverIdProvider')]
+    public function testGetServerId(mixed $idParam, int $expected): void
+    {
+        self::assertSame($expected, SetupHelper::getServerId($idParam));
+    }
+
+    /** @return iterable<string, array{mixed, int}> */
+    public static function serverIdProvider(): iterable
+    {
+        yield 'missing' => [null, 0];
+        yield 'non-numeric' => ['abc', 0];
+        yield 'array' => [['1'], 0];
+        yield 'zero' => ['0', 0];
+        yield 'negative' => ['-3', 0];
+        yield 'numeric string' => ['2', 2];
+        yield 'integer' => [5, 5];
+        yield 'float string' => ['3.7', 3];
     }
 }
