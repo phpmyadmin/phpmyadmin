@@ -80,6 +80,7 @@ use PhpMyAdmin\Server\Privileges\AccountLocking;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\Status\Processes;
+use PhpMyAdmin\Server\VariableFormatter;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Table\Indexes;
@@ -813,11 +814,11 @@ return [
     ],
     Server\Variables\SetVariableController::class => [
         'class' => Server\Variables\SetVariableController::class,
-        'arguments' => [ResponseRenderer::class, Template::class, DatabaseInterface::class],
+        'arguments' => [ResponseRenderer::class, VariableFormatter::class, DatabaseInterface::class],
     ],
     Server\VariablesController::class => [
         'class' => Server\VariablesController::class,
-        'arguments' => [ResponseRenderer::class, Template::class, DatabaseInterface::class],
+        'arguments' => [ResponseRenderer::class, VariableFormatter::class, DatabaseInterface::class],
     ],
     Setup\MainController::class => [
         'class' => Setup\MainController::class,

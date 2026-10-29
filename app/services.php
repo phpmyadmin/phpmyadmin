@@ -54,6 +54,7 @@ use PhpMyAdmin\Server\Privileges\AccountLocking;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\Status\Processes;
+use PhpMyAdmin\Server\VariableFormatter;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Table\ColumnsDefinition;
@@ -421,6 +422,7 @@ return [
         'class' => UserPrivilegesFactory::class,
         'arguments' => [DatabaseInterface::class],
     ],
+    VariableFormatter::class => ['class' => VariableFormatter::class, 'arguments' => [Template::class]],
     VersionInformation::class => ['class' => VersionInformation::class],
     BookmarkRepository::class => [
         'class' => BookmarkRepository::class,

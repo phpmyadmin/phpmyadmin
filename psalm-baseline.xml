@@ -1721,9 +1721,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$formattedValue]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument>
-      <code><![CDATA[$varValue[1]]]></code>
-    </PossiblyNullArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -8738,31 +8735,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArrayAccess>
-      <code><![CDATA[$formattedValue]]></code>
-      <code><![CDATA[$formattedValue]]></code>
-      <code><![CDATA[$formattedValue]]></code>
-      <code><![CDATA[$formattedValue]]></code>
-      <code><![CDATA[$formattedValue]]></code>
-      <code><![CDATA[$formattedValue]]></code>
-      <code><![CDATA[$formattedValue]]></code>
-      <code><![CDATA[$isHtmlFormatted]]></code>
-      <code><![CDATA[$isHtmlFormatted]]></code>
-      <code><![CDATA[$isHtmlFormatted]]></code>
-      <code><![CDATA[$isHtmlFormatted]]></code>
-      <code><![CDATA[$isHtmlFormatted]]></code>
-      <code><![CDATA[$isHtmlFormatted]]></code>
-      <code><![CDATA[$isHtmlFormatted]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[[$formattedValue, $isHtmlFormatted]]]></code>
-      <code><![CDATA[[$formattedValue, $isHtmlFormatted]]]></code>
-      <code><![CDATA[[$formattedValue, $isHtmlFormatted]]]></code>
-      <code><![CDATA[[$formattedValue, $isHtmlFormatted]]]></code>
-      <code><![CDATA[[$formattedValue, $isHtmlFormatted]]]></code>
-      <code><![CDATA[[$formattedValue, $isHtmlFormatted]]]></code>
-      <code><![CDATA[[$formattedValue, $isHtmlFormatted]]]></code>
-    </MixedAssignment>
     <UndefinedAttributeClass>
       <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
     </UndefinedAttributeClass>
