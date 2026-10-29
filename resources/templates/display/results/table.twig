@@ -257,12 +257,10 @@
             </div>
 
             <fieldset class="col-auto">
-              {% if headers.options.possible_as_geometry %}
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="geoOption" id="geoOptionRadioGeom{{ unique_id }}" value="GEOM"{{ headers.options.geo_option == 'GEOM' ? ' checked' }}>
-                  <label class="form-check-label" for="geoOptionRadioGeom{{ unique_id }}">{{ t('Geometry') }}</label>
-                </div>
-              {% endif %}
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="geoOption" id="geoOptionRadioGeom{{ unique_id }}" value="GEOM"{{ headers.options.geo_option == 'GEOM' ? ' checked' }}>
+                <label class="form-check-label" for="geoOptionRadioGeom{{ unique_id }}">{{ t('Geometry') }}</label>
+              </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="geoOption" id="geoOptionRadioWkt{{ unique_id }}" value="WKT"{{ headers.options.geo_option == 'WKT' ? ' checked' }}>
                 <label class="form-check-label" for="geoOptionRadioWkt{{ unique_id }}">{{ t('Well Known Text') }}</label>
