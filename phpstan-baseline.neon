@@ -6919,12 +6919,6 @@ parameters:
 			path: src/Import/Ajax.php
 
 		-
-			message: '#^Cannot call static method getUploadStatus\(\) on mixed\.$#'
-			identifier: staticMethod.nonObject
-			count: 1
-			path: src/Import/Ajax.php
-
-		-
 			message: '#^Variable static method call on PhpMyAdmin\\Import\\Ajax\.$#'
 			identifier: staticMethod.dynamicName
 			count: 1
