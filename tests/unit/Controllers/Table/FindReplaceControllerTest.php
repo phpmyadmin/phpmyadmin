@@ -25,7 +25,7 @@ final class FindReplaceControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
         $dbiDummy->addResult('SELECT @@character_set_connection', [['utf8mb4']]);
         // phpcs:ignore Generic.Files.LineLength.TooLong
         $dbiDummy->addResult('UPDATE `test_table` SET `id` = REPLACE(`id`, \'Field\', \'Column\') WHERE `id` LIKE \'%Field%\' COLLATE utf8mb4_bin', true);
@@ -71,7 +71,7 @@ final class FindReplaceControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
         $dbiDummy->addResult('SELECT @@character_set_connection', [['utf8mb4']]);
         // phpcs:ignore Generic.Files.LineLength.TooLong
         $dbiDummy->addResult('SELECT `id`, 1, COUNT(*) FROM `test_db`.`test_table` WHERE `id` RLIKE \'Field\' COLLATE utf8mb4_bin GROUP BY `id` ORDER BY `id` ASC', []);

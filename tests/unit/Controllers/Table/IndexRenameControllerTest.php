@@ -30,7 +30,10 @@ class IndexRenameControllerTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
         $dummyDbi->addSelectDb('test_db');
-        $dummyDbi->addResult('SELECT 1 FROM `test_db`.`test_table_index_rename` LIMIT 1;', [['1']]);
+        $dummyDbi->addResult(
+            'SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\\\\_index\\\\_rename\';',
+            [['test_table_index_rename']],
+        );
         $dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $dbi;
 
@@ -74,7 +77,10 @@ class IndexRenameControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table_index_rename` LIMIT 1;', [['1']], ['1']);
+        $dbiDummy->addResult(
+            'SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\\\\_index\\\\_rename\';',
+            [['test_table_index_rename']],
+        );
         $dbiDummy->addResult(
             'SHOW INDEXES FROM `test_db`.`test_table_index_rename`',
             [

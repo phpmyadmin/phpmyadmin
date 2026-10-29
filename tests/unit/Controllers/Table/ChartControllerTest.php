@@ -63,7 +63,7 @@ class ChartControllerTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
-        $dummyDbi->addResult('SELECT 1 FROM `test_db`.`table_for_chart` LIMIT 1;', [['1']]);
+        $dummyDbi->addResult('SHOW TABLES FROM `test_db` LIKE \'table\\\\_for\\\\_chart\';', [['table_for_chart']]);
         $dummyDbi->addSelectDb('test_db');
         $dummyDbi->addResult(
             'SELECT * FROM `test_db`.`table_for_chart`;',
