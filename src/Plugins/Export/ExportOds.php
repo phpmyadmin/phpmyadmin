@@ -26,7 +26,6 @@ use function __;
 use function bin2hex;
 use function date;
 use function htmlspecialchars;
-use function is_string;
 use function strtotime;
 
 /**
@@ -281,18 +280,5 @@ class ExportOds extends ExportPlugin
             $exportConfig->ods_null,
         );
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-    }
-
-    private function setStringValue(mixed $fromRequest, string $fromConfig): string
-    {
-        if (is_string($fromRequest) && $fromRequest !== '') {
-            return $fromRequest;
-        }
-
-        if ($fromConfig !== '') {
-            return $fromConfig;
-        }
-
-        return '';
     }
 }
