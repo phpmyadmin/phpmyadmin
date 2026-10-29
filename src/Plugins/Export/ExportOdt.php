@@ -29,7 +29,6 @@ use PhpMyAdmin\Util;
 use function __;
 use function bin2hex;
 use function htmlspecialchars;
-use function is_string;
 use function str_replace;
 
 /**
@@ -647,18 +646,5 @@ class ExportOdt extends ExportPlugin
             $exportConfig->odt_null,
         );
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-    }
-
-    private function setStringValue(mixed $fromRequest, string $fromConfig): string
-    {
-        if (is_string($fromRequest) && $fromRequest !== '') {
-            return $fromRequest;
-        }
-
-        if ($fromConfig !== '') {
-            return $fromConfig;
-        }
-
-        return '';
     }
 }

@@ -22,7 +22,6 @@ use function __;
 use function array_key_last;
 use function bin2hex;
 use function ctype_digit;
-use function is_string;
 use function sprintf;
 use function str_repeat;
 use function str_replace;
@@ -197,19 +196,6 @@ class ExportToon extends ExportPlugin
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
 
         $this->setupExportConfiguration();
-    }
-
-    private function setStringValue(mixed $fromRequest, string $fromConfig): string
-    {
-        if (is_string($fromRequest) && $fromRequest !== '') {
-            return $fromRequest;
-        }
-
-        if ($fromConfig !== '') {
-            return $fromConfig;
-        }
-
-        return '';
     }
 
     private function setIntValue(mixed $fromRequest, int $fromConfig): int
