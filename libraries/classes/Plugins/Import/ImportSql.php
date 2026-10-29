@@ -20,8 +20,8 @@ use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 use function __;
 use function count;
 use function implode;
-use function mb_strlen;
 use function preg_replace;
+use function strlen;
 
 /**
  * Handles the import for the SQL format
@@ -130,7 +130,7 @@ class ImportSql extends ImportPlugin
 
                 // Subtract data we didn't handle yet and stop processing.
                 if ($newData === false) {
-                    $GLOBALS['offset'] -= mb_strlen($bq->query);
+                    $GLOBALS['offset'] -= strlen($bq->query);
                     break;
                 }
 
