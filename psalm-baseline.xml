@@ -1680,14 +1680,7 @@
   <file src="src/Controllers/Table/SearchController.php">
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['column']]]></code>
-      <code><![CDATA[$selectedOperator]]></code>
     </PossiblyInvalidArgument>
-    <PropertyNotSetInConstructor>
-      <code><![CDATA[$foreigners]]></code>
-    </PropertyNotSetInConstructor>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($row->collation)]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/SqlController.php">
     <MixedArgument>
@@ -1901,9 +1894,6 @@
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][0]]]]></code>
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][1]]]]></code>
     </InvalidArrayOffset>
-    <PossiblyFalseArgument>
-      <code><![CDATA[$key]]></code>
-    </PossiblyFalseArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['db']]]></code>
       <code><![CDATA[$_POST['table']]]></code>
@@ -1911,22 +1901,17 @@
       <code><![CDATA[$_POST['where_clause_sign']]]></code>
       <code><![CDATA[$dataLabel]]></code>
       <code><![CDATA[$dataLabel]]></code>
-      <code><![CDATA[$selectedOperator]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['maxPlotLimit']]]></code>
       <code><![CDATA[$_POST['where_clause']]]></code>
     </PossiblyInvalidOperand>
-    <PropertyNotSetInConstructor>
-      <code><![CDATA[$foreigners]]></code>
-    </PropertyNotSetInConstructor>
     <RiskyCast>
       <code><![CDATA[$_POST['maxPlotLimit']]]></code>
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$_POST['get_data_row']]]></code>
       <code><![CDATA[empty($_POST['maxPlotLimit'])]]></code>
-      <code><![CDATA[empty($row->collation)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/TableController.php">

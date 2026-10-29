@@ -15,6 +15,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
+use PhpMyAdmin\Table\SearchForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -63,9 +64,8 @@ final class SearchControllerTest extends AbstractTestCase
 
         $controller = new SearchController(
             $responseRenderer,
-            $template,
             new Search($dbi),
-            $relation,
+            new SearchForm($dbi, $relation, $template, $config),
             $dbi,
             new DbTableExists($dbi),
             $config,
