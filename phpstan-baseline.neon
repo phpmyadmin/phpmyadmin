@@ -1372,24 +1372,6 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
-			message: '#^Cannot access offset ''handler'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Controllers/Database/ImportController.php
-
-		-
-			message: '#^Cannot call static method getIdKey\(\) on mixed\.$#'
-			identifier: staticMethod.nonObject
-			count: 1
-			path: src/Controllers/Database/ImportController.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: array.invalidKey
-			count: 1
-			path: src/Controllers/Database/ImportController.php
-
-		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 1
@@ -2113,24 +2095,6 @@ parameters:
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
-			message: '#^Cannot access offset ''handler'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Controllers/Server/ImportController.php
-
-		-
-			message: '#^Cannot call static method getIdKey\(\) on mixed\.$#'
-			identifier: staticMethod.nonObject
-			count: 1
-			path: src/Controllers/Server/ImportController.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: array.invalidKey
-			count: 1
-			path: src/Controllers/Server/ImportController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -2660,24 +2624,6 @@ parameters:
 			identifier: cast.int
 			count: 4
 			path: src/Controllers/Table/GisVisualizationController.php
-
-		-
-			message: '#^Cannot access offset ''handler'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Controllers/Table/ImportController.php
-
-		-
-			message: '#^Cannot call static method getIdKey\(\) on mixed\.$#'
-			identifier: staticMethod.nonObject
-			count: 1
-			path: src/Controllers/Table/ImportController.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: array.invalidKey
-			count: 1
-			path: src/Controllers/Table/ImportController.php
 
 		-
 			message: '#^Binary operation "\+\=" between int and mixed results in an error\.$#'
