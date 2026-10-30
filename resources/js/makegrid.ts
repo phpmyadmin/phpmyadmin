@@ -83,7 +83,6 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
         alertNonUnique: '',         // string, alert shown when saving edited nonunique table
 
         // Common hidden inputs
-        token: null,
         server: null,
         db: null,
         table: null,
@@ -432,7 +431,6 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 const postParams = {
                     'db': g.db,
                     'table': g.table,
-                    'token': g.token,
                     'server': g.server,
                     'table_create_time': g.tableCreateTime,
                 };
