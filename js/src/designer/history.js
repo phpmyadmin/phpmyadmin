@@ -83,7 +83,7 @@ DesignerHistory.display = function (init, finit) {
     var historyArrayLength = historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
         temp = historyArray[i].getTab(); // + '.' + historyArray[i].getObjNo(); for Self JOIN
-        str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
+        str += '<h3 class="tiger"><a href="#">' + Functions.escapeHtml(temp) + '</a></h3>';
         str += '<div class="toggle_container">\n';
         while ((historyArray[i].getTab()) === temp) { // + '.' + historyArray[i].getObjNo()) === temp) {
             str += '<div class="block"> <table class="table table-sm w-auto mb-0">';
