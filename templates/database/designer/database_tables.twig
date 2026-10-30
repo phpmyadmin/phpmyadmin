@@ -4,7 +4,7 @@
     {% set db = designerTable.getDatabaseName() %}
     {% set db_url = db|escape('url') %}
     {% set t_n = designerTable.getDbTableString() %}
-    {% set table_name = designerTable.getTableName()|escape('html') %}
+    {% set table_name = designerTable.getTableName() %}
     <input name="t_x[{{ t_n_url }}]" type="hidden" id="t_x_{{ t_n_url }}_" />
     <input name="t_y[{{ t_n_url }}]" type="hidden" id="t_y_{{ t_n_url }}_" />
     <input name="t_v[{{ t_n_url }}]" type="hidden" id="t_v_{{ t_n_url }}_" />
