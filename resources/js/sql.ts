@@ -560,7 +560,6 @@ AJAX.registerOnload('sql.js', function () {
         }
 
         ajaxShowMessage();
-        const argsep = CommonParams.get('arg_separator');
         $.post($(this).attr('action'), $(this).serialize(), function (data) {
             if (data.success) {
                 ajaxShowMessage(data.message);
@@ -944,7 +943,6 @@ AJAX.registerOnload('sql.js', function () {
         const $form = $(this);
 
         const $msgbox = ajaxShowMessage();
-        const argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize(), function (data) {
             ajaxRemoveMessage($msgbox);
             const $sqlqueryresults = $form.parents('.sqlqueryresults');
@@ -1200,7 +1198,6 @@ function browseForeignDialog ($thisA) {
     const showAllId = '#foreign_showAll';
     const tableId = '#browse_foreign_table';
     const filterId = '#input_foreign_filter';
-    const argSep = CommonParams.get('arg_separator');
     const params = $thisA.getPostData();
 
     let browseForeignModal = document.getElementById('browseForeignModal');
