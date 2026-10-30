@@ -2412,14 +2412,6 @@ export function onloadEnumSetEditor (): void {
         });
 
         // Show the dialog
-        let width = parseInt(
-            ((parseInt($('html').css('font-size'), 10) / 13) * 340).toString(),
-            10,
-        );
-        if (! width) {
-            width = 340;
-        }
-
         $('#enumEditorModal').modal('show');
         $('#enumEditorModal').find('.modal-body').first().html(dialog);
         $('#enumEditorModal .values tbody').sortable({
