@@ -293,7 +293,6 @@ AJAX.registerOnload('designer/init.js', function () {
 
     $('input#ok_add_object').on('click', function () {
         DesignerMove.addObject(
-            $('#ok_add_object_db_name').val(),
             $('#ok_add_object_table_name').val(),
             $('#ok_add_object_col_name').val(),
             $('#ok_add_object_db_and_table_name_url').val()

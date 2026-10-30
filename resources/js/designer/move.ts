@@ -1804,7 +1804,7 @@ const getColorByTarget = function (target) {
     return color;
 };
 
-const clickOption = function (dbName, tableName, columnName, tableDbNameUrl, optionColNameString) {
+const clickOption = function (tableName, columnName, tableDbNameUrl, optionColNameString) {
     const designerOptions = document.getElementById('designer_optionse');
     const left = globX - (designerOptions.offsetWidth >> 1);
     designerOptions.style.left = left + 'px';
@@ -1812,7 +1812,6 @@ const clickOption = function (dbName, tableName, columnName, tableDbNameUrl, opt
     designerOptions.style.top = (screen.height / 4) + 'px';
     designerOptions.style.display = 'block';
     (document.getElementById('ok_add_object_db_and_table_name_url') as HTMLInputElement).value = tableDbNameUrl;
-    (document.getElementById('ok_add_object_db_name') as HTMLInputElement).value = dbName;
     (document.getElementById('ok_add_object_table_name') as HTMLInputElement).value = tableName;
     (document.getElementById('ok_add_object_col_name') as HTMLInputElement).value = columnName;
     document.getElementById('option_col_name').innerHTML = optionColNameString;
@@ -1831,7 +1830,7 @@ const closeOption = function () {
     (document.getElementById('orderby') as HTMLSelectElement).value = '---';
 };
 
-const selectAll = function (tableName, dbName, idSelectAll) {
+const selectAll = function (tableName, idSelectAll) {
     const parentIsChecked = $('#' + idSelectAll).is(':checked');
     const checkboxAll = ($('#container-form input[id_check_all=\'' + idSelectAll + '\']:checkbox') as JQuery<HTMLInputElement>);
 
@@ -1922,12 +1921,11 @@ const storeColumn = function (tableName, colName, checkboxId) {
  * first it does a few checks on each object, then makes an object(where,rename,groupby,aggregate,orderby)
  * then a new history object is made and finally all these history objects are added to DesignerHistory.historyArray[]
  *
- * @param {string} dbName
  * @param {string} tableName
  * @param {string} colName
  * @param {string} dbTableNameUrl
  */
-const addObject = function (dbName, tableName, colName, dbTableNameUrl) {
+const addObject = function (tableName, colName, dbTableNameUrl) {
     let p;
     let whereObj;
     const rel = (document.getElementById('rel_opt') as HTMLSelectElement);
@@ -2021,7 +2019,7 @@ const enablePageContentEvents = function () {
  */
 const enableTableEvents = function (index, element) {
     $(element).on('click', '.select_all_1', function () {
-        DesignerMove.selectAll($(this).attr('table_name'), $(this).attr('db_name'), $(this).attr('id'));
+        DesignerMove.selectAll($(this).attr('table_name'), $(this).attr('id'));
     });
 
     $(element).on('click', '.small_tab,.small_tab2', function () {
@@ -2038,7 +2036,6 @@ const enableTableEvents = function (index, element) {
 
     $(element).on('click', '.small_tab_pref_click_opt', function () {
         DesignerMove.clickOption(
-            $(this).attr('db_name'),
             $(this).attr('table_name'),
             $(this).attr('col_name'),
             $(this).attr('db_table_name_url'),
