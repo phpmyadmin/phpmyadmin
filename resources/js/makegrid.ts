@@ -714,12 +714,10 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
          * @param force Optional, force to hide edit cell without saving edited field.
          * @param data  Optional, data from the POST AJAX request to save the edited field
          *              or just specify "true", if we want to replace the edited field with the new value.
-         * @param field Optional, the edited <td>. If not specified, the function will
-         *              use currently edited <td> from g.currentEditCell.
          * @param options Optional, this object contains a boolean named move (true, if called from move* functions)
          *                and a <td> to which the grid_edit should move
          */
-        hideEditCell: function (force = undefined, data = undefined, field = undefined, options = undefined) {
+        hideEditCell: function (force = undefined, data = undefined, options = undefined) {
             if (g.isCellEditActive && ! force) {
                 // cell is being edited, save or post the edited data
                 if (options !== undefined) {
@@ -1664,7 +1662,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 if (saved) {
                     // If this function called from 'move' functions
                     if (options !== undefined && options.move) {
-                        g.hideEditCell(true, true, false, options);
+                        g.hideEditCell(true, true, options);
                         g.showEditCell(options.cell);
                         // NOT called from 'move' functions
                     } else {
@@ -1673,7 +1671,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 } else {
                     // If this function called from 'move' functions
                     if (options !== undefined && options.move) {
-                        g.hideEditCell(true, false, false, options);
+                        g.hideEditCell(true, false, options);
                         g.showEditCell(options.cell);
                         // NOT called from 'move' functions
                     } else {
@@ -1957,7 +1955,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             }
 
             if (newCell) {
-                g.hideEditCell(false, false, false, { move: true, cell: newCell });
+                g.hideEditCell(false, false, { move: true, cell: newCell });
             }
         },
 
@@ -2007,7 +2005,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             }
 
             if (newCell) {
-                g.hideEditCell(false, false, false, { move: true, cell: newCell });
+                g.hideEditCell(false, false, { move: true, cell: newCell });
             }
         },
 
@@ -2052,7 +2050,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             }
 
             if (leftCell) {
-                g.hideEditCell(false, false, false, { move: true, cell: leftCell });
+                g.hideEditCell(false, false, { move: true, cell: leftCell });
             }
         },
 
@@ -2104,7 +2102,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             }
 
             if (rightCell) {
-                g.hideEditCell(false, false, false, { move: true, cell: rightCell });
+                g.hideEditCell(false, false, { move: true, cell: rightCell });
             }
         },
 
