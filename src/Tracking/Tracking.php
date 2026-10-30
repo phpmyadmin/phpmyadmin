@@ -556,10 +556,7 @@ class Tracking
 
             // Print SQL code
             $html .= Generator::getMessage(
-                sprintf(
-                    __('Version %s snapshot (SQL code)'),
-                    htmlspecialchars($version),
-                ),
+                new Message(sprintf(__('Version %s snapshot (SQL code)'), htmlspecialchars($version))),
                 $dropCreateStatements,
             );
         }

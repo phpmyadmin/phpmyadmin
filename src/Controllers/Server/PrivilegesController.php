@@ -96,10 +96,7 @@ final readonly class PrivilegesController implements InvocableController
 
         if (! $this->dbi->isSuperUser() && ! $isGrantUser && ! $isCreateUser) {
             $this->response->render('server/sub_page_header', ['type' => 'privileges', 'is_image' => false]);
-            $this->response->addHTML(
-                Message::error(__('No Privileges'))
-                    ->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(__('No Privileges')));
 
             return $this->response->response();
         }
@@ -107,7 +104,7 @@ final readonly class PrivilegesController implements InvocableController
         if (! $isGrantUser && ! $isCreateUser) {
             $this->response->addHTML(Message::notice(
                 __('You do not have the privileges to administrate the users!'),
-            )->getDisplay());
+            ));
         }
 
         $isChangeCopyUser = $request->hasBodyParam('change_copy');
@@ -121,15 +118,13 @@ final readonly class PrivilegesController implements InvocableController
             && $serverPrivileges->username === $request->getParsedBodyParam('old_username')
             && $serverPrivileges->hostname === $request->getParsedBodyParam('old_hostname')
         ) {
-            $this->response->addHTML(
-                Message::error(
-                    __(
-                        "Username and hostname didn't change. "
-                        . 'If you only want to change the password, '
-                        . "'Change password' tab should be used.",
-                    ),
-                )->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(
+                __(
+                    "Username and hostname didn't change. "
+                    . 'If you only want to change the password, '
+                    . "'Change password' tab should be used.",
+                ),
+            ));
             $this->response->setRequestStatus(false);
 
             return $this->response->response();
@@ -143,7 +138,7 @@ final readonly class PrivilegesController implements InvocableController
                 $request->getParsedBodyParamAsString('old_hostname', ''),
             );
             if ($password instanceof Message) {
-                $this->response->addHTML($password->getDisplay());
+                $this->response->addHTML($password);
                 $password = null;
                 $isChangeCopyUser = false;
             }
@@ -186,11 +181,7 @@ final readonly class PrivilegesController implements InvocableController
         /**
          * Changes / copies a user, part III
          */
-        if (
-            $isChangeCopyUser
-            && $serverPrivileges->username !== null
-            && $serverPrivileges->hostname !== null
-        ) {
+        if ($isChangeCopyUser && $serverPrivileges->username !== null && $serverPrivileges->hostname !== null) {
             $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
                 $queries,
                 $serverPrivileges->username,
@@ -268,6 +259,9 @@ final readonly class PrivilegesController implements InvocableController
                 Current::$message = $serverPrivileges->updatePassword(
                     $serverPrivileges->username ?? '',
                     $serverPrivileges->hostname ?? '',
+                    $request->getParsedBodyParamAsString('pma_pw', ''),
+                    $request->getParsedBodyParamAsString('pma_pw2', ''),
+                    (bool) $request->getParsedBodyParam('nopass'),
                 );
             } catch (UpdateAuthPluginFailure | UserPasswordUpdateFailure $exception) {
                 if ($request->isAjax()) {
@@ -287,10 +281,7 @@ final readonly class PrivilegesController implements InvocableController
          * Deletes users
          *   (Changes / copies a user, part IV)
          */
-        if (
-            $request->hasBodyParam('delete')
-            || ($isChangeCopyUser && $request->getParsedBodyParam('mode') < 4)
-        ) {
+        if ($request->hasBodyParam('delete') || ($isChangeCopyUser && $request->getParsedBodyParam('mode') < 4)) {
             $queries = $serverPrivileges->getDataForDeleteUsers($queries, $isChangeCopyUser);
             if (! $isChangeCopyUser) {
                 [Current::$sqlQuery, Current::$message] = $serverPrivileges->deleteUser($queries);

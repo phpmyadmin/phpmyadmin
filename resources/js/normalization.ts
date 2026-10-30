@@ -4,6 +4,7 @@ import { indexEditorDialog } from './modules/functions.ts';
 import { CommonParams } from './modules/common.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
 import { escapeHtml, escapeJsString } from './modules/functions/escape.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview   events handling from normalization page
@@ -16,16 +17,14 @@ import { escapeHtml, escapeJsString } from './modules/functions/escape.ts';
  * AJAX scripts for normalization
  *
  */
-
-var normalizeto = '1nf';
-var primaryKey;
-var dataParsed = null;
+let normalizeto = '1nf';
+let primaryKey;
+let dataParsed = null;
 
 function appendHtmlColumnsList () {
     $.post(
         'index.php?route=/normalization/get-columns',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
@@ -39,7 +38,7 @@ function appendHtmlColumnsList () {
 }
 
 function goTo3NFStep1 (newTables) {
-    var tables = newTables;
+    let tables = newTables;
     if (Object.keys(tables).length === 1) {
         tables = [CommonParams.get('table')];
     }
@@ -47,7 +46,6 @@ function goTo3NFStep1 (newTables) {
     $.post(
         'index.php?route=/normalization/3nf/step1',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'server': CommonParams.get('server'),
             'tables': tables,
@@ -58,8 +56,8 @@ function goTo3NFStep1 (newTables) {
             $('#mainContent').find('p').html(data.subText);
             $('#mainContent').find('#extra').html(data.extra);
             $('#extra').find('form').each(function () {
-                var formId = $(this).attr('id');
-                var colName = $(this).data('colname');
+                const formId = $(this).attr('id');
+                const colName = $(this).data('colname');
                 $('#' + formId + ' input[value=\'' + colName + '\']').next().remove();
                 $('#' + formId + ' input[value=\'' + colName + '\']').remove();
             });
@@ -87,7 +85,6 @@ function goTo2NFStep1 () {
     $.post(
         'index.php?route=/normalization/2nf/step1',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
@@ -129,7 +126,7 @@ function goToFinish1NF () {
 
     $('#mainContent .card-header').html(window.Messages.strEndStep);
     $('#mainContent h4').html(
-        '<h3>' + window.sprintf(window.Messages.strFinishMsg, escapeHtml(CommonParams.get('table'))) + '</h3>'
+        '<h3>' + sprintf(window.Messages.strFinishMsg, escapeHtml(CommonParams.get('table'))) + '</h3>'
     );
 
     $('#mainContent p').html('');
@@ -142,7 +139,6 @@ function goToStep4 () {
     $.post(
         'index.php?route=/normalization/1nf/step4',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
@@ -153,7 +149,7 @@ function goToStep4 () {
             $('#mainContent #extra').html(data.extra);
             $('#mainContent #newCols').html('');
             $('#mainContent .card-footer').html('');
-            for (var pk in primaryKey) {
+            for (let pk in primaryKey) {
                 $('#extra input[value=\'' + escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
             }
         }
@@ -174,7 +170,6 @@ function goToStep3 () {
     $.post(
         'index.php?route=/normalization/1nf/step3',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
@@ -186,7 +181,7 @@ function goToStep3 () {
             $('#mainContent #newCols').html('');
             $('#mainContent .card-footer').html('');
             primaryKey = JSON.parse(data.primary_key);
-            for (var pk in primaryKey) {
+            for (let pk in primaryKey) {
                 $('#extra input[value=\'' + escapeJsString(primaryKey[pk]) + '\']').attr('disabled', 'disabled');
             }
         }
@@ -197,7 +192,6 @@ function goToStep2 (extra = undefined) {
     $.post(
         'index.php?route=/normalization/1nf/step2',
         {
-            'ajax_request': true,
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server')
@@ -229,13 +223,12 @@ function goToStep2 (extra = undefined) {
 }
 
 function goTo2NFFinish (pd) {
-    var tables = {};
-    for (var dependson in pd) {
+    const tables = {};
+    for (let dependson in pd) {
         tables[dependson] = $('#extra input[name="' + dependson + '"]').val();
     }
 
-    var datastring = {
-        'ajax_request': true,
+    const datastring = {
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'server': CommonParams.get('server'),
@@ -275,9 +268,9 @@ function goTo2NFFinish (pd) {
 }
 
 function goTo3NFFinish (newTables) {
-    for (var table in newTables) {
-        for (var newtbl in newTables[table]) {
-            var updatedname = ($('#extra input[name="' + newtbl + '"]').val() as string);
+    for (let table in newTables) {
+        for (let newtbl in newTables[table]) {
+            const updatedname = ($('#extra input[name="' + newtbl + '"]').val() as string);
             newTables[table][updatedname] = newTables[table][newtbl];
             if (updatedname !== newtbl) {
                 delete newTables[table][newtbl];
@@ -285,8 +278,7 @@ function goTo3NFFinish (newTables) {
         }
     }
 
-    var datastring = {
-        'ajax_request': true,
+    const datastring = {
         'db': CommonParams.get('db'),
         'server': CommonParams.get('server'),
         'newTables': JSON.stringify(newTables),
@@ -316,16 +308,16 @@ function goTo3NFFinish (newTables) {
     });
 }
 
-var backup = '';
+let backup = '';
 
 function goTo2NFStep2 (pd, primaryKey) {
     $('#newCols').html('');
     $('#mainContent .card-header').html(window.Messages.strStep + ' 2.2 ' + window.Messages.strConfirmPd);
     $('#mainContent h4').html(window.Messages.strSelectedPd);
     $('#mainContent p').html(window.Messages.strPdHintNote);
-    var extra = '<div class="dependencies_box">';
-    var pdFound = false;
-    for (var dependson in pd) {
+    let extra = '<div class="dependencies_box">';
+    let pdFound = false;
+    for (let dependson in pd) {
         if (dependson !== primaryKey) {
             pdFound = true;
             extra += '<p class="d-block m-1">' + escapeHtml(dependson) + ' -> ' + escapeHtml(pd[dependson].toString()) + '</p>';
@@ -337,8 +329,7 @@ function goTo2NFStep2 (pd, primaryKey) {
         extra += '</div>';
     } else {
         extra += '</div>';
-        var datastring = {
-            'ajax_request': true,
+        const datastring = {
             'db': CommonParams.get('db'),
             'table': CommonParams.get('table'),
             'server': CommonParams.get('server'),
@@ -371,11 +362,11 @@ function goTo3NFStep2 (pd, tablesTds) {
     $('#mainContent .card-header').html(window.Messages.strStep + ' 3.2 ' + window.Messages.strConfirmTd);
     $('#mainContent h4').html(window.Messages.strSelectedTd);
     $('#mainContent p').html(window.Messages.strPdHintNote);
-    var extra = '<div class="dependencies_box">';
-    var pdFound = false;
-    for (var table in tablesTds) {
-        for (var i in tablesTds[table]) {
-            var dependson = tablesTds[table][i];
+    let extra = '<div class="dependencies_box">';
+    let pdFound = false;
+    for (let table in tablesTds) {
+        for (let i in tablesTds[table]) {
+            const dependson = tablesTds[table][i];
             if (dependson !== '' && dependson !== table) {
                 pdFound = true;
                 extra += '<p class="d-block m-1">' + escapeHtml(dependson) + ' -> ' + escapeHtml(pd[dependson].toString()) + '</p>';
@@ -388,8 +379,7 @@ function goTo3NFStep2 (pd, tablesTds) {
         extra += '</div>';
     } else {
         extra += '</div>';
-        var datastring = {
-            'ajax_request': true,
+        const datastring = {
             'db': CommonParams.get('db'),
             'tables': JSON.stringify(tablesTds),
             'server': CommonParams.get('server'),
@@ -423,13 +413,13 @@ function goTo3NFStep2 (pd, tablesTds) {
 }
 
 function processDependencies (primaryKey, isTransitive = undefined) {
-    var pk = primaryKey;
-    var pd = {};
-    var tablesTds = {};
-    var dependsOn;
+    let pk = primaryKey;
+    const pd = {};
+    const tablesTds = {};
+    let dependsOn;
     pd[pk] = [];
     $('#extra form').each(function () {
-        var tblname;
+        let tblname;
         if (isTransitive === true) {
             tblname = $(this).data('tablename');
             pk = tblname;
@@ -440,7 +430,7 @@ function processDependencies (primaryKey, isTransitive = undefined) {
             tablesTds[tblname].push(pk);
         }
 
-        var formId = $(this).attr('id');
+        const formId = $(this).attr('id');
         $('#' + formId + ' input[type=checkbox]:not(:checked)').prop('checked', false);
         dependsOn = '';
         $('#' + formId + ' input[type=checkbox]:checked').each(function () {
@@ -481,8 +471,8 @@ function processDependencies (primaryKey, isTransitive = undefined) {
 }
 
 function moveRepeatingGroup (repeatingCols) {
-    var newTable = $('input[name=repeatGroupTable]').val();
-    var newColumn = $('input[name=repeatGroupColumn]').val();
+    const newTable = $('input[name=repeatGroupTable]').val();
+    const newColumn = $('input[name=repeatGroupColumn]').val();
     if (! newTable) {
         $('input[name=repeatGroupTable]').trigger('focus');
 
@@ -495,15 +485,14 @@ function moveRepeatingGroup (repeatingCols) {
         return false;
     }
 
-    var datastring = {
-        'ajax_request': true,
+    const datastring = {
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'server': CommonParams.get('server'),
         'repeatingColumns': repeatingCols,
         'newTable': newTable,
         'newColumn': newColumn,
-        'primary_columns': primaryKey.toString()
+        'primary_columns': primaryKey.toString(),
     };
     $.ajax({
         type: 'POST',
@@ -541,7 +530,7 @@ AJAX.registerTeardown('normalization.js', function () {
 });
 
 AJAX.registerOnload('normalization.js', function () {
-    var selectedCol;
+    let selectedCol;
     normalizeto = $('#mainContent').data('normalizeto');
     $('#extra').on('click', '#selectNonAtomicCol', function () {
         if ($(this).val() === 'no_such_col') {
@@ -556,11 +545,10 @@ AJAX.registerOnload('normalization.js', function () {
             return false;
         }
 
-        var numField = $('#numField').val();
+        const numField = $('#numField').val();
         $.post(
             'index.php?route=/normalization/create-new-column',
             {
-                'ajax_request': true,
                 'db': CommonParams.get('db'),
                 'table': CommonParams.get('table'),
                 'server': CommonParams.get('server'),
@@ -608,15 +596,14 @@ AJAX.registerOnload('normalization.js', function () {
             return false;
         }
 
-        var argsep = CommonParams.get('arg_separator');
-        var datastring = $('#newCols :input').serialize();
-        datastring += argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
+        const argsep = CommonParams.get('arg_separator');
+        let datastring = $('#newCols :input').serialize();
+        datastring += argsep + 'do_save_data=1' + argsep + 'field_where=last';
         $.post('index.php?route=/table/add-field', datastring, function (data) {
             if (data.success) {
                 $.post(
                     'index.php?route=/sql',
                     {
-                        'ajax_request': true,
                         'db': CommonParams.get('db'),
                         'table': CommonParams.get('table'),
                         'server': CommonParams.get('server'),
@@ -647,7 +634,6 @@ AJAX.registerOnload('normalization.js', function () {
         $.post(
             'index.php?route=/normalization/add-new-primary',
             {
-                'ajax_request': true,
                 'db': CommonParams.get('db'),
                 'table': CommonParams.get('table'),
                 'server': CommonParams.get('server'),
@@ -689,9 +675,9 @@ AJAX.registerOnload('normalization.js', function () {
     });
 
     $('#mainContent .card-footer').on('click', '#saveNewPrimary', function () {
-        var datastring = $('#newCols :input').serialize();
-        var argsep = CommonParams.get('arg_separator');
-        datastring += argsep + 'field_key[0]=primary_0' + argsep + 'ajax_request=1' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
+        let datastring = $('#newCols :input').serialize();
+        const argsep = CommonParams.get('arg_separator');
+        datastring += argsep + 'field_key[0]=primary_0' + argsep + 'do_save_data=1' + argsep + 'field_where=last';
         $.post('index.php?route=/table/add-field', datastring, function (data) {
             if (data.success === true) {
                 $('#mainContent h4').html(window.Messages.strPrimaryKeyAdded);
@@ -709,7 +695,7 @@ AJAX.registerOnload('normalization.js', function () {
     });
 
     $('#extra').on('click', '#removeRedundant', function () {
-        var dropQuery = 'ALTER TABLE `' + CommonParams.get('table') + '` ';
+        let dropQuery = 'ALTER TABLE `' + CommonParams.get('table') + '` ';
         $('#extra input[type=checkbox]:checked').each(function () {
             dropQuery += 'DROP `' + $(this).val() + '`, ';
         });
@@ -718,7 +704,6 @@ AJAX.registerOnload('normalization.js', function () {
         $.post(
             'index.php?route=/sql',
             {
-                'ajax_request': true,
                 'db': CommonParams.get('db'),
                 'table': CommonParams.get('table'),
                 'server': CommonParams.get('server'),
@@ -736,20 +721,27 @@ AJAX.registerOnload('normalization.js', function () {
     });
 
     $('#extra').on('click', '#moveRepeatingGroup', function () {
-        var repeatingCols = '';
+        let repeatingCols = '';
         $('#extra input[type=checkbox]:checked').each(function () {
             repeatingCols += $(this).val() + ', ';
         });
 
         if (repeatingCols !== '') {
-            var newColName = ($('#extra input[type=checkbox]:checked').first().val() as string);
+            const newColName = ($('#extra input[type=checkbox]:checked').first().val() as string);
             repeatingCols = repeatingCols.slice(0, -2);
-            var confirmStr = window.sprintf(window.Messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(CommonParams.get('table')));
-            confirmStr += '<input type="text" name="repeatGroupTable" placeholder="' + window.Messages.strNewTablePlaceholder + '">' +
-                '( ' + escapeHtml(primaryKey.toString()) + ', <input type="text" name="repeatGroupColumn" placeholder="' + window.Messages.strNewColumnPlaceholder + '" value="' + escapeHtml(newColName) + '">)' +
-                '</ol>';
+            const confirmStr = sprintf(window.Messages.strMoveRepeatingGroup, escapeHtml(repeatingCols), escapeHtml(CommonParams.get('table'))) as string;
 
-            $('#newCols').html(confirmStr);
+            $('#newCols').html(confirmStr).find('ol').first().append(
+                $('<input>', { type: 'text', name: 'repeatGroupTable', placeholder: window.Messages.strNewTablePlaceholder }),
+                document.createTextNode('( ' + primaryKey.toString() + ', '),
+                $('<input>', {
+                    type: 'text',
+                    name: 'repeatGroupColumn',
+                    placeholder: window.Messages.strNewColumnPlaceholder,
+                    value: newColName,
+                }),
+                document.createTextNode(')'),
+            );
 
             $('<input>')
                 .attr({
@@ -778,7 +770,7 @@ AJAX.registerOnload('normalization.js', function () {
 
     $('#mainContent p').on('click', '#createPrimaryKey', function (event) {
         event.preventDefault();
-        var url = {
+        const url = {
             'create_index': 1,
             'server': CommonParams.get('server'),
             'db': CommonParams.get('db'),
@@ -786,9 +778,8 @@ AJAX.registerOnload('normalization.js', function () {
             'added_fields': 1,
             'add_fields': 1,
             'index': { 'Key_name': 'PRIMARY' },
-            'ajax_request': true
         };
-        var title = window.Messages.strAddPrimaryKey;
+        const title = window.Messages.strAddPrimaryKey;
         indexEditorDialog(url, title, function () {
             // on success
             $('.sqlqueryresults').remove();
@@ -826,7 +817,6 @@ AJAX.registerOnload('normalization.js', function () {
         $.post(
             'index.php?route=/normalization/partial-dependencies',
             {
-                'ajax_request': true,
                 'db': CommonParams.get('db'),
                 'table': CommonParams.get('table'),
                 'server': CommonParams.get('server'),
@@ -838,13 +828,13 @@ AJAX.registerOnload('normalization.js', function () {
     });
 
     $('#mainContent').on('click', '.pickPd', function () {
-        var strColsLeft = $(this).next('.determinants').html();
-        var colsLeft = strColsLeft.split(',');
-        var strColsRight = $(this).next().next().html();
-        var colsRight = strColsRight.split(',');
-        for (var i in colsRight) {
+        const strColsLeft = $(this).next('.determinants').html();
+        const colsLeft = strColsLeft.split(',');
+        const strColsRight = $(this).next().next().html();
+        const colsRight = strColsRight.split(',');
+        for (let i in colsRight) {
             $('form[data-colname="' + colsRight[i].trim() + '"] input[type="checkbox"]').prop('checked', false);
-            for (var j in colsLeft) {
+            for (let j in colsLeft) {
                 $('form[data-colname="' + colsRight[i].trim() + '"] input[value="' + colsLeft[j].trim() + '"]').prop('checked', true);
             }
         }

@@ -1,3 +1,5 @@
+import { sprintf } from 'locutus/php/strings/sprintf';
+
 function formatByte (value, index) {
     let val = value;
     let i = index;
@@ -20,9 +22,7 @@ function formatByte (value, index) {
         format = '%.0f';
     }
 
-    return window.sprintf(
-        format + ' ' + units[i], val
-    );
+    return sprintf(format + ' ' + units[i], val);
 }
 
 /**

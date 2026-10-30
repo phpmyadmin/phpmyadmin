@@ -33,11 +33,7 @@ final readonly class StatementHistory implements MiddlewareInterface
         assert($request instanceof ServerRequest);
         $response = $handler->handle($request);
 
-        if (
-            ! $request->has('no_history')
-            && Current::$sqlQuery !== ''
-            && $this->dbi->isConnected()
-        ) {
+        if (! $request->has('no_history') && Current::$sqlQuery !== '' && $this->dbi->isConnected()) {
             $this->history->setHistory(
                 Current::$database,
                 Current::$table,

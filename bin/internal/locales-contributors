@@ -1,11 +1,411 @@
 #!/bin/sh
 # Do not run as CGI
-if [ -n "$GATEWAY_INTERFACE" ] ; then
+if [ -n "${GATEWAY_INTERFACE:-}" ] ; then
     echo 'Can not invoke as CGI!'
     exit 1
 fi
 
-for x in resources/po/*.po  ; do
-    grep 'Team' "$x" | sed 's/.*: \(.*\)<.*/\1/'
-    git shortlog -sne --no-merges -- "$x" | grep '^  [ 0-9][0-9]\{3\}'
+# List the contributors of the translations, indented and with the emails
+# escaped for reST, ready to be curated into the credits file.
+#
+# The revision is always passed to git shortlog: without one it reads the
+# list of commits from stdin, and stdin is not a terminal when this runs from
+# cron or a hook, which silently returned no author at all.
+#
+# --update only ever adds, it never reorders, rewrites or removes an entry.
+# The po files were generated in 2010, so nobody who translated the language
+# files of the earlier versions can be generated: the people the file already
+# credits are kept as they are, and the entries curated by hand survive.
+# Running it twice in a row is a no-op.
+
+set -eu
+export LC_ALL=C
+
+usage() {
+    cat <<'END'
+Usage: locales-contributors [options] [po file...]
+
+Prints one "* Language" block per po file, indented and escaped for reST,
+or merges them into the credits file with --update.
+
+  --revision REV      history to read, defaults to HEAD
+  --minimum N         skip the authors below N commits, defaults to 2
+  --update            merge the result into the credits file
+  --credits-file F    credits file, detected when not given
+  -h, --help          show this help
+END
+}
+
+REVISION="HEAD"
+MINIMUM_COMMITS="2"
+UPDATE="0"
+CREDITS_FILE=""
+
+while [ "$#" -gt 0 ] ; do
+    case "$1" in
+        --revision)
+            if [ "$#" -lt 2 ] ; then
+                echo "Missing the revision after --revision." >&2
+                exit 2
+            fi
+            REVISION="$2"
+            shift 2
+            ;;
+        --minimum)
+            if [ "$#" -lt 2 ] ; then
+                echo "Missing the count after --minimum." >&2
+                exit 2
+            fi
+            case "$2" in
+                *[!0-9]*|"")
+                    echo "The minimum has to be a number, got '$2'." >&2
+                    exit 2
+                    ;;
+            esac
+            MINIMUM_COMMITS="$2"
+            shift 2
+            ;;
+        --update)
+            UPDATE="1"
+            shift
+            ;;
+        --credits-file)
+            if [ "$#" -lt 2 ] ; then
+                echo "Missing the file after --credits-file." >&2
+                exit 2
+            fi
+            CREDITS_FILE="$2"
+            shift 2
+            ;;
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        --)
+            shift
+            break
+            ;;
+        -*)
+            echo "Unknown option: $1" >&2
+            echo "Use --help for the list of available options." >&2
+            exit 2
+            ;;
+        *)
+            break
+            ;;
+    esac
 done
+
+# Tooling accounts, never translators. The noreply ones are the throwaway
+# addresses GitHub and Weblate hand out, and "Deleted User" is what Weblate
+# renames a closed account to. The pattern is read by awk, so it avoids the
+# backslashes awk would warn about, hence [.] for a literal dot.
+SKIPPED_ACCOUNTS='bot@phpmyadmin[.]net|anonymous|noreply|Deleted User'
+
+# Accounts registered under a placeholder name: the name says nothing but the
+# address is a real contributor, so the credit keeps the address alone.
+PLACEHOLDER_NAMES='test'
+
+# Language names the po files use for a section the credits file names
+# otherwise, as "po name=credits name". A name the file does not know that
+# only differs by a parenthetical is matched on its base name.
+LANGUAGE_ALIASES='Chinese (Simplified Han script)=Chinese (China);Chinese (Traditional)=Chinese (Taiwan);Khmer (Central)=Khmer'
+
+# The po files moved to resources/po/ in phpMyAdmin 5.3
+PO_DIRECTORY="po"
+if [ -d resources/po ] ; then
+    PO_DIRECTORY="resources/po"
+fi
+
+GENERATED=$(mktemp "${TMPDIR:-/tmp}/pma-credits.XXXXXX")
+MERGED=$(mktemp "${TMPDIR:-/tmp}/pma-credits.XXXXXX")
+AUTHORS=$(mktemp "${TMPDIR:-/tmp}/pma-credits.XXXXXX")
+ENTRIES=$(mktemp "${TMPDIR:-/tmp}/pma-credits.XXXXXX")
+trap 'rm -f "$GENERATED" "$MERGED" "$AUTHORS" "$ENTRIES"' EXIT
+
+# Print the "* Language" block for a po file, nothing when it has no author
+generate_one() {
+    PO_FILE="$1"
+    [ -f "$PO_FILE" ] || return 0
+
+    git shortlog -sne --no-merges "$REVISION" -- "$PO_FILE" > "$AUTHORS" 2>/dev/null || return 0
+
+    awk -v minimum="$MINIMUM_COMMITS" -v placeholders="$PLACEHOLDER_NAMES" \
+        -v skipped="$SKIPPED_ACCOUNTS" '
+        $1 >= minimum {
+            if ($0 ~ skipped) {
+                next
+            }
+            sub(/^[[:space:]]*[0-9]+[[:space:]]+/, "")
+            name = tolower($0)
+            sub(/[[:space:]]*<.*$/, "", name)
+            if (index("," placeholders ",", "," name ",")) {
+                match($0, /<[^>]*>/)
+                $0 = substr($0, RSTART, RLENGTH)
+            }
+            gsub(/@/, "\\_at\\_")
+            print "    * " $0
+        }' "$AUTHORS" > "$ENTRIES" || return 0
+    [ -s "$ENTRIES" ] || return 0
+
+    LANGUAGE=$(sed -n 's/^.*Language-Team: *\([^<]*[^ <]\)[ ]*<.*$/\1/p' "$PO_FILE")
+    if [ -z "$LANGUAGE" ] ; then
+        LANGUAGE=$(basename "$PO_FILE" .po)
+    fi
+
+    printf '* %s\n\n' "$LANGUAGE"
+    cat "$ENTRIES"
+    printf '\n'
+}
+
+if [ "$#" -gt 0 ] ; then
+    for PO_FILE in "$@" ; do
+        generate_one "$PO_FILE"
+    done > "$GENERATED"
+else
+    for PO_FILE in "$PO_DIRECTORY"/*.po ; do
+        generate_one "$PO_FILE"
+    done > "$GENERATED"
+fi
+
+if [ "$UPDATE" = "0" ] ; then
+    cat "$GENERATED"
+    exit 0
+fi
+
+if [ -z "$CREDITS_FILE" ] ; then
+    for CANDIDATE in docs/credits.rst doc/credits.rst ; do
+        if [ -f "$CANDIDATE" ] ; then
+            CREDITS_FILE="$CANDIDATE"
+            break
+        fi
+    done
+fi
+if [ ! -f "$CREDITS_FILE" ] ; then
+    echo "Cannot find the credits file, use --credits-file." >&2
+    exit 1
+fi
+
+awk -v aliases="$LANGUAGE_ALIASES" -v credits="$CREDITS_FILE" '
+    function email_of(text,   address) {
+        if (!match(text, /<[^>]*>/)) {
+            return ""
+        }
+        address = substr(text, RSTART + 1, RLENGTH - 2)
+        gsub(/\\_at\\_/, "@", address)
+        return tolower(address)
+    }
+
+    # The name alone, so that a person the file already credits for an older
+    # address is not listed a second time under the address they use now.
+    # Titles and the like ("Daniel Hinostroza, MD") are dropped by cutting at
+    # the comma, and everything but letters and digits by stripping it, which
+    # is how "dingo thirteen" matches "dingo13".
+    function name_of(text,   name) {
+        if (!match(text, /<[^>]*>/)) {
+            return ""
+        }
+        name = tolower(substr(text, 1, RSTART - 1))
+        sub(/,.*$/, "", name)
+        gsub(/[^[:alnum:]]/, "", name)
+        return name
+    }
+
+    # True when the file already credits that address or that name
+    function already_listed(text) {
+        address = email_of(text)
+        if (address != "" && (address in credited)) {
+            return 1
+        }
+        name = name_of(text)
+        if (name != "" && (name in credited_name)) {
+            return 1
+        }
+        return 0
+    }
+
+    function remember(text) {
+        address = email_of(text)
+        if (address != "") {
+            credited[address] = 1
+        }
+        name = name_of(text)
+        if (name != "") {
+            credited_name[name] = 1
+        }
+    }
+
+    # The name the credits file uses for a generated language
+    function map_language(name,   base) {
+        if (name in known) {
+            return name
+        }
+        if (name in alias) {
+            return alias[name]
+        }
+        base = name
+        sub(/[[:space:]]*\(.*$/, "", base)
+        if (base in base_of) {
+            return base_of[base]
+        }
+        return name
+    }
+
+    # The generated languages the file does not have yet, alphabetically,
+    # stopping below the section named limit (all of them when it is empty)
+    function emit_fresh(limit,   found, best, j, name) {
+        found = 1
+        while (found) {
+            found = 0
+            best = ""
+            for (j = 1; j <= languages; j++) {
+                name = mapped[j]
+                if (!(name in fresh) || (name in done)) {
+                    continue
+                }
+                if (limit != "" && tolower(name) >= tolower(limit)) {
+                    continue
+                }
+                if (best == "" || tolower(name) < tolower(best)) {
+                    best = name
+                }
+            }
+            if (best != "") {
+                done[best] = 1
+                added_languages++
+                emit_section(best, 0)
+                found = 1
+            }
+        }
+    }
+
+    # One "* Language" block: the entries the file already has, then the ones
+    # the history knows about and the file does not list yet
+    function emit_section(name, from_file,   i, j, k, address, text) {
+        print "* " name
+        print ""
+        if (from_file) {
+            for (i = 1; i <= existing_count[name]; i++) {
+                print existing[name, i]
+            }
+        }
+        for (j = 1; j <= languages; j++) {
+            if (mapped[j] != name) {
+                continue
+            }
+            for (k = 1; k <= generated_count[generated[j]]; k++) {
+                text = generated_entry[generated[j], k]
+                if (already_listed(text)) {
+                    continue
+                }
+                remember(text)
+                print text
+                added_entries++
+            }
+        }
+        print ""
+    }
+
+    BEGIN {
+        pairs = split(aliases, alias_list, ";")
+        for (i = 1; i <= pairs; i++) {
+            if (split(alias_list[i], sides, "=") == 2) {
+                alias[sides[1]] = sides[2]
+            }
+        }
+    }
+
+    # The generated blocks: a language line opens a section, the indented
+    # lines that follow it are its entries
+    NR == FNR {
+        if ($0 ~ /^\* /) {
+            language = substr($0, 3)
+            generated[++languages] = language
+            generated_count[language] = 0
+        } else if (language != "" && $0 ~ /^[ \t]+\* /) {
+            generated_entry[language, ++generated_count[language]] = $0
+        }
+        next
+    }
+
+    { line[++lines] = $0 }
+
+    END {
+        # The Translators section: its heading, then everything up to the
+        # underline of the next heading ("Documentation translators")
+        start = 0
+        tail = lines + 1
+        for (i = 1; i <= lines; i++) {
+            if (start == 0 && line[i] == "Translators" && line[i + 1] ~ /^\++$/) {
+                start = i
+                body = i + 2
+            } else if (start != 0 && i > body && line[i] ~ /^\++$/) {
+                tail = i - 1
+                break
+            }
+        }
+        if (start == 0) {
+            printf "%s: no Translators section, nothing done\n", credits > "/dev/stderr"
+            exit 1
+        }
+
+        # Read the section: the preamble before the first language, then the
+        # language sections and their entries
+        preamble = 0
+        current = ""
+        for (i = body; i < tail; i++) {
+            text = line[i]
+            if (text ~ /^\* /) {
+                current = substr(text, 3)
+                existing[++sections] = current
+                known[current] = 1
+                existing_count[current] = 0
+            } else if (current != "" && text ~ /^[ \t]+\* /) {
+                existing[current, ++existing_count[current]] = text
+                remember(text)
+            } else if (current == "") {
+                before[++preamble] = text
+            }
+        }
+        # A base name can only stand for one section, or it would be a guess
+        for (i = 1; i <= sections; i++) {
+            base = existing[i]
+            sub(/[[:space:]]*\(.*$/, "", base)
+            if (base in seen_base) {
+                delete base_of[base]
+                ambiguous[base] = 1
+            } else {
+                seen_base[base] = 1
+                if (!(base in ambiguous)) {
+                    base_of[base] = existing[i]
+                }
+            }
+        }
+
+        for (i = 1; i <= languages; i++) {
+            mapped[i] = map_language(generated[i])
+            if (!(mapped[i] in known)) {
+                fresh[mapped[i]] = 1
+            }
+        }
+
+        for (i = 1; i <= start + 1; i++) {
+            print line[i]
+        }
+        for (i = 1; i <= preamble; i++) {
+            print before[i]
+        }
+        for (i = 1; i <= sections; i++) {
+            emit_fresh(existing[i])
+            emit_section(existing[i], 1)
+        }
+        emit_fresh("")
+        for (i = tail; i <= lines; i++) {
+            print line[i]
+        }
+        printf "%s: %d entries and %d languages added\n",
+            credits, added_entries, added_languages > "/dev/stderr"
+    }
+' "$GENERATED" "$CREDITS_FILE" > "$MERGED"
+
+cat "$MERGED" > "$CREDITS_FILE"

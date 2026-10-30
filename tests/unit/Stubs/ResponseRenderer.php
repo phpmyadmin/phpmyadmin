@@ -52,31 +52,38 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     /**
      * Creates a new class instance
      */
-    public function __construct()
+    public function __construct(Config $config = new Config())
     {
         Current::$lang = 'en';
-        $config = Config::getInstance();
-        $config->selectedServer['pmadb'] = 'phpmyadmin';
         $template = new Template($config);
         $dummyDbi = new DbiDummy();
-        $dummyDbi->addSelectDb('phpmyadmin');
         $dbi = DatabaseInterface::getInstanceForTest($dummyDbi, $config);
         $relation = new Relation($dbi, $config);
         $history = new History($dbi, $relation, $config);
-        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation), $history);
+        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation, $config), $history);
         $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
+        $themeManager = new ThemeManager();
         $userPreferencesHandler = new UserPreferencesHandler(
             $config,
             $dbi,
             $userPreferences,
             new LanguageManager($config),
-            new ThemeManager(),
+            $themeManager,
         );
 
         parent::__construct(
             $config,
             $template,
-            new Header($template, $console, $config, $dbi, $relation, $userPreferences, $userPreferencesHandler),
+            new Header(
+                $template,
+                $console,
+                $config,
+                $dbi,
+                $relation,
+                $userPreferences,
+                $userPreferencesHandler,
+                $themeManager,
+            ),
             new Footer($template, $config),
             ErrorHandler::getInstance(),
             $dbi,
@@ -87,9 +94,9 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     /**
      * Append HTML code to the response stub
      */
-    public function addHTML(string $content): void
+    public function addHTML(string|Message $content): void
     {
-        $this->htmlString .= $content;
+        $this->htmlString .= $content instanceof Message ? $content->getDisplay($this->template) : $content;
     }
 
     /**
@@ -106,7 +113,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
                 $this->addJSON($key, $value);
             }
         } elseif ($value instanceof Message) {
-            $this->json[$json] = $value->getDisplay();
+            $this->json[$json] = $value->getDisplay($this->template);
         } else {
             $this->json[$json] = $value;
         }

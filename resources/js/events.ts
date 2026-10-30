@@ -1,18 +1,17 @@
 import $ from 'jquery';
 import * as bootstrap from 'bootstrap';
-import { AJAX } from '../modules/ajax.ts';
-import { addDatepicker, getSqlEditor, slidingMessage } from '../modules/functions.ts';
-import { Navigation } from '../modules/navigation.ts';
-import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
-import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
+import { AJAX } from './modules/ajax.ts';
+import { addDatepicker, getSqlEditor, slidingMessage } from './modules/functions.ts';
+import { Navigation } from './modules/navigation.ts';
+import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.ts';
+import getJsConfirmCommonParam from './modules/functions/getJsConfirmCommonParam.ts';
 
-AJAX.registerTeardown('database/events.js', function () {
+AJAX.registerTeardown('events.js', function () {
     $(document).off('click', 'a.ajax.add_anchor, a.ajax.edit_anchor');
     $(document).off('click', 'a.ajax.export_anchor');
     $(document).off('click', '#bulkActionExportButton');
     $(document).off('click', 'a.ajax.drop_anchor');
     $(document).off('click', '#bulkActionDropButton');
-    $(document).off('change', 'select[name=item_type]');
 });
 
 const DatabaseEvents = {
@@ -30,7 +29,7 @@ const DatabaseEvents = {
          * @var $elm a jQuery object containing the reference
          *           to an element that is being validated
          */
-        var $elm = null;
+        let $elm = null;
         // Common validation. At the very least the name
         // and the definition must be provided for an item
         $elm = $('table.rte_table').last().find('input[name=item_name]');
@@ -60,23 +59,23 @@ const DatabaseEvents = {
     },
 
     exportDialog: function ($this) {
-        var $msg = ajaxShowMessage();
+        const $msg = ajaxShowMessage();
         if ($this.attr('id') === 'bulkActionExportButton') {
-            var combined = {
+            const combined = {
                 success: true,
                 title: window.Messages.strExport,
                 message: '',
-                error: ''
+                error: '',
             };
             // export anchors of all selected rows
-            var exportAnchors = $('input.checkall:checked').parents('tr').find('.export_anchor');
-            var count = exportAnchors.length;
-            var returnCount = 0;
-            var p: any = $.when();
+            const exportAnchors = $('input.checkall:checked').parents('tr').find('.export_anchor');
+            const count = exportAnchors.length;
+            let returnCount = 0;
+            let p: any = $.when();
             exportAnchors.each(function () {
-                var h = $(this).attr('href');
+                const h = $(this).attr('href');
                 p = p.then(function () {
-                    return $.get(h, { 'ajax_request': true }, function (data) {
+                    return $.get(h, function (data) {
                         returnCount++;
                         if (data.success === true) {
                             combined.message += '\n' + data.message + '\n';
@@ -95,7 +94,7 @@ const DatabaseEvents = {
                 });
             });
         } else {
-            $.get($this.attr('href'), { 'ajax_request': true }, showExport);
+            $.get($this.attr('href'), showExport);
         }
 
         ajaxRemoveMessage($msg);
@@ -116,23 +115,23 @@ const DatabaseEvents = {
                 eventsExportModal.querySelector('.modal-body').innerHTML = eventsExportTextarea;
                 document.getElementById('eventsExportTextarea').textContent = data.message;
                 getSqlEditor($('#eventsExportTextarea'));
-            });
+            }, { once: true });
 
             eventsExportModal.addEventListener('hidden.bs.modal', function () {
                 eventsExportModal.querySelector('.modal-body').innerHTML = eventsExportTextarea;
-            });
+            }, { once: true });
 
             bootstrap.Modal.getOrCreateInstance(eventsExportModal).show();
         }
     },
     editorDialog: function (isNew, $this) {
-        var that = this;
+        const that = this;
         /**
          * @var $edit_row jQuery object containing the reference to
          *                the row of the the item being edited
          *                from the list of items
          */
-        var $editRow = null;
+        let $editRow = null;
         if ($this.hasClass('edit_anchor')) {
             // Remember the row of the item being edited for later,
             // so that if the edit is successful, we can replace the
@@ -144,8 +143,8 @@ const DatabaseEvents = {
          * @var $msg jQuery object containing the reference to
          *           the AJAX message shown to the user
          */
-        var $msg = ajaxShowMessage();
-        $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
+        let $msg = ajaxShowMessage();
+        $.get($this.attr('href'), function (data) {
             if (data.success !== true) {
                 ajaxShowMessage(data.error, false);
 
@@ -169,12 +168,12 @@ const DatabaseEvents = {
                     /**
                      * @var data Form data to be sent in the AJAX request
                      */
-                    var data = $('form.rte_form').last().serialize();
+                    const data = $('form.rte_form').last().serialize();
                     $msg = ajaxShowMessage(
                         window.Messages.strProcessingRequest
                     );
 
-                    var url = $('form.rte_form').last().attr('action');
+                    const url = $('form.rte_form').last().attr('action');
                     $.post(url, data, function (data) {
                         if (data.success !== true) {
                             ajaxShowMessage(data.error, false);
@@ -205,16 +204,16 @@ const DatabaseEvents = {
                              *           to find the correct location where
                              *           to insert a new row.
                              */
-                            var text = '';
+                            let text = '';
                             /**
                              * @var inserted Whether a new item has been
                              *               inserted in the list or not
                              */
-                            var inserted = false;
+                            let inserted = false;
                             $('table.data').find('tr').each(function () {
                                 text = $(this)
                                     .children('td')
-                                    .eq(0)
+                                    .eq(1)
                                     .find('strong')
                                     .text()
                                     .toUpperCase()
@@ -234,11 +233,6 @@ const DatabaseEvents = {
                                 // so we insert it there.
                                 $('table.data').append(data.new_row);
                             }
-
-                            // Fade-in the new row
-                            $('tr.ajaxInsert')
-                                .show('slow')
-                                .removeClass('ajaxInsert');
                         } else if ($('table.data').find('tr').has('td').length === 0) {
                             // If we are not supposed to insert the new row,
                             // we will now check if the table is empty and
@@ -258,12 +252,12 @@ const DatabaseEvents = {
                         /**
                          * @var ct Count of processed rows
                          */
-                        var ct = 0;
+                        let ct = 0;
                         /**
                          * @var rowclass Class to be attached to the row
                          *               that is being processed
                          */
-                        var rowclass = '';
+                        let rowclass = '';
                         $('table.data').find('tr').has('td').each(function () {
                             rowclass = (ct % 2 === 0) ? 'odd' : 'even';
                             $(this).removeClass().addClass(rowclass);
@@ -319,20 +313,20 @@ const DatabaseEvents = {
                  * @var elm jQuery object containing the reference to
                  *                 the Definition textarea.
                  */
-                var $elm = $('textarea[name=item_definition]').last();
-                var linterOptions = {
+                const $elm = $('textarea[name=item_definition]').last();
+                const linterOptions = {
                     editorType: 'event',
                 };
                 that.syntaxHiglighter = getSqlEditor($elm, {}, 'vertical', linterOptions);
                 window.codeMirrorEditor = that.syntaxHiglighter;
-            });
+            }, { once: true });
 
             eventsEditorModal.addEventListener('hidden.bs.modal', function () {
                 const eventsEditorModalSaveButton = document.getElementById('eventsEditorModalSaveButton');
                 eventsEditorModalSaveButton?.removeEventListener('click', eventsEditorModalSaveEventHandler);
                 document.getElementById('eventsEditorModal').querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
                     '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
-            });
+            }, { once: true });
 
             bootstrap.Modal.getOrCreateInstance(eventsEditorModal).show();
         });
@@ -342,12 +336,12 @@ const DatabaseEvents = {
         /**
          * @var $curr_row Object containing reference to the current row
          */
-        var $currRow = $this.parents('tr');
+        const $currRow = $this.parents('tr');
         /**
          * @var question String containing the question to be asked for confirmation
          */
-        var question = $('<div></div>').text(
-            $currRow.children('td').children('.drop_sql').html()
+        const question = $('<div></div>').text(
+            $currRow.children('td').children('.drop_sql').text(),
         );
         // We ask for confirmation first here, before submitting the ajax request
         $this.confirm(question, $this.attr('href'), function (url) {
@@ -355,8 +349,8 @@ const DatabaseEvents = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
-            var params = getJsConfirmCommonParam(this, $this.getPostData());
+            const $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+            const params = getJsConfirmCommonParam(this, $this.getPostData());
             $.post(url, params, function (data) {
                 if (data.success !== true) {
                     ajaxShowMessage(data.error, false);
@@ -368,12 +362,12 @@ const DatabaseEvents = {
                  * @var $table Object containing reference
                  *             to the main list of elements
                  */
-                var $table = $currRow.parent();
+                const $table = $currRow.closest('table');
                 // Check how many rows will be left after we remove
                 // the one that the user has requested us to remove
                 if ($table.find('tr').length === 3) {
-                    // If there are two rows left, it means that they are
-                    // the header of the table and the rows that we are
+                    // If there are three rows left, it means that they are
+                    // the header row, the hidden row and the row that we are
                     // about to remove, so after the removal there will be
                     // nothing to show in the table, so we hide it.
                     $table.hide('slow', function () {
@@ -390,12 +384,12 @@ const DatabaseEvents = {
                         /**
                          * @var ct Count of processed rows
                          */
-                        var ct = 0;
+                        let ct = 0;
                         /**
                          * @var rowclass Class to be attached to the row
                          *               that is being processed
                          */
-                        var rowclass = '';
+                        let rowclass = '';
                         $table.find('tr').has('td').each(function () {
                             rowclass = (ct % 2 === 1) ? 'odd' : 'even';
                             $(this).removeClass().addClass(rowclass);
@@ -420,21 +414,21 @@ const DatabaseEvents = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+            const $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
 
             // drop anchors of all selected rows
-            var dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
-            var success = true;
-            var count = dropAnchors.length;
-            var returnCount = 0;
+            const dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
+            let success = true;
+            const count = dropAnchors.length;
+            let returnCount = 0;
 
             dropAnchors.each(function () {
-                var $anchor = $(this);
+                const $anchor = $(this);
                 /**
                  * @var $curr_row Object containing reference to the current row
                  */
-                var $currRow = $anchor.parents('tr');
-                var params = getJsConfirmCommonParam(this, $anchor.getPostData());
+                const $currRow = $anchor.parents('tr');
+                const params = getJsConfirmCommonParam(this, $anchor.getPostData());
                 $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
                     if (data.success !== true) {
@@ -451,12 +445,12 @@ const DatabaseEvents = {
                      * @var $table Object containing reference
                      *             to the main list of elements
                      */
-                    var $table = $currRow.parent();
+                    const $table = $currRow.closest('table');
                     // Check how many rows will be left after we remove
                     // the one that the user has requested us to remove
                     if ($table.find('tr').length === 3) {
-                        // If there are two rows left, it means that they are
-                        // the header of the table and the rows that we are
+                        // If there are three rows left, it means that they are
+                        // the header row, the hidden row and the row that we are
                         // about to remove, so after the removal there will be
                         // nothing to show in the table, so we hide it.
                         $table.hide('slow', function () {
@@ -471,12 +465,12 @@ const DatabaseEvents = {
                             /**
                              * @var ct Count of processed rows
                              */
-                            var ct = 0;
+                            let ct = 0;
                             /**
                              * @var rowclass Class to be attached to the row
                              *               that is being processed
                              */
-                            var rowclass = '';
+                            let rowclass = '';
                             $table.find('tr').has('td').each(function () {
                                 rowclass = (ct % 2 === 1) ? 'odd' : 'even';
                                 $(this).removeClass().addClass(rowclass);
@@ -510,7 +504,7 @@ const DatabaseEvents = {
          * @var elm a jQuery object containing the reference
          *          to an element that is being validated
          */
-        var $elm = null;
+        let $elm = null;
         const eventsEditorModal = $('#eventsEditorModal');
         if (eventsEditorModal.find('select[name=item_type]').find(':selected').val() === 'RECURRING') {
             // The interval field must not be empty for recurring events
@@ -536,7 +530,7 @@ const DatabaseEvents = {
     }
 };
 
-AJAX.registerOnload('database/events.js', function () {
+AJAX.registerOnload('events.js', function () {
     /**
      * Attach Ajax event handlers for the Add/Edit functionality.
      */
@@ -576,12 +570,4 @@ AJAX.registerOnload('database/events.js', function () {
         event.preventDefault();
         DatabaseEvents.dropMultipleDialog($(this));
     }); // end $(document).on()
-
-    /**
-     * Attach Ajax event handlers for the "Change event type" functionality, so that the correct
-     * rows are shown in the editor when changing the event type
-     */
-    $(document).on('change', 'select[name=item_type]', function () {
-        $(this).closest('table').find('tr.recurring_event_row, tr.onetime_event_row').toggle();
-    });
 });

@@ -9,9 +9,9 @@ let ctrlKeyHistory = 0;
  * @param {object} event data
  */
 const onKeyDownArrowsHandler = function (event) {
-    var e = event || window.event;
+    const e = event || window.event;
 
-    var o = (e.srcElement || e.target);
+    const o = (e.srcElement || e.target);
     if (! o) {
         return;
     }
@@ -46,13 +46,13 @@ const onKeyDownArrowsHandler = function (event) {
 
     e.preventDefault();
 
-    var pos = o.id.split('_');
+    const pos = o.id.split('_');
     if (pos[0] !== 'field' || typeof pos[2] === 'undefined') {
         return;
     }
 
-    var x = pos[2];
-    var y = pos[1];
+    let x = pos[2];
+    let y = pos[1];
 
     switch (e.keyCode) {
     case 38:
@@ -75,9 +75,9 @@ const onKeyDownArrowsHandler = function (event) {
         return;
     }
 
-    var id = 'field_' + y + '_' + x;
+    let id = 'field_' + y + '_' + x;
 
-    var nO = document.getElementById(id);
+    let nO = document.getElementById(id);
     if (! nO) {
         id = 'field_' + y + '_' + x + '_0';
         nO = document.getElementById(id);

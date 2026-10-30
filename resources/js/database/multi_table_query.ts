@@ -41,11 +41,11 @@ AJAX.registerTeardown('database/multi_table_query.js', function () {
 });
 
 AJAX.registerOnload('database/multi_table_query.js', function () {
-    var editor = getSqlEditor($('#MultiSqlquery'), {}, 'vertical');
+    const editor = getSqlEditor($('#MultiSqlquery'), {}, 'vertical');
     $('.CodeMirror-line').css('text-align', 'left');
     editor.setSize(-1, -1);
 
-    var columnCount = 3;
+    let columnCount = 3;
     addNewColumnCallbacks();
 
     function opsWithMultipleArgs (): string[] {
@@ -57,13 +57,13 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
     }
 
     $('#update_query_button').on('click', function () {
-        var columns = [];
-        var tableAliases = {};
+        const columns = [];
+        const tableAliases = {};
         $('.tableNameSelect').each(function () {
-            var $show = $(this).siblings('.show_col').first();
+            const $show = $(this).siblings('.show_col').first();
             if ($(this).val() !== '' && $show.prop('checked')) {
-                var tableAlias = $(this).siblings('.table_alias').first().val();
-                var columnAlias = $(this).siblings('.col_alias').first().val();
+                const tableAlias = $(this).siblings('.table_alias').first().val();
+                const columnAlias = $(this).siblings('.col_alias').first().val();
 
                 if (tableAlias !== '') {
                     columns.push([tableAlias, $(this).siblings('.columnNameSelect').first().val()]);
@@ -84,12 +84,12 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         });
 
         if (Object.keys(tableAliases).length === 0) {
-            ajaxShowMessage('Nothing selected', false, 'error');
+            ajaxShowMessage(window.Messages.strNothingSelected, false, 'error');
 
             return;
         }
 
-        var foreignKeys;
+        let foreignKeys;
         $.ajax({
             type: 'GET',
             async: false,
@@ -98,7 +98,6 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 'server': sessionStorage.server,
                 'db': $('#db_name').val(),
                 'tables': Object.keys(tableAliases),
-                'ajax_request': '1',
                 'token': CommonParams.get('token')
             },
             success: function (response) {
@@ -106,7 +105,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             }
         });
 
-        var query = 'SELECT ' + '`' + escapeBacktick(columns[0][0]) + '`.';
+        let query = 'SELECT ' + '`' + escapeBacktick(columns[0][0]) + '`.';
         if (columns[0][1] === '*') {
             query += '*';
         } else {
@@ -117,7 +116,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             query += ' AS `' + escapeBacktick(columns[0][2]) + '`';
         }
 
-        for (var i = 1; i < columns.length; i++) {
+        for (let i = 1; i < columns.length; i++) {
             query += ', `' + escapeBacktick(columns[i][0]) + '`.';
             if (columns[i][1] === '*') {
                 query += '*';
@@ -134,7 +133,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
 
         query += window.generateFromBlock(tableAliases, foreignKeys);
 
-        var $criteriaColCount = $('.criteria_col:checked').length;
+        const $criteriaColCount = $('.criteria_col:checked').length;
         if ($criteriaColCount > 0) {
             query += '\nWHERE ';
             query += window.generateWhereBlock();
@@ -145,7 +144,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
     });
 
     $('#submit_query').on('click', function () {
-        var query = editor.getDoc().getValue();
+        const query = editor.getDoc().getValue();
         // Verifying that the query is not empty
         if (query === '') {
             ajaxShowMessage(window.Messages.strEmptyQuery, false, 'error');
@@ -153,19 +152,18 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
             return;
         }
 
-        var data = {
+        const data = {
             'db': $('#db_name').val(),
             'sql_query': query,
-            'ajax_request': '1',
             'server': CommonParams.get('server'),
-            'token': CommonParams.get('token')
+            'token': CommonParams.get('token'),
         };
         $.ajax({
             type: 'POST',
             url: 'index.php?route=/database/multi-table-query/query',
             data: data,
             success: function (data) {
-                var $resultsDom = $(data.message);
+                const $resultsDom = $(data.message);
                 $resultsDom.find('.ajax:not(.pageselector)').each(function () {
                     $(this).on('click', function (event) {
                         event.preventDefault();
@@ -200,7 +198,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
 
     $('#add_column_button').on('click', function () {
         columnCount++;
-        var $newColumnDom = $('<div class="col"></div>').html($('#new_column_layout').html());
+        const $newColumnDom = $('<div class="col"></div>').html($('#new_column_layout').html());
         $newColumnDom.find('.jsCriteriaButton').first().attr('data-bs-target', '#criteriaOptionsExtra' + columnCount.toString());
         $newColumnDom.find('.jsCriteriaButton').first().attr('aria-controls', 'criteriaOptionsExtra' + columnCount.toString());
         $newColumnDom.find('.jsCriteriaOptions').first().attr('id', 'criteriaOptionsExtra' + columnCount.toString());
@@ -227,7 +225,12 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 showTwoFields($(this));
             } else {
                 const options: JQuery<HTMLElement> = $(this).closest('table').find('.options');
-                options.parent().prepend('<input type="text" class="rhs_text_val query-form__input--wide" placeholder="Enter criteria as free text"></input>');
+                options.parent().prepend($('<input>', {
+                    type: 'text',
+                    class: 'rhs_text_val query-form__input--wide',
+                    placeholder: window.Messages.strEnterCriteriaFreeText,
+                }));
+
                 options.remove();
             }
         });
@@ -241,12 +244,17 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         if (critetiaCol.find('.binary').length === 0) {
             critetiaCol.empty();
 
-            critetiaCol.append(`
-                <div class="options binary">
-                    <input type="text" class="val" placeholder="${window.Messages.strFirstValuePlaceholder}" value="${criteriaInput.val()}" />
-                    <input type="text" class="val" placeholder="${window.Messages.strSecondValuePlaceholder}" />
-                </div>
-            `);
+            critetiaCol.append(
+                $('<div>', { class: 'options binary' }).append(
+                    $('<input>', {
+                        type: 'text',
+                        class: 'val',
+                        placeholder: window.Messages.strFirstValuePlaceholder,
+                        value: String(criteriaInput.val() ?? ''),
+                    }),
+                    $('<input>', { type: 'text', class: 'val', placeholder: window.Messages.strSecondValuePlaceholder }),
+                ),
+            );
         }
     }
 
@@ -258,14 +266,19 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         if (critetiaCol.find('.multi').length === 0) {
             critetiaCol.empty();
 
-            critetiaCol.append(`
-                <div class="options multi">
-                    <div class="option">
-                        <input type="text" class="val" placeholder="Enter an option" value="${criteriaInput.val()}" />
-                        <input type="button" class="btn btn-secondary add-option" value="+" />
-                    </div>
-                </div>
-            `);
+            critetiaCol.append(
+                $('<div>', { class: 'options multi' }).append(
+                    $('<div>', { class: 'option' }).append(
+                        $('<input>', {
+                            type: 'text',
+                            class: 'val',
+                            placeholder: window.Messages.strEnterAnOption,
+                            value: String(criteriaInput.val() ?? ''),
+                        }),
+                        $('<input>', { type: 'button', class: 'btn btn-secondary add-option', value: '+' }),
+                    ),
+                ),
+            );
         }
     }
 
@@ -312,11 +325,11 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         $('.jsCriteriaButton').each(function () {
             $(this).on('click', function (event, from) {
                 if (from === null) {
-                    var $checkbox = $(this).siblings('.criteria_col').first();
+                    const $checkbox = $(this).siblings('.criteria_col').first();
                     $checkbox.prop('checked', ! $checkbox.prop('checked'));
                 }
 
-                var $criteriaColCount = $('.criteria_col:checked').length;
+                const $criteriaColCount = $('.criteria_col:checked').length;
                 if ($criteriaColCount > 1) {
                     $(this).siblings('.jsCriteriaOptions').first().find('.logical_operator').first().css('display', 'table-row');
                 }
@@ -325,7 +338,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
 
         $('.criteria_col').each(function () {
             $(this).on('change', function () {
-                var $anchor = $(this).siblings('.jsCriteriaButton').first();
+                const $anchor = $(this).siblings('.jsCriteriaButton').first();
                 if (
                     ($(this).is(':checked') && ! $anchor.hasClass('collapsed'))
                     || (! $(this).is(':checked') && $anchor.hasClass('collapsed'))
@@ -341,8 +354,8 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
 
         $('.criteria_rhs').each(function () {
             $(this).on('change', function () {
-                var $rhsCol = $(this).parent().parent().siblings('.rhs_table').first();
-                var $rhsText = $(this).parent().parent().siblings('.rhs_text').first();
+                const $rhsCol = $(this).parent().parent().siblings('.rhs_table').first();
+                const $rhsText = $(this).parent().parent().siblings('.rhs_text').first();
                 if ($(this).val() === 'text') {
                     $rhsCol.css('display', 'none');
                     $rhsText.css('display', 'table-row');

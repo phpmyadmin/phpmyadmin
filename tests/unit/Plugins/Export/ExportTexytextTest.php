@@ -17,8 +17,6 @@ use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportTexytext;
-use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -47,8 +45,6 @@ final class ExportTexytextTest extends AbstractTestCase
         parent::setUp();
 
         OutputHandler::$asFile = false;
-        ExportPlugin::$exportType = ExportType::Table;
-        ExportPlugin::$singleTable = false;
         Current::$database = '';
         Current::$table = '';
         Current::$lang = 'en';
@@ -228,9 +224,7 @@ final class ExportTexytextTest extends AbstractTestCase
     public function testGetTableDef(): void
     {
         // case 1
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $keys = [['Non_unique' => 0, 'Column_name' => 'cname'], ['Non_unique' => 1, 'Column_name' => 'cname2']];
 

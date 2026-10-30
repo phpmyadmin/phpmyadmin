@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { getForeignKeyCheckboxLoader, loadForeignKeyCheckbox, prepareForAjaxRequest } from '../modules/functions.ts';
+import { getForeignKeyCheckboxLoader, loadForeignKeyCheckbox } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
@@ -8,6 +8,7 @@ import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
 import refreshMainContent from '../modules/functions/refreshMainContent.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -30,23 +31,23 @@ AJAX.registerTeardown('table/operations.js', function () {
  * @param {JQuery} linkObject
  * @param {'TRUNCATE'|'DELETE'} action
  */
-var confirmAndPost = function (linkObject, action): void {
+const confirmAndPost = function (linkObject, action): void {
     /**
      * @var {string} question String containing the question to be asked for confirmation
      */
-    var question = '';
+    let question = '';
     if (action === 'TRUNCATE') {
         question += window.Messages.strTruncateTableStrongWarning + ' ';
     } else if (action === 'DELETE') {
         question += window.Messages.strDeleteTableStrongWarning + ' ';
     }
 
-    question += window.sprintf(window.Messages.strDoYouReally, linkObject.data('query'));
+    question += sprintf(window.Messages.strDoYouReally, linkObject.data('query'));
     question += getForeignKeyCheckboxLoader();
     linkObject.confirm(question, linkObject.attr('href'), function (url) {
         ajaxShowMessage(window.Messages.strProcessingRequest);
 
-        var params = getJsConfirmCommonParam(this, linkObject.getPostData());
+        const params = getJsConfirmCommonParam(this, linkObject.getPostData());
 
         $.post(url, params, function (data) {
             if ($('.sqlqueryresults').length !== 0) {
@@ -79,9 +80,8 @@ AJAX.registerOnload('table/operations.js', function () {
      */
     $(document).on('submit', '#copyTable.ajax', function (event) {
         event.preventDefault();
-        var $form = $(this);
-        prepareForAjaxRequest($form);
-        var argsep = CommonParams.get('arg_separator');
+        const $form = $(this);
+        const argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_copy=Go', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($form.find('input[name=\'switch_to_new\']').prop('checked')) {
@@ -116,9 +116,8 @@ AJAX.registerOnload('table/operations.js', function () {
      */
     $(document).on('submit', '#moveTableForm', function (event) {
         event.preventDefault();
-        var $form = $(this);
-        prepareForAjaxRequest($form);
-        var argsep = CommonParams.get('arg_separator');
+        const $form = $(this);
+        const argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_move=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 Navigation.update(CommonParams.set('db', data.params.db));
@@ -142,16 +141,15 @@ AJAX.registerOnload('table/operations.js', function () {
     $(document).on('submit', '#tableOptionsForm', function (event) {
         event.preventDefault();
         event.stopPropagation();
-        var $form = $(this);
-        var $tblNameField = ($form.find('input[name=new_name]') as JQuery<HTMLInputElement>);
-        var $tblCollationField = $form.find('select[name=tbl_collation]');
-        var collationOrigValue = $('select[name="tbl_collation"] option[selected]').val();
-        var $changeAllColumnCollationsCheckBox = $('#checkbox_change_all_collations');
-        var question = window.Messages.strChangeAllColumnCollationsWarning;
+        const $form = $(this);
+        const $tblNameField = ($form.find('input[name=new_name]') as JQuery<HTMLInputElement>);
+        const $tblCollationField = $form.find('select[name=tbl_collation]');
+        const collationOrigValue = $('select[name="tbl_collation"] option[selected]').val();
+        const $changeAllColumnCollationsCheckBox = $('#checkbox_change_all_collations');
+        const question = window.Messages.strChangeAllColumnCollationsWarning;
 
         if ($tblNameField.val() !== $tblNameField[0].defaultValue) {
             // reload page and navigation if the table has been renamed
-            prepareForAjaxRequest($form);
 
             if ($tblCollationField.val() !== collationOrigValue && $changeAllColumnCollationsCheckBox.is(':checked')) {
                 $form.confirm(question, $form.attr('action'), function () {
@@ -194,7 +192,7 @@ AJAX.registerOnload('table/operations.js', function () {
      */
     $(document).on('click', '#tbl_maintenance li a.maintain_action.ajax', function (event) {
         event.preventDefault();
-        var $link = $(this);
+        const $link = $(this);
 
         if ($('.sqlqueryresults').length !== 0) {
             $('.sqlqueryresults').remove();
@@ -205,11 +203,10 @@ AJAX.registerOnload('table/operations.js', function () {
         }
 
         // variables which stores the common attributes
-        var params = $.param({
-            'ajax_request': 1,
-            'server': CommonParams.get('server')
+        let params = $.param({
+            'server': CommonParams.get('server'),
         });
-        var postData = $link.getPostData();
+        const postData = $link.getPostData();
         if (postData) {
             params += CommonParams.get('arg_separator') + postData;
         }
@@ -219,7 +216,7 @@ AJAX.registerOnload('table/operations.js', function () {
                 $('html, body').animate({ scrollTop: 0 });
             }
 
-            var $tempDiv;
+            let $tempDiv;
             if (typeof data !== 'undefined' && data.success === true && data.sql_query !== undefined) {
                 ajaxShowMessage(data.message);
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
@@ -229,7 +226,7 @@ AJAX.registerOnload('table/operations.js', function () {
             } else if (typeof data !== 'undefined' && data.success === true) {
                 $tempDiv = $('<div id=\'temp_div\'></div>');
                 $tempDiv.html(data.message);
-                var $success = $tempDiv.find('.result_query .alert-success');
+                const $success = $tempDiv.find('.result_query .alert-success');
                 ajaxShowMessage($success);
                 $('<div class=\'sqlqueryresults ajax\'></div>').prependTo('#page_content');
                 $('.sqlqueryresults').html(data.message);
@@ -240,7 +237,7 @@ AJAX.registerOnload('table/operations.js', function () {
                 $tempDiv = $('<div id=\'temp_div\'></div>');
                 $tempDiv.html(data.error);
 
-                var $error;
+                let $error;
                 if ($tempDiv.find('.error code').length !== 0) {
                     $error = $tempDiv.find('.error code').addClass('error');
                 } else {
@@ -258,11 +255,11 @@ AJAX.registerOnload('table/operations.js', function () {
      */
     $(document).on('submit', '#partitionsForm', function (event) {
         event.preventDefault();
-        var $form = $(this);
+        const $form = $(this);
 
         function submitPartitionMaintenance () {
-            var argsep = CommonParams.get('arg_separator');
-            var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+            const argsep = CommonParams.get('arg_separator');
+            const submitData = $form.serialize() + argsep + 'ajax_page_request=true';
             ajaxShowMessage(window.Messages.strProcessingRequest);
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
@@ -283,18 +280,18 @@ AJAX.registerOnload('table/operations.js', function () {
 
     $(document).on('click', '#drop_tbl_anchor.ajax', function (event) {
         event.preventDefault();
-        var $link = $(this);
+        const $link = $(this);
         /**
          * @var {string} question String containing the question to be asked for confirmation
          */
-        var question = window.Messages.strDropTableStrongWarning + ' ';
-        question += window.sprintf(window.Messages.strDoYouReally, $link[0].getAttribute('data-query'));
+        let question = window.Messages.strDropTableStrongWarning + ' ';
+        question += sprintf(window.Messages.strDoYouReally, $link[0].getAttribute('data-query'));
         question += getForeignKeyCheckboxLoader();
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
-            var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
+            const $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
 
-            var params = getJsConfirmCommonParam(this, $link.getPostData());
+            const params = getJsConfirmCommonParam(this, $link.getPostData());
 
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -315,19 +312,19 @@ AJAX.registerOnload('table/operations.js', function () {
 
     $(document).on('click', '#drop_view_anchor.ajax', function (event) {
         event.preventDefault();
-        var $link = $(this);
+        const $link = $(this);
         /**
          * @var {string} question String containing the question to be asked for confirmation
          */
-        var question = window.Messages.strDropTableStrongWarning + ' ';
-        question += window.sprintf(
+        let question = window.Messages.strDropTableStrongWarning + ' ';
+        question += sprintf(
             window.Messages.strDoYouReally,
             'DROP VIEW `' + escapeHtml(CommonParams.get('table') + '`')
         );
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
-            var $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
-            var params = getJsConfirmCommonParam(this, $link.getPostData());
+            const $msgbox = ajaxShowMessage(window.Messages.strProcessingRequest);
+            const params = getJsConfirmCommonParam(this, $link.getPostData());
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     ajaxRemoveMessage($msgbox);

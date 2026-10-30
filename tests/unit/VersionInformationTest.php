@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Release;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\VersionInformation;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
@@ -16,6 +17,7 @@ use PHPUnit\Framework\Attributes\Large;
 #[CoversClass(VersionInformation::class)]
 #[CoversClass(Release::class)]
 #[Large]
+#[AllowMockObjectsWithoutExpectations]
 class VersionInformationTest extends AbstractTestCase
 {
     /** @var Release[] */
@@ -251,9 +253,7 @@ class VersionInformationTest extends AbstractTestCase
             ->onlyMethods(['getPHPVersion'])
             ->getMock();
 
-        $mockVersionInfo->expects(self::any())
-            ->method('getPHPVersion')
-            ->willReturn('5.2.4');
+        $mockVersionInfo->method('getPHPVersion')->willReturn('5.2.4');
 
         self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<=5.3'));
         self::assertTrue($mockVersionInfo->evaluateVersionCondition('PHP', '<5.3'));

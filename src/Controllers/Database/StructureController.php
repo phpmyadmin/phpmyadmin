@@ -12,16 +12,16 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Dbal\TableType;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
-use PhpMyAdmin\Favorites\TableType;
+use PhpMyAdmin\Favorites\TableType as FavoriteTableType;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Replication\ReplicationInfo;
@@ -38,13 +38,17 @@ use PhpMyAdmin\Util;
 use Throwable;
 
 use function __;
+use function array_column;
+use function array_map;
+use function array_reverse;
 use function array_search;
+use function array_slice;
+use function array_sum;
 use function ceil;
 use function count;
 use function implode;
 use function in_array;
 use function is_numeric;
-use function is_scalar;
 use function is_string;
 use function max;
 use function mb_substr;
@@ -63,9 +67,6 @@ final class StructureController implements InvocableController
 {
     /** @var int Number of tables */
     private int $numTables = 0;
-
-    /** @var int Current position in the list */
-    private int $position = 0;
 
     /** @var bool DB is information_schema */
     private bool $dbIsSystemSchema = false;
@@ -102,14 +103,15 @@ final class StructureController implements InvocableController
     /**
      * Retrieves database information for further use.
      */
-    private function getDatabaseInfo(ServerRequest $request): void
+    private function getDatabaseInfo(ServerRequest $request, int $position): void
     {
-        $this->position = $this->getTableListPosition($request->getParam('pos'), Current::$database);
-
         // Special speedup for newer MySQL Versions (in 4.0 format changed)
-        if ($this->config->settings['SkipLockedTables'] === true) {
-            $tables = $this->getTablesWhenOpen(Current::$database);
-            $totalNumTables = count($tables);
+        if ($this->config->config->SkipLockedTables) {
+            [$tables, $totalNumTables] = $this->getTablesWhenOpen(
+                Current::$database,
+                (string) $request->getParam('tbl_group'),
+                $request->getParam('tbl_type'),
+            );
         } else {
             [$tables, $totalNumTables] = $this->getDbInfo(
                 Current::$database,
@@ -117,17 +119,18 @@ final class StructureController implements InvocableController
                 $request->getParam('sort_order'),
                 $request->getParam('tbl_group'),
                 $request->getParam('tbl_type'),
+                $position,
             );
         }
 
         $this->tables = $tables;
         $this->numTables = count($tables);
-        $this->totalNumTables = $totalNumTables ?? count($tables);
+        $this->totalNumTables = $totalNumTables;
 
         /**
          * whether to display extended stats
          */
-        $this->isShowStats = $this->config->settings['ShowStats'];
+        $this->isShowStats = $this->config->config->ShowStats;
 
         /**
          * whether selected db is information_schema
@@ -152,28 +155,23 @@ final class StructureController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         $this->response->addScriptFiles(['database/structure.js', 'table/change.js']);
 
+        $position = $this->getTableListPosition($request->getParam('pos'), Current::$database);
+
         // Gets the database structure
-        $this->getDatabaseInfo($request);
+        $this->getDatabaseInfo($request, $position);
 
         // Checks if there are any tables to be shown on current page.
         // If there are no tables, the user is redirected to the last page
         // having any.
-        if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
+        if ($this->totalNumTables > 0 && $position >= $this->totalNumTables) {
             return $this->response->redirectToRoute('/database/structure', [
                 'db' => Current::$database,
-                'pos' => max(0, $this->totalNumTables - $this->config->settings['MaxTableList']),
+                'pos' => max(0, $this->totalNumTables - $this->config->config->MaxTableList),
                 'reload' => 1,
             ]);
         }
@@ -186,7 +184,7 @@ final class StructureController implements InvocableController
         $this->response->addHTML($this->pageSettings->getHTML());
 
         if ($this->numTables > 0) {
-            $urlParams = ['pos' => $this->position, 'db' => Current::$database];
+            $urlParams = ['pos' => $position, 'db' => Current::$database];
             if (isset($parameters['sort'])) {
                 $urlParams['sort'] = $parameters['sort'];
             }
@@ -197,11 +195,11 @@ final class StructureController implements InvocableController
 
             $listNavigator = Generator::getListNavigator(
                 $this->totalNumTables,
-                $this->position,
+                $position,
                 $urlParams,
                 Url::getFromRoute('/database/structure'),
                 'frame_content',
-                $this->config->settings['MaxTableList'],
+                $this->config->config->MaxTableList,
             );
 
             $tableList = $this->displayTableList($replicaInfo);
@@ -248,7 +246,7 @@ final class StructureController implements InvocableController
         $overallApproxRows = false;
         $structureTableRows = [];
         $trackedTables = $this->trackingChecker->getTrackedTables(Current::$database);
-        $recentFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite);
+        $recentFavoriteTables = RecentFavoriteTables::getInstance(FavoriteTableType::Favorite);
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -305,7 +303,7 @@ final class StructureController implements InvocableController
                 }
             }
 
-            if ($this->config->settings['ShowDbStructureCharset']) {
+            if ($this->config->config->ShowDbStructureCharset) {
                 $charset = '';
                 if (isset($tableCollation)) {
                     $charset = $tableCollation->getCharset();
@@ -313,7 +311,7 @@ final class StructureController implements InvocableController
             }
 
             $createTime = null;
-            if ($this->config->settings['ShowDbStructureCreation'] && isset($currentTable['Create_time'])) {
+            if ($this->config->config->ShowDbStructureCreation && isset($currentTable['Create_time'])) {
                 $createTime = $this->createDateTime($currentTable['Create_time']);
                 if ($createTime !== null && ($createTimeAll === null || $createTime < $createTimeAll)) {
                     $createTimeAll = $createTime;
@@ -321,17 +319,17 @@ final class StructureController implements InvocableController
             }
 
             $updateTime = null;
-            if ($this->config->settings['ShowDbStructureLastUpdate'] && isset($currentTable['Update_time'])) {
+            if ($this->config->config->ShowDbStructureLastUpdate && isset($currentTable['Update_time'])) {
                 $updateTime = $this->createDateTime($currentTable['Update_time']);
-                if ($updateTime !== null && ($updateTimeAll === null || $updateTime < $updateTimeAll)) {
+                if ($updateTime !== null && ($updateTimeAll === null || $updateTime > $updateTimeAll)) {
                     $updateTimeAll = $updateTime;
                 }
             }
 
             $checkTime = null;
-            if ($this->config->settings['ShowDbStructureLastCheck'] && isset($currentTable['Check_time'])) {
+            if ($this->config->config->ShowDbStructureLastCheck && isset($currentTable['Check_time'])) {
                 $checkTime = $this->createDateTime($currentTable['Check_time']);
-                if ($checkTime !== null && ($checkTimeAll === null || $checkTime < $checkTimeAll)) {
+                if ($checkTime !== null && ($checkTimeAll === null || $checkTime > $checkTimeAll)) {
                     $checkTimeAll = $checkTime;
                 }
             }
@@ -380,12 +378,12 @@ final class StructureController implements InvocableController
                     'replication' => $replicaInfo['status'],
                     'is_show_db_details' => $this->isShowDbDetails,
                     'is_show_stats' => $this->isShowStats,
-                    'show_charset' => $this->config->settings['ShowDbStructureCharset'],
-                    'show_comment' => $this->config->settings['ShowDbStructureComment'],
-                    'show_creation' => $this->config->settings['ShowDbStructureCreation'],
-                    'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
-                    'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
-                    'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+                    'show_charset' => $this->config->config->ShowDbStructureCharset,
+                    'show_comment' => $this->config->config->ShowDbStructureComment,
+                    'show_creation' => $this->config->config->ShowDbStructureCreation,
+                    'show_last_update' => $this->config->config->ShowDbStructureLastUpdate,
+                    'show_last_check' => $this->config->config->ShowDbStructureLastCheck,
+                    'num_favorite_tables' => $this->config->config->NumFavoriteTables,
                     'structure_table_rows' => $structureTableRows,
                 ]);
                 $structureTableRows = [];
@@ -432,14 +430,14 @@ final class StructureController implements InvocableController
                         TableName::from($currentTable['TABLE_NAME']),
                     ),
                 ),
-                'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+                'num_favorite_tables' => $this->config->config->NumFavoriteTables,
                 'is_show_db_details' => $this->isShowDbDetails,
                 'limit_chars' => $this->config->config->limitChars,
-                'show_charset' => $this->config->settings['ShowDbStructureCharset'],
-                'show_comment' => $this->config->settings['ShowDbStructureComment'],
-                'show_creation' => $this->config->settings['ShowDbStructureCreation'],
-                'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
-                'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
+                'show_charset' => $this->config->config->ShowDbStructureCharset,
+                'show_comment' => $this->config->config->ShowDbStructureComment,
+                'show_creation' => $this->config->config->ShowDbStructureCreation,
+                'show_last_update' => $this->config->config->ShowDbStructureLastUpdate,
+                'show_last_check' => $this->config->config->ShowDbStructureLastCheck,
             ];
 
             $overallApproxRows = $overallApproxRows || $approxRows;
@@ -473,12 +471,12 @@ final class StructureController implements InvocableController
             'replication' => $replicaInfo['status'],
             'is_show_db_details' => $this->isShowDbDetails,
             'is_show_stats' => $this->isShowStats,
-            'show_charset' => $this->config->settings['ShowDbStructureCharset'],
-            'show_comment' => $this->config->settings['ShowDbStructureComment'],
-            'show_creation' => $this->config->settings['ShowDbStructureCreation'],
-            'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
-            'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
-            'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+            'show_charset' => $this->config->config->ShowDbStructureCharset,
+            'show_comment' => $this->config->config->ShowDbStructureComment,
+            'show_creation' => $this->config->config->ShowDbStructureCreation,
+            'show_last_update' => $this->config->config->ShowDbStructureLastUpdate,
+            'show_last_check' => $this->config->config->ShowDbStructureLastCheck,
+            'num_favorite_tables' => $this->config->config->NumFavoriteTables,
             'structure_table_rows' => $structureTableRows,
             'body_for_table_summary' => [
                 'num_tables' => $this->numTables,
@@ -494,15 +492,15 @@ final class StructureController implements InvocableController
                 'update_time_all' => $updateTimeAll !== null ? Util::localisedDate($updateTimeAll) : '-',
                 'check_time_all' => $checkTimeAll !== null ? Util::localisedDate($checkTimeAll) : '-',
                 'approx_rows' => $overallApproxRows,
-                'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+                'num_favorite_tables' => $this->config->config->NumFavoriteTables,
                 'db' => Current::$database,
                 'is_show_db_details' => $this->isShowDbDetails,
                 'default_storage_engine' => $defaultStorageEngine,
-                'show_charset' => $this->config->settings['ShowDbStructureCharset'],
-                'show_comment' => $this->config->settings['ShowDbStructureComment'],
-                'show_creation' => $this->config->settings['ShowDbStructureCreation'],
-                'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
-                'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
+                'show_charset' => $this->config->config->ShowDbStructureCharset,
+                'show_comment' => $this->config->config->ShowDbStructureComment,
+                'show_creation' => $this->config->config->ShowDbStructureCreation,
+                'show_last_update' => $this->config->config->ShowDbStructureLastUpdate,
+                'show_last_check' => $this->config->config->ShowDbStructureLastCheck,
             ],
             'check_all_tables' => [
                 'overhead_check' => $overheadCheck,
@@ -559,7 +557,7 @@ final class StructureController implements InvocableController
                 && in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'], true)
                 && ! $currentTable['COUNTED'];
 
-            if ($tableIsView && $currentTable['TABLE_ROWS'] >= $this->config->settings['MaxExactCountViews']) {
+            if ($tableIsView && $currentTable['TABLE_ROWS'] >= $this->config->config->MaxExactCountViews) {
                 $approxRows = true;
                 $showSuperscript = Generator::showHint(
                     Sanitize::convertBBCode(
@@ -816,7 +814,7 @@ final class StructureController implements InvocableController
 
         if (
             (in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'], true)
-            && $currentTable['TABLE_ROWS'] < $this->config->settings['MaxExactCount'])
+            && $currentTable['TABLE_ROWS'] < $this->config->config->MaxExactCount)
             || ! isset($currentTable['TABLE_ROWS'])
         ) {
             $currentTable['COUNTED'] = true;
@@ -856,36 +854,35 @@ final class StructureController implements InvocableController
             ->countRecords(true);
 
         if ($this->isShowStats) {
-            // Only count columns that have double quotes
-            $columnCount = (int) $this->dbi->fetchValue(
-                'SELECT COUNT(COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '
-                . $this->dbi->quoteString(Current::$database) . ' AND TABLE_NAME = '
-                . $this->dbi->quoteString($currentTable['TABLE_NAME']) . ' AND NUMERIC_SCALE IS NULL;',
-            );
-
-            // Get column names
-            $columnNames = $this->dbi->fetchValue(
-                'SELECT GROUP_CONCAT(COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '
+            /** @var list<array{COLUMN_NAME: string, HAS_QUOTES: '0'|'1'}> $columns */
+            $columns = $this->dbi->fetchResultSimple(
+                'SELECT COLUMN_NAME, NUMERIC_SCALE IS NULL AS HAS_QUOTES'
+                . ' FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '
                 . $this->dbi->quoteString(Current::$database) . ' AND TABLE_NAME = '
                 . $this->dbi->quoteString($currentTable['TABLE_NAME']) . ';',
             );
 
-            // 10Mb buffer for CONCAT_WS
-            // not sure if is needed
-            $this->dbi->query('SET SESSION group_concat_max_len = 10 * 1024 * 1024');
+            $columnsString = implode(',', array_map(Util::backquote(...), array_column($columns, 'COLUMN_NAME')));
 
             // Calculate data length
+            // literal new line, double quote and backslash characters are escaped in csv
+            // and use up two bytes instead of one.
             $dataLength = (int) $this->dbi->fetchValue('
-                SELECT SUM(CHAR_LENGTH(REPLACE(REPLACE(REPLACE(
-                    CONCAT_WS(\',\', ' . $columnNames . '),
-                    UNHEX(\'0A\'), \'nn\'), UNHEX(\'22\'), \'nn\'), UNHEX(\'5C\'), \'nn\'
-                ))) FROM ' . Util::backquote(Current::$database) . '.' . Util::backquote($currentTable['TABLE_NAME']));
+                SELECT SUM(LENGTH(REPLACE(
+                    REPLACE(
+                        REPLACE(REPLACE(CONCAT(' . $columnsString . "), '\\r', 'rn'), '\\n', 'nl'),
+                        '\"',
+                        'qu'
+                    ),
+                    '\\\\',
+                    'bs'
+                ))) FROM " . Util::backquote(Current::$database) . '.' . Util::backquote($currentTable['TABLE_NAME']));
 
-            // Calculate quotes length
-            $quotesLength = $currentTable['TABLE_ROWS'] * $columnCount * 2;
+            /** @psalm-var positive-int|0 $quotedColumns */
+            $quotedColumns = array_sum(array_column($columns, 'HAS_QUOTES'));
+            $separatorsAndNewLine = count($columns);
 
-            /** @var int $tblsize */
-            $tblsize = $dataLength + $quotesLength + $currentTable['TABLE_ROWS'];
+            $tblsize = $dataLength + $currentTable['TABLE_ROWS'] * ($quotedColumns * 2 + $separatorsAndNewLine);
 
             $sumSize += $tblsize;
             [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);
@@ -935,7 +932,7 @@ final class StructureController implements InvocableController
     /**
      * Gets the list of tables in the current db and information about these tables if possible.
      *
-     * @return array{(string|int|null)[][], int|null}
+     * @return array{(string|int|null)[][], int}
      */
     public function getDbInfo(
         string $db,
@@ -943,106 +940,86 @@ final class StructureController implements InvocableController
         mixed $sortOrderParam,
         mixed $tableGroupParam,
         mixed $tableTypeParam,
+        int $position,
     ): array {
-        /**
-         * information about tables in db
-         */
-        $tables = [];
-        $totalNumTables = null;
+        $sort = match ($sortParam) {
+            'table' => 'Name',
+            'records' => 'Rows',
+            'type' => 'Engine',
+            'collation' => 'Collation',
+            'size' => 'Data_length',
+            'overhead' => 'Data_free',
+            'creation' => 'Create_time',
+            'last_update' => 'Update_time',
+            'last_check' => 'Check_time',
+            'comment' => 'Comment',
+            default => null,
+        };
+        // the sort order is only honored for an implemented sort type
+        $sortOrder = $sort !== null && $sortOrderParam === 'DESC' ? 'DESC' : 'ASC';
+        $sort ??= 'Name';
 
-        // Set some sorting defaults
-        $sort = 'Name';
-        $sortOrder = 'ASC';
+        $tableGroup = is_string($tableGroupParam) && $tableGroupParam !== '' ? $tableGroupParam : null;
+        $tableType = is_string($tableTypeParam) ? TableType::tryFrom($tableTypeParam) : null;
 
-        if (is_string($sortParam)) {
-            $sortableNameMappings = [
-                'table' => 'Name',
-                'records' => 'Rows',
-                'type' => 'Engine',
-                'collation' => 'Collation',
-                'size' => 'Data_length',
-                'overhead' => 'Data_free',
-                'creation' => 'Create_time',
-                'last_update' => 'Update_time',
-                'last_check' => 'Check_time',
-                'comment' => 'Comment',
-            ];
-
-            // Make sure the sort type is implemented
-            if (isset($sortableNameMappings[$sortParam])) {
-                $sort = $sortableNameMappings[$sortParam];
-                if ($sortOrderParam === 'DESC') {
-                    $sortOrder = 'DESC';
-                }
-            }
-        }
-
-        $groupWithSeparator = false;
-        $tableType = null;
-        $limitOffset = 0;
-        $limitCount = false;
-        $groupTable = [];
-
-        if (
-            is_string($tableGroupParam) && $tableGroupParam !== ''
-            || is_string($tableTypeParam) && $tableTypeParam !== ''
-        ) {
-            if (is_string($tableTypeParam) && $tableTypeParam !== '') {
-                // only tables for selected type
-                $tableType = $tableTypeParam;
-            }
-
-            if (is_string($tableGroupParam) && $tableGroupParam !== '') {
-                // only tables for selected group
-                // include the table with the exact name of the group if such exists
-                $groupTable = $this->dbi->getTablesFull(
-                    $db,
-                    $tableGroupParam,
-                    false,
-                    0,
-                    false,
-                    $sort,
-                    $sortOrder,
-                    $tableType,
-                );
-                $groupWithSeparator = $tableGroupParam . $this->config->config->NavigationTreeTableSeparator;
-            }
-        } else {
+        if ($tableGroup === null && $tableType === null) {
             // all tables in db
             // - get the total number of tables
             //  (needed for proper working of the MaxTableList feature)
-            $tables = $this->dbi->getTables($db);
-            $totalNumTables = count($tables);
-            // fetch the details for a possible limited subset
-            $limitOffset = $this->position;
-            $limitCount = true;
+            $tableNames = $this->dbi->getTables($db);
+            $limitCount = $this->config->config->MaxTableList;
+            $totalNumberOfTables = count($tableNames);
+            if ($sort === 'Name') {
+                $tableNames = array_slice(
+                    $sortOrder === 'DESC' ? array_reverse($tableNames) : $tableNames,
+                    $position,
+                    $limitCount,
+                );
+                $limitCount = 0;
+            }
+
+            $tables = $this->dbi->getTablesFull(
+                $db,
+                $tableNames,
+                limitOffset: $position,
+                limitCount: $limitCount,
+                sortBy: $sort,
+                sortOrder: $sortOrder,
+            );
+
+            return [$tables, $totalNumberOfTables];
         }
 
-        // We must use union operator here instead of array_merge to preserve numerical keys
-        $tables = $groupTable + $this->dbi->getTablesFull(
+        if ($tableGroup === null) {
+            // only tables for selected type
+            $tables = $this->dbi->getTablesFull($db, [], sortBy: $sort, sortOrder: $sortOrder, tableType: $tableType);
+
+            return [$tables, count($tables)];
+        }
+
+        // only tables for selected group (and type, if any):
+        // the table with the exact name of the group if such exists, plus the tables
+        // with the group prefix; we must use the union operator here instead of
+        // array_merge to preserve numerical keys
+        $tables = $this->dbi->getTablesFull(
             $db,
-            $groupWithSeparator !== false ? $groupWithSeparator : $tables,
-            $groupWithSeparator !== false,
-            $limitOffset,
-            $limitCount,
-            $sort,
-            $sortOrder,
-            $tableType,
+            $tableGroup,
+            $tableGroup . $this->config->config->NavigationTreeTableSeparator,
+            sortBy: $sort,
+            sortOrder: $sortOrder,
+            tableType: $tableType,
         );
 
-        return [
-            $tables,
-            $totalNumTables, // needed for proper working of the MaxTableList feature
-        ];
+        return [$tables, count($tables)];
     }
 
     /**
      * Gets the list of tables in the current db, taking into account
      * that they might be "in use"
      *
-     * @return (string|int|null)[][] list of tables
+     * @return array{(string|int|null)[][], int}
      */
-    private function getTablesWhenOpen(string $db): array
+    private function getTablesWhenOpen(string $db, string $tableGroupParam, mixed $tableTypeParam): array
     {
         $openTables = $this->dbi->query(
             'SHOW OPEN TABLES FROM ' . Util::backquote($db) . ' WHERE In_use > 0;',
@@ -1058,20 +1035,16 @@ final class StructureController implements InvocableController
 
         // is there at least one "in use" table?
         if ($openTableNames === []) {
-            return [];
+            return [[], 0];
         }
 
         $tables = [];
         $tblGroupSql = '';
         $whereAdded = false;
-        if (
-            isset($_REQUEST['tbl_group'])
-            && is_scalar($_REQUEST['tbl_group'])
-            && (string) $_REQUEST['tbl_group'] !== ''
-        ) {
-            $group = $this->dbi->escapeMysqlWildcards((string) $_REQUEST['tbl_group']);
+        if ($tableGroupParam !== '') {
+            $group = $this->dbi->escapeMysqlWildcards($tableGroupParam);
             $groupWithSeparator = $this->dbi->escapeMysqlWildcards(
-                $_REQUEST['tbl_group'] . $this->config->config->NavigationTreeTableSeparator,
+                $tableGroupParam . $this->config->config->NavigationTreeTableSeparator,
             );
             $tblGroupSql .= ' WHERE ('
                 . Util::backquote('Tables_in_' . $db)
@@ -1082,13 +1055,13 @@ final class StructureController implements InvocableController
             $whereAdded = true;
         }
 
-        if (isset($_REQUEST['tbl_type']) && in_array($_REQUEST['tbl_type'], ['table', 'view'], true)) {
+        $tableType = is_string($tableTypeParam) ? TableType::tryFrom($tableTypeParam) : null;
+        if ($tableType !== null) {
             $tblGroupSql .= $whereAdded ? ' AND' : ' WHERE';
-            if ($_REQUEST['tbl_type'] === 'view') {
-                $tblGroupSql .= " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            } else {
-                $tblGroupSql .= " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
-            }
+            $tblGroupSql .= match ($tableType) {
+                TableType::View => " `Table_type` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')",
+                TableType::Table => " `Table_type` IN ('BASE TABLE', 'SYSTEM VERSIONED')",
+            };
         }
 
         $dbInfoResult = $this->dbi->query('SHOW FULL TABLES FROM ' . Util::backquote($db) . $tblGroupSql);
@@ -1113,12 +1086,12 @@ final class StructureController implements InvocableController
                 $tables += $this->dbi->getTablesFull($db, $names);
             }
 
-            if ($this->config->settings['NaturalOrder']) {
+            if ($this->config->config->NaturalOrder) {
                 uksort($tables, strnatcasecmp(...));
             }
         }
 
-        return $tables;
+        return [$tables, count($tables)];
     }
 
     public function getTableListPosition(string|null $posParam, string $db): int
@@ -1132,7 +1105,7 @@ final class StructureController implements InvocableController
         }
 
         if (is_numeric($posParam)) {
-            $_SESSION['tmpval']['table_limit_offset'] = (int) $posParam;
+            $_SESSION['tmpval']['table_limit_offset'] = max(0, (int) $posParam);
         }
 
         return $_SESSION['tmpval']['table_limit_offset'];

@@ -215,9 +215,7 @@ class ExportJson extends ExportPlugin
         $columns = [];
         foreach ($fieldsMeta as $i => $field) {
             $colAs = $field->name;
-            if (
-                $db !== null && $table !== null && $aliases !== null
-            ) {
+            if ($db !== null && $table !== null && $aliases !== null) {
                 $colAs = $this->getColumnAlias($aliases, $db, $table, $colAs);
             }
 

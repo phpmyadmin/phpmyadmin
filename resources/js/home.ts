@@ -4,16 +4,12 @@ import { ThemesManager } from './modules/themes-manager.ts';
 
 AJAX.registerTeardown('home.js', () => {
     const themesModal = document.getElementById('themesModal');
-    if (themesModal) {
-        themesModal.removeEventListener('show.bs.modal', ThemesManager.handleEvent);
-    }
+    themesModal?.removeEventListener('show.bs.modal', ThemesManager.handleEvent);
 });
 
 AJAX.registerOnload('home.js', () => {
     const themesModal = document.getElementById('themesModal');
-    if (themesModal) {
-        themesModal.addEventListener('show.bs.modal', ThemesManager.handleEvent);
-    }
+    themesModal?.addEventListener('show.bs.modal', ThemesManager.handleEvent);
 
     showGitVersion();
 });

@@ -8,7 +8,6 @@ export default function updateNavigationWidthConfig (value: number): void {
         type: 'POST',
         dataType: 'json',
         data: {
-            'ajax_request': true,
             server: CommonParams.get('server'),
             value: value,
         },

@@ -83,11 +83,9 @@ class AuthenticationHttp extends AuthenticationPlugin
         $this->responseRenderer->addHTML(sprintf(__('Welcome to %s'), ' phpMyAdmin'));
         $this->responseRenderer->addHTML('</h1>');
         $this->responseRenderer->addHTML('<h3>');
-        $this->responseRenderer->addHTML(
-            Message::error(
-                __('Wrong username/password. Access denied.'),
-            )->getDisplay(),
-        );
+        $this->responseRenderer->addHTML(Message::error(
+            __('Wrong username/password. Access denied.'),
+        ));
         $this->responseRenderer->addHTML('</h3>');
 
         $this->responseRenderer->addHTML(Footer::renderFooter());

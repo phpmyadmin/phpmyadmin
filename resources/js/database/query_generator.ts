@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import { escapeBacktick, escapeSingleQuote } from '../modules/functions/escape.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview    function used in QBE for DB
@@ -108,16 +109,16 @@ function generateCondition (criteriaDiv, table) {
 
             criteriaText = joinWrappingElementsWith(critertiaTextArray, '\'');
 
-            query += window.sprintf(formatsText[criteriaOp], criteriaText);
+            query += sprintf(formatsText[criteriaOp], criteriaText);
         } else if (acceptsTwoValues(criteriaOp)) {
             const formatsText = getFormatsText();
             const valuesInputs = criteriaDiv.find('input.val');
 
-            query += window.sprintf(formatsText[criteriaOp], valuesInputs[0].value, valuesInputs[1].value);
+            query += sprintf(formatsText[criteriaOp], valuesInputs[0].value, valuesInputs[1].value);
         } else {
             const formatsText = getFormatsText();
 
-            query += window.sprintf(formatsText[criteriaOp], criteriaText);
+            query += sprintf(formatsText[criteriaOp], criteriaText);
         }
     } else {
         query += ' ' + criteriaOp;
@@ -129,11 +130,11 @@ function generateCondition (criteriaDiv, table) {
 }
 
 function generateWhereBlock () {
-    var count = 0;
-    var query = '';
+    let count = 0;
+    let query = '';
     $('.tableNameSelect').each(function () {
-        var criteriaDiv = $(this).siblings('.jsCriteriaOptions').first();
-        var useCriteria = $(this).siblings('.criteria_col').first();
+        const criteriaDiv = $(this).siblings('.jsCriteriaOptions').first();
+        const useCriteria = $(this).siblings('.criteria_col').first();
         if ($(this).val() !== '' && useCriteria.prop('checked')) {
             if (count > 0) {
                 criteriaDiv.find('input.logical_op').each(function () {
@@ -152,7 +153,7 @@ function generateWhereBlock () {
 }
 
 function generateJoin (newTable, tableAliases, fk) {
-    var query = '';
+    let query = '';
     query += ' \n\tLEFT JOIN ' + '`' + escapeBacktick(newTable) + '`';
     if (tableAliases[fk.TABLE_NAME][0] !== '') {
         query += ' AS `' + escapeBacktick(tableAliases[newTable][0]) + '`';
@@ -174,15 +175,15 @@ function generateJoin (newTable, tableAliases, fk) {
 }
 
 function existReference (table, fk, usedTables) {
-    var isReferredBy = fk.TABLE_NAME === table && usedTables.includes(fk.REFERENCED_TABLE_NAME);
-    var isReferencedBy = fk.REFERENCED_TABLE_NAME === table && usedTables.includes(fk.TABLE_NAME);
+    const isReferredBy = fk.TABLE_NAME === table && usedTables.includes(fk.REFERENCED_TABLE_NAME);
+    const isReferencedBy = fk.REFERENCED_TABLE_NAME === table && usedTables.includes(fk.TABLE_NAME);
 
     return isReferredBy || isReferencedBy;
 }
 
 function tryJoinTable (table, tableAliases, usedTables, foreignKeys) {
-    for (var i = 0; i < foreignKeys.length; i++) {
-        var fk = foreignKeys[i];
+    for (let i = 0; i < foreignKeys.length; i++) {
+        const fk = foreignKeys[i];
         if (existReference(table, fk, usedTables)) {
             return generateJoin(table, tableAliases, fk);
         }
@@ -192,7 +193,7 @@ function tryJoinTable (table, tableAliases, usedTables, foreignKeys) {
 }
 
 function appendTable (table, tableAliases, usedTables, foreignKeys) {
-    var query = tryJoinTable(table, tableAliases, usedTables, foreignKeys);
+    let query = tryJoinTable(table, tableAliases, usedTables, foreignKeys);
     if (query === '') {
         if (usedTables.length > 0) {
             query += '\n\t, ';
@@ -210,9 +211,9 @@ function appendTable (table, tableAliases, usedTables, foreignKeys) {
 }
 
 function generateFromBlock (tableAliases, foreignKeys) {
-    var usedTables = [];
-    var query = '';
-    for (var table in tableAliases) {
+    const usedTables = [];
+    let query = '';
+    for (let table in tableAliases) {
         if (tableAliases.hasOwnProperty(table)) {
             query += appendTable(table, tableAliases, usedTables, foreignKeys);
         }

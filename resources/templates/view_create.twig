@@ -2,7 +2,6 @@
 <div id="div_view_options">
   <form method="post" action="{{ url('/view/create') }}" class="card">
     {{ get_hidden_inputs(url_params) }}
-    <input type="hidden" name="ajax_request" value="1">
     <input type="hidden" name="{{ (view['operation'] == 'create') ? 'createview' : 'alterview' }}" value="1">
     <input type="hidden" name="ajax_dialog" value="1">
 

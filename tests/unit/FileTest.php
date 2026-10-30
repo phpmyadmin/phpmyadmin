@@ -45,7 +45,7 @@ class FileTest extends AbstractTestCase
      * @param string $file file string
      */
     #[DataProvider('compressedFiles')]
-    public function testBinaryContent(string $file): void
+    public function testBinaryContent(string $file, string $_mime): void
     {
         $data = '0x' . bin2hex((string) file_get_contents($file));
         $file = new File($file);
@@ -60,7 +60,7 @@ class FileTest extends AbstractTestCase
     #[DataProvider('compressedFiles')]
     #[RequiresPhpExtension('bz2')]
     #[RequiresPhpExtension('zip')]
-    public function testReadCompressed(string $file): void
+    public function testReadCompressed(string $file, string $_mime): void
     {
         $file = new File($file);
         $file->setDecompressContent(true);

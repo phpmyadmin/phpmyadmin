@@ -7,8 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
+use Random\Randomizer;
+
 use function array_search;
-use function shuffle;
 
 /**
  * Relation preferences/statistics
@@ -35,8 +36,6 @@ class RelationStatsDia
     public string $referenceColor = '#000000';
 
     /**
-     * @see Relation_Stats_Dia::getXy
-     *
      * @param Dia           $diagram      The DIA diagram
      * @param TableStatsDia $masterTable  The master table name
      * @param string        $masterField  The relation field in the master table
@@ -49,6 +48,7 @@ class RelationStatsDia
         string $masterField,
         TableStatsDia $foreignTable,
         string $foreignField,
+        private Randomizer $randomizer = new Randomizer(),
     ) {
         $srcPos = $this->getXy($masterTable, $masterField);
         $destPos = $this->getXy($foreignTable, $foreignField);
@@ -93,8 +93,6 @@ class RelationStatsDia
      * Database reference Object and their attributes are involved
      * in the combination of displaying Database - reference on Dia Document.
      *
-     * @see    PDF
-     *
      * @param bool $showColor Whether to use one color per relation or not
      *                        if showColor is true then an array of $listOfColors
      *                        will be used to choose the random colors for
@@ -115,8 +113,7 @@ class RelationStatsDia
 
         if ($showColor) {
             $listOfColors = ['FF0000', '000099', '00FF00'];
-            shuffle($listOfColors);
-            $this->referenceColor = '#' . $listOfColors[0];
+            $this->referenceColor = '#' . $listOfColors[$this->randomizer->pickArrayKeys($listOfColors, 1)[0]];
         } else {
             $this->referenceColor = '#000000';
         }

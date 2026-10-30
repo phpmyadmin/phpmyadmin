@@ -14,6 +14,7 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
 use PhpMyAdmin\Version;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
@@ -35,6 +36,7 @@ use const LC_ALL;
 use const LOCALE_PATH;
 
 #[CoversClass(Util::class)]
+#[AllowMockObjectsWithoutExpectations]
 class UtilTest extends AbstractTestCase
 {
     /**
@@ -186,6 +188,7 @@ class UtilTest extends AbstractTestCase
             ['@TABLE@', 'table'],
             ['@IGNORE@', '@IGNORE@'],
             ['@PHPMYADMIN@', 'phpMyAdmin ' . Version::VERSION],
+            ['@COLUMNS@', 'id<>,name,email'],
         ];
     }
 
@@ -319,6 +322,21 @@ class UtilTest extends AbstractTestCase
             ],
             [
                 'varchar(11) /*!100301 COMPRESSED*/',
+                [
+                    'type' => 'varchar',
+                    'print_type' => 'varchar(11)',
+                    'binary' => false,
+                    'unsigned' => false,
+                    'zerofill' => false,
+                    'spec_in_brackets' => '11',
+                    'enum_set_values' => [],
+                    'attribute' => 'COMPRESSED=zlib',
+                    'can_contain_collation' => true,
+                    'displayed_type' => 'varchar(11)',
+                ],
+            ],
+            [
+                'varchar(11) /*M!100301 COMPRESSED*/',
                 [
                     'type' => 'varchar',
                     'print_type' => 'varchar(11)',
@@ -786,7 +804,7 @@ class UtilTest extends AbstractTestCase
      */
     public static function providerLocalisedDate(): array
     {
-        $hasJaTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
+        $hasTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
 
         return [
             [1227455558, '', 'Nov 23, 2008 at 03:52 PM', 'Europe/London', 'en'],
@@ -798,21 +816,21 @@ class UtilTest extends AbstractTestCase
             [
                 1227455558,
                 '%Y-%m-%d %H:%M:%S %a',
-                $hasJaTranslations ? '2008-11-24 00:52:38 月' : '2008-11-24 00:52:38 Mon',
+                $hasTranslations ? '2008-11-24 00:52:38 月' : '2008-11-24 00:52:38 Mon',
                 'Asia/Tokyo',
                 'ja',
             ],
             [
                 1227455558,
                 '%a %A %b %B',
-                $hasJaTranslations ? '月 月 11 月 11 月' : 'Mon Mon Nov Nov',
+                $hasTranslations ? '月 月 11 月 11 月' : 'Mon Mon Nov Nov',
                 'Asia/Tokyo',
                 'ja',
             ],
             [
                 1227455558,
                 '%a %A %b %B %P',
-                $hasJaTranslations ? '月 月 11 月 11 月 午前' : 'Mon Mon Nov Nov AM',
+                $hasTranslations ? '月 月 11 月 11 月 午前' : 'Mon Mon Nov Nov AM',
                 'Asia/Tokyo',
                 'ja',
             ],
@@ -829,7 +847,9 @@ class UtilTest extends AbstractTestCase
             [
                 1617153941,
                 '',
-                'mer. 31 mars 2021 à 03:25',// No format uses format "%B %d, %Y at %I:%M %p"
+                $hasTranslations
+                    ? 'mer. 31 mars 2021 à 03:25'
+                    : 'Mar 31, 2021 at 03:25 AM',// No format uses format "%B %d, %Y at %I:%M %p"
                 'Europe/Paris',
                 'fr',
             ],
@@ -1033,10 +1053,10 @@ class UtilTest extends AbstractTestCase
 
     public function testGetPageFromPosition(): void
     {
-        self::assertSame(Util::getPageFromPosition(0, 1), 1);
-        self::assertSame(Util::getPageFromPosition(1, 1), 2);
-        self::assertSame(Util::getPageFromPosition(1, 2), 1);
-        self::assertSame(Util::getPageFromPosition(1, 6), 1);
+        self::assertSame(1, Util::getPageFromPosition(0, 1));
+        self::assertSame(2, Util::getPageFromPosition(1, 1));
+        self::assertSame(1, Util::getPageFromPosition(1, 2));
+        self::assertSame(1, Util::getPageFromPosition(1, 6));
     }
 
     /**
@@ -1247,22 +1267,22 @@ SQL;
     public function testShowIcons(): void
     {
         $config = Config::getInstance();
-        $config->settings['ActionLinksMode'] = 'icons';
+        $config->set('ActionLinksMode', 'icons');
         self::assertTrue(Util::showIcons('ActionLinksMode'));
-        $config->settings['ActionLinksMode'] = 'both';
+        $config->set('ActionLinksMode', 'both');
         self::assertTrue(Util::showIcons('ActionLinksMode'));
-        $config->settings['ActionLinksMode'] = 'text';
+        $config->set('ActionLinksMode', 'text');
         self::assertFalse(Util::showIcons('ActionLinksMode'));
     }
 
     public function testShowText(): void
     {
         $config = Config::getInstance();
-        $config->settings['ActionLinksMode'] = 'text';
+        $config->set('ActionLinksMode', 'text');
         self::assertTrue(Util::showText('ActionLinksMode'));
-        $config->settings['ActionLinksMode'] = 'both';
+        $config->set('ActionLinksMode', 'both');
         self::assertTrue(Util::showText('ActionLinksMode'));
-        $config->settings['ActionLinksMode'] = 'icons';
+        $config->set('ActionLinksMode', 'icons');
         self::assertFalse(Util::showText('ActionLinksMode'));
     }
 
@@ -1298,14 +1318,14 @@ SQL;
                 'alter-table-index',
                 '5.6.0',
                 'index.php?route=/url&url='
-                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.6%2Fen%2Findex.html%23alter-table-index',
+                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Findex.html%23alter-table-index',
             ],
             [
                 'ALTER_TABLE',
                 '',
                 '5.5.0',
                 'index.php?route=/url&url='
-                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Falter-table.html',
+                . 'https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Falter-table.html',
             ],
             [
                 '',
@@ -1327,11 +1347,11 @@ SQL;
             Util::getDocuURL(true),
         );
         self::assertSame(
-            'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Findex.html',
+            'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Findex.html',
             Util::getDocuURL(false),
         );
         self::assertSame(
-            'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Findex.html',
+            'index.php?route=/url&url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.7%2Fen%2Findex.html',
             Util::getDocuURL(),
         );
     }
@@ -1356,17 +1376,11 @@ SQL;
     #[DataProvider('provideForTestIsUUIDSupported')]
     public function testIsUUIDSupported(bool $isMariaDB, int $version, bool $expected): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects(self::any())
-            ->method('isMariaDB')
-            ->willReturn($isMariaDB);
+        $dbi->method('isMariaDB')->willReturn($isMariaDB);
 
-        $dbi->expects(self::any())
-            ->method('getVersion')
-            ->willReturn($version);
+        $dbi->method('getVersion')->willReturn($version);
 
         DatabaseInterface::$instance = $dbi;
         self::assertSame(Util::isUUIDSupported(), $expected);
@@ -1381,6 +1395,48 @@ SQL;
     public static function provideForTestIsUUIDSupported(): array
     {
         return [[false, 60100, false], [false, 100700, false], [true, 60100, false], [true, 100700, true]];
+    }
+
+    #[DataProvider('provideForTestIsUUIDv4Supported')]
+    public function testIsUUIDv4Supported(string $version, bool $expected): void
+    {
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => $version]);
+        DatabaseInterface::$instance = $dbi;
+        self::assertSame($expected, Util::isUUIDv4Supported());
+    }
+
+    /** @return array<int, array{string, bool}> */
+    public static function provideForTestIsUUIDv4Supported(): array
+    {
+        return [
+            ['6.1.0', false],
+            ['11.7.0', false],
+            ['6.1.0-MariaDB', false],
+            ['11.6.99-MariaDB', false],
+            ['11.7.0-MariaDB', true],
+        ];
+    }
+
+    #[DataProvider('provideForTestIsUUIDv7Supported')]
+    public function testIsUUIDv7Supported(string $version, bool $expected): void
+    {
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => $version]);
+        DatabaseInterface::$instance = $dbi;
+        self::assertSame($expected, Util::isUUIDv7Supported());
+    }
+
+    /** @return array<int, array{string, bool}> */
+    public static function provideForTestIsUUIDv7Supported(): array
+    {
+        return [
+            ['6.1.0', false],
+            ['11.7.0', false],
+            ['6.1.0-MariaDB', false],
+            ['11.6.99-MariaDB', false],
+            ['11.7.0-MariaDB', true],
+        ];
     }
 
     #[DataProvider('providerForTestGetLowerCaseNames')]

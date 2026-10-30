@@ -107,14 +107,11 @@ final class HomeController implements InvocableController
         if ($hasServer) {
             $hasServerSelection = $this->config->config->ServerDefault === 0
                 || (
-                    $this->config->settings['NavigationDisplayServers']
-                    && (
-                        count($this->config->settings['Servers']) > 1
-                        || (Current::$server === 0 && count($this->config->settings['Servers']) === 1)
-                    )
+                    $this->config->config->NavigationDisplayServers
+                    && count($this->config->settings['Servers']) > 1
                 );
             if ($hasServerSelection) {
-                $serverSelection = Select::render(true);
+                $serverSelection = Select::render(true, true);
             }
 
             if (Current::$server > 0) {
@@ -189,16 +186,13 @@ final class HomeController implements InvocableController
         $relation = new Relation($this->dbi);
         if (Current::$server > 0 && $relation->arePmadbTablesAllDisabled() === false) {
             $relationParameters = $relation->getRelationParameters();
-            if (
-                ! $relationParameters->hasAllFeatures()
-                && ! $this->config->settings['PmaNoRelation_DisableWarning']
-            ) {
+            if (! $relationParameters->hasAllFeatures() && ! $this->config->config->PmaNoRelation_DisableWarning) {
                 $messageText = __(
                     'The phpMyAdmin configuration storage is not completely '
                     . 'configured, some extended features have been deactivated. '
                     . '%sFind out why%s. ',
                 );
-                if ($this->config->settings['ZeroConf']) {
+                if ($this->config->config->zeroConf) {
                     $messageText .= '<br>'
                         . __('Or alternately go to \'Operations\' tab of any database to set it up there.');
                 }
@@ -385,26 +379,6 @@ final class HomeController implements InvocableController
                     'recommended to remove it once phpMyAdmin has been configured. ' .
                     'Otherwise the security of your server may be compromised by ' .
                     'unauthorized people downloading your configuration.',
-                ),
-                'severity' => 'warning',
-            ];
-        }
-
-        /**
-         * Warning about Suhosin only if its simulation mode is not enabled
-         */
-        if (
-            ! $this->config->settings['SuhosinDisableWarning']
-            && ini_get('suhosin.request.max_value_length')
-            && ini_get('suhosin.simulation') == '0'
-        ) {
-            $this->errors[] = [
-                'message' => sprintf(
-                    __(
-                        'Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.',
-                    ),
-                    '[doc@faq1-38]',
-                    '[/doc]',
                 ),
                 'severity' => 'warning',
             ];

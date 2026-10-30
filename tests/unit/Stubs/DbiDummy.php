@@ -273,15 +273,15 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * returns properly escaped string for use in MySQL queries
+     * Returns properly quoted string for use in SQL statements.
      *
-     * @param string $string string to be escaped
+     * @return non-empty-string
      *
-     * @return string a MySQL escaped string
+     * @psalm-taint-escape sql
      */
-    public function escapeString(Connection $connection, string $string): string
+    public function quoteString(Connection $connection, string $string): string
     {
-        return addslashes($string);
+        return "'" . addslashes($string) . "'";
     }
 
     public function addSelectDb(string $databaseName): void
@@ -398,7 +398,6 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             ['query' => 'SHOW ENGINE INNODB STATUS;', 'result' => false],
-            ['query' => 'SELECT @@innodb_version;', 'result' => [['1.1.8']]],
             ['query' => 'SELECT @@disabled_storage_engines', 'result' => [['']]],
             ['query' => 'SHOW GLOBAL VARIABLES ;', 'result' => []],
             [
@@ -604,8 +603,8 @@ class DbiDummy implements DbiExtension
                     . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
                     . ' `TABLE_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`TABLES` t'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN (\'pma_test\')'
-                    . ' AND t.`TABLE_NAME` COLLATE utf8_bin = \'table1\' ORDER BY Name ASC',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma_test\''
+                    . ' AND t.`TABLE_NAME` COLLATE utf8_bin = \'table1\'',
                 'columns' => [
                     'TABLE_CATALOG',
                     'TABLE_SCHEMA',
@@ -709,8 +708,8 @@ class DbiDummy implements DbiExtension
                     . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
                     . ' `TABLE_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`TABLES` t'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN (\'my_db\')'
-                    . ' AND t.`TABLE_NAME` COLLATE utf8_bin = \'test_tbl\' ORDER BY Name ASC',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'my_db\''
+                    . ' AND t.`TABLE_NAME` COLLATE utf8_bin = \'test_tbl\'',
                 'columns' => [
                     'TABLE_CATALOG',
                     'TABLE_SCHEMA',
@@ -1098,7 +1097,7 @@ class DbiDummy implements DbiExtension
             ],
             ['query' => "SHOW TABLE STATUS FROM `db` WHERE `Name` LIKE 'table%'", 'result' => []],
             [
-                'query' => "SHOW TABLE STATUS FROM `my_dataset` WHERE `Name` LIKE 'company\\\\_users%'",
+                'query' => "SHOW TABLE STATUS FROM `my_dataset` WHERE `Name` = 'company_users'",
                 'columns' => [
                     'Name',
                     'TABLE_TYPE',
@@ -1500,7 +1499,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `process` DESC',
                 'columns' => ['Id', 'User', 'Host', 'db', 'Command', 'Time', 'State', 'Info'],
-                'result' => [['Id1', 'User1', 'Host1', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
+                'result' => [['Id1', 'User1', 'Host1:12345', 'db1', 'Command1', 'Time1', 'State1', 'Info1']],
             ],
             ['query' => 'SELECT UNIX_TIMESTAMP() - 36000', 'result' => []],
             [
@@ -1553,7 +1552,7 @@ class DbiDummy implements DbiExtension
                 'result' => [['0'], ['actor'], ['untrackedTable']],
             ],
             [
-                'query' => 'SHOW TABLE STATUS FROM `PMA_db` WHERE `Name` LIKE \'PMA\\\\_table%\'',
+                'query' => 'SHOW TABLE STATUS FROM `PMA_db` WHERE `Name` = \'PMA_table\'',
                 'columns' => ['Name', 'Engine'],
                 'result' => [['PMA_table', 'InnoDB']],
             ],
@@ -1624,7 +1623,7 @@ class DbiDummy implements DbiExtension
                     ],
                 ],
             ],
-            ['query' => 'SELECT * FROM `testdb`.`mytable` LIMIT 1', 'columns' => ['aid','_id'], 'result' => [[1,1]]],
+            ['query' => 'SELECT * FROM `testdb`.`mytable` LIMIT 0', 'columns' => ['aid','_id'], 'result' => [[1,1]]],
             [
                 'query' => 'SHOW CREATE TABLE `test_db`.`test_table`',
                 'columns' => ['Table', 'Create Table'],
@@ -1685,12 +1684,12 @@ class DbiDummy implements DbiExtension
                 'result' => [['test_table', 'InnoDB', '3']],
             ],
             [
-                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE `Name` LIKE \'test\\\\_table\\\\_index\\\\_rename%\'',
+                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE `Name` = \'test_table_index_rename\'',
                 'columns' => ['Name', 'Engine', 'Rows'],
                 'result' => [['test_table_index_rename', 'InnoDB', '3']],
             ],
             [
-                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE Name = \'test_table\'',
+                'query' => 'SHOW TABLE STATUS FROM `test_db` WHERE `Name` = \'test_table\'',
                 'columns' => ['Name', 'Engine', 'Rows'],
                 'result' => [['test_table', 'InnoDB', '3']],
             ],
@@ -1835,7 +1834,7 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             ['query' => 'SHOW FULL COLUMNS FROM `my_db`.`test_tbl`', 'result' => []],
-            ['query' => 'SHOW TABLE STATUS FROM `my_db` WHERE `Name` LIKE \'test\\\\_tbl%\'', 'result' => []],
+            ['query' => 'SHOW TABLE STATUS FROM `my_db` WHERE `Name` = \'test_tbl\'', 'result' => []],
             ['query' => 'SHOW CREATE TABLE `my_db`.`test_tbl`', 'result' => []],
             ['query' => 'SELECT COUNT(*) FROM `my_db`.`test_tbl`', 'result' => []],
             [
@@ -1851,7 +1850,7 @@ class DbiDummy implements DbiExtension
                 'result' => [['user<br>group', 'server_sql', 'Y']],
             ],
             [
-                'query' => 'SELECT `name` FROM `test_table` WHERE `id` = 4',
+                'query' => 'SELECT `name` FROM `test_table` WHERE `id` = 4 LIMIT 1;',
                 'columns' => ['name'],
                 'result' => [['101']],
             ],
@@ -1920,7 +1919,7 @@ class DbiDummy implements DbiExtension
                     . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`,'
                     . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
                     . ' `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN (\'test_db\') ORDER BY Name ASC',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' ORDER BY Name ASC',
                 'columns' => [
                     'TABLE_CATALOG',
                     'TABLE_SCHEMA',
@@ -2027,8 +2026,116 @@ class DbiDummy implements DbiExtension
                     . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`,'
                     . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
                     . ' `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN (\'test_db\')'
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\''
                     . ' AND t.`TABLE_NAME` COLLATE utf8_bin IN (\'test_table\') ORDER BY Name ASC',
+                'columns' => [
+                    'TABLE_CATALOG',
+                    'TABLE_SCHEMA',
+                    'TABLE_NAME',
+                    'TABLE_TYPE',
+                    'ENGINE',
+                    'VERSION',
+                    'ROW_FORMAT',
+                    'TABLE_ROWS',
+                    'AVG_ROW_LENGTH',
+                    'DATA_LENGTH',
+                    'MAX_DATA_LENGTH',
+                    'INDEX_LENGTH',
+                    'DATA_FREE',
+                    'AUTO_INCREMENT',
+                    'CREATE_TIME',
+                    'UPDATE_TIME',
+                    'CHECK_TIME',
+                    'TABLE_COLLATION',
+                    'CHECKSUM',
+                    'CREATE_OPTIONS',
+                    'TABLE_COMMENT',
+                    'MAX_INDEX_LENGTH',
+                    'TEMPORARY',
+                    'Db',
+                    'Name',
+                    'TABLE_TYPE',
+                    'Engine',
+                    'Type',
+                    'Version',
+                    'Row_format',
+                    'Rows',
+                    'Avg_row_length',
+                    'Data_length',
+                    'Max_data_length',
+                    'Index_length',
+                    'Data_free',
+                    'Auto_increment',
+                    'Create_time',
+                    'Update_time',
+                    'Check_time',
+                    'Collation',
+                    'Checksum',
+                    'Create_options',
+                    'Comment',
+                ],
+                'result' => [
+                    [
+                        'def',
+                        'test_db',
+                        'test_table',
+                        'BASE TABLE',
+                        'InnoDB',
+                        '10',
+                        'Dynamic',
+                        '3',
+                        '5461',
+                        '16384',
+                        '0',
+                        '0',
+                        '0',
+                        '4',
+                        '2011-12-13 14:15:16',
+                        null,
+                        null,
+                        'utf8mb4_general_ci',
+                        null,
+                        '',
+                        '',
+                        '0',
+                        'N',
+                        'test_db',
+                        'test_table',
+                        'BASE TABLE',
+                        'InnoDB',
+                        'InnoDB',
+                        '10',
+                        'Dynamic',
+                        '3',
+                        '5461',
+                        '16384',
+                        '0',
+                        '0',
+                        '0',
+                        '4',
+                        '2011-12-13 14:15:16',
+                        null,
+                        null,
+                        'utf8mb4_general_ci',
+                        null,
+                        '',
+                        '',
+                    ],
+                ],
+            ],
+            [
+                'query' => 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,'
+                    . ' `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`, `ENGINE` AS `Type`,'
+                    . ' `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`, `TABLE_ROWS` AS `Rows`,'
+                    . ' `AVG_ROW_LENGTH` AS `Avg_row_length`, `DATA_LENGTH` AS `Data_length`,'
+                    . ' `MAX_DATA_LENGTH` AS `Max_data_length`, `INDEX_LENGTH` AS `Index_length`,'
+                    . ' `DATA_FREE` AS `Data_free`, `AUTO_INCREMENT` AS `Auto_increment`,'
+                    . ' `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`,'
+                    . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`,'
+                    . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
+                    . ' `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t'
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\''
+                    . ' AND t.`TABLE_NAME` COLLATE utf8_bin = \'test_table\'',
                 'columns' => [
                     'TABLE_CATALOG',
                     'TABLE_SCHEMA',
@@ -2304,6 +2411,11 @@ class DbiDummy implements DbiExtension
                     ['utf8_bin', 'utf8', '83', '', 'Yes', '1'],
                     ['latin1_swedish_ci', 'latin1', '8', 'Yes', 'Yes', '1'],
                 ],
+            ],
+            [
+                'query' => 'SELECT `COLUMN_NAME`, `COLUMN_TYPE` FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'database\' AND `TABLE_NAME` COLLATE utf8_bin = \'table\' ORDER BY `ORDINAL_POSITION`',
+                'columns' => ['COLUMN_NAME', 'COLUMN_TYPE'],
+                'result' => [['id<>', 'int(11)'], ['name', 'varchar(255)'], ['email', 'varchar(255)']],
             ],
         ];
     }

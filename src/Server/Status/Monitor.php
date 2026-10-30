@@ -45,19 +45,9 @@ class Monitor
     public function getJsonForChartingData(string $requiredData): array
     {
         $ret = json_decode($requiredData, true);
-        $statusVars = [];
-        $serverVars = [];
-        $sysinfo = $cpuload = $memory = 0;
 
         /* Accumulate all required variables and data */
-        [$serverVars, $statusVars, $ret] = $this->getJsonForChartingDataGet(
-            $ret,
-            $serverVars,
-            $statusVars,
-            $sysinfo,
-            $cpuload,
-            $memory,
-        );
+        [$serverVars, $statusVars, $ret] = $this->getJsonForChartingDataGet($ret);
 
         // Retrieve all required status variables
         $statusVarValues = [];
@@ -124,28 +114,17 @@ class Monitor
     /**
      * Get called to get JSON for charting data
      *
-     * @param mixed[] $ret        Real-time charting data
-     * @param mixed[] $serverVars Server variable values
-     * @param mixed[] $statusVars Status variable values
-     * @param mixed   $sysinfo    System info
-     * @param mixed   $cpuload    CPU load
-     * @param mixed   $memory     Memory
+     * @param mixed[] $ret Real-time charting data
      *
-     * @return array<int, mixed>
+     * @return array{string[], string[], mixed[]}
      */
     private function getJsonForChartingDataGet(
         array $ret,
-        array $serverVars,
-        array $statusVars,
-        mixed $sysinfo,
-        mixed $cpuload,
-        mixed $memory,
     ): array {
-        // For each chart
+        $statusVars = [];
+        $serverVars = [];
         foreach ($ret as $chartId => $chartNodes) {
-            // For each data series
             foreach ($chartNodes as $nodeId => $nodeDataPoints) {
-                // For each data point in the series (usually just 1)
                 foreach ($nodeDataPoints as $pointId => $dataPoint) {
                     [$serverVars, $statusVars, $ret[$chartId][$nodeId][$pointId]] = $this->getJsonForChartingDataSwitch(
                         $dataPoint['type'],
@@ -153,12 +132,9 @@ class Monitor
                         $serverVars,
                         $statusVars,
                         $ret[$chartId][$nodeId][$pointId],
-                        $sysinfo,
-                        $cpuload,
-                        $memory,
                     );
-                } /* foreach */
-            } /* foreach */
+                }
+            }
         }
 
         return [$serverVars, $statusVars, $ret];
@@ -167,16 +143,13 @@ class Monitor
     /**
      * Switch called to get JSON for charting data
      *
-     * @param string  $type       Type
-     * @param string  $pName      Name
-     * @param mixed[] $serverVars Server variable values
-     * @param mixed[] $statusVars Status variable values
-     * @param mixed[] $ret        Real-time charting data
-     * @param mixed   $sysinfo    System info
-     * @param mixed   $cpuload    CPU load
-     * @param mixed   $memory     Memory
+     * @param string                                                 $type       Type
+     * @param string                                                 $pName      Name
+     * @param string[]                                               $serverVars Server variable values
+     * @param string[]                                               $statusVars Status variable values
+     * @param array{idle?:int, busy?:int, value?:int|numeric-string} $ret        Real-time charting data for the point
      *
-     * @return array<int, mixed[]>
+     * @return array{string[], string[], array{idle?:int, busy?:int, value?:int|numeric-string}}
      */
     private function getJsonForChartingDataSwitch(
         string $type,
@@ -184,9 +157,6 @@ class Monitor
         array $serverVars,
         array $statusVars,
         array $ret,
-        mixed $sysinfo,
-        mixed $cpuload,
-        mixed $memory,
     ): array {
         /**
          * We only collect the status and server variables here to read them all in one query,
@@ -213,13 +183,7 @@ class Monitor
                 break;
 
             case 'cpu':
-                if (! $sysinfo) {
-                    $sysinfo = SysInfo::get();
-                }
-
-                if (! $cpuload) {
-                    $cpuload = $sysinfo->loadavg();
-                }
+                $cpuload = SysInfo::get()->loadavg();
 
                 if (SysInfo::getOs() === 'Linux') {
                     $ret['idle'] = $cpuload['idle'];
@@ -231,13 +195,7 @@ class Monitor
                 break;
 
             case 'memory':
-                if (! $sysinfo) {
-                    $sysinfo = SysInfo::get();
-                }
-
-                if (! $memory) {
-                    $memory = $sysinfo->memory();
-                }
+                $memory = SysInfo::get()->memory();
 
                 $ret['value'] = $memory[$pName] ?? 0;
                 break;

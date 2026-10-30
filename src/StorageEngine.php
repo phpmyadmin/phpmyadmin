@@ -340,7 +340,7 @@ class StorageEngine
     /**
      * Returns array with detailed info about engine specific server variables
      *
-     * @return mixed[] array with detailed info about specific engine server variables
+     * @return array<string, array{title: string, desc: string|null, type: int, value: string}>
      */
     public function getVariablesStatus(): array
     {
@@ -355,24 +355,23 @@ class StorageEngine
 
         $sqlQuery = 'SHOW GLOBAL VARIABLES ' . $like . ';';
         $res = DatabaseInterface::getInstance()->query($sqlQuery);
-        foreach ($res as $row) {
-            if (isset($variables[$row['Variable_name']])) {
-                $mysqlVars[$row['Variable_name']] = $variables[$row['Variable_name']];
-            } elseif ($like === '' && mb_stripos($row['Variable_name'], $this->engine) !== 0) {
+        /**
+         * @var string $variableName
+         * @var string $value
+         */
+        foreach ($res as ['Variable_name' => $variableName, 'Value' => $value]) {
+            if (! isset($variables[$variableName]) && $like === '' && mb_stripos($variableName, $this->engine) !== 0) {
                 continue;
             }
 
-            $mysqlVars[$row['Variable_name']]['value'] = $row['Value'];
+            $variableInfo = $variables[$variableName] ?? [];
 
-            if (empty($mysqlVars[$row['Variable_name']]['title'])) {
-                $mysqlVars[$row['Variable_name']]['title'] = $row['Variable_name'];
-            }
-
-            if (isset($mysqlVars[$row['Variable_name']]['type'])) {
-                continue;
-            }
-
-            $mysqlVars[$row['Variable_name']]['type'] = self::DETAILS_TYPE_PLAINTEXT;
+            $mysqlVars[$variableName] = [
+                'title' => empty($variableInfo['title']) ? $variableName : $variableInfo['title'],
+                'desc' => $variableInfo['desc'] ?? null,
+                'type' => $variableInfo['type'] ?? self::DETAILS_TYPE_PLAINTEXT,
+                'value' => $value,
+            ];
         }
 
         return $mysqlVars;
@@ -420,7 +419,7 @@ class StorageEngine
      * engine. This function should be overridden when extending this class
      * for a particular engine.
      *
-     * @return mixed[] The list of variables.
+     * @return array<string, array{title?: string, desc?: string, type?: int}> The list of variables.
      */
     public function getVariables(): array
     {

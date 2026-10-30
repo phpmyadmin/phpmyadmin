@@ -178,7 +178,7 @@ class ExportCsv extends ExportPlugin
                 }
 
                 if ($fieldsMeta[$j]->isMappedTypeGeometry || $fieldsMeta[$j]->isBinary) {
-                    $insertValues[] = '0x' . bin2hex($row[$j] ?? '');
+                    $insertValues[] = '0x' . bin2hex($field);
                     continue;
                 }
 
@@ -266,13 +266,13 @@ class ExportCsv extends ExportPlugin
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
-    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    private function setStringValue(mixed $fromRequest, string $fromConfig): string
     {
         if (is_string($fromRequest) && $fromRequest !== '') {
             return $fromRequest;
         }
 
-        if (is_string($fromConfig) && $fromConfig !== '') {
+        if ($fromConfig !== '') {
             return $fromConfig;
         }
 

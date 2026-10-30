@@ -25,6 +25,7 @@ use function __;
 use function in_array;
 use function is_string;
 use function json_decode;
+use function json_encode;
 use function time;
 
 /**
@@ -119,9 +120,7 @@ final readonly class ErrorReportController implements InvocableController
                         $this->response->addJSON('errSubmitMsg', $msg);
                     }
                 } elseif ($exceptionType === 'php') {
-                    $jsCode = 'window.ajaxShowMessage(\'<div class="alert alert-danger" role="alert">'
-                        . $msg
-                        . '</div>\', false);';
+                    $jsCode = 'window.ajaxShowMessage(' . json_encode((string) $msg) . ', false, \'error\');';
                     $this->response->getFooterScripts()->addCode($jsCode);
                 }
 

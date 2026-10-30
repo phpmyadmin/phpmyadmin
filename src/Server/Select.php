@@ -24,7 +24,7 @@ class Select
      *
      * @param bool $notOnlyOptions whether to include form tags or not
      */
-    public static function render(bool $notOnlyOptions): string
+    public static function render(bool $notOnlyOptions, bool $hasLabelIcon = false): string
     {
         $config = Config::getInstance();
         // Show as list?
@@ -93,6 +93,7 @@ class Select
             'not_only_options' => $notOnlyOptions,
             'servers' => $servers,
             'form_action' => $formAction,
+            'has_label_icon' => $hasLabelIcon,
         ]);
     }
 }

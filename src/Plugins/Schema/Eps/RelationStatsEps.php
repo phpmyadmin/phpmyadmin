@@ -19,8 +19,6 @@ use function sqrt;
  * and helps in generating the Table references and then connects
  * master table's master field to foreign table's foreign key
  * in EPS document.
- *
- * @see     Eps
  */
 class RelationStatsEps extends RelationStats
 {
@@ -32,7 +30,7 @@ class RelationStatsEps extends RelationStats
      * @param string     $foreignField The relation field in the foreign table
      */
     public function __construct(
-        Eps $diagram,
+        private Eps $diagram,
         TableStats $masterTable,
         string $masterField,
         TableStats $foreignTable,
@@ -40,7 +38,7 @@ class RelationStatsEps extends RelationStats
     ) {
         $this->wTick = 10;
 
-        parent::__construct($diagram, $masterTable, $masterField, $foreignTable, $foreignField);
+        parent::__construct($masterTable, $masterField, $foreignTable, $foreignField);
 
         $this->ySrc += 10;
         $this->yDest += 10;
@@ -49,8 +47,6 @@ class RelationStatsEps extends RelationStats
     /**
      * draws relation links and arrows
      * shows foreign key relations
-     *
-     * @see Eps
      */
     public function relationDraw(): void
     {

@@ -427,6 +427,13 @@ class LanguageManager
             'li|limburgish',
             '',
         ],
+        'lo' => [
+            'lo',
+            'Lao',
+            'ພາສາລາວ',
+            'lo|lao',
+            'lo_LA',
+        ],
         'lt' => [
             'lt',
             'Lithuanian',

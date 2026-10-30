@@ -9,7 +9,6 @@ use CodeLts\U2F\U2FServer\SignRequest;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
@@ -25,8 +24,8 @@ use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use Psr\Http\Message\ServerRequestInterface;
 use ReflectionProperty;
 
+use function array_key_exists;
 use function count;
-use function in_array;
 use function json_encode;
 use function str_replace;
 
@@ -47,14 +46,6 @@ class TwoFactorTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
-        Current::$database = '';
-        Current::$table = 'table';
-        $config = Config::getInstance();
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NaturalOrder'] = true;
         $this->initStorageConfigAndData();
     }
 
@@ -275,7 +266,7 @@ class TwoFactorTest extends AbstractTestCase
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        if (! in_array('application', $object->getAvailable(), true)) {
+        if (! array_key_exists('application', $object->getAvailable())) {
             self::markTestSkipped('google2fa not available');
         }
 
@@ -329,7 +320,7 @@ class TwoFactorTest extends AbstractTestCase
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        if (! in_array('key', $object->getAvailable(), true)) {
+        if (! array_key_exists('key', $object->getAvailable())) {
             self::markTestSkipped('u2f-php-server not available');
         }
 
@@ -395,7 +386,7 @@ class TwoFactorTest extends AbstractTestCase
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
 
         $object = $this->getTwoFactorAndLoadConfig('user', null);
-        if (! in_array('key', $object->getAvailable(), true)) {
+        if (! array_key_exists('key', $object->getAvailable())) {
             self::markTestSkipped('u2f-php-server not available');
         }
 
@@ -518,7 +509,7 @@ class TwoFactorTest extends AbstractTestCase
         $object = $this->getTwoFactorAndLoadConfig('user', null);
         $backends = $object->getAllBackends();
         self::assertCount(
-            count($object->getAvailable()) + 1,
+            count($object->getAvailable()),
             $backends,
         );
         $config->config->debug->simple2fa = false;

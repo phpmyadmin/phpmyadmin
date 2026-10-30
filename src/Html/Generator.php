@@ -12,7 +12,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Query\Compatibility;
@@ -214,9 +213,7 @@ class Generator
         $class = 'text-danger';
         if (! $server['ssl']) {
             $message = __('SSL is not being used');
-            if (
-                ! empty($server['socket']) || in_array($server['host'], $config->settings['MysqlSslWarningSafeHosts'])
-            ) {
+            if (! empty($server['socket']) || in_array($server['host'], $config->config->MysqlSslWarningSafeHosts)) {
                 $class = '';
             }
         } elseif (! $server['ssl_verify']) {
@@ -296,11 +293,7 @@ class Generator
         // For primary keys of type char(36) or varchar(36) UUID if the default
         // function
         // Only applies to insert mode, as it would silently trash data on updates.
-        if (
-            $insertMode
-            && $key === 'PRI'
-            && ($type === 'char(36)' || $type === 'varchar(36)')
-        ) {
+        if ($insertMode && $key === 'PRI' && ($type === 'char(36)' || $type === 'varchar(36)')) {
             return $config->settings['DefaultFunctions']['FUNC_UUID'];
         }
 
@@ -367,7 +360,7 @@ class Generator
      * @return array<string, int|string>
      * @psalm-return array{pos: int, unlim_num_rows: int, rows: int, sql_query: string}
      */
-    public static function getStartAndNumberOfRowsFieldsetData(string $sqlQuery): array
+    public static function getStartAndNumberOfRowsFieldsetData(string $sqlQuery, int|null $posFromRequest = null): array
     {
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = (int) $_REQUEST['session_max_rows'];
@@ -379,8 +372,8 @@ class Generator
         }
 
         $numberOfLine = (int) $_REQUEST['unlim_num_rows'];
-        if (isset($_REQUEST['pos'])) {
-            $pos = (int) $_REQUEST['pos'];
+        if ($posFromRequest !== null) {
+            $pos = $posFromRequest;
         } elseif (isset($_SESSION['tmpval']['pos'])) {
             $pos = (int) $_SESSION['tmpval']['pos'];
         } else {
@@ -395,8 +388,8 @@ class Generator
      * Prepare the message and the query
      * usually the message is the result of the query executed
      *
-     * @param Message|string $message  the message to display
-     * @param string|null    $sqlQuery the query to display
+     * @param Message     $message  the message to display
+     * @param string|null $sqlQuery the query to display
      *
      * @throws Throwable
      * @throws LoaderError
@@ -404,9 +397,8 @@ class Generator
      * @throws SyntaxError
      */
     public static function getMessage(
-        Message|string $message,
+        Message $message,
         string|null $sqlQuery = null,
-        MessageType $type = MessageType::Notice,
     ): string {
         $retval = '';
 
@@ -421,15 +413,11 @@ class Generator
         }
 
         $config = Config::getInstance();
-        $renderSql = $config->settings['ShowSQL'] && $sqlQuery !== '' && $sqlQuery !== ';';
+        $renderSql = $config->config->ShowSQL && $sqlQuery !== '' && $sqlQuery !== ';';
 
         if (Sql::$usingBookmarkMessage !== null) {
             $retval .= Sql::$usingBookmarkMessage->getDisplay();
             Sql::$usingBookmarkMessage = null;
-        }
-
-        if (is_string($message)) {
-            $message = new Message($message, $type);
         }
 
         if (! $renderSql) {
@@ -438,10 +426,9 @@ class Generator
 
         $retval .= '<div class="card mb-3 result_query">' . "\n";
 
-        $message->isDisplayed(true);
         $retval .= '<div class="alert alert-' . $message->getContext();
         $retval .= ' border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">' . "\n";
-        $retval .= '  ' . $message->getMessage() . "\n";
+        $retval .= '  ' . $message->getMessageWithIcon() . "\n";
         $retval .= '</div>' . "\n";
 
         // Html format the query to be displayed
@@ -481,7 +468,7 @@ class Generator
         // but only explain a SELECT (that has not been explained)
         /* SQL-Parser-Analyzer */
         $explainLink = '';
-        $queryTooBig = mb_strlen($sqlQuery) > $config->settings['MaxCharactersInDisplayedSQL'];
+        $queryTooBig = mb_strlen($sqlQuery) > $config->config->MaxCharactersInDisplayedSQL;
         $isSelect = preg_match('@^SELECT[[:space:]]+@i', $sqlQuery) === 1;
         if (! empty($config->settings['SQLQuery']['Explain']) && ! $queryTooBig) {
             $explainParams = $urlParams;
@@ -1064,8 +1051,8 @@ class Generator
     public static function formatSql(string $sqlQuery, bool $truncate = false): string
     {
         $config = Config::getInstance();
-        if ($truncate && mb_strlen($sqlQuery) > $config->settings['MaxCharactersInDisplayedSQL']) {
-            $sqlQuery = mb_substr($sqlQuery, 0, $config->settings['MaxCharactersInDisplayedSQL']) . '[...]';
+        if ($truncate && mb_strlen($sqlQuery) > $config->config->MaxCharactersInDisplayedSQL) {
+            $sqlQuery = mb_substr($sqlQuery, 0, $config->config->MaxCharactersInDisplayedSQL) . '[...]';
         }
 
         return '<pre><code class="sql" dir="ltr">'

@@ -12,6 +12,8 @@ use PhpMyAdmin\Dbal\MysqliResult;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
+use function method_exists;
+
 #[CoversClass(DbiMysqli::class)]
 #[CoversClass(Connection::class)]
 class DbiMysqliTest extends AbstractTestCase
@@ -40,7 +42,7 @@ class DbiMysqliTest extends AbstractTestCase
     public function testSelectDb(): void
     {
         $databaseName = 'test';
-        $mysqli = self::createMock(mysqli::class);
+        $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects(self::once())
             ->method('select_db')
             ->with(self::equalTo($databaseName))
@@ -55,7 +57,7 @@ class DbiMysqliTest extends AbstractTestCase
     public function testRealMultiQuery(): void
     {
         $query = 'test';
-        $mysqli = self::createMock(mysqli::class);
+        $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects(self::once())
             ->method('multi_query')
             ->with(self::equalTo($query))
@@ -70,8 +72,8 @@ class DbiMysqliTest extends AbstractTestCase
     public function testrealQuery(): void
     {
         $query = 'test';
-        $mysqliResult = self::createMock(mysqli_result::class);
-        $mysqli = self::createMock(mysqli::class);
+        $mysqliResult = $this->createStub(mysqli_result::class);
+        $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects(self::once())
             ->method('query')
             ->with(self::equalTo($query))
@@ -85,7 +87,7 @@ class DbiMysqliTest extends AbstractTestCase
      */
     public function testNextResult(): void
     {
-        $mysqli = self::createMock(mysqli::class);
+        $mysqli = $this->createMock(mysqli::class);
         $mysqli->expects(self::once())
             ->method('next_result')
             ->willReturn(true);
@@ -98,8 +100,8 @@ class DbiMysqliTest extends AbstractTestCase
      */
     public function testStoreResult(): void
     {
-        $mysqli = self::createMock(mysqli::class);
-        $mysqliResult = self::createMock(mysqli_result::class);
+        $mysqli = $this->createMock(mysqli::class);
+        $mysqliResult = $this->createStub(mysqli_result::class);
         $mysqli->expects(self::once())
             ->method('store_result')
             ->willReturn($mysqliResult);
@@ -107,18 +109,17 @@ class DbiMysqliTest extends AbstractTestCase
         self::assertInstanceOf(MysqliResult::class, $this->object->storeResult(new Connection($mysqli)));
     }
 
-    /**
-     * Test for escapeString
-     */
-    public function testEscapeString(): void
+    public function testQuoteString(): void
     {
         $string = 'test';
-        $mysqli = self::createMock(mysqli::class);
-        $mysqli->expects(self::once())
-            ->method('real_escape_string')
-            ->willReturn($string);
+        $mysqli = $this->createMock(mysqli::class);
+        if (method_exists(mysqli::class, 'quote_string')) {
+            $mysqli->expects(self::once())->method('quote_string')->willReturn("'" . $string . "'");
+        } else {
+            $mysqli->expects(self::once())->method('real_escape_string')->willReturn($string);
+        }
 
-        self::assertSame($string, $this->object->escapeString(new Connection($mysqli), $string));
+        self::assertSame("'" . $string . "'", $this->object->quoteString(new Connection($mysqli), $string));
     }
 
     public function testGetWarningCount(): void

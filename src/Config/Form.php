@@ -137,7 +137,6 @@ class Form
         }
 
         if (! $hasStringKeys) {
-            /** @var array $value */
             $value = array_combine($keys, $value);
         }
 
@@ -159,7 +158,7 @@ class Form
             $prefix .= $key . '/';
             array_walk(
                 $value,
-                function ($value, $key, $prefix): void {
+                function (mixed $value, mixed $key, mixed $prefix): void {
                     $this->readFormPathsCallback($value, $key, $prefix);
                 },
                 $prefix,
@@ -200,7 +199,7 @@ class Form
         $this->fields = [];
         array_walk(
             $form,
-            function ($value, $key, $prefix): void {
+            function (mixed $value, mixed $key, mixed $prefix): void {
                 $this->readFormPathsCallback($value, $key, $prefix);
             },
             '',

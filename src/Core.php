@@ -178,10 +178,10 @@ class Core
      *
      * @return array<string, string>
      */
-    public static function headerJSON(ClockInterface|null $clock = null): array
+    public static function headerJSON(ClockInterface $clock = new Clock()): array
     {
         // No caching
-        $headers = self::getNoCacheHeaders($clock ?? new Clock());
+        $headers = self::getNoCacheHeaders($clock);
 
         // Media type
         $headers['Content-Type'] = 'application/json; charset=UTF-8';
@@ -640,7 +640,11 @@ class Core
             return null;
         }
 
-        return unserialize($data);
+        // The manual parser above only permits scalars and plain arrays (s/b/i/d/N/a);
+        // any object token ('O:'/'C:') causes an early return null. Explicitly passing
+        // allowed_classes => false here adds defence-in-depth in case of parser edge
+        // cases and makes the intent clear to static analysis tools.
+        return unserialize($data, ['allowed_classes' => false]);
     }
 
     /**

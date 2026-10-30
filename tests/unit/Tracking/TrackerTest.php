@@ -155,11 +155,9 @@ class TrackerTest extends AbstractTestCase
         $config->selectedServer['tracking_add_drop_view'] = true;
         $config->selectedServer['user'] = 'pma_test_user';
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         /**
          * set up mock objects
@@ -180,21 +178,17 @@ class TrackerTest extends AbstractTestCase
             ->with('pma_test', 'pma_tbl')
             ->willReturn($getIndexesResult);
 
-        $showTableStatusQuery = 'SHOW TABLE STATUS FROM `pma_test` WHERE Name = \'pma_tbl\'';
         $useStatement = 'USE `pma_test`';
         $showCreateTableQuery = 'SHOW CREATE TABLE `pma_test`.`pma_tbl`';
-        $dbi->expects(self::exactly(3))->method('tryQuery')->willReturnMap([
-            [$showTableStatusQuery, ConnectionType::User, false, true, $resultStub],
+        $dbi->expects(self::exactly(2))->method('tryQuery')->willReturnMap([
             [$useStatement, ConnectionType::User, false, true, $resultStub],
             [$showCreateTableQuery, ConnectionType::User, false, true, $resultStub],
         ]);
 
-        $dbi->expects(self::any())->method('query')
-            ->willReturn($resultStub);
+        $dbi->method('query')->willReturn($resultStub);
 
-        $dbi->expects(self::any())->method('getCompatibilities')
-            ->willReturn([]);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('getCompatibilities')->willReturn([]);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -211,11 +205,9 @@ class TrackerTest extends AbstractTestCase
         $config->selectedServer['tracking_add_drop_view'] = true;
         $config->selectedServer['user'] = 'pma_test_user';
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $expectedMainQuery = '/*NOTRACK*/' . "\n" . 'INSERT INTO `pmadb`.`tracking` (db_name, table_name, version,'
             . ' date_created, date_updated, schema_snapshot, schema_sql, data_sql, tracking)'
@@ -228,7 +220,7 @@ class TrackerTest extends AbstractTestCase
             ->with(self::matches($expectedMainQuery))
             ->willReturn($resultStub);
 
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -252,11 +244,9 @@ class TrackerTest extends AbstractTestCase
         string|int $newState = '1',
         string|null $type = null,
     ): void {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
 
         $sqlQuery = 'UPDATE `pmadb`.`tracking` SET `tracking_active` = ' . $newState .
         " WHERE `db_name` = '" . $dbname . "'" .
@@ -268,7 +258,7 @@ class TrackerTest extends AbstractTestCase
             ->with($sqlQuery)
             ->willReturn($resultStub);
 
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;

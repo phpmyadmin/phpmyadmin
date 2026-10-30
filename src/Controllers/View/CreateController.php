@@ -63,14 +63,7 @@ final class CreateController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         UrlParams::$params['goto'] = Url::getFromRoute('/table/structure');
@@ -255,10 +248,7 @@ final class CreateController implements InvocableController
             $sqlQuery = 'ALTER';
         }
 
-        if (
-            isset($view['algorithm'])
-            && in_array($view['algorithm'], self::VIEW_ALGORITHM_OPTIONS, true)
-        ) {
+        if (isset($view['algorithm']) && in_array($view['algorithm'], self::VIEW_ALGORITHM_OPTIONS, true)) {
             $sqlQuery .= $separator . ' ALGORITHM = ' . $view['algorithm'];
         }
 
@@ -273,10 +263,7 @@ final class CreateController implements InvocableController
             }
         }
 
-        if (
-            isset($view['sql_security'])
-            && in_array($view['sql_security'], self::VIEW_SECURITY_OPTIONS, true)
-        ) {
+        if (isset($view['sql_security']) && in_array($view['sql_security'], self::VIEW_SECURITY_OPTIONS, true)) {
             $sqlQuery .= $separator . ' SQL SECURITY '
                 . $view['sql_security'];
         }

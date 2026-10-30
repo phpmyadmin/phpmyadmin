@@ -11,8 +11,8 @@ window.CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
     }
 
     function handleResponse (response) {
-        var found = [];
-        for (var idx in response) {
+        const found = [];
+        for (let idx in response) {
             found.push({
                 // eslint-disable-next-line new-cap
                 from: window.CodeMirror.Pos(
@@ -39,7 +39,6 @@ window.CodeMirror.sqlLint = function (text, updateLinting, options, cm) {
             'server': CommonParams.get('server'),
             'options': options.lintOptions,
             'no_history': true,
-            'ajax_request': true,
         },
         success: handleResponse
     });

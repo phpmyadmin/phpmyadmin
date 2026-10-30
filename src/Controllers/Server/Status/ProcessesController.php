@@ -48,7 +48,6 @@ final class ProcessesController extends AbstractController implements InvocableC
         ));
 
         $urlParams = [
-            'ajax_request' => true,
             'full' => $full,
             'column_name' => $request->getParsedBodyParam('column_name', ''),
             'order_by_field' => $orderByField,

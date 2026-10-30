@@ -53,8 +53,6 @@ class SvgRelationSchema extends ExportRelationSchema
     /**
      * Upon instantiation This starts writing the SVG XML document
      * user will be prompted for download as .svg extension
-     *
-     * @see Svg
      */
     public function __construct(Relation $relation, DatabaseName $db)
     {
@@ -185,9 +183,6 @@ class SvgRelationSchema extends ExportRelationSchema
     /**
      * Defines relation objects
      *
-     * @see setMinMax,TableStatsSvg::__construct(),
-     *       PhpMyAdmin\Plugins\Schema\Svg\RelationStatsSvg::__construct()
-     *
      * @param string $masterTable    The master table name
      * @param string $font           The font face
      * @param int    $fontSize       Font size
@@ -248,8 +243,6 @@ class SvgRelationSchema extends ExportRelationSchema
      * Draws relation arrows and lines
      * connects master table's master field to
      * foreign table's foreign field
-     *
-     * @see Relation_Stats_Svg::relationDraw()
      */
     private function drawRelations(): void
     {
@@ -258,9 +251,6 @@ class SvgRelationSchema extends ExportRelationSchema
         }
     }
 
-    /**
-     * Draws tables
-     */
     private function drawTables(): void
     {
         foreach ($this->tables as $table) {

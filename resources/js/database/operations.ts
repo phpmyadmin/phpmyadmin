@@ -1,12 +1,13 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { emptyCheckTheField, prepareForAjaxRequest } from '../modules/functions.ts';
+import { emptyCheckTheField } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
 import refreshMainContent from '../modules/functions/refreshMainContent.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview    function used in server privilege pages
@@ -48,8 +49,8 @@ AJAX.registerOnload('database/operations.js', function () {
             return false;
         }
 
-        var oldDbName = CommonParams.get('db');
-        var newDbName = $('#new_db_name').val();
+        const oldDbName = CommonParams.get('db');
+        const newDbName = $('#new_db_name').val();
 
         if (newDbName === oldDbName) {
             ajaxShowMessage(window.Messages.strDatabaseRenameToSameName, false, 'error');
@@ -57,11 +58,9 @@ AJAX.registerOnload('database/operations.js', function () {
             return false;
         }
 
-        var $form = $(this);
+        const $form = $(this);
 
-        var question = escapeHtml('CREATE DATABASE ' + newDbName + ' / DROP DATABASE ' + oldDbName);
-
-        prepareForAjaxRequest($form);
+        const question = escapeHtml('CREATE DATABASE ' + newDbName + ' / DROP DATABASE ' + oldDbName);
 
         $form.confirm(question, $form.attr('action'), function (url) {
             ajaxShowMessage(window.Messages.strRenamingDatabases, false);
@@ -73,7 +72,7 @@ AJAX.registerOnload('database/operations.js', function () {
                         $('#pma_navigation_tree')
                             .find('a:not(\'.expander\')')
                             .each(function () {
-                                var $thisAnchor = $(this);
+                                const $thisAnchor = $(this);
                                 if ($thisAnchor.text() === data.newname) {
                                     // simulate a click on the new db name
                                     // in navigation
@@ -101,8 +100,7 @@ AJAX.registerOnload('database/operations.js', function () {
         }
 
         ajaxShowMessage(window.Messages.strCopyingDatabase, false);
-        var $form = $(this);
-        prepareForAjaxRequest($form);
+        const $form = $(this);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             // use messages that stay on screen
             $('.alert-success, .alert-danger').fadeOut();
@@ -138,8 +136,7 @@ AJAX.registerOnload('database/operations.js', function () {
      */
     $(document).on('submit', '#change_db_charset_form.ajax', function (event) {
         event.preventDefault();
-        var $form = $(this);
-        prepareForAjaxRequest($form);
+        const $form = $(this);
         ajaxShowMessage(window.Messages.strChangingCharset);
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
@@ -155,17 +152,17 @@ AJAX.registerOnload('database/operations.js', function () {
      */
     $(document).on('click', '#drop_db_anchor.ajax', function (event) {
         event.preventDefault();
-        var $link = $(this);
+        const $link = $(this);
         /**
          * @var {string} question String containing the question to be asked for confirmation
          */
-        var question = window.Messages.strDropDatabaseStrongWarning + ' ';
-        question += window.sprintf(
+        let question = window.Messages.strDropDatabaseStrongWarning + ' ';
+        question += sprintf(
             window.Messages.strDoYouReally,
             'DROP DATABASE `' + escapeHtml(CommonParams.get('db') + '`')
         );
 
-        var params = getJsConfirmCommonParam(this, $link.getPostData());
+        const params = getJsConfirmCommonParam(this, $link.getPostData());
 
         $(this).confirm(question, $(this).attr('href'), function (url) {
             ajaxShowMessage(window.Messages.strProcessingRequest);

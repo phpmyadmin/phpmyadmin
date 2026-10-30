@@ -122,6 +122,10 @@ Basic settings
     :type: boolean
     :default: false
 
+    .. deprecated:: 6.0.0
+
+        This setting has been removed. The Suhosin extension is no longer supported.
+
     A warning is displayed on the main page if Suhosin is detected.
 
     You can set this parameter to ``true`` to stop this message from appearing.
@@ -502,8 +506,24 @@ Server connection settings
     :type: boolean
     :default: false
 
-    Whether to use a compressed protocol for the MySQL server connection
-    or not (experimental).
+    Whether to enable client/server protocol compression for this
+    database server connection (experimental).
+
+    When enabled, phpMyAdmin passes the ``MYSQLI_CLIENT_COMPRESS`` flag to
+    mysqli so that traffic between the PHP process and the database server is
+    compressed. This affects only the database connection protocol. It does
+    not compress SQL dumps, CSV/export downloads, or HTTP responses to the
+    browser.
+
+    Compression can help on slow or metered links between phpMyAdmin and the
+    database server. On a local or low-latency network the CPU cost often
+    outweighs any bandwidth savings, so leave this disabled unless you
+    measure a benefit.
+
+    .. seealso::
+
+        - `MYSQLI_CLIENT_COMPRESS <https://www.php.net/manual/en/mysqli.constants.php#constant.mysqli-client-compress>`_
+        - `MySQL connection compression control <https://dev.mysql.com/doc/refman/en/connection-compression-control.html>`_
 
 .. _controlhost:
 .. config:option:: $cfg['Servers'][$i]['controlhost']
@@ -708,7 +728,7 @@ Server connection settings
     MySQL database server**. If set, it just means only these databases
     will be displayed but **not that all other databases can't be used.**
 
-    An example of using more that one database:
+    An example of using more than one database:
 
     .. code-block:: php
 
@@ -726,7 +746,7 @@ Server connection settings
     Regular expression for hiding some databases from unprivileged users.
     This only hides them from listing, but a user is still able to access
     them (using, for example, the SQL query area). To limit access, use
-    the MySQL privilege system.  For example, to hide all databases
+    the MySQL privilege system. For example, to hide all databases
     starting with the letter "a", use
 
     .. code-block:: php
@@ -897,7 +917,7 @@ Server connection settings
     permits visually managing the relations. To do this it needs two tables
     "``pdf_pages``" (storing information about the available :term:`PDF` pages)
     and "``table_coords``" (storing coordinates where each table will be placed on
-    a :term:`PDF` schema output).  You must be using the "relation" feature.
+    a :term:`PDF` schema output). You must be using the "relation" feature.
 
     To allow the usage of this functionality:
 
@@ -975,9 +995,9 @@ Server connection settings
       .. code-block:: mysql
 
            ALTER TABLE `pma__column_comments`
-           ADD `mimetype` VARCHAR( 255 ) NOT NULL,
-           ADD `transformation` VARCHAR( 255 ) NOT NULL,
-           ADD `transformation_options` VARCHAR( 255 ) NOT NULL;
+           ADD `mimetype` VARCHAR(255) NOT NULL,
+           ADD `transformation` VARCHAR(255) NOT NULL,
+           ADD `transformation_options` VARCHAR(255) NOT NULL;
     * to update your PRE-4.3.0 ``column_info`` table manually use this
       ``./resources/sql/upgrade_column_info_4_3_0+.sql`` SQL script.
 
@@ -1627,7 +1647,7 @@ Generic settings
 
     The url of the proxy to be used when phpmyadmin needs to access the outside
     internet such as when retrieving the latest version info or submitting error
-    reports.  You need this if the server where phpMyAdmin is installed does not
+    reports. You need this if the server where phpMyAdmin is installed does not
     have direct access to the internet.
     The format is: "hostname:portnumber"
 
@@ -1696,8 +1716,7 @@ Generic settings
     :type: boolean
     :default: false
 
-    Whether `persistent connections <https://www.php.net/manual/en/features
-    .persistent-connections.php>`_ should be used or not.
+    Whether `persistent connections <https://www.php.net/manual/en/features.persistent-connections.php>`_ should be used or not.
 
 .. seealso::
 
@@ -1812,7 +1831,7 @@ Generic settings
     :default: true
 
     Defines whether to use a Javascript code editor for SQL query boxes.
-    CodeMirror provides syntax highlighting and line numbers.  However,
+    CodeMirror provides syntax highlighting and line numbers. However,
     middle-clicking for pasting the clipboard contents in some Linux
     distributions (such as Ubuntu) is not supported by all browsers.
 
@@ -1853,7 +1872,7 @@ Generic settings
 
     This limitation of :term:`SQL` queries is not as strict as when using MySQL
     privileges. This is due to nature of :term:`SQL` queries which might be
-    quite complicated.  So this choice should be viewed as help to avoid
+    quite complicated. So this choice should be viewed as help to avoid
     accidental dropping rather than strict privilege limitation.
 
 .. config:option:: $cfg['Confirm']
@@ -2221,7 +2240,7 @@ Navigation panel setup
 
     Defines a string to be used to nest table spaces. This means if you have
     tables like ``first__second__third`` this will be shown as a three-level
-    hierarchy like: first > second > third.  If set to false or empty, the
+    hierarchy like: first > second > third. If set to false or empty, the
     feature is disabled. NOTE: You should not use this separator at the
     beginning or end of a table name or multiple times after another without
     any other characters in between.
@@ -3113,9 +3132,9 @@ Web server settings
     :type: integer
     :default: 1000
 
-    Limit for length of :term:`URL` in links.  When length would be above this
+    Limit for length of :term:`URL` in links. When length would be above this
     limit, it is replaced by form with button. This is required as some web
-    servers (:term:`IIS`) have problems with long :term:`URL` .
+    servers (:term:`IIS`) have problems with long :term:`URL`.
 
 .. config:option:: $cfg['CSPAllow']
 
@@ -4104,7 +4123,7 @@ reCaptcha using hCaptcha
 
 .. code-block:: php
 
-    $cfg['CaptchaApi'] = 'https://www.hcaptcha.com/1/api.js';
+    $cfg['CaptchaApi'] = 'https://js.hcaptcha.com/1/api.js';
     $cfg['CaptchaCsp'] = 'https://hcaptcha.com https://*.hcaptcha.com';
     $cfg['CaptchaRequestParam'] = 'h-captcha';
     $cfg['CaptchaResponseParam'] = 'h-captcha-response';

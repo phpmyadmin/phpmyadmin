@@ -47,25 +47,11 @@ final readonly class DropColumnConfirmationController implements InvocableContro
         }
 
         if (! $this->dbTableExists->selectDatabase($db)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         if (! $this->dbTableExists->hasTable($db, $table)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No table selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
+            return $this->response->respondWithErrorMessage(__('No table selected.'));
         }
 
         $this->response->render('table/structure/drop_confirm', [
@@ -89,6 +75,6 @@ final readonly class DropColumnConfirmationController implements InvocableContro
             return;
         }
 
-        $this->response->addHTML(Message::error($message)->getDisplay());
+        $this->response->addHTML(Message::error($message));
     }
 }

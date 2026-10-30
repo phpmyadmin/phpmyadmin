@@ -1,7 +1,13 @@
 {% if not_only_options %}
     <form class="disableAjax" method="post" action="{{ form_action|raw }}">
         {{ get_hidden_fields([]) }}
-        <label for="select_server" class="form-label">{{ t('Current server:') }}</label>
+        <label for="select_server" class="form-label">
+          {% if has_label_icon %}
+            {{ get_icon('s_host', t('Current server:')) }}
+          {% else %}
+            {{ t('Current server:') }}
+          {% endif %}
+        </label>
         <select id="select_server" class="form-select autosubmit" name="server">
             <option value="">({{ t('Servers') }}) ...</option>
             {% for server in servers.select %}

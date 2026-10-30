@@ -19,11 +19,11 @@ final class ApplicationHandlerTest extends TestCase
 {
     public function testHandleReturnsResponse(): void
     {
-        $responseRendererMock = self::createMock(ResponseRenderer::class);
+        $responseRendererMock = $this->createMock(ResponseRenderer::class);
         $responseRendererMock->expects(self::never())->method('response');
         $request = self::createStub(ServerRequest::class);
         $responseStub = new Response(self::createStub(ResponseInterface::class));
-        $appMock = self::createMock(Application::class);
+        $appMock = $this->createMock(Application::class);
         $appMock->expects(self::once())->method('handle')->with($request)->willReturn($responseStub);
         $handler = new ApplicationHandler($appMock, $responseRendererMock);
         $response = $handler->handle($request);
@@ -33,10 +33,10 @@ final class ApplicationHandlerTest extends TestCase
     public function testHandleThrowsExit(): void
     {
         $responseStub = new Response(self::createStub(ResponseInterface::class));
-        $responseRendererMock = self::createMock(ResponseRenderer::class);
+        $responseRendererMock = $this->createMock(ResponseRenderer::class);
         $responseRendererMock->expects(self::once())->method('response')->willReturn($responseStub);
         $request = self::createStub(ServerRequest::class);
-        $appMock = self::createMock(Application::class);
+        $appMock = $this->createMock(Application::class);
         $appMock->expects(self::once())->method('handle')->with($request)->willThrowException(new ExitException());
         $handler = new ApplicationHandler($appMock, $responseRendererMock);
         $response = $handler->handle($request);

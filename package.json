@@ -7,7 +7,7 @@
   "license": "GPL-2.0",
   "private": true,
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "type": "module",
   "dependencies": {
@@ -33,17 +33,17 @@
     "chartjs-adapter-date-fns": "^3.0.0",
     "chartjs-plugin-zoom": "^2.0.1",
     "codemirror": "5.65.12",
-    "copy-webpack-plugin": "^11.0.0",
+    "copy-webpack-plugin": "^14.0.0",
     "css-loader": "^6.6.0",
     "date-fns": "^3.6.0",
-    "jquery": "3.7.1",
-    "jquery-migrate": "3.5.2",
-    "jquery-ui-dist": "1.13.3",
-    "jquery-ui-timepicker-addon": "1.6.3",
+    "jquery": "^3.7.1",
+    "jquery-migrate": "^3.6.0",
+    "jquery-ui": "^1.14.2",
+    "jquery-ui-timepicker-addon": "^1.6.3",
     "jquery-uitablefilter": "^1.0.0",
-    "jquery-validation": "1.21.0",
+    "jquery-validation": "^1.22.1",
     "js-cookie": "3.0.5",
-    "locutus.sprintf": "^2.0.32-code-lts.1",
+    "locutus": "^3.0.36",
     "mini-css-extract-plugin": "^2.5.3",
     "ol": "^10.7.0",
     "postcss": "^8.5.6",
@@ -81,7 +81,7 @@
     "build": "webpack",
     "css-lint": "stylelint \"public/themes/**/scss/*.scss\" \"public/setup/scss/*.scss\"",
     "js-lint": "eslint resources/js tests/javascript jest.config.cjs",
-    "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
+    "test": "jest"
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

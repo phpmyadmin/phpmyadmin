@@ -87,7 +87,6 @@ class PdfRelationSchema extends ExportRelationSchema
     private Pdf $pdf;
     private DatabaseInterface $dbi;
 
-    /** @see Pdf */
     public function __construct(Relation $relation, DatabaseName $db)
     {
         parent::__construct($relation, $db);
@@ -257,14 +256,6 @@ class PdfRelationSchema extends ExportRelationSchema
     }
 
     /**
-     * Return whether to show selected database data dictionary or not
-     */
-    public function isWithDataDictionary(): bool
-    {
-        return $this->withDoc;
-    }
-
-    /**
      * Sets the order of the table in data dictionary
      *
      * @param string $value table order
@@ -305,8 +296,6 @@ class PdfRelationSchema extends ExportRelationSchema
 
     /**
      * Defines relation objects
-     *
-     * @see setMinMax
      *
      * @param string $masterTable  The master table name
      * @param string $masterField  The relation field in the master table
@@ -356,11 +345,6 @@ class PdfRelationSchema extends ExportRelationSchema
         );
     }
 
-    /**
-     * Draws the grid
-     *
-     * @see Pdf
-     */
     private function strokeGrid(): void
     {
         $gridSize = 10;
@@ -411,11 +395,6 @@ class PdfRelationSchema extends ExportRelationSchema
         }
     }
 
-    /**
-     * Draws relation arrows
-     *
-     * @see Relation_Stats_Pdf::relationdraw()
-     */
     private function drawRelations(): void
     {
         $i = 0;
@@ -425,11 +404,6 @@ class PdfRelationSchema extends ExportRelationSchema
         }
     }
 
-    /**
-     * Draws tables
-     *
-     * @see TableStatsPdf::tableDraw()
-     */
     private function drawTables(): void
     {
         foreach ($this->tables as $table) {

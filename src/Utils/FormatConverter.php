@@ -25,10 +25,8 @@ class FormatConverter
 {
     /**
      * Transforms a binary to an IP
-     *
-     * @param mixed $buffer Data to transform
      */
-    public static function binaryToIp(mixed $buffer, bool $isBinary): false|string
+    public static function binaryToIp(string $buffer, bool $isBinary): string
     {
         if (! str_starts_with($buffer, '0x')) {
             return $isBinary ? bin2hex($buffer) : $buffer;
@@ -41,17 +39,17 @@ class FormatConverter
             return $buffer;
         }
 
-        return @inet_ntop($ipBin);
+        $ip = inet_ntop($ipBin);
+
+        return $ip === false ? $buffer : $ip;
     }
 
     /**
      * Transforms an IP to a binary
-     *
-     * @param mixed $buffer Data to transform
      */
-    public static function ipToBinary(mixed $buffer): string
+    public static function ipToBinary(string $buffer): string
     {
-        $val = @inet_pton($buffer);
+        $val = inet_pton($buffer);
         if ($val !== false) {
             return '0x' . bin2hex($val);
         }

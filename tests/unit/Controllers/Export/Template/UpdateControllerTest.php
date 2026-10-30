@@ -14,7 +14,6 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
@@ -24,14 +23,12 @@ final class UpdateControllerTest extends AbstractTestCase
 {
     private DatabaseInterface $dbi;
 
-    private DbiDummy $dummyDbi;
-
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
+        $dummyDbi = $this->createDbiDummy();
+        $this->dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
     }
 

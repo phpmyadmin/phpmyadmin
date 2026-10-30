@@ -24,7 +24,7 @@ class Pbxt extends StorageEngine
     /**
      * Returns array with variable names dedicated to PBXT storage engine
      *
-     * @return mixed[]   variable names
+     * @return array<string, array{title?: string, desc?: string, type?: int}> variable names
      */
     public function getVariables(): array
     {

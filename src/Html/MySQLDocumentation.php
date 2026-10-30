@@ -16,6 +16,8 @@ use function defined;
 use function file_exists;
 use function htmlspecialchars;
 
+use const DOCS_HTML_DIR;
+
 /**
  * Generate HTML for MySQL Documentation
  */
@@ -105,7 +107,7 @@ class MySQLDocumentation
          * Check if we have built local documentation, however
          * provide consistent URL for testsuite
          */
-        if (! defined('TESTSUITE') && @file_exists(ROOT_PATH . 'docs/html/index.html')) {
+        if (! defined('TESTSUITE') && @file_exists(DOCS_HTML_DIR . 'index.html')) {
             return $pathPrefix . 'docs/html/' . $url;
         }
 

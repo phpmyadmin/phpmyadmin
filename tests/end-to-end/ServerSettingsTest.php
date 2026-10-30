@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use Facebook\WebDriver\WebDriverBy;
 use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Large;
 
@@ -36,13 +37,25 @@ class ServerSettingsTest extends TestBase
     private function saveConfig(): void
     {
         $this->scrollToBottom();
+
+        // saveConfig() is called more than once per test. Switching settings tabs does
+        // not reload #page_content, so the ".alert-success" from a previous save is still
+        // in the DOM here.
+        $previousAlerts = $this->webDriver->findElements(WebDriverBy::cssSelector('.alert-success'));
+
         $this->waitForElement(
             'xpath',
             "//div[contains(@class, 'tab-pane') and contains(@class, 'show')"
             . " and contains(@class, 'active')]//input[@value='Apply']",
         )->click();
 
-        $success = $this->waitUntilElementIsPresent('cssSelector', '.alert-success', 5000);
+        if ($previousAlerts !== []) {
+            $this->waitUntilElementIsStale($previousAlerts[0]);
+        }
+
+        $this->waitAjax();
+
+        $success = $this->waitUntilElementIsPresent('cssSelector', '.alert-success', 5);
         self::assertStringContainsString('Configuration has been saved', $success->getText());
     }
 

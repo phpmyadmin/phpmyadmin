@@ -7,9 +7,9 @@ import { CommonParams } from '../common.ts';
  * @return {string}
  */
 export default function getJsConfirmCommonParam (elem, parameters) {
-    var $elem = $(elem);
-    var params = parameters;
-    var sep = CommonParams.get('arg_separator');
+    const $elem = $(elem);
+    let params = parameters;
+    const sep = CommonParams.get('arg_separator');
     if (params) {
         // Strip possible leading ?
         if (params.startsWith('?')) {
@@ -21,7 +21,7 @@ export default function getJsConfirmCommonParam (elem, parameters) {
         params = '';
     }
 
-    params += 'is_js_confirmed=1' + sep + 'ajax_request=true' + sep + 'fk_checks=' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
+    params += 'is_js_confirmed=1' + sep + 'fk_checks=' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
 
     return params;
 }

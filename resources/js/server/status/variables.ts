@@ -19,10 +19,10 @@ AJAX.registerTeardown('server/status/variables.js', function () {
 
 AJAX.registerOnload('server/status/variables.js', function () {
     // Filters for status variables
-    var textFilter = null;
-    var alertFilter = $('#filterAlert').prop('checked');
-    var categoryFilter = ($('#filterCategory').find(':selected').val() as string);
-    var text = ''; // Holds filter text
+    let textFilter = null;
+    let alertFilter = $('#filterAlert').prop('checked');
+    let categoryFilter = ($('#filterCategory').find(':selected').val() as string);
+    let text = ''; // Holds filter text
 
     /* 3 Filtering functions */
     ($('#filterAlert') as JQuery<HTMLInputElement>).on('change', function () {
@@ -45,7 +45,7 @@ AJAX.registerOnload('server/status/variables.js', function () {
     }).trigger('change');
 
     $('#filterText').on('keyup', function () {
-        var word = ($(this).val() as string).replace(/_/g, ' ');
+        const word = ($(this).val() as string).replace(/_/g, ' ');
         if (word.length === 0 || word.length >= 32768) {
             textFilter = null;
         } else {
@@ -66,8 +66,8 @@ AJAX.registerOnload('server/status/variables.js', function () {
 
     /* Filters the status variables by name/category/alert in the variables tab */
     function filterVariables () {
-        var usefulLinks = 0;
-        var section = text;
+        let usefulLinks = 0;
+        let section = text;
 
         if (categoryFilter.length > 0) {
             section = categoryFilter;

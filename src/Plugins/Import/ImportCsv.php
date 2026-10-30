@@ -61,6 +61,7 @@ class ImportCsv extends AbstractImportCsv
     private string $columns = '';
     private int $maxLines = 0;
     private bool $csvHasColumnNames = false;
+    private bool $emptyAsNull = false;
     private string $newDatabaseName = '';
     private string $newTableName = '';
 
@@ -151,6 +152,12 @@ class ImportCsv extends AbstractImportCsv
         );
         $generalOptions->addProperty($leaf);
 
+        $leaf = new BoolPropertyItem(
+            'csv_empty_as_null',
+            __('Import empty values as NULL'),
+        );
+        $generalOptions->addProperty($leaf);
+
         // add the main group to the root group
         $importSpecificOptions->addProperty($generalOptions);
 
@@ -171,6 +178,7 @@ class ImportCsv extends AbstractImportCsv
         $this->columns = $request->getParsedBodyParamAsString('csv_columns', '');
         $this->maxLines = min(0, (int) $request->getParsedBodyParamAsStringOrNull('csv_partial_import'));
         $this->csvHasColumnNames = $request->getParsedBodyParam('csv_col_names') !== null;
+        $this->emptyAsNull = $request->getParsedBodyParam('csv_empty_as_null') !== null;
         $this->newDatabaseName = $request->getParsedBodyParamAsString('csv_new_db_name', '');
         $this->newTableName = $request->getParsedBodyParamAsString('csv_new_tbl_name', '');
     }
@@ -273,8 +281,8 @@ class ImportCsv extends AbstractImportCsv
                 if ($lasti === $i && $lastlen === $len) {
                     Current::$message = Message::error(
                         __('Invalid format of CSV input on line %d.'),
+                        [$line],
                     );
-                    Current::$message->addParam($line);
                     Import::$hasError = true;
                     break;
                 }
@@ -376,6 +384,11 @@ class ImportCsv extends AbstractImportCsv
 
                     // unquoted NULL string
                     if ($needEnd === false && $value === 'NULL') {
+                        $value = null;
+                    }
+
+                    // Transform empty values to NULL
+                    if ($this->emptyAsNull && $value === '') {
                         $value = null;
                     }
 
@@ -481,8 +494,8 @@ class ImportCsv extends AbstractImportCsv
                                 __(
                                     'Invalid column count in CSV input on line %d.',
                                 ),
+                                [$line],
                             );
-                            Current::$message->addParam($line);
                             Import::$hasError = true;
                             break;
                         }
@@ -526,8 +539,8 @@ class ImportCsv extends AbstractImportCsv
 
         Current::$message = Message::error(
             __('Invalid format of CSV input on line %d.'),
+            [$line],
         );
-        Current::$message->addParam($line);
         Import::$hasError = true;
 
         return $sqlStatements;
@@ -577,6 +590,27 @@ class ImportCsv extends AbstractImportCsv
         /* Fill out all rows */
         foreach ($rows as $i => $row) {
             $rows[$i] = array_pad($row, $maxCols, 'NULL');
+        }
+
+        if ($this->emptyAsNull) {
+            foreach ($rows as &$row) {
+                foreach ($row as &$value) {
+                    if ($value === null) {
+                        $value = 'NULL';
+                        continue;
+                    }
+
+                    if ($value !== '') {
+                        continue;
+                    }
+
+                    $value = 'NULL';
+                }
+
+                unset($value);
+            }
+
+            unset($row);
         }
 
         $colNames = [];
@@ -635,8 +669,8 @@ class ImportCsv extends AbstractImportCsv
         if ($csvTerminated === '') {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
+                [__('Columns terminated with')],
             );
-            Current::$message->addParam(__('Columns terminated with'));
             Import::$hasError = true;
             $paramError = true;
             // The default dialog of MS Excel when generating a CSV produces a
@@ -650,8 +684,8 @@ class ImportCsv extends AbstractImportCsv
         } elseif (strlen($csvEnclosed) > 1) {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
+                [__('Columns enclosed with')],
             );
-            Current::$message->addParam(__('Columns enclosed with'));
             Import::$hasError = true;
             $paramError = true;
             // I could not find a test case where having no escaping characters
@@ -661,15 +695,15 @@ class ImportCsv extends AbstractImportCsv
         } elseif (strlen($csvEscaped) > 1) {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
+                [__('Columns escaped with')],
             );
-            Current::$message->addParam(__('Columns escaped with'));
             Import::$hasError = true;
             $paramError = true;
         } elseif (strlen($csvNewLine) !== 1 && $csvNewLine !== 'auto') {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
+                [__('Lines terminated with')],
             );
-            Current::$message->addParam(__('Lines terminated with'));
             Import::$hasError = true;
             $paramError = true;
         }
@@ -761,8 +795,8 @@ class ImportCsv extends AbstractImportCsv
                         . ' names are spelled correctly, separated by commas'
                         . ', and not enclosed in quotes.',
                     ),
+                    [$val],
                 );
-                Current::$message->addParam($val);
                 Import::$hasError = true;
                 break;
             }

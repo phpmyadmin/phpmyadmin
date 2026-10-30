@@ -96,7 +96,7 @@ class ConfigTest extends AbstractTestCase
         $defaultConfig->set('environment', 'development');
         self::assertSame($defaultConfig->settings, $config->settings);
         self::assertArrayHasKey('environment', $config->settings);
-        self::assertSame($config->settings['environment'], 'development');
+        self::assertSame('development', $config->settings['environment']);
         self::assertArrayNotHasKey('UnknownKey', $config->settings);
         self::assertEquals($defaultConfig->getSettings(), $config->getSettings());
 
@@ -638,9 +638,9 @@ class ConfigTest extends AbstractTestCase
         self::assertIsString($vendorConfig['customFooterFile']);
         self::assertIsBool($vendorConfig['versionCheckDefault']);
         self::assertIsString($vendorConfig['localePath']);
-        self::assertDirectoryExists($vendorConfig['localePath']);
         self::assertIsString($vendorConfig['cacheDir']);
         self::assertDirectoryExists($vendorConfig['cacheDir']);
+        self::assertIsString($vendorConfig['docsHtmlDir']);
         self::assertIsString($vendorConfig['versionSuffix']);
     }
 

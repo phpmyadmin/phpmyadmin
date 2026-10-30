@@ -32,21 +32,15 @@ class SearchTest extends AbstractTestCase
         Current::$database = 'pma';
         $_POST = [];
 
-        //mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
-        $dbi->expects(self::any())
-            ->method('getColumns')
-            ->with('pma', 'table1')
+        $dbi->method('getColumns')
             ->willReturn([
                 new Column('column1', '', null, false, '', null, '', '', ''),
                 new Column('column2', '', null, false, '', null, '', '', ''),
             ]);
 
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -152,7 +146,6 @@ class SearchTest extends AbstractTestCase
                 . " OR HEX(`column1`) LIKE '%search string%'"
                 . " OR CONVERT(`column2` USING utf8) LIKE '%search string%'"
                 . " OR HEX(`column2`) LIKE '%search string%')",
-                'on',
             ],
             [
                 '4',

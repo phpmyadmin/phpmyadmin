@@ -200,17 +200,11 @@ class ImportOds extends ImportPlugin
      */
     protected function getValue(SimpleXMLElement $cellAttrs, SimpleXMLElement $text): float|string
     {
-        if (
-            $this->recognizePercentages
-            && (string) $cellAttrs['value-type'] === 'percentage'
-        ) {
+        if ($this->recognizePercentages && (string) $cellAttrs['value-type'] === 'percentage') {
             return (float) $cellAttrs['value'];
         }
 
-        if (
-            $this->recognizeCurrency
-            && (string) $cellAttrs['value-type'] === 'currency'
-        ) {
+        if ($this->recognizeCurrency && (string) $cellAttrs['value-type'] === 'currency') {
             return (float) $cellAttrs['value'];
         }
 

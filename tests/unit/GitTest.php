@@ -9,11 +9,10 @@ use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Medium;
+use Random\Randomizer;
 
 use function file_put_contents;
 use function mkdir;
-use function mt_getrandmax;
-use function random_int;
 use function rmdir;
 use function sys_get_temp_dir;
 use function unlink;
@@ -40,7 +39,7 @@ class GitTest extends AbstractTestCase
         HttpRequest::setProxySettingsFromEnv();
 
         $this->testDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR
-                        . 'gittempdir_' . random_int(0, mt_getrandmax()) . DIRECTORY_SEPARATOR;
+                        . 'gittempdir_' . (new Randomizer())->nextInt() . DIRECTORY_SEPARATOR;
         $this->object = new Git(true, $this->testDir);
 
         unset($_SESSION['git_location']);
@@ -516,7 +515,7 @@ PHP;
         $gitFolder = '';
         self::assertTrue($this->object->isGitRevision($gitFolder));
 
-        self::assertSame($gitFolder, 'customdir/.git');
+        self::assertSame('customdir/.git', $gitFolder);
     }
 
     /**
@@ -544,7 +543,7 @@ PHP;
         self::assertFalse($this->object->isGitRevision($gitFolder));
 
         // Assert that the value is replaced by cached one
-        self::assertSame($gitFolder, 'randomdir/.git');
+        self::assertSame('randomdir/.git', $gitFolder);
     }
 
     /**

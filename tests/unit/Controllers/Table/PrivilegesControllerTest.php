@@ -13,11 +13,13 @@ use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use function __;
 
 #[CoversClass(PrivilegesController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class PrivilegesControllerTest extends AbstractTestCase
 {
     /**
@@ -51,7 +53,7 @@ class PrivilegesControllerTest extends AbstractTestCase
 
         $privileges = [];
 
-        $serverPrivileges = self::createMock(Privileges::class);
+        $serverPrivileges = $this->createMock(Privileges::class);
         $serverPrivileges->method('getAllPrivileges')
             ->willReturn($privileges);
 

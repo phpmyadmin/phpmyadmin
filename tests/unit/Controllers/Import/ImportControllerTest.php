@@ -18,6 +18,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -85,8 +86,8 @@ class ImportControllerTest extends AbstractTestCase
         );
 
         $responseRenderer = new ResponseRenderer();
-        $relation = new Relation($this->dbi);
-        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+        $relation = new Relation($this->dbi, $config);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation, $config);
         $template = new Template($config);
         $sql = new Sql(
             $this->dbi,
@@ -97,6 +98,7 @@ class ImportControllerTest extends AbstractTestCase
             $bookmarkRepository,
             $config,
             $responseRenderer,
+            new ThemeManager(),
         );
 
         $importController = new ImportController(

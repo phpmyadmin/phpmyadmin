@@ -18,6 +18,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Plugins\PluginType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
@@ -36,6 +37,8 @@ final readonly class ImportController implements InvocableController
         private DatabaseInterface $dbi,
         private PageSettings $pageSettings,
         private Config $config,
+        private Ajax $ajax,
+        private PluginFactory $pluginFactory,
     ) {
     }
 
@@ -51,15 +54,15 @@ final readonly class ImportController implements InvocableController
             $this->dbi->selectDb('mysql');
         }
 
-        [$uploadId] = Ajax::uploadProgressSetup();
+        $uploadId = $this->ajax->uploadProgressSetup();
 
         ImportSettings::$importType = 'server';
-        $importList = Plugins::getImport();
+        $importList = $this->pluginFactory->getAllImportPlugins();
 
         if ($importList === []) {
             $this->response->addHTML(Message::error(__(
                 'Could not load import plugins, please check your installation!',
-            ))->getDisplay());
+            )));
 
             return $this->response->response();
         }

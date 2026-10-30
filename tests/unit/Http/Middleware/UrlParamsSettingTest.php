@@ -26,8 +26,8 @@ final class UrlParamsSettingTest extends AbstractTestCase
             ->withQueryParams(['goto' => 'index.php?route=/', 'back' => 'index.php?route=/']);
 
         $response = self::createStub(ResponseInterface::class);
-        $handler = self::createMock(RequestHandlerInterface::class);
-        $handler->method('handle')->with($request)->willReturn($response);
+        $handler = $this->createMock(RequestHandlerInterface::class);
+        $handler->expects(self::once())->method('handle')->with($request)->willReturn($response);
 
         $urlParamsSetting = new UrlParamsSetting(self::createStub(Config::class));
         self::assertSame($response, $urlParamsSetting->process($request, $handler));

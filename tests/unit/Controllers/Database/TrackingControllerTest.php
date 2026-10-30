@@ -71,7 +71,7 @@ final class TrackingControllerTest extends AbstractTestCase
         return new TrackingController(
             new ResponseRenderer(),
             new Tracking(
-                new SqlQueryForm($template, $dbi, new BookmarkRepository($dbi, $relation)),
+                new SqlQueryForm($template, $dbi, new BookmarkRepository($dbi, $relation, $config)),
                 $template,
                 $relation,
                 $dbi,

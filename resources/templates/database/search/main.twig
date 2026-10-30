@@ -1,7 +1,6 @@
-<div class="container">
+<div class="container my-3">
   <h2>{{ t('Search in database') }}</h2>
 
-  <a id="db_search"></a>
   <form id="db_search_form" method="post" action="{{ url('/database/search') }}" name="db_search" class="card mb-3 ajax lock-page">
     {{ get_hidden_inputs(db) }}
     <div class="card-body">

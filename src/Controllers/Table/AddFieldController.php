@@ -16,7 +16,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\ColumnsDefinition;
@@ -135,11 +134,11 @@ final readonly class AddFieldController implements InvocableController
             // Go back to the structure sub-page
             Current::$message = Message::success(
                 __('Table %1$s has been altered successfully.'),
+                [Current::$table],
             );
-            Current::$message->addParam(Current::$table);
             $this->response->addJSON(
                 'message',
-                Generator::getMessage(Current::$message, Current::$sqlQuery, MessageType::Success),
+                Generator::getMessage(Current::$message, Current::$sqlQuery),
             );
 
             // Give an URL to call and use to appends the structure after the success message
@@ -148,7 +147,6 @@ final readonly class AddFieldController implements InvocableController
                 Url::getFromRoute('/table/structure', [
                     'db' => Current::$database,
                     'table' => Current::$table,
-                    'ajax_request' => '1',
                 ]),
             );
 
@@ -157,26 +155,12 @@ final readonly class AddFieldController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
         if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No table selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
+            return $this->response->respondWithErrorMessage(__('No table selected.'));
         }
 
         $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);

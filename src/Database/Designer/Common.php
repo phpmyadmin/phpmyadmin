@@ -54,6 +54,8 @@ class Common
             $db = Current::$database;
         }
 
+        $table = $table !== '' ? [$table] : [];
+
         // seems to be needed later
         $this->dbi->selectDb($db);
         $tables = $this->dbi->getTablesFull($db, $table);
@@ -87,8 +89,8 @@ class Common
             $fieldsRs = $this->dbi->query(
                 QueryGenerator::getColumnNamesAndTypes(
                     Util::getCollateForIS($this->dbi),
-                    $this->dbi->quoteString($designerTable->getDatabaseName()),
-                    $this->dbi->quoteString($designerTable->getTableName()),
+                    $this->dbi->quoteString($designerTable->databaseName),
+                    $this->dbi->quoteString($designerTable->tableName),
                 ),
             );
             /**
@@ -180,12 +182,12 @@ class Common
         $keys = [];
 
         foreach ($designerTables as $designerTable) {
-            $schema = $designerTable->getDatabaseName();
+            $schema = $designerTable->databaseName;
             // for now, take into account only the first index segment
-            foreach (Index::getFromTable($this->dbi, $designerTable->getTableName(), $schema) as $index) {
+            foreach (Index::getFromTable($this->dbi, $designerTable->tableName, $schema) as $index) {
                 $columns = $index->getColumns();
                 foreach (array_keys($columns) as $columnName) {
-                    $key = $schema . '.' . $designerTable->getTableName() . '.' . $columnName;
+                    $key = $schema . '.' . $designerTable->tableName . '.' . $columnName;
                     $keys[$key] = ! $index->getNonUnique();
                 }
             }

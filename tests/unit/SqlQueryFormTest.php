@@ -56,7 +56,7 @@ class SqlQueryFormTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
         $config = Config::getInstance();
         $relation = new Relation($this->dbi);
-        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation, $config);
         $this->sqlQueryForm = new SqlQueryForm(new Template($config), $this->dbi, $bookmarkRepository);
 
         Current::$database = 'PMA_db';

@@ -13,8 +13,8 @@ export default function checkIndexName (formId) {
     }
 
     // Gets the elements pointers
-    var $theIdxName = $('#input_index_name');
-    var $theIdxChoice = $('#select_index_choice');
+    const $theIdxName = $('#input_index_name');
+    const $theIdxChoice = $('#select_index_choice');
 
     // Index is a primary key
     if ($theIdxChoice.find('option:selected').val() === 'PRIMARY') {

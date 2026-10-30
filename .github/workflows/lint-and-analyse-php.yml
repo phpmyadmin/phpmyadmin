@@ -19,12 +19,15 @@ jobs:
         php-version: ["8.2"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
+          coverage: none
 
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
@@ -32,7 +35,7 @@ jobs:
       - name: Install Composer dependencies
         # Allow the previous check to fail but not abort
         if: always()
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           # Ignore zip for php-webdriver/webdriver
           composer-options: "--ignore-platform-req=ext-zip"
@@ -40,7 +43,7 @@ jobs:
       - name: Cache coding-standard
         # Allow the previous check to fail but not abort
         if: always()
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .phpcs-cache
           key: phpcs-cache
@@ -67,16 +70,19 @@ jobs:
         php-version: ["8.2"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
+          coverage: none
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Analyse files with PHPStan
         run: composer phpstan -- --memory-limit 2G
@@ -84,4 +90,9 @@ jobs:
       - name: Analyse files with Psalm
         # Allow the previous check to fail but not abort
         if: always()
-        run: composer psalm -- --shepherd
+        run: |
+          if [ ${{ github.repository }} == 'phpmyadmin/phpmyadmin' ]; then
+            composer psalm -- --shepherd
+          else
+            composer psalm
+          fi

@@ -955,6 +955,11 @@ textarea#partitiondefinition {
   display: none;
 }
 
+table:has(select[name=item_type] option[value="RECURRING"]:checked) .onetime_event_row,
+table:has(select[name=item_type] option[value="ONE TIME"]:checked) .recurring_event_row {
+  display: none;
+}
+
 #list_server {
   list-style-image: none;
   padding: 0;
@@ -1744,8 +1749,14 @@ input#auto_increment_opt {
   margin-right: 5px;
 }
 
-/* css for timepicker */
+.ui-autocomplete {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
 
+// css for timepicker
 .ui-timepicker-div {
   .ui-widget-header {
     margin-bottom: 8px;
@@ -2533,6 +2544,7 @@ pre {
 
 code.json,
 code.php,
-code.sql {
+code.sql,
+code.xml {
   color: var(--#{$prefix}code-color);
 }

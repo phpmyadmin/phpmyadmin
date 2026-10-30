@@ -13,6 +13,7 @@ use function array_change_key_case;
 use function array_key_exists;
 use function count;
 use function number_format;
+use function preg_replace;
 
 use const CASE_LOWER;
 
@@ -37,11 +38,11 @@ final class Processes
             $urlParams['order_by_field'] = $orderByField;
             $urlParams['sort_order'] = $sortOrder;
             $urlParams['showExecuting'] = $showExecuting;
-            $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
+            $sqlQuery = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST`';
         }
 
         if ($showExecuting) {
-            $sqlQuery .= ' WHERE state != "" ';
+            $sqlQuery .= " WHERE `COMMAND` <> 'Sleep' AND `STATE` <> 'Waiting for next activation'";
         }
 
         if ($orderByField !== '' && $sortOrder !== '') {
@@ -68,6 +69,9 @@ final class Processes
                 'id' => $process['id'],
                 'user' => $process['user'],
                 'host' => $process['host'],
+                // mysql.user.Host never contains a port, so it must be stripped
+                // before the value is used to link to the privileges page.
+                'user_host' => preg_replace('/:\d+$/', '', $process['host'] ?? ''),
                 'db' => $process['db'] ?? '',
                 'command' => $process['command'],
                 'time' => $process['time'],

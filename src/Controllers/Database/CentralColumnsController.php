@@ -37,7 +37,10 @@ final readonly class CentralColumnsController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $db = DatabaseName::from($request->getParam('db'));
+        $db = DatabaseName::tryFrom($request->getParam('db'));
+        if ($db === null) {
+            return $this->response->missingParameterError('db');
+        }
 
         if ($request->hasBodyParam('edit_save')) {
             $this->response->addHTML((string) $this->editSave(

@@ -21,7 +21,7 @@ class Innodb extends StorageEngine
     /**
      * Returns array with variable names related to InnoDB storage engine
      *
-     * @return mixed[]   variable names
+     * @return array<string, array{title?: string, desc?: string, type?: int}> variable names
      */
     public function getVariables(): array
     {
@@ -141,16 +141,6 @@ class Innodb extends StorageEngine
     }
 
     /**
-     * Gets the InnoDB plugin version number
-     *
-     * @return string the version number, or empty if not running as a plugin
-     */
-    public function getInnodbPluginVersion(): string
-    {
-        return (string) DatabaseInterface::getInstance()->fetchValue('SELECT @@innodb_version;');
-    }
-
-    /**
      * Gets the InnoDB file format
      *
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
@@ -159,15 +149,18 @@ class Innodb extends StorageEngine
      */
     public function getInnodbFileFormat(): string|null
     {
-        $value = DatabaseInterface::getInstance()->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 1);
+        $dbi = DatabaseInterface::getInstance();
 
+        if (($dbi->isMariaDB() && $dbi->getVersion() >= 100600) || ($dbi->isMySql() && $dbi->getVersion() >= 80000)) {
+              return '';
+        }
+
+        $value = $dbi->fetchValue("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 1);
         if ($value === false) {
-            // This variable does not exist anymore on MariaDB >= 10.6.0
-            // This variable does not exist anymore on MySQL >= 8.0.0
             return null;
         }
 
-        return (string) $value;
+        return $value;
     }
 
     /**

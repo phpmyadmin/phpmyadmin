@@ -42,7 +42,7 @@ final class UpdateNavWidthConfigControllerTest extends AbstractTestCase
         $controller = new UpdateNavWidthConfigController($responseRenderer, $userPreferencesHandler);
         $controller($request);
 
-        self::assertSame($expected, $config->settings['NavigationWidth']);
+        self::assertSame($expected, $config->config->NavigationWidth);
         self::assertSame([], $responseRenderer->getJSONResult());
         self::assertTrue($responseRenderer->hasSuccessState(), 'Should be a successful response.');
     }

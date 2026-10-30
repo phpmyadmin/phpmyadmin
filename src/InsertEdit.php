@@ -68,6 +68,8 @@ class InsertEdit
         'UTC_TIMESTAMP',
         'UUID',
         'UUID_SHORT',
+        'UUID_v4',
+        'UUID_v7',
         'VERSION',
     ];
 
@@ -158,7 +160,7 @@ class InsertEdit
             if ($rows[$keyId] === []) {
                 $this->responseRenderer->addHTML(
                     Generator::getMessage(
-                        __('MySQL returned an empty result set (i.e. zero rows).'),
+                        new Message(__('MySQL returned an empty result set (i.e. zero rows).')),
                         $localQuery,
                     ),
                 );
@@ -207,7 +209,7 @@ class InsertEdit
     /**
      * Show type information or function selectors in Insert/Edit
      *
-     * @param string                         $which     function|type
+     * @param 'function'|'type'              $which     function|type
      * @param array<string, bool|int|string> $urlParams containing url parameters
      * @param bool                           $isShow    whether to show the element in $which
      *
@@ -215,50 +217,37 @@ class InsertEdit
      */
     public function showTypeOrFunction(string $which, array $urlParams, bool $isShow): string
     {
-        $params = [];
-
-        switch ($which) {
-            case 'function':
-                $params['ShowFunctionFields'] = $isShow ? 0 : 1;
-                $params['ShowFieldTypesInDataEditView'] = $this->config->config->ShowFieldTypesInDataEditView;
-                break;
-            case 'type':
-                $params['ShowFieldTypesInDataEditView'] = $isShow ? 0 : 1;
-                $params['ShowFunctionFields'] = $this->config->config->ShowFunctionFields;
-                break;
-        }
+        $params = match ($which) {
+            'function' => [
+                'ShowFunctionFields' => $isShow ? 0 : 1,
+                'ShowFieldTypesInDataEditView' => $this->config->config->ShowFieldTypesInDataEditView,
+            ],
+            'type' => [
+                'ShowFieldTypesInDataEditView' => $isShow ? 0 : 1,
+                'ShowFunctionFields' => $this->config->config->ShowFunctionFields,
+            ],
+        };
 
         $params['goto'] = Url::getFromRoute('/sql');
         $thisUrlParams = array_merge($urlParams, $params);
 
+        $label = match ($which) {
+            'function' => __('Function'),
+            'type' => __('Type'),
+        };
+
         if (! $isShow) {
             return ' : <a href="' . Url::getFromRoute('/table/change') . '" data-post="'
                 . Url::getCommon($thisUrlParams, '', false) . '">'
-                . $this->showTypeOrFunctionLabel($which)
+                . $label
                 . '</a>';
         }
 
         return '<th><a href="' . Url::getFromRoute('/table/change') . '" data-post="'
             . Url::getCommon($thisUrlParams, '', false)
             . '" title="' . __('Hide') . '">'
-            . $this->showTypeOrFunctionLabel($which)
+            . $label
             . '</a></th>';
-    }
-
-    /**
-     * Show type information or function selectors labels in Insert/Edit
-     *
-     * @param string $which function|type
-     *
-     * @return string an HTML snippet
-     */
-    private function showTypeOrFunctionLabel(string $which): string
-    {
-        return match ($which) {
-            'function' => __('Function'),
-            'type' => __('Type'),
-            default => '',
-        };
     }
 
     /**
@@ -704,11 +693,7 @@ class InsertEdit
 
         /** @var string $defaultAction */
         $defaultAction = $_POST['default_action'] ?? $_GET['default_action'] ?? '';
-        if (
-            $defaultAction === 'insert'
-            && $column->key === 'PRI'
-            && str_contains($column->extra, 'auto_increment')
-        ) {
+        if ($defaultAction === 'insert' && $column->key === 'PRI' && str_contains($column->extra, 'auto_increment')) {
             // When copying row, it is useful to empty auto-increment column to prevent duplicate key error.
             $data = $formattedDefaultValue = '';
         }
@@ -779,26 +764,22 @@ class InsertEdit
      * if UrlParams::$goto empty, if $goto_include previously not defined
      * and new_insert, same_insert, edit_next
      *
-     * @param string|false $gotoInclude store some script for include, otherwise it is
-     *                                   boolean false
+     * @phpstan-return '/table/change'|'/sql'|'/database/sql'|'/table/sql'
      */
-    public function getGotoInclude(string|false $gotoInclude): string
+    public function getGotoInclude(): string
     {
+        $gotoInclude = false;
         $validOptions = ['new_insert', 'same_insert', 'edit_next'];
         if (isset($_POST['after_insert']) && in_array($_POST['after_insert'], $validOptions, true)) {
             return '/table/change';
         }
 
         if (UrlParams::$goto !== '') {
-            if (preg_match('@^[a-z_]+\.php$@', UrlParams::$goto) !== 1) {
-                // this should NOT happen
-                //UrlParams::$goto = false;
-                $gotoInclude = str_contains(UrlParams::$goto, 'index.php?route=/sql') ? '/sql' : false;
-            } else {
-                $gotoInclude = UrlParams::$goto;
+            if (str_contains(UrlParams::$goto, 'index.php?route=/sql')) {
+                $gotoInclude = '/sql';
             }
 
-            if (UrlParams::$goto === 'index.php?route=/database/sql' && Current::$table !== '') {
+            if (str_contains(UrlParams::$goto, 'index.php?route=/database/sql') && Current::$table !== '') {
                 Current::$table = '';
             }
         }
@@ -808,18 +789,6 @@ class InsertEdit
         }
 
         return $gotoInclude;
-    }
-
-    /**
-     * Defines the url to return in case of failure of the query
-     *
-     * @param mixed[] $urlParams url parameters
-     *
-     * @return string           error url for query failure
-     */
-    public function getErrorUrl(array $urlParams): string
-    {
-        return $_POST['err_url'] ?? Url::getFromRoute('/table/change', $urlParams);
     }
 
     /**
@@ -867,9 +836,7 @@ class InsertEdit
                         $insertId += $totalAffectedRows - 1;
                     }
 
-                    $lastMessage = Message::notice(__('Inserted row id: %1$d'));
-                    $lastMessage->addParam($insertId);
-                    $lastMessages[] = $lastMessage;
+                    $lastMessages[] = Message::notice(__('Inserted row id: %1$d'), [$insertId]);
                 }
             }
 
@@ -920,7 +887,8 @@ class InsertEdit
                 . ' FROM ' . Util::backquote($foreigner['foreign_db'])
                 . '.' . Util::backquote($foreigner['foreign_table'])
                 . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
-                . $whereComparison;
+                . $whereComparison
+                . ' LIMIT 1';
             $dispresult = $this->dbi->tryQuery($dispsql);
             if ($dispresult && $dispresult->numRows() > 0) {
                 return (string) $dispresult->fetchValue();
@@ -1136,7 +1104,8 @@ class InsertEdit
             $protectedValue = $this->dbi->fetchValue(
                 'SELECT ' . Util::backquote($editField->columnName)
                 . ' FROM ' . Util::backquote(Current::$table)
-                . ' WHERE ' . $whereClause,
+                . ' WHERE ' . $whereClause
+                . ' LIMIT 1;',
             );
             $protectedValue = is_string($protectedValue) ? $protectedValue : '';
         }
@@ -1211,6 +1180,24 @@ class InsertEdit
             return '';
         }
 
+        // For uuid type, generate uuid value
+        // if empty value but not set null or value is uuid() function
+        if (
+            $editField->type === 'uuid'
+                && ! $editField->isNull
+                && in_array($editField->value, ["''", '', "'uuid()'", 'uuid()'], true)
+        ) {
+            return 'uuid()';
+        }
+
+        if ($editField->type === 'uuid' && ! $editField->isNull && $editField->value === "'uuid_v4()'") {
+            return 'uuid_v4()';
+        }
+
+        if ($editField->type === 'uuid' && ! $editField->isNull && $editField->value === "'uuid_v7()'") {
+            return 'uuid_v7()';
+        }
+
         if ($editField->value === '') {
             // When the field is autoIncrement, the best way to avoid problems
             // in strict mode is to set the value to null (works also in non-strict mode)
@@ -1231,16 +1218,6 @@ class InsertEdit
             $currentValue = (string) preg_replace('/[^01]/', '0', $editField->value);
 
             return 'b' . $this->dbi->quoteString($currentValue);
-        }
-
-        // For uuid type, generate uuid value
-        // if empty value but not set null or value is uuid() function
-        if (
-            $editField->type === 'uuid'
-                && ! $editField->isNull
-                && in_array($editField->value, ["''", '', "'uuid()'", 'uuid()'], true)
-        ) {
-            return 'uuid()';
         }
 
         if (
@@ -1276,7 +1253,8 @@ class InsertEdit
             . Util::backquote($columnName)
             . ' FROM ' . Util::backquote($db) . '.'
             . Util::backquote($table)
-            . ' WHERE ' . $_POST['where_clause'][0];
+            . ' WHERE ' . $_POST['where_clause'][0]
+            . ' LIMIT 1';
 
         $result = $this->dbi->tryQuery($sqlForRealValue);
 

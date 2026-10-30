@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
@@ -37,7 +38,6 @@ class NavigationTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['user'] = 'user';
         $config->selectedServer['DisableIS'] = false;
-        $config->settings['ActionLinksMode'] = 'both';
 
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::DATABASE => 'pmadb',
@@ -46,7 +46,7 @@ class NavigationTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config);
+        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config, new ThemeManager());
     }
 
     /**
@@ -57,18 +57,16 @@ class NavigationTest extends AbstractTestCase
         $expectedQuery = 'INSERT INTO `pmadb`.`navigationhiding`'
             . '(`username`, `item_name`, `item_type`, `db_name`, `table_name`)'
             . " VALUES ('user','itemName','itemType','db','')";
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
         $config = Config::getInstance();
-        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config);
+        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config, new ThemeManager());
         $this->object->hideNavigationItem('itemName', 'itemType', 'db');
     }
 
@@ -80,18 +78,16 @@ class NavigationTest extends AbstractTestCase
         $expectedQuery = 'DELETE FROM `pmadb`.`navigationhiding`'
             . " WHERE `username`='user' AND `item_name`='itemName'"
             . " AND `item_type`='itemType' AND `db_name`='db'";
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
             ->with($expectedQuery);
 
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
         $config = Config::getInstance();
-        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config);
+        $this->object = new Navigation(new Template($config), new Relation($dbi), $dbi, $config, new ThemeManager());
         $this->object->unhideNavigationItem('itemName', 'itemType', 'db');
     }
 

@@ -47,10 +47,8 @@ class StructureControllerTest extends AbstractTestCase
         Current::$table = 'test_table';
         Current::$lang = 'en';
         $config = Config::getInstance();
-        $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
         $config->selectedServer['DisableIS'] = true;
-        $config->settings['ShowStats'] = false;
-        $config->settings['ShowPropertyComments'] = false;
+        $config->set('ShowStats', false);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
         (new ReflectionProperty(Charsets::class, 'collations'))->setValue(null, []);

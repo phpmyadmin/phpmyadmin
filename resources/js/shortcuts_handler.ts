@@ -13,17 +13,17 @@ import { CommonParams } from './modules/common.ts';
  * Register key events on load
  */
 $(function () {
-    var databaseOp = false;
-    var tableOp = false;
-    var keyD = 68;
-    var keyT = 84;
-    var keyK = 75;
-    var keyS = 83;
-    var keyF = 70;
-    var keyE = 69;
-    var keyH = 72;
-    var keyC = 67;
-    var keyBackSpace = 8;
+    let databaseOp = false;
+    let tableOp = false;
+    const keyD = 68;
+    const keyT = 84;
+    const keyK = 75;
+    const keyS = 83;
+    const keyF = 70;
+    const keyE = 69;
+    const keyH = 72;
+    const keyC = 67;
+    const keyBackSpace = 8;
     $(document).on('keyup', function (e) {
         // is a string but is also a boolean according to https://api.jquery.com/prop/
         if ($(e.target).prop('contenteditable') === 'true' || $(e.target).prop('contenteditable') === true) {
@@ -69,8 +69,8 @@ $(function () {
             return;
         }
 
-        var isTable;
-        var isDb;
+        let isTable;
+        let isDb;
         if (e.keyCode === keyD) {
             databaseOp = true;
         } else if (e.keyCode === keyK) {

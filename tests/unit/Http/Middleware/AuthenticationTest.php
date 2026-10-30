@@ -22,7 +22,7 @@ final class AuthenticationTest extends AbstractTestCase
 {
     public function testAuthenticationWithoutSelectServer(): void
     {
-        $configMock = self::createMock(Config::class);
+        $configMock = $this->createMock(Config::class);
         $configMock->expects(self::once())->method('hasSelectedServer')->willReturn(false);
 
         $dbi = $this->createDatabaseInterface();

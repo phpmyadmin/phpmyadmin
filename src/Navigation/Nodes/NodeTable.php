@@ -114,7 +114,7 @@ class NodeTable extends NodeDatabaseChild
     /** @return NodeColumn[] */
     public function getColumns(DatabaseInterface $dbi, int $pos): array
     {
-        $maxItems = $this->config->settings['MaxNavigationItems'];
+        $maxItems = $this->config->config->MaxNavigationItems;
         $db = $this->getRealParent()->realName;
         $table = $this->realName;
         if (! $this->config->selectedServer['DisableIS']) {
@@ -160,7 +160,7 @@ class NodeTable extends NodeDatabaseChild
     /** @return NodeIndex[] */
     public function getIndexes(DatabaseInterface $dbi, int $pos): array
     {
-        $maxItems = $this->config->settings['MaxNavigationItems'];
+        $maxItems = $this->config->config->MaxNavigationItems;
         $db = $this->getRealParent()->realName;
         $table = $this->realName;
         $query = 'SHOW INDEXES FROM ' . Util::backquote($table) . ' FROM ' . Util::backquote($db);
@@ -181,7 +181,7 @@ class NodeTable extends NodeDatabaseChild
     /** @return NodeTrigger[] */
     public function getTriggers(DatabaseInterface $dbi, int $pos): array
     {
-        $maxItems = $this->config->settings['MaxNavigationItems'];
+        $maxItems = $this->config->config->MaxNavigationItems;
         $db = $this->getRealParent()->realName;
         $table = $this->realName;
 

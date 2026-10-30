@@ -12,11 +12,11 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config\Settings\Export as SettingsExport;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Database\RoutineType;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Events\Events;
 use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
@@ -35,11 +35,13 @@ use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokenType;
+use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Util;
@@ -144,26 +146,14 @@ class ExportSql extends ExportPlugin
 
     protected function setProperties(): ExportPluginProperties
     {
-        $hideSql = false;
-        $hideStructure = false;
-        if (ExportPlugin::$exportType === ExportType::Table && ! ExportPlugin::$singleTable) {
-            $hideStructure = true;
-            $hideSql = true;
-        }
-
-        // In case we have `raw_query` parameter set,
-        // we initialize SQL option
-        if (isset($_REQUEST['raw_query'])) {
-            $hideStructure = false;
-            $hideSql = false;
-        }
+        $hideSql = $this->exportType === ExportType::Table && ! $this->singleTable;
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('SQL');
         $exportPluginProperties->setExtension('sql');
         $exportPluginProperties->setMimeType('text/x-sql');
 
-        if ($hideSql) {
+        if ($hideSql && ! isset($_REQUEST['raw_query'])) {
             return $exportPluginProperties;
         }
 
@@ -272,140 +262,138 @@ class ExportSql extends ExportPlugin
         $exportSpecificOptions->addProperty($generalOptions);
 
         // structure options main group
-        if (! $hideStructure) {
-            $structureOptions = new OptionsPropertyMainGroup(
-                'sql_structure',
-                __('Object creation options'),
-            );
+        $structureOptions = new OptionsPropertyMainGroup(
+            'sql_structure',
+            __('Object creation options'),
+        );
 
-            // begin SQL Statements
-            $subgroup = new OptionsPropertySubgroup();
-            $leaf = new MessageOnlyPropertyItem(
-                'sql_add_statements',
-                __('Add statements:'),
-            );
-            $subgroup->setSubgroupHeader($leaf);
+        // begin SQL Statements
+        $subgroup = new OptionsPropertySubgroup();
+        $leaf = new MessageOnlyPropertyItem(
+            'sql_add_statements',
+            __('Add statements:'),
+        );
+        $subgroup->setSubgroupHeader($leaf);
 
-            // server export options
-            if (ExportPlugin::$exportType === ExportType::Server) {
-                $leaf = new BoolPropertyItem(
-                    'sql_drop_database',
-                    sprintf(__('Add %s statement'), '<code>DROP DATABASE IF EXISTS</code>'),
-                );
-                $subgroup->addProperty($leaf);
-            }
-
-            if (ExportPlugin::$exportType === ExportType::Database) {
-                $createClause = '<code>CREATE DATABASE / USE</code>';
-                $leaf = new BoolPropertyItem(
-                    'sql_create_database',
-                    sprintf(__('Add %s statement'), $createClause),
-                );
-                $subgroup->addProperty($leaf);
-            }
-
-            if (ExportPlugin::$exportType === ExportType::Table) {
-                $dropClause = $this->dbi->getTable(Current::$database, Current::$table)->isView()
-                    ? '<code>DROP VIEW</code>'
-                    : '<code>DROP TABLE</code>';
-            } else {
-                $dropClause = '<code>DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT</code>';
-            }
-
-            $dropClause .= '<code> / TRIGGER</code>';
-
+        // server export options
+        if ($this->exportType === ExportType::Server) {
             $leaf = new BoolPropertyItem(
-                'sql_drop_table',
-                sprintf(__('Add %s statement'), $dropClause),
+                'sql_drop_database',
+                sprintf(__('Add %s statement'), '<code>DROP DATABASE IF EXISTS</code>'),
             );
             $subgroup->addProperty($leaf);
-
-            $subgroupCreateTable = new OptionsPropertySubgroup();
-
-            // Add table structure option
-            $leaf = new BoolPropertyItem(
-                'sql_create_table',
-                sprintf(__('Add %s statement'), '<code>CREATE TABLE</code>'),
-            );
-            $subgroupCreateTable->setSubgroupHeader($leaf);
-
-            $leaf = new BoolPropertyItem(
-                'sql_if_not_exists',
-                '<code>IF NOT EXISTS</code> ' . __(
-                    '(less efficient as indexes will be generated during table creation)',
-                ),
-            );
-            $subgroupCreateTable->addProperty($leaf);
-
-            $leaf = new BoolPropertyItem(
-                'sql_auto_increment',
-                sprintf(__('%s value'), '<code>AUTO_INCREMENT</code>'),
-            );
-            $subgroupCreateTable->addProperty($leaf);
-
-            $subgroup->addProperty($subgroupCreateTable);
-
-            // Add view option
-            $subgroupCreateView = new OptionsPropertySubgroup();
-            $leaf = new BoolPropertyItem(
-                'sql_create_view',
-                sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>'),
-            );
-            $subgroupCreateView->setSubgroupHeader($leaf);
-
-            $leaf = new BoolPropertyItem(
-                'sql_simple_view_export',
-                /* l10n: Allow simplifying exported view syntax to only "CREATE VIEW" */
-                __('Use simple view export'),
-            );
-            $subgroupCreateView->addProperty($leaf);
-
-            $leaf = new BoolPropertyItem(
-                'sql_view_current_user',
-                __('Exclude definition of current user'),
-            );
-            $subgroupCreateView->addProperty($leaf);
-
-            $leaf = new BoolPropertyItem(
-                'sql_or_replace_view',
-                sprintf(__('%s view'), '<code>OR REPLACE</code>'),
-            );
-            $subgroupCreateView->addProperty($leaf);
-
-            $subgroup->addProperty($subgroupCreateView);
-
-            $leaf = new BoolPropertyItem(
-                'sql_procedure_function',
-                sprintf(
-                    __('Add %s statement'),
-                    '<code>CREATE PROCEDURE / FUNCTION / EVENT</code>',
-                ),
-            );
-            $subgroup->addProperty($leaf);
-
-            // Add triggers option
-            $leaf = new BoolPropertyItem(
-                'sql_create_trigger',
-                sprintf(__('Add %s statement'), '<code>CREATE TRIGGER</code>'),
-            );
-            $subgroup->addProperty($leaf);
-
-            $structureOptions->addProperty($subgroup);
-
-            $leaf = new BoolPropertyItem(
-                'sql_backquotes',
-                __(
-                    'Enclose table and column names with backquotes '
-                    . '<i>(Protects column and table names formed with'
-                    . ' special characters or keywords)</i>',
-                ),
-            );
-
-            $structureOptions->addProperty($leaf);
-
-            // add the main group to the root group
-            $exportSpecificOptions->addProperty($structureOptions);
         }
+
+        if ($this->exportType === ExportType::Database) {
+            $createClause = '<code>CREATE DATABASE / USE</code>';
+            $leaf = new BoolPropertyItem(
+                'sql_create_database',
+                sprintf(__('Add %s statement'), $createClause),
+            );
+            $subgroup->addProperty($leaf);
+        }
+
+        if ($this->exportType === ExportType::Table) {
+            $dropClause = $this->dbi->getTable(Current::$database, Current::$table)->isView()
+                ? '<code>DROP VIEW</code>'
+                : '<code>DROP TABLE</code>';
+        } else {
+            $dropClause = '<code>DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT</code>';
+        }
+
+        $dropClause .= '<code> / TRIGGER</code>';
+
+        $leaf = new BoolPropertyItem(
+            'sql_drop_table',
+            sprintf(__('Add %s statement'), $dropClause),
+        );
+        $subgroup->addProperty($leaf);
+
+        $subgroupCreateTable = new OptionsPropertySubgroup();
+
+        // Add table structure option
+        $leaf = new BoolPropertyItem(
+            'sql_create_table',
+            sprintf(__('Add %s statement'), '<code>CREATE TABLE</code>'),
+        );
+        $subgroupCreateTable->setSubgroupHeader($leaf);
+
+        $leaf = new BoolPropertyItem(
+            'sql_if_not_exists',
+            '<code>IF NOT EXISTS</code> ' . __(
+                '(less efficient as indexes will be generated during table creation)',
+            ),
+        );
+        $subgroupCreateTable->addProperty($leaf);
+
+        $leaf = new BoolPropertyItem(
+            'sql_auto_increment',
+            sprintf(__('%s value'), '<code>AUTO_INCREMENT</code>'),
+        );
+        $subgroupCreateTable->addProperty($leaf);
+
+        $subgroup->addProperty($subgroupCreateTable);
+
+        // Add view option
+        $subgroupCreateView = new OptionsPropertySubgroup();
+        $leaf = new BoolPropertyItem(
+            'sql_create_view',
+            sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>'),
+        );
+        $subgroupCreateView->setSubgroupHeader($leaf);
+
+        $leaf = new BoolPropertyItem(
+            'sql_simple_view_export',
+            /* l10n: Allow simplifying exported view syntax to only "CREATE VIEW" */
+            __('Use simple view export'),
+        );
+        $subgroupCreateView->addProperty($leaf);
+
+        $leaf = new BoolPropertyItem(
+            'sql_view_current_user',
+            __('Exclude definition of current user'),
+        );
+        $subgroupCreateView->addProperty($leaf);
+
+        $leaf = new BoolPropertyItem(
+            'sql_or_replace_view',
+            sprintf(__('%s view'), '<code>OR REPLACE</code>'),
+        );
+        $subgroupCreateView->addProperty($leaf);
+
+        $subgroup->addProperty($subgroupCreateView);
+
+        $leaf = new BoolPropertyItem(
+            'sql_procedure_function',
+            sprintf(
+                __('Add %s statement'),
+                '<code>CREATE PROCEDURE / FUNCTION / EVENT</code>',
+            ),
+        );
+        $subgroup->addProperty($leaf);
+
+        // Add triggers option
+        $leaf = new BoolPropertyItem(
+            'sql_create_trigger',
+            sprintf(__('Add %s statement'), '<code>CREATE TRIGGER</code>'),
+        );
+        $subgroup->addProperty($leaf);
+
+        $structureOptions->addProperty($subgroup);
+
+        $leaf = new BoolPropertyItem(
+            'sql_backquotes',
+            __(
+                'Enclose table and column names with backquotes '
+                . '<i>(Protects column and table names formed with'
+                . ' special characters or keywords)</i>',
+            ),
+        );
+
+        $structureOptions->addProperty($leaf);
+
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($structureOptions);
 
         // begin Data options
         $dataOptions = new OptionsPropertyMainGroup(
@@ -849,7 +837,14 @@ class ExportSql extends ExportPlugin
             );
         }
 
-        if (ExportPlugin::$exportType === ExportType::Database && ! $this->createDatabase) {
+        if ($this->exportType === ExportType::Database && ! $this->createDatabase) {
+            return;
+        }
+
+        // Skip CREATE DATABASE when only exporting data
+        if (! $this->includeStructure()) {
+            $this->exportUseStatement($dbAlias, $this->compatibility);
+
             return;
         }
 
@@ -1323,17 +1318,17 @@ class ExportSql extends ExportPlugin
         array $aliases = [],
     ): string {
         $tableAlias = $this->getTableAlias($aliases, $db, $table);
+        $tableObject = $this->dbi->getTable($db, $table);
+        $schemaCreate = $this->getTableStatus($tableObject);
 
-        $schemaCreate = $this->getTableStatus($db, $table);
-
-        if ($this->dropTable && $this->dbi->getTable($db, $table)->isView()) {
+        if ($this->dropTable && $tableObject->isView()) {
             $schemaCreate .= 'DROP VIEW IF EXISTS '
                 . Util::backquoteCompat($tableAlias, 'NONE', $this->useSqlBackquotes) . ';'
                 . "\n";
         }
 
         // no need to generate a DROP VIEW here, it was done earlier
-        if ($this->dropTable && ! $this->dbi->getTable($db, $table)->isView()) {
+        if ($this->dropTable && ! $tableObject->isView()) {
             $schemaCreate .= 'DROP TABLE IF EXISTS '
                 . Util::backquoteCompat($tableAlias, 'NONE', $this->useSqlBackquotes) . ';'
                 . "\n";
@@ -1414,10 +1409,7 @@ class ExportSql extends ExportPlugin
                 assert($statement instanceof CreateStatement);
 
                 // exclude definition of current user
-                if (
-                    $this->config->settings['Export']['remove_definer_from_definitions']
-                    || $this->viewCurrentUser
-                ) {
+                if ($this->config->settings['Export']['remove_definer_from_definitions'] || $this->viewCurrentUser) {
                     $statement->options->remove('DEFINER');
                 }
 
@@ -1485,7 +1477,7 @@ class ExportSql extends ExportPlugin
             $statement = $parser->statements[0];
             assert($statement instanceof CreateStatement);
 
-            if (! empty($statement->entityOptions)) {
+            if ($statement->entityOptions instanceof OptionsArray) {
                 $engine = $statement->entityOptions->get('ENGINE');
             } else {
                 $engine = '';
@@ -1643,10 +1635,7 @@ class ExportSql extends ExportPlugin
 
                 // Removing the `AUTO_INCREMENT` attribute from the `CREATE TABLE`
                 // too.
-                if (
-                    $statement->entityOptions !== null
-                    && (! $this->ifNotExists || ! $this->autoIncrement)
-                ) {
+                if ($statement->entityOptions !== null && (! $this->ifNotExists || ! $this->autoIncrement)) {
                     $statement->entityOptions->remove('AUTO_INCREMENT');
                 }
 
@@ -1895,7 +1884,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if (ExportPlugin::$exportType !== ExportType::Table) {
+                    if ($this->exportType !== ExportType::Table) {
                         $dump .= 'DROP TABLE IF EXISTS '
                             . Util::backquote($tableAlias) . ';' . "\n";
                     }
@@ -1910,7 +1899,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if (ExportPlugin::$exportType !== ExportType::Table) {
+                    if ($this->exportType !== ExportType::Table) {
                         $dump .= 'DROP TABLE IF EXISTS '
                         . Util::backquote($tableAlias) . ';' . "\n";
                     }
@@ -2110,9 +2099,7 @@ class ExportSql extends ExportPlugin
                 // NULL
                 if ($row[$j] === null) {
                     $values[] = 'NULL';
-                } elseif (
-                    $metaInfo->isNumeric
-                ) {
+                } elseif ($metaInfo->isNumeric) {
                     // a number
                     $values[] = $row[$j];
                 } elseif ($metaInfo->isBinary && $this->hexForBinary) {
@@ -2501,41 +2488,39 @@ class ExportSql extends ExportPlugin
         return $sqlStatement;
     }
 
-    private function getTableStatus(string $db, string $table): string
+    private function getTableStatus(Table $table): string
     {
+        if (! $this->doDates) {
+            return '';
+        }
+
         $newCrlf = "\n";
         $schemaCreate = '';
 
-        $result = $this->dbi->tryQuery(
-            'SHOW TABLE STATUS FROM ' . Util::backquote($db)
-            . ' WHERE Name = ' . $this->dbi->quoteString($table),
-        );
-        if ($result !== false && $result->numRows() > 0) {
-            $tmpres = $result->fetchAssoc();
+        $tableStatus = $table->getStatusInfo();
 
-            if ($this->doDates && ! empty($tmpres['Create_time'])) {
-                $schemaCreate .= $this->exportComment(
-                    __('Creation:') . ' '
-                    . Util::localisedDate(new DateTimeImmutable($tmpres['Create_time'])),
-                );
-                $newCrlf = $this->exportComment() . "\n";
-            }
+        if (! empty($tableStatus['Create_time']) && is_string($tableStatus['Create_time'])) {
+            $schemaCreate .= $this->exportComment(
+                __('Creation:') . ' '
+                . Util::localisedDate(new DateTimeImmutable($tableStatus['Create_time'])),
+            );
+            $newCrlf = $this->exportComment() . "\n";
+        }
 
-            if ($this->doDates && ! empty($tmpres['Update_time'])) {
-                $schemaCreate .= $this->exportComment(
-                    __('Last update:') . ' '
-                    . Util::localisedDate(new DateTimeImmutable($tmpres['Update_time'])),
-                );
-                $newCrlf = $this->exportComment() . "\n";
-            }
+        if (! empty($tableStatus['Update_time']) && is_string($tableStatus['Update_time'])) {
+            $schemaCreate .= $this->exportComment(
+                __('Last update:') . ' '
+                . Util::localisedDate(new DateTimeImmutable($tableStatus['Update_time'])),
+            );
+            $newCrlf = $this->exportComment() . "\n";
+        }
 
-            if ($this->doDates && ! empty($tmpres['Check_time'])) {
-                $schemaCreate .= $this->exportComment(
-                    __('Last check:') . ' '
-                    . Util::localisedDate(new DateTimeImmutable($tmpres['Check_time'])),
-                );
-                $newCrlf = $this->exportComment() . "\n";
-            }
+        if (! empty($tableStatus['Check_time']) && is_string($tableStatus['Check_time'])) {
+            $schemaCreate .= $this->exportComment(
+                __('Last check:') . ' '
+                . Util::localisedDate(new DateTimeImmutable($tableStatus['Check_time'])),
+            );
+            $newCrlf = $this->exportComment() . "\n";
         }
 
         return $schemaCreate . $newCrlf;
@@ -2619,13 +2604,13 @@ class ExportSql extends ExportPlugin
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
-    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    private function setStringValue(mixed $fromRequest, string $fromConfig): string
     {
         if (is_string($fromRequest) && $fromRequest !== '') {
             return $fromRequest;
         }
 
-        if (is_string($fromConfig) && $fromConfig !== '') {
+        if ($fromConfig !== '') {
             return $fromConfig;
         }
 
@@ -2665,14 +2650,14 @@ class ExportSql extends ExportPlugin
     }
 
     /** @return int<0, max> */
-    private function setMaxQuerySize(mixed $fromRequest, mixed $fromConfig): int
+    private function setMaxQuerySize(mixed $fromRequest, int $fromConfig): int
     {
         if (is_numeric($fromRequest) && $fromRequest >= 0) {
             return (int) $fromRequest;
         }
 
-        if (is_numeric($fromConfig) && $fromConfig >= 0) {
-            return (int) $fromConfig;
+        if ($fromConfig >= 0) {
+            return $fromConfig;
         }
 
         return 50000;

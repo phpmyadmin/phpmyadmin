@@ -9,8 +9,8 @@ namespace PhpMyAdmin\Plugins\Schema\Svg;
 
 use PhpMyAdmin\Plugins\Schema\RelationStats;
 use PhpMyAdmin\Plugins\Schema\TableStats;
+use Random\Randomizer;
 
-use function shuffle;
 use function sqrt;
 
 /**
@@ -20,8 +20,6 @@ use function sqrt;
  * and helps in generating the Table references and then connects
  * master table's master field to foreign table's foreign key
  * in SVG XML document.
- *
- * @see     Svg::printElementLine
  */
 class RelationStatsSvg extends RelationStats
 {
@@ -33,21 +31,20 @@ class RelationStatsSvg extends RelationStats
      * @param string     $foreignField The relation field in the foreign table
      */
     public function __construct(
-        Svg $diagram,
+        private Svg $diagram,
         TableStats $masterTable,
         string $masterField,
         TableStats $foreignTable,
         string $foreignField,
+        private Randomizer $randomizer = new Randomizer(),
     ) {
         $this->wTick = 10;
 
-        parent::__construct($diagram, $masterTable, $masterField, $foreignTable, $foreignField);
+        parent::__construct($masterTable, $masterField, $foreignTable, $foreignField);
     }
 
     /**
      * draws relation links and arrows shows foreign key relations
-     *
-     * @see    PMA_SVG
      *
      * @param bool $showColor Whether to use one color per relation or not
      */
@@ -55,8 +52,7 @@ class RelationStatsSvg extends RelationStats
     {
         if ($showColor) {
             $listOfColors = ['#c00', '#bbb', '#333', '#cb0', '#0b0', '#0bf', '#b0b'];
-            shuffle($listOfColors);
-            $color = $listOfColors[0];
+            $color = $listOfColors[$this->randomizer->pickArrayKeys($listOfColors, 1)[0]];
         } else {
             $color = '#333';
         }

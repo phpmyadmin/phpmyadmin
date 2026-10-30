@@ -11,6 +11,8 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 use Webauthn\PublicKeyCredential;
 use Webauthn\TrustPath\EmptyTrustPath;
 
@@ -32,15 +34,14 @@ final class WebauthnLibServerTest extends TestCase
 
     public function testGetCredentialCreationOptions(): void
     {
-        $server = new WebauthnLibServer(self::createStub(TwoFactor::class));
+        $server = new WebauthnLibServer(self::createStub(TwoFactor::class), new Randomizer(new Mt19937(42)));
         $options = $server->getCredentialCreationOptions('user_name', 'user_id', 'test.localhost');
-        self::assertArrayHasKey('challenge', $options);
-        self::assertNotEmpty($options['challenge']);
+        self::assertSame('ZtzhX7M96stcA2LzDpX1Lmr0Y7tH1JnHvK5BmRQsy5g=', $options['challenge']);
         self::assertArrayHasKey('pubKeyCredParams', $options);
         self::assertNotEmpty($options['pubKeyCredParams']);
         self::assertArrayHasKey('attestation', $options);
         self::assertNotEmpty($options['attestation']);
-        self::assertSame('phpMyAdmin (test.localhost)', $options['rp']['name']);
+        self::assertSame('test.localhost', $options['rp']['name']);
         self::assertSame('test.localhost', $options['rp']['id']);
         self::assertSame('user_name', $options['user']['name']);
         self::assertSame('user_name', $options['user']['displayName']);
@@ -74,14 +75,14 @@ final class WebauthnLibServerTest extends TestCase
             ],
         ];
 
-        $server = new WebauthnLibServer($twoFactor);
+        $server = new WebauthnLibServer($twoFactor, new Randomizer(new Mt19937(42)));
         $options = $server->getCredentialRequestOptions(
             'user_name',
             'userHandle1',
             'test.localhost',
             [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ==']],
         );
-        self::assertNotEmpty($options['challenge']);
+        self::assertSame('ZtzhX7M96stcA2LzDpX1Lmr0Y7tH1JnHvK5BmRQsy5g=', $options['challenge']);
         self::assertSame('test.localhost', $options['rpId']);
         self::assertSame(
             [['type' => 'public-key', 'id' => 'cHVibGljS2V5Q3JlZGVudGlhbElkMQ==']],
@@ -155,8 +156,6 @@ final class WebauthnLibServerTest extends TestCase
                     'credentialPublicKey' => 'pQECAyYgASFYIJV56vRrFusoDf9hm3iDmllcxxXzzKyO9WruKw4kWx7zIlgg_nq63l8IMJcIdKDJcXRh9hoz0L-nVwP1Oxil3_oNQYs',
                     'userHandle' => 'Zm9v',
                     'counter' => 123,
-                    'backupEligible' => false,
-                    'backupStatus' => false,
                 ],
             ],
             $twoFactor->config['settings']['credentials'],
@@ -196,9 +195,6 @@ final class WebauthnLibServerTest extends TestCase
                 'credentialPublicKey' => 'pQECAyYgASFYIBw_HArIcANWNOBOxq3hH8lrHo9a17nQDxlqwybjDpHEIlggu3QUKIbALqsGuHfJI3LTKJSNmk0YCFb5oz1hjJidRMk',
                 'userHandle' => 'MJr5sD0WitVwZM0eoSO6kWhyseT67vc3oQdk_k1VdZQ',
                 'counter' => 0,
-                'backupEligible' => false,
-                'backupStatus' => false,
-                'uvInitialized' => false,
             ],
             $credential,
         );

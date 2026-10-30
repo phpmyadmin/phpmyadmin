@@ -49,9 +49,7 @@ class DesignerTest extends AbstractTestCase
     {
         $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('tryQueryAsControlUser')
@@ -68,7 +66,7 @@ class DesignerTest extends AbstractTestCase
                 '2' => 'page2',
             ]);
 
-        $dbi->expects(self::any())->method('quoteString')
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         DatabaseInterface::$instance = $dbi;
@@ -84,7 +82,13 @@ class DesignerTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $config = new Config();
-        $this->designer = new Designer($dbi, new Relation($dbi), new Template($config), $config);
+        $this->designer = new Designer(
+            $dbi,
+            new Relation($dbi),
+            new Template($config),
+            $config,
+            $this->createPluginFactory($dbi, $config),
+        );
 
         $method = new ReflectionMethod(Designer::class, 'getPageIdsAndNames');
         $result = $method->invokeArgs($this->designer, [$db]);
@@ -106,7 +110,13 @@ class DesignerTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $config = new Config();
-        $this->designer = new Designer($dbi, new Relation($dbi), new Template($config), $config);
+        $this->designer = new Designer(
+            $dbi,
+            new Relation($dbi),
+            new Template($config),
+            $config,
+            $this->createPluginFactory($dbi, $config),
+        );
 
         $result = $this->designer->getHtmlForEditOrDeletePages($db, $operation);
         self::assertStringContainsString('<input type="hidden" name="operation" value="' . $operation . '">', $result);
@@ -128,7 +138,13 @@ class DesignerTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $config = new Config();
-        $this->designer = new Designer($dbi, new Relation($dbi), new Template($config), $config);
+        $this->designer = new Designer(
+            $dbi,
+            new Relation($dbi),
+            new Template($config),
+            $config,
+            $this->createPluginFactory($dbi, $config),
+        );
 
         $result = $this->designer->getHtmlForPageSaveAs($db);
         self::assertStringContainsString('<input type="hidden" name="operation" value="savePage">', $result);
@@ -160,7 +176,13 @@ class DesignerTest extends AbstractTestCase
 
         $dbi = DatabaseInterface::getInstance();
         $config = new Config();
-        $this->designer = new Designer($dbi, new Relation($dbi), new Template($config), $config);
+        $this->designer = new Designer(
+            $dbi,
+            new Relation($dbi),
+            new Template($config),
+            $config,
+            $this->createPluginFactory($dbi, $config),
+        );
 
         $result = $this->designer->getHtmlForSchemaExport($db, $page, null, null);
         // export type

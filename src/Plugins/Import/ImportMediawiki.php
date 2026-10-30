@@ -13,7 +13,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Import\ImportTable;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 
@@ -58,7 +57,6 @@ class ImportMediawiki extends ImportPlugin
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('MediaWiki Table'));
         $importPluginProperties->setExtension('txt');
-        $importPluginProperties->setMimeType('text/plain');
 
         return $importPluginProperties;
     }
@@ -270,12 +268,7 @@ class ImportMediawiki extends ImportPlugin
                         $curTempLine[] = $cell;
                     }
                 } else {
-                    // If it's none of the above, then the current line has a bad
-                    // format
-                    $message = Message::error(
-                        __('Invalid format of mediawiki input on line: <br>%s.'),
-                    );
-                    $message->addParam($curBufferLine);
+                    // If it's none of the above, then the current line has a bad format
                     Import::$hasError = true;
                 }
             }

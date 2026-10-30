@@ -17,7 +17,6 @@ use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
-use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -57,15 +56,10 @@ final class ExportOdtTest extends AbstractTestCase
         parent::setUp();
 
         OutputHandler::$asFile = true;
-        ExportPlugin::$exportType = ExportType::Table;
-        ExportPlugin::$singleTable = false;
     }
 
     public function testSetProperties(): void
     {
-        ExportPlugin::$exportType = ExportType::Raw;
-        ExportPlugin::$singleTable = false;
-
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::DATABASE => 'db',
             RelationParameters::RELATION => 'relation',
@@ -75,7 +69,7 @@ final class ExportOdtTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $exportOdt = $this->getExportOdt();
+        $exportOdt = $this->getExportOdt(exportType: ExportType::Raw);
 
         $method = new ReflectionMethod(ExportOdt::class, 'setProperties');
         $properties = $method->invoke($exportOdt, null);
@@ -251,14 +245,13 @@ final class ExportOdtTest extends AbstractTestCase
         );
 
         // case 2
-        ExportPlugin::$exportType = ExportType::Table;
-        ExportPlugin::$singleTable = false;
-
-        $method->invoke($exportOdt, null);
+        $exportOdt = $this->getExportOdt(exportType: ExportType::Table);
+        $options = $exportOdt->getProperties()->getOptions();
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
         $generalOptionsArray = $options->getProperties();
 
-        self::assertCount(3, $generalOptionsArray);
+        self::assertCount(2, $generalOptionsArray);
     }
 
     public function testExportHeader(): void
@@ -309,9 +302,7 @@ final class ExportOdtTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $fields = [
             FieldHelper::fromArray(['type' => -1]),
@@ -323,7 +314,7 @@ final class ExportOdtTest extends AbstractTestCase
             FieldHelper::fromArray(['type' => MYSQLI_TYPE_DECIMAL, 'flags' => MYSQLI_NUM_FLAG]),
             FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING]),
         ];
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -369,9 +360,7 @@ final class ExportOdtTest extends AbstractTestCase
 
     public function testExportDataWithFieldNames(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $fields = [
             FieldHelper::fromArray([
@@ -386,7 +375,7 @@ final class ExportOdtTest extends AbstractTestCase
             ]),
         ];
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -426,13 +415,11 @@ final class ExportOdtTest extends AbstractTestCase
         );
 
         // with no row count
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $flags = [];
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -475,8 +462,8 @@ final class ExportOdtTest extends AbstractTestCase
 
         $dbiDummy->addSelectDb('test_db');
         self::assertSame(
-            $exportOdt->getTableDefStandIn('test_db', 'test_table'),
             '',
+            $exportOdt->getTableDefStandIn('test_db', 'test_table'),
         );
         $dbiDummy->assertAllSelectsConsumed();
 
@@ -509,11 +496,7 @@ final class ExportOdtTest extends AbstractTestCase
 
     public function testGetTableDef(): void
     {
-        $resultStub = self::createMock(DummyResult::class);
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
             ->method('fetchResult')
@@ -523,22 +506,10 @@ final class ExportOdtTest extends AbstractTestCase
             );
 
         $column = new Column('fieldname', '', null, false, '', null, '', '', '');
-        $dbi->expects(self::once())
+        $dbi->expects(self::exactly(2))
             ->method('getColumns')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn([$column]);
-
-        $dbi->expects(self::once())
-            ->method('tryQueryAsControlUser')
-            ->willReturn($resultStub);
-
-        $resultStub->expects(self::once())
-            ->method('numRows')
-            ->willReturn(1);
-
-        $resultStub->expects(self::once())
-            ->method('fetchAssoc')
-            ->willReturn(['comment' => 'testComment']);
 
         $exportOdt = $this->getExportOdt($dbi);
 
@@ -557,10 +528,10 @@ final class ExportOdtTest extends AbstractTestCase
 
         $exportOdt->setExportOptions($request, new SettingsExport());
 
-        self::assertTrue($exportOdt->getTableDef('database', ''));
+        self::assertTrue($exportOdt->getTableDef('database', 't1'));
 
         self::assertSame(
-            '<table:table table:name="_structure">' .
+            '<table:table table:name="t1_structure">' .
             '<table:table-column table:number-columns-repeated="6"/><table:table-row>' .
             '<table:table-cell office:value-type="string"><text:p>Column</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p>Type</text:p></table:table-cell>' .
@@ -581,11 +552,7 @@ final class ExportOdtTest extends AbstractTestCase
 
         // case 2
 
-        $resultStub = self::createMock(DummyResult::class);
-
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
             ->method('fetchResult')
@@ -595,22 +562,10 @@ final class ExportOdtTest extends AbstractTestCase
             );
 
         $column = new Column('fieldname', '', null, false, '', null, '', '', '');
-        $dbi->expects(self::once())
+        $dbi->expects(self::exactly(2))
             ->method('getColumns')
-            ->with('database', '')
+            ->with('database', 't1')
             ->willReturn([$column]);
-
-        $dbi->expects(self::once())
-            ->method('tryQueryAsControlUser')
-            ->willReturn($resultStub);
-
-        $resultStub->expects(self::once())
-            ->method('numRows')
-            ->willReturn(1);
-
-        $resultStub->expects(self::once())
-            ->method('fetchAssoc')
-            ->willReturn(['comment' => 'testComment']);
 
         $exportOdt = $this->getExportOdt($dbi);
         $exportOdt->setExportOptions($request, new SettingsExport());
@@ -626,10 +581,10 @@ final class ExportOdtTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        self::assertTrue($exportOdt->getTableDef('database', ''));
+        self::assertTrue($exportOdt->getTableDef('database', 't1'));
 
         self::assertSame(
-            '<table:table table:name="_structure">' .
+            '<table:table table:name="t1_structure">' .
             '<table:table-column table:number-columns-repeated="7"/><table:table-row>' .
             '<table:table-cell office:value-type="string"><text:p>Column</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p>Type</text:p></table:table-cell>' .
@@ -846,16 +801,14 @@ final class ExportOdtTest extends AbstractTestCase
 
     public function testExportTableCallsExportStructureMethod(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['odt_structure_or_data' => 'structure']);
 
         $exportOdt = $this->getExportOdt($dbi);
         $exportOdt->setExportOptions($request, new SettingsExport());
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $export->exportTable(
             'testdb',
             'testtable',
@@ -869,12 +822,21 @@ final class ExportOdtTest extends AbstractTestCase
         self::assertStringContainsString('Table structure for table testtable', $exportOdt->buffer);
     }
 
-    private function getExportOdt(DatabaseInterface|null $dbi = null): ExportOdt
-    {
+    private function getExportOdt(
+        DatabaseInterface|null $dbi = null,
+        ExportType $exportType = ExportType::Table,
+    ): ExportOdt {
         $dbi ??= $this->createDatabaseInterface();
         $config = new Config();
         $relation = new Relation($dbi, $config);
 
-        return new ExportOdt($relation, new OutputHandler(), new Transformations($dbi, $relation), $dbi, $config);
+        return new ExportOdt(
+            $relation,
+            new OutputHandler(),
+            new Transformations($dbi, $relation),
+            $dbi,
+            $config,
+            $exportType,
+        );
     }
 }

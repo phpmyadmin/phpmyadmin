@@ -74,9 +74,7 @@ class ForeignKeyTest extends AbstractTestCase
     #[DataProvider('providerCheckInit')]
     public function testHandleDisableCheckInit(string $checksValue, string $setVariableParam): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         DatabaseInterface::$instance = $dbi;
 
         $_REQUEST['fk_checks'] = $checksValue;
@@ -95,9 +93,7 @@ class ForeignKeyTest extends AbstractTestCase
     #[DataProvider('providerCheckInit')]
     public function testHandleDisableCheckInitVarFalse(string $checksValue, string $setVariableParam): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         DatabaseInterface::$instance = $dbi;
 
         $_REQUEST['fk_checks'] = $checksValue;
@@ -122,9 +118,7 @@ class ForeignKeyTest extends AbstractTestCase
     #[DataProvider('providerCheckCleanup')]
     public function testHandleDisableCheckCleanup(bool $checkValue, string $setVariableParam): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         DatabaseInterface::$instance = $dbi;
 
         $dbi->expects(self::once())

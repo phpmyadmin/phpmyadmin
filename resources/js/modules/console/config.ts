@@ -127,15 +127,14 @@ function setConfigValue (key: string, value: boolean|number|string): void {
     $.post(
         'index.php?route=/console/update-config',
         {
-            'ajax_request': true,
             server: CommonParams.get('server'),
             key: key,
             value: value,
         },
     ).fail(function (data) {
         if (typeof data !== 'undefined' && data.responseJSON) {
-            const message = '<div class="alert alert-danger" role="alert">' + escapeHtml(data.responseJSON.error) + '</div>';
-            ajaxShowMessage(message, false);
+            const message = escapeHtml(data.responseJSON.error);
+            ajaxShowMessage(message, false, 'error');
         }
     });
 }

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Gis;
 use ErrorException;
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Image\Color;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -56,13 +57,12 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string    $spatial   GIS POLYGON object
      * @param string    $label     Label for the GIS POLYGON object
-     * @param int[]     $color     Color for the GIS POLYGON object
      * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
-        array $color,
+        Color $color,
         ScaleData $scaleData,
         ImageWrapper $image,
     ): void {
@@ -86,13 +86,12 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string    $spatial   GIS GEOMETRYCOLLECTION object
      * @param string    $label     label for the GIS GEOMETRYCOLLECTION object
-     * @param int[]     $color     color for the GIS GEOMETRYCOLLECTION object
      * @param ScaleData $scaleData array containing data related to scaling
      */
     public function prepareRowAsPdf(
         string $spatial,
         string $label,
-        array $color,
+        Color $color,
         ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
@@ -116,12 +115,11 @@ class GisGeometryCollection extends GisGeometry
      *
      * @param string    $spatial   GIS GEOMETRYCOLLECTION object
      * @param string    $label     label for the GIS GEOMETRYCOLLECTION object
-     * @param int[]     $color     color for the GIS GEOMETRYCOLLECTION object
      * @param ScaleData $scaleData array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
+    public function prepareRowAsSvg(string $spatial, string $label, Color $color, ScaleData $scaleData): string
     {
         $row = '';
 

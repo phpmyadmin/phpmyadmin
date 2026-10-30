@@ -168,10 +168,7 @@ class Search
             $likeClausesPerColumn = [];
             // for each column in the table
             foreach ($allColumns as $column) {
-                if (
-                    $this->criteriaColumnName !== ''
-                    && $column->field !== $this->criteriaColumnName
-                ) {
+                if ($this->criteriaColumnName !== '' && $column->field !== $this->criteriaColumnName) {
                     continue;
                 }
 

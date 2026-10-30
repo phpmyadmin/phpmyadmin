@@ -42,10 +42,7 @@ final readonly class DestroyController implements InvocableController
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        if (
-            ! $request->isAjax()
-            || (! $this->dbi->isSuperUser() && ! $this->config->settings['AllowUserDropDatabase'])
-        ) {
+        if (! $request->isAjax() || (! $this->dbi->isSuperUser() && ! $this->config->config->AllowUserDropDatabase)) {
             $message = Message::error();
             $json = ['message' => $message];
             $this->response->setRequestStatus($message->isSuccess());
@@ -62,7 +59,7 @@ final readonly class DestroyController implements InvocableController
             && $database !== $pmadb);
 
         if ($selectedDbs === []) {
-            $message = Message::error(__('No databases selected.'));
+            $message = Message::error(__('No database selected.'));
             $json = ['message' => $message];
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON($json);
@@ -89,8 +86,8 @@ final readonly class DestroyController implements InvocableController
                 '%1$d databases have been dropped successfully.',
                 $numberOfDatabases,
             ),
+            [$numberOfDatabases],
         );
-        $message->addParam($numberOfDatabases);
         $json = ['message' => $message];
         $this->response->setRequestStatus($message->isSuccess());
         $this->response->addJSON($json);

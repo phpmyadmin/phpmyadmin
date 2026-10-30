@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Image\Color;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -44,19 +45,18 @@ class GisMultiPoint extends GisGeometry
      *
      * @param string    $spatial   GIS POLYGON object
      * @param string    $label     Label for the GIS POLYGON object
-     * @param int[]     $color     Color for the GIS POLYGON object
      * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPng(
         string $spatial,
         string $label,
-        array $color,
+        Color $color,
         ScaleData $scaleData,
         ImageWrapper $image,
     ): void {
         // allocate colors
-        $black = $image->colorAllocate(0, 0, 0);
-        $pointColor = $image->colorAllocate(...$color);
+        $black = $image->colorAllocate(Color::black());
+        $pointColor = $image->colorAllocate($color);
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($spatial, 11, -1);
@@ -94,17 +94,16 @@ class GisMultiPoint extends GisGeometry
      *
      * @param string    $spatial   GIS MULTIPOINT object
      * @param string    $label     Label for the GIS MULTIPOINT object
-     * @param int[]     $color     Color for the GIS MULTIPOINT object
      * @param ScaleData $scaleData Array containing data related to scaling
      */
     public function prepareRowAsPdf(
         string $spatial,
         string $label,
-        array $color,
+        Color $color,
         ScaleData $scaleData,
         TCPDF $pdf,
     ): void {
-        $line = ['width' => 1.25, 'color' => $color];
+        $line = ['width' => 1.25, 'color' => $color->toArray()];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint = mb_substr($spatial, 11, -1);
@@ -130,17 +129,16 @@ class GisMultiPoint extends GisGeometry
      *
      * @param string    $spatial   GIS MULTIPOINT object
      * @param string    $label     Label for the GIS MULTIPOINT object
-     * @param int[]     $color     Color for the GIS MULTIPOINT object
      * @param ScaleData $scaleData Array containing data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
      */
-    public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
+    public function prepareRowAsSvg(string $spatial, string $label, Color $color, ScaleData $scaleData): string
     {
         $options = [
             'class' => 'multipoint vector',
             'fill' => 'white',
-            'stroke' => sprintf('#%02x%02x%02x', $color[0], $color[1], $color[2]),
+            'stroke' => sprintf('#%02x%02x%02x', $color->red, $color->green, $color->blue),
             'stroke-width' => 2,
         ];
         if ($label !== '') {

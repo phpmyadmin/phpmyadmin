@@ -248,10 +248,7 @@ class Privileges
                 } else {
                     $privs[] = $currentGrant[1];
                 }
-            } elseif (
-                is_array($grantValue) && $grantValue !== []
-                && empty($_POST[$currentGrant[0] . '_none'])
-            ) {
+            } elseif (is_array($grantValue) && $grantValue !== [] && empty($_POST[$currentGrant[0] . '_none'])) {
                 // Required for proper escaping of ` (backtick) in a column name
                 $grantCols = array_map(
                     Util::backquote(...),
@@ -747,154 +744,150 @@ class Privileges
         return $response;
     }
 
-    /**
-     * Update password and get message for password updating
-     *
-     * @return Message success or error message after updating password
-     */
-    public function updatePassword(string $username, string $hostname): Message
-    {
-        // similar logic in /user-password
-        $message = null;
+    public function updatePassword(
+        string $username,
+        string $hostname,
+        string $password,
+        string $password2,
+        bool $nopass,
+    ): Message {
+        if (! $nopass) {
+            if ($password !== $password2) {
+                return Message::error(__('The passwords aren\'t the same!'));
+            }
 
-        if (isset($_POST['pma_pw'], $_POST['pma_pw2']) && empty($_POST['nopass'])) {
-            if ($_POST['pma_pw'] != $_POST['pma_pw2']) {
-                $message = Message::error(__('The passwords aren\'t the same!'));
-            } elseif (empty($_POST['pma_pw']) || empty($_POST['pma_pw2'])) {
-                $message = Message::error(__('The password is empty!'));
+            if ($password === '' || $password2 === '') {
+                return Message::error(__('The password is empty!'));
             }
         }
 
         // here $nopass could be == 1
-        if ($message === null) {
-            $hashingFunction = 'PASSWORD';
-            $serverVersion = $this->dbi->getVersion();
-            $authenticationPlugin = $_POST['authentication_plugin'] ?? $this->getCurrentAuthenticationPlugin(
-                $username,
-                $hostname,
-            );
+        $hashingFunction = 'PASSWORD';
+        $serverVersion = $this->dbi->getVersion();
+        $authenticationPlugin = $_POST['authentication_plugin'] ?? $this->getCurrentAuthenticationPlugin(
+            $username,
+            $hostname,
+        );
 
-            // Use 'ALTER USER ...' syntax for MySQL 5.7.6+
-            if (Compatibility::isMySqlOrPerconaDb($this->dbi) && $serverVersion >= 50706) {
-                if ($authenticationPlugin !== 'mysql_old_password') {
-                    $queryPrefix = 'ALTER USER '
-                        . $this->dbi->quoteString($username)
-                        . '@' . $this->dbi->quoteString($hostname)
-                        . ' IDENTIFIED WITH '
-                        . $authenticationPlugin
-                        . ' BY ';
-                } else {
-                    $queryPrefix = 'ALTER USER '
-                        . $this->dbi->quoteString($username)
-                        . '@' . $this->dbi->quoteString($hostname)
-                        . ' IDENTIFIED BY ';
-                }
-
-                // in $sql_query which will be displayed, hide the password
-                $sqlQuery = $queryPrefix . "'*'";
-
-                $localQuery = $queryPrefix . $this->dbi->quoteString($_POST['pma_pw']);
-            } elseif (Compatibility::isMariaDb($this->dbi) && $serverVersion >= 10000) {
-                // MariaDB uses "SET PASSWORD" syntax to change user password.
-                // On Galera cluster only DDL queries are replicated, since
-                // users are stored in MyISAM storage engine.
-                $sqlQuery = $localQuery = 'SET PASSWORD FOR '
+        // Use 'ALTER USER ...' syntax for MySQL 5.7.6+
+        if (Compatibility::isMySqlOrPerconaDb($this->dbi) && $serverVersion >= 50706) {
+            if ($authenticationPlugin !== 'mysql_old_password') {
+                $queryPrefix = 'ALTER USER '
                     . $this->dbi->quoteString($username)
                     . '@' . $this->dbi->quoteString($hostname)
-                    . ' = PASSWORD (' . $this->dbi->quoteString($_POST['pma_pw']) . ')';
-            } elseif (Compatibility::isMariaDb($this->dbi) && $serverVersion >= 50200 && $this->dbi->isSuperUser()) {
-                // Use 'UPDATE `mysql`.`user` ...' Syntax for MariaDB 5.2+
-                if ($authenticationPlugin === 'mysql_native_password') {
-                    // Set the hashing method used by PASSWORD()
-                    // to be 'mysql_native_password' type
-                    $this->dbi->tryQuery('SET old_passwords = 0;');
-                } elseif ($authenticationPlugin === 'sha256_password') {
-                    // Set the hashing method used by PASSWORD()
-                    // to be 'sha256_password' type
-                    $this->dbi->tryQuery('SET `old_passwords` = 2;');
-                }
-
-                $hashedPassword = $this->getHashedPassword($_POST['pma_pw']);
-
-                $sqlQuery = 'SET PASSWORD FOR '
-                    . $this->dbi->quoteString($username)
-                    . '@' . $this->dbi->quoteString($hostname) . ' = '
-                    . ($_POST['pma_pw'] == ''
-                        ? '\'\''
-                        : $hashingFunction . '(\''
-                        . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
-
-                $localQuery = 'UPDATE `mysql`.`user` SET '
-                    . " `authentication_string` = '" . $hashedPassword
-                    . "', `Password` = '', "
-                    . " `plugin` = '" . $authenticationPlugin . "'"
-                    . $this->getUserHostCondition($username, $hostname) . ';';
+                    . ' IDENTIFIED WITH '
+                    . $authenticationPlugin
+                    . ' BY ';
             } else {
-                // USE 'SET PASSWORD ...' syntax for rest of the versions
-                // Backup the old value, to be reset later
-                $row = $this->dbi->fetchSingleRow('SELECT @@old_passwords;');
-                $origValue = $row['@@old_passwords'];
-                $updatePluginQuery = 'UPDATE `mysql`.`user` SET'
-                    . " `plugin` = '" . $authenticationPlugin . "'"
-                    . $this->getUserHostCondition($username, $hostname) . ';';
-
-                // Update the plugin for the user
-                if ($this->dbi->tryQuery($updatePluginQuery) === false) {
-                    throw new UpdateAuthPluginFailure(Generator::mysqlDie(
-                        $this->dbi->getError(),
-                        $updatePluginQuery,
-                        false,
-                    ));
-                }
-
-                $this->dbi->tryQuery('FLUSH PRIVILEGES;');
-
-                if ($authenticationPlugin === 'mysql_native_password') {
-                    // Set the hashing method used by PASSWORD()
-                    // to be 'mysql_native_password' type
-                    $this->dbi->tryQuery('SET old_passwords = 0;');
-                } elseif ($authenticationPlugin === 'sha256_password') {
-                    // Set the hashing method used by PASSWORD()
-                    // to be 'sha256_password' type
-                    $this->dbi->tryQuery('SET `old_passwords` = 2;');
-                }
-
-                $sqlQuery = 'SET PASSWORD FOR '
+                $queryPrefix = 'ALTER USER '
                     . $this->dbi->quoteString($username)
-                    . '@' . $this->dbi->quoteString($hostname) . ' = '
-                    . ($_POST['pma_pw'] == ''
-                        ? '\'\''
-                        : $hashingFunction . '(\''
-                        . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
-
-                $localQuery = 'SET PASSWORD FOR '
-                    . $this->dbi->quoteString($username)
-                    . '@' . $this->dbi->quoteString($hostname) . ' = '
-                    . ($_POST['pma_pw'] == '' ? '\'\'' : $hashingFunction
-                    . '(' . $this->dbi->quoteString($_POST['pma_pw']) . ')');
+                    . '@' . $this->dbi->quoteString($hostname)
+                    . ' IDENTIFIED BY ';
             }
 
-            if ($this->dbi->tryQuery($localQuery) === false) {
-                throw new UserPasswordUpdateFailure(Generator::mysqlDie(
+            // in $sql_query which will be displayed, hide the password
+            $sqlQuery = $queryPrefix . "'*'";
+
+            $localQuery = $queryPrefix . $this->dbi->quoteString($password);
+        } elseif (Compatibility::isMariaDb($this->dbi) && $serverVersion >= 10000) {
+            // MariaDB uses "SET PASSWORD" syntax to change user password.
+            // On Galera cluster only DDL queries are replicated, since
+            // users are stored in MyISAM storage engine.
+            $sqlQuery = $localQuery = 'SET PASSWORD FOR '
+                . $this->dbi->quoteString($username)
+                . '@' . $this->dbi->quoteString($hostname)
+                . ' = PASSWORD (' . $this->dbi->quoteString($password) . ')';
+        } elseif (Compatibility::isMariaDb($this->dbi) && $serverVersion >= 50200 && $this->dbi->isSuperUser()) {
+            // Use 'UPDATE `mysql`.`user` ...' Syntax for MariaDB 5.2+
+            if ($authenticationPlugin === 'mysql_native_password') {
+                // Set the hashing method used by PASSWORD()
+                // to be 'mysql_native_password' type
+                $this->dbi->tryQuery('SET old_passwords = 0;');
+            } elseif ($authenticationPlugin === 'sha256_password') {
+                // Set the hashing method used by PASSWORD()
+                // to be 'sha256_password' type
+                $this->dbi->tryQuery('SET `old_passwords` = 2;');
+            }
+
+            $hashedPassword = $this->getHashedPassword($password);
+
+            $sqlQuery = 'SET PASSWORD FOR '
+                . $this->dbi->quoteString($username)
+                . '@' . $this->dbi->quoteString($hostname) . ' = '
+                . ($password == ''
+                    ? '\'\''
+                    : $hashingFunction . '(\''
+                    . preg_replace('@.@s', '*', $password) . '\')');
+
+            $localQuery = 'UPDATE `mysql`.`user` SET '
+                . " `authentication_string` = '" . $hashedPassword
+                . "', `Password` = '', "
+                . " `plugin` = '" . $authenticationPlugin . "'"
+                . $this->getUserHostCondition($username, $hostname) . ';';
+        } else {
+            // USE 'SET PASSWORD ...' syntax for rest of the versions
+            // Backup the old value, to be reset later
+            $row = $this->dbi->fetchSingleRow('SELECT @@old_passwords;');
+            $origValue = $row['@@old_passwords'];
+            $updatePluginQuery = 'UPDATE `mysql`.`user` SET'
+                . " `plugin` = '" . $authenticationPlugin . "'"
+                . $this->getUserHostCondition($username, $hostname) . ';';
+
+            // Update the plugin for the user
+            if ($this->dbi->tryQuery($updatePluginQuery) === false) {
+                throw new UpdateAuthPluginFailure(Generator::mysqlDie(
                     $this->dbi->getError(),
-                    $sqlQuery,
+                    $updatePluginQuery,
                     false,
                 ));
             }
 
-            // Flush privileges after successful password change
             $this->dbi->tryQuery('FLUSH PRIVILEGES;');
 
-            $message = Message::success(
-                __('The password for %s was changed successfully.'),
-            );
-            $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
-            if (isset($origValue)) {
-                $this->dbi->tryQuery('SET `old_passwords` = ' . $origValue . ';');
+            if ($authenticationPlugin === 'mysql_native_password') {
+                // Set the hashing method used by PASSWORD()
+                // to be 'mysql_native_password' type
+                $this->dbi->tryQuery('SET old_passwords = 0;');
+            } elseif ($authenticationPlugin === 'sha256_password') {
+                // Set the hashing method used by PASSWORD()
+                // to be 'sha256_password' type
+                $this->dbi->tryQuery('SET `old_passwords` = 2;');
             }
+
+            $sqlQuery = 'SET PASSWORD FOR '
+                . $this->dbi->quoteString($username)
+                . '@' . $this->dbi->quoteString($hostname) . ' = '
+                . ($password == ''
+                    ? '\'\''
+                    : $hashingFunction . '(\''
+                    . preg_replace('@.@s', '*', $password) . '\')');
+
+            $localQuery = 'SET PASSWORD FOR '
+                . $this->dbi->quoteString($username)
+                . '@' . $this->dbi->quoteString($hostname) . ' = '
+                . ($password == '' ? '\'\'' : $hashingFunction
+                . '(' . $this->dbi->quoteString($password) . ')');
         }
 
-        return $message;
+        if ($this->dbi->tryQuery($localQuery) === false) {
+            throw new UserPasswordUpdateFailure(Generator::mysqlDie(
+                $this->dbi->getError(),
+                $sqlQuery,
+                false,
+            ));
+        }
+
+        // Flush privileges after successful password change
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
+
+        if (isset($origValue)) {
+            $this->dbi->tryQuery('SET `old_passwords` = ' . $origValue . ';');
+        }
+
+        return Message::success(
+            __('The password for %s was changed successfully.'),
+            ['\'' . $username . '\'@\'' . $hostname . '\''],
+        );
     }
 
     /**
@@ -935,8 +928,8 @@ class Privileges
         $sqlQuery = $sqlQuery0 . ' ' . $sqlQuery1;
         $message = Message::success(
             __('You have revoked the privileges for %s.'),
+            ['\'' . $username . '\'@\'' . $hostname . '\''],
         );
-        $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
 
         return [$message, $sqlQuery];
     }
@@ -1317,7 +1310,7 @@ class Privileges
         $userTable = Util::backquote($configurableMenusFeature->database)
             . '.' . Util::backquote($configurableMenusFeature->users);
         $sqlQuery = 'SELECT `usergroup` FROM ' . $userTable
-            . ' WHERE `username` = \'' . $username . '\''
+            . ' WHERE `username` = ' . $this->dbi->quoteString($username)
             . ' LIMIT 1';
 
         $usergroup = $this->dbi->fetchValue($sqlQuery, 0, ConnectionType::ControlUser);
@@ -1365,7 +1358,7 @@ class Privileges
 
         $extraData = [];
         if ($sqlQuery !== '') {
-            $extraData['sql_query'] = Generator::getMessage('', $sqlQuery);
+            $extraData['sql_query'] = Generator::getMessage(new Message(), $sqlQuery);
         }
 
         if ($isChangeCopyUser) {
@@ -1979,8 +1972,10 @@ class Privileges
         }
 
         $sqlQuery = $sqlQuery0 . ' ' . $sqlQuery1 . ' ' . $grantBackQuery . ' ' . $alterUserQuery;
-        $message = Message::success(__('You have updated the privileges for %s.'));
-        $message->addParam('\'' . $username . '\'@\'' . $hostname . '\'');
+        $message = Message::success(
+            __('You have updated the privileges for %s.'),
+            ['\'' . $username . '\'@\'' . $hostname . '\''],
+        );
 
         return [$sqlQuery, $message];
     }
@@ -2225,8 +2220,10 @@ class Privileges
         }
 
         if ($this->userExists($username, $hostname)) {
-            $message = Message::error(__('The user %s already exists!'));
-            $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
+            $message = Message::error(
+                __('The user %s already exists!'),
+                ['[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]'],
+            );
             $_GET['adduser'] = true;
 
             return [
@@ -3305,10 +3302,7 @@ class Privileges
         // Accept only array of non-empty strings
         /** @var mixed $predDbname */
         $predDbname = $request->getParsedBodyParam('pred_dbname');
-        if (
-            is_array($predDbname)
-            && $predDbname === array_filter($predDbname)
-        ) {
+        if (is_array($predDbname) && $predDbname === array_filter($predDbname)) {
             $dbname = $predDbname;
             // If dbname contains only one database.
             if (count($dbname) === 1) {

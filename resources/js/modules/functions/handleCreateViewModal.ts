@@ -9,9 +9,9 @@ import getJsConfirmCommonParam from './getJsConfirmCommonParam.ts';
  * @param {JQuery<HTMLElement>} $this
  */
 export default function handleCreateViewModal ($this): void {
-    var $msg = ajaxShowMessage();
-    var sep = CommonParams.get('arg_separator');
-    var params = getJsConfirmCommonParam(this, $this.getPostData());
+    let $msg = ajaxShowMessage();
+    const sep = CommonParams.get('arg_separator');
+    let params = getJsConfirmCommonParam(this, $this.getPostData());
     params += sep + 'ajax_dialog=1';
     $.post($this.attr('href'), params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {

@@ -18,6 +18,7 @@ use PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\Database\Structure\CentralColumns;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Controllers\ErrorReportController;
+use PhpMyAdmin\Controllers\Events;
 use PhpMyAdmin\Controllers\Export;
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\GitInfoController;
@@ -115,7 +116,6 @@ final class RoutesTest extends TestCase
             '/database/central-columns' => Database\CentralColumnsController::class,
             '/database/data-dictionary' => Database\DataDictionaryController::class,
             '/database/designer' => Database\DesignerController::class,
-            '/database/events' => Database\EventsController::class,
             '/database/export' => Database\ExportController::class,
             '/database/import' => Database\ImportController::class,
             '/database/multi-table-query' => Database\MultiTableQueryController::class,
@@ -129,6 +129,8 @@ final class RoutesTest extends TestCase
             '/database/structure/real-row-count' => Database\Structure\RealRowCountController::class,
             '/database/tracking' => Database\TrackingController::class,
             '/error-report' => ErrorReportController::class,
+            '/events' => Events\IndexController::class,
+            '/events/export' => Events\ExportController::class,
             '/export' => Export\ExportController::class,
             '/export/check-time-out' => Export\CheckTimeOutController::class,
             '/gis-data-editor' => GisDataEditorController::class,
@@ -220,7 +222,6 @@ final class RoutesTest extends TestCase
             '/database/central-columns' => Database\CentralColumnsController::class,
             '/database/central-columns/populate' => Database\CentralColumns\PopulateColumnsController::class,
             '/database/designer' => Database\DesignerController::class,
-            '/database/events' => Database\EventsController::class,
             '/database/export' => Database\ExportController::class,
             '/database/import' => Database\ImportController::class,
             '/database/multi-table-query/query' => Database\MultiTableQuery\QueryController::class,
@@ -252,6 +253,7 @@ final class RoutesTest extends TestCase
             '/database/tracking' => Database\TrackingController::class,
             '/databases' => DatabaseController::class,
             '/error-report' => ErrorReportController::class,
+            '/events' => Events\IndexController::class,
             '/export' => Export\ExportController::class,
             '/export/tables' => Export\TablesController::class,
             '/export/template/create' => Export\Template\CreateController::class,

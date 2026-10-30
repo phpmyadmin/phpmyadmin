@@ -65,14 +65,7 @@ final readonly class GisVisualizationController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         // SQL query for retrieving GIS data
@@ -81,9 +74,7 @@ final readonly class GisVisualizationController implements InvocableController
         // Throw error if no sql query is set
         if ($sqlQuery === null) {
             $this->response->setRequestStatus(false);
-            $this->response->addHTML(
-                Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(__('No SQL query was set to fetch data.')));
 
             return $this->response->response();
         }
@@ -92,9 +83,7 @@ final readonly class GisVisualizationController implements InvocableController
 
         if ($spatialCandidates === []) {
             $this->response->setRequestStatus(false);
-            $this->response->addHTML(
-                Message::error(__('No spatial column found for this SQL query.'))->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(__('No spatial column found for this SQL query.')));
 
             return $this->response->response();
         }
@@ -159,7 +148,12 @@ final readonly class GisVisualizationController implements InvocableController
         ];
         $downloadUrl = Url::getFromRoute('/table/gis-visualization', $downloadParams + $urlParams);
 
-        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($sqlQuery);
+        $pos = $request->getParam('pos');
+        if ($pos !== null) {
+            $pos = (int) $pos;
+        }
+
+        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($sqlQuery, $pos);
 
         $html = $this->template->render('table/gis_visualization/gis_visualization', [
             'url_params' => $urlParams,
@@ -238,10 +232,7 @@ final readonly class GisVisualizationController implements InvocableController
         }
 
         $labelColumn = '';
-        if (
-            isset($settingsIn['labelColumn']) &&
-            in_array($settingsIn['labelColumn'], $labelCandidates, true)
-        ) {
+        if (isset($settingsIn['labelColumn']) && in_array($settingsIn['labelColumn'], $labelCandidates, true)) {
             $labelColumn = $settingsIn['labelColumn'];
         }
 

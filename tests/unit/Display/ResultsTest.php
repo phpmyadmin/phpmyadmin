@@ -17,7 +17,6 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
@@ -31,9 +30,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 use ReflectionMethod;
 use ReflectionProperty;
 use stdClass;
@@ -82,7 +84,7 @@ class ResultsTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi, $config);
         DatabaseInterface::$instance = $this->dbi;
-        $this->object = new DisplayResults($this->dbi, $config, 'as', '', 2, '', '');
+        $this->object = new DisplayResults($this->dbi, $config, 'as', '', 2, '', '', new ThemeManager());
         $_SESSION[' HMAC_secret '] = 'test';
     }
 
@@ -279,7 +281,7 @@ class ResultsTest extends AbstractTestCase
     {
         $query = 'SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10';
         (new ReflectionMethod(DisplayResults::class, 'setHighlightedColumnGlobalField'))
-            ->invokeArgs($this->object, [Query::getAll($query)]);
+            ->invokeArgs($this->object, [Query::getAll($query)->statement]);
 
         self::assertSame([
             'db_name' => true,
@@ -571,7 +573,7 @@ class ResultsTest extends AbstractTestCase
                 $conditionField,
                 $transformationPlugin,
                 $transformOptions,
-                $statementInfo,
+                $statementInfo->statement,
             ],
         );
         self::assertIsString($actual);
@@ -598,7 +600,7 @@ class ResultsTest extends AbstractTestCase
 
         // Basic data
         $query = 'SELECT 1';
-        $this->object = new DisplayResults($this->dbi, $config, 'db', '', 2, '', '');
+        $this->object = new DisplayResults($this->dbi, $config, 'db', '', 2, '', '', new ThemeManager());
 
         // Field meta information
         (new ReflectionProperty(DisplayResults::class, 'fieldsMeta'))->setValue($this->object, [
@@ -620,9 +622,7 @@ class ResultsTest extends AbstractTestCase
             ]),
         ]);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         // MIME transformations
         $dbi->expects(self::exactly(1))
@@ -651,7 +651,7 @@ class ResultsTest extends AbstractTestCase
             'disabled',
             false,
             $query,
-            Query::getAll($query),
+            Query::getAll($query)->statement,
         ]);
 
         // Dateformat
@@ -794,7 +794,7 @@ class ResultsTest extends AbstractTestCase
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com');
 
-        $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query);
+        $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query, new ThemeManager());
         $object->setConfigParamsForDisplayTable($request, $statementInfo);
 
         self::assertSame('F', $_SESSION['tmpval']['pftext']);
@@ -802,7 +802,7 @@ class ResultsTest extends AbstractTestCase
         $query = 'ANALYZE NO_WRITE_TO_BINLOG TABLE test_table';
         [$statementInfo] = ParseAnalyze::sqlQuery($query, $db, false);
 
-        $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query);
+        $object = new DisplayResults($this->dbi, $config, $db, $table, 2, '', $query, new ThemeManager());
         $object->setConfigParamsForDisplayTable($request, $statementInfo);
 
         self::assertSame('P', $_SESSION['tmpval']['pftext']);
@@ -832,7 +832,16 @@ class ResultsTest extends AbstractTestCase
             ->withQueryParams($queryParams)
             ->withParsedBody($parsedBody);
 
-        $object = new DisplayResults($this->dbi, Config::getInstance(), $db, $table, 2, '', $query);
+        $object = new DisplayResults(
+            $this->dbi,
+            Config::getInstance(),
+            $db,
+            $table,
+            2,
+            '',
+            $query,
+            new ThemeManager(),
+        );
         $object->setConfigParamsForDisplayTable($request, $statementInfo);
 
         self::assertArrayHasKey('tmpval', $_SESSION);
@@ -1065,9 +1074,9 @@ class ResultsTest extends AbstractTestCase
             Current::$server,
             '',
             $query,
+            new ThemeManager(),
+            new Randomizer(new Mt19937(42)),
         );
-
-        (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
 
         [$statementInfo] = ParseAnalyze::sqlQuery($query, Current::$database, false);
         $fieldsMeta = [
@@ -1229,7 +1238,6 @@ class ResultsTest extends AbstractTestCase
             'sql_query_message' => Generator::getMessage(
                 Message::success('Showing rows 0 -  2 (3 total, Query took 1.2340 seconds.)'),
                 $query,
-                MessageType::Success,
             ),
             'navigation' => [
                 'page_selector' => '',
@@ -1334,7 +1342,7 @@ class ResultsTest extends AbstractTestCase
             ],
             'db' => Current::$database,
             'table' => Current::$table,
-            'unique_id' => 1234567890,
+            'unique_id' => 804318771,
             'sql_query' => $query,
             'goto' => '',
             'unlim_num_rows' => 3,
@@ -1360,9 +1368,17 @@ class ResultsTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
 
-        $object = new DisplayResults($dbi, $config, Current::$database, Current::$table, 2, '', $query);
-
-        (new ReflectionProperty(DisplayResults::class, 'uniqueId'))->setValue($object, 1234567890);
+        $object = new DisplayResults(
+            $dbi,
+            $config,
+            Current::$database,
+            Current::$table,
+            2,
+            '',
+            $query,
+            new ThemeManager(),
+            new Randomizer(new Mt19937(42)),
+        );
 
         [$statementInfo] = ParseAnalyze::sqlQuery($query, Current::$database, false);
         $fieldsMeta = [
@@ -1496,7 +1512,6 @@ class ResultsTest extends AbstractTestCase
             'sql_query_message' => Generator::getMessage(
                 Message::success('Showing rows 0 -  1 (2 total, Query took 1.2340 seconds.)'),
                 $query,
-                MessageType::Success,
             ),
             'navigation' => [
                 'page_selector' => '',
@@ -1568,7 +1583,7 @@ class ResultsTest extends AbstractTestCase
             ],
             'db' => Current::$database,
             'table' => Current::$table,
-            'unique_id' => 1234567890,
+            'unique_id' => 804318771,
             'sql_query' => $query,
             'goto' => '',
             'unlim_num_rows' => 2,

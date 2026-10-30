@@ -25,6 +25,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -76,7 +77,6 @@ class ReplaceControllerTest extends AbstractTestCase
         UrlParams::$params = [];
         $_POST['db'] = Current::$database;
         $_POST['table'] = Current::$table;
-        $_POST['ajax_request'] = 'true';
         $_POST['relational_display'] = 'K';
 
         $request = self::createStub(ServerRequest::class);
@@ -96,13 +96,13 @@ class ReplaceControllerTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $config = Config::getInstance();
-        $relation = new Relation($dbi);
+        $relation = new Relation($dbi, $config);
         $transformations = new Transformations($dbi, $relation);
         $template = new Template($config);
         $response = new ResponseRenderer();
 
         $pageSettings = self::createStub(PageSettings::class);
-        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation, $config);
         $sqlController = new SqlController(
             $response,
             new Sql(
@@ -114,6 +114,7 @@ class ReplaceControllerTest extends AbstractTestCase
                 $bookmarkRepository,
                 $config,
                 $response,
+                new ThemeManager(),
             ),
             $pageSettings,
             $bookmarkRepository,

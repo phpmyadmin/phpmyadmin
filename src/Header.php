@@ -12,7 +12,6 @@ use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console\Console;
-use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\I18n\LanguageManager;
@@ -24,6 +23,7 @@ use function array_merge;
 use function htmlspecialchars;
 use function implode;
 use function ini_get;
+use function is_string;
 use function json_encode;
 
 use const JSON_HEX_TAG;
@@ -63,6 +63,7 @@ class Header
         private readonly Relation $relation,
         private readonly UserPreferences $userPreferences,
         private readonly UserPreferencesHandler $userPreferencesHandler,
+        private readonly ThemeManager $themeManager,
     ) {
     }
 
@@ -88,7 +89,6 @@ class Header
         $this->scripts->addFile('runtime.js');
         $this->scripts->addFile('vendor/jquery/jquery.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-migrate.min.js');
-        $this->scripts->addFile('vendor/sprintf.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui.min.js');
         $this->scripts->addFile('vendor/bootstrap/bootstrap.js');
         $this->scripts->addFile('vendor/js.cookie.min.js');
@@ -214,8 +214,7 @@ class Header
     /** @return array<string, mixed> */
     public function getDisplay(ResponseRenderer $responseRenderer): array
     {
-        $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
-        $theme = $themeManager->theme;
+        $theme = $this->themeManager->theme;
         $scripts = $this->getScripts();
         $userAgent = Core::getEnv('HTTP_USER_AGENT');
 
@@ -253,17 +252,19 @@ class Header
         $scripts->addFiles($this->console->getScripts());
 
         if ($this->isMenuEnabled() && Current::$server > 0) {
-            $navigation = (new Navigation($this->template, $this->relation, $this->dbi, $this->config))
-                ->getDisplay($responseRenderer);
+            $navigation = (new Navigation(
+                $this->template,
+                $this->relation,
+                $this->dbi,
+                $this->config,
+                $this->themeManager,
+            ))->getDisplay($responseRenderer);
         }
 
         $customHeader = self::renderHeader();
 
         // offer to load user preferences from localStorage
-        if (
-            $this->userPreferencesHandler->storageType === 'session'
-            && ! isset($_SESSION['userprefs_autoload'])
-        ) {
+        if ($this->userPreferencesHandler->storageType === 'session' && ! isset($_SESSION['userprefs_autoload'])) {
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();
         }
 
@@ -313,24 +314,23 @@ class Header
      */
     public function getMessage(): string
     {
-        $retval = '';
-        $message = '';
         if (Current::$message !== null) {
             $message = Current::$message;
             Current::$message = null;
-        } elseif (! empty($_REQUEST['message'])) {
-            $message = $_REQUEST['message'];
+
+            return Generator::getMessage($message);
         }
 
-        if ($message !== '') {
-            $retval .= Generator::getMessage($message);
+        $message = $_POST['message'] ?? $_GET['message'] ?? null;
+        if (is_string($message) && $message !== '') {
+            return Generator::getMessage(Message::notice(htmlspecialchars($message)));
         }
 
-        return $retval;
+        return '';
     }
 
     /** @return array<string, string> */
-    public function getHttpHeaders(ClockInterface|null $clock = null): array
+    public function getHttpHeaders(ClockInterface $clock = new Clock()): array
     {
         $headers = [
             'Referrer-Policy' => 'same-origin',
@@ -376,7 +376,7 @@ class Header
             'Permissions-Policy' => 'fullscreen=(self), interest-cohort=()',
         ];
 
-        $headers = array_merge($headers, Core::getNoCacheHeaders($clock ?? new Clock()));
+        $headers = array_merge($headers, Core::getNoCacheHeaders($clock));
 
         /**
          * A different Content-Type is set in {@see \PhpMyAdmin\Controllers\Transformation\WrapperController}.

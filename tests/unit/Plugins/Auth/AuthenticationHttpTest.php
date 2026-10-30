@@ -229,9 +229,7 @@ class AuthenticationHttpTest extends AbstractTestCase
         $_REQUEST = [];
         Current::$server = 0;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(3))
             ->method('getError')

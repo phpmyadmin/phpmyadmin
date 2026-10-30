@@ -26,6 +26,7 @@ use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\ZipExtension;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionProperty;
@@ -44,6 +45,7 @@ use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_STRING;
 
 #[CoversClass(ExportController::class)]
+#[AllowMockObjectsWithoutExpectations]
 final class ExportControllerTest extends AbstractTestCase
 {
     public function testExportController(): void
@@ -54,8 +56,6 @@ final class ExportControllerTest extends AbstractTestCase
 
         Current::$lang = 'en';
         $config = Config::getInstance();
-        $config->selectServer('1');
-        $config->settings['Export']['sql_procedure_function'] = false;
 
         $dbiDummy->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
@@ -79,7 +79,7 @@ final class ExportControllerTest extends AbstractTestCase
             ['TABLE_NAME'],
         );
         $dbiDummy->addResult(
-            'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`, `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`, `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`, `TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`, `DATA_LENGTH` AS `Data_length`, `MAX_DATA_LENGTH` AS `Max_data_length`, `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`, `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN (\'test_db\') AND t.`TABLE_NAME` COLLATE utf8_bin = \'test_table\' ORDER BY Name ASC',
+            'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`, `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`, `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`, `TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`, `DATA_LENGTH` AS `Data_length`, `MAX_DATA_LENGTH` AS `Max_data_length`, `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`, `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND t.`TABLE_NAME` COLLATE utf8_bin = \'test_table\' ORDER BY Name ASC',
             [['ref', 'test_db', 'test_table', 'BASE TABLE', 'InnoDB', '10', 'Dynamic', '3', '5461', '16384', '0', '49152', '0', '4', '2021-11-07 15:21:00', null, null, 'utf8mb4_general_ci', null, '', '', '0', 'N', 'test_db', 'test_table', 'BASE TABLE', 'InnoDB', 'InnoDB', '10', 'Dynamic', '3', '5461', '16384', '0', '49152', '0', '4', '2021-11-07 15:21:00', null, null, 'utf8mb4_general_ci', null, '', '']],
             ['TABLE_CATALOG', 'TABLE_SCHEMA', 'TABLE_NAME', 'TABLE_TYPE', 'ENGINE', 'VERSION', 'ROW_FORMAT', 'TABLE_ROWS', 'AVG_ROW_LENGTH', 'DATA_LENGTH', 'MAX_DATA_LENGTH', 'INDEX_LENGTH', 'DATA_FREE', 'AUTO_INCREMENT', 'CREATE_TIME', 'UPDATE_TIME', 'CHECK_TIME', 'TABLE_COLLATION', 'CHECKSUM', 'CREATE_OPTIONS', 'TABLE_COMMENT', 'MAX_INDEX_LENGTH', 'TEMPORARY', 'Db', 'Name', 'TABLE_TYPE', 'Engine', 'Type', 'Version', 'Row_format', 'Rows', 'Avg_row_length', 'Data_length', 'Max_data_length', 'Index_length', 'Data_free', 'Auto_increment', 'Create_time', 'Update_time', 'Check_time', 'Collation', 'Checksum', 'Create_options', 'Comment'],
         );
@@ -158,7 +158,6 @@ final class ExportControllerTest extends AbstractTestCase
             --
             -- Table structure for table `test_table`
             --
-
             CREATE TABLE `test_table` (
               `id` int(11) NOT NULL,
               `name` varchar(20) NOT NULL,
@@ -204,13 +203,16 @@ final class ExportControllerTest extends AbstractTestCase
             new ThemeManager(),
         );
 
+        $outputHandler = new OutputHandler();
+        $pluginFactory = $this->createPluginFactory($dbi, $config, $outputHandler);
         $exportController = new ExportController(
             new ResponseRenderer(),
-            new Export($dbi, new OutputHandler()),
+            new Export($dbi, $outputHandler, $pluginFactory),
             ResponseFactory::create(),
             $config,
             $userPreferencesHandler,
             $dbi,
+            $pluginFactory,
         );
         $response = $exportController($request);
         $output = $this->getActualOutputForAssertion();
@@ -230,8 +232,6 @@ final class ExportControllerTest extends AbstractTestCase
 
         Current::$lang = 'en';
         $config = Config::getInstance();
-        $config->selectServer('1');
-        $config->settings['Export']['sql_procedure_function'] = false;
 
         $dbiDummy->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
@@ -255,7 +255,7 @@ final class ExportControllerTest extends AbstractTestCase
             ['TABLE_NAME'],
         );
         $dbiDummy->addResult(
-            'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`, `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`, `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`, `TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`, `DATA_LENGTH` AS `Data_length`, `MAX_DATA_LENGTH` AS `Max_data_length`, `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`, `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t WHERE `TABLE_SCHEMA` COLLATE utf8_bin IN (\'test_db\') AND t.`TABLE_NAME` COLLATE utf8_bin = \'test_table\' ORDER BY Name ASC',
+            'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`, `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`, `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`, `TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`, `DATA_LENGTH` AS `Data_length`, `MAX_DATA_LENGTH` AS `Max_data_length`, `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`, `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND t.`TABLE_NAME` COLLATE utf8_bin = \'test_table\' ORDER BY Name ASC',
             [['ref', 'test_db', 'test_table', 'BASE TABLE', 'InnoDB', '10', 'Dynamic', '3', '5461', '16384', '0', '49152', '0', '4', '2021-11-07 15:21:00', null, null, 'utf8mb4_general_ci', null, '', '', '0', 'N', 'test_db', 'test_table', 'BASE TABLE', 'InnoDB', 'InnoDB', '10', 'Dynamic', '3', '5461', '16384', '0', '49152', '0', '4', '2021-11-07 15:21:00', null, null, 'utf8mb4_general_ci', null, '', '']],
             ['TABLE_CATALOG', 'TABLE_SCHEMA', 'TABLE_NAME', 'TABLE_TYPE', 'ENGINE', 'VERSION', 'ROW_FORMAT', 'TABLE_ROWS', 'AVG_ROW_LENGTH', 'DATA_LENGTH', 'MAX_DATA_LENGTH', 'INDEX_LENGTH', 'DATA_FREE', 'AUTO_INCREMENT', 'CREATE_TIME', 'UPDATE_TIME', 'CHECK_TIME', 'TABLE_COLLATION', 'CHECKSUM', 'CREATE_OPTIONS', 'TABLE_COMMENT', 'MAX_INDEX_LENGTH', 'TEMPORARY', 'Db', 'Name', 'TABLE_TYPE', 'Engine', 'Type', 'Version', 'Row_format', 'Rows', 'Avg_row_length', 'Data_length', 'Max_data_length', 'Index_length', 'Data_free', 'Auto_increment', 'Create_time', 'Update_time', 'Check_time', 'Collation', 'Checksum', 'Create_options', 'Comment'],
         );
@@ -333,7 +333,6 @@ final class ExportControllerTest extends AbstractTestCase
             --
             -- Table structure for table `test_table`
             --
-
             CREATE TABLE `test_table` (
               `id` int(11) NOT NULL,
               `name` varchar(20) NOT NULL,
@@ -379,13 +378,16 @@ final class ExportControllerTest extends AbstractTestCase
             new ThemeManager(),
         );
 
+        $outputHandler = new OutputHandler();
+        $pluginFactory = $this->createPluginFactory($dbi, $config, $outputHandler);
         $exportController = new ExportController(
             new ResponseRenderer(),
-            new Export($dbi, new OutputHandler()),
+            new Export($dbi, $outputHandler, $pluginFactory),
             ResponseFactory::create(),
             $config,
             $userPreferencesHandler,
             $dbi,
+            $pluginFactory,
         );
         $response = $exportController($request);
         $output = $this->getActualOutputForAssertion();
@@ -480,7 +482,6 @@ final class ExportControllerTest extends AbstractTestCase
             --
             -- Table structure for table `test_table`
             --
-
             CREATE TABLE `test_table` (
               `id` int(11) NOT NULL,
               `name` varchar(20) NOT NULL,
@@ -550,6 +551,7 @@ final class ExportControllerTest extends AbstractTestCase
             $config,
             $userPreferencesHandler,
             $dbi,
+            $this->createPluginFactory($dbi, $config, $export->outputHandler),
         );
         $response = $exportController($request);
 
@@ -568,8 +570,6 @@ final class ExportControllerTest extends AbstractTestCase
         $config = new Config();
         Config::$instance = $config;
         $config->selectedServer['DisableIS'] = true;
-        $config->set('SaveDir', '');
-        $config->settings['CompressOnFly'] = false;
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult('SET SQL_MODE=""', []);
@@ -648,7 +648,6 @@ final class ExportControllerTest extends AbstractTestCase
             --
             -- Table structure for table `test_table`
             --
-
             CREATE TABLE `test_table` (
               `id` int(11) NOT NULL,
               `name` varchar(20) NOT NULL,
@@ -718,6 +717,7 @@ final class ExportControllerTest extends AbstractTestCase
             $config,
             $userPreferencesHandler,
             $dbi,
+            $this->createPluginFactory($dbi, $config, $export->outputHandler),
         );
         $response = $exportController($request);
 

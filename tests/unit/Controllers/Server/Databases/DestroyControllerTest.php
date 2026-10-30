@@ -30,14 +30,12 @@ class DestroyControllerTest extends AbstractTestCase
 
     public function testDropDatabases(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $response = new ResponseRenderer();
 
         $config = Config::getInstance();
-        $config->settings['AllowUserDropDatabase'] = true;
+        $config->set('AllowUserDropDatabase', true);
 
         $relation = new Relation($dbi);
         $controller = new DestroyController(
@@ -56,7 +54,8 @@ class DestroyControllerTest extends AbstractTestCase
         $actual = $response->getJSONResult();
 
         self::assertArrayHasKey('message', $actual);
+        self::assertIsString($actual['message']);
         self::assertStringContainsString('<div class="alert alert-danger" role="alert">', $actual['message']);
-        self::assertStringContainsString(__('No databases selected.'), $actual['message']);
+        self::assertStringContainsString(__('No database selected.'), $actual['message']);
     }
 }

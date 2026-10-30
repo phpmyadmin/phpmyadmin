@@ -14,10 +14,12 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 
 #[CoversClass(RelationController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class RelationControllerTest extends AbstractTestCase
 {
     private ResponseStub $response;
@@ -42,9 +44,7 @@ class RelationControllerTest extends AbstractTestCase
         $_POST['foreignDb'] = 'db';
         $_POST['foreignTable'] = 'table';
 
-        $this->dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->dbi = $this->createMock(DatabaseInterface::class);
 
         $this->response = new ResponseStub();
         $this->template = new Template($config);
@@ -59,17 +59,12 @@ class RelationControllerTest extends AbstractTestCase
     public function testGetDropdownValueForTableActionIsView(): void
     {
         $viewColumns = ['viewCol', 'viewCol2', 'viewCol3'];
-        $tableMock = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $tableMock = $this->createMock(Table::class);
         // Test the situation when the table is a view
-        $tableMock->expects(self::any())->method('isView')
-            ->willReturn(true);
-        $tableMock->expects(self::any())->method('getColumns')
-            ->willReturn($viewColumns);
+        $tableMock->method('isView')->willReturn(true);
+        $tableMock->method('getColumns')->willReturn($viewColumns);
 
-        $this->dbi->expects(self::any())->method('getTable')
-            ->willReturn($tableMock);
+        $this->dbi->method('getTable')->willReturn($tableMock);
 
         $ctrl = new RelationController(
             $this->response,
@@ -93,17 +88,12 @@ class RelationControllerTest extends AbstractTestCase
     public function testGetDropdownValueForTableActionNotView(): void
     {
         $indexedColumns = ['primaryTableCol'];
-        $tableMock = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $tableMock = $this->createMock(Table::class);
         // Test the situation when the table is a view
-        $tableMock->expects(self::any())->method('isView')
-            ->willReturn(false);
-        $tableMock->expects(self::any())->method('getIndexedColumns')
-            ->willReturn($indexedColumns);
+        $tableMock->method('isView')->willReturn(false);
+        $tableMock->method('getIndexedColumns')->willReturn($indexedColumns);
 
-        $this->dbi->expects(self::any())->method('getTable')
-            ->willReturn($tableMock);
+        $this->dbi->method('getTable')->willReturn($tableMock);
 
         $ctrl = new RelationController(
             $this->response,
@@ -131,9 +121,7 @@ class RelationControllerTest extends AbstractTestCase
             ->method('query')
             ->willReturn($resultStub);
 
-        $resultStub->expects(self::any())
-            ->method('fetchAllColumn')
-            ->willReturn(['table']);
+        $resultStub->method('fetchAllColumn')->willReturn(['table']);
 
         $ctrl = new RelationController(
             $this->response,

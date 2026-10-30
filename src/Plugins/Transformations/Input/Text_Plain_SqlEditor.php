@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Plugins\Transformations\Abs\CodeMirrorEditorTransformationPlugin;
 
 use function __;
@@ -34,7 +35,8 @@ class Text_Plain_SqlEditor extends CodeMirrorEditorTransformationPlugin
     public function getScripts(): array
     {
         $scripts = [];
-        if (Config::getInstance()->config->CodemirrorEnable) {
+        // See #20159, why we need to check for HTTP_USER_AGENT here
+        if (Config::getInstance()->config->CodemirrorEnable && Core::getEnv('HTTP_USER_AGENT') !== '') {
             $scripts[] = 'vendor/codemirror/lib/codemirror.js';
             $scripts[] = 'vendor/codemirror/mode/sql/sql.js';
             $scripts[] = 'transformations/sql_editor.js';

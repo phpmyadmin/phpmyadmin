@@ -28,7 +28,9 @@ jobs:
           - { php-version: '82', experimental: false, arch: 's390x', exclude-phpunit-groups: '--exclude-group extension-iconv --exclude-group 32bit-incompatible' }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Write script
         # tcpdf allowed memory exhausted needs the memory_limit workaround
@@ -48,7 +50,7 @@ jobs:
           composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('src/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
           composer install && \
           ./bin/generate-mo && \
-          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-logging --no-coverage --testsuite unit %s" \
+          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-logging --no-coverage --testsuite unit --display-all-issues %s" \
           "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
 
       - name: Set up multi arch support
@@ -61,55 +63,54 @@ jobs:
         run: docker run -v $PWD:/app --workdir /app --rm --platform linux/${{ matrix.arch }} alpine:3.19 sh /app/do-tests.sh
 
   test-php:
-    name: Test on PHP ${{ matrix.php-version }}, ${{ matrix.composer-dependency }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.php-version == '8.5' }}
+    name: Test on PHP ${{ matrix.php-version }}, ${{ matrix.composer-dependency }}
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.php-version == '8.6' }}
     strategy:
       matrix:
-        php-version: ['8.2', '8.3', '8.4']
-        os: [ubuntu-latest]
+        php-version: ['8.2', '8.3', '8.4', '8.5']
         composer-dependency: [locked, highest]
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
-          - php-version: '8.5'
-            os: ubuntu-latest
+          - php-version: '8.6'
             composer-dependency: locked
             composer-options: '--ignore-platform-req=php+'
             php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
+          persist-credentials: false
 
-      - name: Install gettext
-        run: sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./bin/generate-mo --quiet
+      - name: Install gettext and generate translation files
+        run: |
+          sudo apt-get install -y gettext
+          ./bin/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
           extensions: ${{ matrix.php-extensions }}
-          coverage: xdebug
+          coverage: pcov
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
         with:
           dependency-versions: ${{ matrix.composer-dependency }}
           composer-options: ${{ matrix.composer-options }}
 
       - name: Run PHP tests
-        run: composer run phpunit -- --testsuite unit --display-deprecations --display-notices --display-warnings --display-errors
+        run: composer run phpunit -- --testsuite unit --display-all-issues
 
       - name: Send coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v7
         with:
-          flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
-          name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unit-${{ matrix.php-version }}
+          name: phpunit-${{ matrix.php-version }}
 
       - name: Send coverage to Scrutinizer
         uses: sudo-bot/action-scrutinizer@latest
@@ -130,42 +131,42 @@ jobs:
           coverage-reports: build/logs/clover.xml
 
   test-php-optional-extensions:
-    name: Test on PHP (+ ext-${{ matrix.extension }}) ${{ matrix.php-version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Test on PHP ${{ matrix.php-version }} (+ ext-${{ matrix.extension }})
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         php-version: ["8.2"]
-        os: [ubuntu-latest]
         extension: ["dbase"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
+          persist-credentials: false
 
-      - name: Install gettext
-        run: sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./bin/generate-mo --quiet
+      - name: Install gettext and generate translation files
+        run: |
+          sudo apt-get install -y gettext
+          ./bin/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
           extensions: ${{ matrix.extension }}, mbstring, iconv, mysqli, zip, gd
-          coverage: xdebug
+          coverage: pcov
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Run PHP tests
-        run: composer run phpunit -- --testsuite unit
+        run: composer run phpunit -- --testsuite unit --display-all-issues
 
       - name: Send coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v7
         with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           flags: ${{ matrix.extension }}-extension
           name: php-${{ matrix.php-version }}-${{ matrix.extension }}-enabled
 
@@ -186,3 +187,80 @@ jobs:
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: build/logs/clover.xml
+
+  test-php-with-newer-phpunit:
+    name: Test on PHP ${{ matrix.php }} with PHPUnit ${{ matrix.phpunit }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { php: '8.3', phpunit: '12' }
+          - { php: '8.4', phpunit: '13' }
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install gettext and generate translation files
+        run: |
+          sudo apt-get install -y gettext
+          ./bin/generate-mo --quiet
+
+      - name: Set up PHP ${{ matrix.php }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, iconv, mysqli, zip, gd, bz2
+          coverage: none
+
+      - name: Update composer.json
+        shell: bash
+        env:
+          PHPUNIT_VERSION: ${{ matrix.phpunit }}
+        run: |
+          composer config --unset platform --no-interaction --ansi
+          composer remove --dev vimeo/psalm psalm/plugin-phpunit --no-update --no-interaction --ansi
+          composer require --dev phpunit/phpunit:^"$PHPUNIT_VERSION" --no-update --no-interaction --ansi
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v4
+        with:
+          dependency-versions: highest
+
+      - name: Run PHP tests
+        run: vendor/bin/phpunit --testsuite unit --no-coverage --no-logging --display-all-issues
+
+  test-php-windows:
+    name: Test on PHP 8.2 (Windows)
+    runs-on: windows-latest
+    env:
+      php-version: '8.2'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install gettext
+        run: choco install gettext -y
+
+      - name: Generate translation files
+        shell: bash
+        run: |
+          export PATH=$PATH:"/c/Program Files/gettext-iconv/bin"
+          ./bin/generate-mo --quiet
+
+      - name: Set up PHP ${{ env.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ env.php-version }}
+          extensions: mbstring, iconv, mysqli, zip, gd, bz2, sodium
+          coverage: none
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v4
+
+      - name: Run PHP tests
+        run: vendor/bin/phpunit --testsuite unit --no-coverage --no-logging --display-all-issues

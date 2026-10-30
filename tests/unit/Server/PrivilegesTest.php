@@ -24,6 +24,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -38,6 +39,7 @@ use function preg_quote;
 
 #[CoversClass(Privileges::class)]
 #[Medium]
+#[AllowMockObjectsWithoutExpectations]
 class PrivilegesTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -417,10 +419,9 @@ class PrivilegesTest extends AbstractTestCase
 
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $_POST['pma_pw'] = 'pma_pw';
         $_POST['authentication_plugin'] = 'mysql_native_password';
 
-        $message = $serverPrivileges->updatePassword($username, $hostname);
+        $message = $serverPrivileges->updatePassword($username, $hostname, 'pma_pw', 'pma_pw', false);
 
         self::assertSame(
             'The password for \'pma_username\'@\'pma_hostname\' was changed successfully.',
@@ -520,14 +521,10 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['max_user_connections'] = 40;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects(self::any())->method('getVersion')
-            ->willReturn(8003);
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('getVersion')->willReturn(8003);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
@@ -563,14 +560,10 @@ class PrivilegesTest extends AbstractTestCase
         $_POST['max_user_connections'] = 40;
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $dbi->expects(self::any())->method('getVersion')
-            ->willReturn(80011);
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('getVersion')->willReturn(80011);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
@@ -728,6 +721,32 @@ class PrivilegesTest extends AbstractTestCase
 
         //validate 2: $createUserShow
         self::assertSame('CREATE USER \'PMA_username\'@\'PMA_hostname\' IDENTIFIED BY \'***\';', $createUserShow);
+    }
+
+    public function testGetSqlQueriesForDisplayAndAddUserMySql8044EscapePw(): void
+    {
+        Config::getInstance()->selectedServer['DisableIS'] = false;
+
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => '8.0.44', '@@version_comment' => 'MySQL Community Server - GPL']);
+
+        $serverPrivileges = $this->getPrivileges($dbi);
+
+        $username = 'PMA_username';
+        $hostname = 'PMA_hostname';
+        $_POST['pred_password'] = 'userdefined';
+        $_POST['pma_pw'] = 'pma_password\'';
+
+        [
+            $createUserReal,
+            $createUserShow,
+        ] = $serverPrivileges->getSqlQueriesForDisplayAndAddUser($username, $hostname, '');
+
+        //validate 1: $createUserReal
+        self::assertSame("CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED BY 'pma_password\\'';", $createUserReal);
+
+        //validate 2: $createUserShow
+        self::assertSame("CREATE USER 'PMA_username'@'PMA_hostname' IDENTIFIED BY '***';", $createUserShow);
     }
 
     public function testGetSqlQueriesForDisplayAndAddUserMySql50500AndUserDefinedPassword(): void
@@ -915,17 +934,13 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges->username = 'pma_username';
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $fieldsInfo = [
             ['COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80],
             ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
         ];
-        $dbi->expects(self::any())->method('fetchResult')
-            ->willReturn($fieldsInfo);
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('fetchResult')->willReturn($fieldsInfo);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
@@ -980,20 +995,15 @@ class PrivilegesTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $serverPrivileges = $this->getPrivileges($dbi);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $fieldsInfo = [
             ['COLUMN_NAME' => 'Host', 'CHARACTER_MAXIMUM_LENGTH' => 80],
             ['COLUMN_NAME' => 'User', 'CHARACTER_MAXIMUM_LENGTH' => 40],
         ];
-        $dbi->expects(self::any())->method('fetchResult')
-            ->willReturn($fieldsInfo);
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi->method('fetchResult')->willReturn($fieldsInfo);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
-        $dbi->expects(self::any())->method('isGrantUser')
-            ->willReturn(true);
+        $dbi->method('isGrantUser')->willReturn(true);
 
         $serverPrivileges->dbi = $dbi;
 
@@ -1199,7 +1209,7 @@ class PrivilegesTest extends AbstractTestCase
 
         //sql_query
         self::assertSame(
-            Generator::getMessage('', $sqlQuery),
+            Generator::getMessage(new Message(), $sqlQuery),
             $extraData['sql_query'],
         );
 
@@ -1243,6 +1253,29 @@ class PrivilegesTest extends AbstractTestCase
         self::assertSame('pma_usergroup', $serverPrivileges->getUserGroupForUser('pma_username'));
     }
 
+    public function testGetUserGroupForUserEscapesTheUsername(): void
+    {
+        $username = 'pma\' UNION SELECT \'injected';
+
+        $relationParameters = RelationParameters::fromArray([
+            RelationParameters::DATABASE => 'pmadb',
+            RelationParameters::USERS => 'users',
+            RelationParameters::USER_GROUPS => 'usergroups',
+            RelationParameters::MENUS_WORK => true,
+        ]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
+
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addResult(
+            'SELECT `usergroup` FROM `pmadb`.`users` WHERE `username` = \'pma\\\' UNION SELECT \\\'injected\' LIMIT 1',
+            [['pma_usergroup']],
+        );
+
+        $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
+
+        self::assertSame('pma_usergroup', $serverPrivileges->getUserGroupForUser($username));
+    }
+
     public function testGetUsersOverview(): void
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
@@ -1265,7 +1298,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges = $this->getPrivileges($this->createDatabaseInterface($dummyDbi));
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
         $dbRights = [];
 
         $html = $serverPrivileges->getUsersOverview($resultStub, $dbRights);
@@ -1754,20 +1787,11 @@ class PrivilegesTest extends AbstractTestCase
         $resultStub = $this->createMock(DummyResult::class);
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())
-            ->method('query')
-            ->willReturn($resultStub);
-        $dbi->expects(self::any())
-            ->method('fetchResult')
-            ->willReturn(['db', 'columns_priv']);
-        $resultStub->expects(self::any())
-            ->method('fetchAssoc')
-            ->willReturn(['User' => 'pmauser', 'Host' => 'local'], []);
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('query')->willReturn($resultStub);
+        $dbi->method('fetchResult')->willReturn(['db', 'columns_priv']);
+        $resultStub->method('fetchAssoc')->willReturn(['User' => 'pmauser', 'Host' => 'local'], []);
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;
@@ -1792,20 +1816,13 @@ class PrivilegesTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $serverPrivileges = $this->getPrivileges($dbi);
 
-        $resultStub = $this->createMock(DummyResult::class);
+        $resultStub = self::createStub(DummyResult::class);
 
         //Mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())
-            ->method('tryQuery')
-            ->willReturn($resultStub, $resultStub, false);
-        $dbi->expects(self::any())
-            ->method('getError')
-            ->willReturn('Some error occurred!');
-        $dbi->expects(self::any())
-            ->method('quoteString')
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('tryQuery')->willReturn($resultStub, $resultStub, false);
+        $dbi->method('getError')->willReturn('Some error occurred!');
+        $dbi->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
 
         $serverPrivileges->dbi = $dbi;

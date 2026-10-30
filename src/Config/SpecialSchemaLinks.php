@@ -93,7 +93,7 @@ class SpecialSchemaLinks
                     'name' => [
                         'link_param' => 'item_name',
                         'link_dependancy_params' => [['param_info' => 'db', 'column_name' => 'db']],
-                        'default_page' => './' . Url::getFromRoute('/database/events', ['edit_item' => 1]),
+                        'default_page' => './' . Url::getFromRoute('/events', ['edit_item' => 1]),
                     ],
 
                 ],

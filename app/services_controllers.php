@@ -20,6 +20,7 @@ use PhpMyAdmin\Controllers\Console;
 use PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Controllers\ErrorReportController;
+use PhpMyAdmin\Controllers\Events as EventsControllers;
 use PhpMyAdmin\Controllers\Export;
 use PhpMyAdmin\Controllers\GisDataEditorController;
 use PhpMyAdmin\Controllers\GitInfoController;
@@ -53,21 +54,23 @@ use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common;
-use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Error\ErrorReport;
+use PhpMyAdmin\Events\Events;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\ResponseRenderer;
@@ -91,6 +94,7 @@ use PhpMyAdmin\UserPassword;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\VersionInformation;
 use Psr\Clock\ClockInterface;
+use Random\Randomizer;
 
 return [
     BrowseForeignersController::class => [
@@ -143,16 +147,13 @@ return [
     ],
     Database\DesignerController::class => [
         'class' => Database\DesignerController::class,
-        'arguments' => [ResponseRenderer::class, Template::class, Designer::class, Common::class, DbTableExists::class],
-    ],
-    Database\EventsController::class => [
-        'class' => Database\EventsController::class,
         'arguments' => [
             ResponseRenderer::class,
             Template::class,
-            Events::class,
-            DatabaseInterface::class,
+            Designer::class,
+            Common::class,
             DbTableExists::class,
+            Randomizer::class,
         ],
     ],
     Database\ExportController::class => [
@@ -163,6 +164,7 @@ return [
             Options::class,
             PageSettings::class,
             DbTableExists::class,
+            PluginFactory::class,
         ],
     ],
     Database\ImportController::class => [
@@ -173,6 +175,8 @@ return [
             PageSettings::class,
             DbTableExists::class,
             Config::class,
+            Ajax::class,
+            PluginFactory::class,
         ],
     ],
     Database\MultiTableQuery\QueryController::class => [
@@ -207,6 +211,7 @@ return [
             DatabaseInterface::class,
             DbTableExists::class,
             Config::class,
+            PluginFactory::class,
         ],
     ],
     Database\PrivilegesController::class => [
@@ -307,7 +312,6 @@ return [
             DatabaseInterface::class,
             FlashMessenger::class,
             Database\StructureController::class,
-            \PhpMyAdmin\Sql::class,
         ],
     ],
     Database\Structure\FavoriteTableController::class => [
@@ -365,6 +369,14 @@ return [
             Config::class,
         ],
     ],
+    EventsControllers\ExportController::class => [
+        'class' => EventsControllers\ExportController::class,
+        'arguments' => [ResponseRenderer::class, Events::class, DbTableExists::class],
+    ],
+    EventsControllers\IndexController::class => [
+        'class' => EventsControllers\IndexController::class,
+        'arguments' => [ResponseRenderer::class, Template::class, Events::class, DbTableExists::class],
+    ],
     Export\CheckTimeOutController::class => [
         'class' => Export\CheckTimeOutController::class,
         'arguments' => [ResponseRenderer::class],
@@ -378,6 +390,7 @@ return [
             Config::class,
             UserPreferencesHandler::class,
             DatabaseInterface::class,
+            PluginFactory::class,
         ],
     ],
     Export\TablesController::class => [
@@ -435,7 +448,7 @@ return [
     ],
     Import\StatusController::class => [
         'class' => Import\StatusController::class,
-        'arguments' => [Template::class, ClockInterface::class],
+        'arguments' => [Template::class, ClockInterface::class, Ajax::class],
     ],
     JavaScriptMessagesController::class => [
         'class' => JavaScriptMessagesController::class,
@@ -638,11 +651,24 @@ return [
     ],
     Server\ExportController::class => [
         'class' => Server\ExportController::class,
-        'arguments' => [ResponseRenderer::class, Options::class, DatabaseInterface::class, PageSettings::class],
+        'arguments' => [
+            ResponseRenderer::class,
+            Options::class,
+            DatabaseInterface::class,
+            PageSettings::class,
+            PluginFactory::class,
+        ],
     ],
     Server\ImportController::class => [
         'class' => Server\ImportController::class,
-        'arguments' => [ResponseRenderer::class, DatabaseInterface::class, PageSettings::class, Config::class],
+        'arguments' => [
+            ResponseRenderer::class,
+            DatabaseInterface::class,
+            PageSettings::class,
+            Config::class,
+            Ajax::class,
+            PluginFactory::class,
+        ],
     ],
     Server\PluginsController::class => [
         'class' => Server\PluginsController::class,
@@ -903,7 +929,7 @@ return [
     ],
     Table\ExportController::class => [
         'class' => Table\ExportController::class,
-        'arguments' => [ResponseRenderer::class, Options::class, PageSettings::class],
+        'arguments' => [ResponseRenderer::class, Options::class, PageSettings::class, PluginFactory::class],
     ],
     Table\ExportRowsController::class => [
         'class' => Table\ExportRowsController::class,
@@ -942,6 +968,8 @@ return [
             PageSettings::class,
             DbTableExists::class,
             Config::class,
+            Ajax::class,
+            PluginFactory::class,
         ],
     ],
     Table\IndexesController::class => [

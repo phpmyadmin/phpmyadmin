@@ -32,7 +32,7 @@ In order to get it working, you first have to properly create the
 the table definition, a link called "Relation view" is shown. If you click that
 link, a page will be shown that offers you to create a link to another table
 for any (most) fields. Only PRIMARY KEYS are shown there, so if the field you
-are referring to is not shown, you most likely are doing something wrong.  The
+are referring to is not shown, you most likely are doing something wrong. The
 drop-down at the bottom is the field which will be used as the name for a
 record.
 

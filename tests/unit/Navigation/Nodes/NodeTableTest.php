@@ -72,10 +72,10 @@ class NodeTableTest extends AbstractTestCase
     {
         $config = Config::getInstance();
 
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('fetchResultSimple')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 [
                     ['name' => 'foo1', 'type' => 'varchar(255)', 'key' => '', 'default' => '', 'nullable' => ''],
                     ['name' => 'foo2', 'type' => 'varchar(64)', 'key' => '', 'default' => '', 'nullable' => ''],
@@ -103,15 +103,15 @@ class NodeTableTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = true;
         $config->set('MaxNavigationItems', 2);
 
-        $dbi = self::createMock(DatabaseInterface::class);
-        $resultStub = self::createMock(DummyResult::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $resultStub = $this->createMock(DummyResult::class);
         $dbi->expects(self::once())
             ->method('tryQuery')
             ->with('SHOW COLUMNS FROM `node` FROM `DB`')
             ->willReturn($resultStub);
         $resultStub->expects(self::once())
             ->method('fetchAllAssoc')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 [
                     ['Field' => 'foo1', 'Type' => 'varchar(255)', 'Key' => '', 'Default' => '', 'Null' => 'NO'],
                     ['Field' => 'foo2', 'Type' => 'varchar(64)', 'Key' => '', 'Default' => '', 'Null' => 'NO'],
@@ -135,10 +135,10 @@ class NodeTableTest extends AbstractTestCase
     {
         $config = Config::getInstance();
 
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('fetchSingleColumn')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 [
                     'foo1',
                     'foo2',
@@ -166,8 +166,8 @@ class NodeTableTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = true;
         $config->set('MaxNavigationItems', 2);
 
-        $dbi = self::createMock(DatabaseInterface::class);
-        $resultStub = self::createMock(DummyResult::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $resultStub = $this->createMock(DummyResult::class);
         $dbi->expects(self::once())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         $dbi->expects(self::once())
@@ -176,7 +176,7 @@ class NodeTableTest extends AbstractTestCase
             ->willReturn($resultStub);
         $resultStub->expects(self::once())
             ->method('fetchAllAssoc')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 [
                     ['Trigger' => 'foo1'],
                     ['Trigger' => 'foo2'],
@@ -202,15 +202,15 @@ class NodeTableTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = true;
         $config->set('MaxNavigationItems', 2);
 
-        $dbi = self::createMock(DatabaseInterface::class);
-        $resultStub = self::createMock(DummyResult::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $resultStub = $this->createMock(DummyResult::class);
         $dbi->expects(self::once())
             ->method('tryQuery')
             ->with('SHOW INDEXES FROM `node` FROM `DB`')
             ->willReturn($resultStub);
         $resultStub->expects(self::once())
             ->method('fetchAllAssoc')
-            ->willReturnOnConsecutiveCalls(
+            ->willReturn(
                 [
                     ['Key_name' => 'foo1'],
                     ['Key_name' => 'foo2'],

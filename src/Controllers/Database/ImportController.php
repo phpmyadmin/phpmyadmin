@@ -20,6 +20,7 @@ use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Plugins\PluginType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
@@ -39,6 +40,8 @@ final readonly class ImportController implements InvocableController
         private PageSettings $pageSettings,
         private DbTableExists $dbTableExists,
         private Config $config,
+        private Ajax $ajax,
+        private PluginFactory $pluginFactory,
     ) {
     }
 
@@ -56,25 +59,18 @@ final readonly class ImportController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
-        [$uploadId] = Ajax::uploadProgressSetup();
+        $uploadId = $this->ajax->uploadProgressSetup();
 
         ImportSettings::$importType = 'database';
-        $importList = Plugins::getImport();
+        $importList = $this->pluginFactory->getAllImportPlugins();
 
         if ($importList === []) {
             $this->response->addHTML(Message::error(__(
                 'Could not load import plugins, please check your installation!',
-            ))->getDisplay());
+            )));
 
             return $this->response->response();
         }

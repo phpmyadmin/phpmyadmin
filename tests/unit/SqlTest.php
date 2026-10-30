@@ -17,6 +17,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -60,9 +61,10 @@ class SqlTest extends AbstractTestCase
             new RelationCleanup($this->dbi, $relation),
             new Transformations($this->dbi, $relation),
             new Template($config),
-            new BookmarkRepository($this->dbi, $relation),
+            new BookmarkRepository($this->dbi, $relation, $config),
             $config,
             new ResponseRenderer(),
+            new ThemeManager(),
         );
     }
 
@@ -89,9 +91,6 @@ class SqlTest extends AbstractTestCase
      */
     public function testIsRememberSortingOrder(): void
     {
-        // Test environment.
-        Config::getInstance()->settings['RememberSorting'] = true;
-
         self::assertTrue(
             (new ReflectionMethod(Sql::class, 'isRememberSortingOrder'))->invokeArgs($this->sql, [
                 ParseAnalyze::sqlQuery('SELECT * FROM tbl', Current::$database, false)[0],
@@ -378,14 +377,14 @@ class SqlTest extends AbstractTestCase
                 ['max_rows' => 10, 'pos' => 4],
                 20,
                 42,
-
+                false,
+                'SELECT COUNT(*) FROM (SELECT 1 FROM company_users WHERE subquery_case = 0 ) as cnt',
             ],
             [
                 'SELECT ( as c2 FROM company_users WHERE working_count = 0',// Invalid query
                 ['max_rows' => 10],
                 20,
                 20,
-
             ],
             [
                 'SELECT DISTINCT country_id FROM city;',
@@ -410,6 +409,14 @@ class SqlTest extends AbstractTestCase
                 100,
                 false,
                 'SELECT COUNT(*) FROM (SELECT 1 FROM t1 WHERE id <> 0 ) as cnt',
+            ],
+            'duplicate column alias should not break count' => [
+                'SELECT id, name AS id FROM company_users WHERE working_count = 0',
+                ['max_rows' => 10, 'pos' => 0],
+                25,
+                384,
+                false,
+                'SELECT COUNT(*) FROM (SELECT 1 FROM company_users WHERE working_count = 0 ) as cnt',
             ],
         ];
     }
@@ -468,7 +475,7 @@ class SqlTest extends AbstractTestCase
             ],
         );
         $this->dummyDbi->addResult(
-            'SHOW TABLE STATUS FROM `sakila` WHERE `Name` LIKE \'country%\'',
+            'SHOW TABLE STATUS FROM `sakila` WHERE `Name` = \'country\'',
             [
                 [
                     'country',
@@ -635,7 +642,7 @@ class SqlTest extends AbstractTestCase
             '',
             'index.php?route=/sql',
             null,
-            '',
+            null,
             'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
             'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
         );
@@ -662,9 +669,10 @@ class SqlTest extends AbstractTestCase
             new RelationCleanup($this->dbi, $relation),
             new Transformations($this->dbi, $relation),
             new Template($config),
-            new BookmarkRepository($this->dbi, $relation),
+            new BookmarkRepository($this->dbi, $relation, $config),
             $config,
             new ResponseRenderer(),
+            new ThemeManager(),
         );
 
         $dbiDummy->removeDefaultResults();
@@ -690,7 +698,7 @@ class SqlTest extends AbstractTestCase
         $dbiDummy->addResult('SELECT @@lower_case_table_names', [['0']]);
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy->addResult(
-            "SHOW TABLE STATUS FROM `sakila` WHERE `Name` LIKE 'country%'",
+            "SHOW TABLE STATUS FROM `sakila` WHERE `Name` = 'country'",
             [['country', 'InnoDB', '10', 'Dynamic', '109', '150', '16384', '0', '0', '0', '110', '2011-12-13 14:15:16', null, null, 'utf8mb4_general_ci', null, '', '', '0', 'N']],
             ['Name', 'Engine', 'Version', 'Row_format', 'Rows', 'Avg_row_length', 'Data_length', 'Max_data_length', 'Index_length', 'Data_free', 'Auto_increment', 'Create_time', 'Update_time', 'Check_time', 'Collation', 'Checksum', 'Create_options', 'Comment', 'Max_index_length', 'Temporary'],
         );
@@ -744,7 +752,7 @@ class SqlTest extends AbstractTestCase
             '',
             'index.php?route=/sql',
             null,
-            '',
+            null,
             "SELECT * FROM `sakila`.`country` WHERE `last_update` > '2025-02-01';",
             "SELECT * FROM `sakila`.`country` WHERE `last_update` > '2025-02-01';",
         );

@@ -342,8 +342,8 @@ class Node
     public function getPresence(UserPrivileges $userPrivileges, string $type = '', string $searchClause = ''): int
     {
         if (
-            ! $this->config->settings['NavigationTreeEnableGrouping']
-            || ! $this->config->settings['ShowDatabasesNavigationAsTree']
+            ! $this->config->config->NavigationTreeEnableGrouping
+            || ! $this->config->config->ShowDatabasesNavigationAsTree
         ) {
             if (! $this->config->selectedServer['DisableIS']) {
                 $query = 'SELECT COUNT(*) ';
@@ -369,7 +369,7 @@ class Node
             return $retval;
         }
 
-        $dbSeparator = $this->config->settings['NavigationTreeDbSeparator'];
+        $dbSeparator = $this->config->config->NavigationTreeDbSeparator;
         if (! $this->config->selectedServer['DisableIS']) {
             $query = 'SELECT COUNT(*) ';
             $query .= 'FROM ( ';
@@ -523,7 +523,7 @@ class Node
      */
     public function getCssClasses(bool $match): string
     {
-        if (! $this->config->settings['NavigationTreeEnableExpansion']) {
+        if (! $this->config->config->NavigationTreeEnableExpansion) {
             return '';
         }
 
@@ -549,7 +549,7 @@ class Node
      */
     public function getIcon(bool $match): string
     {
-        if (! $this->config->settings['NavigationTreeEnableExpansion']) {
+        if (! $this->config->config->NavigationTreeEnableExpansion) {
             return '';
         }
 
@@ -594,8 +594,8 @@ class Node
     {
         $maxItems = $this->config->config->FirstLevelNavigationItems;
         if (
-            ! $this->config->settings['NavigationTreeEnableGrouping']
-            || ! $this->config->settings['ShowDatabasesNavigationAsTree']
+            ! $this->config->config->NavigationTreeEnableGrouping
+            || ! $this->config->config->ShowDatabasesNavigationAsTree
         ) {
             $query = sprintf(
                 'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA` %sORDER BY `SCHEMA_NAME` LIMIT %d, %d',
@@ -607,7 +607,7 @@ class Node
             return $this->dbi->fetchSingleColumn($query);
         }
 
-        $dbSeparator = $this->config->settings['NavigationTreeDbSeparator'];
+        $dbSeparator = $this->config->config->NavigationTreeDbSeparator;
         $query = sprintf(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level'
                 . ' FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, %1$s, 1) DB_first_level'
@@ -634,8 +634,8 @@ class Node
     {
         $maxItems = $this->config->config->FirstLevelNavigationItems;
         if (
-            ! $this->config->settings['NavigationTreeEnableGrouping']
-            || ! $this->config->settings['ShowDatabasesNavigationAsTree']
+            ! $this->config->config->NavigationTreeEnableGrouping
+            || ! $this->config->config->ShowDatabasesNavigationAsTree
         ) {
             $handle = $this->dbi->tryQuery(sprintf(
                 'SHOW DATABASES %s',
@@ -648,7 +648,7 @@ class Node
             return array_slice($handle->fetchAllColumn(), $pos, $maxItems);
         }
 
-        $dbSeparator = $this->config->settings['NavigationTreeDbSeparator'];
+        $dbSeparator = $this->config->config->NavigationTreeDbSeparator;
         $handle = $this->dbi->tryQuery(sprintf(
             'SHOW DATABASES %s',
             $this->getWhereClause('Database', $searchClause),
@@ -700,8 +700,8 @@ class Node
     {
         $maxItems = $this->config->config->FirstLevelNavigationItems;
         if (
-            ! $this->config->settings['NavigationTreeEnableGrouping']
-            || ! $this->config->settings['ShowDatabasesNavigationAsTree']
+            ! $this->config->config->NavigationTreeEnableGrouping
+            || ! $this->config->config->ShowDatabasesNavigationAsTree
         ) {
             $retval = [];
             $count = 0;
@@ -735,7 +735,7 @@ class Node
             return $retval;
         }
 
-        $dbSeparator = $this->config->settings['NavigationTreeDbSeparator'];
+        $dbSeparator = $this->config->config->NavigationTreeDbSeparator;
         $retval = [];
         $prefixMap = [];
         $total = $pos + $maxItems;

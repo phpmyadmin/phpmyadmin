@@ -30,14 +30,13 @@ final class RecentTableHandlingTest extends AbstractTestCase
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
 
         $config = new Config();
-        $config->settings['NumRecentTables'] = 10;
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'https://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
         $response = ResponseFactory::create()->createResponse();
-        $handler = self::createMock(RequestHandlerInterface::class);
-        $handler->method('handle')->with($request)->willReturn($response);
+        $handler = $this->createMock(RequestHandlerInterface::class);
+        $handler->expects(self::once())->method('handle')->with($request)->willReturn($response);
 
         $reflectionProperty = new ReflectionProperty(RecentFavoriteTables::class, 'instances');
         $reflectionProperty->setValue(null, []);

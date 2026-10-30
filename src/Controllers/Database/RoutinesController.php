@@ -27,15 +27,13 @@ use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
-use function htmlentities;
 use function htmlspecialchars;
 use function in_array;
+use function is_string;
 use function max;
 use function mb_strtoupper;
 use function sprintf;
 use function trim;
-
-use const ENT_QUOTES;
 
 /**
  * Routines management.
@@ -77,7 +75,7 @@ final readonly class RoutinesController implements InvocableController
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     return $this->response->redirectToRoute(
                         '/',
-                        ['reload' => true, 'message' => __('No databases selected.')],
+                        ['reload' => true, 'message' => __('No database selected.')],
                     );
                 }
 
@@ -95,7 +93,7 @@ final readonly class RoutinesController implements InvocableController
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                     return $this->response->redirectToRoute(
                         '/',
-                        ['reload' => true, 'message' => __('No databases selected.')],
+                        ['reload' => true, 'message' => __('No database selected.')],
                     );
                 }
             }
@@ -120,12 +118,7 @@ final readonly class RoutinesController implements InvocableController
                     $_POST['item_name'],
                 );
                 $routine = $routines[0];
-                $this->response->addJSON(
-                    'name',
-                    htmlspecialchars(
-                        mb_strtoupper($_POST['item_name']),
-                    ),
-                );
+                $this->response->addJSON('name', mb_strtoupper($_POST['item_name']));
                 $this->response->addJSON(
                     'new_row',
                     $this->template->render('database/routines/row', $this->routines->getRow($routine)),
@@ -171,70 +164,54 @@ final readonly class RoutinesController implements InvocableController
             $title = null;
             if (! empty($_REQUEST['add_item'])) {
                 $title = __('Add routine');
-                $routine = $this->routines->getDataFromRequest();
+                $routine = $this->routines->getDataFromRequest($request);
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {
                 $title = __('Edit routine');
                 if ($operation === '' && ! empty($_GET['item_name']) && empty($_POST['editor_process_edit'])) {
                     $routine = $this->routines->getDataFromName($_GET['item_name'], $_GET['item_type']);
-                    if ($routine !== null) {
-                        $routine['item_original_name'] = $routine['item_name'];
-                        $routine['item_original_type'] = $routine['item_type'];
-                    }
                 } else {
-                    $routine = $this->routines->getDataFromRequest();
+                    $routine = $this->routines->getDataFromRequest($request);
                 }
 
                 $mode = 'edit';
             }
 
             if ($routine !== null) {
-                // Show form
-                for ($i = 0; $i < $routine['item_num_params']; $i++) {
-                    $routine['item_param_name'][$i] = htmlentities($routine['item_param_name'][$i], ENT_QUOTES);
-                    $routine['item_param_length'][$i] = htmlentities($routine['item_param_length'][$i], ENT_QUOTES);
-                }
-
                 // Handle some logic first
                 if ($operation === 'change') {
-                    if ($routine['item_type'] === 'PROCEDURE') {
-                        $routine['item_type'] = 'FUNCTION';
-                        $routine['item_type_toggle'] = 'PROCEDURE';
-                    } else {
-                        $routine['item_type'] = 'PROCEDURE';
-                        $routine['item_type_toggle'] = 'FUNCTION';
-                    }
+                    $routine->type = $routine->type->getOpposite();
                 } elseif (
                     $operation === 'add'
-                    || ($routine['item_num_params'] == 0 && $mode === 'add' && $this->routines->getErrorCount() === 0)
+                    || ($routine->numParams == 0 && $mode === 'add' && $this->routines->getErrorCount() === 0)
                 ) {
-                    $routine['item_param_dir'][] = '';
-                    $routine['item_param_name'][] = '';
-                    $routine['item_param_type'][] = '';
-                    $routine['item_param_length'][] = '';
-                    $routine['item_param_opts_num'][] = '';
-                    $routine['item_param_opts_text'][] = '';
-                    $routine['item_num_params']++;
+                    $routine->paramDir[] = '';
+                    $routine->paramName[] = '';
+                    $routine->paramType[] = '';
+                    $routine->paramLength[] = '';
+                    $routine->paramOptsNum[] = '';
+                    $routine->paramOptsText[] = '';
+                    $routine->numParams++;
                 } elseif ($operation === 'remove') {
                     unset(
-                        $routine['item_param_dir'][$routine['item_num_params'] - 1],
-                        $routine['item_param_name'][$routine['item_num_params'] - 1],
-                        $routine['item_param_type'][$routine['item_num_params'] - 1],
-                        $routine['item_param_length'][$routine['item_num_params'] - 1],
-                        $routine['item_param_opts_num'][$routine['item_num_params'] - 1],
-                        $routine['item_param_opts_text'][$routine['item_num_params'] - 1],
+                        $routine->paramDir[$routine->numParams - 1],
+                        $routine->paramName[$routine->numParams - 1],
+                        $routine->paramType[$routine->numParams - 1],
+                        $routine->paramLength[$routine->numParams - 1],
+                        $routine->paramOptsNum[$routine->numParams - 1],
+                        $routine->paramOptsText[$routine->numParams - 1],
                     );
-                    $routine['item_num_params']--;
+                    $routine->numParams--;
                 }
 
                 $parameterRows = '';
-                for ($i = 0; $i < $routine['item_num_params']; $i++) {
+                for ($i = 0; $i < $routine->numParams; $i++) {
                     $parameterRows .= $this->template->render(
                         'database/routines/parameter_row',
                         $this->routines->getParameterRow(
                             $routine,
                             $i,
-                            $routine['item_type'] === 'FUNCTION' ? ' hide' : '',
+                            $routine->type === RoutineType::Function ? ' hide' : '',
                         ),
                     );
                 }
@@ -260,7 +237,7 @@ final readonly class RoutinesController implements InvocableController
                         'paramTemplate',
                         $this->template->render('database/routines/parameter_row', $this->routines->getParameterRow()),
                     );
-                    $this->response->addJSON('type', $routine['item_type']);
+                    $this->response->addJSON('type', $routine->type->value);
 
                     return $this->response->response();
                 }
@@ -290,7 +267,7 @@ final readonly class RoutinesController implements InvocableController
                 return $this->response->response();
             }
 
-            $this->response->addHTML($message->getDisplay());
+            $this->response->addHTML($message);
         }
 
         /**
@@ -298,7 +275,7 @@ final readonly class RoutinesController implements InvocableController
          */
         if (! empty($_POST['execute_routine']) && ! empty($_POST['item_name'])) {
             // Build the queries
-            $routine = $this->routines->getDataFromName($_POST['item_name'], $_POST['item_type'], false);
+            $routine = $this->routines->getDataFromName($_POST['item_name'], $_POST['item_type']);
             if ($routine === null) {
                 $message = __('Error in processing request:') . ' ';
                 $message .= sprintf(
@@ -314,7 +291,7 @@ final readonly class RoutinesController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->addHTML($message->getDisplay());
+                $this->response->addHTML($message);
 
                 return $this->response->response();
             }
@@ -324,13 +301,13 @@ final readonly class RoutinesController implements InvocableController
             // Print/send output
             if ($request->isAjax()) {
                 $this->response->setRequestStatus($message->isSuccess());
-                $this->response->addJSON('message', $message->getDisplay() . $output);
+                $this->response->addJSON('message', $message->getDisplay($this->template) . $output);
                 $this->response->addJSON('dialog', false);
 
                 return $this->response->response();
             }
 
-            $this->response->addHTML($message->getDisplay() . $output);
+            $this->response->addHTML($message->getDisplay($this->template) . $output);
             if ($message->isError()) {
                 // At least one query has failed, so shouldn't
                 // execute any more queries, so we quit.
@@ -351,9 +328,7 @@ final readonly class RoutinesController implements InvocableController
                     'params' => $params,
                 ]);
                 if ($request->isAjax()) {
-                    $title = __('Execute routine') . ' ' . Util::backquote(
-                        htmlentities($_GET['item_name'], ENT_QUOTES),
-                    );
+                    $title = __('Execute routine') . ' ' . Util::backquote($routine->name);
                     $this->response->addJSON('message', $form);
                     $this->response->addJSON('title', $title);
                     $this->response->addJSON('dialog', true);
@@ -383,25 +358,13 @@ final readonly class RoutinesController implements InvocableController
             }
         }
 
-        /** @var mixed $routineType */
-        $routineType = $request->getQueryParam('item_type');
-        if (
-            ! empty($_GET['export_item'])
-            && ! empty($_GET['item_name'])
-            && in_array($routineType, ['FUNCTION', 'PROCEDURE'], true)
-        ) {
-            if ($routineType === 'FUNCTION') {
-                $routineDefinition = Routines::getFunctionDefinition(
-                    $this->dbi,
-                    Current::$database,
-                    $_GET['item_name'],
-                );
+        $routineType = $this->getRoutineType($request->getQueryParam('item_type'));
+        $routineName = $this->getRoutineName($request->getQueryParam('item_name'));
+        if ($request->hasQueryParam('export_item') && $routineName !== '' && $routineType !== null) {
+            if ($routineType === RoutineType::Function) {
+                $routineDefinition = Routines::getFunctionDefinition($this->dbi, Current::$database, $routineName);
             } else {
-                $routineDefinition = Routines::getProcedureDefinition(
-                    $this->dbi,
-                    Current::$database,
-                    $_GET['item_name'],
-                );
+                $routineDefinition = Routines::getProcedureDefinition($this->dbi, Current::$database, $routineName);
             }
 
             $exportData = false;
@@ -410,10 +373,10 @@ final readonly class RoutinesController implements InvocableController
                 $exportData = "DELIMITER $$\n" . $routineDefinition . "$$\nDELIMITER ;\n";
             }
 
-            $itemName = htmlspecialchars(Util::backquote($_GET['item_name']));
+            $routineName = Util::backquote($routineName);
             if ($exportData !== false) {
-                $exportData = htmlspecialchars(trim($exportData));
-                $title = sprintf(__('Export of routine %s'), $itemName);
+                $exportData = trim($exportData);
+                $title = sprintf(__('Export of routine %s'), $routineName);
 
                 if ($request->isAjax()) {
                     $this->response->addJSON('message', $exportData);
@@ -435,7 +398,7 @@ final readonly class RoutinesController implements InvocableController
                         'Error in processing request: No routine with name %1$s found in database %2$s.'
                         . ' You might be lacking the necessary privileges to view/export this routine.',
                     ),
-                    $itemName,
+                    htmlspecialchars($routineName),
                     htmlspecialchars(Util::backquote(Current::$database)),
                 );
                 $message = Message::error($message);
@@ -447,12 +410,12 @@ final readonly class RoutinesController implements InvocableController
                     return $this->response->response();
                 }
 
-                $this->response->addHTML($message->getDisplay());
+                $this->response->addHTML($message);
             }
         }
 
         $totalNumRoutines = Routines::getRoutineCount($this->dbi, Current::$database, $type);
-        $pageSize = $this->config->settings['MaxRoutineList'];
+        $pageSize = $this->config->config->MaxRoutineList;
         $pos = (int) $request->getParam('pos');
 
         // Checks if there are any routines to be shown on current page.
@@ -465,7 +428,6 @@ final readonly class RoutinesController implements InvocableController
                 'reload' => 1,
             ];
             if ($this->response->isAjax()) {
-                $redirParams['ajax_request'] = 'true';
                 $redirParams['ajax_page_request'] = 'true';
             }
 
@@ -474,14 +436,9 @@ final readonly class RoutinesController implements InvocableController
 
         $items = Routines::getDetails($this->dbi, Current::$database, $type, limit: $pageSize, offset: $pos);
 
-        $isAjax = $request->isAjax() && empty($_REQUEST['ajax_page_request']);
-
         $rows = '';
         foreach ($items as $item) {
-            $rows .= $this->template->render(
-                'database/routines/row',
-                $this->routines->getRow($item, $isAjax ? 'ajaxInsert hide' : ''),
-            );
+            $rows .= $this->template->render('database/routines/row', $this->routines->getRow($item));
         }
 
         $urlParams = ['pos' => $pos, 'db' => Current::$database];
@@ -510,5 +467,15 @@ final readonly class RoutinesController implements InvocableController
         ]);
 
         return $this->response->response();
+    }
+
+    private function getRoutineType(mixed $param): RoutineType|null
+    {
+        return is_string($param) ? RoutineType::tryFrom($param) : null;
+    }
+
+    private function getRoutineName(mixed $param): string
+    {
+        return is_string($param) ? $param : '';
     }
 }

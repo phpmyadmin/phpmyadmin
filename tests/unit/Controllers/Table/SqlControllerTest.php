@@ -44,9 +44,10 @@ final class SqlControllerTest extends AbstractTestCase
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
 
         $template = new Template($config);
+        $relation = new Relation($dbi, $config);
         $userPreferences = new UserPreferences(
             $dbi,
-            new Relation($dbi, $config),
+            $relation,
             $template,
             $config,
             new Clock(),
@@ -54,8 +55,7 @@ final class SqlControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
 
-        $relation = new Relation($dbi);
-        $bookmarkRepository = new BookmarkRepository($dbi, $relation);
+        $bookmarkRepository = new BookmarkRepository($dbi, $relation, $config);
         $responseRenderer = new ResponseRenderer();
         $response = (new SqlController(
             $responseRenderer,

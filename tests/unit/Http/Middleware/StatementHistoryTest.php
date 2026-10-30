@@ -29,7 +29,7 @@ final class StatementHistoryTest extends AbstractTestCase
         $config->selectedServer['user'] = 'test_user';
         $dbi = self::createStub(DatabaseInterface::class);
         $dbi->method('isConnected')->willReturn(true);
-        $history = self::createMock(History::class);
+        $history = $this->createMock(History::class);
         $history->expects(self::once())->method('setHistory')->with(
             self::identicalTo('test_db'),
             self::identicalTo('test_table'),
@@ -56,7 +56,7 @@ final class StatementHistoryTest extends AbstractTestCase
 
         $dbi = self::createStub(DatabaseInterface::class);
         $dbi->method('isConnected')->willReturn($isConnected);
-        $history = self::createMock(History::class);
+        $history = $this->createMock(History::class);
         $history->expects(self::never())->method('setHistory');
         $statementHistory = new StatementHistory(new Config(), $history, $dbi);
 

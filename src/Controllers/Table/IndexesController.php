@@ -17,7 +17,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Indexes;
@@ -62,29 +61,12 @@ final readonly class IndexesController implements InvocableController
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-                if ($request->isAjax()) {
-                    $this->response->setRequestStatus(false);
-                    $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                    return $this->response->response();
-                }
-
-                return $this->response->redirectToRoute(
-                    '/',
-                    ['reload' => true, 'message' => __('No databases selected.')],
-                );
+                return $this->response->respondWithErrorMessage(__('No database selected.'));
             }
 
             $tableName = TableName::tryFrom($request->getParam('table'));
             if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
-                if ($request->isAjax()) {
-                    $this->response->setRequestStatus(false);
-                    $this->response->addJSON('message', Message::error(__('No table selected.')));
-
-                    return $this->response->response();
-                }
-
-                return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
+                return $this->response->respondWithErrorMessage(__('No table selected.'));
             }
         }
 
@@ -135,13 +117,10 @@ final readonly class IndexesController implements InvocableController
             $this->dbi->query($sqlQuery);
 
             if ($request->isAjax()) {
-                $message = Message::success(
-                    __('Table %1$s has been altered successfully.'),
-                );
-                $message->addParam(Current::$table);
+                $message = Message::success(__('Table %1$s has been altered successfully.'), [Current::$table]);
                 $this->response->addJSON(
                     'message',
-                    Generator::getMessage($message, $sqlQuery, MessageType::Success),
+                    Generator::getMessage($message, $sqlQuery),
                 );
 
                 $indexes = Index::getFromTable($this->dbi, Current::$table, Current::$database);
@@ -230,7 +209,7 @@ final readonly class IndexesController implements InvocableController
             'form_params' => $formParams,
             'add_fields' => $addFields,
             'create_edit_table' => isset($_POST['create_edit_table']),
-            'default_sliders_state' => $this->config->settings['InitialSlidersState'],
+            'default_sliders_state' => $this->config->config->InitialSlidersState,
             'is_from_nav' => isset($_POST['is_from_nav']),
         ]);
     }

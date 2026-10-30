@@ -4,16 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use FilesystemIterator;
-use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Plugins\Plugin;
 use PhpMyAdmin\Plugins\PluginType;
@@ -24,171 +17,15 @@ use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 use PhpMyAdmin\Properties\Options\OptionsPropertyItem;
 use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
-use SplFileInfo;
-use Throwable;
 
 use function __;
 use function array_map;
-use function class_exists;
 use function count;
 use function in_array;
 use function is_string;
-use function is_subclass_of;
-use function mb_strtolower;
-use function mb_strtoupper;
-use function mb_substr;
-use function sprintf;
-use function str_starts_with;
-use function strcasecmp;
-use function usort;
 
 class Plugins
 {
-    /**
-     * Instantiates the specified plugin type for a certain format
-     *
-     * @param string $type   the type of the plugin (import, export, etc)
-     * @param string $format the format of the plugin (sql, xml, et )
-     * @phpstan-param 'export'|'import'|'schema' $type
-     *
-     * @return object|null new plugin instance
-     */
-    public static function getPlugin(
-        string $type,
-        string $format,
-        ExportType $exportType = ExportType::Raw,
-        bool $singleTable = false,
-    ): object|null {
-        ExportPlugin::$exportType = $exportType;
-        ExportPlugin::$singleTable = $singleTable;
-        $pluginType = mb_strtoupper($type[0]) . mb_strtolower(mb_substr($type, 1));
-        $pluginFormat = mb_strtoupper($format[0]) . mb_strtolower(mb_substr($format, 1));
-        $class = sprintf('PhpMyAdmin\\Plugins\\%s\\%s%s', $pluginType, $pluginType, $pluginFormat);
-        if (! class_exists($class)) {
-            return null;
-        }
-
-        $container = ContainerBuilder::getContainer();
-        if ($type === 'export') {
-            /** @psalm-suppress MixedMethodCall */
-            return new $class(
-                $container->get(Relation::class),
-                $container->get(OutputHandler::class),
-                $container->get(Transformations::class),
-                $container->get(DatabaseInterface::class),
-                $container->get(Config::class),
-            );
-        }
-
-        if ($type === 'import') {
-            /** @psalm-suppress MixedMethodCall */
-            return new $class(
-                $container->get(Import::class),
-                $container->get(DatabaseInterface::class),
-                $container->get(Config::class),
-            );
-        }
-
-        /** @psalm-suppress MixedMethodCall */
-        return new $class();
-    }
-
-    /**
-     * @return ExportPlugin[]
-     * @psalm-return list<ExportPlugin>
-     */
-    public static function getExport(ExportType $type, bool $singleTable): array
-    {
-        ExportPlugin::$exportType = $type;
-        ExportPlugin::$singleTable = $singleTable;
-
-        return self::getPlugins('Export');
-    }
-
-    /**
-     * @return ImportPlugin[]
-     * @psalm-return list<ImportPlugin>
-     */
-    public static function getImport(): array
-    {
-        return self::getPlugins('Import');
-    }
-
-    /**
-     * @return SchemaPlugin[]
-     * @psalm-return list<SchemaPlugin>
-     */
-    public static function getSchema(): array
-    {
-        return self::getPlugins('Schema');
-    }
-
-    /**
-     * Reads all plugin information
-     *
-     * @param string $type the type of the plugin (import, export, etc)
-     * @psalm-param 'Export'|'Import'|'Schema' $type
-     *
-     * @return Plugin[] list of plugin instances
-     * @psalm-return (
-     *   $type is 'Export'
-     *   ? list<ExportPlugin>
-     *   : ($type is 'Import' ? list<ImportPlugin> : list<SchemaPlugin>)
-     * )
-     */
-    private static function getPlugins(string $type): array
-    {
-        try {
-            $files = new FilesystemIterator(ROOT_PATH . 'src/Plugins/' . $type);
-        } catch (Throwable) {
-            return [];
-        }
-
-        $plugins = [];
-
-        /** @var SplFileInfo $fileInfo */
-        foreach ($files as $fileInfo) {
-            if (! $fileInfo->isReadable() || ! $fileInfo->isFile() || $fileInfo->getExtension() !== 'php') {
-                continue;
-            }
-
-            if (! str_starts_with($fileInfo->getFilename(), $type)) {
-                continue;
-            }
-
-            $class = sprintf('PhpMyAdmin\\Plugins\\%s\\%s', $type, $fileInfo->getBasename('.php'));
-            if (! class_exists($class) || ! is_subclass_of($class, Plugin::class) || ! $class::isAvailable()) {
-                continue;
-            }
-
-            $container = ContainerBuilder::getContainer();
-            if ($type === 'Export' && is_subclass_of($class, ExportPlugin::class)) {
-                $plugins[] = new $class(
-                    $container->get(Relation::class),
-                    $container->get(OutputHandler::class),
-                    $container->get(Transformations::class),
-                    $container->get(DatabaseInterface::class),
-                    $container->get(Config::class),
-                );
-            } elseif ($type === 'Import' && is_subclass_of($class, ImportPlugin::class)) {
-                $plugins[] = new $class(
-                    $container->get(Import::class),
-                    $container->get(DatabaseInterface::class),
-                    $container->get(Config::class),
-                );
-            } elseif ($type === 'Schema' && is_subclass_of($class, SchemaPlugin::class)) {
-                $plugins[] = new $class();
-            }
-        }
-
-        usort($plugins, static fn (Plugin $plugin1, Plugin $plugin2): int => strcasecmp(
-            $plugin1->getProperties()->getText(),
-            $plugin2->getProperties()->getText(),
-        ));
-
-        return $plugins;
-    }
-
     /**
      * Returns html input tag option 'checked' if plugin $opt
      * should be set by config or request

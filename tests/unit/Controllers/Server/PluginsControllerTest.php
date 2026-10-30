@@ -57,11 +57,9 @@ class PluginsControllerTest extends AbstractTestCase
             'PLUGIN_STATUS' => 'ACTIVE',
         ];
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())
             ->method('query')
             ->willReturn($resultStub);

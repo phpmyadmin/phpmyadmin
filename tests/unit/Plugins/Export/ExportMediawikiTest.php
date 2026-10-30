@@ -197,9 +197,7 @@ final class ExportMediawikiTest extends AbstractTestCase
      */
     public function testExportStructure(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $columns = [
             new Column('name1', 'set(abc)enum123', null, true, 'PRI', '', '', '', ''),
@@ -296,9 +294,7 @@ final class ExportMediawikiTest extends AbstractTestCase
 
     public function testExportTableCallsExportStructureMethod(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['mediawiki_structure_or_data' => 'structure']);
@@ -306,7 +302,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         $exportMediawiki = $this->getExportMediawiki($dbi);
         $exportMediawiki->setExportOptions($request, new SettingsExport());
         ob_start();
-        $export = new Export($dbi, new OutputHandler());
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
         $export->exportTable(
             'testdb',
             'testtable',

@@ -28,12 +28,4 @@ class Base
     {
         return [];
     }
-
-    /**
-     * Checks whether class is supported in this environment
-     */
-    public static function isSupported(): bool
-    {
-        return true;
-    }
 }

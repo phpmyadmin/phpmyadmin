@@ -291,7 +291,6 @@ function loadGISEditor (value, field, type, inputName) {
         'value': value,
         'type': type,
         'input_name': inputName,
-        'ajax_request': true,
         'server': CommonParams.get('server'),
     };
     $.post('index.php?route=/gis-data-editor', data, function (data) {
@@ -347,7 +346,7 @@ function insertDataAndClose () {
     const inputName = $form.find('input[name=\'input_name\']').val();
 
     const argsep = CommonParams.get('arg_separator');
-    const params = $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true';
+    const params = $form.serialize() + argsep + 'generate=true';
     $.post('index.php?route=/gis-data-editor', params, function (data) {
         if (typeof data === 'undefined' || data.success !== true) {
             ajaxShowMessage(data.error, false);
@@ -467,7 +466,7 @@ function onGeometryTypeChange () {
 function updateResult () {
     const $form = $('form#gis_data_editor_form');
     const argsep = CommonParams.get('arg_separator');
-    const data = $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true';
+    const data = $form.serialize() + argsep + 'generate=true';
     $.post('index.php?route=/gis-data-editor', data, onCoordinateEdit, 'json');
 }
 

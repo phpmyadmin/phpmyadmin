@@ -44,7 +44,7 @@ class RefreshControllerTest extends AbstractTestCase
     {
         $process = [
             'User' => 'User1',
-            'Host' => 'Host1',
+            'Host' => 'Host1:12345',
             'Id' => 'Id1',
             'Db' => 'db1',
             'Command' => 'Command1',
@@ -53,7 +53,6 @@ class RefreshControllerTest extends AbstractTestCase
             'Time' => 'Time1',
         ];
         $config = Config::getInstance();
-        $config->settings['MaxCharactersInDisplayedSQL'] = 12;
 
         $response = new ResponseRenderer();
 
@@ -65,8 +64,8 @@ class RefreshControllerTest extends AbstractTestCase
         );
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withHeader('X-Requested-With', 'XMLHttpRequest')
             ->withParsedBody([
-                'ajax_request' => 'true',
                 'column_name' => '',
                 'order_by_field' => 'process',
                 'sort_order' => 'DESC',
@@ -115,5 +114,24 @@ class RefreshControllerTest extends AbstractTestCase
 
         //validate 8: $process['info']
         self::assertStringContainsString($process['Info'], $html);
+
+        // The Host column shows the full value including port
+        self::assertStringContainsString('Host1:12345', $html);
+
+        // The privileges link must use the bare hostname (port stripped) so the
+        // link target matches mysql.user.Host which never contains port numbers.
+        self::assertStringContainsString(
+            Url::getFromRoute('/server/privileges', [
+                'username' => $process['User'],
+                'hostname' => 'Host1',
+                'dbname' => $process['Db'],
+                'tablename' => '',
+                'routinename' => '',
+            ]),
+            $html,
+        );
+
+        // The privileges link must NOT contain the raw host:port value as hostname
+        self::assertStringNotContainsString('hostname=Host1%3A12345', $html);
     }
 }

@@ -28,7 +28,7 @@ final readonly class RecentTableHandling implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         assert($request instanceof ServerRequest);
-        if ($this->config->settings['NumRecentTables'] === 0) {
+        if ($this->config->config->NumRecentTables === 0) {
             return $handler->handle($request);
         }
 

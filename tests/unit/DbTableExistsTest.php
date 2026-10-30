@@ -27,7 +27,7 @@ final class DbTableExistsTest extends AbstractTestCase
     public function testHasDatabaseWithNoDatabase(): void
     {
         $db = DatabaseName::from('test_db');
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('selectDb')->with($db)->willReturn(false);
         $dbTableExists = new DbTableExists($dbi);
         self::assertFalse($dbTableExists->selectDatabase($db));

@@ -21,8 +21,9 @@ use PhpMyAdmin\Identifiers\InvalidDatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Operations;
-use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\ExportType;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
@@ -32,6 +33,7 @@ use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
+use function assert;
 use function mb_strtolower;
 
 /**
@@ -49,6 +51,7 @@ final readonly class DatabaseController implements InvocableController
         private DatabaseInterface $dbi,
         private DbTableExists $dbTableExists,
         private Config $config,
+        private PluginFactory $pluginFactory,
     ) {
     }
 
@@ -63,9 +66,7 @@ final readonly class DatabaseController implements InvocableController
         /**
          * Rename/move or copy database
          */
-        if (
-            Current::$database !== '' && ($request->hasBodyParam('db_rename') || $request->hasBodyParam('db_copy'))
-        ) {
+        if (Current::$database !== '' && ($request->hasBodyParam('db_rename') || $request->hasBodyParam('db_copy'))) {
             $move = $request->hasBodyParam('db_rename');
 
             try {
@@ -102,7 +103,12 @@ final readonly class DatabaseController implements InvocableController
                     $tableNames = $this->dbi->getTables(Current::$database);
 
                     // remove all foreign key constraints, otherwise we can get errors
-                    $exportSqlPlugin = Plugins::getPlugin('export', 'sql', ExportType::Database, Export::$singleTable);
+                    $exportSqlPlugin = $this->pluginFactory->getExportPlugin(
+                        'sql',
+                        ExportType::Database,
+                        Export::$singleTable,
+                    );
+                    assert($exportSqlPlugin instanceof ExportSql);
 
                     // create stand-in tables for views
                     $views = $this->operations->getViewsAndCreateSqlViewStandIn(
@@ -162,9 +168,8 @@ final readonly class DatabaseController implements InvocableController
 
                         Current::$message = Message::success(
                             __('Database %1$s has been renamed to %2$s.'),
+                            [Current::$database, $newDatabaseName->getName()],
                         );
-                        Current::$message->addParam(Current::$database);
-                        Current::$message->addParam($newDatabaseName->getName());
                     } else {
                         if ($request->hasBodyParam('adjust_privileges')) {
                             $this->operations->adjustPrivilegesCopyDb(
@@ -176,9 +181,8 @@ final readonly class DatabaseController implements InvocableController
 
                         Current::$message = Message::success(
                             __('Database %1$s has been copied to %2$s.'),
+                            [Current::$database, $newDatabaseName->getName()],
                         );
-                        Current::$message->addParam(Current::$database);
-                        Current::$message->addParam($newDatabaseName->getName());
                     }
 
                     ResponseRenderer::$reload = true;
@@ -205,7 +209,7 @@ final readonly class DatabaseController implements InvocableController
                 $this->response->addJSON('newname', $newDatabaseName?->getName() ?? '');
                 $this->response->addJSON(
                     'sql_query',
-                    Generator::getMessage('', Current::$sqlQuery),
+                    Generator::getMessage(new Message(), Current::$sqlQuery),
                 );
                 $this->response->addJSON('db', Current::$database);
 
@@ -229,14 +233,7 @@ final readonly class DatabaseController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         UrlParams::$params['goto'] = Url::getFromRoute('/database/operations');
@@ -261,7 +258,7 @@ final readonly class DatabaseController implements InvocableController
         $hasAdjustPrivileges = $userPrivileges->database && $userPrivileges->table
             && $userPrivileges->column && $userPrivileges->routines && $userPrivileges->isReload;
 
-        $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $this->config->settings['AllowUserDropDatabase'])
+        $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $this->config->config->AllowUserDropDatabase)
             && Current::$database !== 'mysql';
 
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
@@ -269,9 +266,7 @@ final readonly class DatabaseController implements InvocableController
         $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
         $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
 
-        if (
-            ! $relationParameters->hasAllFeatures() && ! $this->config->settings['PmaNoRelation_DisableWarning']
-        ) {
+        if (! $relationParameters->hasAllFeatures() && ! $this->config->config->PmaNoRelation_DisableWarning) {
             Current::$message = Message::notice(
                 __(
                     'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.',

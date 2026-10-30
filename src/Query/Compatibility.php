@@ -178,6 +178,28 @@ class Compatibility
     }
 
     /**
+     * Check whether the database supports UUID_v4 function
+     *
+     * @return bool true if UUID_v4 is supported
+     */
+    public static function isUUIDv4Supported(DatabaseInterface $dbi): bool
+    {
+        // https://mariadb.com/docs/server/reference/sql-functions/secondary-functions/miscellaneous-functions/uuid_v4
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 110700; // 11.7.0
+    }
+
+    /**
+     * Check whether the database supports UUID_v7 function
+     *
+     * @return bool true if UUID_v7 is supported
+     */
+    public static function isUUIDv7Supported(DatabaseInterface $dbi): bool
+    {
+        // https://mariadb.com/docs/server/reference/sql-functions/secondary-functions/miscellaneous-functions/uuid_v7
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 110700; // 11.7.0
+    }
+
+    /**
      * Check whether the database supports VECTOR data type
      *
      * @return bool true if VECTOR is supported
@@ -188,6 +210,17 @@ class Compatibility
         // @see: https://dev.mysql.com/doc/relnotes/mysql/9.0/en/news-9-0-0.html#mysqld-9-0-0-vectors
         return $dbi->isMariaDB() && $dbi->getVersion() >= 110701 || // 11.7.1
             $dbi->isMySql() && $dbi->getVersion() >= 90000; // 9.0.0
+    }
+
+    /**
+     * Check whether the database supports XMLTYPE data type
+     *
+     * @return bool true if XMLTYPE is supported
+     */
+    public static function isXmlTypeSupported(DatabaseInterface $dbi): bool
+    {
+        // @see: https://mariadb.com/docs/server/reference/data-types/string-data-types/xmltype
+        return $dbi->isMariaDB() && $dbi->getVersion() >= 120300; // 12.3.0
     }
 
     /**

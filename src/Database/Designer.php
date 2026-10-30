@@ -12,6 +12,7 @@ use PhpMyAdmin\Database\Designer\DesignerTable;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Plugins\PluginType;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -32,6 +33,7 @@ class Designer
         private readonly Relation $relation,
         public readonly Template $template,
         private readonly Config $config,
+        private readonly PluginFactory $pluginFactory,
     ) {
     }
 
@@ -109,7 +111,7 @@ class Designer
      */
     public function getHtmlForSchemaExport(string $db, int $page, mixed $formatParam, mixed $exportTypeParam): string
     {
-        $exportList = Plugins::getSchema();
+        $exportList = $this->pluginFactory->getAllSchemaPlugins();
 
         /* Fail if we didn't find any schema plugin */
         if ($exportList === []) {
@@ -206,10 +208,7 @@ class Designer
                     $columnsType[$tableColumnName] = 'designer/FieldKey_small';
                 } else {
                     $columnsType[$tableColumnName] = 'designer/Field_small';
-                    if (
-                        str_contains($columnInfo->type, 'char')
-                        || str_contains($columnInfo->type, 'text')
-                    ) {
+                    if (str_contains($columnInfo->type, 'char') || str_contains($columnInfo->type, 'text')) {
                         $columnsType[$tableColumnName] .= '_char';
                     } elseif (
                         str_contains($columnInfo->type, 'int')
@@ -248,11 +247,11 @@ class Designer
 
         $displayedFields = [];
         foreach ($designerTables as $designerTable) {
-            if ($designerTable->getDisplayField() === null) {
+            if ($designerTable->displayField === null) {
                 continue;
             }
 
-            $displayedFields[$designerTable->getTableName()] = $designerTable->getDisplayField();
+            $displayedFields[$designerTable->tableName] = $designerTable->displayField;
         }
 
         $designerConfig = new stdClass();

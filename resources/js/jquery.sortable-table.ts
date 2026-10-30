@@ -42,9 +42,9 @@ import $ from 'jquery';
  */
 (function ($) {
     $.fn.sortableTable = function (method) {
-        var methods = {
+        const methods = {
             init: function (options) {
-                var tb = new SortableTableInstance(this, options);
+                const tb = new SortableTableInstance(this, options);
                 tb.init();
                 $(this).data('sortableTable', tb);
             },
@@ -53,7 +53,7 @@ import $ from 'jquery';
             },
             destroy: function () {
                 $(this).data('sortableTable').destroy();
-            }
+            },
         };
 
         if (methods[method]) {
@@ -65,18 +65,18 @@ import $ from 'jquery';
         }
 
         function SortableTableInstance (table, options: {ignoreRect?: any, events?: any} = {}) {
-            var down = false;
-            var $draggedEl;
-            var oldCell;
-            var previewMove;
-            var id;
+            let down = false;
+            let $draggedEl;
+            let oldCell;
+            let previewMove;
+            let id;
 
             /* Mouse handlers on the child elements */
-            var onMouseUp = function (e) {
+            const onMouseUp = function (e) {
                 dropAt(e.pageX, e.pageY);
             };
 
-            var onMouseDown = function (e) {
+            const onMouseDown = function (e) {
                 $draggedEl = $(this).children();
                 if ($draggedEl.length === 0) {
                     return;
@@ -84,7 +84,7 @@ import $ from 'jquery';
 
                 if (options.ignoreRect && insideRect({
                     x: e.pageX - $draggedEl.offset().left,
-                    y: e.pageY - $draggedEl.offset().top
+                    y: e.pageY - $draggedEl.offset().top,
                 }, options.ignoreRect)) {
                     return;
                 }
@@ -99,7 +99,7 @@ import $ from 'jquery';
                 return false;
             };
 
-            var globalMouseMove = function (e) {
+            const globalMouseMove = function (e) {
                 if (down) {
                     move(e.pageX, e.pageY);
 
@@ -121,8 +121,8 @@ import $ from 'jquery';
                                         moveTo($(previewMove), {
                                             pos: {
                                                 top: $(oldCell).offset().top - $(previewMove).parent().offset().top,
-                                                left: $(oldCell).offset().left - $(previewMove).parent().offset().left
-                                            }
+                                                left: $(oldCell).offset().left - $(previewMove).parent().offset().left,
+                                            },
                                         });
                                     }
                                 }
@@ -136,7 +136,7 @@ import $ from 'jquery';
                 return false;
             };
 
-            var globalMouseOut = function () {
+            const globalMouseOut = function () {
                 if (down) {
                     down = false;
                     if (previewMove) {
@@ -188,12 +188,12 @@ import $ from 'jquery';
             };
 
             function switchElement (drag, dropTo) {
-                var dragPosDiff = {
+                const dragPosDiff = {
                     left: $(drag).children().first().offset().left - $(dropTo).offset().left,
-                    top: $(drag).children().first().offset().top - $(dropTo).offset().top
+                    top: $(drag).children().first().offset().top - $(dropTo).offset().top,
                 };
 
-                var dropPosDiff = null;
+                let dropPosDiff = null;
                 if ($(dropTo).children().length > 0) {
                     dropPosDiff = {
                         left: $(dropTo).children().first().offset().left - $(drag).offset().left,
@@ -242,7 +242,7 @@ import $ from 'jquery';
             }
 
             function inside ($el, x, y) {
-                var off = $el.offset();
+                const off = $el.offset();
 
                 return y >= off.top && x >= off.left && x < off.left + $el.width() && y < off.top + $el.height();
             }
@@ -258,7 +258,7 @@ import $ from 'jquery';
 
                 down = false;
 
-                var switched = false;
+                let switched = false;
 
                 $(table).find('td').each(function () {
                     if ($(this).children().first().attr('class') !== $(oldCell).children().first().attr('class') && inside($(this), x, y)) {

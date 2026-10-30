@@ -11,10 +11,12 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 
 #[CoversClass(Indexes::class)]
+#[AllowMockObjectsWithoutExpectations]
 class IndexesTest extends AbstractTestCase
 {
     private DatabaseInterface&MockObject $dbi;
@@ -26,17 +28,14 @@ class IndexesTest extends AbstractTestCase
         Current::$database = 'db';
         Current::$table = 'table';
 
-        $this->dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->dbi = $this->createMock(DatabaseInterface::class);
     }
 
     public function testGetSqlQueryForRename(): void
     {
         $sqlQuery = 'ALTER TABLE `db`.`table` RENAME INDEX `0` TO `ABC`;';
 
-        $this->dbi->expects(self::any())->method('getVersion')
-            ->willReturn(50700);
+        $this->dbi->method('getVersion')->willReturn(50700);
 
         $index = new Index(['Key_name' => 'ABC']);
 
@@ -59,11 +58,8 @@ class IndexesTest extends AbstractTestCase
 
     public function testGetSqlQueryForIndexCreateOrEdit(): void
     {
-        $table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $this->dbi->expects(self::any())->method('getTable')
-            ->willReturn($table);
+        $table = $this->createStub(Table::class);
+        $this->dbi->method('getTable')->willReturn($table);
         $indexes = new Indexes($this->dbi);
 
         $db = 'pma_db';

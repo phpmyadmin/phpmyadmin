@@ -17,6 +17,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -62,8 +63,8 @@ class EnumValuesControllerTest extends AbstractTestCase
         $responseRenderer = new ResponseRenderer();
         $config = Config::getInstance();
         $template = new Template($config);
-        $relation = new Relation($this->dbi);
-        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+        $relation = new Relation($this->dbi, $config);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation, $config);
         $sql = new Sql(
             $this->dbi,
             $relation,
@@ -73,6 +74,7 @@ class EnumValuesControllerTest extends AbstractTestCase
             $bookmarkRepository,
             $config,
             $responseRenderer,
+            new ThemeManager(),
         );
 
         $sqlController = new EnumValuesController($responseRenderer, $template, $sql);
@@ -125,8 +127,8 @@ class EnumValuesControllerTest extends AbstractTestCase
         $responseRenderer = new ResponseRenderer();
         $config = Config::getInstance();
         $template = new Template($config);
-        $relation = new Relation($this->dbi);
-        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
+        $relation = new Relation($this->dbi, $config);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation, $config);
         $sql = new Sql(
             $this->dbi,
             $relation,
@@ -136,6 +138,7 @@ class EnumValuesControllerTest extends AbstractTestCase
             $bookmarkRepository,
             $config,
             $responseRenderer,
+            new ThemeManager(),
         );
 
         $sqlController = new EnumValuesController($responseRenderer, $template, $sql);

@@ -24,6 +24,7 @@ use function __;
 use function array_map;
 use function is_string;
 use function strval;
+use function trim;
 
 /**
  * View manipulations
@@ -56,34 +57,20 @@ final readonly class ViewController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
         if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No table selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
+            return $this->response->respondWithErrorMessage(__('No table selected.'));
         }
 
         UrlParams::$params['goto'] = UrlParams::$params['back'] = Url::getFromRoute('/view/operations');
 
         $message = new Message();
-        $type = MessageType::Success;
         $newname = $request->getParsedBodyParam('new_name');
 
+        $result = null;
         $warningMessages = [];
         if ($request->hasBodyParam('submitoptions')) {
             if (is_string($newname) && $tableObject->rename($newname)) {
@@ -101,20 +88,14 @@ final readonly class ViewController implements InvocableController
             $warningMessages = array_map(strval(...), $this->dbi->getWarnings());
         }
 
-        if (isset($result)) {
+        if ($result !== null) {
             // set to success by default, because result set could be empty
             // (for example, a table rename)
-            if ($message->getString() === '') {
-                if ($result) {
-                    $message->addText(
-                        __('Your SQL query has been executed successfully.'),
-                    );
-                } else {
-                    $message->addText(__('Error'));
-                }
-
-                $type = $result ? MessageType::Success : MessageType::Error;
+            if (trim($message->getMessage()) === '') {
+                $message->addText($result ? __('Your SQL query has been executed successfully.') : __('Error'));
             }
+
+            $message->setType($result ? MessageType::Success : MessageType::Error);
 
             if ($warningMessages !== []) {
                 $message->addMessagesString($warningMessages);
@@ -124,7 +105,6 @@ final readonly class ViewController implements InvocableController
             $this->response->addHTML(Generator::getMessage(
                 $message,
                 Current::$sqlQuery,
-                $type,
             ));
         }
 

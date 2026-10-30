@@ -34,31 +34,32 @@ jobs:
           - ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 2
+          persist-credentials: false
 
       - name: Checkout base ref code
         if: github.event_name == 'pull_request'
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.base_ref }}
+          persist-credentials: false
 
-      - name: Install Gettext
-        run: sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./bin/generate-mo --quiet
+      - name: Install gettext and generate translation files
+        run: |
+          sudo apt-get install -y gettext
+          ./bin/generate-mo --quiet
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
           coverage: pcov
-          tools: composer:v2, infection:0.27.11
+          tools: infection:0.27.11
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Run Infection for changed files only
         if: github.event_name == 'push' || github.event_name == 'pull_request'
@@ -72,5 +73,5 @@ jobs:
       - name: Run Infection for all files
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
-          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+          INFECTION_DASHBOARD_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
         run: infection --threads=max --no-interaction --log-verbosity=none --logger-github=false

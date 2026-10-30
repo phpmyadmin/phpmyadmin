@@ -23,8 +23,6 @@ use function sprintf;
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in PDF document.
  *
- * @see Pdf
- *
  * @property Pdf $diagram
  */
 class TableStatsPdf extends TableStats
@@ -34,10 +32,6 @@ class TableStatsPdf extends TableStats
     private string $ff = PdfLib::PMA_PDF_FONT;
 
     /**
-     * @see Pdf
-     * @see TableStatsPdf::setWidthTable
-     * @see TableStatsPdf::setHeightTable
-     *
      * @param Pdf      $diagram        The PDF diagram
      * @param string   $db             The database name
      * @param string   $tableName      The table name
@@ -96,8 +90,6 @@ class TableStatsPdf extends TableStats
     /**
      * Sets the width of the table
      *
-     * @see Pdf
-     *
      * @param int|null $fontSize The font size
      */
     private function setWidth(int|null $fontSize): void
@@ -126,8 +118,6 @@ class TableStatsPdf extends TableStats
 
     /**
      * Do draw the table
-     *
-     * @see Pdf
      *
      * @param int|null $fontSize The font size or null to use the default value
      * @param bool     $withDoc  Whether to include links to documentation

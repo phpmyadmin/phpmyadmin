@@ -657,9 +657,7 @@ class GisVisualizationController {
     private selectVisualization () {
         const showOl = $('#useOsmAsBaseLayerSwitch').prop('checked') === true;
         const oldVis = showOl ? this.svgVis : this.olVis;
-        if (oldVis) {
-            oldVis.hide();
-        }
+        oldVis?.hide();
 
         let newVis: GisVisualization;
         if (showOl) {
@@ -690,13 +688,8 @@ class GisVisualizationController {
     public dispose () {
         $(document).off('click', '#useOsmAsBaseLayerSwitch');
 
-        if (this.svgVis) {
-            this.svgVis.dispose();
-        }
-
-        if (this.olVis) {
-            this.olVis.dispose();
-        }
+        this.svgVis?.dispose();
+        this.olVis?.dispose();
     }
 }
 

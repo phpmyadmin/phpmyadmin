@@ -248,6 +248,7 @@ class TypesTest extends AbstractTestCase
             ['JSON'],
             ['INET6'],
             ['UUID'],
+            ['XMLTYPE'],
         ];
     }
 
@@ -262,6 +263,15 @@ class TypesTest extends AbstractTestCase
             $output,
             $this->object->getFunctionsClass($class),
         );
+    }
+
+    public function testGetFunctionsClassWithUuidV4AndUuidV7(): void
+    {
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => '11.7.0-MariaDB']);
+        $actual = (new Types($dbi))->getFunctionsClass(TypeClass::Char);
+        self::assertContains('UUID_v4', $actual);
+        self::assertContains('UUID_v7', $actual);
     }
 
     /** @return array<array{TypeClass, string[]}> */
@@ -540,6 +550,15 @@ class TypesTest extends AbstractTestCase
             ],
             $this->object->getAllFunctions(),
         );
+    }
+
+    public function testGetAllFunctionsWithUuidV4AndUuidV7(): void
+    {
+        $dbi = $this->createDatabaseInterface();
+        $dbi->setVersion(['@@version' => '11.7.0-MariaDB']);
+        $actual = (new Types($dbi))->getAllFunctions();
+        self::assertContains('UUID_v4', $actual);
+        self::assertContains('UUID_v7', $actual);
     }
 
     /**

@@ -245,10 +245,7 @@ final class Data
         }
 
         // Threads_cache_hitrate
-        if (
-            isset($serverStatus['Threads_created'], $serverStatus['Connections'])
-            && $serverStatus['Connections'] > 0
-        ) {
+        if (isset($serverStatus['Threads_created'], $serverStatus['Connections']) && $serverStatus['Connections'] > 0) {
             $serverStatus['Threads_cache_hitrate_%'] = 100 - $serverStatus['Threads_created']
                 / $serverStatus['Connections'] * 100;
         }

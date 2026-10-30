@@ -112,13 +112,13 @@ class CoreTest extends AbstractTestCase
         );
 
         self::assertSame(
-            Core::arrayRead('sarr/not_exiting/1', $arr, 0),
             0,
+            Core::arrayRead('sarr/not_exiting/1', $arr, 0),
         );
 
         self::assertSame(
-            Core::arrayRead('sarr/not_exiting/1', $arr, 'default_val'),
             'default_val',
+            Core::arrayRead('sarr/not_exiting/1', $arr, 'default_val'),
         );
     }
 
@@ -135,37 +135,37 @@ class CoreTest extends AbstractTestCase
         ];
 
         Core::arrayWrite('int', $arr, 5);
-        self::assertSame($arr['int'], 5);
+        self::assertSame(5, $arr['int']);
 
         Core::arrayWrite('str', $arr, '_str');
-        self::assertSame($arr['str'], '_str');
+        self::assertSame('_str', $arr['str']);
 
         Core::arrayWrite('arr/0', $arr, 'val_arr_0');
-        self::assertSame($arr['arr'][0], 'val_arr_0');
+        self::assertSame('val_arr_0', $arr['arr'][0]);
 
         Core::arrayWrite('arr/1', $arr, 'val_arr_1');
-        self::assertSame($arr['arr'][1], 'val_arr_1');
+        self::assertSame('val_arr_1', $arr['arr'][1]);
 
         Core::arrayWrite('arr/2', $arr, 'val_arr_2');
-        self::assertSame($arr['arr'][2], 'val_arr_2');
+        self::assertSame('val_arr_2', $arr['arr'][2]);
 
         Core::arrayWrite('sarr/arr1/0', $arr, 'val_sarr_arr_0');
-        self::assertSame($arr['sarr']['arr1'][0], 'val_sarr_arr_0');
+        self::assertSame('val_sarr_arr_0', $arr['sarr']['arr1'][0]);
 
         Core::arrayWrite('sarr/arr1/1', $arr, 'val_sarr_arr_1');
-        self::assertSame($arr['sarr']['arr1'][1], 'val_sarr_arr_1');
+        self::assertSame('val_sarr_arr_1', $arr['sarr']['arr1'][1]);
 
         Core::arrayWrite('sarr/arr1/2', $arr, 'val_sarr_arr_2');
-        self::assertSame($arr['sarr']['arr1'][2], 'val_sarr_arr_2');
+        self::assertSame('val_sarr_arr_2', $arr['sarr']['arr1'][2]);
 
         Core::arrayWrite('sarr/0/0', $arr, 5);
-        self::assertSame($arr['sarr'][0][0], 5);
+        self::assertSame(5, $arr['sarr'][0][0]);
 
         Core::arrayWrite('sarr/0/1/0', $arr, 'e');
-        self::assertSame($arr['sarr'][0][1][0], 'e');
+        self::assertSame('e', $arr['sarr'][0][1][0]);
 
         Core::arrayWrite('sarr/not_existing/1', $arr, 'some_val');
-        self::assertSame($arr['sarr']['not_existing'][1], 'some_val');
+        self::assertSame('some_val', $arr['sarr']['not_existing'][1]);
 
         Core::arrayWrite('sarr/0/2', $arr, null);
         self::assertNull($arr['sarr'][0][2]);
@@ -417,16 +417,16 @@ class CoreTest extends AbstractTestCase
     public function testReplaceDots(): void
     {
         self::assertSame(
-            Core::securePath('../../../etc/passwd'),
             './././etc/passwd',
+            Core::securePath('../../../etc/passwd'),
         );
         self::assertSame(
-            Core::securePath('/var/www/../phpmyadmin'),
             '/var/www/./phpmyadmin',
+            Core::securePath('/var/www/../phpmyadmin'),
         );
         self::assertSame(
-            Core::securePath('./path/with..dots/../../file..php'),
             './path/with.dots/././file.php',
+            Core::securePath('./path/with..dots/../../file..php'),
         );
     }
 

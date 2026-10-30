@@ -25,12 +25,12 @@ class NodeEvent extends NodeDatabaseChild
         $this->icon = new Icon(
             'b_events',
             __('Event'),
-            '/database/events',
+            '/events',
             ['edit_item' => 1, 'db' => null, 'item_name' => null],
         );
         $this->link = new Link(
             '',
-            '/database/events',
+            '/events',
             ['edit_item' => 1, 'db' => null, 'item_name' => null],
         );
         $this->classes = 'event';

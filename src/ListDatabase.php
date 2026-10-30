@@ -75,7 +75,7 @@ class ListDatabase extends ArrayObject
      *
      * @param string|null $likeDbName usually a db_name containing wildcards
      *
-     * @return mixed[]
+     * @return string[]
      */
     protected function retrieve(UserPrivileges $userPrivileges, string|null $likeDbName = null): array
     {
@@ -105,7 +105,7 @@ class ListDatabase extends ArrayObject
             $databaseList = $this->dbi->fetchSingleColumn($command);
         }
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             usort($databaseList, strnatcasecmp(...));
         } else {
             // need to sort anyway, otherwise information_schema
@@ -134,9 +134,7 @@ class ListDatabase extends ArrayObject
      */
     protected function checkOnlyDatabase(UserPrivileges $userPrivileges): bool
     {
-        if (
-            is_string($this->config->selectedServer['only_db']) && $this->config->selectedServer['only_db'] !== ''
-        ) {
+        if (is_string($this->config->selectedServer['only_db']) && $this->config->selectedServer['only_db'] !== '') {
             $this->config->selectedServer['only_db'] = [$this->config->selectedServer['only_db']];
         }
 

@@ -1,10 +1,11 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { prepareForAjaxRequest, setSelectOptions } from '../modules/functions.ts';
+import { setSelectOptions } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getImageTag from '../modules/functions/getImageTag.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * JavaScript functions used on Database Search page
@@ -36,7 +37,7 @@ AJAX.registerTeardown('database/search.js', function () {
 
 AJAX.registerOnload('database/search.js', function () {
     /** Hide the table link in the initial search result */
-    var icon = getImageTag('s_tbl', '', { 'id': 'table-image' }).toString();
+    const icon = getImageTag('s_tbl', '', { 'id': 'table-image' }).toString();
     $('#table-info').prepend(icon).hide();
 
     /** Hide the browse and deleted results in the new search criteria */
@@ -61,7 +62,7 @@ AJAX.registerOnload('database/search.js', function () {
     $('#togglesearchresultlink')
         .html(window.Messages.strHideSearchResults)
         .on('click', function () {
-            var $link = $(this);
+            const $link = $(this);
             $('#searchresults').slideToggle();
             if ($link.text() === window.Messages.strHideSearchResults) {
                 $link.text(window.Messages.strShowSearchResults);
@@ -87,7 +88,7 @@ AJAX.registerOnload('database/search.js', function () {
     $('#togglequerybox')
         .hide()
         .on('click', function () {
-            var $link = $(this);
+            const $link = $(this);
             $('#sqlqueryform').slideToggle('medium');
             if ($link.text() === window.Messages.strHideQueryBox) {
                 $link.text(window.Messages.strShowQueryBox);
@@ -108,7 +109,7 @@ AJAX.registerOnload('database/search.js', function () {
     $('#togglesearchformlink')
         .html(window.Messages.strShowSearchCriteria)
         .on('click', function () {
-            var $link = $(this);
+            const $link = $(this);
             $('#db_search_form').slideToggle();
             if ($link.text() === window.Messages.strHideSearchCriteria) {
                 $link.text(window.Messages.strShowSearchCriteria);
@@ -126,20 +127,19 @@ AJAX.registerOnload('database/search.js', function () {
     $(document).on('click', '.browse_results', function (e) {
         e.preventDefault();
         /**   Hides the results shown by the delete criteria */
-        var $msg = ajaxShowMessage(window.Messages.strBrowsing, false);
+        const $msg = ajaxShowMessage(window.Messages.strBrowsing, false);
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /**  Load the browse results to the page */
         $('#table-info').show();
-        var tableName = $(this).data('table-name');
+        const tableName = $(this).data('table-name');
         $('#table-link').attr({ 'href': $(this).data('href') }).text(tableName);
 
-        var url = $(this).data('href') + '#searchresults';
-        var browseSql = $(this).data('browse-sql');
-        var params = {
-            'ajax_request': true,
+        const url = $(this).data('href') + '#searchresults';
+        const browseSql = $(this).data('browse-sql');
+        const params = {
             'is_js_confirmed': true,
-            'sql_query': browseSql
+            'sql_query': browseSql,
         };
         $.post(url, params, function (data) {
             if (typeof data !== 'undefined' && data.success) {
@@ -171,20 +171,19 @@ AJAX.registerOnload('database/search.js', function () {
         $('#sqlqueryform').hide();
         $('#togglequerybox').hide();
         /** Conformation message for deletion */
-        var msg = window.sprintf(
+        const msg = sprintf(
             window.Messages.strConfirmDeleteResults,
-            $(this).data('table-name')
-        );
+            $(this).data('table-name'),
+        ) as string;
         if (confirm(msg)) {
-            var $msg = ajaxShowMessage(window.Messages.strDeleting, false);
+            const $msg = ajaxShowMessage(window.Messages.strDeleting, false);
             /** Load the deleted option to the page*/
             $('#sqlqueryform').html('');
-            var params = {
-                'ajax_request': true,
+            const params = {
                 'is_js_confirmed': true,
-                'sql_query': $(this).data('delete-sql')
+                'sql_query': $(this).data('delete-sql'),
             };
-            var url = $(this).data('href');
+            const url = $(this).data('href');
 
             $.post(url, params, function (data) {
                 if (typeof data === 'undefined' || ! data.success) {
@@ -222,13 +221,11 @@ AJAX.registerOnload('database/search.js', function () {
             return;
         }
 
-        var $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
+        const $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
         // jQuery object to reuse
-        var $form = $(this);
+        const $form = $(this);
 
-        prepareForAjaxRequest($form);
-
-        var url = $form.serialize() + CommonParams.get('arg_separator') + 'submit_search=' + $('#buttonGo').val();
+        const url = $form.serialize() + CommonParams.get('arg_separator') + 'submit_search=' + $('#buttonGo').val();
         $.post($form.attr('action'), url, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 // found results
@@ -243,7 +240,6 @@ AJAX.registerOnload('database/search.js', function () {
                     .show();
 
                 $('#searchresults').show();
-
 
                 $('#db_search_form')
                     // workaround for Chrome problem (bug #3168569)

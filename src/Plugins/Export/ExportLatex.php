@@ -78,7 +78,7 @@ class ExportLatex extends ExportPlugin
     protected function setProperties(): ExportPluginProperties
     {
         $hideStructure = false;
-        if (ExportPlugin::$exportType === ExportType::Table && ! ExportPlugin::$singleTable) {
+        if ($this->exportType === ExportType::Table && ! $this->singleTable) {
             $hideStructure = true;
         }
 
@@ -629,13 +629,13 @@ class ExportLatex extends ExportPlugin
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
-    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    private function setStringValue(mixed $fromRequest, string $fromConfig): string
     {
         if (is_string($fromRequest) && $fromRequest !== '') {
             return $fromRequest;
         }
 
-        if (is_string($fromConfig) && $fromConfig !== '') {
+        if ($fromConfig !== '') {
             return $fromConfig;
         }
 

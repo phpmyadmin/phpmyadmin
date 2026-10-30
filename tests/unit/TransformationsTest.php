@@ -9,11 +9,13 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionProperty;
 
 #[CoversClass(Transformations::class)]
+#[AllowMockObjectsWithoutExpectations]
 class TransformationsTest extends AbstractTestCase
 {
     private Transformations $transformations;
@@ -188,12 +190,8 @@ class TransformationsTest extends AbstractTestCase
     public function testClear(): void
     {
         // Mock dbi
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $dbi->expects(self::any())
-            ->method('tryQuery')
-            ->willReturn(self::createStub(DummyResult::class));
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('tryQuery')->willReturn(self::createStub(DummyResult::class));
 
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 

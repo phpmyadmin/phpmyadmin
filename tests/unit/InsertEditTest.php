@@ -151,12 +151,10 @@ class InsertEditTest extends AbstractTestCase
     {
         $clauses = ['a=1', 'b="fo\o"'];
 
-        $resultStub1 = self::createMock(DummyResult::class);
-        $resultStub2 = self::createMock(DummyResult::class);
+        $resultStub1 = $this->createMock(DummyResult::class);
+        $resultStub2 = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::exactly(2))
             ->method('query')
@@ -207,11 +205,9 @@ class InsertEditTest extends AbstractTestCase
             'orgname' => 'orgname',
         ]);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getFieldsMeta')
@@ -241,11 +237,9 @@ class InsertEditTest extends AbstractTestCase
 
     public function testLoadFirstRow(): void
     {
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('query')
@@ -349,9 +343,9 @@ class InsertEditTest extends AbstractTestCase
         $fieldName = 'f1<';
 
         self::assertSame(
+            'f1&lt;',
             (new ReflectionMethod(InsertEdit::class, 'getColumnTitle'))
                 ->invokeArgs($this->insertEdit, [$fieldName, []]),
-            'f1&lt;',
         );
 
         $comments = [];
@@ -883,9 +877,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         // Case 3 (bit)
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createStub(DatabaseInterface::class);
 
         DatabaseInterface::$instance = $dbi;
         $config = Config::getInstance();
@@ -1058,11 +1050,9 @@ class InsertEditTest extends AbstractTestCase
 
         $row = ['1' => 1];
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('query')
@@ -1097,63 +1087,32 @@ class InsertEditTest extends AbstractTestCase
         self::assertSame('CONCAT(`table`.`orgname`) IS NULL', $_SESSION['edit_next']);
     }
 
-    /**
-     * Test for getGotoInclude
-     */
-    public function testGetGotoInclude(): void
+    #[DataProvider('gotoIncludeProvider')]
+    public function testGetGotoInclude(string $expected, string $table, string $goto, string|null $afterInsert): void
     {
-        UrlParams::$goto = '123.php';
-        Current::$table = '';
-
-        self::assertSame(
-            '/database/sql',
-            $this->insertEdit->getGotoInclude('index'),
-        );
-
-        Current::$table = 'tbl';
-        self::assertSame(
-            '/table/sql',
-            $this->insertEdit->getGotoInclude('index'),
-        );
-
-        UrlParams::$goto = 'index.php?route=/database/sql';
-
-        self::assertSame(
-            '/database/sql',
-            $this->insertEdit->getGotoInclude('index'),
-        );
-
-        self::assertSame('', Current::$table);
-
-        UrlParams::$goto = 'index.php?route=/sql&server=2';
-
-        self::assertSame(
-            '/sql',
-            $this->insertEdit->getGotoInclude('index'),
-        );
-
-        $_POST['after_insert'] = 'new_insert';
-        self::assertSame(
-            '/table/change',
-            $this->insertEdit->getGotoInclude('index'),
-        );
+        $_POST['after_insert'] = $afterInsert;
+        UrlParams::$goto = $goto;
+        Current::$table = $table;
+        self::assertSame($expected, $this->insertEdit->getGotoInclude());
     }
 
-    /**
-     * Test for getErrorUrl
-     */
-    public function testGetErrorUrl(): void
+    /** @return iterable<int, array{string, string, string, string|null}> */
+    public static function gotoIncludeProvider(): iterable
     {
-        self::assertSame(
-            'index.php?route=/table/change&lang=en',
-            $this->insertEdit->getErrorUrl([]),
-        );
-
-        $_POST['err_url'] = 'localhost';
-        self::assertSame(
-            'localhost',
-            $this->insertEdit->getErrorUrl([]),
-        );
+        yield ['/table/change', 'test_table', 'index.php?route=/', 'new_insert'];
+        yield ['/table/change', 'test_table', 'index.php?route=/', 'same_insert'];
+        yield ['/table/change', 'test_table', 'index.php?route=/', 'edit_next'];
+        yield ['/table/sql', 'test_table', 'index.php?route=/', 'invalid'];
+        yield ['/table/sql', 'test_table', '', null];
+        yield ['/table/sql', 'test_table', 'index.php', null];
+        yield ['/table/sql', 'test_table', 'index.php?route=/', null];
+        yield ['/database/sql', '', '', null];
+        yield ['/database/sql', '', 'index.php', null];
+        yield ['/database/sql', '', 'index.php?route=/', null];
+        yield ['/database/sql', 'test_table', 'index.php?route=/database/sql', null];
+        yield ['/database/sql', 'test_table', 'index.php?route=/database/sql&server=2', null];
+        yield ['/sql', '', 'index.php?route=/sql', null];
+        yield ['/sql', '', 'index.php?route=/sql&server=2', null];
     }
 
     /**
@@ -1216,9 +1175,7 @@ class InsertEditTest extends AbstractTestCase
             Warning::fromArray(['Level' => 'Warning', 'Code' => '1002', 'Message' => 'Message 2']),
         ];
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getWarnings')
@@ -1254,15 +1211,13 @@ class InsertEditTest extends AbstractTestCase
         $map['f']['foreign_field'] = 'f';
         $map = new Foreigners($map);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('tryQuery')
-            ->with('SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1')
+            ->with('SELECT `TABLE_COMMENT` FROM `information_schema`.`TABLES` WHERE `f`=1 LIMIT 1')
             ->willReturn($resultStub);
 
         $resultStub->expects(self::once())
@@ -1592,6 +1547,63 @@ class InsertEditTest extends AbstractTestCase
             '',
         );
         self::assertSame("''", $result);
+
+        // Datatype: uuid with no value should produce uuid()
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                '',
+                'uuid',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false,
+            ),
+            false,
+            '',
+        );
+        self::assertSame('uuid()', $result);
+
+        // Datatype: uuid with no value should produce uuid()
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                "'uuid_v4()'",
+                'uuid',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false,
+            ),
+            false,
+            '',
+        );
+        self::assertSame('uuid_v4()', $result);
+
+        // Datatype: uuid with no value should produce uuid()
+        $result = $this->insertEdit->getQueryValueForInsert(
+            new EditField(
+                '',
+                "'uuid_v7()'",
+                'uuid',
+                false,
+                false,
+                false,
+                '',
+                null,
+                null,
+                false,
+            ),
+            false,
+            '',
+        );
+        self::assertSame('uuid_v7()', $result);
 
         // Datatype: set
         $result = $this->insertEdit->getQueryValueForInsert(
@@ -1992,15 +2004,13 @@ class InsertEditTest extends AbstractTestCase
         $_POST['where_clause'] = [];
         $_POST['where_clause'][0] = 1;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createMock(DummyResult::class);
 
         $dbi->expects(self::exactly(3))
             ->method('tryQuery')
-            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1')
+            ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1 LIMIT 1')
             ->willReturn($resultStub);
 
         $meta1 = FieldHelper::fromArray(['type' => MYSQLI_TYPE_TINY]);
@@ -2047,9 +2057,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetTableColumns(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('selectDb')
@@ -2094,11 +2102,9 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testDetermineInsertOrEdit(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
-        $resultStub = self::createMock(DummyResult::class);
+        $resultStub = $this->createStub(DummyResult::class);
 
         $dbi->expects(self::exactly(2))
             ->method('query')
@@ -2150,18 +2156,14 @@ class InsertEditTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->set('ShowPropertyComments', false);
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $dbi->expects(self::once())
             ->method('getColumns')
             ->with('db', 'table')
             ->willReturn([new Column('d', 'd', null, false, '', null, '', '', 'b')]);
 
-        $dbi->expects(self::any())
-            ->method('getTable')
-            ->willReturn(new Table('table', 'db', $dbi));
+        $dbi->method('getTable')->willReturn(new Table('table', 'db', $dbi));
 
         DatabaseInterface::$instance = $dbi;
         $relation = new Relation($dbi);

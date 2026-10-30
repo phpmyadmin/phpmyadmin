@@ -35,9 +35,9 @@ class AuthenticationPluginFactoryTest extends AbstractTestCase
     public static function providerForTestValidPlugins(): iterable
     {
         yield 'config plugin' => ['config', AuthenticationConfig::class];
-        yield 'cookie plugin' => ['Cookie', AuthenticationCookie::class];
-        yield 'http plugin' => ['HTTP', AuthenticationHttp::class];
-        yield 'sign on plugin' => ['signOn', AuthenticationSignon::class];
+        yield 'cookie plugin' => ['cookie', AuthenticationCookie::class];
+        yield 'http plugin' => ['http', AuthenticationHttp::class];
+        yield 'sign on plugin' => ['signon', AuthenticationSignon::class];
     }
 
     public function testInvalidPlugin(): void

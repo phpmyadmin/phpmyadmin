@@ -16,7 +16,7 @@ class AccountLockingTest extends TestCase
 {
     public function testLockWithValidAccount(): void
     {
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('isMariaDB')->willReturn(true);
         $dbi->expects(self::once())->method('getVersion')->willReturn(100402);
         $dbi->expects(self::exactly(2))->method('quoteString')
@@ -33,7 +33,7 @@ class AccountLockingTest extends TestCase
 
     public function testLockWithInvalidAccount(): void
     {
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('isMariaDB')->willReturn(true);
         $dbi->expects(self::once())->method('getVersion')->willReturn(100402);
         $dbi->expects(self::exactly(2))->method('quoteString')
@@ -54,7 +54,7 @@ class AccountLockingTest extends TestCase
 
     public function testLockWithUnsupportedServer(): void
     {
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('isMariaDB')->willReturn(true);
         $dbi->expects(self::once())->method('getVersion')->willReturn(100401);
         $dbi->expects(self::never())->method('quoteString');
@@ -71,7 +71,7 @@ class AccountLockingTest extends TestCase
 
     public function testUnlockWithValidAccount(): void
     {
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('isMariaDB')->willReturn(true);
         $dbi->expects(self::once())->method('getVersion')->willReturn(100402);
         $dbi->expects(self::exactly(2))->method('quoteString')
@@ -88,7 +88,7 @@ class AccountLockingTest extends TestCase
 
     public function testUnlockWithInvalidAccount(): void
     {
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('isMariaDB')->willReturn(true);
         $dbi->expects(self::once())->method('getVersion')->willReturn(100402);
         $dbi->expects(self::exactly(2))->method('quoteString')
@@ -109,7 +109,7 @@ class AccountLockingTest extends TestCase
 
     public function testUnlockWithUnsupportedServer(): void
     {
-        $dbi = self::createMock(DatabaseInterface::class);
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('isMariaDB')->willReturn(false);
         $dbi->expects(self::once())->method('getVersion')->willReturn(50705);
         $dbi->expects(self::never())->method('quoteString');

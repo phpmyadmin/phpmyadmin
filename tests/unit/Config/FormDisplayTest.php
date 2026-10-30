@@ -114,7 +114,7 @@ class FormDisplayTest extends AbstractTestCase
 
         $result = $this->object->displayErrors();
 
-        self::assertSame($result, '');
+        self::assertSame('', $result);
 
         $arr = ['Servers/1/test' => ['e1'], 'foobar' => ['e2', 'e3']];
 

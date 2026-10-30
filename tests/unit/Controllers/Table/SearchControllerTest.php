@@ -18,6 +18,7 @@ use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -54,9 +55,10 @@ final class SearchControllerTest extends AbstractTestCase
             new RelationCleanup($dbi, $relation),
             new Transformations($dbi, $relation),
             $template,
-            new BookmarkRepository($dbi, $relation),
+            new BookmarkRepository($dbi, $relation, $config),
             $config,
             $responseRenderer,
+            new ThemeManager(),
         );
 
         $controller = new SearchController(

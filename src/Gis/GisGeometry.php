@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
+use PhpMyAdmin\Image\Color;
 use PhpMyAdmin\Image\ImageWrapper;
 use TCPDF;
 
@@ -31,7 +32,6 @@ abstract class GisGeometry
      *
      * @param string    $spatial   GIS data object
      * @param string    $label     label for the GIS data object
-     * @param int[]     $color     color for the GIS data object
      * @param ScaleData $scaleData data related to scaling
      *
      * @return string the code related to a row in the GIS dataset
@@ -39,7 +39,7 @@ abstract class GisGeometry
     abstract public function prepareRowAsSvg(
         string $spatial,
         string $label,
-        array $color,
+        Color $color,
         ScaleData $scaleData,
     ): string;
 
@@ -48,13 +48,12 @@ abstract class GisGeometry
      *
      * @param string    $spatial   GIS POLYGON object
      * @param string    $label     Label for the GIS POLYGON object
-     * @param int[]     $color     Color for the GIS POLYGON object
      * @param ScaleData $scaleData Array containing data related to scaling
      */
     abstract public function prepareRowAsPng(
         string $spatial,
         string $label,
-        array $color,
+        Color $color,
         ScaleData $scaleData,
         ImageWrapper $image,
     ): void;
@@ -64,13 +63,12 @@ abstract class GisGeometry
      *
      * @param string    $spatial   GIS data object
      * @param string    $label     label for the GIS data object
-     * @param int[]     $color     color for the GIS data object
      * @param ScaleData $scaleData array containing data related to scaling
      */
     abstract public function prepareRowAsPdf(
         string $spatial,
         string $label,
-        array $color,
+        Color $color,
         ScaleData $scaleData,
         TCPDF $pdf,
     ): void;

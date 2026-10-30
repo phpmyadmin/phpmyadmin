@@ -17,6 +17,7 @@ use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\UserPrivileges;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 use stdClass;
@@ -26,6 +27,7 @@ use function _pgettext;
 use function json_encode;
 
 #[CoversClass(Normalization::class)]
+#[AllowMockObjectsWithoutExpectations]
 class NormalizationTest extends AbstractTestCase
 {
     protected DatabaseInterface $dbi;
@@ -46,25 +48,17 @@ class NormalizationTest extends AbstractTestCase
         $config = Config::getInstance();
 
         //mock DBI
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->types = new Types($dbi);
         DatabaseInterface::$instance = $dbi;
         // set expectations
-        $dbi->expects(self::any())
-            ->method('selectDb')
-            ->willReturn(true);
-        $dbi->expects(self::any())
-            ->method('getColumns')
-            ->willReturn([
-                'id' => new Column('id', 'integer', null, false, '', null, '', '', ''),
-                'col1' => new Column('col1', 'varchar(100)', null, false, '', null, '', '', ''),
-                'col2' => new Column('col2', 'DATETIME', null, false, '', null, '', '', ''),
-            ]);
-        $dbi->expects(self::any())
-            ->method('getColumnNames')
-            ->willReturn(['id', 'col1', 'col2']);
+        $dbi->method('selectDb')->willReturn(true);
+        $dbi->method('getColumns')->willReturn([
+            'id' => new Column('id', 'integer', null, false, '', null, '', '', ''),
+            'col1' => new Column('col1', 'varchar(100)', null, false, '', null, '', '', ''),
+            'col2' => new Column('col2', 'DATETIME', null, false, '', null, '', '', ''),
+        ]);
+        $dbi->method('getColumnNames')->willReturn(['id', 'col1', 'col2']);
         $map = [
             ['PMA_db', 'PMA_table1', ConnectionType::User, []],
             ['PMA_db', 'PMA_table', ConnectionType::User, [['Key_name' => 'PRIMARY', 'Column_name' => 'id']]],
@@ -75,15 +69,9 @@ class NormalizationTest extends AbstractTestCase
                 [['Key_name' => 'PRIMARY','Column_name' => 'id'], ['Key_name' => 'PRIMARY','Column_name' => 'col1']],
             ],
         ];
-        $dbi->expects(self::any())
-            ->method('getTableIndexes')
-            ->willReturnMap($map);
-        $dbi->expects(self::any())
-            ->method('tryQuery')
-            ->willReturn(self::createStub(DummyResult::class));
-        $dbi->expects(self::any())
-            ->method('fetchSingleRow')
-            ->willReturn(['`id`_cnt' => 0, '`col1`_cnt' => 0, '`col2`_cnt' => 0]);
+        $dbi->method('getTableIndexes')->willReturnMap($map);
+        $dbi->method('tryQuery')->willReturn(self::createStub(DummyResult::class));
+        $dbi->method('fetchSingleRow')->willReturn(['`id`_cnt' => 0, '`col1`_cnt' => 0, '`col2`_cnt' => 0]);
 
         $relation = new Relation($dbi);
         $this->normalization = new Normalization(

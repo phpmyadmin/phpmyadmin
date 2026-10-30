@@ -62,7 +62,7 @@ final readonly class FavoriteTableController implements InvocableController
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', Message::error(__('No databases selected.')));
+            $this->response->addJSON('message', Message::error(__('No database selected.')));
 
             return $this->response->response();
         }
@@ -82,7 +82,7 @@ final readonly class FavoriteTableController implements InvocableController
         } elseif (isset($_REQUEST['add_favorite'])) {
             if (! $alreadyFavorite) {
                 $numTables = count($favoriteInstance->getTables());
-                if ($numTables === $this->config->settings['NumFavoriteTables']) {
+                if ($numTables === $this->config->config->NumFavoriteTables) {
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.
@@ -108,7 +108,6 @@ final readonly class FavoriteTableController implements InvocableController
         // Check if current table is already in favorite list.
         $favoriteParams = [
             'db' => Current::$database,
-            'ajax_request' => true,
             'favorite_table' => $favoriteTableName,
             ($alreadyFavorite ? 'remove' : 'add') . '_favorite' => true,
         ];

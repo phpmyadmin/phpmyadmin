@@ -194,7 +194,33 @@ for filePath in ${FILE_LIST}; do
     case $filePath in
         */composer-require-checker.json)
         foundFile;;
-        */CLAUDE.MD)
+        */.phpstorm.meta.php)
+        foundFile;;
+        */CLAUDE.[Mm][Dd])
+        foundFile;;
+        */AGENTS.[Mm][Dd])
+        foundFile;;
+        */UPGRADING.md)
+        foundFile;;
+        */UPGRADE.md)
+        foundFile;;
+        */UPGRADE-*.md)
+        foundFile;;
+        */SECURITY.md)
+        foundFile;;
+        */.gitlab-ci.yml)
+        foundFile;;
+        */.tool-versions)
+        foundFile;;
+        */.phive/*)
+        foundFile;;
+        */.phpdoc/*)
+        foundFile;;
+        */vendor/*/guides/*)
+        foundFile;;
+        */vendor/*/benchmark/*)
+        foundFile;;
+        */vendor/*/benchmarks/*)
         foundFile;;
         */Readme.php)
         foundFile;;
@@ -252,9 +278,9 @@ for filePath in ${FILE_LIST}; do
         foundFile;;
         */.scrutinizer.yml)
         foundFile;;
-        */.phpstorm.meta.php)
-        foundFile;;
         */codecov.yml)
+        foundFile;;
+        */.codecov.yml)
         foundFile;;
         */.gitattributes)
         foundFile;;

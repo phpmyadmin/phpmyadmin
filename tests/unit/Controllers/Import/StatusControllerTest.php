@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Import;
 
+use DateTimeImmutable;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
@@ -15,6 +16,9 @@ use PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Psr\Clock\ClockInterface;
+use Random\Engine\Mt19937;
+use Random\Randomizer;
 use ReflectionProperty;
 
 use function ini_get;
@@ -42,7 +46,11 @@ final class StatusControllerTest extends AbstractTestCase
             'id' => 'abc1234567890',
         ]);
 
-        $controller = new StatusController(new Template(new Config()), new Clock());
+        $controller = new StatusController(
+            new Template(new Config()),
+            new Clock(),
+            new Ajax(new Randomizer(new Mt19937(42))),
+        );
         $response = $controller($request);
 
         self::assertSame(
@@ -67,7 +75,11 @@ final class StatusControllerTest extends AbstractTestCase
             'message' => '1',
         ]);
 
-        $controller = new StatusController(new Template(new Config()), new Clock());
+        $controller = new StatusController(
+            new Template(new Config()),
+            new Clock(),
+            new Ajax(new Randomizer(new Mt19937(42))),
+        );
         $response = $controller($request);
 
         $expected = $message->getDisplay();
@@ -98,7 +110,21 @@ final class StatusControllerTest extends AbstractTestCase
             'message' => '1',
         ]);
 
-        $controller = new StatusController(new Template(new Config()), new Clock());
+        // Advance one second per call so the timeout triggers on the first retry without waiting for the wall clock.
+        $clock = new class implements ClockInterface {
+            private int $seconds = 0;
+
+            public function now(): DateTimeImmutable
+            {
+                return new DateTimeImmutable('@' . $this->seconds++);
+            }
+        };
+
+        $controller = new StatusController(
+            new Template(new Config()),
+            $clock,
+            new Ajax(new Randomizer(new Mt19937(42))),
+        );
         $response = $controller($request);
 
         self::assertSame($message->getDisplay(), self::getActualOutputForAssertion());

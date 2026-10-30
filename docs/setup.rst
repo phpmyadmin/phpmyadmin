@@ -90,7 +90,7 @@ In order to install from Git, you'll need a few supporting applications:
 
 * `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://codeload.github.com/phpmyadmin/phpmyadmin/zip/QA_5_2>`_
 * `Composer <https://getcomposer.org/download/>`__
-* `Node.js <https://nodejs.org/en/download/>`_ (version 20 or higher)
+* `Node.js <https://nodejs.org/en/download/>`_ (version 24 or higher)
 * `Yarn <https://classic.yarnpkg.com/en/docs/install>`_
 
 You can clone current phpMyAdmin source from
@@ -543,7 +543,7 @@ Using docker-compose
 --------------------
 
 Alternatively, you can also use docker-compose with the docker-compose.yml from
-<https://github.com/phpmyadmin/docker>.  This will run phpMyAdmin with an
+<https://github.com/phpmyadmin/docker>. This will run phpMyAdmin with an
 arbitrary server - allowing you to specify MySQL/MariaDB server on the login page.
 
 .. code-block:: sh
@@ -785,9 +785,9 @@ Setup script on openSUSE
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Some openSUSE releases do not include setup script in the package. In case you
-want to generate configuration on these you can either download original
-package from <https://www.phpmyadmin.net/> or use setup script on our demo
-server: <https://demo.phpmyadmin.net/master/setup/>.
+want to generate configuration on these you can download the original package
+from <https://www.phpmyadmin.net/> (which includes the setup script). You can
+also explore a live demo at <https://demo.phpmyadmin.net/master-config/>.
 
 .. _verify:
 
@@ -870,8 +870,8 @@ in the key:
     gpg:          There is no indication that the signature belongs to the owner.
     Primary key fingerprint: 3D06 A59E CE73 0EB7 1B51  1C17 CE75 2F17 8259 BD92
 
-The problem here is that anybody could issue the key with this name.  You need to
-ensure that the key is actually owned by the mentioned person.  The GNU Privacy
+The problem here is that anybody could issue the key with this name. You need to
+ensure that the key is actually owned by the mentioned person. The GNU Privacy
 Handbook covers this topic in the chapter `Validating other keys on your public
 keyring`_. The most reliable method is to meet the developer in person and
 exchange key fingerprints, however, you can also rely on the web of trust. This way
@@ -914,7 +914,7 @@ phpMyAdmin configuration storage
 
 For a whole set of additional features (:ref:`bookmarks`, comments, :term:`SQL`-history,
 tracking mechanism, :term:`PDF`-generation, :ref:`transformations`, :ref:`relations`
-etc.) you need to create a set of special tables.  Those tables can be located
+etc.) you need to create a set of special tables. Those tables can be located
 in your own database, or in a central database for a multi-user installation
 (this database would then be accessed by the controluser, so no other user
 should have rights to it).

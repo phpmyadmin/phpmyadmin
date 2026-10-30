@@ -24,7 +24,6 @@ final class SchemaSvgTest extends AbstractTestCase
         $properties = (new SchemaSvg())->getProperties();
         self::assertSame('SVG', $properties->getText());
         self::assertSame('svg', $properties->getExtension());
-        self::assertSame('application/svg', $properties->getMimeType());
         $options = $properties->getOptions();
         self::assertNotNull($options);
         self::assertSame('Format Specific Options', $options->getName());

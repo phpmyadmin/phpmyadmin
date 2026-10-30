@@ -59,8 +59,8 @@ class ColumnsDefinitionTest extends AbstractTestCase
         );
         // phpcs:enable
         $dummyDbi->addResult(
-            'SELECT * FROM `sakila`.`actor` LIMIT 1',
-            [['1', 'PENELOPE', 'GUINESS', '2006-02-15 04:34:33']],
+            'SELECT * FROM `sakila`.`actor` LIMIT 0',
+            [],
             ['actor_id', 'first_name', 'last_name', 'last_update'],
         );
         $createTable = <<<'SQL'
@@ -252,6 +252,11 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 false,
                 ['DefaultType' => 'NONE', 'DefaultValue' => ''],
             ],
+            'when Default is empty string' => [
+                '',
+                false,
+                ['DefaultType' => 'USER_DEFINED', 'DefaultValue' => ''],
+            ],
             'when Default is CURRENT_TIMESTAMP' => [
                 'CURRENT_TIMESTAMP',
                 false,
@@ -271,6 +276,26 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 'uuid()',
                 false,
                 ['DefaultType' => 'UUID', 'DefaultValue' => ''],
+            ],
+            'when Default is UUID_v4' => [
+                'UUID_v4',
+                false,
+                ['DefaultType' => 'UUID_v4', 'DefaultValue' => ''],
+            ],
+            'when Default is uuid_v4()' => [
+                'uuid_v4()',
+                false,
+                ['DefaultType' => 'UUID_v4', 'DefaultValue' => ''],
+            ],
+            'when Default is UUID_v7' => [
+                'UUID_v7',
+                false,
+                ['DefaultType' => 'UUID_v7', 'DefaultValue' => ''],
+            ],
+            'when Default is uuid_v7()' => [
+                'uuid_v7()',
+                false,
+                ['DefaultType' => 'UUID_v7', 'DefaultValue' => ''],
             ],
             'when Default is anything else and Type is text' => [
                 '"some/thing"',

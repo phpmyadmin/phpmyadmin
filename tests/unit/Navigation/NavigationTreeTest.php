@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Navigation\NavigationTree;
+use PhpMyAdmin\Navigation\Nodes\NodeIndex;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -27,20 +28,9 @@ class NavigationTreeTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $this->setLanguage();
-
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $config = Config::getInstance();
-        $config->selectedServer['host'] = 'localhost';
-        $config->selectedServer['user'] = 'user';
-        $config->selectedServer['pmadb'] = '';
-        $config->selectedServer['DisableIS'] = false;
-        $config->settings['NavigationTreeEnableGrouping'] = true;
-        $config->settings['ShowDatabasesNavigationAsTree'] = true;
-
-        Current::$database = 'db';
-        Current::$table = '';
 
         $this->object = new NavigationTree(new Template($config), $dbi, new Relation($dbi), $config);
     }
@@ -77,7 +67,7 @@ class NavigationTreeTest extends AbstractTestCase
     {
         Current::$database = '';
         $config = Config::getInstance();
-        $config->settings['NavigationTreeDbSeparator'] = '__';
+        $config->set('NavigationTreeDbSeparator', '__');
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dummyDbi = $this->createDbiDummy();
@@ -106,5 +96,48 @@ class NavigationTreeTest extends AbstractTestCase
         self::assertStringContainsString('<div class="list_container" style="display: none;">', $result);
         self::assertStringContainsString('functions__a', $result);
         self::assertStringContainsString('functions__b', $result);
+    }
+
+    /**
+     * Regression test for https://github.com/phpmyadmin/phpmyadmin/issues/20253:
+     * The link to a specific index in the navigation tree must NOT have the
+     * `disableAjax` class. The link relies on `data-post` for `db`/`table`/
+     * `index`, which is consumed by the AJAX request handler — with
+     * `disableAjax` the browser navigates natively to the bare href and the
+     * controller fails with "Missing parameter: db".
+     */
+    public function testIndexNodeLinkUsesAjaxFlow(): void
+    {
+        $config = new Config();
+        $template = new Template($config);
+        $node = new NodeIndex($this->createDatabaseInterface(), $config, 'idx_mail');
+
+        $output = $template->render('navigation/tree/node', [
+            'node' => $node,
+            'displayName' => 'idx_mail',
+            'class' => '',
+            'show_node' => true,
+            'has_siblings' => false,
+            'li_classes' => '',
+            'control_buttons' => '',
+            'node_is_container' => false,
+            'has_second_icon' => false,
+            'recursive' => ['html' => '', 'has_wrapper' => false, 'is_hidden' => false],
+            'icon_links' => [],
+            'text_link' => [
+                'route' => '/table/indexes',
+                'params' => ['db' => 'testdb', 'table' => 'users', 'index' => 'idx_mail'],
+                'title' => 'Edit',
+                'is_ajax' => false,
+            ],
+            'pagination_params' => [],
+            'node_is_group' => false,
+            'link_classes' => '',
+            'paths' => ['a_path' => '', 'v_path' => '', 'pos' => 0],
+            'node_icon' => '',
+        ]);
+
+        self::assertStringContainsString('data-post=', $output);
+        self::assertStringNotContainsString('class="hover_show_full disableAjax"', $output);
     }
 }

@@ -48,10 +48,6 @@ class DiaRelationSchema extends ExportRelationSchema
     /**
      * Upon instantiation This outputs the Dia XML document
      * that user can download
-     *
-     * @see Dia
-     * @see TableStatsDia
-     * @see RelationStatsDia
      */
     public function __construct(Relation $relation, DatabaseName $db)
     {
@@ -145,8 +141,6 @@ class DiaRelationSchema extends ExportRelationSchema
     /**
      * Defines relation objects
      *
-     * @see    TableStatsDia::__construct(),RelationStatsDia::__construct()
-     *
      * @param string $masterTable  The master table name
      * @param string $masterField  The relation field in the master table
      * @param string $foreignTable The foreign table name
@@ -195,8 +189,6 @@ class DiaRelationSchema extends ExportRelationSchema
      * connects master table's master field to
      * foreign table's foreign field using Dia object
      * type Database - Reference
-     *
-     * @see    RelationStatsDia::relationDraw()
      */
     private function drawRelations(): void
     {
@@ -210,8 +202,6 @@ class DiaRelationSchema extends ExportRelationSchema
      *
      * Tables are generated using Dia object type Database - Table
      * primary fields are underlined and bold in tables
-     *
-     * @see    TableStatsDia::tableDraw()
      */
     private function drawTables(): void
     {

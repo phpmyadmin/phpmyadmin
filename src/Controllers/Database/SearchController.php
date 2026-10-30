@@ -48,24 +48,17 @@ final readonly class SearchController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
-        if (! $this->config->settings['UseDbSearch']) {
+        if (! $this->config->config->UseDbSearch) {
             $errorMessage = __(
                 'Searching inside the database is disabled by the [code]$cfg[\'UseDbSearch\'][/code] configuration.',
             );
             $errorMessage .= MySQLDocumentation::showDocumentation('config', 'cfg_UseDbSearch');
             $this->response->setRequestStatus(false);
             if ($request->isAjax()) {
-                $this->response->addJSON('message', Message::error($errorMessage)->getDisplay());
+                $this->response->addJSON('message', Message::error($errorMessage));
 
                 return $this->response->response();
             }

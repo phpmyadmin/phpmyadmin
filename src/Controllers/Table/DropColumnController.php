@@ -70,8 +70,8 @@ final readonly class DropColumnController implements InvocableController
                     '%1$d columns have been dropped successfully.',
                     $selectedCount,
                 ),
+                [$selectedCount],
             );
-            $message->addParam($selectedCount);
         }
 
         $this->flashMessenger->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());

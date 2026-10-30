@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\WebAuthn;
 
+use PhpMyAdmin\Crypto\Base64;
+use PhpMyAdmin\TwoFactor;
 use Psr\Http\Message\ServerRequestInterface;
+use Random\Randomizer;
 use SodiumException;
 use Throwable;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
+use function bin2hex;
 use function hash;
 use function hash_equals;
 use function json_decode;
@@ -17,14 +21,12 @@ use function mb_strlen;
 use function mb_substr;
 use function ord;
 use function parse_url;
-use function random_bytes;
-use function sodium_base642bin;
-use function sodium_bin2base64;
+use function sprintf;
+use function strtolower;
+use function substr;
 use function unpack;
 
 use const PHP_URL_HOST;
-use const SODIUM_BASE64_VARIANT_ORIGINAL;
-use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 /**
  * Web Authentication API server.
@@ -33,8 +35,12 @@ use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API
  * @see https://webauthn.guide/
  */
-final class CustomServer implements Server
+final readonly class CustomServer implements Server
 {
+    public function __construct(private TwoFactor $twoFactor, private Randomizer $randomizer = new Randomizer())
+    {
+    }
+
     /** @inheritDoc */
     public function getCredentialCreationOptions(string $userName, string $userId, string $relyingPartyId): array
     {
@@ -60,10 +66,7 @@ final class CustomServer implements Server
         array $allowedCredentials,
     ): array {
         foreach ($allowedCredentials as $key => $credential) {
-            $allowedCredentials[$key]['id'] = sodium_bin2base64(
-                sodium_base642bin($credential['id'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-                SODIUM_BASE64_VARIANT_ORIGINAL,
-            );
+            $allowedCredentials[$key]['id'] = Base64::encode(Base64::decodeUrlSafeNoPadding($credential['id']));
         }
 
         return [
@@ -88,14 +91,17 @@ final class CustomServer implements Server
             Assert::true($this->isCredentialIdAllowed($assertionCredential['rawId'], $allowedCredentials));
         }
 
+        $sourceCredential = $this->findOneCredentialByCredentialId($assertionCredential['rawId']);
+        Assert::notNull($sourceCredential);
+
         $authenticatorData = $this->getAuthenticatorData($assertionCredential['response']['authenticatorData']);
 
         $clientData = $this->getCollectedClientData($assertionCredential['response']['clientDataJSON']);
         Assert::same($clientData['type'], 'webauthn.get');
 
         try {
-            $knownChallenge = sodium_base642bin($challenge, SODIUM_BASE64_VARIANT_ORIGINAL);
-            $cDataChallenge = sodium_base642bin($clientData['challenge'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
+            $knownChallenge = Base64::decode($challenge);
+            $cDataChallenge = Base64::decodeUrlSafeNoPadding($clientData['challenge']);
         } catch (SodiumException $exception) {
             throw new WebAuthnException((string) $exception);
         }
@@ -110,6 +116,10 @@ final class CustomServer implements Server
 
         $isUserPresent = (ord($authenticatorData['flags']) & 1) !== 0;
         Assert::true($isUserPresent);
+
+        $sourceCredential['counter'] = $authenticatorData['signCount'];
+
+        $this->saveCredentialSource($sourceCredential);
     }
 
     /** @inheritDoc */
@@ -139,8 +149,8 @@ final class CustomServer implements Server
         Assert::same($clientData['type'], 'webauthn.create');
 
         // Verify that the value of C.challenge equals the base64url encoding of options.challenge.
-        $optionsChallenge = sodium_base642bin($creationOptions['challenge'], SODIUM_BASE64_VARIANT_ORIGINAL);
-        $clientDataChallenge = sodium_base642bin($clientData['challenge'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
+        $optionsChallenge = Base64::decode($creationOptions['challenge']);
+        $clientDataChallenge = Base64::decodeUrlSafeNoPadding($clientData['challenge']);
         Assert::true(hash_equals($optionsChallenge, $clientDataChallenge));
 
         // Verify that the value of C.origin matches the Relying Party's origin.
@@ -164,18 +174,13 @@ final class CustomServer implements Server
         Assert::same($attestationObject['fmt'], 'none');
         Assert::same($attestationObject['attStmt'], []);
 
-        $encodedCredentialId = sodium_bin2base64(
+        $encodedCredentialId = Base64::encodeUrlSafeNoPadding(
             $authenticatorData['attestedCredentialData']['credentialId'],
-            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
         );
-        $encodedCredentialPublicKey = sodium_bin2base64(
+        $encodedCredentialPublicKey = Base64::encodeUrlSafeNoPadding(
             $authenticatorData['attestedCredentialData']['credentialPublicKey'],
-            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
         );
-        $userHandle = sodium_bin2base64(
-            sodium_base642bin($creationOptions['user']['id'], SODIUM_BASE64_VARIANT_ORIGINAL),
-            SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING,
-        );
+        $userHandle = Base64::encodeUrlSafeNoPadding(Base64::decode($creationOptions['user']['id']));
 
         return [
             'publicKeyCredentialId' => $encodedCredentialId,
@@ -202,7 +207,7 @@ final class CustomServer implements Server
     private function generateChallenge(): string
     {
         try {
-            return sodium_bin2base64(random_bytes(32), SODIUM_BASE64_VARIANT_ORIGINAL);
+            return Base64::encode($this->randomizer->getBytes(32));
         } catch (Throwable) { // @codeCoverageIgnore
             throw new WebAuthnException('Error when generating challenge.'); // @codeCoverageIgnore
         }
@@ -246,7 +251,7 @@ final class CustomServer implements Server
         // Bit 6: Attested credential data included (AT).
         if ((ord($flags) & 64) !== 0) {
             /** Authenticator Attestation GUID */
-            $aaguid = $authDataStream->take(16);
+            $aaguid = $this->uuidFromBytes($authDataStream->take(16));
 
             // 16-bit unsigned big-endian integer
             $unpackedCredentialIdLength = unpack('n', $authDataStream->take(2));
@@ -293,7 +298,7 @@ final class CustomServer implements Server
     {
         foreach ($allowedCredentials as $credential) {
             try {
-                $credentialId = sodium_base642bin($credential['id'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
+                $credentialId = Base64::decodeUrlSafeNoPadding($credential['id']);
             } catch (SodiumException) {
                 throw new WebAuthnException();
             }
@@ -360,20 +365,17 @@ final class CustomServer implements Server
         Assert::keyExists($credential['response'], 'signature');
         Assert::stringNotEmpty($credential['response']['signature']);
 
-        $id = sodium_base642bin($credential['id'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
-        $rawId = sodium_base642bin($credential['rawId'], SODIUM_BASE64_VARIANT_ORIGINAL);
+        $id = Base64::decodeUrlSafeNoPadding($credential['id']);
+        $rawId = Base64::decode($credential['rawId']);
         Assert::stringNotEmpty($id);
         Assert::stringNotEmpty($rawId);
         Assert::true(hash_equals($rawId, $id));
 
-        $clientDataJSON = sodium_base642bin($credential['response']['clientDataJSON'], SODIUM_BASE64_VARIANT_ORIGINAL);
+        $clientDataJSON = Base64::decode($credential['response']['clientDataJSON']);
         Assert::stringNotEmpty($clientDataJSON);
-        $authenticatorData = sodium_base642bin(
-            $credential['response']['authenticatorData'],
-            SODIUM_BASE64_VARIANT_ORIGINAL,
-        );
+        $authenticatorData = Base64::decode($credential['response']['authenticatorData']);
         Assert::stringNotEmpty($authenticatorData);
-        $signature = sodium_base642bin($credential['response']['signature'], SODIUM_BASE64_VARIANT_ORIGINAL);
+        $signature = Base64::decode($credential['response']['signature']);
         Assert::stringNotEmpty($signature);
 
         return [
@@ -421,18 +423,15 @@ final class CustomServer implements Server
         Assert::keyExists($credential['response'], 'attestationObject');
         Assert::stringNotEmpty($credential['response']['attestationObject']);
 
-        $id = sodium_base642bin($credential['id'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
-        $rawId = sodium_base642bin($credential['rawId'], SODIUM_BASE64_VARIANT_ORIGINAL);
+        $id = Base64::decodeUrlSafeNoPadding($credential['id']);
+        $rawId = Base64::decode($credential['rawId']);
         Assert::stringNotEmpty($id);
         Assert::stringNotEmpty($rawId);
         Assert::true(hash_equals($rawId, $id));
 
-        $clientDataJSON = sodium_base642bin($credential['response']['clientDataJSON'], SODIUM_BASE64_VARIANT_ORIGINAL);
+        $clientDataJSON = Base64::decode($credential['response']['clientDataJSON']);
         Assert::stringNotEmpty($clientDataJSON);
-        $attestationObject = sodium_base642bin(
-            $credential['response']['attestationObject'],
-            SODIUM_BASE64_VARIANT_ORIGINAL,
-        );
+        $attestationObject = Base64::decode($credential['response']['attestationObject']);
         Assert::stringNotEmpty($attestationObject);
 
         return [
@@ -494,5 +493,54 @@ final class CustomServer implements Server
         Assert::string($decoded['authData']);
 
         return $decoded;
+    }
+
+    /** @return array<array-key, mixed>|null */
+    private function findOneCredentialByCredentialId(string $publicKeyCredentialId): array|null
+    {
+        $credentials = $this->twoFactor->config['settings']['credentials'];
+        Assert::isArray($credentials);
+        $id = Base64::encode($publicKeyCredentialId);
+        if (isset($credentials[$id])) {
+            Assert::isArray($credentials[$id]);
+            Assert::keyExists($credentials[$id], 'publicKeyCredentialId');
+            Assert::keyExists($credentials[$id], 'type');
+            Assert::keyExists($credentials[$id], 'transports');
+            Assert::keyExists($credentials[$id], 'attestationType');
+            Assert::keyExists($credentials[$id], 'aaguid');
+            Assert::keyExists($credentials[$id], 'credentialPublicKey');
+            Assert::keyExists($credentials[$id], 'userHandle');
+            Assert::keyExists($credentials[$id], 'counter');
+
+            return $credentials[$id];
+        }
+
+        return null;
+    }
+
+    /** @param array<array-key, mixed> $publicKeyCredentialSource */
+    private function saveCredentialSource(array $publicKeyCredentialSource): void
+    {
+        $credentials = $this->twoFactor->config['settings']['credentials'];
+        Assert::isArray($credentials);
+        Assert::keyExists($publicKeyCredentialSource, 'publicKeyCredentialId');
+        Assert::stringNotEmpty($publicKeyCredentialSource['publicKeyCredentialId']);
+        $credentialId = Base64::decodeUrlSafeNoPadding($publicKeyCredentialSource['publicKeyCredentialId']);
+        $credentials[Base64::encode($credentialId)] = $publicKeyCredentialSource;
+        $this->twoFactor->config['settings']['credentials'] = $credentials;
+    }
+
+    private function uuidFromBytes(string $bytes): string
+    {
+        $uuid = bin2hex($bytes);
+
+        return strtolower(sprintf(
+            '%s-%s-%s-%s-%s',
+            substr($uuid, 0, 8),
+            substr($uuid, 8, 4),
+            substr($uuid, 12, 4),
+            substr($uuid, 16, 4),
+            substr($uuid, 20, 12),
+        ));
     }
 }

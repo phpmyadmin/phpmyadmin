@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Config;
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use ReflectionException;
@@ -19,6 +20,7 @@ use function str_repeat;
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 #[CoversClass(ServerConfigChecks::class)]
+#[AllowMockObjectsWithoutExpectations]
 class ServerConfigChecksTest extends AbstractTestCase
 {
     private string $sessionID;

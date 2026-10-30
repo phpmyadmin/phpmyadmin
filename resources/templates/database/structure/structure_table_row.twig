@@ -25,7 +25,6 @@
             {# Check if current table is already in favorite list #}
             {% set fav_params = {
                 'db': db,
-                'ajax_request': true,
                 'favorite_table': current_table['TABLE_NAME'],
                 ((already_favorite ? 'remove' : 'add') ~ '_favorite'): true
             } %}
@@ -100,7 +99,6 @@
             data-table="{{ current_table['TABLE_NAME'] }}">
             {% if approx_rows %}
                 <a href="{{ url('/database/structure/real-row-count', {
-                    'ajax_request': true,
                     'db': db,
                     'table': current_table['TABLE_NAME']
                 }) }}" class="ajax real_row_count">

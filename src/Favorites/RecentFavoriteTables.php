@@ -201,7 +201,6 @@ class RecentFavoriteTables
             $removeParameters = [
                 'db' => $table->db->getName(),
                 'favorite_table' => $table->table->getName(),
-                'ajax_request' => true,
                 'remove_favorite' => true,
             ];
             $tableParameters = [
@@ -304,7 +303,7 @@ class RecentFavoriteTables
             $relationParameters->favoriteTablesFeature !== null
             && ! isset($_SESSION['tmpval']['favorites_synced'][Current::$server])
         ) {
-            $url = Url::getFromRoute('/sync-favorite-tables', ['ajax_request' => true]);
+            $url = Url::getFromRoute('/sync-favorite-tables');
 
             return '<a class="hide" id="sync_favorite_tables" href="' . $url . '"></a>';
         }

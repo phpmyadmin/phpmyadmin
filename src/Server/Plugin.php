@@ -84,11 +84,6 @@ final class Plugin
         ];
     }
 
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
     public function getVersion(): string|null
     {
         return $this->version;

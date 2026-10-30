@@ -51,24 +51,20 @@ web.config
 /docs/html
 /docs/linkcheck/
 /docs/locale
-/docs/*.pyc
-/docs/*.swp
+/docs/**/*.pyc
 
 # Demo server
 revision-info.php
 
 # PHP_CodeSniffer
-phpcs.xml
 .phpcs-cache
 
 # PHPUnit
-.phpunit.result.cache
-phpunit.xml
-/tests/bootstrap.php
 /tests/gis/*-actual.json
 /tests/gis/*-actual.pdf
 /tests/gis/*-actual.png
 /tests/gis/*-actual.svg
+.phpunit.result.cache
 
 # Jenkins
 /build/
@@ -99,6 +95,7 @@ infection.json5
 /app/cache/*
 !/app/cache/.gitkeep
 /app/language_stats_inc.php
+libraries/cache/routes.cache.php
 
 # public
 /public/js/*

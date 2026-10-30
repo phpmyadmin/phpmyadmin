@@ -532,65 +532,8 @@ extension which works fine in this case.
 
 .. _faq1_38:
 
-1.38 Can I use phpMyAdmin on a server on which Suhosin is enabled?
-------------------------------------------------------------------
-
-Yes but the default configuration values of Suhosin are known to cause
-problems with some operations, for example editing a table with many
-columns and no :term:`primary key` or with textual :term:`primary key`.
-
-Suhosin configuration might lead to malfunction in some cases and it
-can not be fully avoided as phpMyAdmin is kind of application which
-needs to transfer big amounts of columns in single HTTP request, what
-is something what Suhosin tries to prevent. Generally all
-``suhosin.request.*``, ``suhosin.post.*`` and ``suhosin.get.*``
-directives can have negative effect on phpMyAdmin usability. You can
-always find in your error logs which limit did cause dropping of
-variable, so you can diagnose the problem and adjust matching
-configuration variable.
-
-The default values for most Suhosin configuration options will work in
-most scenarios, however you might want to adjust at least following
-parameters:
-
-* `suhosin.request.max\_vars <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-request-max-vars>`_ should
-  be increased (eg. 2048)
-* `suhosin.post.max\_vars <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-post-max-vars>`_ should be
-  increased (eg. 2048)
-* `suhosin.request.max\_array\_index\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-request-max-array-index-length>`_
-  should be increased (eg. 256)
-* `suhosin.post.max\_array\_index\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-post-max-array-index-length>`_
-  should be increased (eg. 256)
-* `suhosin.request.max\_totalname\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-request-max-totalname-length>`_
-  should be increased (eg. 8192)
-* `suhosin.post.max\_totalname\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-post-max-totalname-length>`_ should be
-  increased (eg. 8192)
-* `suhosin.get.max\_value\_length <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-get-max-value-length>`_
-  should be increased (eg. 1024)
-* `suhosin.sql.bailout\_on\_error <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-sql-bailout-on-error>`_
-  needs to be disabled (the default)
-* `suhosin.log.\* <https://suhosin5.suhosin.org/stories/configuration.html#logging-configuration>`_ should not
-  include :term:`SQL`, otherwise you get big
-  slowdown
-* `suhosin.sql.union <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-
-  sql-union>`_ must be disabled (which is the default).
-* `suhosin.sql.multiselect <https://suhosin5.suhosin.org/stories/configuration.html#
-  suhosin-sql-multiselect>`_ must be disabled (which is the default).
-* `suhosin.sql.comment <https://suhosin5.suhosin.org/stories/configuration.html#suhosin-
-  sql-comment>`_ must be disabled (which is the default).
-
-To further improve security, we also recommend these modifications:
-
-* `suhosin.executor.include.max\_traversal <https://suhosin5.suhosin.org/stories/
-  configuration.html#suhosin-executor-include-max-traversal>`_ should be
-  enabled as a mitigation against local file inclusion attacks. We suggest
-  setting this to 2 as ``../`` is used with the ReCaptcha library.
-* `suhosin.cookie.encrypt <https://suhosin5.suhosin.org/stories/configuration.html#
-  suhosin-cookie-encrypt>`_ should be enabled.
-* `suhosin.executor.disable_emodifier <https://suhosin5.suhosin.org/stories/config
-  uration.html#suhosin-executor-disable-emodifier>`_ should be enabled.
-
-You can also disable the warning using the :config:option:`$cfg['SuhosinDisableWarning']`.
+1.38 (withdrawn).
+-----------------
 
 .. _faq1_39:
 
@@ -871,8 +814,6 @@ Here are a few points to check:
   Dorninger for the hint).
 * In the :file:`php.ini` directive ``arg_separator.input``, a value of ";"
   will cause this error. Replace it with "&;".
-* If you are using `Suhosin <https://suhosin5.suhosin.org/stories/index.html>`_, you
-  might want to increase `request limits <https://suhosin5.suhosin.org/stories/faq.html>`_.
 * The directory specified in the :file:`php.ini` directive
   ``session.save_path`` does not exist or is read-only (this can be caused
   by `bug in the PHP installer <https://bugs.php.net/bug.php?id=39842>`_).
@@ -1030,13 +971,13 @@ differences in how :term:`SQL` is structured (see
 quote-character (") is interpreted as an identifier quote character and not as
 a string quote character, which makes many internal phpMyAdmin operations into
 invalid :term:`SQL` statements. There is no
-workaround to this behaviour.  News to this item will be posted in `issue
+workaround to this behaviour. News to this item will be posted in `issue
 #7383 <https://github.com/phpmyadmin/phpmyadmin/issues/7383>`_.
 
 .. _faq3_10:
 
-3.10 Homonyms and no primary key: When the results of a SELECT display more that one column with the same value (for example ``SELECT lastname from employees where firstname like 'A%'`` and two "Smith" values are displayed), if I click Edit I cannot be sure that I am editing the intended row.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3.10 Homonyms and no primary key: When the results of a SELECT display more than one row with the same value (for example ``SELECT lastname from employees where firstname like 'A%'`` and two "Smith" values are displayed), if I click Edit I cannot be sure that I am editing the intended row.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Please make sure that your table has a :term:`primary key`, so that phpMyAdmin
 can use it for the Edit and Delete links.
@@ -1109,7 +1050,7 @@ tables.
 Currently, the import type-detection system can only assign these
 MySQL types to columns. In future, more will likely be added but for
 the time being you will have to edit the structure to your liking
-post-import.  Also, you should note the fact that phpMyAdmin will use
+post-import. Also, you should note the fact that phpMyAdmin will use
 the size of the largest item in any given column as the column size
 for the appropriate type. If you know you will be adding larger items
 to that column then you should manually adjust the column sizes
@@ -1276,7 +1217,7 @@ Browsers or client OS
 ------------------------------------------------------------------------------------------------------------------------------
 
 We could reproduce this problem only under Win98/98SE. Testing under
-WinNT4 or Win2K, we could easily create more than 60 columns.  A
+WinNT4 or Win2K, we could easily create more than 60 columns. A
 workaround is to create a smaller number of columns, then come back to
 your table properties and add the other columns.
 
@@ -1330,19 +1271,13 @@ refresh, just do this in the right frame.
 
 .. _faq5_8:
 
-5.8 With Mozilla 0.9.7 I have problems sending a query modified in the query box.
----------------------------------------------------------------------------------
-
-Looks like a Mozilla bug: 0.9.6 was OK. We will keep an eye on future
-Mozilla versions.
+5.8 (withdrawn).
+----------------
 
 .. _faq5_9:
 
-5.9 With Mozilla 0.9.? to 1.0 and Netscape 7.0-PR1 I can't type a whitespace in the SQL-Query edit area: the page scrolls down.
--------------------------------------------------------------------------------------------------------------------------------
-
-This is a Mozilla bug (see bug #26882 at `BugZilla
-<https://bugzilla.mozilla.org/>`_).
+5.9 (withdrawn).
+----------------
 
 .. _faq5_10:
 
@@ -1518,8 +1453,8 @@ literal NULL in the column, and not a NULL value (this works in PHP4).
 Click on a database or table name in the navigation panel, the properties will
 be displayed. Then on the menu, click "Export", you can dump the structure, the
 data, or both. This will generate standard :term:`SQL` statements that can be
-used to recreate your database/table.  You will need to choose "Save as file",
-so that phpMyAdmin can transmit the resulting dump to your station.  Depending
+used to recreate your database/table. You will need to choose "Save as file",
+so that phpMyAdmin can transmit the resulting dump to your station. Depending
 on your PHP configuration, you will see options to compress the dump. See also
 the :config:option:`$cfg['ExecTimeLimit']` configuration variable. For
 additional help on this subject, look for the word "dump" in this document.
@@ -1534,9 +1469,9 @@ be displayed. Select "Import" from the list of tabs in the right–hand
 frame (or ":term:`SQL`" if your phpMyAdmin
 version is previous to 2.7.0). In the "Location of the text file"
 section, type in the path to your dump filename, or use the Browse
-button. Then click Go.  With version 2.7.0, the import engine has been
+button. Then click Go. With version 2.7.0, the import engine has been
 re–written, if possible it is suggested that you upgrade to take
-advantage of the new features.  For additional help on this subject,
+advantage of the new features. For additional help on this subject,
 look for the word "upload" in this document.
 
 Note: For errors while importing of dumps exported from older MySQL versions to newer MySQL versions,
@@ -1614,7 +1549,7 @@ Then test like this:
 
 Starting from the previous example, create the ``pma__table_info`` as
 explained in the configuration section, then browse your persons
-table, and move the mouse over a town code or country code.  See also
+table, and move the mouse over a town code or country code. See also
 :ref:`faq6_21` for an additional feature that "display column"
 enables: drop-down list of possible values.
 

@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests\Properties\Options;
 
 use PhpMyAdmin\Properties\Options\OptionsPropertyOneItem;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 
 #[CoversClass(OptionsPropertyOneItem::class)]
+#[AllowMockObjectsWithoutExpectations]
 class OptionsPropertyOneItemTest extends AbstractTestCase
 {
     protected OptionsPropertyOneItem&MockObject $stub;

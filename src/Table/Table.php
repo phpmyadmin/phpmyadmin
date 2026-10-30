@@ -260,11 +260,9 @@ class Table implements Stringable
      * Returns full table status info, or specific if $info provided
      * this info is collected from information_schema
      *
-     * @param T $info specific information to be fetched
+     * @param string|null $info specific information to be fetched
      *
-     * @return (T is null ? (string|int|null)[]|null : (string|int|null))
-     *
-     * @template T of string|null
+     * @return ($info is null ? (string|int|null)[]|null : (string|int|null))
      */
     public function getStatusInfo(string|null $info = null): array|string|int|null
     {
@@ -527,6 +525,8 @@ class Table implements Stringable
                             }
                         } elseif ($type === 'BINARY' || $type === 'VARBINARY') {
                             $query .= ' DEFAULT 0x' . $defaultValue;
+                        } elseif ($defaultValue === 'uuid_v4()' || $defaultValue === 'uuid_v7()') {
+                            $query .= ' DEFAULT ' . $defaultValue;
                         } elseif ($defaultValue === 'unix_timestamp()' || $defaultValue === 'UNIX_TIMESTAMP()') {
                             $query .= ' DEFAULT ' . $defaultValue;
                         } elseif (
@@ -563,6 +563,16 @@ class Table implements Stringable
                     case 'UUID':
                     case 'uuid()':
                         $query .= ' DEFAULT uuid()';
+
+                        break;
+                    case 'UUID_v4':
+                    case 'uuid_v4()':
+                        $query .= ' DEFAULT uuid_v4()';
+
+                        break;
+                    case 'UUID_v7':
+                    case 'uuid_v7()':
+                        $query .= ' DEFAULT uuid_v7()';
 
                         break;
                     case 'NONE':
@@ -669,7 +679,7 @@ class Table implements Stringable
 
         // for a VIEW, $row_count is always false at this point
         $config = Config::getInstance();
-        if ($rowCount !== null && $rowCount >= $config->settings['MaxExactCount']) {
+        if ($rowCount !== null && $rowCount >= $config->config->MaxExactCount) {
             return (int) $rowCount;
         }
 
@@ -677,7 +687,7 @@ class Table implements Stringable
             $rowCount = $this->dbi->fetchValue(
                 'SELECT COUNT(*) FROM ' . Util::backquote($this->dbName) . '.' . Util::backquote($this->name),
             );
-        } elseif ($config->settings['MaxExactCountViews'] === 0) {
+        } elseif ($config->config->MaxExactCountViews === 0) {
             // For complex views, even trying to get a partial record
             // count could bring down a server, so we offer an
             // alternative: setting MaxExactCountViews to 0 will bypass
@@ -691,11 +701,11 @@ class Table implements Stringable
             $result = $this->dbi->tryQuery(
                 'SELECT 1 FROM ' . Util::backquote($this->dbName) . '.'
                 . Util::backquote($this->name) . ' LIMIT '
-                . $config->settings['MaxExactCountViews'],
+                . $config->config->MaxExactCountViews,
             );
             if ($result) {
                 $rowCount = $result->numRows();
-                if ((int) $rowCount === $config->settings['MaxExactCountViews']) {
+                if ((int) $rowCount === $config->config->MaxExactCountViews) {
                     // If we reached the limit, we can't be sure how many rows there are
                     return -1;
                 }
@@ -1025,7 +1035,7 @@ class Table implements Stringable
     public function getColumnsMeta(): array
     {
         $moveColumnsSqlQuery = sprintf(
-            'SELECT * FROM %s.%s LIMIT 1',
+            'SELECT * FROM %s.%s LIMIT 0',
             Util::backquote($this->dbName),
             Util::backquote($this->name),
         );
@@ -1592,8 +1602,8 @@ class Table implements Stringable
                             __(
                                 'Error creating foreign key on %1$s (check data types)',
                             ),
+                            [implode(', ', $masterField)],
                         );
-                        $message->addParam(implode(', ', $masterField));
                         $htmlOutput .= $message->getDisplay();
                     } else {
                         $htmlOutput .= Generator::mysqlDie($tmpErrorCreate, $createQuery, false);

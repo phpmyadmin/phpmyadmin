@@ -31,7 +31,7 @@ final readonly class SqlAutoCompleteController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $sqlAutocomplete = [];
-        if ($this->config->settings['EnableAutocompleteForTablesAndColumns']) {
+        if ($this->config->config->EnableAutocompleteForTablesAndColumns) {
             $db = DatabaseName::tryFrom($request->getParam('db'));
             if ($db !== null) {
                 $sqlAutocomplete = $this->getColumnList($db);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * function for the main export logic
  */
@@ -15,10 +16,9 @@ use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
-use PhpMyAdmin\Plugins\SchemaPlugin;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -52,8 +52,11 @@ class Export
     /** @var array<string> */
     public static array $tableData = [];
 
-    public function __construct(private DatabaseInterface $dbi, public OutputHandler $outputHandler)
-    {
+    public function __construct(
+        private DatabaseInterface $dbi,
+        public OutputHandler $outputHandler,
+        private PluginFactory $pluginFactory,
+    ) {
     }
 
     /**
@@ -337,6 +340,11 @@ class Export
                 $tableObj = new Table($table, $db->getName(), $this->dbi);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns();
 
+                // Skip tables that cannot be read
+                if ($nonGeneratedCols === []) {
+                    continue;
+                }
+
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
                     . ' FROM ' . Util::backquote($db->getName())
                     . '.' . Util::backquote($table);
@@ -467,6 +475,11 @@ class Export
                 // Data is exported only for Non-generated columns
                 $tableObj = new Table($table, $db, $this->dbi);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns();
+
+                // Skip tables that cannot be read
+                if ($nonGeneratedCols === []) {
+                    return;
+                }
 
                 $localQuery = 'SELECT ' . implode(', ', $nonGeneratedCols)
                     . ' FROM ' . Util::backquote($db)
@@ -658,8 +671,7 @@ class Export
         }
 
         // get the specific plugin
-        /** @var SchemaPlugin|null $exportPlugin */
-        $exportPlugin = Plugins::getPlugin('schema', $format);
+        $exportPlugin = $this->pluginFactory->getSchemaPlugin($format);
 
         // Check schema export type
         if ($exportPlugin === null) {

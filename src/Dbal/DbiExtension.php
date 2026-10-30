@@ -87,13 +87,13 @@ interface DbiExtension
     public function affectedRows(Connection $connection): int|string;
 
     /**
-     * returns properly escaped string for use in MySQL queries
+     * Returns properly quoted string for use in SQL statements.
      *
-     * @param string $string string to be escaped
+     * @return non-empty-string
      *
-     * @return string a MySQL escaped string
+     * @psalm-taint-escape sql
      */
-    public function escapeString(Connection $connection, string $string): string;
+    public function quoteString(Connection $connection, string $string): string;
 
     /**
      * Execute a prepared statement and return the result.

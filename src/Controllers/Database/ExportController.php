@@ -14,8 +14,8 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportType;
+use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Url;
@@ -35,6 +35,7 @@ final readonly class ExportController implements InvocableController
         private Options $exportOptions,
         private PageSettings $pageSettings,
         private DbTableExists $dbTableExists,
+        private PluginFactory $pluginFactory,
     ) {
     }
 
@@ -52,14 +53,7 @@ final readonly class ExportController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         UrlParams::$params['goto'] = Url::getFromRoute('/database/export');
@@ -69,9 +63,7 @@ final readonly class ExportController implements InvocableController
 
         // exit if no tables in db found
         if (Current::$numTables < 1) {
-            $this->response->addHTML(
-                Message::error(__('No tables found in database.'))->getDisplay(),
-            );
+            $this->response->addHTML(Message::error(__('No tables found in database.')));
 
             return $this->response->response();
         }
@@ -122,12 +114,12 @@ final readonly class ExportController implements InvocableController
             Export::$singleTable = (bool) $request->getParam('single_table');
         }
 
-        $exportList = Plugins::getExport($exportType, Export::$singleTable);
+        $exportList = $this->pluginFactory->getAllExportPlugins($exportType, Export::$singleTable);
 
         if ($exportList === []) {
             $this->response->addHTML(Message::error(
                 __('Could not load export plugins, please check your installation!'),
-            )->getDisplay());
+            ));
 
             return $this->response->response();
         }

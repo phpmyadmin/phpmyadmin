@@ -15,7 +15,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Table\Indexes;
@@ -50,26 +49,12 @@ final readonly class IndexRenameController implements InvocableController
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No databases selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
+            return $this->response->respondWithErrorMessage(__('No database selected.'));
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
         if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
-            if ($request->isAjax()) {
-                $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', Message::error(__('No table selected.')));
-
-                return $this->response->response();
-            }
-
-            return $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
+            return $this->response->respondWithErrorMessage(__('No table selected.'));
         }
 
         $oldIndexName = $request->getParsedBodyParamAsStringOrNull('old_index');
@@ -120,11 +105,10 @@ final readonly class IndexRenameController implements InvocableController
 
         $this->dbi->query($sqlQuery);
 
-        $message = Message::success(__('Table %1$s has been altered successfully.'));
-        $message->addParam($tableName->getName());
+        $message = Message::success(__('Table %1$s has been altered successfully.'), [$tableName->getName()]);
         $this->response->addJSON(
             'message',
-            Generator::getMessage($message, $sqlQuery, MessageType::Success),
+            Generator::getMessage($message, $sqlQuery),
         );
 
         $indexes = Index::getFromTable($this->dbi, $tableName->getName(), $databaseName->getName());

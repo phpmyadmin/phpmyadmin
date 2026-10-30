@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
+use PhpMyAdmin\Crypto\Base64;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -11,6 +12,7 @@ use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\WebAuthn\CustomServer;
 use PhpMyAdmin\WebAuthn\Server;
 use PhpMyAdmin\WebAuthn\WebauthnLibServer;
+use Random\Randomizer;
 use SodiumException;
 use Throwable;
 use Webauthn\PublicKeyCredential;
@@ -22,12 +24,6 @@ use function is_array;
 use function is_string;
 use function json_decode;
 use function json_encode;
-use function random_bytes;
-use function sodium_base642bin;
-use function sodium_bin2base64;
-
-use const SODIUM_BASE64_VARIANT_ORIGINAL;
-use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 /**
  * Two-factor authentication plugin for the WebAuthn/FIDO2 protocol.
@@ -38,7 +34,7 @@ class WebAuthn extends TwoFactorPlugin
 
     private Server $server;
 
-    public function __construct(TwoFactor $twofactor)
+    public function __construct(TwoFactor $twofactor, private readonly Randomizer $randomizer = new Randomizer())
     {
         parent::__construct($twofactor);
 
@@ -61,7 +57,9 @@ class WebAuthn extends TwoFactorPlugin
 
     private function createServer(): Server
     {
-        return class_exists(PublicKeyCredential::class) ? new WebauthnLibServer($this->twofactor) : new CustomServer();
+        return class_exists(PublicKeyCredential::class)
+            ? new WebauthnLibServer($this->twofactor, $this->randomizer)
+            : new CustomServer($this->twofactor, $this->randomizer);
     }
 
     public function setServer(Server $server): void
@@ -71,7 +69,7 @@ class WebAuthn extends TwoFactorPlugin
 
     public function render(ServerRequest $request): string
     {
-        $userHandle = sodium_base642bin($this->getUserHandleFromSettings(), SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
+        $userHandle = Base64::decodeUrlSafeNoPadding($this->getUserHandleFromSettings());
         $requestOptions = $this->server->getCredentialRequestOptions(
             $this->twofactor->user,
             $userHandle,
@@ -115,6 +113,7 @@ class WebAuthn extends TwoFactorPlugin
                 $requestOptions['challenge'],
                 $request,
             );
+            $this->twofactor->save();
         } catch (Throwable $exception) {
             $this->message = $exception->getMessage();
 
@@ -126,7 +125,7 @@ class WebAuthn extends TwoFactorPlugin
 
     public function setup(ServerRequest $request): string
     {
-        $userId = sodium_bin2base64(random_bytes(32), SODIUM_BASE64_VARIANT_ORIGINAL);
+        $userId = Base64::encode($this->randomizer->getBytes(32));
         $host = $request->getUri()->getHost();
         $creationOptions = $this->server->getCredentialCreationOptions($this->twofactor->user, $userId, $host);
         $creationOptionsEncoded = json_encode($creationOptions);
@@ -223,10 +222,7 @@ class WebAuthn extends TwoFactorPlugin
         Assert::keyExists($credential, 'userHandle');
         Assert::string($credential['userHandle']);
         Assert::isArray($this->twofactor->config['settings']['credentials']);
-        $id = sodium_bin2base64(
-            sodium_base642bin($credential['publicKeyCredentialId'], SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING),
-            SODIUM_BASE64_VARIANT_ORIGINAL,
-        );
+        $id = Base64::encode(Base64::decodeUrlSafeNoPadding($credential['publicKeyCredentialId']));
         $this->twofactor->config['settings']['credentials'][$id] = $credential;
         $this->twofactor->config['settings']['userHandle'] = $credential['userHandle'];
     }

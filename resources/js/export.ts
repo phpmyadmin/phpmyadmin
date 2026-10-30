@@ -36,8 +36,8 @@ function enableDumpSomeRowsSubOptions () {
  * @return {object} template data
  */
 function getTemplateData () {
-    var $form = $('form[name="dump"]');
-    var excludeList = [
+    const $form = $('form[name="dump"]');
+    const excludeList = [
         'token',
         'server',
         'db',
@@ -46,10 +46,10 @@ function getTemplateData () {
         'export_type',
         'export_method',
         'sql_query',
-        'template_id'
+        'template_id',
     ];
-    var obj = {};
-    var arr = $form.serializeArray();
+    const obj = {};
+    const arr = $form.serializeArray();
     $.each(arr, function () {
         if ($.inArray(this.name, excludeList) < 0) {
             if (obj[this.name] !== undefined) {
@@ -88,16 +88,15 @@ function getTemplateData () {
  * @param name name of the template
  */
 function createTemplate (name) {
-    var templateData = Export.getTemplateData();
+    const templateData = Export.getTemplateData();
 
-    var params = {
-        'ajax_request': true,
+    const params = {
         'server': CommonParams.get('server'),
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
         'templateName': name,
-        'templateData': JSON.stringify(templateData)
+        'templateData': JSON.stringify(templateData),
     };
 
     ajaxShowMessage();
@@ -124,8 +123,7 @@ function createTemplate (name) {
  * @param id ID of the template to load
  */
 function loadTemplate (id) {
-    var params = {
-        'ajax_request': true,
+    const params = {
         'server': CommonParams.get('server'),
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
@@ -136,16 +134,16 @@ function loadTemplate (id) {
     ajaxShowMessage();
     $.post('index.php?route=/export/template/load', params, function (response) {
         if (response.success === true) {
-            var $form = $('form[name="dump"]');
-            var options = JSON.parse(response.data);
+            const $form = $('form[name="dump"]');
+            const options = JSON.parse(response.data);
             $.each(options, function (key, value) {
                 if (typeof key === 'symbol') {
                     // Continue to next iteration.
                     return true;
                 }
 
-                var localValue = value;
-                var $element = $form.find('[name="' + key + '"]');
+                let localValue = value;
+                const $element = $form.find('[name="' + key + '"]');
                 if ($element.length) {
                     if (($element.is('input') && $element.attr('type') === 'checkbox') && localValue === null) {
                         $element.prop('checked', false);
@@ -179,16 +177,15 @@ function loadTemplate (id) {
  * @param id ID of the template to update
  */
 function updateTemplate (id) {
-    var templateData = Export.getTemplateData();
+    const templateData = Export.getTemplateData();
 
-    var params = {
-        'ajax_request': true,
+    const params = {
         'server': CommonParams.get('server'),
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
         'exportType': $('input[name="export_type"]').val(),
         'templateId': id,
-        'templateData': JSON.stringify(templateData)
+        'templateData': JSON.stringify(templateData),
     };
 
     ajaxShowMessage();
@@ -207,8 +204,7 @@ function updateTemplate (id) {
  * @param id ID of the template to delete
  */
 function deleteTemplate (id) {
-    var params = {
-        'ajax_request': true,
+    const params = {
         'server': CommonParams.get('server'),
         'db': CommonParams.get('db'),
         'table': CommonParams.get('table'),
@@ -257,7 +253,7 @@ AJAX.registerTeardown('export.js', function () {
 AJAX.registerOnload('export.js', function () {
     $('#showsqlquery').on('click', function () {
         // Creating a dialog box similar to preview sql container to show sql query
-        var modal = $('#showSqlQueryModal');
+        const modal = $('#showSqlQueryModal');
         modal.modal('show');
         modal.on('shown.bs.modal', function () {
             $('#showSqlQueryModalLabel').first().html(window.Messages.strQuery);
@@ -271,7 +267,7 @@ AJAX.registerOnload('export.js', function () {
     // create a new template
     $('input[name="createTemplate"]').on('click', function (e) {
         e.preventDefault();
-        var name = ($('input[name="templateName"]').val() as string);
+        const name = ($('input[name="templateName"]').val() as string);
         if (name.length) {
             Export.createTemplate(name);
         }
@@ -280,7 +276,7 @@ AJAX.registerOnload('export.js', function () {
     // load an existing template
     $('select[name="template"]').on('change', function (e) {
         e.preventDefault();
-        var id = ($(this).val() as string);
+        const id = ($(this).val() as string);
         if (id.length) {
             Export.loadTemplate(id);
         }
@@ -289,7 +285,7 @@ AJAX.registerOnload('export.js', function () {
     // update an existing template with new criteria
     $('input[name="updateTemplate"]').on('click', function (e) {
         e.preventDefault();
-        var id = ($('select[name="template"]').val() as string);
+        const id = ($('select[name="template"]').val() as string);
         if (id.length) {
             Export.updateTemplate(id);
         }
@@ -298,7 +294,7 @@ AJAX.registerOnload('export.js', function () {
     // delete an existing template
     $('input[name="deleteTemplate"]').on('click', function (e) {
         e.preventDefault();
-        var id = ($('select[name="template"]').val() as string);
+        const id = ($('select[name="template"]').val() as string);
         if (id.length) {
             Export.deleteTemplate(id);
         }
@@ -310,7 +306,7 @@ AJAX.registerOnload('export.js', function () {
      */
     $('#plugins').on('change', function () {
         $('#format_specific_opts').find('div.format_specific_options').addClass('d-none');
-        var selectedPluginName = $('#plugins').find('option:selected').val();
+        const selectedPluginName = $('#plugins').find('option:selected').val();
         $('#' + selectedPluginName + '_options').removeClass('d-none');
     });
 
@@ -318,8 +314,8 @@ AJAX.registerOnload('export.js', function () {
      * Toggles the enabling and disabling of the SQL plugin's comment options that apply only when exporting structure
      */
     $('input[type=\'radio\'][name=\'sql_structure_or_data\']').on('change', function () {
-        var commentsArePresent = $('#checkbox_sql_include_comments').prop('checked');
-        var show = $('input[type=\'radio\'][name=\'sql_structure_or_data\']:checked').val();
+        const commentsArePresent = $('#checkbox_sql_include_comments').prop('checked');
+        const show = $('input[type=\'radio\'][name=\'sql_structure_or_data\']:checked').val();
         if (show === 'data') {
             // disable the SQL comment options
             if (commentsArePresent) {
@@ -347,7 +343,7 @@ AJAX.registerOnload('export.js', function () {
 
     // When MS Excel is selected as the Format automatically Switch to Character Set as windows-1252
     $('#plugins').on('change', function () {
-        var selectedPluginName = $('#plugins').find('option:selected').val();
+        const selectedPluginName = $('#plugins').find('option:selected').val();
         if (selectedPluginName === 'excel') {
             $('#select_charset').val('windows-1252');
         } else {
@@ -374,9 +370,9 @@ function setupTableStructureOrData () {
         return;
     }
 
-    var pluginName = $('#plugins').find('option:selected').val();
-    var formElemName = pluginName + '_structure_or_data';
-    var forceStructureOrData = ! ($('input[name=\'' + formElemName + '_default\']').length);
+    const pluginName = $('#plugins').find('option:selected').val();
+    const formElemName = pluginName + '_structure_or_data';
+    const forceStructureOrData = !($('input[name=\'' + formElemName + '_default\']').length);
 
     if (forceStructureOrData === true) {
         $('input[name="structure_or_data_forced"]').val(1);
@@ -391,7 +387,7 @@ function setupTableStructureOrData () {
 
         $('.export_structure, .export_data').fadeTo('fast', 1);
 
-        var structureOrData = $('input[name="' + formElemName + '_default"]').val();
+        const structureOrData = $('input[name="' + formElemName + '_default"]').val();
 
         if (structureOrData === 'structure') {
             $('.export_data input[type="checkbox"]')
@@ -430,11 +426,11 @@ function setupTableStructureOrData () {
  * options
  */
 function toggleStructureDataOpts () {
-    var pluginName = $('select#plugins').val();
-    var radioFormName = pluginName + '_structure_or_data';
-    var dataDiv = '#' + pluginName + '_data';
-    var structureDiv = '#' + pluginName + '_structure';
-    var show = $('input[type=\'radio\'][name=\'' + radioFormName + '\']:checked').val();
+    const pluginName = $('select#plugins').val();
+    const radioFormName = pluginName + '_structure_or_data';
+    const dataDiv = '#' + pluginName + '_data';
+    const structureDiv = '#' + pluginName + '_structure';
+    const show = $('input[type=\'radio\'][name=\'' + radioFormName + '\']:checked').val();
     // Show the #rows if 'show' is not structure
     $('#rows').toggle(show !== 'structure');
     if (show === 'data') {
@@ -454,7 +450,7 @@ function toggleStructureDataOpts () {
  * Toggles the disabling of the "save to file" options
  */
 function toggleSaveToFile () {
-    var $ulSaveAsfile = $('#ul_save_asfile');
+    const $ulSaveAsfile = $('#ul_save_asfile');
     if (! $('#radio_dump_asfile').prop('checked')) {
         $ulSaveAsfile.find('> li').fadeTo('fast', 0.4);
         $ulSaveAsfile.find('> li > input').prop('disabled', true);
@@ -476,7 +472,7 @@ AJAX.registerOnload('export.js', function () {
  */
 function toggleSqlIncludeComments () {
     $('#checkbox_sql_include_comments').on('change', function () {
-        var $ulIncludeComments = $('#ul_include_comments');
+        const $ulIncludeComments = $('#ul_include_comments');
         if (! $('#checkbox_sql_include_comments').prop('checked')) {
             $ulIncludeComments.find('> li').fadeTo('fast', 0.4);
             $ulIncludeComments.find('> li > input').prop('disabled', true);
@@ -493,11 +489,11 @@ function toggleSqlIncludeComments () {
 }
 
 function checkTableSelectAll () {
-    var total = $('input[name="table_select[]"]').length;
-    var strChecked = $('input[name="table_structure[]"]:checked').length;
-    var dataChecked = $('input[name="table_data[]"]:checked').length;
-    var strAll = $('#table_structure_all');
-    var dataAll = $('#table_data_all');
+    const total = $('input[name="table_select[]"]').length;
+    const strChecked = $('input[name="table_structure[]"]:checked').length;
+    const dataChecked = $('input[name="table_data[]"]:checked').length;
+    const strAll = $('#table_structure_all');
+    const dataAll = $('#table_data_all');
 
     if (strChecked === total) {
         strAll
@@ -529,11 +525,11 @@ function checkTableSelectAll () {
 }
 
 function checkTableSelectStructureOrData () {
-    var dataChecked = $('input[name="table_data[]"]:checked').length;
-    var autoIncrement = $('#checkbox_sql_auto_increment');
+    const dataChecked = $('input[name="table_data[]"]:checked').length;
+    const autoIncrement = $('#checkbox_sql_auto_increment');
 
-    var pluginName = $('select#plugins').val();
-    var dataDiv = '#' + pluginName + '_data';
+    const pluginName = $('select#plugins').val();
+    const dataDiv = '#' + pluginName + '_data';
 
     if (dataChecked === 0) {
         $(dataDiv).slideUp('slow');
@@ -545,7 +541,7 @@ function checkTableSelectStructureOrData () {
 }
 
 function toggleTableSelectAllStr () {
-    var strAll = $('#table_structure_all').is(':checked');
+    const strAll = $('#table_structure_all').is(':checked');
     if (strAll) {
         $('input[name="table_structure[]"]').prop('checked', true);
     } else {
@@ -554,7 +550,7 @@ function toggleTableSelectAllStr () {
 }
 
 function toggleTableSelectAllData () {
-    var dataAll = $('#table_data_all').is(':checked');
+    const dataAll = $('#table_data_all').is(':checked');
     if (dataAll) {
         $('input[name="table_data[]"]').prop('checked', true);
     } else {
@@ -569,13 +565,13 @@ function checkSelectedTables () {
 }
 
 function checkTableSelected (row) {
-    var $row = $(row);
-    var tableSelect = $row.find('input[name="table_select[]"]');
-    var strCheck = $row.find('input[name="table_structure[]"]');
-    var dataCheck = $row.find('input[name="table_data[]"]');
+    const $row = $(row);
+    const tableSelect = $row.find('input[name="table_select[]"]');
+    const strCheck = $row.find('input[name="table_structure[]"]');
+    const dataCheck = $row.find('input[name="table_data[]"]');
 
-    var data = dataCheck.is(':checked:not(:disabled)');
-    var structure = strCheck.is(':checked:not(:disabled)');
+    const data = dataCheck.is(':checked:not(:disabled)');
+    const structure = strCheck.is(':checked:not(:disabled)');
 
     if (data && structure) {
         tableSelect.prop({ checked: true, indeterminate: false });
@@ -590,8 +586,8 @@ function checkTableSelected (row) {
 }
 
 function toggleTableSelect (row) {
-    var $row = $(row);
-    var tableSelected = $row.find('input[name="table_select[]"]').is(':checked');
+    const $row = $(row);
+    const tableSelected = $row.find('input[name="table_select[]"]').is(':checked');
 
     if (tableSelected) {
         $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', true);
@@ -616,8 +612,8 @@ AJAX.registerOnload('export.js', function () {
     /**
      * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
      */
-    var $create = $('#checkbox_sql_create_table_statements');
-    var $createOptions = $('#ul_create_table_statements').find('input');
+    const $create = $('#checkbox_sql_create_table_statements');
+    const $createOptions = $('#ul_create_table_statements').find('input');
     $create.on('change', function () {
         $createOptions.prop('checked', $(this).prop('checked'));
     });
@@ -688,10 +684,10 @@ AJAX.registerOnload('export.js', function () {
     if ($('input[name=\'export_type\']').val() === 'database') {
         // Hide structure or data radio buttons
         $('input[type=\'radio\'][name$=\'_structure_or_data\']').each(function () {
-            var $this = $(this);
-            var name = $this.prop('name');
-            var val = $('input[name="' + name + '"]:checked').val();
-            var nameDefault = name + '_default';
+            const $this = $(this);
+            const name = $this.prop('name');
+            const val = $('input[name="' + name + '"]:checked').val();
+            const nameDefault = name + '_default';
             if (! $('input[name="' + nameDefault + '"]').length) {
                 $this
                     .after(
@@ -710,9 +706,9 @@ AJAX.registerOnload('export.js', function () {
         $('input[type=\'radio\'][name$=\'_structure_or_data\']').remove();
 
         // Disable CREATE table checkbox for sql
-        var createTableCheckbox = $('#checkbox_sql_create_table');
+        const createTableCheckbox = $('#checkbox_sql_create_table');
         createTableCheckbox.prop('checked', true);
-        var dummyCreateTable = $('#checkbox_sql_create_table')
+        const dummyCreateTable = $('#checkbox_sql_create_table')
             .clone()
             .removeAttr('id')
             .attr('type', 'hidden');
@@ -742,29 +738,19 @@ function toggleQuickOrCustom () {
         && radioCustomExportElement.checked;
 
     const databasesAndTablesElement = document.getElementById('databases_and_tables');
-    if (databasesAndTablesElement) {
-        databasesAndTablesElement.classList.toggle('d-none', ! isCustomExport);
-    }
+    databasesAndTablesElement?.classList.toggle('d-none', ! isCustomExport);
 
     const rowsElement = document.getElementById('rows');
-    if (rowsElement) {
-        rowsElement.classList.toggle('d-none', ! isCustomExport);
-    }
+    rowsElement?.classList.toggle('d-none', ! isCustomExport);
 
     const outputElement = document.getElementById('output');
-    if (outputElement) {
-        outputElement.classList.toggle('d-none', ! isCustomExport);
-    }
+    outputElement?.classList.toggle('d-none', ! isCustomExport);
 
     const formatSpecificOptionsElement = document.getElementById('format_specific_opts');
-    if (formatSpecificOptionsElement) {
-        formatSpecificOptionsElement.classList.toggle('d-none', ! isCustomExport);
-    }
+    formatSpecificOptionsElement?.classList.toggle('d-none', ! isCustomExport);
 
     const outputQuickExportElement = document.getElementById('output_quick_export');
-    if (outputQuickExportElement) {
-        outputQuickExportElement.classList.toggle('d-none', isCustomExport);
-    }
+    outputQuickExportElement?.classList.toggle('d-none', isCustomExport);
 
     if (! isCustomExport) {
         return;
@@ -777,17 +763,13 @@ function toggleQuickOrCustom () {
     }
 
     const pluginOptionsElement = document.getElementById(selectedPluginName + '_options');
-    if (! pluginOptionsElement) {
-        return;
-    }
-
-    pluginOptionsElement.classList.remove('d-none');
+    pluginOptionsElement?.classList.remove('d-none');
 }
 
-var timeOut;
+let timeOut;
 
 function checkTimeOut (timeLimit) {
-    var limit = timeLimit;
+    let limit = timeLimit;
     if (typeof limit === 'undefined' || limit === 0) {
         return true;
     }
@@ -798,16 +780,14 @@ function checkTimeOut (timeLimit) {
     timeOut = setTimeout(function () {
         $.get('index.php?route=/export/check-time-out',
             {
-                'ajax_request': true,
                 'server': CommonParams.get('server')
             },
             function (data) {
                 if (data.message === 'timeout') {
                     ajaxShowMessage(
-                        '<div class="alert alert-danger" role="alert">' +
-                        window.Messages.strTimeOutError +
-                        '</div>',
-                        false
+                        window.Messages.strTimeOutError,
+                        false,
+                        'error'
                     );
                 }
             }
@@ -822,24 +802,23 @@ function checkTimeOut (timeLimit) {
  */
 function createAliasModal (event): void {
     event.preventDefault();
-    var modal = $('#renameExportModal');
+    const modal = $('#renameExportModal');
     modal.modal('show');
     modal.on('shown.bs.modal', function () {
-        var db = CommonParams.get('db');
+        const db = CommonParams.get('db');
         if (db) {
-            var option = $('<option></option>');
+            const option = $('<option></option>');
             option.text(db);
             option.attr('value', db);
             $('#db_alias_select').append(option).val(db).trigger('change');
         } else {
-            var params = {
-                'ajax_request': true,
-                'server': CommonParams.get('server')
+            const params = {
+                'server': CommonParams.get('server'),
             };
             $.post('index.php?route=/databases', params, function (response) {
                 if (response.success === true) {
                     $.each(response.databases, function (idx, value) {
-                        var option = $('<option></option>');
+                        const option = $('<option></option>');
                         option.text(value);
                         option.attr('value', value);
                         $('#db_alias_select').append(option);
@@ -852,7 +831,7 @@ function createAliasModal (event): void {
     });
 
     modal.on('hidden.bs.modal', function () {
-        var isEmpty = true;
+        let isEmpty = true;
         $(this).find('input[type="text"]').each(function () {
             // trim empty input fields on close
             if ($(this).val()) {
@@ -872,7 +851,7 @@ function createAliasModal (event): void {
 }
 
 function aliasToggleRow (elm) {
-    var inputs = elm.parents('tr').find('input,button');
+    const inputs = elm.parents('tr').find('input,button');
     if (elm.val()) {
         inputs.attr('disabled', false);
     } else {
@@ -889,7 +868,7 @@ function addAlias (type, name, field, value) {
         Export.aliasRow = $('#alias_data tfoot tr');
     }
 
-    var row = Export.aliasRow.clone();
+    const row = Export.aliasRow.clone();
     row.find('th').text(type);
     row.find('td').first().text(name);
     row.find('input').attr('name', field);
@@ -898,7 +877,7 @@ function addAlias (type, name, field, value) {
         $(this).parents('tr').remove();
     });
 
-    var matching = $('#alias_data [name="' + $.escapeSelector(field) + '"]');
+    const matching = $('#alias_data [name="' + $.escapeSelector(field) + '"]');
     if (matching.length > 0) {
         matching.parents('tr').remove();
     }
@@ -971,24 +950,23 @@ AJAX.registerOnload('export.js', function () {
 
     $('#db_alias_select').on('change', function () {
         Export.aliasToggleRow($(this));
-        var table = CommonParams.get('table');
+        const table = CommonParams.get('table');
         if (table) {
-            var option = $('<option></option>');
+            const option = $('<option></option>');
             option.text(table);
             option.attr('value', table);
             $('#table_alias_select').append(option).val(table).trigger('change');
         } else {
-            var database = $(this).val();
-            var params = {
-                'ajax_request': true,
+            const database = $(this).val();
+            const params = {
                 'server': CommonParams.get('server'),
                 'db': database,
             };
-            var url = 'index.php?route=/tables';
+            const url = 'index.php?route=/tables';
             $.post(url, params, function (response) {
                 if (response.success === true) {
                     $.each(response.tables, function (idx, value) {
-                        var option = $('<option></option>');
+                        const option = $('<option></option>');
                         option.text(value);
                         option.attr('value', value);
                         $('#table_alias_select').append(option);
@@ -1002,19 +980,18 @@ AJAX.registerOnload('export.js', function () {
 
     $('#table_alias_select').on('change', function () {
         Export.aliasToggleRow($(this));
-        var database = $('#db_alias_select').val();
-        var table = $(this).val();
-        var params = {
-            'ajax_request': true,
+        const database = $('#db_alias_select').val();
+        const table = $(this).val();
+        const params = {
             'server': CommonParams.get('server'),
             'db': database,
             'table': table,
         };
-        var url = 'index.php?route=/columns';
+        const url = 'index.php?route=/columns';
         $.post(url, params, function (response) {
             if (response.success === true) {
                 $.each(response.columns, function (idx, value) {
-                    var option = $('<option></option>');
+                    const option = $('<option></option>');
                     option.text(value);
                     option.attr('value', value);
                     $('#column_alias_select').append(option);
@@ -1031,7 +1008,7 @@ AJAX.registerOnload('export.js', function () {
 
     $('#db_alias_button').on('click', function (e) {
         e.preventDefault();
-        var db = $('#db_alias_select').val();
+        const db = $('#db_alias_select').val();
         Export.addAlias(
             window.Messages.strAliasDatabase,
             db,
@@ -1044,8 +1021,8 @@ AJAX.registerOnload('export.js', function () {
 
     $('#table_alias_button').on('click', function (e) {
         e.preventDefault();
-        var db = $('#db_alias_select').val();
-        var table = $('#table_alias_select').val();
+        const db = $('#db_alias_select').val();
+        const table = $('#table_alias_select').val();
         Export.addAlias(
             window.Messages.strAliasTable,
             db + '.' + table,
@@ -1058,9 +1035,9 @@ AJAX.registerOnload('export.js', function () {
 
     $('#column_alias_button').on('click', function (e) {
         e.preventDefault();
-        var db = $('#db_alias_select').val();
-        var table = $('#table_alias_select').val();
-        var column = $('#column_alias_select').val();
+        const db = $('#db_alias_select').val();
+        const table = $('#table_alias_select').val();
+        const column = $('#column_alias_select').val();
         Export.addAlias(
             window.Messages.strAliasColumn,
             db + '.' + table + '.' + column,
@@ -1071,7 +1048,7 @@ AJAX.registerOnload('export.js', function () {
         $('#column_alias_name').val('');
     });
 
-    var setDbSelectOptions = function (doCheck) {
+    const setDbSelectOptions = function (doCheck) {
         setSelectOptions('dump', 'db_select[]', doCheck);
     };
 
@@ -1086,7 +1063,7 @@ AJAX.registerOnload('export.js', function () {
     });
 
     $('#buttonGo').on('click', function () {
-        var timeLimit = parseInt($(this).attr('data-exec-time-limit'));
+        const timeLimit = parseInt($(this).attr('data-exec-time-limit'));
 
         // If the time limit set is zero,
         // then time out won't occur so no need to check for time out.

@@ -16,6 +16,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
+use ReflectionProperty;
 use Throwable;
 
 use function array_keys;
@@ -26,7 +27,6 @@ use const E_CORE_WARNING;
 use const E_ERROR;
 use const E_NOTICE;
 use const E_RECOVERABLE_ERROR;
-use const E_STRICT;
 use const E_USER_DEPRECATED;
 use const E_USER_ERROR;
 use const E_USER_NOTICE;
@@ -58,6 +58,7 @@ class ErrorHandlerTest extends AbstractTestCase
 
     public function testUniqueness(): void
     {
+        (new ReflectionProperty(ErrorHandler::class, 'instance'))->setValue(null, null);
         $instanceOne = ErrorHandler::getInstance();
         $instanceTwo = ErrorHandler::getInstance();
         self::assertSame($instanceOne, $instanceTwo);
@@ -137,7 +138,7 @@ class ErrorHandlerTest extends AbstractTestCase
     /** @return iterable<string, array{int, string}> */
     public static function addErrorProvider(): iterable
     {
-        yield 'E_STRICT' => [@E_STRICT, '[em]Error[/em]'];
+        yield 'E_STRICT' => [2048, '[em]Error[/em]'];
         yield 'E_NOTICE' => [E_NOTICE, '[em]Error[/em]'];
         yield 'E_WARNING' => [E_WARNING, '[em]Error[/em]'];
         yield 'E_CORE_WARNING' => [E_CORE_WARNING, '[em]Error[/em]'];

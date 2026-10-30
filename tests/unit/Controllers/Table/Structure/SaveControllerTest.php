@@ -91,7 +91,7 @@ class SaveControllerTest extends AbstractTestCase
 
         $request = self::createStub(ServerRequest::class);
 
-        $mock = self::createMock(StructureController::class);
+        $mock = $this->createMock(StructureController::class);
         $mock->expects(self::once())->method('__invoke')->with($request)
             ->willReturn(ResponseFactory::create()->createResponse());
 

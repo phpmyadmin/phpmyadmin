@@ -42,21 +42,21 @@ final readonly class DataDictionaryController implements InvocableController
 
         $this->dbi->selectDb(Current::$database);
         $tablesNames = $this->dbi->getTables(Current::$database);
+        $tablesFull = $this->dbi->getTablesFull(Current::$database);
 
         $tables = [];
         foreach ($tablesNames as $tableName) {
-            $showComment = (string) $this->dbi->getTable(Current::$database, $tableName)
-                ->getStatusInfo('TABLE_COMMENT');
+            $showComment = (string) ($tablesFull[$tableName]['TABLE_COMMENT'] ?? '');
 
-            $primaryKeys = $this->getPrimaryKeys(
-                $this->dbi->getTableIndexes(Current::$database, $tableName),
-            );
+            $primaryKeys = Index::getPrimary($this->dbi, $tableName, Current::$database)?->getColumns() ?? [];
 
             $foreigners = $relationParameters->relationFeature !== null
                 ? $this->relation->getForeigners(Current::$database, $tableName)
                 : null;
 
-            $columnsComments = $this->relation->getComments(Current::$database, $tableName);
+            $mimeMap = $relationParameters->browserTransformationFeature !== null
+                ? $this->transformations->getMime(Current::$database, $tableName, true)
+                : null;
 
             $columns = $this->dbi->getColumns(Current::$database, $tableName);
             $rows = [];
@@ -74,11 +74,8 @@ final readonly class DataDictionaryController implements InvocableController
                 }
 
                 $mime = '';
-                if ($relationParameters->browserTransformationFeature !== null) {
-                    $mimeMap = $this->transformations->getMime(Current::$database, $tableName, true);
-                    if (is_array($mimeMap) && isset($mimeMap[$row->field]['mimetype'])) {
-                        $mime = str_replace('_', '/', $mimeMap[$row->field]['mimetype']);
-                    }
+                if (isset($mimeMap[$row->field]['mimetype'])) {
+                    $mime = str_replace('_', '/', $mimeMap[$row->field]['mimetype']);
                 }
 
                 $rows[$row->field] = [
@@ -88,7 +85,7 @@ final readonly class DataDictionaryController implements InvocableController
                     'print_type' => $extractedColumnSpec['print_type'],
                     'is_nullable' => $row->isNull,
                     'default' => $row->default,
-                    'comment' => $columnsComments[$row->field] ?? '',
+                    'comment' => $row->comment,
                     'mime' => $mime,
                     'relation' => $relation,
                 ];
@@ -111,24 +108,5 @@ final readonly class DataDictionaryController implements InvocableController
         ]);
 
         return $this->response->response();
-    }
-
-    /**
-     * @param array<int, array<string, string|null>> $indexes index data
-     *
-     * @return array<true> The list of primary key columns
-     */
-    private function getPrimaryKeys(array $indexes): array
-    {
-        $pkArray = [];
-        foreach ($indexes as $row) {
-            if ($row['Key_name'] !== 'PRIMARY') {
-                continue;
-            }
-
-            $pkArray[$row['Column_name']] = true;
-        }
-
-        return $pkArray;
     }
 }

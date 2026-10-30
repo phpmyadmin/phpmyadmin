@@ -29,7 +29,7 @@ const DatabaseTriggers = {
          * @var $elm a jQuery object containing the reference
          *           to an element that is being validated
          */
-        var $elm = null;
+        let $elm = null;
         // Common validation. At the very least the name
         // and the definition must be provided for an item
         $elm = $('table.rte_table').last().find('input[name=item_name]');
@@ -69,23 +69,23 @@ const DatabaseTriggers = {
     }, // end validateCustom()
 
     exportDialog: function ($this) {
-        var $msg = ajaxShowMessage();
+        const $msg = ajaxShowMessage();
         if ($this.attr('id') === 'bulkActionExportButton') {
-            var combined = {
+            const combined = {
                 success: true,
                 title: window.Messages.strExport,
                 message: '',
-                error: ''
+                error: '',
             };
             // export anchors of all selected rows
-            var exportAnchors = $('input.checkall:checked').parents('tr').find('.export_anchor');
-            var count = exportAnchors.length;
-            var returnCount = 0;
-            var p: any = $.when();
+            const exportAnchors = $('input.checkall:checked').parents('tr').find('.export_anchor');
+            const count = exportAnchors.length;
+            let returnCount = 0;
+            let p: any = $.when();
             exportAnchors.each(function () {
-                var h = $(this).attr('href');
+                const h = $(this).attr('href');
                 p = p.then(function () {
-                    return $.get(h, { 'ajax_request': true }, function (data) {
+                    return $.get(h, function (data) {
                         returnCount++;
                         if (data.success === true) {
                             combined.message += '\n' + data.message + '\n';
@@ -104,7 +104,7 @@ const DatabaseTriggers = {
                 });
             });
         } else {
-            $.get($this.attr('href'), { 'ajax_request': true }, showExport);
+            $.get($this.attr('href'), showExport);
         }
 
         function showExport (data) {
@@ -123,23 +123,23 @@ const DatabaseTriggers = {
                 triggersExportModal.querySelector('.modal-body').innerHTML = triggersExportTextarea;
                 document.getElementById('triggersExportTextarea').textContent = data.message;
                 getSqlEditor($('#triggersExportTextarea'));
-            });
+            }, { once: true });
 
             triggersExportModal.addEventListener('hidden.bs.modal', function () {
                 triggersExportModal.querySelector('.modal-body').innerHTML = triggersExportTextarea;
-            });
+            }, { once: true });
 
             bootstrap.Modal.getOrCreateInstance(triggersExportModal).show();
         }
     },
     editorDialog: function (isNew, $this) {
-        var that = this;
+        const that = this;
         /**
          * @var $edit_row jQuery object containing the reference to
          *                the row of the the item being edited
          *                from the list of items
          */
-        var $editRow = null;
+        let $editRow = null;
         if ($this.hasClass('edit_anchor')) {
             // Remember the row of the item being edited for later,
             // so that if the edit is successful, we can replace the
@@ -151,8 +151,8 @@ const DatabaseTriggers = {
          * @var $msg jQuery object containing the reference to
          *           the AJAX message shown to the user
          */
-        var $msg = ajaxShowMessage();
-        $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
+        let $msg = ajaxShowMessage();
+        $.get($this.attr('href'), function (data) {
             if (data.success !== true) {
                 ajaxShowMessage(data.error, false);
 
@@ -179,12 +179,12 @@ const DatabaseTriggers = {
                 /**
                  * @var data Form data to be sent in the AJAX request
                  */
-                var data = $('form.rte_form').last().serialize();
+                const data = $('form.rte_form').last().serialize();
                 $msg = ajaxShowMessage(
                     window.Messages.strProcessingRequest
                 );
 
-                var url = $('form.rte_form').last().attr('action');
+                const url = $('form.rte_form').last().attr('action');
                 $.post(url, data, function (data) {
                     if (data.success !== true) {
                         ajaxShowMessage(data.error, false);
@@ -215,16 +215,16 @@ const DatabaseTriggers = {
                          *           to find the correct location where
                          *           to insert a new row.
                          */
-                        var text = '';
+                        let text = '';
                         /**
                          * @var inserted Whether a new item has been
                          *               inserted in the list or not
                          */
-                        var inserted = false;
+                        let inserted = false;
                         $('table.data').find('tr').each(function () {
                             text = $(this)
                                 .children('td')
-                                .eq(0)
+                                .eq(1)
                                 .find('strong')
                                 .text()
                                 .toUpperCase()
@@ -244,11 +244,6 @@ const DatabaseTriggers = {
                             // so we insert it there.
                             $('table.data').append(data.new_row);
                         }
-
-                        // Fade-in the new row
-                        $('tr.ajaxInsert')
-                            .show('slow')
-                            .removeClass('ajaxInsert');
                     } else if ($('table.data').find('tr').has('td').length === 0) {
                         // If we are not supposed to insert the new row,
                         // we will now check if the table is empty and
@@ -268,12 +263,12 @@ const DatabaseTriggers = {
                     /**
                      * @var ct Count of processed rows
                      */
-                    var ct = 0;
+                    let ct = 0;
                     /**
                      * @var rowclass Class to be attached to the row
                      *               that is being processed
                      */
-                    var rowclass = '';
+                    let rowclass = '';
                     $('table.data').find('tr').has('td').each(function () {
                         rowclass = (ct % 2 === 0) ? 'odd' : 'even';
                         $(this).removeClass().addClass(rowclass);
@@ -328,20 +323,20 @@ const DatabaseTriggers = {
                  * @var elm jQuery object containing the reference to
                  *                 the Definition textarea.
                  */
-                var $elm = $('textarea[name=item_definition]').last();
-                var linterOptions = {
+                const $elm = $('textarea[name=item_definition]').last();
+                const linterOptions = {
                     editorType: 'trigger',
                 };
                 that.syntaxHiglighter = getSqlEditor($elm, {}, 'vertical', linterOptions);
                 window.codeMirrorEditor = that.syntaxHiglighter;
-            });
+            }, { once: true });
 
             triggersEditorModal.addEventListener('hidden.bs.modal', function () {
                 const triggersEditorModalSaveButton = document.getElementById('triggersEditorModalSaveButton');
                 triggersEditorModalSaveButton?.removeEventListener('click', triggersEditorModalSaveEventHandler);
                 document.getElementById('triggersEditorModal').querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
                     '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
-            });
+            }, { once: true });
 
             bootstrap.Modal.getOrCreateInstance(triggersEditorModal).show();
         });
@@ -351,12 +346,12 @@ const DatabaseTriggers = {
         /**
          * @var $curr_row Object containing reference to the current row
          */
-        var $currRow = $this.parents('tr');
+        const $currRow = $this.parents('tr');
         /**
          * @var question String containing the question to be asked for confirmation
          */
-        var question = $('<div></div>').text(
-            $currRow.children('td').children('.drop_sql').html()
+        const question = $('<div></div>').text(
+            $currRow.children('td').children('.drop_sql').text(),
         );
         // We ask for confirmation first here, before submitting the ajax request
         $this.confirm(question, $this.attr('href'), function (url) {
@@ -364,8 +359,8 @@ const DatabaseTriggers = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
-            var params = getJsConfirmCommonParam(this, $this.getPostData());
+            const $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+            const params = getJsConfirmCommonParam(this, $this.getPostData());
             $.post(url, params, function (data) {
                 if (data.success !== true) {
                     ajaxShowMessage(data.error, false);
@@ -377,12 +372,12 @@ const DatabaseTriggers = {
                  * @var $table Object containing reference
                  *             to the main list of elements
                  */
-                var $table = $currRow.parent();
+                const $table = $currRow.closest('table');
                 // Check how many rows will be left after we remove
                 // the one that the user has requested us to remove
                 if ($table.find('tr').length === 3) {
-                    // If there are two rows left, it means that they are
-                    // the header of the table and the rows that we are
+                    // If there are three rows left, it means that they are
+                    // the header row, the hidden row and the row that we are
                     // about to remove, so after the removal there will be
                     // nothing to show in the table, so we hide it.
                     $table.hide('slow', function () {
@@ -399,12 +394,12 @@ const DatabaseTriggers = {
                         /**
                          * @var ct Count of processed rows
                          */
-                        var ct = 0;
+                        let ct = 0;
                         /**
                          * @var rowclass Class to be attached to the row
                          *               that is being processed
                          */
-                        var rowclass = '';
+                        let rowclass = '';
                         $table.find('tr').has('td').each(function () {
                             rowclass = (ct % 2 === 1) ? 'odd' : 'even';
                             $(this).removeClass().addClass(rowclass);
@@ -429,21 +424,21 @@ const DatabaseTriggers = {
              * @var msg jQuery object containing the reference to
              *          the AJAX message shown to the user
              */
-            var $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
+            const $msg = ajaxShowMessage(window.Messages.strProcessingRequest);
 
             // drop anchors of all selected rows
-            var dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
-            var success = true;
-            var count = dropAnchors.length;
-            var returnCount = 0;
+            const dropAnchors = $('input.checkall:checked').parents('tr').find('.drop_anchor');
+            let success = true;
+            const count = dropAnchors.length;
+            let returnCount = 0;
 
             dropAnchors.each(function () {
-                var $anchor = $(this);
+                const $anchor = $(this);
                 /**
                  * @var $curr_row Object containing reference to the current row
                  */
-                var $currRow = $anchor.parents('tr');
-                var params = getJsConfirmCommonParam(this, $anchor.getPostData());
+                const $currRow = $anchor.parents('tr');
+                const params = getJsConfirmCommonParam(this, $anchor.getPostData());
                 $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
                     if (data.success !== true) {
@@ -460,12 +455,12 @@ const DatabaseTriggers = {
                      * @var $table Object containing reference
                      *             to the main list of elements
                      */
-                    var $table = $currRow.parent();
+                    const $table = $currRow.closest('table');
                     // Check how many rows will be left after we remove
                     // the one that the user has requested us to remove
                     if ($table.find('tr').length === 3) {
-                        // If there are two rows left, it means that they are
-                        // the header of the table and the rows that we are
+                        // If there are three rows left, it means that they are
+                        // the header row, the hidden row and the row that we are
                         // about to remove, so after the removal there will be
                         // nothing to show in the table, so we hide it.
                         $table.hide('slow', function () {
@@ -480,12 +475,12 @@ const DatabaseTriggers = {
                             /**
                              * @var ct Count of processed rows
                              */
-                            var ct = 0;
+                            let ct = 0;
                             /**
                              * @var rowclass Class to be attached to the row
                              *               that is being processed
                              */
-                            var rowclass = '';
+                            let rowclass = '';
                             $table.find('tr').has('td').each(function () {
                                 rowclass = (ct % 2 === 1) ? 'odd' : 'even';
                                 $(this).removeClass().addClass(rowclass);

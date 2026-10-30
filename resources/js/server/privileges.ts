@@ -13,6 +13,7 @@ import { CommonParams } from '../modules/common.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getImageTag from '../modules/functions/getImageTag.ts';
+import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * Export privileges modal handler
@@ -24,10 +25,10 @@ import getImageTag from '../modules/functions/getImageTag.ts';
  */
 function exportPrivilegesModalHandler (data, msgbox) {
     if (typeof data !== 'undefined' && data.success === true) {
-        var modal = $('#exportPrivilegesModal');
+        const modal = $('#exportPrivilegesModal');
         // Remove any previous privilege modal data, if any
         modal.find('.modal-body').first().html('');
-        $('#exportPrivilegesModalLabel').first().html('Loading');
+        $('#exportPrivilegesModalLabel').first().text(window.Messages.strLoading);
         modal.modal('show');
         modal.on('shown.bs.modal', function () {
             modal.find('.modal-body').first().html(data.message);
@@ -58,7 +59,6 @@ const EditUserGroup = {
         $.get(
             'index.php?route=/server/user-groups/edit-form',
             {
-                'ajax_request': true,
                 'username': username,
                 'server': CommonParams.get('server')
             },
@@ -80,7 +80,7 @@ const EditUserGroup = {
 
                     $.post(
                         'index.php?route=/server/privileges',
-                        form.serialize() + CommonParams.get('arg_separator') + 'ajax_request=1',
+                        form.serialize(),
                         data => {
                             if (typeof data === 'undefined' || data.success !== true) {
                                 ajaxShowMessage(data.error, false, 'error');
@@ -115,7 +115,6 @@ const AccountLocking = {
         const params = {
             'username': button.dataset.userName,
             'hostname': button.dataset.hostName,
-            'ajax_request': true,
             'server': CommonParams.get('server'),
         };
 
@@ -150,15 +149,14 @@ const AccountLocking = {
  */
 const AddUserLoginCheckUsername = {
     handleEvent: function () {
-        var username = $(this).val();
-        var $warning = $('#user_exists_warning');
+        const username = $(this).val();
+        const $warning = $('#user_exists_warning');
         if ($('#select_pred_username').val() === 'userdefined' && username !== '') {
-            var href = $('form[name=\'usersForm\']').attr('action');
-            var params = {
-                'ajax_request': true,
+            const href = $('form[name=\'usersForm\']').attr('action');
+            const params = {
                 'server': CommonParams.get('server'),
                 'validate_username': true,
-                'username': username
+                'username': username,
             };
             $.get(href, params, function (data) {
                 if (data.user_exists) {
@@ -180,9 +178,9 @@ const AddUserLoginCheckUsername = {
  */
 const PasswordStrength = {
     handleEvent: function () {
-        var meterObj = $('#password_strength_meter');
-        var meterObjLabel = $('#password_strength');
-        var username = $('input[name="username"]');
+        const meterObj = $('#password_strength_meter');
+        const meterObjLabel = $('#password_strength');
+        const username = $('input[name="username"]');
         checkPasswordStrength($(this).val(), meterObj, meterObjLabel, username.val());
     }
 };
@@ -205,8 +203,8 @@ const SwitchToUseTextField = {
  */
 const ChangePasswordStrength = {
     handleEvent: function () {
-        var meterObj = $('#change_password_strength_meter');
-        var meterObjLabel = $('#change_password_strength');
+        const meterObj = $('#change_password_strength_meter');
+        const meterObjLabel = $('#change_password_strength');
         checkPasswordStrength($(this).val(), meterObj, meterObjLabel, CommonParams.get('user'));
     }
 };
@@ -218,7 +216,7 @@ const ChangePasswordStrength = {
  */
 const ShowSha256PasswordNotice = {
     handleEvent: function () {
-        var selectedPlugin = $(this).val();
+        const selectedPlugin = $(this).val();
         if (selectedPlugin === 'sha256_password') {
             $('#ssl_reqd_warning').show();
         } else {
@@ -237,13 +235,13 @@ const RevokeUser = {
     handleEvent: function (event) {
         event.preventDefault();
 
-        var $thisButton = $(this);
-        var $form = $('#usersForm');
+        const $thisButton = $(this);
+        const $form = $('#usersForm');
 
         $thisButton.confirm(window.Messages.strDropUserWarning, $form.attr('action'), function (url) {
-            var $dropUsersDbCheckbox = $('#dropUsersDbCheckbox');
+            const $dropUsersDbCheckbox = $('#dropUsersDbCheckbox');
             if ($dropUsersDbCheckbox.is(':checked')) {
-                var isConfirmed = confirm(window.Messages.strDropDatabaseStrongWarning + '\n' + window.sprintf(window.Messages.strDoYouReally, 'DROP DATABASE'));
+                const isConfirmed = confirm(window.Messages.strDropDatabaseStrongWarning + '\n' + sprintf(window.Messages.strDoYouReally, 'DROP DATABASE'));
                 if (! isConfirmed) {
                     // Uncheck the drop users database checkbox
                     $dropUsersDbCheckbox.prop('checked', false);
@@ -252,8 +250,8 @@ const RevokeUser = {
 
             ajaxShowMessage(window.Messages.strRemovingSelectedUsers);
 
-            var argsep = CommonParams.get('arg_separator');
-            $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val() + argsep + 'ajax_request=true', function (data) {
+            const argsep = CommonParams.get('arg_separator');
+            $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val(), function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     ajaxShowMessage(data.message);
                     // Refresh navigation, if we dropped some databases with the name
@@ -264,7 +262,7 @@ const RevokeUser = {
 
                     // Remove the revoked user from the users list
                     $form.find('input:checkbox:checked').parents('tr').slideUp('medium', function () {
-                        var thisUserInitial = ($(this).find('input:checkbox').val() as string).charAt(0).toUpperCase();
+                        const thisUserInitial = ($(this).find('input:checkbox').val() as string).charAt(0).toUpperCase();
                         $(this).remove();
 
                         // If this is the last user with thisUserInitial, remove the link from #userAccountsPagination
@@ -313,11 +311,11 @@ const ExportPrivileges = {
             return;
         }
 
-        var msgbox = ajaxShowMessage();
-        var argsep = CommonParams.get('arg_separator');
-        var serverId = CommonParams.get('server');
-        var selectedUsers = $('#usersForm input[name*=\'selected_usr\']:checkbox').serialize();
-        var postStr = selectedUsers + '&submit_mult=export' + argsep + 'ajax_request=true&server=' + serverId;
+        const msgbox = ajaxShowMessage();
+        const argsep = CommonParams.get('arg_separator');
+        const serverId = CommonParams.get('server');
+        const selectedUsers = $('#usersForm input[name*=\'selected_usr\']:checkbox').serialize();
+        const postStr = selectedUsers + '&submit_mult=export' + argsep + 'server=' + serverId;
 
         $.post($(this.form).prop('action'), postStr, function (data) {
             exportPrivilegesModalHandler(data, msgbox);
@@ -334,8 +332,8 @@ const ExportUser = {
      */
     handleEvent: function (event) {
         event.preventDefault();
-        var msgbox = ajaxShowMessage();
-        $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
+        const msgbox = ajaxShowMessage();
+        $.get($(this).attr('href'), function (data) {
             exportPrivilegesModalHandler(data, msgbox);
         });
     }
@@ -346,7 +344,7 @@ const ExportUser = {
  */
 const SslTypeToggle = {
     handleEvent: function () {
-        var $div = $('#specified_div');
+        const $div = $('#specified_div');
         if ($('#ssl_type_SPECIFIED').is(':checked')) {
             $div.find('input').prop('disabled', false);
         } else {
@@ -360,7 +358,7 @@ const SslTypeToggle = {
  */
 const SslPrivilegeToggle = {
     handleEvent: function () {
-        var $div = $('#require_ssl_div');
+        const $div = $('#require_ssl_div');
         if ($(this).is(':checked')) {
             $div.find('input').prop('disabled', false);
             $('#ssl_type_SPECIFIED').trigger('change');
@@ -374,15 +372,15 @@ const SslPrivilegeToggle = {
  * Create submenu for simpler interface
  */
 function addOrUpdateSubmenu () {
-    var $editUserDialog = $('#edit_user_dialog');
+    const $editUserDialog = $('#edit_user_dialog');
     if ($editUserDialog.length === 0) {
         return;
     }
 
-    var $subNav = $('.nav-pills');
-    var submenuLabel;
-    var submenuLink;
-    var linkNumber;
+    let $subNav = $('.nav-pills');
+    let submenuLabel;
+    let submenuLink;
+    let linkNumber;
 
     // if submenu exists yet, remove it first
     if ($subNav.length > 0) {
@@ -444,7 +442,7 @@ const SelectAllPrivileges = {
      */
     handleEvent: function (event) {
         const method = event.target.getAttribute('data-select-target');
-        var options = $(method).first().children();
+        const options = $(method).first().children();
         options.each(function (_, obj: HTMLOptionElement) {
             obj.selected = true;
         });
@@ -452,7 +450,7 @@ const SelectAllPrivileges = {
 };
 
 function setMaxWidth () {
-    var windowWidth = $(window).width();
+    const windowWidth = $(window).width();
     $('.jsresponsive').css('max-width', (windowWidth - 35) + 'px');
 }
 
@@ -534,9 +532,7 @@ AJAX.registerTeardown('server/privileges.js', function () {
     $('#text_pma_change_pw2').off('change');
 
     const editUserGroupModal = document.getElementById('editUserGroupModal');
-    if (editUserGroupModal) {
-        editUserGroupModal.removeEventListener('show.bs.modal', EditUserGroup);
-    }
+    editUserGroupModal?.removeEventListener('show.bs.modal', EditUserGroup);
 
     $(document).off('click', 'button.mult_submit[value=export]');
     $(document).off('click', 'a.export_user_anchor.ajax');
@@ -559,9 +555,7 @@ AJAX.registerOnload('server/privileges.js', function () {
     $(document).on('click', '#deleteUserCard .btn.ajax', RevokeUser.handleEvent);
 
     const editUserGroupModal = document.getElementById('editUserGroupModal');
-    if (editUserGroupModal) {
-        editUserGroupModal.addEventListener('show.bs.modal', EditUserGroup);
-    }
+    editUserGroupModal?.addEventListener('show.bs.modal', EditUserGroup);
 
     $(document).on('click', 'button.mult_submit[value=export]', ExportPrivileges.handleEvent);
 

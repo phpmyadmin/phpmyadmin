@@ -20,6 +20,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
@@ -27,6 +28,7 @@ use function __;
 use function sprintf;
 
 #[CoversClass(IndexesController::class)]
+#[AllowMockObjectsWithoutExpectations]
 class IndexesControllerTest extends AbstractTestCase
 {
     /**
@@ -52,9 +54,7 @@ class IndexesControllerTest extends AbstractTestCase
      */
     public function testDisplayFormAction(): void
     {
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $dbi = $this->createMock(DatabaseInterface::class);
 
         $indexs = [
             ['Schema' => 'Schema1', 'Key_name' => 'Key_name1', 'Column_name' => 'Column_name1'],
@@ -62,23 +62,16 @@ class IndexesControllerTest extends AbstractTestCase
             ['Schema' => 'Schema3', 'Key_name' => 'Key_name3', 'Column_name' => 'Column_name3'],
         ];
 
-        $dbi->expects(self::any())->method('getTableIndexes')
-            ->willReturn($indexs);
+        $dbi->method('getTableIndexes')->willReturn($indexs);
 
         DatabaseInterface::$instance = $dbi;
 
-        $table = $this->getMockBuilder(Table::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-        $table->expects(self::any())->method('getStatusInfo')
-            ->willReturn('');
-        $table->expects(self::any())->method('isView')
-            ->willReturn(false);
-        $table->expects(self::any())->method('getNameAndTypeOfTheColumns')
-            ->willReturn(['field_name' => 'field_type']);
+        $table = $this->createMock(Table::class);
+        $table->method('getStatusInfo')->willReturn('');
+        $table->method('isView')->willReturn(false);
+        $table->method('getNameAndTypeOfTheColumns')->willReturn(['field_name' => 'field_type']);
 
-        $dbi->expects(self::any())->method('getTable')
-            ->willReturn($table);
+        $dbi->method('getTable')->willReturn($table);
 
         $response = new ResponseStub();
         $index = new Index();

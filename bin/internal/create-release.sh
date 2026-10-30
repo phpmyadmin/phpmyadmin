@@ -99,13 +99,13 @@ while [ $# -gt 0 ] ; do
             do_test=1
             if [ -z "$version" ] ; then
                 version=$(echo "$1" | tr -d -c '0-9a-z.+-')
-                if [ "x$version" != "x$1" ] ; then
+                if [ "$version" != "$1" ] ; then
                     echo "Invalid version: $1"
                     exit 1
                 fi
             elif [ -z "$branch" ] ; then
                 branch=$(echo "$1" | tr -d -c '/0-9A-Za-z_-')
-                if [ "x$branch" != "x$1" ] ; then
+                if [ "$branch" != "$1" ] ; then
                     echo "Invalid branch: $1"
                     exit 1
                 fi
@@ -160,46 +160,64 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/sql-parser/bin/ \
         vendor/phpmyadmin/sql-parser/phpunit.xml.dist \
         vendor/phpmyadmin/motranslator/phpunit.xml.dist \
+        vendor/phpmyadmin/motranslator/psalm-baseline.xml \
+        vendor/phpmyadmin/motranslator/psalm.xml \
         vendor/phpmyadmin/motranslator/tests/ \
         vendor/phpmyadmin/shapefile/phpunit.xml.dist \
         vendor/phpmyadmin/shapefile/tests/ \
         vendor/phpmyadmin/shapefile/examples/ \
         vendor/phpmyadmin/shapefile/data/ \
+        vendor/symfony/clock/Test/ \
         vendor/symfony/service-contracts/Test/ \
         vendor/symfony/expression-language/Resources/ \
+        vendor/symfony/dependency-injection/Loader/schema/services.schema.json \
         vendor/symfony/dependency-injection/Loader/schema/dic/services/services-1.0.xsd \
+        vendor/symfony/serializer/Mapping/Loader/schema/serialization.schema.json \
+        vendor/symfony/serializer/Mapping/Loader/schema/dic/serializer-mapping/serializer-mapping-1.0.xsd \
         vendor/tecnickcom/tcpdf/tools/ \
         vendor/tecnickcom/tcpdf/fonts/ae_fonts_*/ \
         vendor/tecnickcom/tcpdf/fonts/dejavu-fonts-ttf-2.*/ \
         vendor/tecnickcom/tcpdf/fonts/freefont-*/ \
         vendor/tecnickcom/tcpdf/include/sRGB.icc \
+        vendor/tecnickcom/tcpdf/Makefile \
+        vendor/tecnickcom/tcpdf/SECURITY.md \
         vendor/williamdes/mariadb-mysql-kbs/schemas/ \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.json \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-raw.md \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-slim.json \
         vendor/williamdes/mariadb-mysql-kbs/dist/merged-ultraslim.php \
-        vendor/nikic/fast-route/.travis.yml \
+        vendor/google/recaptcha/app.yaml \
+        vendor/laminas/laminas-httphandlerrunner/.laminas-ci.json \
         vendor/nikic/fast-route/.hhconfig \
         vendor/nikic/fast-route/FastRoute.hhi \
-        vendor/nikic/fast-route/phpunit.xml \
-        vendor/nikic/fast-route/psalm.xml \
-        vendor/nikic/fast-route/test/ \
         vendor/twig/twig/README.rst \
         vendor/webmozart/assert/.php-cs-fixer.php \
         vendor/twig/twig/src/Test/ \
+        vendor/phpdocumentor/reflection-common/.yamllint.yaml \
+        vendor/psr/event-dispatcher/.editorconfig \
         vendor/psr/http-message/docs/ \
         vendor/pragmarx/google2fa/.github/ \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
         vendor/pragmarx/google2fa-qrcode/phpunit.xml \
-        vendor/pragmarx/google2fa-qrcode/tests
+        vendor/pragmarx/google2fa-qrcode/tests \
+        vendor/slim/psr7/phpunit.xml.dist \
+        vendor/slim/psr7/tests/ \
+        vendor/spomky-labs/cbor-php/.github/
 
     rm \
         vendor/phpmyadmin/motranslator/CODE_OF_CONDUCT.md \
         vendor/phpmyadmin/motranslator/CONTRIBUTING.md \
         vendor/phpmyadmin/motranslator/PERFORMANCE.md \
         vendor/phpmyadmin/shapefile/CONTRIBUTING.md \
-        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md
+        vendor/phpstan/phpdoc-parser/UPGRADING.md \
+        vendor/spomky-labs/cbor-php/CODE_OF_CONDUCT.md \
+        vendor/spomky-labs/cbor-php/RELEASES.md \
+        vendor/spomky-labs/cbor-php/SECURITY.md \
+        vendor/spomky-labs/pki-framework/SECURITY.md \
+        vendor/web-auth/cose-lib/CODE_OF_CONDUCT.md \
+        vendor/web-auth/cose-lib/RELEASES.md \
+        vendor/web-auth/cose-lib/SECURITY.md
 
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
@@ -515,6 +533,7 @@ fi
 # Remove git metadata
 rm .git
 find . -name .gitignore -print0 | xargs -0 -r rm
+find . -name .gitkeep -print0 | xargs -0 -r rm
 find . -name .gitattributes -print0 | xargs -0 -r rm
 
 if [ $do_test -eq 1 ] ; then
@@ -572,8 +591,8 @@ for kit in $KITS ; do
         rm -r tests/
         # Template test files
         rm -r resources/templates/test/
-        rm phpunit.xml.*
-        rm .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.cjs infection.json5.dist .phpstorm.meta.php
+        rm phpunit.xml
+        rm .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml jest.config.cjs infection.json5.dist .phpstorm.meta.php
         # Gettext po files (if they were not removed by ./bin/internal/lang-cleanup.sh)
         rm -rf resources/po
         # Documentation source code
@@ -658,6 +677,7 @@ done
 if [ $do_daily -eq 1 ] ; then
     cat > "$kit_prefix".json << EOT
 {
+    "version": "$version",
     "date": "$(date --iso-8601=seconds)",
     "commit": "$git_head"
 }
@@ -672,7 +692,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la $SIGN_FILES
+ls -la "$SIGN_FILES"
 
 cd ..
 

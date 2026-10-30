@@ -313,7 +313,7 @@ abstract class AuthenticationPlugin
         $this->responseRenderer->addHTML($this->template->render('login/header', ['session_expired' => false]));
         $this->responseRenderer->addHTML(Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.'),
-        )->getDisplay());
+        ));
         $this->responseRenderer->addHTML($this->template->render('login/twofactor', [
             'form' => $twofactor->render($request),
             'show_submit' => $twofactor->showSubmit(),

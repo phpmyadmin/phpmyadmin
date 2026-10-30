@@ -15,7 +15,7 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Indexes\Index;
-use PhpMyAdmin\MessageType;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\SqlParser\Utils\ForeignKey as ForeignKeyObject;
@@ -55,10 +55,10 @@ final readonly class RelationController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $options = [
+            'RESTRICT' => 'RESTRICT',
+            'NO_ACTION' => 'NO ACTION',
             'CASCADE' => 'CASCADE',
             'SET_NULL' => 'SET NULL',
-            'NO_ACTION' => 'NO ACTION',
-            'RESTRICT' => 'RESTRICT',
         ];
 
         $table = $this->dbi->getTable(Current::$database, Current::$table);
@@ -142,13 +142,7 @@ final readonly class RelationController implements InvocableController
 
         if ($displayQuery !== '' && ! $seenError) {
             Current::$displayQuery = $displayQuery;
-            $this->response->addHTML(
-                Generator::getMessage(
-                    __('Your SQL query has been executed successfully.'),
-                    null,
-                    MessageType::Success,
-                ),
-            );
+            $this->response->addHTML(Generator::getMessage(Message::success()));
         }
 
         // Updates for display field
@@ -181,7 +175,7 @@ final readonly class RelationController implements InvocableController
             $columnArray[$column->field] = $column->field;
         }
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             uksort($columnArray, strnatcasecmp(...));
             usort(
                 $relationsForeign,
@@ -306,7 +300,7 @@ final readonly class RelationController implements InvocableController
             'internal_relation_columns' => $internalRelationColumns,
             'url_params' => UrlParams::$params,
             'databases' => $this->dbi->getDatabaseList(),
-            'default_sliders_state' => $this->config->settings['InitialSlidersState'],
+            'default_sliders_state' => $this->config->config->InitialSlidersState,
             'route' => $request->getRoute(),
             'display_field' => $this->relation->getDisplayField(Current::$database, Current::$table),
             'foreign_key_row' => $foreignKeyRow,
@@ -324,9 +318,8 @@ final readonly class RelationController implements InvocableController
 
         $this->response->addHTML(
             Generator::getMessage(
-                __('Display column was successfully updated.'),
+                Message::success(__('Display column was successfully updated.')),
                 '',
-                MessageType::Success,
             ),
         );
     }
@@ -358,9 +351,8 @@ final readonly class RelationController implements InvocableController
 
         $this->response->addHTML(
             Generator::getMessage(
-                __('Internal relationships were successfully updated.'),
+                Message::success(__('Internal relationships were successfully updated.')),
                 '',
-                MessageType::Success,
             ),
         );
     }
@@ -380,7 +372,7 @@ final readonly class RelationController implements InvocableController
             $columnList = $tableObj->getIndexedColumns(false, false);
         }
 
-        if ($this->config->settings['NaturalOrder']) {
+        if ($this->config->config->NaturalOrder) {
             usort($columnList, strnatcasecmp(...));
         }
 

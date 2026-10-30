@@ -32,7 +32,7 @@ class ChangeRowsControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['rows_to_delete' => 'row']);
 
-        $mock = self::createMock(ChangeController::class);
+        $mock = $this->createMock(ChangeController::class);
         $mock->expects(self::once())->method('__invoke')->with($request)
             ->willReturn(ResponseFactory::create()->createResponse());
 
@@ -46,7 +46,7 @@ class ChangeRowsControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['goto' => 'goto']);
 
-        $mock = self::createMock(ChangeController::class);
+        $mock = $this->createMock(ChangeController::class);
         $mock->expects(self::never())->method('__invoke')->with($request)
             ->willReturn(ResponseFactory::create()->createResponse());
 
@@ -63,7 +63,7 @@ class ChangeRowsControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['goto' => 'goto', 'rows_to_delete' => ['key1' => 'row1', 'key2' => 'row2']]);
 
-        $mock = self::createMock(ChangeController::class);
+        $mock = $this->createMock(ChangeController::class);
         $mock->expects(self::once())->method('__invoke')->with($request)
             ->willReturn(ResponseFactory::create()->createResponse());
 

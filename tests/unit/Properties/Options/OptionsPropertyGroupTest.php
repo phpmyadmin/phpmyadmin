@@ -7,10 +7,12 @@ namespace PhpMyAdmin\Tests\Properties\Options;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\OptionsPropertyGroup;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 
 #[CoversClass(OptionsPropertyGroup::class)]
+#[AllowMockObjectsWithoutExpectations]
 class OptionsPropertyGroupTest extends AbstractTestCase
 {
     protected OptionsPropertyGroup&MockObject $stub;

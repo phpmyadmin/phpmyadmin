@@ -8,12 +8,14 @@ use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Gis\GisGeometry;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use ReflectionMethod;
 
 #[CoversClass(GisGeometry::class)]
+#[AllowMockObjectsWithoutExpectations]
 class GisGeometryTest extends AbstractTestCase
 {
     protected GisGeometry&MockObject $object;

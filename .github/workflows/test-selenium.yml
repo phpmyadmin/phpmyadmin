@@ -13,7 +13,7 @@ permissions:
 
 env:
   php-version: "8.2"
-  node-version: "20"
+  node-version: '24'
 
 jobs:
   generate-matrix:
@@ -24,7 +24,9 @@ jobs:
       tests: ${{ steps.tests-list.outputs.tests }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - id: tests-list
         name: Send test names to outputs
         run: |
@@ -78,26 +80,27 @@ jobs:
         include: ${{ fromJSON(needs.generate-matrix.outputs.tests) }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
-      - name: Install gettext
-        run: sudo apt-get update && sudo apt-get install -y gettext
-
-      - name: Generate mo files
-        run: ./bin/generate-mo --quiet
+      - name: Install gettext and generate translation files
+        run: |
+          sudo apt-get install -y gettext
+          ./bin/generate-mo --quiet
 
       - name: Set up PHP ${{ env.php-version }}
         uses: shivammathur/setup-php@v2
         with:
-          coverage: "none"
           php-version: ${{ env.php-version }}
           extensions: :opcache, mbstring, iconv, mysqli, zip, gd, bz2
+          coverage: none
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Set up Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: '${{ env.node-version }}'
           cache: 'yarn'
@@ -131,7 +134,7 @@ jobs:
           TESTSUITE_DATABASE_PREFIX: "selenium"
           TESTSUITE_SELENIUM_HOST: "127.0.0.1"
           TESTSUITE_SELENIUM_PORT: "4444"
-        run: ./vendor/bin/phpunit --testsuite end-to-end --no-logging --no-coverage --stop-on-skipped --testdox tests/end-to-end/${{ matrix.test-name }}Test.php
+        run: ./vendor/bin/phpunit --testsuite end-to-end --no-logging --no-coverage --display-all-issues --stop-on-skipped --testdox tests/end-to-end/${{ matrix.test-name }}Test.php
 
       - name: Output logs and stop server
         env:
@@ -144,7 +147,7 @@ jobs:
           ./tests/stop-local-server
 
       - name: Upload screenshots
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: ${{ failure() }}
         with:
           name: selenium-screenshots-${{ strategy.job-index }}

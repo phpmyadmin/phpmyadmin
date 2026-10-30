@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SQL data types definition
  */
@@ -286,12 +287,14 @@ class Types
             'MULTIPOLYGON' => __('A collection of polygons'),
             'GEOMETRYCOLLECTION' => __('A collection of geometry objects of any type'),
             'JSON' => __('Stores and enables efficient access to data in JSON (JavaScript Object Notation) documents'),
+            'INET4' => __('Intended for storage of IPv4 addresses'),
             'INET6' => __('Intended for storage of IPv6 addresses, as well as IPv4 '
                 . 'addresses assuming conventional mapping of IPv4 addresses '
                 . 'into IPv6 addresses'),
             'UUID' => __('128-bit UUID (Universally Unique Identifier)'),
             'VECTOR' => __('Stores vector data optimized for operations '
                 . 'such as similarity search and machine learning applications'),
+            'XMLTYPE' => __('Intended for storage of XML data'),
             default => '',
         };
     }
@@ -338,6 +341,7 @@ class Types
             'LONGBLOB',
             'ENUM',
             'SET',
+            'INET4',
             'INET6'
                 => TypeClass::Char,
             'GEOMETRY',
@@ -402,11 +406,17 @@ class Types
                     'UPPER',
                     'USER',
                     'UUID',
+                    'UUID_v4',
+                    'UUID_v7',
                     'VERSION',
                 ];
 
                 if (($isMariaDB && $serverVersion < 100012) || $serverVersion < 50603) {
                     $ret = array_diff($ret, ['INET6_NTOA']);
+                }
+
+                if (! $isMariaDB || $serverVersion < 110700) {
+                    $ret = array_diff($ret, ['UUID_v4', 'UUID_v7']);
                 }
 
                 return array_values($ret);
@@ -592,6 +602,7 @@ class Types
         $isJsonSupported = Compatibility::isJsonSupported($this->dbi);
         $isUUIDSupported = Compatibility::isUUIDSupported($this->dbi);
         $isVectorSupported = Compatibility::isVectorSupported($this->dbi);
+        $isXmlTypeSupported = Compatibility::isXmlTypeSupported($this->dbi);
 
         // most used types
         $ret = ['INT', 'VARCHAR', 'TEXT', 'DATE'];
@@ -644,6 +655,10 @@ class Types
         ];
         if ($isMariaDB && $serverVersion >= 100500) {
             $stringTypes[] = '-';
+            if ($serverVersion >= 101000) {
+                $stringTypes[] = 'INET4';
+            }
+
             $stringTypes[] = 'INET6';
         }
 
@@ -670,6 +685,10 @@ class Types
 
         if ($isVectorSupported) {
             $ret['VECTOR'] = ['VECTOR'];
+        }
+
+        if ($isXmlTypeSupported) {
+            $ret['XML'] = ['XMLTYPE'];
         }
 
         return $ret;

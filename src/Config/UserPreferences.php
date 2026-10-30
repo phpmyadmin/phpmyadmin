@@ -219,7 +219,7 @@ readonly class UserPreferences
     public function apply(array $configData): array
     {
         $cfg = [];
-        $excludeList = array_flip($this->config->settings['UserprefsDisallow']);
+        $excludeList = array_flip($this->config->config->UserprefsDisallow);
         $allowList = array_flip(UserFormList::getFields());
         // allow some additional fields which are custom handled
         $allowList['ThemeDefault'] = true;

@@ -567,9 +567,8 @@ class Index
                     __(
                         'The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.',
                     ),
+                    [$eachIndex->getName(), $whileIndex->getName()],
                 );
-                $message->addParam($eachIndex->getName());
-                $message->addParam($whileIndex->getName());
                 $output .= $message->getDisplay();
 
                 // there is no need to check any further indexes if we have already

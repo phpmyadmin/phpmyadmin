@@ -39,7 +39,6 @@ class SchemaEps extends SchemaPlugin
         $schemaPluginProperties = new SchemaPluginProperties();
         $schemaPluginProperties->setText('EPS');
         $schemaPluginProperties->setExtension('eps');
-        $schemaPluginProperties->setMimeType('application/eps');
 
         // create the root group that will be the options field for
         // $schemaPluginProperties

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Verbose descriptions for settings.
  */
@@ -490,9 +491,6 @@ class Descriptions
             'SkipLockedTables_desc' => __(
                 'Mark used tables and make it possible to show databases with locked tables.',
             ),
-            'SuhosinDisableWarning_desc' => __(
-                'Disable the default warning that is displayed on the main page if Suhosin is detected.',
-            ),
             'LoginCookieValidityDisableWarning_desc' => __(
                 'Disable the default warning that is displayed on the main page if the value ' .
                 'of the PHP setting session.gc_maxlifetime is less than the value of ' .
@@ -774,6 +772,7 @@ class Descriptions
             'Import_csv_enclosed_name' => __('Columns enclosed with'),
             'Import_csv_escaped_name' => __('Columns escaped with'),
             'Import_csv_ignore_name' => __('Do not abort on INSERT error'),
+            'Import_csv_empty_as_null_name' => __('Import empty values as NULL'),
             'Import_csv_replace_name' => __('Add ON DUPLICATE KEY UPDATE'),
             'Import_csv_terminated_name' => __('Columns terminated with'),
             'Import_format_name' => __('Format of imported file'),
@@ -927,7 +926,6 @@ class Descriptions
             'SQLQuery_Explain_name' => __('Explain SQL'),
             'SQLQuery_Refresh_name' => __('Refresh'),
             'SQLQuery_ShowAsPHP_name' => __('Create PHP code'),
-            'SuhosinDisableWarning_name' => __('Suhosin warning'),
             'LoginCookieValidityDisableWarning_name' => __('Login cookie validity warning'),
             'TextareaCols_name' => __('Textarea columns'),
             'TextareaRows_name' => __('Textarea rows'),

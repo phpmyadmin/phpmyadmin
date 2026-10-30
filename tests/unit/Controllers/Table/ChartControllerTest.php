@@ -39,7 +39,6 @@ class ChartControllerTest extends AbstractTestCase
             'unlim_num_rows' => '4',
         ];
         $_REQUEST['unlim_num_rows'] = '4';
-        $_REQUEST['pos'] = '0';
 
         $fieldsMeta = [
             FieldHelper::fromArray([

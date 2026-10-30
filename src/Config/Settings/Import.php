@@ -24,6 +24,7 @@ use function in_array;
  *     sql_read_as_multibytes: bool,
  *     csv_replace: bool,
  *     csv_ignore: bool,
+ *     csv_empty_as_null: bool,
  *     csv_terminated: string,
  *     csv_enclosed: string,
  *     csv_escaped: string,
@@ -118,6 +119,13 @@ final class Import
      * ```
      */
     public bool $csv_ignore;
+
+    /**
+     * ```php
+     * $cfg['Import']['csv_empty_as_null'] = false;
+     * ```
+     */
+    public bool $csv_empty_as_null;
 
     /**
      * ```php
@@ -261,6 +269,7 @@ final class Import
         $this->sql_read_as_multibytes = $this->setSqlReadAsMultibytes($import);
         $this->csv_replace = $this->setCsvReplace($import);
         $this->csv_ignore = $this->setCsvIgnore($import);
+        $this->csv_empty_as_null = $this->setCsvEmptyAsNull($import);
         $this->csv_terminated = $this->setCsvTerminated($import);
         $this->csv_enclosed = $this->setCsvEnclosed($import);
         $this->csv_escaped = $this->setCsvEscaped($import);
@@ -294,6 +303,7 @@ final class Import
             'sql_read_as_multibytes' => $this->sql_read_as_multibytes,
             'csv_replace' => $this->csv_replace,
             'csv_ignore' => $this->csv_ignore,
+            'csv_empty_as_null' => $this->csv_empty_as_null,
             'csv_terminated' => $this->csv_terminated,
             'csv_enclosed' => $this->csv_enclosed,
             'csv_escaped' => $this->csv_escaped,
@@ -423,6 +433,16 @@ final class Import
         }
 
         return (bool) $import['csv_ignore'];
+    }
+
+    /** @param array<int|string, mixed> $import */
+    private function setCsvEmptyAsNull(array $import): bool
+    {
+        if (! isset($import['csv_empty_as_null'])) {
+            return false;
+        }
+
+        return (bool) $import['csv_empty_as_null'];
     }
 
     /** @param array<int|string, mixed> $import */

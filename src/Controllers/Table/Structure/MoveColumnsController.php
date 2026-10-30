@@ -107,10 +107,7 @@ final readonly class MoveColumnsController implements InvocableController
         }
 
         // Ensure the columns from client match the columns from the table
-        if (
-            count($columnNames) !== count($moveColumns) ||
-            array_diff($columnNames, $moveColumns) !== []
-        ) {
+        if (count($columnNames) !== count($moveColumns) || array_diff($columnNames, $moveColumns) !== []) {
             return Message::error(__('The selected columns do not match the columns in the table.'));
         }
 
