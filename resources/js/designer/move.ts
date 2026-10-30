@@ -1465,7 +1465,7 @@ const selectTab = function (t) {
     );
 };
 
-const canvasClick = function (id, event) {
+const canvasClick = function (event) {
     let n = 0;
     let selected = 0;
     const a = [];

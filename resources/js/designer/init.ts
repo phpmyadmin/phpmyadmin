@@ -264,7 +264,7 @@ AJAX.registerOnload('designer/init.js', function () {
     });
 
     $('#canvas').on('click', function (event) {
-        DesignerMove.canvasClick(this, event);
+        DesignerMove.canvasClick(event);
     });
 
     $('#key_HS_all').on('click', function () {
