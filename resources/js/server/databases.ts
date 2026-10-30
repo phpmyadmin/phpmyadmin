@@ -98,16 +98,6 @@ const CreateDatabase = {
 
         const $form = $(this);
 
-        // TODO Remove this section when all browsers support HTML5 "required" property
-        const newDbNameInput = $form.find('input[name=new_db]');
-        if (newDbNameInput.val() === '') {
-            newDbNameInput.trigger('focus');
-            alert(window.Messages.strFormEmpty);
-
-            return;
-        }
-        // end remove
-
         ajaxShowMessage(window.Messages.strProcessingRequest);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {
