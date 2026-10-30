@@ -2607,7 +2607,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 });
 
                 // Dynamic mouseover for drag
-                $(g.t).on('mouseover.cellSelect', 'td.data, thead th:not(.column_action)', function (e) {
+                $(g.t).on('mouseover.cellSelect', 'td.data, thead th:not(.column_action)', function () {
                     if (!g.isSelectingCells || g.endSelectCell === this) {
                         return;
                     }
