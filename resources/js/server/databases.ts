@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
 import { Navigation } from '../modules/navigation.ts';
-import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
