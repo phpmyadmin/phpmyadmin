@@ -267,25 +267,6 @@ const DatabaseRoutines = {
                         });
                     }
 
-                    // Now we have inserted the row at the correct
-                    // position, but surely at least some row classes
-                    // are wrong now. So we will iterate through
-                    // all rows and assign correct classes to them
-                    /**
-                     * @var ct Count of processed rows
-                     */
-                    let ct = 0;
-                    /**
-                     * @var rowclass Class to be attached to the row
-                     *               that is being processed
-                     */
-                    let rowclass = '';
-                    $(tableId + '.data').find('tr').has('td').each(function () {
-                        rowclass = (ct % 2 === 0) ? 'odd' : 'even';
-                        $(this).removeClass('odd even').addClass(rowclass);
-                        ct++;
-                    });
-
                     // If this is the first item being added, remove
                     // the "No items" message and show the list.
                     if ($(tableId + '.data').find('tr').has('td').length > 0 &&
@@ -395,30 +376,13 @@ const DatabaseRoutines = {
                     // about to remove, so after the removal there will be
                     // nothing to show in the table, so we hide it.
                     $table.hide('slow', function () {
-                        $(this).find('tr.even, tr.odd').remove();
+                        $currRow.remove();
                         $('.withSelected').remove();
                         $('#nothing2display').show('slow');
                     });
                 } else {
                     $currRow.hide('slow', function () {
                         $(this).remove();
-                        // Now we have removed the row from the list, but maybe
-                        // some row classes are wrong now. So we will iterate
-                        // through all rows and assign correct classes to them.
-                        /**
-                         * @var ct Count of processed rows
-                         */
-                        let ct = 0;
-                        /**
-                         * @var rowclass Class to be attached to the row
-                         *               that is being processed
-                         */
-                        let rowclass = '';
-                        $table.find('tr').has('td').each(function () {
-                            rowclass = (ct % 2 === 1) ? 'odd' : 'even';
-                            $(this).removeClass('odd even').addClass(rowclass);
-                            ct++;
-                        });
                     });
                 }
 
@@ -478,30 +442,11 @@ const DatabaseRoutines = {
                         // about to remove, so after the removal there will be
                         // nothing to show in the table, so we hide it.
                         $table.hide('slow', function () {
-                            $(this).find('tr.even, tr.odd').remove();
+                            $currRow.remove();
                             $('.withSelected').remove();
                             $('#nothing2display').show('slow');
                         });
                     } else {
-                        $currRow.hide('fast', function () {
-                            // we will iterate
-                            // through all rows and assign correct classes to them.
-                            /**
-                             * @var ct Count of processed rows
-                             */
-                            let ct = 0;
-                            /**
-                             * @var rowclass Class to be attached to the row
-                             *               that is being processed
-                             */
-                            let rowclass = '';
-                            $table.find('tr').has('td').each(function () {
-                                rowclass = (ct % 2 === 1) ? 'odd' : 'even';
-                                $(this).removeClass('odd even').addClass(rowclass);
-                                ct++;
-                            });
-                        });
-
                         $currRow.remove();
                     }
 

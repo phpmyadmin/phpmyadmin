@@ -245,25 +245,6 @@ const DatabaseEvents = {
                             });
                         }
 
-                        // Now we have inserted the row at the correct
-                        // position, but surely at least some row classes
-                        // are wrong now. So we will iterate through
-                        // all rows and assign correct classes to them
-                        /**
-                         * @var ct Count of processed rows
-                         */
-                        let ct = 0;
-                        /**
-                         * @var rowclass Class to be attached to the row
-                         *               that is being processed
-                         */
-                        let rowclass = '';
-                        $('table.data').find('tr').has('td').each(function () {
-                            rowclass = (ct % 2 === 0) ? 'odd' : 'even';
-                            $(this).removeClass().addClass(rowclass);
-                            ct++;
-                        });
-
                         // If this is the first item being added, remove
                         // the "No items" message and show the list.
                         if ($('table.data').find('tr').has('td').length > 0 &&
@@ -371,30 +352,13 @@ const DatabaseEvents = {
                     // about to remove, so after the removal there will be
                     // nothing to show in the table, so we hide it.
                     $table.hide('slow', function () {
-                        $(this).find('tr.even, tr.odd').remove();
+                        $currRow.remove();
                         $('.withSelected').remove();
                         $('#nothing2display').show('slow');
                     });
                 } else {
                     $currRow.hide('slow', function () {
                         $(this).remove();
-                        // Now we have removed the row from the list, but maybe
-                        // some row classes are wrong now. So we will iterate
-                        // through all rows and assign correct classes to them.
-                        /**
-                         * @var ct Count of processed rows
-                         */
-                        let ct = 0;
-                        /**
-                         * @var rowclass Class to be attached to the row
-                         *               that is being processed
-                         */
-                        let rowclass = '';
-                        $table.find('tr').has('td').each(function () {
-                            rowclass = (ct % 2 === 1) ? 'odd' : 'even';
-                            $(this).removeClass().addClass(rowclass);
-                            ct++;
-                        });
                     });
                 }
 
@@ -454,30 +418,11 @@ const DatabaseEvents = {
                         // about to remove, so after the removal there will be
                         // nothing to show in the table, so we hide it.
                         $table.hide('slow', function () {
-                            $(this).find('tr.even, tr.odd').remove();
+                            $currRow.remove();
                             $('.withSelected').remove();
                             $('#nothing2display').show('slow');
                         });
                     } else {
-                        $currRow.hide('fast', function () {
-                            // we will iterate
-                            // through all rows and assign correct classes to them.
-                            /**
-                             * @var ct Count of processed rows
-                             */
-                            let ct = 0;
-                            /**
-                             * @var rowclass Class to be attached to the row
-                             *               that is being processed
-                             */
-                            let rowclass = '';
-                            $table.find('tr').has('td').each(function () {
-                                rowclass = (ct % 2 === 1) ? 'odd' : 'even';
-                                $(this).removeClass().addClass(rowclass);
-                                ct++;
-                            });
-                        });
-
                         $currRow.remove();
                     }
 
