@@ -492,8 +492,7 @@ export function displayPasswordGenerateButton () {
  */
 export function confirmLink (theLink, theSqlQuery) {
     // Confirmation is not required in the configuration file
-    // or browser is Opera (crappy js implementation)
-    if (window.Messages.strDoYouReally === '' || typeof (window.opera) !== 'undefined') {
+    if (window.Messages.strDoYouReally === '') {
         return true;
     }
 
