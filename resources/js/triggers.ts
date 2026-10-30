@@ -132,7 +132,7 @@ const DatabaseTriggers = {
             bootstrap.Modal.getOrCreateInstance(triggersExportModal).show();
         }
     },
-    editorDialog: function (isNew, $this) {
+    editorDialog: function ($this) {
         const that = this;
         /**
          * @var $edit_row jQuery object containing the reference to
@@ -518,7 +518,7 @@ AJAX.registerOnload('triggers.js', function () {
             $.datepicker.initialized = false;
         }
 
-        DatabaseTriggers.editorDialog($(this).hasClass('add_anchor'), $(this));
+        DatabaseTriggers.editorDialog($(this));
     });
 
     /**

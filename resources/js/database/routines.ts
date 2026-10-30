@@ -141,7 +141,7 @@ const DatabaseRoutines = {
             bootstrap.Modal.getOrCreateInstance(routinesExportModal).show();
         }
     },
-    editorDialog: function (isNew, $this) {
+    editorDialog: function ($this) {
         const that = this;
         /**
          * @var $edit_row jQuery object containing the reference to
@@ -897,12 +897,12 @@ AJAX.registerOnload('database/routines.js', function () {
         event.preventDefault();
         // @ts-ignore
         $.datepicker.initialized = false;
-        DatabaseRoutines.editorDialog(true, $(this));
+        DatabaseRoutines.editorDialog($(this));
     });
 
     $(document).on('click', 'a.ajax.edit_anchor', function (event) {
         event.preventDefault();
-        DatabaseRoutines.editorDialog(false, $(this));
+        DatabaseRoutines.editorDialog($(this));
     });
 
     $(document).on('click', 'a.ajax.exec_anchor', function (event) {

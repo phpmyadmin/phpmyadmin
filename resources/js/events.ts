@@ -124,7 +124,7 @@ const DatabaseEvents = {
             bootstrap.Modal.getOrCreateInstance(eventsExportModal).show();
         }
     },
-    editorDialog: function (isNew, $this) {
+    editorDialog: function ($this) {
         const that = this;
         /**
          * @var $edit_row jQuery object containing the reference to
@@ -542,7 +542,7 @@ AJAX.registerOnload('events.js', function () {
             $.datepicker.initialized = false;
         }
 
-        DatabaseEvents.editorDialog($(this).hasClass('add_anchor'), $(this));
+        DatabaseEvents.editorDialog($(this));
     });
 
     /**
