@@ -292,20 +292,7 @@ export function getSqlEditor ($textarea, options = undefined, resize = undefined
  * Clear text selection
  */
 function clearSelection () {
-    // @ts-ignore
-    if (document.selection && document.selection.empty) {
-        // @ts-ignore
-        document.selection.empty();
-    } else if (window.getSelection) {
-        const sel = window.getSelection();
-        if (sel.empty) {
-            sel.empty();
-        }
-
-        if (sel.removeAllRanges) {
-            sel.removeAllRanges();
-        }
-    }
+    window.getSelection().removeAllRanges();
 }
 
 /**
