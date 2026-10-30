@@ -963,8 +963,7 @@ function addNewContinueInsertionFields (event) {
 
 function changeValueFieldType (elem, searchIndex) {
     const fieldsValue = $('input#fieldID_' + searchIndex);
-    // @ts-ignore
-    if (0 === fieldsValue.size()) {
+    if (fieldsValue.length === 0) {
         return;
     }
 
