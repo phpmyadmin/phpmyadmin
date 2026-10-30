@@ -77,7 +77,6 @@ AJAX.registerOnload('database/central_columns.js', function () {
         const argsep = CommonParams.get('arg_separator');
         const editColumnData = editColumnList + '' + argsep + 'edit_central_columns_page=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + encodeURIComponent(CommonParams.get('db')) + argsep + 'server=' + CommonParams.get('server');
         ajaxShowMessage();
-        AJAX.source = $(this);
         $.post('index.php?route=/database/central-columns', editColumnData, AJAX.responseHandler);
     });
 
@@ -87,7 +86,6 @@ AJAX.registerOnload('database/central_columns.js', function () {
         const argsep = CommonParams.get('arg_separator');
         const multiColumnEditData = $('#multi_edit_central_columns').serialize() + argsep + 'multi_edit_central_column_save=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + encodeURIComponent(CommonParams.get('db')) + argsep + 'server=' + CommonParams.get('server');
         ajaxShowMessage();
-        AJAX.source = $(this);
         $.post('index.php?route=/database/central-columns', multiColumnEditData, AJAX.responseHandler);
     });
 

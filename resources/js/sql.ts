@@ -988,7 +988,6 @@ AJAX.registerOnload('sql.js', function () {
             const argsep = CommonParams.get('arg_separator');
             const submitData = $form.serialize() + argsep + 'ajax_page_request=true';
             ajaxShowMessage();
-            AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         };
 
@@ -1090,7 +1089,6 @@ AJAX.registerOnload('sql.js', function () {
         const argsep = CommonParams.get('arg_separator');
         let submitData = $form.serialize() + argsep + 'ajax_page_request=true' + argsep;
         ajaxShowMessage();
-        AJAX.source = $form;
 
         let url;
         if (action === 'edit') {

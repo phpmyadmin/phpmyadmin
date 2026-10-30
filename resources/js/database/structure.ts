@@ -111,7 +111,6 @@ AJAX.registerOnload('database/structure.js', function () {
                     const data = $form.serialize() + argSep + 'ajax_page_request=true';
 
                     ajaxShowMessage();
-                    AJAX.source = $form;
 
                     $.post(
                         'index.php?route=/database/structure/central-columns/make-consistent',
@@ -209,7 +208,6 @@ AJAX.registerOnload('database/structure.js', function () {
         const data = $form.serialize() + argsep + 'ajax_page_request=true';
 
         ajaxShowMessage();
-        AJAX.source = $form;
 
         $.post(url, data, AJAX.responseHandler);
     });
