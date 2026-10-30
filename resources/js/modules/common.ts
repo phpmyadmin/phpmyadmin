@@ -5,8 +5,6 @@ import { sprintf } from 'locutus/php/strings/sprintf';
  *
  * The content for this is normally loaded from Header.php or
  * Response.php and executed by ajax.js
- *
- * @test-module CommonParams
  */
 const CommonParams = (function () {
     /**

@@ -14,8 +14,6 @@ import { sprintf } from 'locutus/php/strings/sprintf';
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
- *
- * @test-module AJAX
  */
 const AJAX = {
     /**

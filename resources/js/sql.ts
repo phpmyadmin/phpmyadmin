@@ -15,8 +15,6 @@ import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview    functions used wherever an sql query form is used
- *
- * @test-module Sql
  */
 
 /**
