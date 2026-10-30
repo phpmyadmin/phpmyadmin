@@ -710,18 +710,6 @@
       <code><![CDATA[$tableStructure]]></code>
     </MixedAssignment>
   </file>
-  <file src="src/Controllers/Database/ImportController.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$idKey]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
-    </MixedMethodCall>
-  </file>
   <file src="src/Controllers/Database/MultiTableQuery/TablesController.php">
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
@@ -1510,16 +1498,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Server/ImportController.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$idKey]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
-    </MixedMethodCall>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2051,18 +2029,6 @@
     </RiskyCast>
   </file>
   <file src="src/Controllers/Table/ImportController.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$idKey]]></code>
-      <code><![CDATA[$localImportFile]]></code>
-      <code><![CDATA[$timeoutPassed]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
-    </MixedMethodCall>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[UrlParams::$params]]></code>
       <code><![CDATA[UrlParams::$params]]></code>
@@ -4539,16 +4505,13 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Import/Ajax.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']]]></code>
       <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']]]></code>
     </MixedArrayAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']::getUploadStatus($id)]]></code>
-    </MixedMethodCall>
+    <MixedAssignment>
+      <code><![CDATA[$handler]]></code>
+    </MixedAssignment>
   </file>
   <file src="src/Import/Import.php">
     <ArgumentTypeCoercion>
@@ -6609,11 +6572,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-  </file>
-  <file src="src/Plugins/UploadInterface.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getUploadStatus]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Profiling.php">
     <RiskyTruthyFalsyComparison>

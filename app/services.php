@@ -37,6 +37,7 @@ use PhpMyAdmin\Http\Middleware;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Import\Import;
+use PhpMyAdmin\Import\ImportForm;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Navigation\Navigation;
@@ -149,6 +150,10 @@ return [
     Import::class => [
         'class' => Import::class,
         'arguments' => [DatabaseInterface::class, ResponseRenderer::class, Config::class],
+    ],
+    ImportForm::class => [
+        'class' => ImportForm::class,
+        'arguments' => [DatabaseInterface::class, Config::class, Ajax::class, PluginFactory::class],
     ],
     SimulateDml::class => ['class' => SimulateDml::class, 'arguments' => [DatabaseInterface::class]],
     InsertEdit::class => [
