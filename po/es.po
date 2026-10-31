@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-19 17:00+0000\n"
-"PO-Revision-Date: 2026-10-28 12:51+0000\n"
+"PO-Revision-Date: 2026-11-01 22:51+0000\n"
 "Last-Translator: Salvador Peña <sal@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "es/>\n"
@@ -13485,10 +13485,8 @@ msgstr ""
 "(JavaScript Object Notation)"
 
 #: libraries/classes/Types.php:441
-#, fuzzy
-#| msgid "Intended for storage of XML data"
 msgid "Intended for storage of IPv4 addresses"
-msgstr "Destinado al almacenamiento de datos XML"
+msgstr "Destinado al almacenamiento de direcciones IPv4"
 
 #: libraries/classes/Types.php:444
 msgid ""
@@ -18800,7 +18798,7 @@ msgstr "y luego"
 
 #: templates/table/insert/actions_panel.twig:19
 msgid "Go back to previous page"
-msgstr "Volver"
+msgstr "Volver a la página anterior"
 
 #: templates/table/insert/actions_panel.twig:20
 msgid "Insert another new row"
