@@ -3191,7 +3191,8 @@
       <code>$_POST['columnIndex']</code>
       <code>$_POST['useRegex']</code>
     </InvalidScalarArgument>
-    <MixedArgument occurrences="20">
+    <MixedArgument occurrences="21">
+      <code>$column</code>
       <code>$column</code>
       <code>$column</code>
       <code>$column</code>
