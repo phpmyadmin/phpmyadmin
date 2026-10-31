@@ -34,7 +34,7 @@ function getFormatsText () {
         'BETWEEN': ' BETWEEN \'%s\'',
         'NOT BETWEEN': ' NOT BETWEEN \'%s\'',
         'REGEXP': ' REGEXP \'%s\'',
-        'REGEXP ^...$': ' REGEXP \'^%s$\'',
+        'REGEXP ^...$': ' REGEXP \'^(%s)$\'',
         'NOT REGEXP': ' NOT REGEXP \'%s\''
     };
 }
