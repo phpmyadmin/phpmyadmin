@@ -16360,7 +16360,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$haystack of function mb_strpos expects string, mixed given\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
