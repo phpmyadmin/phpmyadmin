@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-25 00:40+0000\n"
-"PO-Revision-Date: 2026-10-28 00:51+0000\n"
+"PO-Revision-Date: 2026-11-01 00:29+0000\n"
 "Last-Translator: Salvador Peña <sal@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
@@ -6855,7 +6855,7 @@ msgstr "y luego"
 
 #: resources/templates/table/insert/actions_panel.twig:20
 msgid "Go back to previous page"
-msgstr "Volver"
+msgstr "Volver a la página anterior"
 
 #: resources/templates/table/insert/actions_panel.twig:21
 msgid "Insert another new row"
