@@ -1795,8 +1795,7 @@ class Results
             $sortExpressionNoDirection[$indexInExpression],
             $sortTable
         ) === false;
-        $noOpenParenthesis = mb_strpos($sortExpressionNoDirection[$indexInExpression], '(') === false;
-        if ($sortTable !== '' && $noSortTable && $noOpenParenthesis) {
+        if ($sortTable !== '' && $noSortTable) {
             $newSortExpressionNoDirection = $sortTable
                 . $sortExpressionNoDirection[$indexInExpression];
         } else {
