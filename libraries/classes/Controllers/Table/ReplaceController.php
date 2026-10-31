@@ -72,7 +72,7 @@ final class ReplaceController extends AbstractController
     {
         global $containerBuilder, $db, $table, $urlParams, $message;
         global $errorUrl, $mime_map, $unsaved_values, $active_page, $disp_query, $disp_message;
-        global $goto_include, $loop_array, $using_key, $is_insert, $is_insertignore, $query;
+        global $loop_array, $using_key, $is_insert, $is_insertignore, $query;
         global $value_sets, $func_no_param, $func_optional_param, $gis_from_text_functions, $gis_from_wkb_functions;
         global $query_fields, $insert_errors, $row_skipped, $query_values;
         global $total_affected_rows, $last_messages, $warning_messages, $error_messages, $return_to_sql_query;
@@ -80,11 +80,6 @@ final class ReplaceController extends AbstractController
         Util::checkParameters(['db', 'table', 'goto']);
 
         $this->dbi->selectDb($db);
-
-        /**
-         * Initializes some variables
-         */
-        $goto_include = false;
 
         $this->addScriptFiles(['makegrid.js', 'sql.js', 'indexes.js', 'gis_data_editor.js']);
 
@@ -121,8 +116,7 @@ final class ReplaceController extends AbstractController
             }
         }
 
-        //get $goto_include for different cases
-        $goto_include = $this->insertEdit->getGotoInclude($goto_include);
+        $goto_include = $this->insertEdit->getGotoInclude();
 
         // Defines the url to return in case of failure of the query
         $errorUrl = $this->insertEdit->getErrorUrl($urlParams);
@@ -416,10 +410,6 @@ final class ReplaceController extends AbstractController
             //
             // Note: logic passes here for inline edit
             $message = Message::success(__('No change'));
-            // Avoid infinite recursion
-            if ($goto_include === '/table/replace') {
-                $goto_include = '/table/change';
-            }
 
             $active_page = $goto_include;
 
@@ -447,16 +437,9 @@ final class ReplaceController extends AbstractController
                 return;
             }
 
-            if ($goto_include === '/table/sql') {
-                /** @var TableSqlController $controller */
-                $controller = $containerBuilder->get(TableSqlController::class);
-                $controller();
-
-                return;
-            }
-
-            /** @psalm-suppress UnresolvableInclude */
-            include ROOT_PATH . Core::securePath($goto_include);
+            /** @var TableSqlController $controller */
+            $controller = $containerBuilder->get(TableSqlController::class);
+            $controller();
 
             return;
         }
@@ -655,18 +638,8 @@ final class ReplaceController extends AbstractController
             return;
         }
 
-        if ($goto_include === '/table/sql') {
-            /** @var TableSqlController $controller */
-            $controller = $containerBuilder->get(TableSqlController::class);
-            $controller();
-
-            return;
-        }
-
-        /**
-         * Load target page.
-         */
-        /** @psalm-suppress UnresolvableInclude */
-        require ROOT_PATH . Core::securePath($goto_include);
+        /** @var TableSqlController $controller */
+        $controller = $containerBuilder->get(TableSqlController::class);
+        $controller();
     }
 }

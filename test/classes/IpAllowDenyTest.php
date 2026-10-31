@@ -167,6 +167,36 @@ class IpAllowDenyTest extends AbstractTestCase
         self::assertFalse($this->ipAllowDeny->ipMaskTest($testRange, $ipToTest));
     }
 
+    /** @dataProvider providerIpv4Cidr */
+    #[DataProvider('providerIpv4Cidr')]
+    public function testIpv4MaskTestWithCidr(string $testRange, string $ipToTest, bool $expected): void
+    {
+        self::assertSame($expected, $this->ipAllowDeny->ipv4MaskTest($testRange, $ipToTest));
+    }
+
+    /** @return iterable<string, array{string, string, bool}> */
+    public static function providerIpv4Cidr(): iterable
+    {
+        yield 'first bit differs /8' => ['10.0.0.0/8', '138.0.0.1', false];
+        yield 'first bit differs /24' => ['192.168.1.0/24', '64.168.1.7', false];
+        yield 'first bit differs /12' => ['172.16.0.0/12', '44.16.0.1', false];
+        yield 'localhost shortcut' => ['127.0.0.1/8', '255.0.0.1', false];
+        yield 'inside /8' => ['10.0.0.0/8', '10.255.255.255', true];
+        yield 'inside /12' => ['172.16.0.0/12', '172.31.255.255', true];
+        yield 'outside /12' => ['172.16.0.0/12', '172.32.0.0', false];
+        yield 'inside /24' => ['192.168.1.0/24', '192.168.1.200', true];
+        yield 'outside /24' => ['192.168.1.0/24', '192.168.2.1', false];
+        yield 'any address /0' => ['0.0.0.0/0', '200.1.2.3', true];
+        yield 'inside /1' => ['128.0.0.0/1', '200.1.2.3', true];
+        yield 'outside /1' => ['128.0.0.0/1', '100.1.2.3', false];
+        yield 'exact /32' => ['1.2.3.4/32', '1.2.3.4', true];
+        yield 'other /32' => ['1.2.3.4/32', '1.2.3.5', false];
+        yield 'prefix too long, same address' => ['1.2.3.4/33', '1.2.3.4', true];
+        yield 'prefix too long, other address' => ['1.2.3.4/33', '1.2.3.5', false];
+        yield 'invalid subnet' => ['1.2.3.256/8', '1.2.3.4', false];
+        yield 'invalid address' => ['1.2.3.0/24', 'invalid', false];
+    }
+
     /**
      * Test for allowDeny
      */
