@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-10-28 12:51+0000\n"
+"PO-Revision-Date: 2026-11-01 22:51+0000\n"
 "Last-Translator: Salvador Peña <sal@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "es/>\n"
@@ -10297,7 +10297,7 @@ msgstr "Mostrar consulta de inserción"
 
 #: libraries/classes/InsertEdit.php:1922
 msgid "Go back to previous page"
-msgstr "Volver"
+msgstr "Volver a la página anterior"
 
 #: libraries/classes/InsertEdit.php:1925
 msgid "Insert another new row"
