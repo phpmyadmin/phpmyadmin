@@ -96,6 +96,7 @@ phpMyAdmin - ChangeLog
 - issue #20497 Escape the username in the user group lookup
 - issue #20531 Disable Events page when event scheduler is disabled
 - issue #20544 Add collation description for uca1400 collations
+- issue #17869 Fix extra cell incorrectly added to the browse results table header
 - issue #20576 Fix IPv4 CIDR matching in AllowDeny rules
 - issue #20577 Fix SqlController missing parameter check
 - issue #20578 Fix cases where an invalid include will cause an error

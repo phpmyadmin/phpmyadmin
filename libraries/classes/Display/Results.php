@@ -1334,7 +1334,7 @@ class Results
 
             $displayParams['emptypre'] = $emptyPreCondition ? 4 : 0;
 
-            $buttonHtml .= '<td' . $colspan . '></td>';
+            $buttonHtml .= '<th' . $colspan . '></th>';
         } elseif ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_NONE) {
             // ... elseif display an empty column if the actions links are
             //  disabled to match the rest of the table
@@ -1978,13 +1978,13 @@ class Results
         $rightColumnHtml = '';
         $displayParams = $this->properties['display_params'];
 
+        $rightOrBoth = $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT
+            || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH;
+
         // Displays the needed checkboxes at the right
         // column of the result table header if possible and required...
         if (
-            ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT)
-            || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
-            && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-            || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
+            $rightOrBoth
             && ($displayParts['text_btn'] == '1')
         ) {
             $displayParams['emptyafter'] = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
@@ -1995,20 +1995,17 @@ class Results
                 . $fullOrPartialTextLink
                 . '</th>';
         } elseif (
-            ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
-            && (($displayParts['edit_lnk'] === self::NO_EDIT_OR_DELETE)
-            && ($displayParts['del_lnk'] === self::NO_EDIT_OR_DELETE))
-            && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
+            $rightOrBoth
+            && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+            || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
         ) {
             //     ... elseif no button, displays empty columns if required
-            // (unless coming from Browse mode print view)
 
             $displayParams['emptyafter'] = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
 
-            $rightColumnHtml .= "\n" . '<td class="d-print-none"' . $colspan
-                . '></td>';
+            $rightColumnHtml .= "\n" . '<th class="d-print-none"' . $colspan
+                . '></th>';
         }
 
         $this->properties['display_params'] = $displayParams;
@@ -2385,11 +2382,12 @@ class Results
             );
 
             // 3. Displays the modify/delete links on the right if required
+            $rightActionColumn = $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT
+                || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH;
             if (
                 ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE
                     || $displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($GLOBALS['cfg']['RowActionLinks'] === self::POSITION_RIGHT
-                    || $GLOBALS['cfg']['RowActionLinks'] === self::POSITION_BOTH)
+                && $rightActionColumn
             ) {
                 $tableBodyHtml .= $this->template->render('display/results/checkbox_and_links', [
                     'position' => self::POSITION_RIGHT,
@@ -2412,6 +2410,11 @@ class Results
                     'is_ajax' => ResponseRenderer::getInstance()->isAjax(),
                     'js_conf' => $jsConf ?? '',
                 ]);
+            } elseif ($rightActionColumn && $displayParts['text_btn'] == '1') {
+                // No edit/delete links, but the full/partial-text toggle occupies
+                // the right action-column header (see getColumnAtRightSide()); emit
+                // an empty cell so each body row stays aligned with that header.
+                $tableBodyHtml .= '<td class="d-print-none"></td>';
             }
 
             $tableBodyHtml .= '</tr>';
