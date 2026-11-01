@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-25 00:40+0000\n"
+"POT-Creation-Date: 2026-11-01 00:29+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -213,7 +213,7 @@ msgstr "pas %s"
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:223
 #: src/Display/Results.php:921 src/Plugins/Export/ExportSql.php:1970
-#: src/Plugins/Schema/SchemaPdf.php:96
+#: src/Plugins/Schema/SchemaPdf.php:95
 msgid "None"
 msgstr "Asnjë"
 
@@ -244,7 +244,7 @@ msgstr "Kolona(t)"
 #: resources/templates/database/routines/editor_form.twig:185
 #: resources/templates/database/routines/execute_form.twig:63
 #: resources/templates/display/results/table.twig:279
-#: resources/templates/events/editor-form.twig:120
+#: resources/templates/events/editor-form.twig:112
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
 #: resources/templates/modals/enum_set_editor.twig:10
@@ -384,17 +384,17 @@ msgstr "Ngarkon…"
 #: resources/templates/columns_definitions/column_definitions_form.twig:179
 #: resources/templates/database/designer/main.twig:1128
 #: resources/templates/database/designer/main.twig:1138
-#: resources/templates/database/routines/index.twig:79
-#: resources/templates/database/routines/index.twig:87
-#: resources/templates/database/routines/index.twig:99
-#: resources/templates/database/routines/index.twig:103
-#: resources/templates/database/routines/index.twig:114
-#: resources/templates/database/routines/index.twig:122
+#: resources/templates/database/routines/index.twig:80
+#: resources/templates/database/routines/index.twig:88
+#: resources/templates/database/routines/index.twig:100
+#: resources/templates/database/routines/index.twig:104
+#: resources/templates/database/routines/index.twig:115
+#: resources/templates/database/routines/index.twig:123
 #: resources/templates/error/report_modal.twig:14
-#: resources/templates/events/index.twig:159
-#: resources/templates/events/index.twig:167
-#: resources/templates/events/index.twig:179
-#: resources/templates/events/index.twig:183
+#: resources/templates/events/index.twig:117
+#: resources/templates/events/index.twig:125
+#: resources/templates/events/index.twig:137
+#: resources/templates/events/index.twig:141
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:90 resources/templates/export.twig:188
@@ -498,7 +498,7 @@ msgstr "Është një çelës i huaj."
 #: src/Plugins/Export/ExportOdt.php:390
 #: src/Plugins/Export/ExportTexytext.php:240
 #: src/Plugins/Export/ExportTexytext.php:300
-#: src/Plugins/Export/Helpers/Pdf.php:470
+#: src/Plugins/Export/Helpers/Pdf.php:463
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:598
 msgid "Column"
@@ -552,7 +552,7 @@ msgstr "Makina"
 #: resources/templates/database/data_dictionary/index.twig:82
 #: resources/templates/database/routines/editor_form.twig:173
 #: resources/templates/database/structure/table_header.twig:46
-#: resources/templates/events/editor-form.twig:108
+#: resources/templates/events/editor-form.twig:100
 #: resources/templates/indexes.twig:25
 #: resources/templates/table/structure/display_partitions.twig:32
 #: resources/templates/table/structure/display_structure.twig:480
@@ -597,7 +597,7 @@ msgstr "Grup nyjë"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:699
-#: src/Import/Import.php:1160 src/Menu.php:214 src/Menu.php:322
+#: src/Import/Import.php:1159 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1385
@@ -611,15 +611,15 @@ msgstr "Struktura"
 #: resources/templates/database/central_columns/main.twig:226
 #: resources/templates/database/routines/editor_form.twig:55
 #: resources/templates/database/routines/execute_form.twig:16
-#: resources/templates/database/routines/index.twig:56
-#: resources/templates/events/index.twig:46
+#: resources/templates/database/routines/index.twig:57
+#: resources/templates/events/index.twig:47
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
-#: resources/templates/triggers/list.twig:47
+#: resources/templates/triggers/list.twig:48
 #: src/Plugins/Export/ExportHtmlword.php:394
 #: src/Plugins/Export/ExportOdt.php:498
 #: src/Plugins/Export/ExportTexytext.php:369
-#: src/Plugins/Export/Helpers/Pdf.php:312
+#: src/Plugins/Export/Helpers/Pdf.php:308
 msgid "Name"
 msgstr "Emri"
 
@@ -633,9 +633,9 @@ msgstr "Emri"
 #: resources/templates/database/routines/editor_form.twig:31
 #: resources/templates/database/routines/editor_form.twig:56
 #: resources/templates/database/routines/execute_form.twig:17
-#: resources/templates/database/routines/index.twig:57
+#: resources/templates/database/routines/index.twig:58
 #: resources/templates/database/structure/table_header.twig:30
-#: resources/templates/events/index.twig:48 resources/templates/indexes.twig:18
+#: resources/templates/events/index.twig:49 resources/templates/indexes.twig:18
 #: resources/templates/table/privileges/index.twig:21
 #: resources/templates/table/search/index.twig:39
 #: resources/templates/table/structure/display_structure.twig:22
@@ -649,7 +649,7 @@ msgstr "Emri"
 #: src/Plugins/Export/ExportOdt.php:393
 #: src/Plugins/Export/ExportTexytext.php:241
 #: src/Plugins/Export/ExportTexytext.php:301
-#: src/Plugins/Export/Helpers/Pdf.php:472
+#: src/Plugins/Export/Helpers/Pdf.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:599
 msgid "Type"
@@ -689,7 +689,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:399
 #: src/Plugins/Export/ExportTexytext.php:243
 #: src/Plugins/Export/ExportTexytext.php:303
-#: src/Plugins/Export/Helpers/Pdf.php:476
+#: src/Plugins/Export/Helpers/Pdf.php:469
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Default"
@@ -712,9 +712,9 @@ msgstr ""
 #: resources/templates/database/operations/index.twig:199
 #: resources/templates/database/structure/table_header.twig:31
 #: resources/templates/home/index.twig:62 resources/templates/indexes.twig:23
-#: resources/templates/server/databases/index.twig:29
 #: resources/templates/server/databases/index.twig:30
-#: resources/templates/server/databases/index.twig:123
+#: resources/templates/server/databases/index.twig:31
+#: resources/templates/server/databases/index.twig:124
 #: resources/templates/table/index_form.twig:147
 #: resources/templates/table/operations/index.twig:159
 #: resources/templates/table/search/index.twig:40
@@ -754,7 +754,7 @@ msgstr "Atributet"
 #: src/Plugins/Export/ExportOdt.php:396
 #: src/Plugins/Export/ExportTexytext.php:242
 #: src/Plugins/Export/ExportTexytext.php:302
-#: src/Plugins/Export/Helpers/Pdf.php:474
+#: src/Plugins/Export/Helpers/Pdf.php:467
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:579
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
 msgid "Null"
@@ -778,7 +778,7 @@ msgstr "Përshtat privilegjet"
 #: src/Config/Descriptions.php:709 src/Plugins/Export/ExportHtmlword.php:313
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:409
 #: src/Plugins/Export/ExportTexytext.php:309
-#: src/Plugins/Export/Helpers/Pdf.php:493
+#: src/Plugins/Export/Helpers/Pdf.php:485
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:592
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 msgid "Comments"
@@ -798,7 +798,7 @@ msgstr "Lëviz kolonën"
 #: src/Config/Descriptions.php:712 src/Plugins/Export/ExportHtmlword.php:320
 #: src/Plugins/Export/ExportOdt.php:416
 #: src/Plugins/Export/ExportTexytext.php:314
-#: src/Plugins/Export/Helpers/Pdf.php:501
+#: src/Plugins/Export/Helpers/Pdf.php:492
 #, fuzzy
 #| msgid "MIME type"
 msgid "Media type"
@@ -845,7 +845,7 @@ msgstr "Opsionet e transformimit të të dhënave"
 #: src/Controllers/Database/Structure/EmptyTableController.php:41
 #: src/Controllers/Operations/TableController.php:320
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:289
+#: src/Controllers/Table/ReplaceController.php:288
 msgid "No change"
 msgstr "Nuk ka ndryshime"
 
@@ -1025,10 +1025,8 @@ msgstr "Requery (kërkesë)"
 #: resources/templates/database/structure/structure_table_row.twig:65
 #: resources/templates/display/results/table.twig:319
 #: resources/templates/display/results/table.twig:320
-#: resources/templates/events/index.twig:77
-#: resources/templates/events/index.twig:80
-#: resources/templates/events/row.twig:23
-#: resources/templates/events/row.twig:26 resources/templates/indexes.twig:35
+#: resources/templates/events/row.twig:22
+#: resources/templates/events/row.twig:25 resources/templates/indexes.twig:35
 #: resources/templates/server/variables/index.twig:41
 #: resources/templates/server/variables/index.twig:44
 #: resources/templates/setup/home/index.twig:64
@@ -1037,7 +1035,7 @@ msgstr "Requery (kërkesë)"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:384
-#: src/Display/Results.php:1834 src/Html/Generator.php:520
+#: src/Display/Results.php:1832 src/Html/Generator.php:520
 #: src/Html/Generator.php:777
 msgid "Edit"
 msgstr "Redakto"
@@ -1056,14 +1054,14 @@ msgstr "Redakto"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:386
-#: src/Display/Results.php:2362 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2360 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "Fshij"
 
 #: resources/templates/console/bookmark_content.twig:12
 #: resources/templates/console/display.twig:60
 #: resources/templates/console/display.twig:218
-#: resources/templates/server/databases/index.twig:106
+#: resources/templates/server/databases/index.twig:107
 #: resources/templates/server/privileges/edit_routine_privileges.twig:17
 #: resources/templates/server/privileges/privileges_table.twig:258
 #: resources/templates/server/privileges/user_properties.twig:22
@@ -1105,7 +1103,7 @@ msgstr "Historia"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
-#: src/Import/Import.php:1161 src/Import/Import.php:1219
+#: src/Import/Import.php:1160 src/Import/Import.php:1218
 msgid "Options"
 msgstr "Opsionet"
 
@@ -1215,7 +1213,7 @@ msgstr "Koha që ka marrë:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:927 src/Export/Export.php:697
+#: src/Config/Descriptions.php:927 src/Export/Export.php:698
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "Rifresko"
@@ -1375,7 +1373,7 @@ msgstr "Kliko për sortim."
 #: resources/templates/database/tracking/tables.twig:18
 #: resources/templates/database/tracking/tables.twig:153
 #: resources/templates/indexes.twig:16
-#: resources/templates/server/databases/index.twig:163
+#: resources/templates/server/databases/index.twig:164
 #: resources/templates/server/privileges/privileges_summary.twig:23
 #: resources/templates/server/privileges/users_overview.twig:22
 #: resources/templates/server/user_groups/user_groups.twig:21
@@ -1409,8 +1407,8 @@ msgstr "Veprimi"
 #: resources/templates/error/report_modal.twig:11
 #: resources/templates/gis_data_editor_form.twig:76
 #: resources/templates/modals/change_password.twig:11
-#: resources/templates/server/databases/index.twig:321
-#: resources/templates/server/databases/index.twig:325
+#: resources/templates/server/databases/index.twig:322
+#: resources/templates/server/databases/index.twig:326
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
 #: src/Controllers/JavaScriptMessagesController.php:317
@@ -1432,7 +1430,7 @@ msgstr "Numri i kolonave"
 #: resources/templates/database/create_table.twig:14
 #: resources/templates/database/operations/index.twig:40
 #: resources/templates/export.twig:29
-#: resources/templates/server/databases/index.twig:46
+#: resources/templates/server/databases/index.twig:47
 msgid "Create"
 msgstr "Krijo"
 
@@ -1454,7 +1452,7 @@ msgstr "Printo"
 #: src/Plugins/Export/ExportHtmlword.php:307
 #: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:403
 #: src/Plugins/Export/ExportTexytext.php:305
-#: src/Plugins/Export/Helpers/Pdf.php:485
+#: src/Plugins/Export/Helpers/Pdf.php:478
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:582
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
 msgid "Links to"
@@ -1500,7 +1498,7 @@ msgstr "Nuk është përcaktuar indeksi!"
 
 #: resources/templates/database/designer/database_tables.twig:31
 #: resources/templates/database/export/index.twig:28
-#: resources/templates/database/search/main.twig:48
+#: resources/templates/database/search/main.twig:47
 #: resources/templates/server/export/index.twig:10
 #: resources/templates/server/privileges/privileges_table.twig:29
 #: resources/templates/server/privileges/privileges_table.twig:56
@@ -1900,26 +1898,26 @@ msgid "Sort"
 msgstr "Klasifikim"
 
 #: resources/templates/database/multi_table_query/form.twig:57
-#: resources/templates/server/databases/index.twig:109
-#: resources/templates/server/databases/index.twig:126
-#: resources/templates/server/databases/index.twig:145
+#: resources/templates/server/databases/index.twig:110
+#: resources/templates/server/databases/index.twig:127
+#: resources/templates/server/databases/index.twig:146
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:156
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1371
-#: src/Display/Results.php:1377 src/Util.php:1642 src/Util.php:1659
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1369
+#: src/Display/Results.php:1375 src/Util.php:1642 src/Util.php:1659
 msgid "Ascending"
 msgstr "Ngritëse"
 
 #: resources/templates/database/multi_table_query/form.twig:58
-#: resources/templates/server/databases/index.twig:111
-#: resources/templates/server/databases/index.twig:128
-#: resources/templates/server/databases/index.twig:147
+#: resources/templates/server/databases/index.twig:112
+#: resources/templates/server/databases/index.twig:129
+#: resources/templates/server/databases/index.twig:148
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:160
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1366
-#: src/Display/Results.php:1382 src/Util.php:1647 src/Util.php:1664
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1364
+#: src/Display/Results.php:1380 src/Util.php:1647 src/Util.php:1664
 msgid "Descending"
 msgstr "Zbritëse"
 
@@ -2034,7 +2032,7 @@ msgid "Copy database to"
 msgstr "Kopjo databazën në"
 
 #: resources/templates/database/operations/index.twig:123
-#: resources/templates/server/databases/index.twig:24
+#: resources/templates/server/databases/index.twig:25
 #: src/Config/Descriptions.php:884
 msgid "Database name"
 msgstr "Emri i databazës"
@@ -2184,18 +2182,17 @@ msgstr "Redakto privilegjet"
 #: resources/templates/database/privileges/index.twig:91
 #: resources/templates/database/privileges/index.twig:115
 #: resources/templates/database/privileges/index.twig:116
-#: resources/templates/database/routines/index.twig:17
 #: resources/templates/database/routines/index.twig:18
+#: resources/templates/database/routines/index.twig:19
 #: resources/templates/database/routines/row.twig:50
 #: resources/templates/database/routines/row.twig:53
 #: resources/templates/database/structure/check_all_tables.twig:12
 #: resources/templates/display/results/table.twig:332
 #: resources/templates/display/results/table.twig:333
 #: resources/templates/display/results/table.twig:365
-#: resources/templates/events/index.twig:18
 #: resources/templates/events/index.twig:19
-#: resources/templates/events/index.twig:85
-#: resources/templates/events/row.twig:31 resources/templates/export.twig:3
+#: resources/templates/events/index.twig:20
+#: resources/templates/events/row.twig:30 resources/templates/export.twig:3
 #: resources/templates/export.twig:493
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
@@ -2207,8 +2204,8 @@ msgstr "Redakto privilegjet"
 #: resources/templates/table/privileges/index.twig:95
 #: resources/templates/table/privileges/index.twig:119
 #: resources/templates/table/privileges/index.twig:120
-#: resources/templates/triggers/list.twig:17
 #: resources/templates/triggers/list.twig:18
+#: resources/templates/triggers/list.twig:19
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:366 src/Menu.php:241
@@ -2239,14 +2236,14 @@ msgstr "Me të zgjedhur:"
 
 #: resources/templates/database/privileges/index.twig:112
 #: resources/templates/database/privileges/index.twig:113
-#: resources/templates/database/routines/index.twig:14
+#: resources/templates/database/routines/index.twig:15
 #: resources/templates/database/structure/check_all_tables.twig:3
 #: resources/templates/database/structure/check_all_tables.twig:4
 #: resources/templates/display/results/table.twig:315
 #: resources/templates/display/results/table.twig:316
-#: resources/templates/events/index.twig:15
+#: resources/templates/events/index.twig:16
 #: resources/templates/select_all.twig:3 resources/templates/select_all.twig:4
-#: resources/templates/server/databases/index.twig:64
+#: resources/templates/server/databases/index.twig:65
 #: resources/templates/server/privileges/edit_routine_privileges.twig:58
 #: resources/templates/server/privileges/privileges_table.twig:269
 #: resources/templates/server/privileges/privileges_table.twig:270
@@ -2259,7 +2256,7 @@ msgstr "Me të zgjedhur:"
 #: resources/templates/server/user_groups/edit_user_groups.twig:22
 #: resources/templates/table/privileges/index.twig:116
 #: resources/templates/table/privileges/index.twig:117
-#: resources/templates/triggers/list.twig:14
+#: resources/templates/triggers/list.twig:15
 msgid "Check all"
 msgstr "Shënjo të gjitha"
 
@@ -2290,7 +2287,6 @@ msgid "Routine name"
 msgstr "Emri rutinë"
 
 #: resources/templates/database/routines/editor_form.twig:43
-#: resources/templates/events/editor-form.twig:53
 #, php-format
 msgid "Change to %s"
 msgstr "Ndrysho tek %s"
@@ -2331,17 +2327,17 @@ msgid "Charset"
 msgstr "Set karakteresh"
 
 #: resources/templates/database/routines/editor_form.twig:118
-#: resources/templates/events/editor-form.twig:87
+#: resources/templates/events/editor-form.twig:79
 #: resources/templates/triggers/editor_form.twig:61
 #: src/Plugins/Export/ExportHtmlword.php:397
 #: src/Plugins/Export/ExportOdt.php:507
 #: src/Plugins/Export/ExportTexytext.php:372
-#: src/Plugins/Export/Helpers/Pdf.php:318
+#: src/Plugins/Export/Helpers/Pdf.php:314
 msgid "Definition"
 msgstr "Përkufizimi"
 
 #: resources/templates/database/routines/editor_form.twig:121
-#: resources/templates/events/editor-form.twig:92
+#: resources/templates/events/editor-form.twig:84
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
 #: resources/templates/table/structure/display_table_stats.twig:81
@@ -2367,7 +2363,7 @@ msgstr ""
 "refero dokumentacionin për më tepër detaje"
 
 #: resources/templates/database/routines/editor_form.twig:148
-#: resources/templates/events/editor-form.twig:102
+#: resources/templates/events/editor-form.twig:94
 #: resources/templates/triggers/editor_form.twig:66
 #: resources/templates/view_create.twig:54
 msgid "Definer"
@@ -2397,44 +2393,42 @@ msgstr "Funksioni"
 msgid "This routine does not require any parameters."
 msgstr ""
 
-#: resources/templates/database/routines/index.twig:3 src/Menu.php:375
+#: resources/templates/database/routines/index.twig:4 src/Menu.php:375
 #: src/Util.php:1393
 msgid "Routines"
 msgstr "Rutinat"
 
-#: resources/templates/database/routines/index.twig:20
 #: resources/templates/database/routines/index.twig:21
+#: resources/templates/database/routines/index.twig:22
 #: resources/templates/database/routines/parameter_row.twig:51
 #: resources/templates/database/routines/row.twig:63
 #: resources/templates/database/structure/check_all_tables.twig:16
 #: resources/templates/database/structure/structure_table_row.twig:86
-#: resources/templates/events/index.twig:21
 #: resources/templates/events/index.twig:22
-#: resources/templates/events/index.twig:95
-#: resources/templates/events/index.twig:101
-#: resources/templates/events/row.twig:42
-#: resources/templates/events/row.twig:48 resources/templates/indexes.twig:59
-#: resources/templates/server/databases/index.twig:67
+#: resources/templates/events/index.twig:23
+#: resources/templates/events/row.twig:40
+#: resources/templates/events/row.twig:46 resources/templates/indexes.twig:59
 #: resources/templates/server/databases/index.twig:68
-#: resources/templates/server/databases/index.twig:326
+#: resources/templates/server/databases/index.twig:69
+#: resources/templates/server/databases/index.twig:327
 #: resources/templates/table/relation/foreign_key_row.twig:25
 #: resources/templates/table/structure/display_partitions.twig:146
 #: resources/templates/table/structure/display_structure.twig:120
 #: resources/templates/table/structure/display_structure.twig:279
 #: resources/templates/table/structure/display_structure.twig:522
-#: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
+#: resources/templates/triggers/list.twig:22
 #: resources/templates/triggers/row.twig:52
 #: resources/templates/triggers/row.twig:58 src/Operations.php:532
 msgid "Drop"
 msgstr "Fshij"
 
-#: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
-#: resources/templates/database/search/main.twig:72
+#: resources/templates/database/routines/index.twig:30
+#: resources/templates/database/search/main.twig:71
 #: resources/templates/database/structure/structure_table_row.twig:52
-#: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
+#: resources/templates/server/databases/index.twig:78
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
 #: src/Menu.php:331 src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1065
@@ -2442,29 +2436,29 @@ msgstr "Fshij"
 msgid "Search"
 msgstr "Kërko"
 
-#: resources/templates/database/routines/index.twig:36
+#: resources/templates/database/routines/index.twig:37
 #, fuzzy
 #| msgid "Create version"
 msgid "Create new routine"
 msgstr "Krijo versionin"
 
-#: resources/templates/database/routines/index.twig:49
+#: resources/templates/database/routines/index.twig:50
 msgid "There are no routines to display."
 msgstr "Nuk ka rutina për t'u shfaqur."
 
-#: resources/templates/database/routines/index.twig:58
+#: resources/templates/database/routines/index.twig:59
 msgid "Returns"
 msgstr "Kthimet"
 
-#: resources/templates/database/routines/index.twig:78
+#: resources/templates/database/routines/index.twig:79
 #, fuzzy
 #| msgid "Routine name"
 msgid "Routine editor"
 msgstr "Emri rutinë"
 
-#: resources/templates/database/routines/index.twig:83
-#: resources/templates/database/routines/index.twig:118
-#: resources/templates/events/index.twig:163
+#: resources/templates/database/routines/index.twig:84
+#: resources/templates/database/routines/index.twig:119
+#: resources/templates/events/index.twig:121
 #: resources/templates/home/index.twig:320
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
@@ -2477,8 +2471,8 @@ msgstr "Emri rutinë"
 msgid "Loading…"
 msgstr "Ngarkon…"
 
-#: resources/templates/database/routines/index.twig:88
-#: resources/templates/events/index.twig:168
+#: resources/templates/database/routines/index.twig:89
+#: resources/templates/events/index.twig:126
 #: resources/templates/server/privileges/users_overview.twig:177
 #: resources/templates/triggers/list.twig:91
 #, fuzzy
@@ -2486,19 +2480,19 @@ msgstr "Ngarkon…"
 msgid "Save changes"
 msgstr "Ruaj faqen"
 
-#: resources/templates/database/routines/index.twig:98
+#: resources/templates/database/routines/index.twig:99
 #, fuzzy
 #| msgid "Export of routine %s"
 msgid "Export routine"
 msgstr "Eksporti i rutinës %s"
 
-#: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:336
-#: src/Controllers/Database/RoutinesController.php:344
+#: resources/templates/database/routines/index.twig:114
+#: src/Controllers/Database/RoutinesController.php:331
+#: src/Controllers/Database/RoutinesController.php:339
 msgid "Execute routine"
 msgstr "Ekzekuto rutinën"
 
-#: resources/templates/database/routines/index.twig:123
+#: resources/templates/database/routines/index.twig:124
 #: resources/templates/database/routines/row.twig:35
 #: resources/templates/database/routines/row.twig:38
 msgid "Execute"
@@ -2513,62 +2507,62 @@ msgstr "Editori ENUM/SET (num/vendos)"
 msgid "Search in database"
 msgstr "Kërko në databazë"
 
-#: resources/templates/database/search/main.twig:9
+#: resources/templates/database/search/main.twig:8
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Fjalët ose vlertat për të cilat kërkoni (wildcard: \"%\"):"
 
-#: resources/templates/database/search/main.twig:14
+#: resources/templates/database/search/main.twig:13
 #: resources/templates/table/find_replace/index.twig:31
 msgid "Find:"
 msgstr "Gjej:"
 
-#: resources/templates/database/search/main.twig:18 src/Database/Search.php:79
+#: resources/templates/database/search/main.twig:17 src/Database/Search.php:79
 msgid "at least one of the words"
 msgstr "të paktën një nga fjalët"
 
-#: resources/templates/database/search/main.twig:18
-#: resources/templates/database/search/main.twig:22
+#: resources/templates/database/search/main.twig:17
+#: resources/templates/database/search/main.twig:21
 msgid "Words are separated by a space character (\" \")."
 msgstr "Fjalët ndahen me një karakter hapësire (\" \")."
 
-#: resources/templates/database/search/main.twig:22 src/Database/Search.php:80
+#: resources/templates/database/search/main.twig:21 src/Database/Search.php:80
 msgid "all of the words"
 msgstr "të gjitha fjalët"
 
-#: resources/templates/database/search/main.twig:26 src/Database/Search.php:81
+#: resources/templates/database/search/main.twig:25 src/Database/Search.php:81
 msgid "the exact phrase as substring"
 msgstr "shprehja e saktë si substring"
 
-#: resources/templates/database/search/main.twig:30 src/Database/Search.php:82
+#: resources/templates/database/search/main.twig:29 src/Database/Search.php:82
 msgid "the exact phrase as whole field"
 msgstr "shprehja e saktë si fushë e tërë"
 
-#: resources/templates/database/search/main.twig:34 src/Database/Search.php:83
+#: resources/templates/database/search/main.twig:33 src/Database/Search.php:83
 msgid "as regular expression"
 msgstr "si shprehje e rregullt"
 
-#: resources/templates/database/search/main.twig:36
+#: resources/templates/database/search/main.twig:35
 #: resources/templates/database/structure/copy_form.twig:14
 #, fuzzy
 #| msgid "Options"
 msgid "Options:"
 msgstr "Opsionet"
 
-#: resources/templates/database/search/main.twig:40
+#: resources/templates/database/search/main.twig:39
 msgid "include hex matches"
 msgstr ""
 
-#: resources/templates/database/search/main.twig:45
+#: resources/templates/database/search/main.twig:44
 msgid "Inside tables:"
 msgstr "Tabelat e brendshme:"
 
-#: resources/templates/database/search/main.twig:49
+#: resources/templates/database/search/main.twig:48
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
 msgstr "Mos-zgjedh të gjitha"
 
-#: resources/templates/database/search/main.twig:67
+#: resources/templates/database/search/main.twig:66
 msgid "Inside column:"
 msgstr "Kolona e brendshme:"
 
@@ -2753,7 +2747,7 @@ msgstr ""
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:250
 #: src/Plugins/Export/ExportSql.php:907 src/Plugins/Export/ExportXml.php:356
-#: src/Plugins/Export/Helpers/Pdf.php:147
+#: src/Plugins/Export/Helpers/Pdf.php:146
 msgid "Database:"
 msgstr "Databaza:"
 
@@ -2792,15 +2786,15 @@ msgid "Add to Favorites"
 msgstr "Shto tek Preferencat"
 
 #: resources/templates/database/structure/index.twig:15
-#: src/Plugins/Schema/SchemaPdf.php:87
+#: src/Plugins/Schema/SchemaPdf.php:86
 msgid "Data dictionary"
 msgstr "Fjalori i të dhënave"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:65
+#: src/Controllers/Database/ExportController.php:66
 #: src/Controllers/Database/TrackingController.php:117
-#: src/Controllers/Export/ExportController.php:286
+#: src/Controllers/Export/ExportController.php:287
 msgid "No tables found in database."
 msgstr "Nuk gjenden tabela në databazë."
 
@@ -2823,7 +2817,7 @@ msgstr "Shfaqën krijo pyetsorët"
 #: resources/templates/table/relation/common_form.twig:102
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:31
-#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:935
+#: resources/templates/triggers/list.twig:50 src/Config/Descriptions.php:935
 #: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1563
 #: src/Server/Privileges.php:1565
 msgid "Table"
@@ -2855,14 +2849,14 @@ msgid "Create view"
 msgstr "Krijo pamje"
 
 #: resources/templates/database/structure/structure_table_row.twig:17
-#: resources/templates/server/databases/index.twig:219
-#: resources/templates/server/databases/index.twig:231
+#: resources/templates/server/databases/index.twig:220
+#: resources/templates/server/databases/index.twig:232
 msgid "Not replicated"
 msgstr "Nuk është replikuar"
 
 #: resources/templates/database/structure/structure_table_row.twig:18
-#: resources/templates/server/databases/index.twig:215
-#: resources/templates/server/databases/index.twig:227
+#: resources/templates/server/databases/index.twig:216
+#: resources/templates/server/databases/index.twig:228
 msgid "Replicated"
 msgstr "Replikuar"
 
@@ -2888,7 +2882,7 @@ msgstr "në përdorim"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:116
-#: src/Controllers/Server/DatabasesController.php:267 src/Import/Import.php:133
+#: src/Controllers/Server/DatabasesController.php:267 src/Import/Import.php:132
 msgid "Rows"
 msgstr "Radhët"
 
@@ -2954,7 +2948,7 @@ msgstr "Aktualizuar"
 
 #: resources/templates/database/tracking/tables.twig:17
 #: resources/templates/events/editor-form.twig:30
-#: resources/templates/events/index.twig:47
+#: resources/templates/events/index.twig:48
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:280 src/Menu.php:450
@@ -2963,7 +2957,7 @@ msgid "Status"
 msgstr "Statusi"
 
 #: resources/templates/database/tracking/tables.twig:47
-#: resources/templates/events/index.twig:116
+#: resources/templates/events/index.twig:74
 msgid "Click to toggle"
 msgstr "Kliko për të nyjëzuar"
 
@@ -3150,7 +3144,7 @@ msgstr "Binare e mirënjohur"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:472
-#: src/Display/Results.php:1835 src/Html/Generator.php:82
+#: src/Display/Results.php:1833 src/Html/Generator.php:82
 msgid "Copy"
 msgstr "Kopjo"
 
@@ -3161,7 +3155,7 @@ msgstr "Veprimet e rezultatit të pyetsorit"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:471
-#: src/Export/Export.php:716
+#: src/Export/Export.php:717
 msgid "Copy to clipboard"
 msgstr "Kopjo në clipboard"
 
@@ -3188,7 +3182,7 @@ msgstr "Konverto në Kana"
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
 #: src/Controllers/Operations/ViewController.php:95 src/Html/Generator.php:728
-#: src/Import/Import.php:122 src/InsertEdit.php:412 src/Message.php:104
+#: src/Import/Import.php:121 src/InsertEdit.php:412 src/Message.php:104
 msgid "Error"
 msgstr "Gabim"
 
@@ -3251,29 +3245,29 @@ msgstr "Emri i ngjarjes"
 msgid "Event type"
 msgstr "Tipi i ngjarjes"
 
-#: resources/templates/events/editor-form.twig:58
+#: resources/templates/events/editor-form.twig:50
 msgid "Execute at"
 msgstr "Ekzekuto në"
 
-#: resources/templates/events/editor-form.twig:64
+#: resources/templates/events/editor-form.twig:56
 msgid "Execute every"
 msgstr "Ekzekuto çdo"
 
-#: resources/templates/events/editor-form.twig:75
+#: resources/templates/events/editor-form.twig:67
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Fillo"
 
-#: resources/templates/events/editor-form.twig:81
+#: resources/templates/events/editor-form.twig:73
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Fund"
 
-#: resources/templates/events/editor-form.twig:96
+#: resources/templates/events/editor-form.twig:88
 msgid "On completion preserve"
 msgstr "Në përfundim ruaj"
 
-#: resources/templates/events/index.twig:3 src/Menu.php:381
+#: resources/templates/events/index.twig:4 src/Menu.php:381
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:977 src/Plugins/Export/ExportXml.php:92
@@ -3281,41 +3275,41 @@ msgstr "Në përfundim ruaj"
 msgid "Events"
 msgstr "Ngjarjet"
 
-#: resources/templates/events/index.twig:30
+#: resources/templates/events/index.twig:31
 #, fuzzy
 #| msgid "Create event"
 msgid "Create new event"
 msgstr "Versioni i MySQL"
 
-#: resources/templates/events/index.twig:39
+#: resources/templates/events/index.twig:40
 msgid "There are no events to display."
 msgstr "Nuk ka ngjarje për t'u shfaqur."
 
-#: resources/templates/events/index.twig:111
+#: resources/templates/events/index.twig:69
 msgid "Event scheduler status"
 msgstr "Statusi i ngjarjeve të planifikuara"
 
-#: resources/templates/events/index.twig:129
+#: resources/templates/events/index.twig:87
 msgid "ON"
 msgstr "PO"
 
-#: resources/templates/events/index.twig:140
+#: resources/templates/events/index.twig:98
 msgid "OFF"
 msgstr "hequr"
 
-#: resources/templates/events/index.twig:158
+#: resources/templates/events/index.twig:116
 #, fuzzy
 #| msgid "Excel edition"
 msgid "Event editor"
 msgstr "Edicioni excel"
 
-#: resources/templates/events/index.twig:178
+#: resources/templates/events/index.twig:136
 #, fuzzy
 #| msgid "Export of event %s"
 msgid "Export event"
 msgstr "Eksporti i ngjarjes %s"
 
-#: resources/templates/events/index.twig:189
+#: resources/templates/events/index.twig:147
 #, fuzzy
 #| msgid "The slow query log is disabled."
 msgid "The event scheduler is disabled."
@@ -3797,7 +3791,7 @@ msgstr "merre atë"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:416
-#: src/Export/Export.php:739 src/Html/Generator.php:836
+#: src/Export/Export.php:740 src/Html/Generator.php:836
 #: src/Plugins/Schema/ExportRelationSchema.php:258
 msgid "Back"
 msgstr "Prapa"
@@ -4099,7 +4093,7 @@ msgstr ""
 msgid "View:"
 msgstr "Shfaqje:"
 
-#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:148
+#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:147
 msgid "Table:"
 msgstr "Tabela:"
 
@@ -4173,7 +4167,7 @@ msgid "SQL upload"
 msgstr "SQL zbraz"
 
 #: resources/templates/navigation/tree/database_select.twig:10
-#: resources/templates/server/databases/index.twig:3
+#: resources/templates/server/databases/index.twig:4
 #: resources/templates/server/export/index.twig:7
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
@@ -4736,21 +4730,21 @@ msgctxt "The collation is the default one"
 msgid "default"
 msgstr "Parazgjedhur"
 
-#: resources/templates/server/databases/index.twig:3
+#: resources/templates/server/databases/index.twig:4
 msgid "Databases statistics"
 msgstr "Statistikat e databazës"
 
-#: resources/templates/server/databases/index.twig:9
+#: resources/templates/server/databases/index.twig:10
 msgid "Create database"
 msgstr "Krijo databazë"
 
-#: resources/templates/server/databases/index.twig:50
+#: resources/templates/server/databases/index.twig:51
 #, fuzzy
 #| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
 msgstr "Kontrollo privilegjet për databazën \"%s\"."
 
-#: resources/templates/server/databases/index.twig:156
+#: resources/templates/server/databases/index.twig:157
 #: resources/templates/server/replication/index.twig:18
 #: resources/templates/server/replication/primary_replication.twig:3
 #, fuzzy
@@ -4758,35 +4752,35 @@ msgstr "Kontrollo privilegjet për databazën \"%s\"."
 msgid "Primary replication"
 msgstr "Replikimi master"
 
-#: resources/templates/server/databases/index.twig:160
+#: resources/templates/server/databases/index.twig:161
 #: resources/templates/server/replication/replica_configuration.twig:2
 #, fuzzy
 #| msgid "Slave replication"
 msgid "Replica replication"
 msgstr "Replikimi skllav (slave)"
 
-#: resources/templates/server/databases/index.twig:181
+#: resources/templates/server/databases/index.twig:182
 #, fuzzy, php-format
 #| msgid "Jump to database"
 msgid "Jump to database '%s'"
 msgstr "Hidhu tek databaza"
 
-#: resources/templates/server/databases/index.twig:238
+#: resources/templates/server/databases/index.twig:239
 #, php-format
 msgid "Check privileges for database \"%s\"."
 msgstr "Kontrollo privilegjet për databazën \"%s\"."
 
-#: resources/templates/server/databases/index.twig:239
+#: resources/templates/server/databases/index.twig:240
 msgid "Check privileges"
 msgstr "Kontrollo privilegjet"
 
-#: resources/templates/server/databases/index.twig:244
+#: resources/templates/server/databases/index.twig:245
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL queries on database \"%s\"."
 msgstr "Ekzekuto pyetsorin/rët SQL në databazën %s"
 
-#: resources/templates/server/databases/index.twig:245
+#: resources/templates/server/databases/index.twig:246
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
@@ -4795,13 +4789,13 @@ msgstr "Ekzekuto pyetsorin/rët SQL në databazën %s"
 msgid "SQL"
 msgstr "SQL"
 
-#: resources/templates/server/databases/index.twig:255
+#: resources/templates/server/databases/index.twig:256
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:298
 msgid "Total:"
 msgstr "Totali:"
 
-#: resources/templates/server/databases/index.twig:300
+#: resources/templates/server/databases/index.twig:301
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -4809,16 +4803,16 @@ msgstr ""
 "Shënim: Aftësimi i statistikave të databazës, mund të shkaktojë trafik të "
 "rënduar ndërmjet ueb serverit dhe serverit MySQL."
 
-#: resources/templates/server/databases/index.twig:302
 #: resources/templates/server/databases/index.twig:303
+#: resources/templates/server/databases/index.twig:304
 msgid "Enable statistics"
 msgstr "Aftëso statistikat"
 
-#: resources/templates/server/databases/index.twig:310
+#: resources/templates/server/databases/index.twig:311
 msgid "No databases"
 msgstr "Nuk ka databaza"
 
-#: resources/templates/server/databases/index.twig:320
+#: resources/templates/server/databases/index.twig:321
 #: src/Controllers/JavaScriptMessagesController.php:342
 msgid "Confirm"
 msgstr "Konfirmo"
@@ -6481,7 +6475,7 @@ msgid "Start auto refresh"
 msgstr "Fillo auto rifreskim"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2380
+#: src/Display/Results.php:2378
 msgid "Kill"
 msgstr "Vrit"
 
@@ -6836,12 +6830,12 @@ msgid "State"
 msgstr "Gjendja"
 
 #: resources/templates/sql/profiling_chart.twig:13
-#: resources/templates/triggers/list.twig:51
+#: resources/templates/triggers/list.twig:52
 #: src/Controllers/JavaScriptMessagesController.php:281
 #: src/Plugins/Export/ExportHtmlword.php:395
 #: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
-#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:109
+#: src/Plugins/Export/Helpers/Pdf.php:310 src/Server/Status/Processes.php:109
 msgid "Time"
 msgstr "Koha"
 
@@ -6874,7 +6868,7 @@ msgstr "Rezultatet e profilimit"
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:95
-#: src/Database/Routines.php:1000 src/Message.php:87
+#: src/Database/Routines.php:980 src/Message.php:87
 msgid "Your SQL query has been executed successfully."
 msgstr "Pyetsori juaj SQL është ekzekutuar me sukses."
 
@@ -7188,7 +7182,7 @@ msgstr "Tërhiq për të ri-renditur"
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:470
 #: src/Controllers/JavaScriptMessagesController.php:622
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1394
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1390
 msgid "Ignore"
 msgstr "Injoro"
 
@@ -7374,13 +7368,13 @@ msgstr "Zbraz tabelën (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:366
+#: src/Controllers/Database/StructureController.php:367
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Paraqitja %s është fshirë."
 
 #: resources/templates/table/operations/index.twig:459
-#: src/Controllers/Database/StructureController.php:366
+#: src/Controllers/Database/StructureController.php:367
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabela %s është fshirë."
@@ -7881,23 +7875,23 @@ msgid "Time"
 msgstr "Koha"
 
 #: resources/templates/triggers/editor_form.twig:51
-#: resources/templates/triggers/list.twig:52
+#: resources/templates/triggers/list.twig:53
 #: src/Controllers/JavaScriptMessagesController.php:370
 #: src/Navigation/Nodes/NodeEvent.php:27
 #: src/Plugins/Export/ExportHtmlword.php:396
 #: src/Plugins/Export/ExportOdt.php:504
 #: src/Plugins/Export/ExportTexytext.php:371
-#: src/Plugins/Export/Helpers/Pdf.php:316
+#: src/Plugins/Export/Helpers/Pdf.php:312
 msgid "Event"
 msgstr "Ngjarje"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:233
+#: src/Controllers/Triggers/IndexController.php:225
 #, php-format
 msgid "Export of trigger %s"
 msgstr "Eksporti i shkrehësit %s"
 
-#: resources/templates/triggers/list.twig:3 src/Menu.php:295 src/Menu.php:388
+#: resources/templates/triggers/list.twig:4 src/Menu.php:295 src/Menu.php:388
 #: src/Navigation/Nodes/NodeTriggerContainer.php:24
 #: src/Navigation/Nodes/NodeTriggerContainer.php:26
 #: src/Plugins/Export/ExportHtmlword.php:448
@@ -7908,13 +7902,13 @@ msgstr "Eksporti i shkrehësit %s"
 msgid "Triggers"
 msgstr "Shkrehësit"
 
-#: resources/templates/triggers/list.twig:29
+#: resources/templates/triggers/list.twig:30
 #, fuzzy
 #| msgid "Create trigger"
 msgid "Create new trigger"
 msgstr "Versioni i MySQL"
 
-#: resources/templates/triggers/list.twig:40
+#: resources/templates/triggers/list.twig:41
 msgid "There are no triggers to display."
 msgstr "Nuk ka shkrehës për t'u shfaqur."
 
@@ -11180,8 +11174,8 @@ msgstr "Kompreso në fluturim"
 msgid "Confirm DROP queries"
 msgstr "Konfirmo pyetsorët DROP (fshij)"
 
-#: src/Config/Descriptions.php:614 src/Plugins/Schema/SchemaDia.php:64
-#: src/Plugins/Schema/SchemaPdf.php:74
+#: src/Config/Descriptions.php:614 src/Plugins/Schema/SchemaDia.php:63
+#: src/Plugins/Schema/SchemaPdf.php:73
 msgid "Paper size"
 msgstr "Madhësia e letrës"
 
@@ -12712,21 +12706,21 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/Database/DesignerController.php:172
-#: src/Controllers/Database/ExportController.php:55
-#: src/Controllers/Database/ImportController.php:60
+#: src/Controllers/Database/ExportController.php:56
+#: src/Controllers/Database/ImportController.php:62
 #: src/Controllers/Database/RoutinesController.php:78
 #: src/Controllers/Database/RoutinesController.php:96
 #: src/Controllers/Database/SearchController.php:51
 #: src/Controllers/Database/SqlController.php:51
-#: src/Controllers/Database/StructureController.php:157
+#: src/Controllers/Database/StructureController.php:158
 #: src/Controllers/Database/Structure/FavoriteTableController.php:65
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
 #: src/Controllers/Database/TrackingController.php:53
 #: src/Controllers/Events/ExportController.php:38
-#: src/Controllers/Events/IndexController.php:40
+#: src/Controllers/Events/IndexController.php:42
 #: src/Controllers/JavaScriptMessagesController.php:335
 #: src/Controllers/Operations/Database/CollationController.php:54
-#: src/Controllers/Operations/DatabaseController.php:228
+#: src/Controllers/Operations/DatabaseController.php:236
 #: src/Controllers/Operations/TableController.php:84
 #: src/Controllers/Operations/ViewController.php:60
 #: src/Controllers/Server/Databases/DestroyController.php:62
@@ -12739,7 +12733,7 @@ msgstr ""
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
 #: src/Controllers/Table/FindReplaceController.php:74
 #: src/Controllers/Table/GisVisualizationController.php:68
-#: src/Controllers/Table/ImportController.php:69
+#: src/Controllers/Table/ImportController.php:71
 #: src/Controllers/Table/IndexesController.php:64
 #: src/Controllers/Table/IndexRenameController.php:52
 #: src/Controllers/Table/SearchController.php:168
@@ -12756,17 +12750,17 @@ msgstr ""
 msgid "No database selected."
 msgstr "Nuk janë zgjedhur databaza."
 
-#: src/Controllers/Database/ExportController.php:120
-#: src/Controllers/Server/ExportController.php:57
-#: src/Controllers/Table/ExportController.php:92
+#: src/Controllers/Database/ExportController.php:121
+#: src/Controllers/Server/ExportController.php:58
+#: src/Controllers/Table/ExportController.php:93
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Nuk mund të ngarkojë shtojcat e eksportit, ju lutem kontrollo instalimin "
 "tuaj!"
 
-#: src/Controllers/Database/ImportController.php:70
-#: src/Controllers/Server/ImportController.php:62
-#: src/Controllers/Table/ImportController.php:87
+#: src/Controllers/Database/ImportController.php:72
+#: src/Controllers/Server/ImportController.php:64
+#: src/Controllers/Table/ImportController.php:89
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Nuk mund të ngarkojë shtojcat e importit, ju lutem kontrollo instalimin tuaj!"
@@ -12807,7 +12801,7 @@ msgstr "Ju nuk keni privilegje të manipuloni me përdoruesit!"
 #: src/Controllers/Table/DeleteConfirmController.php:59
 #: src/Controllers/Table/DropColumnConfirmationController.php:54
 #: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/ImportController.php:74
+#: src/Controllers/Table/ImportController.php:76
 #: src/Controllers/Table/IndexesController.php:69
 #: src/Controllers/Table/IndexRenameController.php:57
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:45
@@ -12826,23 +12820,23 @@ msgstr "Ju nuk keni privilegje të manipuloni me përdoruesit!"
 msgid "No table selected."
 msgstr "Nuk është zgjedhur tabelë."
 
-#: src/Controllers/Database/RoutinesController.php:171
+#: src/Controllers/Database/RoutinesController.php:166
 msgid "Add routine"
 msgstr "Shto rutinë"
 
-#: src/Controllers/Database/RoutinesController.php:175
+#: src/Controllers/Database/RoutinesController.php:170
 msgid "Edit routine"
 msgstr "Redakto rutinën"
 
-#: src/Controllers/Database/RoutinesController.php:255
-#: src/Controllers/Database/RoutinesController.php:285
-#: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Events/IndexController.php:182
-#: src/Controllers/Triggers/IndexController.php:207
+#: src/Controllers/Database/RoutinesController.php:250
+#: src/Controllers/Database/RoutinesController.php:280
+#: src/Controllers/Database/RoutinesController.php:346
+#: src/Controllers/Events/IndexController.php:175
+#: src/Controllers/Triggers/IndexController.php:199
 msgid "Error in processing request:"
 msgstr "Gabim në proçesimin e kërkesës:"
 
-#: src/Controllers/Database/RoutinesController.php:258
+#: src/Controllers/Database/RoutinesController.php:253
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12851,18 +12845,18 @@ msgstr ""
 "Asnjë rutinë me emrin %1$s nuk gjendet në bazën e të dhënave %2$s. Mund t`ju "
 "mungojne privilegjet e nevojshme për të redaktuar këtë rutinë."
 
-#: src/Controllers/Database/RoutinesController.php:287
-#: src/Controllers/Database/RoutinesController.php:353
+#: src/Controllers/Database/RoutinesController.php:282
+#: src/Controllers/Database/RoutinesController.php:348
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Asnjë rutinë me emrin %1$s nuk gjendet në bazën e të dhënave %2$s."
 
-#: src/Controllers/Database/RoutinesController.php:384
+#: src/Controllers/Database/RoutinesController.php:379
 #, php-format
 msgid "Export of routine %s"
 msgstr "Eksporti i rutinës %s"
 
-#: src/Controllers/Database/RoutinesController.php:403
+#: src/Controllers/Database/RoutinesController.php:398
 #, fuzzy, php-format
 #| msgid ""
 #| "No routine with name %1$s found in database %2$s. You might be lacking "
@@ -12887,8 +12881,8 @@ msgstr ""
 msgid "Success!"
 msgstr "Sukses!"
 
-#: src/Controllers/Database/StructureController.php:565
-#: src/Display/Results.php:3187
+#: src/Controllers/Database/StructureController.php:566
+#: src/Display/Results.php:3185
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12897,7 +12891,7 @@ msgstr ""
 "Kjo pamje ka të paktën këtë numër të radhëve. Ju lutem, refero "
 "%sdokumentacionin%s."
 
-#: src/Controllers/Database/StructureController.php:734
+#: src/Controllers/Database/StructureController.php:735
 msgid "unknown"
 msgstr "e panjohur"
 
@@ -12961,31 +12955,31 @@ msgstr "Duhet të rifreskoni faqen."
 msgid "Export of event %s"
 msgstr "Eksporti i ngjarjes %s"
 
-#: src/Controllers/Events/ExportController.php:75
+#: src/Controllers/Events/ExportController.php:67
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s."
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Nuk ka ngjarje me emrin %1$s që gjendet në databazë %2$s."
 
-#: src/Controllers/Events/IndexController.php:61
+#: src/Controllers/Events/IndexController.php:65
 msgid "The event was dropped immediately after creation."
 msgstr ""
 
-#: src/Controllers/Events/IndexController.php:129
+#: src/Controllers/Events/IndexController.php:112
 msgid "Add event"
 msgstr "Shto ngjarje"
 
-#: src/Controllers/Events/IndexController.php:133
+#: src/Controllers/Events/IndexController.php:116
 msgid "Edit event"
 msgstr "Redakto ngjarjen"
 
-#: src/Controllers/Events/IndexController.php:184
+#: src/Controllers/Events/IndexController.php:175
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Nuk ka ngjarje me emrin %1$s që gjendet në databazë %2$s."
 
-#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:677
+#: src/Controllers/Export/ExportController.php:121 src/Export/Export.php:678
 msgid "Bad type!"
 msgstr "Tip i keq!"
 
@@ -13195,7 +13189,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" - deklaratat janë pasivizuar."
 
-#: src/Controllers/Import/ImportController.php:697 src/Sql.php:918
+#: src/Controllers/Import/ImportController.php:697 src/Sql.php:920
 msgid "[ROLLBACK occurred.]"
 msgstr "[RIKTHIMI u shfaq.]"
 
@@ -15300,23 +15294,23 @@ msgstr "Varg (string)"
 msgid "No collation provided."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:82
+#: src/Controllers/Operations/DatabaseController.php:85
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Nuk mund të kopjoni bazën e të dhënave me të njëjtin emër. Ndrysho emrin dhe "
 "provo përsëri."
 
-#: src/Controllers/Operations/DatabaseController.php:162
+#: src/Controllers/Operations/DatabaseController.php:170
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Databaza %1$s është riemëruar në %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:175
+#: src/Controllers/Operations/DatabaseController.php:183
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Databaza %1$s është kopjuar në %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:264
+#: src/Controllers/Operations/DatabaseController.php:272
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -16191,7 +16185,7 @@ msgstr "Të dhëna gabim"
 msgid "Wrong data or no validation for %s"
 msgstr "Të dhëna të gabuara ose pa validim për %s"
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1078
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1080
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Faqerojtësi %s është krijuar."
@@ -16272,8 +16266,8 @@ msgid "There is an issue with your request."
 msgstr "Ka shumë bashkime pa indekse."
 
 #: src/Controllers/Table/GetFieldController.php:109
-#: src/Database/Routines.php:1017 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:904
+#: src/Database/Routines.php:997 src/Import/Import.php:137
+#: src/InsertEdit.php:163 src/Sql.php:906
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ktheu një set rezultati të zbrazët (psh. zero radhë)."
 
@@ -16327,7 +16321,7 @@ msgstr "Shfaqja e kolonës u aktualizua me sukses."
 msgid "Internal relationships were successfully updated."
 msgstr "Marrëdhëniet e brendshme u përditësuan me sukses."
 
-#: src/Controllers/Table/ReplaceController.php:183
+#: src/Controllers/Table/ReplaceController.php:182
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Radhë: %1$s, Kolonë: %2$s, Gabim: %3$s"
@@ -16388,20 +16382,20 @@ msgstr "Versionet e gjurmuara u fshinë me sukses."
 msgid "No versions selected."
 msgstr "Nuk janë zgjedhur versione."
 
-#: src/Controllers/Triggers/IndexController.php:163
+#: src/Controllers/Triggers/IndexController.php:155
 msgid "Add trigger"
 msgstr "Shto shkrehës"
 
-#: src/Controllers/Triggers/IndexController.php:167
+#: src/Controllers/Triggers/IndexController.php:159
 msgid "Edit trigger"
 msgstr "Redakto shkrehësin"
 
-#: src/Controllers/Triggers/IndexController.php:209
+#: src/Controllers/Triggers/IndexController.php:201
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Nuk ka shkrehës me emrin %1$s të gjetur në databazën %2$s."
 
-#: src/Controllers/Triggers/IndexController.php:250
+#: src/Controllers/Triggers/IndexController.php:242
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s."
 msgid ""
@@ -16505,7 +16499,7 @@ msgstr "Gabim: Marrëdhënia e brendshme nuk mund të hiqet!"
 msgid "Internal relationship has been removed."
 msgstr "Relacionet e brendshme janë hequr."
 
-#: src/Database/Designer.php:117
+#: src/Database/Designer.php:119
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "Nuk mund te ngarkohen shtojcat e skemës, ju lutem kontrollo instalimin tuaj!"
@@ -16515,65 +16509,53 @@ msgstr ""
 msgid "Invalid routine type: \"%s\""
 msgstr "Tip rutine i pavlefshëm: \"%s\""
 
-#: src/Database/Routines.php:103 src/Database/Routines.php:129
-#: src/Database/Routines.php:205 src/Database/Routines.php:977
-#: src/Events/Events.php:87 src/Events/Events.php:96 src/Events/Events.php:128
-#: src/Triggers/Triggers.php:84 src/Triggers/Triggers.php:93
-#: src/Triggers/Triggers.php:126
-#, php-format
-msgid "The following query has failed: \"%s\""
-msgstr "Pyetsori që vijon, ka dështuar: \"%s\""
-
-#: src/Database/Routines.php:107 src/Database/Routines.php:133
-#: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:981 src/Events/Events.php:91
-#: src/Events/Events.php:100 src/Events/Events.php:113
-#: src/Events/Events.php:132 src/Html/Generator.php:793
-#: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
-#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:130
-msgid "MySQL said: "
-msgstr "MySQL tha: "
-
-#: src/Database/Routines.php:136
+#: src/Database/Routines.php:126
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Rutina %1$s është krijuar."
 
-#: src/Database/Routines.php:147 src/Events/Events.php:147
-#: src/Triggers/Triggers.php:145
+#: src/Database/Routines.php:137 src/Events/Events.php:145
+#: src/Triggers/Triggers.php:130
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 "Një ose më shumë gabime kanë ndodhur gjatë proçesimit të kërkesës suaj:"
 
-#: src/Database/Routines.php:220
+#: src/Database/Routines.php:205
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Na vjen keq, dështuam në rikthimin e rutinës së fshirë."
 
-#: src/Database/Routines.php:221 src/Events/Events.php:111
-#: src/Triggers/Triggers.php:109
+#: src/Database/Routines.php:206 src/Events/Events.php:122
+#: src/Triggers/Triggers.php:99
 msgid "The backed up query was:"
 msgstr "Pyetsori i ruajtur ishte:"
 
-#: src/Database/Routines.php:269
+#: src/Database/Routines.php:208 src/Database/Routines.php:1220
+#: src/Events/Events.php:124 src/Events/Events.php:164
+#: src/Html/Generator.php:793 src/Triggers/Triggers.php:101
+#: src/Triggers/Triggers.php:268
+msgid "MySQL said: "
+msgstr "MySQL tha: "
+
+#: src/Database/Routines.php:254
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Rutina %1$s është modifikuar. Privilegjet janë përshtatur."
 
-#: src/Database/Routines.php:274
+#: src/Database/Routines.php:259
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Rutina %1$s është modifikuar."
 
-#: src/Database/Routines.php:628
+#: src/Database/Routines.php:613
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Duhet të siguroni një emër dhe një tip për çdo parametër rutinë."
 
-#: src/Database/Routines.php:646
+#: src/Database/Routines.php:631
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Drejtim i pavlefshëm \"%s\" i dhënë për parametrin."
 
-#: src/Database/Routines.php:666 src/Database/Routines.php:731
+#: src/Database/Routines.php:651 src/Database/Routines.php:716
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -16581,40 +16563,46 @@ msgstr ""
 "Duhet të siguroni gjatësinë/vlerat për parametrat rutinë të tipit ENUM, SET, "
 "VARCHAR dhe VARBINARY."
 
-#: src/Database/Routines.php:713
+#: src/Database/Routines.php:698
 msgid "You must provide a valid return type for the routine."
 msgstr "Duhet të siguroni një tip të vlefshëm të kthimit për rutinën."
 
-#: src/Database/Routines.php:783 src/Events/Events.php:258
-#: src/Triggers/Triggers.php:187
+#: src/Database/Routines.php:768 src/Events/Events.php:259
+#: src/Triggers/Triggers.php:172
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Përcaktuesi duhet të jetë në formatin \"username@hostname\"!"
 
-#: src/Database/Routines.php:790
+#: src/Database/Routines.php:775
 #, fuzzy
 #| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
 msgstr "Tip rutine i pavlefshëm: \"%s\""
 
-#: src/Database/Routines.php:796
+#: src/Database/Routines.php:781
 msgid "You must provide a routine name!"
 msgstr "Duhet të siguroni një emër rutinë!"
 
-#: src/Database/Routines.php:867
+#: src/Database/Routines.php:852
 msgid "You must provide a routine definition."
 msgstr "Duhet të siguroni një përkufizim rutinë."
 
-#: src/Database/Routines.php:993
+#: src/Database/Routines.php:973
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Rezultatet e ekzekutimit të rutinës %s"
 
-#: src/Database/Routines.php:1008
+#: src/Database/Routines.php:988
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d radhë e ndikuar nga deklarata e fundit brenda procedurës."
 msgstr[1] "%d radhë të ndikuara nga deklarata e fundit brenda procedurës."
+
+#: src/Database/Routines.php:1218 src/Events/Events.php:162
+#: src/Triggers/Triggers.php:266
+#, php-format
+msgid "The following query has failed: \"%s\""
+msgstr "Pyetsori që vijon, ka dështuar: \"%s\""
 
 #: src/Dbal/DatabaseInterface.php:1067
 #, fuzzy, php-format
@@ -16644,33 +16632,33 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2339 src/Display/Results.php:2354
+#: src/Display/Results.php:2337 src/Display/Results.php:2352
 msgid "The row has been deleted."
 msgstr "Radha është fshirë."
 
-#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:910
+#: src/Display/Results.php:2909 src/Display/Results.php:3225 src/Sql.php:912
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Pyetsori mori %01.4f sekonda."
 
-#: src/Display/Results.php:3195
+#: src/Display/Results.php:3193
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Shfaqën radhët %1s - %2s"
 
-#: src/Display/Results.php:3208
+#: src/Display/Results.php:3206
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d gjithsejt, %2$d në pyetsor"
 
-#: src/Display/Results.php:3213
+#: src/Display/Results.php:3211
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "%d gjithsejt"
 
-#: src/Display/Results.php:3511
+#: src/Display/Results.php:3509
 msgid "Link not found!"
 msgstr "Lidhja nuk gjendet!"
 
@@ -16967,37 +16955,37 @@ msgstr "Shumë mesazhe gabimi, disa nuk shfaqen."
 msgid "Report"
 msgstr "Raporto"
 
-#: src/Events/Events.php:110
-msgid "Sorry, we failed to restore the dropped event."
-msgstr "Na vjen keq, dështuam në rikthimin e ngjarjes së fshirë."
-
-#: src/Events/Events.php:117
-#, php-format
-msgid "Event %1$s has been modified."
-msgstr "Ngjarja %1$s është modifikuar."
-
-#: src/Events/Events.php:135
+#: src/Events/Events.php:88
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "Ngjarja %1$s është krijuar."
 
-#: src/Events/Events.php:267
+#: src/Events/Events.php:121
+msgid "Sorry, we failed to restore the dropped event."
+msgstr "Na vjen keq, dështuam në rikthimin e ngjarjes së fshirë."
+
+#: src/Events/Events.php:133
+#, php-format
+msgid "Event %1$s has been modified."
+msgstr "Ngjarja %1$s është modifikuar."
+
+#: src/Events/Events.php:268
 msgid "You must provide an event name!"
 msgstr "Duhet të siguroni një emër për ngjarjen!"
 
-#: src/Events/Events.php:281
+#: src/Events/Events.php:282
 msgid "You must provide a valid interval value for the event."
 msgstr "Duhet të siguroni një vlerë të vlefshme intervali për ngjarjen."
 
-#: src/Events/Events.php:296
+#: src/Events/Events.php:297
 msgid "You must provide a valid execution time for the event."
 msgstr "Duhet të siguroni një kohë të vlefshme të ekzekutimit për ngjarjen."
 
-#: src/Events/Events.php:299
+#: src/Events/Events.php:300
 msgid "You must provide a valid type for the event."
 msgstr "Duhet të siguroni një tip të vlefshëm për ngjarjen."
 
-#: src/Events/Events.php:328
+#: src/Events/Events.php:329
 msgid "You must provide an event definition."
 msgstr "Duhet të siguroni një përcaktim për ngjarjen."
 
@@ -17221,15 +17209,15 @@ msgid ""
 "requires these functions!"
 msgstr ""
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:61
+#: src/Http/Middleware/TokenRequestParamChecking.php:46
+msgid "Error: Token mismatch"
+msgstr "Gabim: mospërputhje e shenjave"
+
+#: src/Http/Middleware/TokenRequestParamChecking.php:78
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
-
-#: src/Http/Middleware/TokenRequestParamChecking.php:69
-msgid "Error: Token mismatch"
-msgstr "Gabim: mospërputhje e shenjave"
 
 #: src/I18n/LanguageManager.php:976
 msgid "Ignoring unsupported language code."
@@ -17289,7 +17277,7 @@ msgstr "Ju lutem, mos fut më shumë se {0} karaktere"
 msgid "The trigger name cannot end with a space character."
 msgstr "Fjalët ndahen me një karakter hapësire (\" \")."
 
-#: src/Import/Import.php:947
+#: src/Import/Import.php:946
 #, fuzzy
 #| msgid ""
 #| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
@@ -17301,47 +17289,47 @@ msgstr ""
 "Vetëm pyetsorët INSERT, UPDATE, DELETE dhe REPLACE SQL, që përmbajnë tabela "
 "të makinës transaksionale, mund të rikthehen."
 
-#: src/Import/Import.php:1164
+#: src/Import/Import.php:1163
 #, php-format
 msgid "Go to table: %s"
 msgstr "Shko tek tabela: %s"
 
-#: src/Import/Import.php:1172
+#: src/Import/Import.php:1171
 #, php-format
 msgid "Structure of %s"
 msgstr "Struktura e %s"
 
-#: src/Import/Import.php:1179 src/Import/Import.php:1228
+#: src/Import/Import.php:1178 src/Import/Import.php:1227
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Redakto cilësimet për %s"
 
-#: src/Import/Import.php:1190
+#: src/Import/Import.php:1189
 #, php-format
 msgid "Go to view: %s"
 msgstr "Shko tek pamja: %s"
 
-#: src/Import/Import.php:1211
+#: src/Import/Import.php:1210
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Strukturat e mëposhtme janë krijuar ose ndryshuar. Këtu ju mund të:"
 
-#: src/Import/Import.php:1213
+#: src/Import/Import.php:1212
 msgid "View a structure's contents by clicking on its name."
 msgstr "Shfaq një përmbajtje të strukturës duke klikuar mbi emrin e saj."
 
-#: src/Import/Import.php:1214
+#: src/Import/Import.php:1213
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Ndrysho ndonjë nga rregullimet e saj, duke klikuar lidhjen korresponduese "
 "\"Options\" (opsionet)."
 
-#: src/Import/Import.php:1215
+#: src/Import/Import.php:1214
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Redakto strukturën duke ndjekur lidhjen \"Struktura\"."
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1221
 #, php-format
 msgid "Go to database: %s"
 msgstr "Shko tek databaza: %s"
@@ -17359,11 +17347,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "drejtoria e ngarkimit në ueb server:"
 
-#: src/InsertEdit.php:819 src/Sql.php:901
+#: src/InsertEdit.php:815 src/Sql.php:903
 msgid "Showing SQL query"
 msgstr "Shfaqën pyetsorin SQL"
 
-#: src/InsertEdit.php:843 src/Sql.php:882
+#: src/InsertEdit.php:839 src/Sql.php:884
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID e radhës së futur: %1$d"
@@ -18378,7 +18366,7 @@ msgstr "Opsionet e krijimit të objektit (të gjitha rekomandohen)"
 msgid "Export contents"
 msgstr "Përmbajtja e eksportit"
 
-#: src/Plugins/Export/Helpers/Pdf.php:149
+#: src/Plugins/Export/Helpers/Pdf.php:148
 msgid "Purpose:"
 msgstr "Qëllimi:"
 
@@ -18471,8 +18459,8 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importo monedhat <i>(psh. $5.00 në 5.00)</i>"
 
-#: src/Plugins/Import/ImportOds.php:157 src/Plugins/Import/ImportXml.php:73
-#: src/Plugins/Import/ImportXml.php:111
+#: src/Plugins/Import/ImportOds.php:157 src/Plugins/Import/ImportXml.php:72
+#: src/Plugins/Import/ImportXml.php:110
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -18514,7 +18502,7 @@ msgstr "Mos përdor <code>AUTO_INCREMENT</code> për vlerat zero"
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:406
+#: src/Plugins.php:243
 msgid "This format has no options"
 msgstr "Ky format nuk ka opsione"
 
@@ -18562,39 +18550,39 @@ msgstr "Shfaq ngjyrën"
 msgid "Only show keys"
 msgstr "Vetëm shfaq çelësat"
 
-#: src/Plugins/Schema/SchemaDia.php:55 src/Plugins/Schema/SchemaEps.php:63
-#: src/Plugins/Schema/SchemaPdf.php:65
+#: src/Plugins/Schema/SchemaDia.php:54 src/Plugins/Schema/SchemaEps.php:62
+#: src/Plugins/Schema/SchemaPdf.php:64
 msgid "Orientation"
 msgstr "Orientimi"
 
-#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
-#: src/Plugins/Schema/SchemaPdf.php:68
+#: src/Plugins/Schema/SchemaDia.php:57 src/Plugins/Schema/SchemaEps.php:65
+#: src/Plugins/Schema/SchemaPdf.php:67
 msgid "Landscape"
 msgstr "Horizontale"
 
-#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
-#: src/Plugins/Schema/SchemaPdf.php:68
+#: src/Plugins/Schema/SchemaDia.php:57 src/Plugins/Schema/SchemaEps.php:65
+#: src/Plugins/Schema/SchemaPdf.php:67
 msgid "Portrait"
 msgstr "Vertikale"
 
-#: src/Plugins/Schema/SchemaEps.php:57 src/Plugins/Schema/SchemaPdf.php:59
-#: src/Plugins/Schema/SchemaSvg.php:56
+#: src/Plugins/Schema/SchemaEps.php:56 src/Plugins/Schema/SchemaPdf.php:58
+#: src/Plugins/Schema/SchemaSvg.php:55
 msgid "Same width for all tables"
 msgstr "Gjerësi e njëjtë me të gjitha tabelat"
 
-#: src/Plugins/Schema/SchemaPdf.php:81
+#: src/Plugins/Schema/SchemaPdf.php:80
 msgid "Show grid"
 msgstr "Shfaq rrjetën"
 
-#: src/Plugins/Schema/SchemaPdf.php:93
+#: src/Plugins/Schema/SchemaPdf.php:92
 msgid "Order of the tables"
 msgstr "Renditja e tabelave"
 
-#: src/Plugins/Schema/SchemaPdf.php:96
+#: src/Plugins/Schema/SchemaPdf.php:95
 msgid "Name (Ascending)"
 msgstr "Emri (Ngritëse)"
 
-#: src/Plugins/Schema/SchemaPdf.php:96
+#: src/Plugins/Schema/SchemaPdf.php:95
 msgid "Name (Descending)"
 msgstr "Emri (Zbritëse)"
 
@@ -19242,16 +19230,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Nuk ka version stabil të ri të vlefshëm"
 
-#: src/Sql.php:445
+#: src/Sql.php:447
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Përdorimi i faqerojtësit \"%s\" si shfletues pyetsori standard."
 
-#: src/Sql.php:898
+#: src/Sql.php:900
 msgid "Showing as PHP code"
 msgstr "Shfaqën si kod PHP"
 
-#: src/Sql.php:1244
+#: src/Sql.php:1246
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -19260,7 +19248,7 @@ msgstr ""
 "Zgjedhja aktuale nuk përmban një kolonë unike. Tiparet redaktimi i rrjetës, "
 "kutisë së kontrollit, Redakto, Kopjo dhe Fshij nuk janë në vlefshme. %s"
 
-#: src/Sql.php:1258
+#: src/Sql.php:1260
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -19322,12 +19310,12 @@ msgstr "Nuk janë përcaktuar pjesë të indeksit!"
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemet me indekset e tabelës `%s`"
 
-#: src/Table/TableMover.php:309
+#: src/Table/TableMover.php:312
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Databaza e burimit `%s` nuk gjendet!"
 
-#: src/Table/TableMover.php:318
+#: src/Table/TableMover.php:321
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Databaza e objektivit `%s` nuk u gjend!"
@@ -19491,37 +19479,37 @@ msgstr "Versioni %1$s nga %2$s u fshi."
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Versioni %1$s u krijua, gjurmimi për %2$s është aktiv."
 
-#: src/Triggers/Triggers.php:108
+#: src/Triggers/Triggers.php:98
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Na vjen keq, dështuam në rikthimin e shkrehësit të fshirë."
 
-#: src/Triggers/Triggers.php:115
+#: src/Triggers/Triggers.php:105
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "Shkrehësi %1$s është modifikuar."
 
-#: src/Triggers/Triggers.php:133
+#: src/Triggers/Triggers.php:118
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "Shkrehësi %1$s është krijuar."
 
-#: src/Triggers/Triggers.php:195
+#: src/Triggers/Triggers.php:180
 msgid "You must provide a trigger name!"
 msgstr "Duhet të siguroni një emër shkrehësi!"
 
-#: src/Triggers/Triggers.php:201
+#: src/Triggers/Triggers.php:186
 msgid "You must provide a valid timing for the trigger!"
 msgstr "Duhet të siguroni një kohë të vlefshme për shkrehësin!"
 
-#: src/Triggers/Triggers.php:207
+#: src/Triggers/Triggers.php:192
 msgid "You must provide a valid event for the trigger!"
 msgstr "Duhet të siguroni një ngjarje të vlefshme për shkrehësin!"
 
-#: src/Triggers/Triggers.php:217
+#: src/Triggers/Triggers.php:202
 msgid "You must provide a valid table name!"
 msgstr "Duhet të siguroni një emër tabele të vlefshëm!"
 
-#: src/Triggers/Triggers.php:224
+#: src/Triggers/Triggers.php:209
 msgid "You must provide a trigger definition."
 msgstr "Duhet të siguroni një përkufizim të shkrehësit."
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-25 00:40+0000\n"
+"POT-Creation-Date: 2026-11-01 00:29+0000\n"
 "PO-Revision-Date: 2026-07-28 04:01+0000\n"
 "Last-Translator: Rajkumar Ramadoss <lionrajkumar@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -206,7 +206,7 @@ msgstr "%s க்கு அடுத்து"
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:223
 #: src/Display/Results.php:921 src/Plugins/Export/ExportSql.php:1970
-#: src/Plugins/Schema/SchemaPdf.php:96
+#: src/Plugins/Schema/SchemaPdf.php:95
 msgid "None"
 msgstr "எதுவுமில்லை"
 
@@ -237,7 +237,7 @@ msgstr "நெடுவரிசை (கள்)"
 #: resources/templates/database/routines/editor_form.twig:185
 #: resources/templates/database/routines/execute_form.twig:63
 #: resources/templates/display/results/table.twig:279
-#: resources/templates/events/editor-form.twig:120
+#: resources/templates/events/editor-form.twig:112
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
 #: resources/templates/modals/enum_set_editor.twig:10
@@ -373,17 +373,17 @@ msgstr "ஏற்றுகிறது"
 #: resources/templates/columns_definitions/column_definitions_form.twig:179
 #: resources/templates/database/designer/main.twig:1128
 #: resources/templates/database/designer/main.twig:1138
-#: resources/templates/database/routines/index.twig:79
-#: resources/templates/database/routines/index.twig:87
-#: resources/templates/database/routines/index.twig:99
-#: resources/templates/database/routines/index.twig:103
-#: resources/templates/database/routines/index.twig:114
-#: resources/templates/database/routines/index.twig:122
+#: resources/templates/database/routines/index.twig:80
+#: resources/templates/database/routines/index.twig:88
+#: resources/templates/database/routines/index.twig:100
+#: resources/templates/database/routines/index.twig:104
+#: resources/templates/database/routines/index.twig:115
+#: resources/templates/database/routines/index.twig:123
 #: resources/templates/error/report_modal.twig:14
-#: resources/templates/events/index.twig:159
-#: resources/templates/events/index.twig:167
-#: resources/templates/events/index.twig:179
-#: resources/templates/events/index.twig:183
+#: resources/templates/events/index.twig:117
+#: resources/templates/events/index.twig:125
+#: resources/templates/events/index.twig:137
+#: resources/templates/events/index.twig:141
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:90 resources/templates/export.twig:188
@@ -487,7 +487,7 @@ msgstr "ஒரு வெளிநாட்டு விசை."
 #: src/Plugins/Export/ExportOdt.php:390
 #: src/Plugins/Export/ExportTexytext.php:240
 #: src/Plugins/Export/ExportTexytext.php:300
-#: src/Plugins/Export/Helpers/Pdf.php:470
+#: src/Plugins/Export/Helpers/Pdf.php:463
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:598
 msgid "Column"
@@ -541,7 +541,7 @@ msgstr "விசைப்பொறி"
 #: resources/templates/database/data_dictionary/index.twig:82
 #: resources/templates/database/routines/editor_form.twig:173
 #: resources/templates/database/structure/table_header.twig:46
-#: resources/templates/events/editor-form.twig:108
+#: resources/templates/events/editor-form.twig:100
 #: resources/templates/indexes.twig:25
 #: resources/templates/table/structure/display_partitions.twig:32
 #: resources/templates/table/structure/display_structure.twig:480
@@ -586,7 +586,7 @@ msgstr "முனை குழு"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:699
-#: src/Import/Import.php:1160 src/Menu.php:214 src/Menu.php:322
+#: src/Import/Import.php:1159 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1385
@@ -600,15 +600,15 @@ msgstr "கட்டமைப்பு"
 #: resources/templates/database/central_columns/main.twig:226
 #: resources/templates/database/routines/editor_form.twig:55
 #: resources/templates/database/routines/execute_form.twig:16
-#: resources/templates/database/routines/index.twig:56
-#: resources/templates/events/index.twig:46
+#: resources/templates/database/routines/index.twig:57
+#: resources/templates/events/index.twig:47
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
-#: resources/templates/triggers/list.twig:47
+#: resources/templates/triggers/list.twig:48
 #: src/Plugins/Export/ExportHtmlword.php:394
 #: src/Plugins/Export/ExportOdt.php:498
 #: src/Plugins/Export/ExportTexytext.php:369
-#: src/Plugins/Export/Helpers/Pdf.php:312
+#: src/Plugins/Export/Helpers/Pdf.php:308
 msgid "Name"
 msgstr "பெயர்"
 
@@ -622,9 +622,9 @@ msgstr "பெயர்"
 #: resources/templates/database/routines/editor_form.twig:31
 #: resources/templates/database/routines/editor_form.twig:56
 #: resources/templates/database/routines/execute_form.twig:17
-#: resources/templates/database/routines/index.twig:57
+#: resources/templates/database/routines/index.twig:58
 #: resources/templates/database/structure/table_header.twig:30
-#: resources/templates/events/index.twig:48 resources/templates/indexes.twig:18
+#: resources/templates/events/index.twig:49 resources/templates/indexes.twig:18
 #: resources/templates/table/privileges/index.twig:21
 #: resources/templates/table/search/index.twig:39
 #: resources/templates/table/structure/display_structure.twig:22
@@ -638,7 +638,7 @@ msgstr "பெயர்"
 #: src/Plugins/Export/ExportOdt.php:393
 #: src/Plugins/Export/ExportTexytext.php:241
 #: src/Plugins/Export/ExportTexytext.php:301
-#: src/Plugins/Export/Helpers/Pdf.php:472
+#: src/Plugins/Export/Helpers/Pdf.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:599
 msgid "Type"
@@ -677,7 +677,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:399
 #: src/Plugins/Export/ExportTexytext.php:243
 #: src/Plugins/Export/ExportTexytext.php:303
-#: src/Plugins/Export/Helpers/Pdf.php:476
+#: src/Plugins/Export/Helpers/Pdf.php:469
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Default"
@@ -700,9 +700,9 @@ msgstr ""
 #: resources/templates/database/operations/index.twig:199
 #: resources/templates/database/structure/table_header.twig:31
 #: resources/templates/home/index.twig:62 resources/templates/indexes.twig:23
-#: resources/templates/server/databases/index.twig:29
 #: resources/templates/server/databases/index.twig:30
-#: resources/templates/server/databases/index.twig:123
+#: resources/templates/server/databases/index.twig:31
+#: resources/templates/server/databases/index.twig:124
 #: resources/templates/table/index_form.twig:147
 #: resources/templates/table/operations/index.twig:159
 #: resources/templates/table/search/index.twig:40
@@ -742,7 +742,7 @@ msgstr "பண்புக்கூறுகள்"
 #: src/Plugins/Export/ExportOdt.php:396
 #: src/Plugins/Export/ExportTexytext.php:242
 #: src/Plugins/Export/ExportTexytext.php:302
-#: src/Plugins/Export/Helpers/Pdf.php:474
+#: src/Plugins/Export/Helpers/Pdf.php:467
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:579
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
 msgid "Null"
@@ -766,7 +766,7 @@ msgstr "சலுகைகளை சரிசெய்யவும்"
 #: src/Config/Descriptions.php:709 src/Plugins/Export/ExportHtmlword.php:313
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:409
 #: src/Plugins/Export/ExportTexytext.php:309
-#: src/Plugins/Export/Helpers/Pdf.php:493
+#: src/Plugins/Export/Helpers/Pdf.php:485
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:592
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 msgid "Comments"
@@ -786,7 +786,7 @@ msgstr "நிரல்வரிசையை நகர்த்து"
 #: src/Config/Descriptions.php:712 src/Plugins/Export/ExportHtmlword.php:320
 #: src/Plugins/Export/ExportOdt.php:416
 #: src/Plugins/Export/ExportTexytext.php:314
-#: src/Plugins/Export/Helpers/Pdf.php:501
+#: src/Plugins/Export/Helpers/Pdf.php:492
 msgid "Media type"
 msgstr "ஊடக வகை"
 
@@ -831,7 +831,7 @@ msgstr "உள்ளீடு மாற்றுருவாக்க விர�
 #: src/Controllers/Database/Structure/EmptyTableController.php:41
 #: src/Controllers/Operations/TableController.php:320
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:289
+#: src/Controllers/Table/ReplaceController.php:288
 msgid "No change"
 msgstr "எந்த மாற்றமும் இல்லை"
 
@@ -1010,10 +1010,8 @@ msgstr "மீள்வினவல்"
 #: resources/templates/database/structure/structure_table_row.twig:65
 #: resources/templates/display/results/table.twig:319
 #: resources/templates/display/results/table.twig:320
-#: resources/templates/events/index.twig:77
-#: resources/templates/events/index.twig:80
-#: resources/templates/events/row.twig:23
-#: resources/templates/events/row.twig:26 resources/templates/indexes.twig:35
+#: resources/templates/events/row.twig:22
+#: resources/templates/events/row.twig:25 resources/templates/indexes.twig:35
 #: resources/templates/server/variables/index.twig:41
 #: resources/templates/server/variables/index.twig:44
 #: resources/templates/setup/home/index.twig:64
@@ -1022,7 +1020,7 @@ msgstr "மீள்வினவல்"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:384
-#: src/Display/Results.php:1834 src/Html/Generator.php:520
+#: src/Display/Results.php:1832 src/Html/Generator.php:520
 #: src/Html/Generator.php:777
 msgid "Edit"
 msgstr "தொகு"
@@ -1041,14 +1039,14 @@ msgstr "தொகு"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:386
-#: src/Display/Results.php:2362 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2360 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "அழி"
 
 #: resources/templates/console/bookmark_content.twig:12
 #: resources/templates/console/display.twig:60
 #: resources/templates/console/display.twig:218
-#: resources/templates/server/databases/index.twig:106
+#: resources/templates/server/databases/index.twig:107
 #: resources/templates/server/privileges/edit_routine_privileges.twig:17
 #: resources/templates/server/privileges/privileges_table.twig:258
 #: resources/templates/server/privileges/user_properties.twig:22
@@ -1090,7 +1088,7 @@ msgstr "வரலாறு"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
-#: src/Import/Import.php:1161 src/Import/Import.php:1219
+#: src/Import/Import.php:1160 src/Import/Import.php:1218
 msgid "Options"
 msgstr "விருப்பத்தேர்வுகள்"
 
@@ -1200,7 +1198,7 @@ msgstr "எடுக்கப்பட்ட நேரம்:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:927 src/Export/Export.php:697
+#: src/Config/Descriptions.php:927 src/Export/Export.php:698
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "புதுப்பி"
@@ -1345,7 +1343,7 @@ msgstr "வரிசைப்படுத்த சொடுக்குக."
 #: resources/templates/database/tracking/tables.twig:18
 #: resources/templates/database/tracking/tables.twig:153
 #: resources/templates/indexes.twig:16
-#: resources/templates/server/databases/index.twig:163
+#: resources/templates/server/databases/index.twig:164
 #: resources/templates/server/privileges/privileges_summary.twig:23
 #: resources/templates/server/privileges/users_overview.twig:22
 #: resources/templates/server/user_groups/user_groups.twig:21
@@ -1379,8 +1377,8 @@ msgstr "செயல்"
 #: resources/templates/error/report_modal.twig:11
 #: resources/templates/gis_data_editor_form.twig:76
 #: resources/templates/modals/change_password.twig:11
-#: resources/templates/server/databases/index.twig:321
-#: resources/templates/server/databases/index.twig:325
+#: resources/templates/server/databases/index.twig:322
+#: resources/templates/server/databases/index.twig:326
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
 #: src/Controllers/JavaScriptMessagesController.php:317
@@ -1400,7 +1398,7 @@ msgstr "நெடுவரிசைகளின் எண்ணிக்கை"
 #: resources/templates/database/create_table.twig:14
 #: resources/templates/database/operations/index.twig:40
 #: resources/templates/export.twig:29
-#: resources/templates/server/databases/index.twig:46
+#: resources/templates/server/databases/index.twig:47
 msgid "Create"
 msgstr "உருவாக்கு"
 
@@ -1420,7 +1418,7 @@ msgstr "அச்சிடுக"
 #: src/Plugins/Export/ExportHtmlword.php:307
 #: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:403
 #: src/Plugins/Export/ExportTexytext.php:305
-#: src/Plugins/Export/Helpers/Pdf.php:485
+#: src/Plugins/Export/Helpers/Pdf.php:478
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:582
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
 msgid "Links to"
@@ -1466,7 +1464,7 @@ msgstr "குறியீட்டு வரையறுக்கப்பட�
 
 #: resources/templates/database/designer/database_tables.twig:31
 #: resources/templates/database/export/index.twig:28
-#: resources/templates/database/search/main.twig:48
+#: resources/templates/database/search/main.twig:47
 #: resources/templates/server/export/index.twig:10
 #: resources/templates/server/privileges/privileges_table.twig:29
 #: resources/templates/server/privileges/privileges_table.twig:56
@@ -1841,26 +1839,26 @@ msgid "Sort"
 msgstr "வரிசைப்படுத்து"
 
 #: resources/templates/database/multi_table_query/form.twig:57
-#: resources/templates/server/databases/index.twig:109
-#: resources/templates/server/databases/index.twig:126
-#: resources/templates/server/databases/index.twig:145
+#: resources/templates/server/databases/index.twig:110
+#: resources/templates/server/databases/index.twig:127
+#: resources/templates/server/databases/index.twig:146
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:156
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1371
-#: src/Display/Results.php:1377 src/Util.php:1642 src/Util.php:1659
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1369
+#: src/Display/Results.php:1375 src/Util.php:1642 src/Util.php:1659
 msgid "Ascending"
 msgstr "ஏறுவரிசை"
 
 #: resources/templates/database/multi_table_query/form.twig:58
-#: resources/templates/server/databases/index.twig:111
-#: resources/templates/server/databases/index.twig:128
-#: resources/templates/server/databases/index.twig:147
+#: resources/templates/server/databases/index.twig:112
+#: resources/templates/server/databases/index.twig:129
+#: resources/templates/server/databases/index.twig:148
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:160
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1366
-#: src/Display/Results.php:1382 src/Util.php:1647 src/Util.php:1664
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1364
+#: src/Display/Results.php:1380 src/Util.php:1647 src/Util.php:1664
 msgid "Descending"
 msgstr "இறங்குவரிசை"
 
@@ -1961,7 +1959,7 @@ msgid "Copy database to"
 msgstr "தரவுதளத்தை இப்படி படியெடுக்க"
 
 #: resources/templates/database/operations/index.twig:123
-#: resources/templates/server/databases/index.twig:24
+#: resources/templates/server/databases/index.twig:25
 #: src/Config/Descriptions.php:884
 msgid "Database name"
 msgstr "தரவுத்தள பெயர்"
@@ -2107,18 +2105,17 @@ msgstr "சலுகைகளைத் திருத்தவும்"
 #: resources/templates/database/privileges/index.twig:91
 #: resources/templates/database/privileges/index.twig:115
 #: resources/templates/database/privileges/index.twig:116
-#: resources/templates/database/routines/index.twig:17
 #: resources/templates/database/routines/index.twig:18
+#: resources/templates/database/routines/index.twig:19
 #: resources/templates/database/routines/row.twig:50
 #: resources/templates/database/routines/row.twig:53
 #: resources/templates/database/structure/check_all_tables.twig:12
 #: resources/templates/display/results/table.twig:332
 #: resources/templates/display/results/table.twig:333
 #: resources/templates/display/results/table.twig:365
-#: resources/templates/events/index.twig:18
 #: resources/templates/events/index.twig:19
-#: resources/templates/events/index.twig:85
-#: resources/templates/events/row.twig:31 resources/templates/export.twig:3
+#: resources/templates/events/index.twig:20
+#: resources/templates/events/row.twig:30 resources/templates/export.twig:3
 #: resources/templates/export.twig:493
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
@@ -2130,8 +2127,8 @@ msgstr "சலுகைகளைத் திருத்தவும்"
 #: resources/templates/table/privileges/index.twig:95
 #: resources/templates/table/privileges/index.twig:119
 #: resources/templates/table/privileges/index.twig:120
-#: resources/templates/triggers/list.twig:17
 #: resources/templates/triggers/list.twig:18
+#: resources/templates/triggers/list.twig:19
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:366 src/Menu.php:241
@@ -2162,14 +2159,14 @@ msgstr "உடன் தெரிவுசெய்யப்பட்டது:"
 
 #: resources/templates/database/privileges/index.twig:112
 #: resources/templates/database/privileges/index.twig:113
-#: resources/templates/database/routines/index.twig:14
+#: resources/templates/database/routines/index.twig:15
 #: resources/templates/database/structure/check_all_tables.twig:3
 #: resources/templates/database/structure/check_all_tables.twig:4
 #: resources/templates/display/results/table.twig:315
 #: resources/templates/display/results/table.twig:316
-#: resources/templates/events/index.twig:15
+#: resources/templates/events/index.twig:16
 #: resources/templates/select_all.twig:3 resources/templates/select_all.twig:4
-#: resources/templates/server/databases/index.twig:64
+#: resources/templates/server/databases/index.twig:65
 #: resources/templates/server/privileges/edit_routine_privileges.twig:58
 #: resources/templates/server/privileges/privileges_table.twig:269
 #: resources/templates/server/privileges/privileges_table.twig:270
@@ -2182,7 +2179,7 @@ msgstr "உடன் தெரிவுசெய்யப்பட்டது:"
 #: resources/templates/server/user_groups/edit_user_groups.twig:22
 #: resources/templates/table/privileges/index.twig:116
 #: resources/templates/table/privileges/index.twig:117
-#: resources/templates/triggers/list.twig:14
+#: resources/templates/triggers/list.twig:15
 msgid "Check all"
 msgstr "அனைத்தையும் சரிபார்க்கவும்"
 
@@ -2213,7 +2210,6 @@ msgid "Routine name"
 msgstr "வழக்கமான பெயர்"
 
 #: resources/templates/database/routines/editor_form.twig:43
-#: resources/templates/events/editor-form.twig:53
 #, php-format
 msgid "Change to %s"
 msgstr "%s ஆக மாற்றவும்"
@@ -2254,17 +2250,17 @@ msgid "Charset"
 msgstr "எழுத்துக்கணம்"
 
 #: resources/templates/database/routines/editor_form.twig:118
-#: resources/templates/events/editor-form.twig:87
+#: resources/templates/events/editor-form.twig:79
 #: resources/templates/triggers/editor_form.twig:61
 #: src/Plugins/Export/ExportHtmlword.php:397
 #: src/Plugins/Export/ExportOdt.php:507
 #: src/Plugins/Export/ExportTexytext.php:372
-#: src/Plugins/Export/Helpers/Pdf.php:318
+#: src/Plugins/Export/Helpers/Pdf.php:314
 msgid "Definition"
 msgstr "வரையறை"
 
 #: resources/templates/database/routines/editor_form.twig:121
-#: resources/templates/events/editor-form.twig:92
+#: resources/templates/events/editor-form.twig:84
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
 #: resources/templates/table/structure/display_table_stats.twig:81
@@ -2286,7 +2282,7 @@ msgstr ""
 "ஆவணங்களைப் பார்க்கவும்."
 
 #: resources/templates/database/routines/editor_form.twig:148
-#: resources/templates/events/editor-form.twig:102
+#: resources/templates/events/editor-form.twig:94
 #: resources/templates/triggers/editor_form.twig:66
 #: resources/templates/view_create.twig:54
 msgid "Definer"
@@ -2316,44 +2312,42 @@ msgstr "செயல்கூறு"
 msgid "This routine does not require any parameters."
 msgstr "இந்த வழக்கத்திற்கு எந்த அளவுருக்களும் தேவையில்லை."
 
-#: resources/templates/database/routines/index.twig:3 src/Menu.php:375
+#: resources/templates/database/routines/index.twig:4 src/Menu.php:375
 #: src/Util.php:1393
 msgid "Routines"
 msgstr "நடைமுறைகள்"
 
-#: resources/templates/database/routines/index.twig:20
 #: resources/templates/database/routines/index.twig:21
+#: resources/templates/database/routines/index.twig:22
 #: resources/templates/database/routines/parameter_row.twig:51
 #: resources/templates/database/routines/row.twig:63
 #: resources/templates/database/structure/check_all_tables.twig:16
 #: resources/templates/database/structure/structure_table_row.twig:86
-#: resources/templates/events/index.twig:21
 #: resources/templates/events/index.twig:22
-#: resources/templates/events/index.twig:95
-#: resources/templates/events/index.twig:101
-#: resources/templates/events/row.twig:42
-#: resources/templates/events/row.twig:48 resources/templates/indexes.twig:59
-#: resources/templates/server/databases/index.twig:67
+#: resources/templates/events/index.twig:23
+#: resources/templates/events/row.twig:40
+#: resources/templates/events/row.twig:46 resources/templates/indexes.twig:59
 #: resources/templates/server/databases/index.twig:68
-#: resources/templates/server/databases/index.twig:326
+#: resources/templates/server/databases/index.twig:69
+#: resources/templates/server/databases/index.twig:327
 #: resources/templates/table/relation/foreign_key_row.twig:25
 #: resources/templates/table/structure/display_partitions.twig:146
 #: resources/templates/table/structure/display_structure.twig:120
 #: resources/templates/table/structure/display_structure.twig:279
 #: resources/templates/table/structure/display_structure.twig:522
-#: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
+#: resources/templates/triggers/list.twig:22
 #: resources/templates/triggers/row.twig:52
 #: resources/templates/triggers/row.twig:58 src/Operations.php:532
 msgid "Drop"
 msgstr "அழி"
 
-#: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
-#: resources/templates/database/search/main.twig:72
+#: resources/templates/database/routines/index.twig:30
+#: resources/templates/database/search/main.twig:71
 #: resources/templates/database/structure/structure_table_row.twig:52
-#: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
+#: resources/templates/server/databases/index.twig:78
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
 #: src/Menu.php:331 src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1065
@@ -2361,25 +2355,25 @@ msgstr "அழி"
 msgid "Search"
 msgstr "தேடு"
 
-#: resources/templates/database/routines/index.twig:36
+#: resources/templates/database/routines/index.twig:37
 msgid "Create new routine"
 msgstr "புதிய வழக்கத்தை உருவாக்கவும்"
 
-#: resources/templates/database/routines/index.twig:49
+#: resources/templates/database/routines/index.twig:50
 msgid "There are no routines to display."
 msgstr "காண்பிக்க எந்த நடைமுறைகளும் இல்லை."
 
-#: resources/templates/database/routines/index.twig:58
+#: resources/templates/database/routines/index.twig:59
 msgid "Returns"
 msgstr "செயல்கள்->திருப்பியளிப்பது"
 
-#: resources/templates/database/routines/index.twig:78
+#: resources/templates/database/routines/index.twig:79
 msgid "Routine editor"
 msgstr "வழக்கமான பெயர்"
 
-#: resources/templates/database/routines/index.twig:83
-#: resources/templates/database/routines/index.twig:118
-#: resources/templates/events/index.twig:163
+#: resources/templates/database/routines/index.twig:84
+#: resources/templates/database/routines/index.twig:119
+#: resources/templates/events/index.twig:121
 #: resources/templates/home/index.twig:320
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
@@ -2392,24 +2386,24 @@ msgstr "வழக்கமான பெயர்"
 msgid "Loading…"
 msgstr "ஏற்றப்படுகிறது…"
 
-#: resources/templates/database/routines/index.twig:88
-#: resources/templates/events/index.twig:168
+#: resources/templates/database/routines/index.twig:89
+#: resources/templates/events/index.twig:126
 #: resources/templates/server/privileges/users_overview.twig:177
 #: resources/templates/triggers/list.twig:91
 msgid "Save changes"
 msgstr "மாற்றங்களைச் சேமிக்கவும்"
 
-#: resources/templates/database/routines/index.twig:98
+#: resources/templates/database/routines/index.twig:99
 msgid "Export routine"
 msgstr "செயல்முறை தரவேற்றம்"
 
-#: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:336
-#: src/Controllers/Database/RoutinesController.php:344
+#: resources/templates/database/routines/index.twig:114
+#: src/Controllers/Database/RoutinesController.php:331
+#: src/Controllers/Database/RoutinesController.php:339
 msgid "Execute routine"
 msgstr "வழக்கத்தை இயக்கவும்"
 
-#: resources/templates/database/routines/index.twig:123
+#: resources/templates/database/routines/index.twig:124
 #: resources/templates/database/routines/row.twig:35
 #: resources/templates/database/routines/row.twig:38
 msgid "Execute"
@@ -2424,60 +2418,60 @@ msgstr "ENUM/கணம் தொகுப்பான்"
 msgid "Search in database"
 msgstr "தரவுத்தளத்தில் தேடு"
 
-#: resources/templates/database/search/main.twig:9
+#: resources/templates/database/search/main.twig:8
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "தேட வார்த்தைகள் அல்லது மதிப்புகள் (குழுக்குறி: \"%\"):"
 
-#: resources/templates/database/search/main.twig:14
+#: resources/templates/database/search/main.twig:13
 #: resources/templates/table/find_replace/index.twig:31
 msgid "Find:"
 msgstr "கண்டறி:"
 
-#: resources/templates/database/search/main.twig:18 src/Database/Search.php:79
+#: resources/templates/database/search/main.twig:17 src/Database/Search.php:79
 msgid "at least one of the words"
 msgstr "குறைந்தபட்சம் ஒரு சொல்லையாவது"
 
-#: resources/templates/database/search/main.twig:18
-#: resources/templates/database/search/main.twig:22
+#: resources/templates/database/search/main.twig:17
+#: resources/templates/database/search/main.twig:21
 msgid "Words are separated by a space character (\" \")."
 msgstr "சொற்கள் ஓர் இடைவெளி எழுத்தால் (\" \") பிரிக்கப்பட்டிருக்கும்."
 
-#: resources/templates/database/search/main.twig:22 src/Database/Search.php:80
+#: resources/templates/database/search/main.twig:21 src/Database/Search.php:80
 msgid "all of the words"
 msgstr "எல்லா வார்த்தைகளும்"
 
-#: resources/templates/database/search/main.twig:26 src/Database/Search.php:81
+#: resources/templates/database/search/main.twig:25 src/Database/Search.php:81
 msgid "the exact phrase as substring"
 msgstr "மூலக்கூறு என சரியான சொற்றொடர்"
 
-#: resources/templates/database/search/main.twig:30 src/Database/Search.php:82
+#: resources/templates/database/search/main.twig:29 src/Database/Search.php:82
 msgid "the exact phrase as whole field"
 msgstr "முழு புலமாக சரியான சொற்றொடர்"
 
-#: resources/templates/database/search/main.twig:34 src/Database/Search.php:83
+#: resources/templates/database/search/main.twig:33 src/Database/Search.php:83
 msgid "as regular expression"
 msgstr "வழக்கமான வெளிப்பாடு"
 
-#: resources/templates/database/search/main.twig:36
+#: resources/templates/database/search/main.twig:35
 #: resources/templates/database/structure/copy_form.twig:14
 msgid "Options:"
 msgstr "விருப்பங்கள்:"
 
-#: resources/templates/database/search/main.twig:40
+#: resources/templates/database/search/main.twig:39
 msgid "include hex matches"
 msgstr "ஃச் போட்டிகளைச் சேர்க்கவும்"
 
-#: resources/templates/database/search/main.twig:45
+#: resources/templates/database/search/main.twig:44
 msgid "Inside tables:"
 msgstr "அட்டவணைகளில்:"
 
-#: resources/templates/database/search/main.twig:49
+#: resources/templates/database/search/main.twig:48
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
 msgstr "அனைத்தையும் தேர்வு செய்யுங்கள்"
 
-#: resources/templates/database/search/main.twig:67
+#: resources/templates/database/search/main.twig:66
 msgid "Inside column:"
 msgstr "நிரல் உள்ளே:"
 
@@ -2660,7 +2654,7 @@ msgstr ""
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:250
 #: src/Plugins/Export/ExportSql.php:907 src/Plugins/Export/ExportXml.php:356
-#: src/Plugins/Export/Helpers/Pdf.php:147
+#: src/Plugins/Export/Helpers/Pdf.php:146
 msgid "Database:"
 msgstr "தரவுத்தளம்:"
 
@@ -2699,15 +2693,15 @@ msgid "Add to Favorites"
 msgstr "விருப்பமானவைகளில் சேர்க்க"
 
 #: resources/templates/database/structure/index.twig:15
-#: src/Plugins/Schema/SchemaPdf.php:87
+#: src/Plugins/Schema/SchemaPdf.php:86
 msgid "Data dictionary"
 msgstr "தரவு அகராதி"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:65
+#: src/Controllers/Database/ExportController.php:66
 #: src/Controllers/Database/TrackingController.php:117
-#: src/Controllers/Export/ExportController.php:286
+#: src/Controllers/Export/ExportController.php:287
 msgid "No tables found in database."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
@@ -2730,7 +2724,7 @@ msgstr "உருவாக்க வினவல்களைக் காட்�
 #: resources/templates/table/relation/common_form.twig:102
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:31
-#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:935
+#: resources/templates/triggers/list.twig:50 src/Config/Descriptions.php:935
 #: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1563
 #: src/Server/Privileges.php:1565
 msgid "Table"
@@ -2762,14 +2756,14 @@ msgid "Create view"
 msgstr "விவரபார்வையை உருவாக்குக"
 
 #: resources/templates/database/structure/structure_table_row.twig:17
-#: resources/templates/server/databases/index.twig:219
-#: resources/templates/server/databases/index.twig:231
+#: resources/templates/server/databases/index.twig:220
+#: resources/templates/server/databases/index.twig:232
 msgid "Not replicated"
 msgstr "இரட்டையாக்கப்படாதது"
 
 #: resources/templates/database/structure/structure_table_row.twig:18
-#: resources/templates/server/databases/index.twig:215
-#: resources/templates/server/databases/index.twig:227
+#: resources/templates/server/databases/index.twig:216
+#: resources/templates/server/databases/index.twig:228
 msgid "Replicated"
 msgstr "இரட்டையாக்கப்பட்டது"
 
@@ -2795,7 +2789,7 @@ msgstr "பயன்பாட்டில் உள்ளது"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:116
-#: src/Controllers/Server/DatabasesController.php:267 src/Import/Import.php:133
+#: src/Controllers/Server/DatabasesController.php:267 src/Import/Import.php:132
 msgid "Rows"
 msgstr "நிரைவரிசைகள்"
 
@@ -2861,7 +2855,7 @@ msgstr "புதுப்பிக்கப்பட்டது"
 
 #: resources/templates/database/tracking/tables.twig:17
 #: resources/templates/events/editor-form.twig:30
-#: resources/templates/events/index.twig:47
+#: resources/templates/events/index.twig:48
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:280 src/Menu.php:450
@@ -2870,7 +2864,7 @@ msgid "Status"
 msgstr "நிகழ்நிலை"
 
 #: resources/templates/database/tracking/tables.twig:47
-#: resources/templates/events/index.twig:116
+#: resources/templates/events/index.twig:74
 msgid "Click to toggle"
 msgstr "பிறழ்வதற்கு சொடுக்குக"
 
@@ -3049,7 +3043,7 @@ msgstr "நன்கறிந்த இருமதரவு"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:472
-#: src/Display/Results.php:1835 src/Html/Generator.php:82
+#: src/Display/Results.php:1833 src/Html/Generator.php:82
 msgid "Copy"
 msgstr "படியெடு"
 
@@ -3060,7 +3054,7 @@ msgstr "வினவலின் பயன்முடிவுகளின் �
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:471
-#: src/Export/Export.php:716
+#: src/Export/Export.php:717
 msgid "Copy to clipboard"
 msgstr "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்"
 
@@ -3087,7 +3081,7 @@ msgstr "கானாவாக மாற்றவும்"
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
 #: src/Controllers/Operations/ViewController.php:95 src/Html/Generator.php:728
-#: src/Import/Import.php:122 src/InsertEdit.php:412 src/Message.php:104
+#: src/Import/Import.php:121 src/InsertEdit.php:412 src/Message.php:104
 msgid "Error"
 msgstr "வலு"
 
@@ -3150,29 +3144,29 @@ msgstr "நிகழ்வு பெயர்"
 msgid "Event type"
 msgstr "நிகழ்வு வகை"
 
-#: resources/templates/events/editor-form.twig:58
+#: resources/templates/events/editor-form.twig:50
 msgid "Execute at"
 msgstr "செயல்படுத்தவும்"
 
-#: resources/templates/events/editor-form.twig:64
+#: resources/templates/events/editor-form.twig:56
 msgid "Execute every"
 msgstr "ஒவ்வொன்றையும் இயக்கவும்"
 
-#: resources/templates/events/editor-form.twig:75
+#: resources/templates/events/editor-form.twig:67
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "தொடங்கு"
 
-#: resources/templates/events/editor-form.twig:81
+#: resources/templates/events/editor-form.twig:73
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "முடிவு"
 
-#: resources/templates/events/editor-form.twig:96
+#: resources/templates/events/editor-form.twig:88
 msgid "On completion preserve"
 msgstr "நிறைவு செய்தவுடன்"
 
-#: resources/templates/events/index.twig:3 src/Menu.php:381
+#: resources/templates/events/index.twig:4 src/Menu.php:381
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:977 src/Plugins/Export/ExportXml.php:92
@@ -3180,35 +3174,35 @@ msgstr "நிறைவு செய்தவுடன்"
 msgid "Events"
 msgstr "நிகழ்வுகள்"
 
-#: resources/templates/events/index.twig:30
+#: resources/templates/events/index.twig:31
 msgid "Create new event"
 msgstr "புதிய நிகழ்வை உருவாக்கவும்"
 
-#: resources/templates/events/index.twig:39
+#: resources/templates/events/index.twig:40
 msgid "There are no events to display."
 msgstr "காண்பிக்க நிகழ்வுகள் எதுவும் இல்லை."
 
-#: resources/templates/events/index.twig:111
+#: resources/templates/events/index.twig:69
 msgid "Event scheduler status"
 msgstr "நிகழ்வு திட்டமிடல் நிலை"
 
-#: resources/templates/events/index.twig:129
+#: resources/templates/events/index.twig:87
 msgid "ON"
 msgstr "ஆன்"
 
-#: resources/templates/events/index.twig:140
+#: resources/templates/events/index.twig:98
 msgid "OFF"
 msgstr "அணை"
 
-#: resources/templates/events/index.twig:158
+#: resources/templates/events/index.twig:116
 msgid "Event editor"
 msgstr "நிகழ்வு திருத்தி"
 
-#: resources/templates/events/index.twig:178
+#: resources/templates/events/index.twig:136
 msgid "Export event"
 msgstr "நிகழ்வு ஏற்றம்"
 
-#: resources/templates/events/index.twig:189
+#: resources/templates/events/index.twig:147
 #, fuzzy
 #| msgid "The slow query log is disabled."
 msgid "The event scheduler is disabled."
@@ -3658,7 +3652,7 @@ msgstr "அதை எடுத்துக் கொள்ளுங்கள்"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:416
-#: src/Export/Export.php:739 src/Html/Generator.php:836
+#: src/Export/Export.php:740 src/Html/Generator.php:836
 #: src/Plugins/Schema/ExportRelationSchema.php:258
 msgid "Back"
 msgstr "பின்செல்க"
@@ -3937,7 +3931,7 @@ msgstr ""
 msgid "View:"
 msgstr "காண்க:"
 
-#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:148
+#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:147
 msgid "Table:"
 msgstr "அட்டவணை:"
 
@@ -4003,7 +3997,7 @@ msgid "SQL upload"
 msgstr "கவிமொ பதிவேற்றம்"
 
 #: resources/templates/navigation/tree/database_select.twig:10
-#: resources/templates/server/databases/index.twig:3
+#: resources/templates/server/databases/index.twig:4
 #: resources/templates/server/export/index.twig:7
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
@@ -4505,49 +4499,49 @@ msgctxt "The collation is the default one"
 msgid "default"
 msgstr "இயல்புநிலை"
 
-#: resources/templates/server/databases/index.twig:3
+#: resources/templates/server/databases/index.twig:4
 msgid "Databases statistics"
 msgstr "தரவுத்தள புள்ளிவிவரங்கள்"
 
-#: resources/templates/server/databases/index.twig:9
+#: resources/templates/server/databases/index.twig:10
 msgid "Create database"
 msgstr "தரவுத்தளத்தை உருவாக்கவும்"
 
-#: resources/templates/server/databases/index.twig:50
+#: resources/templates/server/databases/index.twig:51
 msgid "No privileges to create databases"
 msgstr "தரவுத்தளங்களை உருவாக்க சலுகைகள் இல்லை"
 
-#: resources/templates/server/databases/index.twig:156
+#: resources/templates/server/databases/index.twig:157
 #: resources/templates/server/replication/index.twig:18
 #: resources/templates/server/replication/primary_replication.twig:3
 msgid "Primary replication"
 msgstr "முதன்மை பிரதி"
 
-#: resources/templates/server/databases/index.twig:160
+#: resources/templates/server/databases/index.twig:161
 #: resources/templates/server/replication/replica_configuration.twig:2
 msgid "Replica replication"
 msgstr "நகல் உருவாக்கம்"
 
-#: resources/templates/server/databases/index.twig:181
+#: resources/templates/server/databases/index.twig:182
 #, php-format
 msgid "Jump to database '%s'"
 msgstr "தரவுத்தளத்திற்கு செல்லவும் '%s'"
 
-#: resources/templates/server/databases/index.twig:238
+#: resources/templates/server/databases/index.twig:239
 #, php-format
 msgid "Check privileges for database \"%s\"."
 msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
 
-#: resources/templates/server/databases/index.twig:239
+#: resources/templates/server/databases/index.twig:240
 msgid "Check privileges"
 msgstr "சலுகைகளை சரிபார்க்கவும்"
 
-#: resources/templates/server/databases/index.twig:244
+#: resources/templates/server/databases/index.twig:245
 #, php-format
 msgid "Run SQL queries on database \"%s\"."
 msgstr "\"%s\" என்ற தரவுத்தளத்தில் SQL வினவல்களை இயக்கவும்."
 
-#: resources/templates/server/databases/index.twig:245
+#: resources/templates/server/databases/index.twig:246
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
@@ -4556,13 +4550,13 @@ msgstr "\"%s\" என்ற தரவுத்தளத்தில் SQL வ�
 msgid "SQL"
 msgstr "கவிமொ"
 
-#: resources/templates/server/databases/index.twig:255
+#: resources/templates/server/databases/index.twig:256
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:298
 msgid "Total:"
 msgstr "மொத்தம்:"
 
-#: resources/templates/server/databases/index.twig:300
+#: resources/templates/server/databases/index.twig:301
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -4570,16 +4564,16 @@ msgstr ""
 "குறிப்பு: இங்கே தரவுத்தள புள்ளிவிவரங்களை இயக்குவது வலை சேவையகத்திற்கும் MySQL "
 "சேவையகத்திற்கும் இடையில் அதிக போக்குவரத்தை ஏற்படுத்தக்கூடும்."
 
-#: resources/templates/server/databases/index.twig:302
 #: resources/templates/server/databases/index.twig:303
+#: resources/templates/server/databases/index.twig:304
 msgid "Enable statistics"
 msgstr "புள்ளிவிவரங்களை இயக்கவும்"
 
-#: resources/templates/server/databases/index.twig:310
+#: resources/templates/server/databases/index.twig:311
 msgid "No databases"
 msgstr "தரவுத்தளங்கள் இல்லை"
 
-#: resources/templates/server/databases/index.twig:320
+#: resources/templates/server/databases/index.twig:321
 #: src/Controllers/JavaScriptMessagesController.php:342
 msgid "Confirm"
 msgstr "உறுதிசெய்க"
@@ -6070,7 +6064,7 @@ msgid "Start auto refresh"
 msgstr "தன்னிச்சையானபுதுப்பித்தலை துவக்குக"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2380
+#: src/Display/Results.php:2378
 msgid "Kill"
 msgstr "கொல்க"
 
@@ -6396,12 +6390,12 @@ msgid "State"
 msgstr "சனி->நிலை"
 
 #: resources/templates/sql/profiling_chart.twig:13
-#: resources/templates/triggers/list.twig:51
+#: resources/templates/triggers/list.twig:52
 #: src/Controllers/JavaScriptMessagesController.php:281
 #: src/Plugins/Export/ExportHtmlword.php:395
 #: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
-#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:109
+#: src/Plugins/Export/Helpers/Pdf.php:310 src/Server/Status/Processes.php:109
 msgid "Time"
 msgstr "நேரம்"
 
@@ -6432,7 +6426,7 @@ msgstr "விவரக்குறிப்பு முடிவுகளு�
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:95
-#: src/Database/Routines.php:1000 src/Message.php:87
+#: src/Database/Routines.php:980 src/Message.php:87
 msgid "Your SQL query has been executed successfully."
 msgstr "உங்கள் SQL வினவல் வெற்றிகரமாக நிறைவேற்றப்பட்டது."
 
@@ -6741,7 +6735,7 @@ msgstr "மறுவரிசைப்படுத்த இழுக்கவ�
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:470
 #: src/Controllers/JavaScriptMessagesController.php:622
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1394
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1390
 msgid "Ignore"
 msgstr "புறக்கணி"
 
@@ -6910,13 +6904,13 @@ msgstr "அட்டவணையை வெறுமை செய்யுங்�
 
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:366
+#: src/Controllers/Database/StructureController.php:367
 #, php-format
 msgid "View %s has been dropped."
 msgstr "நோக்குநிலை %s கைவிடப்பட்டது."
 
 #: resources/templates/table/operations/index.twig:459
-#: src/Controllers/Database/StructureController.php:366
+#: src/Controllers/Database/StructureController.php:367
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "அட்டவணை %s கைவிடப்பட்டது."
@@ -7388,23 +7382,23 @@ msgid "Time"
 msgstr "நேரம்"
 
 #: resources/templates/triggers/editor_form.twig:51
-#: resources/templates/triggers/list.twig:52
+#: resources/templates/triggers/list.twig:53
 #: src/Controllers/JavaScriptMessagesController.php:370
 #: src/Navigation/Nodes/NodeEvent.php:27
 #: src/Plugins/Export/ExportHtmlword.php:396
 #: src/Plugins/Export/ExportOdt.php:504
 #: src/Plugins/Export/ExportTexytext.php:371
-#: src/Plugins/Export/Helpers/Pdf.php:316
+#: src/Plugins/Export/Helpers/Pdf.php:312
 msgid "Event"
 msgstr "நிகழ்வு"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:233
+#: src/Controllers/Triggers/IndexController.php:225
 #, php-format
 msgid "Export of trigger %s"
 msgstr "%s செயல்தூண்டியின் தரவேற்றம்"
 
-#: resources/templates/triggers/list.twig:3 src/Menu.php:295 src/Menu.php:388
+#: resources/templates/triggers/list.twig:4 src/Menu.php:295 src/Menu.php:388
 #: src/Navigation/Nodes/NodeTriggerContainer.php:24
 #: src/Navigation/Nodes/NodeTriggerContainer.php:26
 #: src/Plugins/Export/ExportHtmlword.php:448
@@ -7415,11 +7409,11 @@ msgstr "%s செயல்தூண்டியின் தரவேற்ற�
 msgid "Triggers"
 msgstr "தூண்டுதல்கள்"
 
-#: resources/templates/triggers/list.twig:29
+#: resources/templates/triggers/list.twig:30
 msgid "Create new trigger"
 msgstr "புதிய தூண்டுதலை உருவாக்கவும்"
 
-#: resources/templates/triggers/list.twig:40
+#: resources/templates/triggers/list.twig:41
 msgid "There are no triggers to display."
 msgstr "காண்பிக்க தூண்டுதல்கள் எதுவும் இல்லை."
 
@@ -10499,8 +10493,8 @@ msgstr "பறக்கும்போது சுருக்க"
 msgid "Confirm DROP queries"
 msgstr "துளி வினவல்களை உறுதிப்படுத்தவும்"
 
-#: src/Config/Descriptions.php:614 src/Plugins/Schema/SchemaDia.php:64
-#: src/Plugins/Schema/SchemaPdf.php:74
+#: src/Config/Descriptions.php:614 src/Plugins/Schema/SchemaDia.php:63
+#: src/Plugins/Schema/SchemaPdf.php:73
 msgid "Paper size"
 msgstr "காகித அளவு"
 
@@ -11976,21 +11970,21 @@ msgid ""
 msgstr "\"%s\" என்ற பக்கம் ஏற்கனவே உள்ளது, தயவுசெய்து அதை வேறு ஏதாவது மறுபெயரிடுங்கள்."
 
 #: src/Controllers/Database/DesignerController.php:172
-#: src/Controllers/Database/ExportController.php:55
-#: src/Controllers/Database/ImportController.php:60
+#: src/Controllers/Database/ExportController.php:56
+#: src/Controllers/Database/ImportController.php:62
 #: src/Controllers/Database/RoutinesController.php:78
 #: src/Controllers/Database/RoutinesController.php:96
 #: src/Controllers/Database/SearchController.php:51
 #: src/Controllers/Database/SqlController.php:51
-#: src/Controllers/Database/StructureController.php:157
+#: src/Controllers/Database/StructureController.php:158
 #: src/Controllers/Database/Structure/FavoriteTableController.php:65
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
 #: src/Controllers/Database/TrackingController.php:53
 #: src/Controllers/Events/ExportController.php:38
-#: src/Controllers/Events/IndexController.php:40
+#: src/Controllers/Events/IndexController.php:42
 #: src/Controllers/JavaScriptMessagesController.php:335
 #: src/Controllers/Operations/Database/CollationController.php:54
-#: src/Controllers/Operations/DatabaseController.php:228
+#: src/Controllers/Operations/DatabaseController.php:236
 #: src/Controllers/Operations/TableController.php:84
 #: src/Controllers/Operations/ViewController.php:60
 #: src/Controllers/Server/Databases/DestroyController.php:62
@@ -12003,7 +11997,7 @@ msgstr "\"%s\" என்ற பக்கம் ஏற்கனவே உள்�
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
 #: src/Controllers/Table/FindReplaceController.php:74
 #: src/Controllers/Table/GisVisualizationController.php:68
-#: src/Controllers/Table/ImportController.php:69
+#: src/Controllers/Table/ImportController.php:71
 #: src/Controllers/Table/IndexesController.php:64
 #: src/Controllers/Table/IndexRenameController.php:52
 #: src/Controllers/Table/SearchController.php:168
@@ -12020,16 +12014,16 @@ msgstr "\"%s\" என்ற பக்கம் ஏற்கனவே உள்�
 msgid "No database selected."
 msgstr "எந்த தரவுத்தளமும் தேர்ந்தெடுக்கப்படவில்லை."
 
-#: src/Controllers/Database/ExportController.php:120
-#: src/Controllers/Server/ExportController.php:57
-#: src/Controllers/Table/ExportController.php:92
+#: src/Controllers/Database/ExportController.php:121
+#: src/Controllers/Server/ExportController.php:58
+#: src/Controllers/Table/ExportController.php:93
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "ஏற்றுமதி செருகுநிரல்களை ஏற்ற முடியவில்லை, தயவுசெய்து உங்கள் நிறுவலை சரிபார்க்கவும்!"
 
-#: src/Controllers/Database/ImportController.php:70
-#: src/Controllers/Server/ImportController.php:62
-#: src/Controllers/Table/ImportController.php:87
+#: src/Controllers/Database/ImportController.php:72
+#: src/Controllers/Server/ImportController.php:64
+#: src/Controllers/Table/ImportController.php:89
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "தரவிறக்க செருகுநிரல்களை நினைவேற்ற இயலவில்லை, தயவுசெய்து உங்கள் நிறுவலை சரிபார்க்கவும்!"
@@ -12068,7 +12062,7 @@ msgstr "பயனர்களை நிர்வகிப்பதற்கா�
 #: src/Controllers/Table/DeleteConfirmController.php:59
 #: src/Controllers/Table/DropColumnConfirmationController.php:54
 #: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/ImportController.php:74
+#: src/Controllers/Table/ImportController.php:76
 #: src/Controllers/Table/IndexesController.php:69
 #: src/Controllers/Table/IndexRenameController.php:57
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:45
@@ -12085,23 +12079,23 @@ msgstr "பயனர்களை நிர்வகிப்பதற்கா�
 msgid "No table selected."
 msgstr "எந்த அட்டவணையும் தேர்ந்தெடுக்கப்படவில்லை."
 
-#: src/Controllers/Database/RoutinesController.php:171
+#: src/Controllers/Database/RoutinesController.php:166
 msgid "Add routine"
 msgstr "%s களத்தை சேர்க்க->செயல்முறையை சேர்க்க"
 
-#: src/Controllers/Database/RoutinesController.php:175
+#: src/Controllers/Database/RoutinesController.php:170
 msgid "Edit routine"
 msgstr "வழக்கத்தைத் திருத்து"
 
-#: src/Controllers/Database/RoutinesController.php:255
-#: src/Controllers/Database/RoutinesController.php:285
-#: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Events/IndexController.php:182
-#: src/Controllers/Triggers/IndexController.php:207
+#: src/Controllers/Database/RoutinesController.php:250
+#: src/Controllers/Database/RoutinesController.php:280
+#: src/Controllers/Database/RoutinesController.php:346
+#: src/Controllers/Events/IndexController.php:175
+#: src/Controllers/Triggers/IndexController.php:199
 msgid "Error in processing request:"
 msgstr "வேண்டுகோள் செயலாக்கதில் பிழை:"
 
-#: src/Controllers/Database/RoutinesController.php:258
+#: src/Controllers/Database/RoutinesController.php:253
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12110,18 +12104,18 @@ msgstr ""
 "தரவுத்தள %2$s இல் %1$s என்ற பெயரைக் கொண்ட வழக்கம் இல்லை. இந்த வழக்கத்தைத் திருத்துவதற்கு "
 "தேவையான சலுகைகள் உங்களுக்கு இல்லாதிருக்கலாம்."
 
-#: src/Controllers/Database/RoutinesController.php:287
-#: src/Controllers/Database/RoutinesController.php:353
+#: src/Controllers/Database/RoutinesController.php:282
+#: src/Controllers/Database/RoutinesController.php:348
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் வழக்கமாக இல்லை."
 
-#: src/Controllers/Database/RoutinesController.php:384
+#: src/Controllers/Database/RoutinesController.php:379
 #, php-format
 msgid "Export of routine %s"
 msgstr "%s செயல்முறையின் தரவேற்றம்"
 
-#: src/Controllers/Database/RoutinesController.php:403
+#: src/Controllers/Database/RoutinesController.php:398
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12145,8 +12139,8 @@ msgstr ""
 msgid "Success!"
 msgstr "வெற்றி!"
 
-#: src/Controllers/Database/StructureController.php:565
-#: src/Display/Results.php:3187
+#: src/Controllers/Database/StructureController.php:566
+#: src/Display/Results.php:3185
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12154,7 +12148,7 @@ msgid ""
 msgstr ""
 "இவ்விவரபார்வை குறைந்தளவு இத்தனை நிரைவரிசைகள் கொண்டிருக்கலாம். %sஆவணச்சான்றை%s காண்க."
 
-#: src/Controllers/Database/StructureController.php:734
+#: src/Controllers/Database/StructureController.php:735
 msgid "unknown"
 msgstr "தெரியவில்லை"
 
@@ -12218,31 +12212,31 @@ msgstr "நீங்கள் இப்பக்கத்தை மீளேற�
 msgid "Export of event %s"
 msgstr "%s நிகழ்வின் தரவேற்றம்"
 
-#: src/Controllers/Events/ExportController.php:75
+#: src/Controllers/Events/ExportController.php:67
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr ""
 "செயலாக்க கோரிக்கையில் பிழை: தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் நிகழ்வு எதுவும் இல்லை."
 
-#: src/Controllers/Events/IndexController.php:61
+#: src/Controllers/Events/IndexController.php:65
 msgid "The event was dropped immediately after creation."
 msgstr "நிகழ்வு உருவாக்கப்பட்ட உடனேயே கைவிடப்பட்டது."
 
-#: src/Controllers/Events/IndexController.php:129
+#: src/Controllers/Events/IndexController.php:112
 msgid "Add event"
 msgstr "புதிய பயனாளரை சேர்க்க->நிகழ்வை சேர்க்க"
 
-#: src/Controllers/Events/IndexController.php:133
+#: src/Controllers/Events/IndexController.php:116
 msgid "Edit event"
 msgstr "நிகழ்வை தொகுக்க"
 
-#: src/Controllers/Events/IndexController.php:184
+#: src/Controllers/Events/IndexController.php:175
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயர் கொண்ட நிகழ்வு இல்லை."
 
-#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:677
+#: src/Controllers/Export/ExportController.php:121 src/Export/Export.php:678
 msgid "Bad type!"
 msgstr "தகா வகை!"
 
@@ -12462,7 +12456,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" கூற்றுகள் முடக்கப்பட்டுள்ளன."
 
-#: src/Controllers/Import/ImportController.php:697 src/Sql.php:918
+#: src/Controllers/Import/ImportController.php:697 src/Sql.php:920
 msgid "[ROLLBACK occurred.]"
 msgstr "[ரோல்பேக் ஏற்பட்டது.]"
 
@@ -14400,22 +14394,22 @@ msgstr "சரம்"
 msgid "No collation provided."
 msgstr "எந்த கூட்டு வழங்கப்படவில்லை."
 
-#: src/Controllers/Operations/DatabaseController.php:82
+#: src/Controllers/Operations/DatabaseController.php:85
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "ஒரே பெயரில் தரவுத்தளத்தை நகலெடுக்க முடியாது. பெயரை மாற்றி மீண்டும் முயற்சிக்கவும்."
 
-#: src/Controllers/Operations/DatabaseController.php:162
+#: src/Controllers/Operations/DatabaseController.php:170
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "%1$s தரவுத்தளமானது %2$s ஆக பெயர் மாற்றப்பட்டது."
 
-#: src/Controllers/Operations/DatabaseController.php:175
+#: src/Controllers/Operations/DatabaseController.php:183
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "%1$s தரவுத்தளமானது %2$s ல் படியெடுக்கப்பட்டது."
 
-#: src/Controllers/Operations/DatabaseController.php:264
+#: src/Controllers/Operations/DatabaseController.php:272
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -15240,7 +15234,7 @@ msgstr "தவறான தரவு"
 msgid "Wrong data or no validation for %s"
 msgstr "தவறான தரவு அல்லது %s க்கு சரிபார்ப்பு இல்லை"
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1078
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1080
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "புத்தகக்குறி %s குறிக்கப்பட்டது."
@@ -15317,8 +15311,8 @@ msgid "There is an issue with your request."
 msgstr "உங்கள் கோரிக்கையில் சிக்கல் உள்ளது."
 
 #: src/Controllers/Table/GetFieldController.php:109
-#: src/Database/Routines.php:1017 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:904
+#: src/Database/Routines.php:997 src/Import/Import.php:137
+#: src/InsertEdit.php:163 src/Sql.php:906
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ஒரு வெற்று முடிவு தொகுப்பை (அதாவது சுழிய வரிசைகள்) திருப்பி அளித்தது."
 
@@ -15364,7 +15358,7 @@ msgstr "காட்சி நெடுவரிசை வெற்றிகர�
 msgid "Internal relationships were successfully updated."
 msgstr "உள் உறவுகள் வெற்றிகரமாக புதுப்பிக்கப்பட்டன."
 
-#: src/Controllers/Table/ReplaceController.php:183
+#: src/Controllers/Table/ReplaceController.php:182
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "வரிசை: %1$s, நெடுவரிசை: %2$s, பிழை: %3$s"
@@ -15421,20 +15415,20 @@ msgstr "கண்காணிப்பு பதிப்புகள் வெ�
 msgid "No versions selected."
 msgstr "பதிப்புகள் எதுவும் தேர்ந்தெடுக்கப்படவில்லை."
 
-#: src/Controllers/Triggers/IndexController.php:163
+#: src/Controllers/Triggers/IndexController.php:155
 msgid "Add trigger"
 msgstr "புதிய பயனாளரை சேர்க்க->செயல்தூண்டியை சேர்க்க"
 
-#: src/Controllers/Triggers/IndexController.php:167
+#: src/Controllers/Triggers/IndexController.php:159
 msgid "Edit trigger"
 msgstr "புதிய பயனாளரை சேர்க்க->செயல்தூண்டியை தொகுக்க"
 
-#: src/Controllers/Triggers/IndexController.php:209
+#: src/Controllers/Triggers/IndexController.php:201
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் தூண்டுதல் இல்லை."
 
-#: src/Controllers/Triggers/IndexController.php:250
+#: src/Controllers/Triggers/IndexController.php:242
 #, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
@@ -15528,7 +15522,7 @@ msgstr "பிழை: உள் உறவை அகற்ற முடியவ�
 msgid "Internal relationship has been removed."
 msgstr "உள் உறவு அகற்றப்பட்டுள்ளது."
 
-#: src/Database/Designer.php:117
+#: src/Database/Designer.php:119
 msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "ஒழுங்கமைவு செருகுநிரல்களை நினைவேற்ற இயலவில்லை, தயவுசெய்து உங்கள் நிறுவலை "
@@ -15539,65 +15533,53 @@ msgstr ""
 msgid "Invalid routine type: \"%s\""
 msgstr "தவறான வழக்கமான வகை: \"%s\""
 
-#: src/Database/Routines.php:103 src/Database/Routines.php:129
-#: src/Database/Routines.php:205 src/Database/Routines.php:977
-#: src/Events/Events.php:87 src/Events/Events.php:96 src/Events/Events.php:128
-#: src/Triggers/Triggers.php:84 src/Triggers/Triggers.php:93
-#: src/Triggers/Triggers.php:126
-#, php-format
-msgid "The following query has failed: \"%s\""
-msgstr "பின்வரும் வினவல் தோல்வியுற்றது: \"%s\""
-
-#: src/Database/Routines.php:107 src/Database/Routines.php:133
-#: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:981 src/Events/Events.php:91
-#: src/Events/Events.php:100 src/Events/Events.php:113
-#: src/Events/Events.php:132 src/Html/Generator.php:793
-#: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
-#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:130
-msgid "MySQL said: "
-msgstr "MySQL சொன்னது: "
-
-#: src/Database/Routines.php:136
+#: src/Database/Routines.php:126
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "வழக்கமான %1$s உருவாக்கப்பட்டுள்ளது."
 
-#: src/Database/Routines.php:147 src/Events/Events.php:147
-#: src/Triggers/Triggers.php:145
+#: src/Database/Routines.php:137 src/Events/Events.php:145
+#: src/Triggers/Triggers.php:130
 msgid "One or more errors have occurred while processing your request:"
 msgstr "உங்கள் கோரிக்கையை செயலாக்கும்போது ஒன்று அல்லது அதற்கு மேற்பட்ட பிழைகள் ஏற்பட்டுள்ளன:"
 
-#: src/Database/Routines.php:220
+#: src/Database/Routines.php:205
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "மன்னிக்கவும், கைவிடப்பட்ட வழக்கத்தை மீட்டெடுக்க நாங்கள் தவறிவிட்டோம்."
 
-#: src/Database/Routines.php:221 src/Events/Events.php:111
-#: src/Triggers/Triggers.php:109
+#: src/Database/Routines.php:206 src/Events/Events.php:122
+#: src/Triggers/Triggers.php:99
 msgid "The backed up query was:"
 msgstr "காப்புப்பிரதி வினவல்:"
 
-#: src/Database/Routines.php:269
+#: src/Database/Routines.php:208 src/Database/Routines.php:1220
+#: src/Events/Events.php:124 src/Events/Events.php:164
+#: src/Html/Generator.php:793 src/Triggers/Triggers.php:101
+#: src/Triggers/Triggers.php:268
+msgid "MySQL said: "
+msgstr "MySQL சொன்னது: "
+
+#: src/Database/Routines.php:254
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "வழக்கமான %1$s மாற்றியமைக்கப்பட்டுள்ளது. சலுகைகள் சரிசெய்யப்பட்டுள்ளன."
 
-#: src/Database/Routines.php:274
+#: src/Database/Routines.php:259
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "வழக்கமான %1$s மாற்றியமைக்கப்பட்டுள்ளது."
 
-#: src/Database/Routines.php:628
+#: src/Database/Routines.php:613
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 "ஒவ்வொரு வழக்கமான அளவுருவுக்கும் நீங்கள் ஒரு பெயரையும் ஒரு வகையையும் வழங்க வேண்டும்."
 
-#: src/Database/Routines.php:646
+#: src/Database/Routines.php:631
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "மதிப்புருபுக்கு தகா வழிமதிப்பு \"%s\" அளிக்கப்பட்டுள்ளது."
 
-#: src/Database/Routines.php:666 src/Database/Routines.php:731
+#: src/Database/Routines.php:651 src/Database/Routines.php:716
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15605,38 +15587,44 @@ msgstr ""
 "ENUM, SET, VARBAR மற்றும் வர்பினரி என்ற வகை வழக்கமான அளவுருக்களுக்கு நீளம்/மதிப்புகளை "
 "வழங்க வேண்டும்."
 
-#: src/Database/Routines.php:713
+#: src/Database/Routines.php:698
 msgid "You must provide a valid return type for the routine."
 msgstr "வழக்கத்திற்கு நீங்கள் சரியான வருவாய் வகையை வழங்க வேண்டும்."
 
-#: src/Database/Routines.php:783 src/Events/Events.php:258
-#: src/Triggers/Triggers.php:187
+#: src/Database/Routines.php:768 src/Events/Events.php:259
+#: src/Triggers/Triggers.php:172
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "வரையறுக்கப்பட்டவர் \"பயனர்பெயர்@ஓச்ட்பெயர்\" வடிவத்தில் இருக்க வேண்டும்!"
 
-#: src/Database/Routines.php:790
+#: src/Database/Routines.php:775
 msgid "Invalid routine type!"
 msgstr "தவறான வழக்கமான வகை!"
 
-#: src/Database/Routines.php:796
+#: src/Database/Routines.php:781
 msgid "You must provide a routine name!"
 msgstr "நீங்கள் ஒரு வழக்கமான பெயரை வழங்க வேண்டும்!"
 
-#: src/Database/Routines.php:867
+#: src/Database/Routines.php:852
 msgid "You must provide a routine definition."
 msgstr "நீங்கள் ஒரு வழக்கமான வரையறையை வழங்க வேண்டும்."
 
-#: src/Database/Routines.php:993
+#: src/Database/Routines.php:973
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "வழக்கமான %s இன் சாவுஒறுப்பு முடிவுகள்"
 
-#: src/Database/Routines.php:1008
+#: src/Database/Routines.php:988
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d வரிசை செயல்முறையின் உள்ளே கடைசி அறிக்கையால் பாதிக்கப்பட்டது."
 msgstr[1] "%d வரிசைகள் நடைமுறையில் உள்ள கடைசி அறிக்கையால் பாதிக்கப்பட்டுள்ளன."
+
+#: src/Database/Routines.php:1218 src/Events/Events.php:162
+#: src/Triggers/Triggers.php:266
+#, php-format
+msgid "The following query has failed: \"%s\""
+msgstr "பின்வரும் வினவல் தோல்வியுற்றது: \"%s\""
 
 #: src/Dbal/DatabaseInterface.php:1067
 #, php-format
@@ -15663,31 +15651,31 @@ msgstr ""
 "பிழை 1045: பயனருக்கு அணுகல் மறுக்கப்பட்டது. கூடுதல் பிழை தகவல்கள் கிடைக்கக்கூடும், ஆனால் "
 "%s உள்ளமைவு கட்டளை மூலம் மறைக்கப்படுகிறது."
 
-#: src/Display/Results.php:2339 src/Display/Results.php:2354
+#: src/Display/Results.php:2337 src/Display/Results.php:2352
 msgid "The row has been deleted."
 msgstr "இந்நிரைவரிசை அழிக்கப்பட்டது."
 
-#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:910
+#: src/Display/Results.php:2909 src/Display/Results.php:3225 src/Sql.php:912
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "வினவல் %01.4f நொடிகள் எடுத்துக்கொண்டது."
 
-#: src/Display/Results.php:3195
+#: src/Display/Results.php:3193
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "%1s - %2s நிரைவரிசைகள் காட்டப்படுகின்றன"
 
-#: src/Display/Results.php:3208
+#: src/Display/Results.php:3206
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "%1$s மொத்தம், வினவலில் %2$s"
 
-#: src/Display/Results.php:3213
+#: src/Display/Results.php:3211
 #, php-format
 msgid "%s total"
 msgstr "மொத்தம் %s"
 
-#: src/Display/Results.php:3511
+#: src/Display/Results.php:3509
 msgid "Link not found!"
 msgstr "இணைப்பை காணவில்லை!"
 
@@ -15976,37 +15964,37 @@ msgstr "பல்வேறு பிழை செய்திகள், சி�
 msgid "Report"
 msgstr "அறிவிக்கை"
 
-#: src/Events/Events.php:110
-msgid "Sorry, we failed to restore the dropped event."
-msgstr "மன்னிக்கவும், கைவிடப்பட்ட நிகழ்வை மீட்டெடுக்க நாங்கள் தவறிவிட்டோம்."
-
-#: src/Events/Events.php:117
-#, php-format
-msgid "Event %1$s has been modified."
-msgstr "நிகழ்வு %1$s மாற்றியமைக்கப்பட்டுள்ளது."
-
-#: src/Events/Events.php:135
+#: src/Events/Events.php:88
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "நிகழ்வு %1$s உருவாக்கப்பட்டுள்ளது."
 
-#: src/Events/Events.php:267
+#: src/Events/Events.php:121
+msgid "Sorry, we failed to restore the dropped event."
+msgstr "மன்னிக்கவும், கைவிடப்பட்ட நிகழ்வை மீட்டெடுக்க நாங்கள் தவறிவிட்டோம்."
+
+#: src/Events/Events.php:133
+#, php-format
+msgid "Event %1$s has been modified."
+msgstr "நிகழ்வு %1$s மாற்றியமைக்கப்பட்டுள்ளது."
+
+#: src/Events/Events.php:268
 msgid "You must provide an event name!"
 msgstr "நீங்கள் ஒரு நிகழ்வு பெயரை வழங்க வேண்டும்!"
 
-#: src/Events/Events.php:281
+#: src/Events/Events.php:282
 msgid "You must provide a valid interval value for the event."
 msgstr "நிகழ்வுக்கு சரியான இடைவெளி மதிப்பை நீங்கள் வழங்க வேண்டும்."
 
-#: src/Events/Events.php:296
+#: src/Events/Events.php:297
 msgid "You must provide a valid execution time for the event."
 msgstr "நிகழ்வுக்கு சரியான சாவுஒறுப்பு நேரத்தை நீங்கள் வழங்க வேண்டும்."
 
-#: src/Events/Events.php:299
+#: src/Events/Events.php:300
 msgid "You must provide a valid type for the event."
 msgstr "நிகழ்வுக்கு சரியான வகையை நீங்கள் வழங்க வேண்டும்."
 
-#: src/Events/Events.php:328
+#: src/Events/Events.php:329
 msgid "You must provide an event definition."
 msgstr "நீங்கள் ஒரு நிகழ்வு வரையறையை வழங்க வேண்டும்."
 
@@ -16224,17 +16212,17 @@ msgstr ""
 "Ini_get மற்றும்/அல்லது ini_set செயல்பாடுகள் php.ini இல் முடக்கப்பட்டுள்ளன. Phpmyadmin "
 "க்கு இந்த செயல்பாடுகள் தேவை!"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:61
+#: src/Http/Middleware/TokenRequestParamChecking.php:46
+msgid "Error: Token mismatch"
+msgstr "பிழை: கிள்ளாக்கு பொருந்தாத தன்மை"
+
+#: src/Http/Middleware/TokenRequestParamChecking.php:78
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 "அமர்வு குக்கீ அமைக்கத் தவறிவிட்டது. Phpmyadmin ஐ அணுக HTTPS க்கு பதிலாக HTTP ஐப் "
 "பயன்படுத்துகிறீர்கள்."
-
-#: src/Http/Middleware/TokenRequestParamChecking.php:69
-msgid "Error: Token mismatch"
-msgstr "பிழை: கிள்ளாக்கு பொருந்தாத தன்மை"
 
 #: src/I18n/LanguageManager.php:976
 msgid "Ignoring unsupported language code."
@@ -16279,7 +16267,7 @@ msgstr "தூண்டுதல் பெயர் %d எழுத்துக�
 msgid "The trigger name cannot end with a space character."
 msgstr "தூண்டுதல் பெயர் விண்வெளி எழுத்துடன் முடிவடைய முடியாது."
 
-#: src/Import/Import.php:947
+#: src/Import/Import.php:946
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
@@ -16288,48 +16276,48 @@ msgstr ""
 "புதுப்பிக்கவும், நீக்கவும், மாற்றவும், அமைக்கவும் (உலகளாவிய விருப்பங்கள் இல்லாமல்) மீண்டும் "
 "உருட்ட முடியும்."
 
-#: src/Import/Import.php:1164
+#: src/Import/Import.php:1163
 #, php-format
 msgid "Go to table: %s"
 msgstr "அட்டவணைக்குச் செல்லுங்கள்: %s"
 
-#: src/Import/Import.php:1172
+#: src/Import/Import.php:1171
 #, php-format
 msgid "Structure of %s"
 msgstr "%s இன் அமைப்பு"
 
-#: src/Import/Import.php:1179 src/Import/Import.php:1228
+#: src/Import/Import.php:1178 src/Import/Import.php:1227
 #, php-format
 msgid "Edit settings for %s"
 msgstr "%s க்கான அமைப்புகளைத் திருத்தவும்"
 
-#: src/Import/Import.php:1190
+#: src/Import/Import.php:1189
 #, php-format
 msgid "Go to view: %s"
 msgstr "பார்வைக்குச் செல்லுங்கள்: %s"
 
-#: src/Import/Import.php:1211
+#: src/Import/Import.php:1210
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "பின்வரும் கட்டமைப்புகள் உருவாக்கப்பட்டுள்ளன அல்லது மாற்றப்பட்டுள்ளன. இங்கே நீங்கள் முடியும்:"
 
-#: src/Import/Import.php:1213
+#: src/Import/Import.php:1212
 msgid "View a structure's contents by clicking on its name."
 msgstr "ஒரு கட்டமைப்பின் உள்ளடக்கங்களை அதன் பெயரைக் சொடுக்கு செய்வதன் மூலம் காண்க."
 
-#: src/Import/Import.php:1214
+#: src/Import/Import.php:1213
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "தொடர்புடைய \"விருப்பங்கள்\" இணைப்பைக் சொடுக்கு செய்வதன் மூலம் அதன் எந்த அமைப்புகளையும் "
 "மாற்றவும்."
 
-#: src/Import/Import.php:1215
+#: src/Import/Import.php:1214
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "\"கட்டமைப்பு\" இணைப்பைப் பின்பற்றுவதன் மூலம் கட்டமைப்பைத் திருத்தவும்."
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1221
 #, php-format
 msgid "Go to database: %s"
 msgstr "தரவுத்தளம்: %s க்கு செல்க"
@@ -16345,11 +16333,11 @@ msgstr "குறியீடுகள் %1$s மற்றும் %2$s சம
 msgid "web server upload directory:"
 msgstr "வலை சேவையக பதிவேற்ற அடைவு:"
 
-#: src/InsertEdit.php:819 src/Sql.php:901
+#: src/InsertEdit.php:815 src/Sql.php:903
 msgid "Showing SQL query"
 msgstr "கவிமொ வினவலைக் காட்டுகிறது"
 
-#: src/InsertEdit.php:843 src/Sql.php:882
+#: src/InsertEdit.php:839 src/Sql.php:884
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "வரிசை ஐடி செருகப்பட்டது: %1$d"
@@ -17341,7 +17329,7 @@ msgstr "பொருள் உருவாக்கும் விருப்�
 msgid "Export contents"
 msgstr "உள்ளடக்கத்தை தரவேற்றுக"
 
-#: src/Plugins/Export/Helpers/Pdf.php:149
+#: src/Plugins/Export/Helpers/Pdf.php:148
 msgid "Purpose:"
 msgstr "நோக்கம்:"
 
@@ -17430,8 +17418,8 @@ msgstr "சரியான தசமங்களாக இறக்குமத�
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "நாணயங்களை இறக்குமதி <i> (எ.கா. $ 5.00 முதல் 5.00 வரை) </i>"
 
-#: src/Plugins/Import/ImportOds.php:157 src/Plugins/Import/ImportXml.php:73
-#: src/Plugins/Import/ImportXml.php:111
+#: src/Plugins/Import/ImportOds.php:157 src/Plugins/Import/ImportXml.php:72
+#: src/Plugins/Import/ImportXml.php:110
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -17473,7 +17461,7 @@ msgstr "சுழிய மதிப்புகளுக்கு <code> Auto_i
 msgid "XML"
 msgstr "நீகுமொ"
 
-#: src/Plugins.php:406
+#: src/Plugins.php:243
 msgid "This format has no options"
 msgstr "இந்த வடிவத்திற்கு விருப்பங்கள் இல்லை"
 
@@ -17521,39 +17509,39 @@ msgstr "வண்ணத்தைக் காட்டு"
 msgid "Only show keys"
 msgstr "விசைகளை மட்டுமே காட்டு"
 
-#: src/Plugins/Schema/SchemaDia.php:55 src/Plugins/Schema/SchemaEps.php:63
-#: src/Plugins/Schema/SchemaPdf.php:65
+#: src/Plugins/Schema/SchemaDia.php:54 src/Plugins/Schema/SchemaEps.php:62
+#: src/Plugins/Schema/SchemaPdf.php:64
 msgid "Orientation"
 msgstr "நோக்குநிலை"
 
-#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
-#: src/Plugins/Schema/SchemaPdf.php:68
+#: src/Plugins/Schema/SchemaDia.php:57 src/Plugins/Schema/SchemaEps.php:65
+#: src/Plugins/Schema/SchemaPdf.php:67
 msgid "Landscape"
 msgstr "நிலப்பரப்பு"
 
-#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
-#: src/Plugins/Schema/SchemaPdf.php:68
+#: src/Plugins/Schema/SchemaDia.php:57 src/Plugins/Schema/SchemaEps.php:65
+#: src/Plugins/Schema/SchemaPdf.php:67
 msgid "Portrait"
 msgstr "உருவப்படம்"
 
-#: src/Plugins/Schema/SchemaEps.php:57 src/Plugins/Schema/SchemaPdf.php:59
-#: src/Plugins/Schema/SchemaSvg.php:56
+#: src/Plugins/Schema/SchemaEps.php:56 src/Plugins/Schema/SchemaPdf.php:58
+#: src/Plugins/Schema/SchemaSvg.php:55
 msgid "Same width for all tables"
 msgstr "எல்லா அட்டவணைகளுக்கும் ஒரே அகலம்"
 
-#: src/Plugins/Schema/SchemaPdf.php:81
+#: src/Plugins/Schema/SchemaPdf.php:80
 msgid "Show grid"
 msgstr "கட்டத்தைக் காட்டு"
 
-#: src/Plugins/Schema/SchemaPdf.php:93
+#: src/Plugins/Schema/SchemaPdf.php:92
 msgid "Order of the tables"
 msgstr "அட்டவணைகளின் வரிசை"
 
-#: src/Plugins/Schema/SchemaPdf.php:96
+#: src/Plugins/Schema/SchemaPdf.php:95
 msgid "Name (Ascending)"
 msgstr "பெயர் (ஏறுதல்)"
 
-#: src/Plugins/Schema/SchemaPdf.php:96
+#: src/Plugins/Schema/SchemaPdf.php:95
 msgid "Name (Descending)"
 msgstr "பெயர் (இறங்கு)"
 
@@ -18164,16 +18152,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "புதிய நிலையான பதிப்புகள் ஏதுமில்லை"
 
-#: src/Sql.php:445
+#: src/Sql.php:447
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "இயல்புநிலை உலாவி வினவலாகப் புக்மார்க்கு \"%s\" பயன்படுத்துதல்."
 
-#: src/Sql.php:898
+#: src/Sql.php:900
 msgid "Showing as PHP code"
 msgstr "பிஎச்பி குறியீடாகக் காட்டுகிறது"
 
-#: src/Sql.php:1244
+#: src/Sql.php:1246
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18182,7 +18170,7 @@ msgstr ""
 "தற்போதைய தேர்வில் தனித்துவமான நெடுவரிசை இல்லை. கட்டம் திருத்து, தேர்வுப்பெட்டி, "
 "திருத்து, நகலெடுத்து நீக்குதல் நற்பொருத்தங்கள் கிடைக்கவில்லை. %s"
 
-#: src/Sql.php:1258
+#: src/Sql.php:1260
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18243,12 +18231,12 @@ msgstr "குறியீட்டு பாகங்கள் வரையற�
 msgid "Problems with indexes of table `%s`"
 msgstr "அட்டவணை `%s` இன் குறியீடுகளில் சிக்கல்கள்"
 
-#: src/Table/TableMover.php:309
+#: src/Table/TableMover.php:312
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "மூல தரவுத்தளம் `%s` காணப்படவில்லை!"
 
-#: src/Table/TableMover.php:318
+#: src/Table/TableMover.php:321
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "இலக்கு தரவுத்தளம் `%s` காணப்படவில்லை!"
@@ -18411,37 +18399,37 @@ msgstr "பதிப்பு %1$s %2$s நீக்கப்பட்டது.
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "பதிப்பு %1$s உருவாக்கப்பட்டது, %2$s க்கான கண்காணிப்பு செயலில் உள்ளது."
 
-#: src/Triggers/Triggers.php:108
+#: src/Triggers/Triggers.php:98
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "மன்னிக்கவும், கைவிடப்பட்ட தூண்டுதலை மீட்டெடுக்க நாங்கள் தவறிவிட்டோம்."
 
-#: src/Triggers/Triggers.php:115
+#: src/Triggers/Triggers.php:105
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "தூண்டுதல் %1$s மாற்றியமைக்கப்பட்டுள்ளது."
 
-#: src/Triggers/Triggers.php:133
+#: src/Triggers/Triggers.php:118
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "தூண்டுதல் %1$s உருவாக்கப்பட்டுள்ளது."
 
-#: src/Triggers/Triggers.php:195
+#: src/Triggers/Triggers.php:180
 msgid "You must provide a trigger name!"
 msgstr "நீங்கள் ஒரு தூண்டுதல் பெயரை வழங்க வேண்டும்!"
 
-#: src/Triggers/Triggers.php:201
+#: src/Triggers/Triggers.php:186
 msgid "You must provide a valid timing for the trigger!"
 msgstr "தூண்டுதலுக்கான சரியான நேரத்தை நீங்கள் வழங்க வேண்டும்!"
 
-#: src/Triggers/Triggers.php:207
+#: src/Triggers/Triggers.php:192
 msgid "You must provide a valid event for the trigger!"
 msgstr "தூண்டுதலுக்கு நீங்கள் சரியான நிகழ்வை வழங்க வேண்டும்!"
 
-#: src/Triggers/Triggers.php:217
+#: src/Triggers/Triggers.php:202
 msgid "You must provide a valid table name!"
 msgstr "நீங்கள் செல்லுபடியாகும் அட்டவணை பெயரை வழங்க வேண்டும்!"
 
-#: src/Triggers/Triggers.php:224
+#: src/Triggers/Triggers.php:209
 msgid "You must provide a trigger definition."
 msgstr "நீங்கள் ஒரு தூண்டுதல் வரையறையை வழங்க வேண்டும்."
 

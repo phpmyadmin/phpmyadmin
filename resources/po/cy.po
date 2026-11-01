@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-25 00:40+0000\n"
+"POT-Creation-Date: 2026-11-01 00:29+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Welsh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -225,7 +225,7 @@ msgstr ""
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:223
 #: src/Display/Results.php:921 src/Plugins/Export/ExportSql.php:1970
-#: src/Plugins/Schema/SchemaPdf.php:96
+#: src/Plugins/Schema/SchemaPdf.php:95
 msgid "None"
 msgstr "Dim"
 
@@ -260,7 +260,7 @@ msgstr "Colofnau"
 #: resources/templates/database/routines/editor_form.twig:185
 #: resources/templates/database/routines/execute_form.twig:63
 #: resources/templates/display/results/table.twig:279
-#: resources/templates/events/editor-form.twig:120
+#: resources/templates/events/editor-form.twig:112
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
 #: resources/templates/modals/enum_set_editor.twig:10
@@ -408,17 +408,17 @@ msgstr "llwytho"
 #: resources/templates/columns_definitions/column_definitions_form.twig:179
 #: resources/templates/database/designer/main.twig:1128
 #: resources/templates/database/designer/main.twig:1138
-#: resources/templates/database/routines/index.twig:79
-#: resources/templates/database/routines/index.twig:87
-#: resources/templates/database/routines/index.twig:99
-#: resources/templates/database/routines/index.twig:103
-#: resources/templates/database/routines/index.twig:114
-#: resources/templates/database/routines/index.twig:122
+#: resources/templates/database/routines/index.twig:80
+#: resources/templates/database/routines/index.twig:88
+#: resources/templates/database/routines/index.twig:100
+#: resources/templates/database/routines/index.twig:104
+#: resources/templates/database/routines/index.twig:115
+#: resources/templates/database/routines/index.twig:123
 #: resources/templates/error/report_modal.twig:14
-#: resources/templates/events/index.twig:159
-#: resources/templates/events/index.twig:167
-#: resources/templates/events/index.twig:179
-#: resources/templates/events/index.twig:183
+#: resources/templates/events/index.twig:117
+#: resources/templates/events/index.twig:125
+#: resources/templates/events/index.twig:137
+#: resources/templates/events/index.twig:141
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:90 resources/templates/export.twig:188
@@ -524,7 +524,7 @@ msgstr "Dewis Allwedd Estron"
 #: src/Plugins/Export/ExportOdt.php:390
 #: src/Plugins/Export/ExportTexytext.php:240
 #: src/Plugins/Export/ExportTexytext.php:300
-#: src/Plugins/Export/Helpers/Pdf.php:470
+#: src/Plugins/Export/Helpers/Pdf.php:463
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:598
 msgid "Column"
@@ -598,7 +598,7 @@ msgstr "Peiriannau"
 #: resources/templates/database/data_dictionary/index.twig:82
 #: resources/templates/database/routines/editor_form.twig:173
 #: resources/templates/database/structure/table_header.twig:46
-#: resources/templates/events/editor-form.twig:108
+#: resources/templates/events/editor-form.twig:100
 #: resources/templates/indexes.twig:25
 #: resources/templates/table/structure/display_partitions.twig:32
 #: resources/templates/table/structure/display_structure.twig:480
@@ -655,7 +655,7 @@ msgstr "Defnyddiwr"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:699
-#: src/Import/Import.php:1160 src/Menu.php:214 src/Menu.php:322
+#: src/Import/Import.php:1159 src/Menu.php:214 src/Menu.php:322
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1385
@@ -669,15 +669,15 @@ msgstr "Strwythur"
 #: resources/templates/database/central_columns/main.twig:226
 #: resources/templates/database/routines/editor_form.twig:55
 #: resources/templates/database/routines/execute_form.twig:16
-#: resources/templates/database/routines/index.twig:56
-#: resources/templates/events/index.twig:46
+#: resources/templates/database/routines/index.twig:57
+#: resources/templates/events/index.twig:47
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
-#: resources/templates/triggers/list.twig:47
+#: resources/templates/triggers/list.twig:48
 #: src/Plugins/Export/ExportHtmlword.php:394
 #: src/Plugins/Export/ExportOdt.php:498
 #: src/Plugins/Export/ExportTexytext.php:369
-#: src/Plugins/Export/Helpers/Pdf.php:312
+#: src/Plugins/Export/Helpers/Pdf.php:308
 msgid "Name"
 msgstr "Enw"
 
@@ -691,9 +691,9 @@ msgstr "Enw"
 #: resources/templates/database/routines/editor_form.twig:31
 #: resources/templates/database/routines/editor_form.twig:56
 #: resources/templates/database/routines/execute_form.twig:17
-#: resources/templates/database/routines/index.twig:57
+#: resources/templates/database/routines/index.twig:58
 #: resources/templates/database/structure/table_header.twig:30
-#: resources/templates/events/index.twig:48 resources/templates/indexes.twig:18
+#: resources/templates/events/index.twig:49 resources/templates/indexes.twig:18
 #: resources/templates/table/privileges/index.twig:21
 #: resources/templates/table/search/index.twig:39
 #: resources/templates/table/structure/display_structure.twig:22
@@ -707,7 +707,7 @@ msgstr "Enw"
 #: src/Plugins/Export/ExportOdt.php:393
 #: src/Plugins/Export/ExportTexytext.php:241
 #: src/Plugins/Export/ExportTexytext.php:301
-#: src/Plugins/Export/Helpers/Pdf.php:472
+#: src/Plugins/Export/Helpers/Pdf.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:599
 msgid "Type"
@@ -742,7 +742,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:399
 #: src/Plugins/Export/ExportTexytext.php:243
 #: src/Plugins/Export/ExportTexytext.php:303
-#: src/Plugins/Export/Helpers/Pdf.php:476
+#: src/Plugins/Export/Helpers/Pdf.php:469
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 msgid "Default"
@@ -763,9 +763,9 @@ msgstr ""
 #: resources/templates/database/operations/index.twig:199
 #: resources/templates/database/structure/table_header.twig:31
 #: resources/templates/home/index.twig:62 resources/templates/indexes.twig:23
-#: resources/templates/server/databases/index.twig:29
 #: resources/templates/server/databases/index.twig:30
-#: resources/templates/server/databases/index.twig:123
+#: resources/templates/server/databases/index.twig:31
+#: resources/templates/server/databases/index.twig:124
 #: resources/templates/table/index_form.twig:147
 #: resources/templates/table/operations/index.twig:159
 #: resources/templates/table/search/index.twig:40
@@ -805,7 +805,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:396
 #: src/Plugins/Export/ExportTexytext.php:242
 #: src/Plugins/Export/ExportTexytext.php:302
-#: src/Plugins/Export/Helpers/Pdf.php:474
+#: src/Plugins/Export/Helpers/Pdf.php:467
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:579
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
 msgid "Null"
@@ -831,7 +831,7 @@ msgstr "Breintiau"
 #: src/Config/Descriptions.php:709 src/Plugins/Export/ExportHtmlword.php:313
 #: src/Plugins/Export/ExportLatex.php:471 src/Plugins/Export/ExportOdt.php:409
 #: src/Plugins/Export/ExportTexytext.php:309
-#: src/Plugins/Export/Helpers/Pdf.php:493
+#: src/Plugins/Export/Helpers/Pdf.php:485
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:592
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 msgid "Comments"
@@ -853,7 +853,7 @@ msgstr "Ychwanegu/Dileu colofnau"
 #: src/Config/Descriptions.php:712 src/Plugins/Export/ExportHtmlword.php:320
 #: src/Plugins/Export/ExportOdt.php:416
 #: src/Plugins/Export/ExportTexytext.php:314
-#: src/Plugins/Export/Helpers/Pdf.php:501
+#: src/Plugins/Export/Helpers/Pdf.php:492
 #, fuzzy
 #| msgid "MIME type"
 msgid "Media type"
@@ -904,7 +904,7 @@ msgstr "Ystadegau cronfeydd data"
 #: src/Controllers/Database/Structure/EmptyTableController.php:41
 #: src/Controllers/Operations/TableController.php:320
 #: src/Controllers/Table/DropColumnController.php:63
-#: src/Controllers/Table/ReplaceController.php:289
+#: src/Controllers/Table/ReplaceController.php:288
 msgid "No change"
 msgstr "Dim newid"
 
@@ -1085,10 +1085,8 @@ msgstr "mewn ymholiad"
 #: resources/templates/database/structure/structure_table_row.twig:65
 #: resources/templates/display/results/table.twig:319
 #: resources/templates/display/results/table.twig:320
-#: resources/templates/events/index.twig:77
-#: resources/templates/events/index.twig:80
-#: resources/templates/events/row.twig:23
-#: resources/templates/events/row.twig:26 resources/templates/indexes.twig:35
+#: resources/templates/events/row.twig:22
+#: resources/templates/events/row.twig:25 resources/templates/indexes.twig:35
 #: resources/templates/server/variables/index.twig:41
 #: resources/templates/server/variables/index.twig:44
 #: resources/templates/setup/home/index.twig:64
@@ -1097,7 +1095,7 @@ msgstr "mewn ymholiad"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:925
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:384
-#: src/Display/Results.php:1834 src/Html/Generator.php:520
+#: src/Display/Results.php:1832 src/Html/Generator.php:520
 #: src/Html/Generator.php:777
 msgid "Edit"
 msgstr "Golygu"
@@ -1116,14 +1114,14 @@ msgstr "Golygu"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:386
-#: src/Display/Results.php:2362 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2360 src/Tracking/Tracking.php:225
 msgid "Delete"
 msgstr "Dileu"
 
 #: resources/templates/console/bookmark_content.twig:12
 #: resources/templates/console/display.twig:60
 #: resources/templates/console/display.twig:218
-#: resources/templates/server/databases/index.twig:106
+#: resources/templates/server/databases/index.twig:107
 #: resources/templates/server/privileges/edit_routine_privileges.twig:17
 #: resources/templates/server/privileges/privileges_table.twig:258
 #: resources/templates/server/privileges/user_properties.twig:22
@@ -1169,7 +1167,7 @@ msgstr "Sgipio Dilysu SQL"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
-#: src/Import/Import.php:1161 src/Import/Import.php:1219
+#: src/Import/Import.php:1160 src/Import/Import.php:1218
 msgid "Options"
 msgstr "Opsiynau"
 
@@ -1311,7 +1309,7 @@ msgstr ""
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:927 src/Export/Export.php:697
+#: src/Config/Descriptions.php:927 src/Export/Export.php:698
 #: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "Adfywio"
@@ -1477,7 +1475,7 @@ msgstr "Clicia i drefnu."
 #: resources/templates/database/tracking/tables.twig:18
 #: resources/templates/database/tracking/tables.twig:153
 #: resources/templates/indexes.twig:16
-#: resources/templates/server/databases/index.twig:163
+#: resources/templates/server/databases/index.twig:164
 #: resources/templates/server/privileges/privileges_summary.twig:23
 #: resources/templates/server/privileges/users_overview.twig:22
 #: resources/templates/server/user_groups/user_groups.twig:21
@@ -1511,8 +1509,8 @@ msgstr "Gweithred"
 #: resources/templates/error/report_modal.twig:11
 #: resources/templates/gis_data_editor_form.twig:76
 #: resources/templates/modals/change_password.twig:11
-#: resources/templates/server/databases/index.twig:321
-#: resources/templates/server/databases/index.twig:325
+#: resources/templates/server/databases/index.twig:322
+#: resources/templates/server/databases/index.twig:326
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
 #: src/Controllers/JavaScriptMessagesController.php:317
@@ -1534,7 +1532,7 @@ msgstr "Nifer y colofnau"
 #: resources/templates/database/create_table.twig:14
 #: resources/templates/database/operations/index.twig:40
 #: resources/templates/export.twig:29
-#: resources/templates/server/databases/index.twig:46
+#: resources/templates/server/databases/index.twig:47
 msgid "Create"
 msgstr "Creu"
 
@@ -1556,7 +1554,7 @@ msgstr "Argraffu"
 #: src/Plugins/Export/ExportHtmlword.php:307
 #: src/Plugins/Export/ExportLatex.php:467 src/Plugins/Export/ExportOdt.php:403
 #: src/Plugins/Export/ExportTexytext.php:305
-#: src/Plugins/Export/Helpers/Pdf.php:485
+#: src/Plugins/Export/Helpers/Pdf.php:478
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:582
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
 msgid "Links to"
@@ -1602,7 +1600,7 @@ msgstr "Dim indecs wedi'i ddiffinio!"
 
 #: resources/templates/database/designer/database_tables.twig:31
 #: resources/templates/database/export/index.twig:28
-#: resources/templates/database/search/main.twig:48
+#: resources/templates/database/search/main.twig:47
 #: resources/templates/server/export/index.twig:10
 #: resources/templates/server/privileges/privileges_table.twig:29
 #: resources/templates/server/privileges/privileges_table.twig:56
@@ -2063,26 +2061,26 @@ msgid "Sort"
 msgstr "Trefnu"
 
 #: resources/templates/database/multi_table_query/form.twig:57
-#: resources/templates/server/databases/index.twig:109
-#: resources/templates/server/databases/index.twig:126
-#: resources/templates/server/databases/index.twig:145
+#: resources/templates/server/databases/index.twig:110
+#: resources/templates/server/databases/index.twig:127
+#: resources/templates/server/databases/index.twig:146
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:156
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1371
-#: src/Display/Results.php:1377 src/Util.php:1642 src/Util.php:1659
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1369
+#: src/Display/Results.php:1375 src/Util.php:1642 src/Util.php:1659
 msgid "Ascending"
 msgstr "Esgynnol"
 
 #: resources/templates/database/multi_table_query/form.twig:58
-#: resources/templates/server/databases/index.twig:111
-#: resources/templates/server/databases/index.twig:128
-#: resources/templates/server/databases/index.twig:147
+#: resources/templates/server/databases/index.twig:112
+#: resources/templates/server/databases/index.twig:129
+#: resources/templates/server/databases/index.twig:148
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:160
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1366
-#: src/Display/Results.php:1382 src/Util.php:1647 src/Util.php:1664
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1364
+#: src/Display/Results.php:1380 src/Util.php:1647 src/Util.php:1664
 msgid "Descending"
 msgstr "Disgynnol"
 
@@ -2203,7 +2201,7 @@ msgid "Copy database to"
 msgstr "Copïwch y gronfa ddata i"
 
 #: resources/templates/database/operations/index.twig:123
-#: resources/templates/server/databases/index.twig:24
+#: resources/templates/server/databases/index.twig:25
 #: src/Config/Descriptions.php:884
 #, fuzzy
 #| msgid "database name"
@@ -2359,18 +2357,17 @@ msgstr "Breintiau"
 #: resources/templates/database/privileges/index.twig:91
 #: resources/templates/database/privileges/index.twig:115
 #: resources/templates/database/privileges/index.twig:116
-#: resources/templates/database/routines/index.twig:17
 #: resources/templates/database/routines/index.twig:18
+#: resources/templates/database/routines/index.twig:19
 #: resources/templates/database/routines/row.twig:50
 #: resources/templates/database/routines/row.twig:53
 #: resources/templates/database/structure/check_all_tables.twig:12
 #: resources/templates/display/results/table.twig:332
 #: resources/templates/display/results/table.twig:333
 #: resources/templates/display/results/table.twig:365
-#: resources/templates/events/index.twig:18
 #: resources/templates/events/index.twig:19
-#: resources/templates/events/index.twig:85
-#: resources/templates/events/row.twig:31 resources/templates/export.twig:3
+#: resources/templates/events/index.twig:20
+#: resources/templates/events/row.twig:30 resources/templates/export.twig:3
 #: resources/templates/export.twig:493
 #: resources/templates/preferences/header.twig:42
 #: resources/templates/preferences/manage/main.twig:67
@@ -2382,8 +2379,8 @@ msgstr "Breintiau"
 #: resources/templates/table/privileges/index.twig:95
 #: resources/templates/table/privileges/index.twig:119
 #: resources/templates/table/privileges/index.twig:120
-#: resources/templates/triggers/list.twig:17
 #: resources/templates/triggers/list.twig:18
+#: resources/templates/triggers/list.twig:19
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:366 src/Menu.php:241
@@ -2414,14 +2411,14 @@ msgstr "Gyda'r dewis:"
 
 #: resources/templates/database/privileges/index.twig:112
 #: resources/templates/database/privileges/index.twig:113
-#: resources/templates/database/routines/index.twig:14
+#: resources/templates/database/routines/index.twig:15
 #: resources/templates/database/structure/check_all_tables.twig:3
 #: resources/templates/database/structure/check_all_tables.twig:4
 #: resources/templates/display/results/table.twig:315
 #: resources/templates/display/results/table.twig:316
-#: resources/templates/events/index.twig:15
+#: resources/templates/events/index.twig:16
 #: resources/templates/select_all.twig:3 resources/templates/select_all.twig:4
-#: resources/templates/server/databases/index.twig:64
+#: resources/templates/server/databases/index.twig:65
 #: resources/templates/server/privileges/edit_routine_privileges.twig:58
 #: resources/templates/server/privileges/privileges_table.twig:269
 #: resources/templates/server/privileges/privileges_table.twig:270
@@ -2434,7 +2431,7 @@ msgstr "Gyda'r dewis:"
 #: resources/templates/server/user_groups/edit_user_groups.twig:22
 #: resources/templates/table/privileges/index.twig:116
 #: resources/templates/table/privileges/index.twig:117
-#: resources/templates/triggers/list.twig:14
+#: resources/templates/triggers/list.twig:15
 #, fuzzy
 #| msgid "Check All"
 msgid "Check all"
@@ -2473,7 +2470,6 @@ msgid "Routine name"
 msgstr "Rheolweithiau"
 
 #: resources/templates/database/routines/editor_form.twig:43
-#: resources/templates/events/editor-form.twig:53
 #, fuzzy, php-format
 #| msgid "Change"
 msgid "Change to %s"
@@ -2521,19 +2517,19 @@ msgid "Charset"
 msgstr "Set nodau"
 
 #: resources/templates/database/routines/editor_form.twig:118
-#: resources/templates/events/editor-form.twig:87
+#: resources/templates/events/editor-form.twig:79
 #: resources/templates/triggers/editor_form.twig:61
 #: src/Plugins/Export/ExportHtmlword.php:397
 #: src/Plugins/Export/ExportOdt.php:507
 #: src/Plugins/Export/ExportTexytext.php:372
-#: src/Plugins/Export/Helpers/Pdf.php:318
+#: src/Plugins/Export/Helpers/Pdf.php:314
 #, fuzzy
 #| msgid "Description"
 msgid "Definition"
 msgstr "Disgrifiad"
 
 #: resources/templates/database/routines/editor_form.twig:121
-#: resources/templates/events/editor-form.twig:92
+#: resources/templates/events/editor-form.twig:84
 #: resources/templates/import.twig:160 resources/templates/import.twig:162
 #: resources/templates/sql/query.twig:40
 #: resources/templates/table/structure/display_table_stats.twig:81
@@ -2553,7 +2549,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/database/routines/editor_form.twig:148
-#: resources/templates/events/editor-form.twig:102
+#: resources/templates/events/editor-form.twig:94
 #: resources/templates/triggers/editor_form.twig:66
 #: resources/templates/view_create.twig:54
 msgid "Definer"
@@ -2589,44 +2585,42 @@ msgstr "Swyddogaeth"
 msgid "This routine does not require any parameters."
 msgstr "Nid yw ffeil %s yn cynnwys unrhyw id allwedd"
 
-#: resources/templates/database/routines/index.twig:3 src/Menu.php:375
+#: resources/templates/database/routines/index.twig:4 src/Menu.php:375
 #: src/Util.php:1393
 msgid "Routines"
 msgstr "Rheolweithiau"
 
-#: resources/templates/database/routines/index.twig:20
 #: resources/templates/database/routines/index.twig:21
+#: resources/templates/database/routines/index.twig:22
 #: resources/templates/database/routines/parameter_row.twig:51
 #: resources/templates/database/routines/row.twig:63
 #: resources/templates/database/structure/check_all_tables.twig:16
 #: resources/templates/database/structure/structure_table_row.twig:86
-#: resources/templates/events/index.twig:21
 #: resources/templates/events/index.twig:22
-#: resources/templates/events/index.twig:95
-#: resources/templates/events/index.twig:101
-#: resources/templates/events/row.twig:42
-#: resources/templates/events/row.twig:48 resources/templates/indexes.twig:59
-#: resources/templates/server/databases/index.twig:67
+#: resources/templates/events/index.twig:23
+#: resources/templates/events/row.twig:40
+#: resources/templates/events/row.twig:46 resources/templates/indexes.twig:59
 #: resources/templates/server/databases/index.twig:68
-#: resources/templates/server/databases/index.twig:326
+#: resources/templates/server/databases/index.twig:69
+#: resources/templates/server/databases/index.twig:327
 #: resources/templates/table/relation/foreign_key_row.twig:25
 #: resources/templates/table/structure/display_partitions.twig:146
 #: resources/templates/table/structure/display_structure.twig:120
 #: resources/templates/table/structure/display_structure.twig:279
 #: resources/templates/table/structure/display_structure.twig:522
-#: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
+#: resources/templates/triggers/list.twig:22
 #: resources/templates/triggers/row.twig:52
 #: resources/templates/triggers/row.twig:58 src/Operations.php:532
 msgid "Drop"
 msgstr "Gollwng"
 
-#: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
-#: resources/templates/database/search/main.twig:72
+#: resources/templates/database/routines/index.twig:30
+#: resources/templates/database/search/main.twig:71
 #: resources/templates/database/structure/structure_table_row.twig:52
-#: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
+#: resources/templates/server/databases/index.twig:78
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
 #: src/Menu.php:331 src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1065
@@ -2634,33 +2628,33 @@ msgstr "Gollwng"
 msgid "Search"
 msgstr "Chwilio"
 
-#: resources/templates/database/routines/index.twig:36
+#: resources/templates/database/routines/index.twig:37
 #, fuzzy
 #| msgid "Create version"
 msgid "Create new routine"
 msgstr "Crëwch fersiwn"
 
-#: resources/templates/database/routines/index.twig:49
+#: resources/templates/database/routines/index.twig:50
 #, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no routines to display."
 msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
 
-#: resources/templates/database/routines/index.twig:58
+#: resources/templates/database/routines/index.twig:59
 #, fuzzy
 #| msgid "Return type"
 msgid "Returns"
 msgstr "Dychwelyd math"
 
-#: resources/templates/database/routines/index.twig:78
+#: resources/templates/database/routines/index.twig:79
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine editor"
 msgstr "Rheolweithiau"
 
-#: resources/templates/database/routines/index.twig:83
-#: resources/templates/database/routines/index.twig:118
-#: resources/templates/events/index.twig:163
+#: resources/templates/database/routines/index.twig:84
+#: resources/templates/database/routines/index.twig:119
+#: resources/templates/events/index.twig:121
 #: resources/templates/home/index.twig:320
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
@@ -2675,8 +2669,8 @@ msgstr "Rheolweithiau"
 msgid "Loading…"
 msgstr "llwytho"
 
-#: resources/templates/database/routines/index.twig:88
-#: resources/templates/events/index.twig:168
+#: resources/templates/database/routines/index.twig:89
+#: resources/templates/events/index.twig:126
 #: resources/templates/server/privileges/users_overview.twig:177
 #: resources/templates/triggers/list.twig:91
 #, fuzzy
@@ -2684,19 +2678,19 @@ msgstr "llwytho"
 msgid "Save changes"
 msgstr "Dewis Tablau"
 
-#: resources/templates/database/routines/index.twig:98
+#: resources/templates/database/routines/index.twig:99
 #, fuzzy
 #| msgid "Export as %s"
 msgid "Export routine"
 msgstr "Allforio fel %s"
 
-#: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:336
-#: src/Controllers/Database/RoutinesController.php:344
+#: resources/templates/database/routines/index.twig:114
+#: src/Controllers/Database/RoutinesController.php:331
+#: src/Controllers/Database/RoutinesController.php:339
 msgid "Execute routine"
 msgstr ""
 
-#: resources/templates/database/routines/index.twig:123
+#: resources/templates/database/routines/index.twig:124
 #: resources/templates/database/routines/row.twig:35
 #: resources/templates/database/routines/row.twig:38
 msgid "Execute"
@@ -2711,66 +2705,66 @@ msgstr ""
 msgid "Search in database"
 msgstr "Chwilio yn y gronfa ddata"
 
-#: resources/templates/database/search/main.twig:9
+#: resources/templates/database/search/main.twig:8
 #, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Geiriau neu werthoedd i'w chwilio amdanyn nhw (nod-chwiliwr: \"%\"):"
 
-#: resources/templates/database/search/main.twig:14
+#: resources/templates/database/search/main.twig:13
 #: resources/templates/table/find_replace/index.twig:31
 msgid "Find:"
 msgstr "Darganfod:"
 
-#: resources/templates/database/search/main.twig:18 src/Database/Search.php:79
+#: resources/templates/database/search/main.twig:17 src/Database/Search.php:79
 msgid "at least one of the words"
 msgstr "o leiaf un o'r geiriau"
 
-#: resources/templates/database/search/main.twig:18
-#: resources/templates/database/search/main.twig:22
+#: resources/templates/database/search/main.twig:17
+#: resources/templates/database/search/main.twig:21
 msgid "Words are separated by a space character (\" \")."
 msgstr "Caiff geiriau eu gwahanu gan nod bwlch (\" \")."
 
-#: resources/templates/database/search/main.twig:22 src/Database/Search.php:80
+#: resources/templates/database/search/main.twig:21 src/Database/Search.php:80
 #, fuzzy
 #| msgid "at least one of the words"
 msgid "all of the words"
 msgstr "o leiaf un o'r geiriau"
 
-#: resources/templates/database/search/main.twig:26 src/Database/Search.php:81
+#: resources/templates/database/search/main.twig:25 src/Database/Search.php:81
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as substring"
 msgstr "y cymal union"
 
-#: resources/templates/database/search/main.twig:30 src/Database/Search.php:82
+#: resources/templates/database/search/main.twig:29 src/Database/Search.php:82
 #, fuzzy
 #| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
 msgstr "y cymal union"
 
-#: resources/templates/database/search/main.twig:34 src/Database/Search.php:83
+#: resources/templates/database/search/main.twig:33 src/Database/Search.php:83
 msgid "as regular expression"
 msgstr "fel mynegiad arferol (regular expression)"
 
-#: resources/templates/database/search/main.twig:36
+#: resources/templates/database/search/main.twig:35
 #: resources/templates/database/structure/copy_form.twig:14
 #, fuzzy
 #| msgid "Options"
 msgid "Options:"
 msgstr "Opsiynau"
 
-#: resources/templates/database/search/main.twig:40
+#: resources/templates/database/search/main.twig:39
 msgid "include hex matches"
 msgstr ""
 
-#: resources/templates/database/search/main.twig:45
+#: resources/templates/database/search/main.twig:44
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Tu fewn tabl(au):"
 
-#: resources/templates/database/search/main.twig:49
+#: resources/templates/database/search/main.twig:48
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/replication/database_multibox.twig:8
 #, fuzzy
@@ -2778,7 +2772,7 @@ msgstr "Tu fewn tabl(au):"
 msgid "Unselect all"
 msgstr "Dad-ddewis Pob"
 
-#: resources/templates/database/search/main.twig:67
+#: resources/templates/database/search/main.twig:66
 msgid "Inside column:"
 msgstr "Tu fewn colofn:"
 
@@ -2984,7 +2978,7 @@ msgstr ""
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:250
 #: src/Plugins/Export/ExportSql.php:907 src/Plugins/Export/ExportXml.php:356
-#: src/Plugins/Export/Helpers/Pdf.php:147
+#: src/Plugins/Export/Helpers/Pdf.php:146
 #, fuzzy
 #| msgid "Database"
 msgid "Database:"
@@ -3035,7 +3029,7 @@ msgid "Add to Favorites"
 msgstr "Ychwanegwch weinydd newydd"
 
 #: resources/templates/database/structure/index.twig:15
-#: src/Plugins/Schema/SchemaPdf.php:87
+#: src/Plugins/Schema/SchemaPdf.php:86
 #, fuzzy
 #| msgid "Data Dictionary"
 msgid "Data dictionary"
@@ -3043,9 +3037,9 @@ msgstr "Geiriadur Data"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:65
+#: src/Controllers/Database/ExportController.php:66
 #: src/Controllers/Database/TrackingController.php:117
-#: src/Controllers/Export/ExportController.php:286
+#: src/Controllers/Export/ExportController.php:287
 msgid "No tables found in database."
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 
@@ -3070,7 +3064,7 @@ msgstr "Dangos ymholiadau SQL"
 #: resources/templates/table/relation/common_form.twig:102
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:31
-#: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:935
+#: resources/templates/triggers/list.twig:50 src/Config/Descriptions.php:935
 #: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1563
 #: src/Server/Privileges.php:1565
 msgid "Table"
@@ -3106,14 +3100,14 @@ msgid "Create view"
 msgstr "Crëwch fersiwn"
 
 #: resources/templates/database/structure/structure_table_row.twig:17
-#: resources/templates/server/databases/index.twig:219
-#: resources/templates/server/databases/index.twig:231
+#: resources/templates/server/databases/index.twig:220
+#: resources/templates/server/databases/index.twig:232
 msgid "Not replicated"
 msgstr ""
 
 #: resources/templates/database/structure/structure_table_row.twig:18
-#: resources/templates/server/databases/index.twig:215
-#: resources/templates/server/databases/index.twig:227
+#: resources/templates/server/databases/index.twig:216
+#: resources/templates/server/databases/index.twig:228
 #, fuzzy
 #| msgid "Replication"
 msgid "Replicated"
@@ -3141,7 +3135,7 @@ msgstr "ar ddefnydd"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:116
-#: src/Controllers/Server/DatabasesController.php:267 src/Import/Import.php:133
+#: src/Controllers/Server/DatabasesController.php:267 src/Import/Import.php:132
 msgid "Rows"
 msgstr "Rhesi"
 
@@ -3205,7 +3199,7 @@ msgstr "Diweddarwyd"
 
 #: resources/templates/database/tracking/tables.twig:17
 #: resources/templates/events/editor-form.twig:30
-#: resources/templates/events/index.twig:47
+#: resources/templates/events/index.twig:48
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:280 src/Menu.php:450
@@ -3214,7 +3208,7 @@ msgid "Status"
 msgstr "Statws"
 
 #: resources/templates/database/tracking/tables.twig:47
-#: resources/templates/events/index.twig:116
+#: resources/templates/events/index.twig:74
 #, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
@@ -3419,7 +3413,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:472
-#: src/Display/Results.php:1835 src/Html/Generator.php:82
+#: src/Display/Results.php:1833 src/Html/Generator.php:82
 msgid "Copy"
 msgstr ""
 
@@ -3430,7 +3424,7 @@ msgstr "Gweithrediadau canlyniadau ymholiad"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:471
-#: src/Export/Export.php:716
+#: src/Export/Export.php:717
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -3459,7 +3453,7 @@ msgstr ""
 #: resources/templates/error/generic.twig:39
 #: resources/templates/table/structure/display_structure.twig:361
 #: src/Controllers/Operations/ViewController.php:95 src/Html/Generator.php:728
-#: src/Import/Import.php:122 src/InsertEdit.php:412 src/Message.php:104
+#: src/Import/Import.php:121 src/InsertEdit.php:412 src/Message.php:104
 msgid "Error"
 msgstr "Gwall"
 
@@ -3519,33 +3513,33 @@ msgstr "Math y digwyddiad"
 msgid "Event type"
 msgstr "Math y digwyddiad"
 
-#: resources/templates/events/editor-form.twig:58
+#: resources/templates/events/editor-form.twig:50
 msgid "Execute at"
 msgstr ""
 
-#: resources/templates/events/editor-form.twig:64
+#: resources/templates/events/editor-form.twig:56
 #, fuzzy
 #| msgid "Execute bookmarked query"
 msgid "Execute every"
 msgstr "Gweithredu ymholiad a glustnodwyd"
 
-#: resources/templates/events/editor-form.twig:75
+#: resources/templates/events/editor-form.twig:67
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr ""
 
-#: resources/templates/events/editor-form.twig:81
+#: resources/templates/events/editor-form.twig:73
 #, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Diwedd"
 
-#: resources/templates/events/editor-form.twig:96
+#: resources/templates/events/editor-form.twig:88
 msgid "On completion preserve"
 msgstr ""
 
-#: resources/templates/events/index.twig:3 src/Menu.php:381
+#: resources/templates/events/index.twig:4 src/Menu.php:381
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:977 src/Plugins/Export/ExportXml.php:92
@@ -3553,43 +3547,43 @@ msgstr ""
 msgid "Events"
 msgstr "Digwyddiadau"
 
-#: resources/templates/events/index.twig:30
+#: resources/templates/events/index.twig:31
 #, fuzzy
 #| msgid "Create event"
 msgid "Create new event"
 msgstr "Crëwch fersiwn"
 
-#: resources/templates/events/index.twig:39
+#: resources/templates/events/index.twig:40
 #, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no events to display."
 msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
 
-#: resources/templates/events/index.twig:111
+#: resources/templates/events/index.twig:69
 msgid "Event scheduler status"
 msgstr ""
 
-#: resources/templates/events/index.twig:129
+#: resources/templates/events/index.twig:87
 msgid "ON"
 msgstr ""
 
-#: resources/templates/events/index.twig:140
+#: resources/templates/events/index.twig:98
 msgid "OFF"
 msgstr ""
 
-#: resources/templates/events/index.twig:158
+#: resources/templates/events/index.twig:116
 #, fuzzy
 #| msgid "Excel edition"
 msgid "Event editor"
 msgstr "Argraffiad Excel"
 
-#: resources/templates/events/index.twig:178
+#: resources/templates/events/index.twig:136
 #, fuzzy
 #| msgid "Export as %s"
 msgid "Export event"
 msgstr "Allforio fel %s"
 
-#: resources/templates/events/index.twig:189
+#: resources/templates/events/index.twig:147
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The event scheduler is disabled."
@@ -4142,7 +4136,7 @@ msgstr "cymerwch e"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:416
-#: src/Export/Export.php:739 src/Html/Generator.php:836
+#: src/Export/Export.php:740 src/Html/Generator.php:836
 #: src/Plugins/Schema/ExportRelationSchema.php:258
 msgid "Back"
 msgstr "Nôl"
@@ -4425,7 +4419,7 @@ msgstr ""
 msgid "View:"
 msgstr "Dangos"
 
-#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:148
+#: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:147
 #, fuzzy
 #| msgid "Table"
 msgid "Table:"
@@ -4511,7 +4505,7 @@ msgid "SQL upload"
 msgstr "Dadlwythiad SQL"
 
 #: resources/templates/navigation/tree/database_select.twig:10
-#: resources/templates/server/databases/index.twig:3
+#: resources/templates/server/databases/index.twig:4
 #: resources/templates/server/export/index.twig:7
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
@@ -5077,23 +5071,23 @@ msgctxt "The collation is the default one"
 msgid "default"
 msgstr "Diofyn"
 
-#: resources/templates/server/databases/index.twig:3
+#: resources/templates/server/databases/index.twig:4
 msgid "Databases statistics"
 msgstr "Ystadegau cronfeydd data"
 
-#: resources/templates/server/databases/index.twig:9
+#: resources/templates/server/databases/index.twig:10
 #, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
 msgstr "Creu cronfa ddata newydd"
 
-#: resources/templates/server/databases/index.twig:50
+#: resources/templates/server/databases/index.twig:51
 #, fuzzy
 #| msgid "Jump to database"
 msgid "No privileges to create databases"
 msgstr "Neidiwch i'r gronfa ddata"
 
-#: resources/templates/server/databases/index.twig:156
+#: resources/templates/server/databases/index.twig:157
 #: resources/templates/server/replication/index.twig:18
 #: resources/templates/server/replication/primary_replication.twig:3
 #, fuzzy
@@ -5101,37 +5095,37 @@ msgstr "Neidiwch i'r gronfa ddata"
 msgid "Primary replication"
 msgstr "Dyblygiad"
 
-#: resources/templates/server/databases/index.twig:160
+#: resources/templates/server/databases/index.twig:161
 #: resources/templates/server/replication/replica_configuration.twig:2
 #, fuzzy
 #| msgid "Replication"
 msgid "Replica replication"
 msgstr "Dyblygiad"
 
-#: resources/templates/server/databases/index.twig:181
+#: resources/templates/server/databases/index.twig:182
 #, fuzzy, php-format
 #| msgid "Jump to database"
 msgid "Jump to database '%s'"
 msgstr "Neidiwch i'r gronfa ddata"
 
-#: resources/templates/server/databases/index.twig:238
+#: resources/templates/server/databases/index.twig:239
 #, php-format
 msgid "Check privileges for database \"%s\"."
 msgstr ""
 
-#: resources/templates/server/databases/index.twig:239
+#: resources/templates/server/databases/index.twig:240
 #, fuzzy
 #| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "Gwirio Breintiau"
 
-#: resources/templates/server/databases/index.twig:244
+#: resources/templates/server/databases/index.twig:245
 #, fuzzy, php-format
 #| msgid "SQL query history table"
 msgid "Run SQL queries on database \"%s\"."
 msgstr "Tabl hanes ymholiadau SQL"
 
-#: resources/templates/server/databases/index.twig:245
+#: resources/templates/server/databases/index.twig:246
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
@@ -5140,7 +5134,7 @@ msgstr "Tabl hanes ymholiadau SQL"
 msgid "SQL"
 msgstr "SQL"
 
-#: resources/templates/server/databases/index.twig:255
+#: resources/templates/server/databases/index.twig:256
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:298
 #, fuzzy
@@ -5148,24 +5142,24 @@ msgstr "SQL"
 msgid "Total:"
 msgstr "Cyfanswm"
 
-#: resources/templates/server/databases/index.twig:300
+#: resources/templates/server/databases/index.twig:301
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
 
-#: resources/templates/server/databases/index.twig:302
 #: resources/templates/server/databases/index.twig:303
+#: resources/templates/server/databases/index.twig:304
 #, fuzzy
 #| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "Galluogi Ystadegau"
 
-#: resources/templates/server/databases/index.twig:310
+#: resources/templates/server/databases/index.twig:311
 msgid "No databases"
 msgstr "Dim cronfeydd data"
 
-#: resources/templates/server/databases/index.twig:320
+#: resources/templates/server/databases/index.twig:321
 #: src/Controllers/JavaScriptMessagesController.php:342
 msgid "Confirm"
 msgstr ""
@@ -6766,7 +6760,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2380
+#: src/Display/Results.php:2378
 msgid "Kill"
 msgstr "Lladd"
 
@@ -7120,12 +7114,12 @@ msgid "State"
 msgstr "Sad"
 
 #: resources/templates/sql/profiling_chart.twig:13
-#: resources/templates/triggers/list.twig:51
+#: resources/templates/triggers/list.twig:52
 #: src/Controllers/JavaScriptMessagesController.php:281
 #: src/Plugins/Export/ExportHtmlword.php:395
 #: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
-#: src/Plugins/Export/Helpers/Pdf.php:314 src/Server/Status/Processes.php:109
+#: src/Plugins/Export/Helpers/Pdf.php:310 src/Server/Status/Processes.php:109
 msgid "Time"
 msgstr "Amser"
 
@@ -7166,7 +7160,7 @@ msgstr "Proffilio"
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:95
-#: src/Database/Routines.php:1000 src/Message.php:87
+#: src/Database/Routines.php:980 src/Message.php:87
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
@@ -7543,7 +7537,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:213
 #: src/Controllers/JavaScriptMessagesController.php:470
 #: src/Controllers/JavaScriptMessagesController.php:622
-#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1394
+#: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1390
 msgid "Ignore"
 msgstr "Anwybyddu"
 
@@ -7730,14 +7724,14 @@ msgstr "Copïwch y gronfa ddata i"
 
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:366
+#: src/Controllers/Database/StructureController.php:367
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "Cafodd golwg %s ei ollwng"
 
 #: resources/templates/table/operations/index.twig:459
-#: src/Controllers/Database/StructureController.php:366
+#: src/Controllers/Database/StructureController.php:367
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -8302,24 +8296,24 @@ msgid "Time"
 msgstr "Amser"
 
 #: resources/templates/triggers/editor_form.twig:51
-#: resources/templates/triggers/list.twig:52
+#: resources/templates/triggers/list.twig:53
 #: src/Controllers/JavaScriptMessagesController.php:370
 #: src/Navigation/Nodes/NodeEvent.php:27
 #: src/Plugins/Export/ExportHtmlword.php:396
 #: src/Plugins/Export/ExportOdt.php:504
 #: src/Plugins/Export/ExportTexytext.php:371
-#: src/Plugins/Export/Helpers/Pdf.php:316
+#: src/Plugins/Export/Helpers/Pdf.php:312
 msgid "Event"
 msgstr "Digwyddiad"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:233
+#: src/Controllers/Triggers/IndexController.php:225
 #, fuzzy, php-format
 #| msgid "Export as %s"
 msgid "Export of trigger %s"
 msgstr "Allforio fel %s"
 
-#: resources/templates/triggers/list.twig:3 src/Menu.php:295 src/Menu.php:388
+#: resources/templates/triggers/list.twig:4 src/Menu.php:295 src/Menu.php:388
 #: src/Navigation/Nodes/NodeTriggerContainer.php:24
 #: src/Navigation/Nodes/NodeTriggerContainer.php:26
 #: src/Plugins/Export/ExportHtmlword.php:448
@@ -8330,13 +8324,13 @@ msgstr "Allforio fel %s"
 msgid "Triggers"
 msgstr ""
 
-#: resources/templates/triggers/list.twig:29
+#: resources/templates/triggers/list.twig:30
 #, fuzzy
 #| msgid "Create trigger"
 msgid "Create new trigger"
 msgstr "Crëwch fersiwn"
 
-#: resources/templates/triggers/list.twig:40
+#: resources/templates/triggers/list.twig:41
 #, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no triggers to display."
@@ -11371,8 +11365,8 @@ msgstr ""
 msgid "Confirm DROP queries"
 msgstr ""
 
-#: src/Config/Descriptions.php:614 src/Plugins/Schema/SchemaDia.php:64
-#: src/Plugins/Schema/SchemaPdf.php:74
+#: src/Config/Descriptions.php:614 src/Plugins/Schema/SchemaDia.php:63
+#: src/Plugins/Schema/SchemaPdf.php:73
 msgid "Paper size"
 msgstr "Maint papur"
 
@@ -13029,21 +13023,21 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/Database/DesignerController.php:172
-#: src/Controllers/Database/ExportController.php:55
-#: src/Controllers/Database/ImportController.php:60
+#: src/Controllers/Database/ExportController.php:56
+#: src/Controllers/Database/ImportController.php:62
 #: src/Controllers/Database/RoutinesController.php:78
 #: src/Controllers/Database/RoutinesController.php:96
 #: src/Controllers/Database/SearchController.php:51
 #: src/Controllers/Database/SqlController.php:51
-#: src/Controllers/Database/StructureController.php:157
+#: src/Controllers/Database/StructureController.php:158
 #: src/Controllers/Database/Structure/FavoriteTableController.php:65
 #: src/Controllers/Database/Structure/RealRowCountController.php:52
 #: src/Controllers/Database/TrackingController.php:53
 #: src/Controllers/Events/ExportController.php:38
-#: src/Controllers/Events/IndexController.php:40
+#: src/Controllers/Events/IndexController.php:42
 #: src/Controllers/JavaScriptMessagesController.php:335
 #: src/Controllers/Operations/Database/CollationController.php:54
-#: src/Controllers/Operations/DatabaseController.php:228
+#: src/Controllers/Operations/DatabaseController.php:236
 #: src/Controllers/Operations/TableController.php:84
 #: src/Controllers/Operations/ViewController.php:60
 #: src/Controllers/Server/Databases/DestroyController.php:62
@@ -13056,7 +13050,7 @@ msgstr ""
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
 #: src/Controllers/Table/FindReplaceController.php:74
 #: src/Controllers/Table/GisVisualizationController.php:68
-#: src/Controllers/Table/ImportController.php:69
+#: src/Controllers/Table/ImportController.php:71
 #: src/Controllers/Table/IndexesController.php:64
 #: src/Controllers/Table/IndexRenameController.php:52
 #: src/Controllers/Table/SearchController.php:168
@@ -13073,15 +13067,15 @@ msgstr ""
 msgid "No database selected."
 msgstr "Dim cronfeydd data wedi'u dewis."
 
-#: src/Controllers/Database/ExportController.php:120
-#: src/Controllers/Server/ExportController.php:57
-#: src/Controllers/Table/ExportController.php:92
+#: src/Controllers/Database/ExportController.php:121
+#: src/Controllers/Server/ExportController.php:58
+#: src/Controllers/Table/ExportController.php:93
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
-#: src/Controllers/Database/ImportController.php:70
-#: src/Controllers/Server/ImportController.php:62
-#: src/Controllers/Table/ImportController.php:87
+#: src/Controllers/Database/ImportController.php:72
+#: src/Controllers/Server/ImportController.php:64
+#: src/Controllers/Table/ImportController.php:89
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nid oedd modd llwytho ategynnau mewnforio, gwiriwch eich arsefydliad!"
 
@@ -13119,7 +13113,7 @@ msgstr ""
 #: src/Controllers/Table/DeleteConfirmController.php:59
 #: src/Controllers/Table/DropColumnConfirmationController.php:54
 #: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/ImportController.php:74
+#: src/Controllers/Table/ImportController.php:76
 #: src/Controllers/Table/IndexesController.php:69
 #: src/Controllers/Table/IndexRenameController.php:57
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:45
@@ -13138,49 +13132,49 @@ msgstr ""
 msgid "No table selected."
 msgstr "Dim cronfeydd data wedi'u dewis."
 
-#: src/Controllers/Database/RoutinesController.php:171
+#: src/Controllers/Database/RoutinesController.php:166
 #, fuzzy
 #| msgid "Routines"
 msgid "Add routine"
 msgstr "Rheolweithiau"
 
-#: src/Controllers/Database/RoutinesController.php:175
+#: src/Controllers/Database/RoutinesController.php:170
 #, fuzzy
 #| msgid "Edit server"
 msgid "Edit routine"
 msgstr "Golygu gweinydd"
 
-#: src/Controllers/Database/RoutinesController.php:255
-#: src/Controllers/Database/RoutinesController.php:285
-#: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Events/IndexController.php:182
-#: src/Controllers/Triggers/IndexController.php:207
+#: src/Controllers/Database/RoutinesController.php:250
+#: src/Controllers/Database/RoutinesController.php:280
+#: src/Controllers/Database/RoutinesController.php:346
+#: src/Controllers/Events/IndexController.php:175
+#: src/Controllers/Triggers/IndexController.php:199
 #, fuzzy
 #| msgid "Processes"
 msgid "Error in processing request:"
 msgstr "Prosesau"
 
-#: src/Controllers/Database/RoutinesController.php:258
+#: src/Controllers/Database/RoutinesController.php:253
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:287
-#: src/Controllers/Database/RoutinesController.php:353
+#: src/Controllers/Database/RoutinesController.php:282
+#: src/Controllers/Database/RoutinesController.php:348
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 
-#: src/Controllers/Database/RoutinesController.php:384
+#: src/Controllers/Database/RoutinesController.php:379
 #, fuzzy, php-format
 #| msgid "Export as %s"
 msgid "Export of routine %s"
 msgstr "Allforio fel %s"
 
-#: src/Controllers/Database/RoutinesController.php:403
+#: src/Controllers/Database/RoutinesController.php:398
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -13200,8 +13194,8 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:565
-#: src/Display/Results.php:3187
+#: src/Controllers/Database/StructureController.php:566
+#: src/Display/Results.php:3185
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -13209,7 +13203,7 @@ msgid ""
 msgstr ""
 "Mae gan yr olwg hon o leiaf y nifer hwn o resi. Gweler y %sdogfennaeth%s."
 
-#: src/Controllers/Database/StructureController.php:734
+#: src/Controllers/Database/StructureController.php:735
 msgid "unknown"
 msgstr "anhysbys"
 
@@ -13270,36 +13264,36 @@ msgstr ""
 msgid "Export of event %s"
 msgstr "Allforio fel %s"
 
-#: src/Controllers/Events/ExportController.php:75
+#: src/Controllers/Events/ExportController.php:67
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 
-#: src/Controllers/Events/IndexController.php:61
+#: src/Controllers/Events/IndexController.php:65
 msgid "The event was dropped immediately after creation."
 msgstr ""
 
-#: src/Controllers/Events/IndexController.php:129
+#: src/Controllers/Events/IndexController.php:112
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
 msgstr "Ychwanegwch weinydd newydd"
 
-#: src/Controllers/Events/IndexController.php:133
+#: src/Controllers/Events/IndexController.php:116
 #, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
 msgstr "Golygu gweinydd"
 
-#: src/Controllers/Events/IndexController.php:184
+#: src/Controllers/Events/IndexController.php:175
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 
-#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:677
+#: src/Controllers/Export/ExportController.php:121 src/Export/Export.php:678
 msgid "Bad type!"
 msgstr "Math ddrwg!"
 
@@ -13495,7 +13489,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Mae datganiadau \"DROP DATABASE\" wedi'u hanalluogi."
 
-#: src/Controllers/Import/ImportController.php:697 src/Sql.php:918
+#: src/Controllers/Import/ImportController.php:697 src/Sql.php:920
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -15754,23 +15748,23 @@ msgstr "Terfynwyd llinellau gan"
 msgid "No collation provided."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:82
+#: src/Controllers/Operations/DatabaseController.php:85
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:162
+#: src/Controllers/Operations/DatabaseController.php:170
 #, fuzzy, php-format
 #| msgid "Database %s has been renamed to %s."
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Cafodd cronfa ddata %s ei hailenwi i %s"
 
-#: src/Controllers/Operations/DatabaseController.php:175
+#: src/Controllers/Operations/DatabaseController.php:183
 #, fuzzy, php-format
 #| msgid "Database %s has been copied to %s."
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Cafodd y gronfa ddata %s ei chopïo i %s"
 
-#: src/Controllers/Operations/DatabaseController.php:264
+#: src/Controllers/Operations/DatabaseController.php:272
 #, fuzzy, php-format
 #| msgid ""
 #| "The phpMyAdmin configuration storage has been deactivated. To find out "
@@ -16506,7 +16500,7 @@ msgstr "Dim cronfeydd data"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1078
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1080
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -16595,8 +16589,8 @@ msgid "There is an issue with your request."
 msgstr "Nid oes unrhyw gweinyddion a ffurfweddwyd"
 
 #: src/Controllers/Table/GetFieldController.php:109
-#: src/Database/Routines.php:1017 src/Import/Import.php:138
-#: src/InsertEdit.php:163 src/Sql.php:904
+#: src/Database/Routines.php:997 src/Import/Import.php:137
+#: src/InsertEdit.php:163 src/Sql.php:906
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -16652,7 +16646,7 @@ msgstr ""
 msgid "Internal relationships were successfully updated."
 msgstr "Perthynas mewnol wedi'i ychwanegu"
 
-#: src/Controllers/Table/ReplaceController.php:183
+#: src/Controllers/Table/ReplaceController.php:182
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -16723,25 +16717,25 @@ msgstr "Cafodd cronfa ddata %s ei gollwng."
 msgid "No versions selected."
 msgstr "Dim cronfeydd data wedi'u dewis."
 
-#: src/Controllers/Triggers/IndexController.php:163
+#: src/Controllers/Triggers/IndexController.php:155
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
 msgstr "Ychwanegwch weinydd newydd"
 
-#: src/Controllers/Triggers/IndexController.php:167
+#: src/Controllers/Triggers/IndexController.php:159
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Edit trigger"
 msgstr "Ychwanegwch weinydd newydd"
 
-#: src/Controllers/Triggers/IndexController.php:209
+#: src/Controllers/Triggers/IndexController.php:201
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Dim tablau wedi'u darganfod yn y gronfa ddata."
 
-#: src/Controllers/Triggers/IndexController.php:250
+#: src/Controllers/Triggers/IndexController.php:242
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid ""
@@ -16863,7 +16857,7 @@ msgstr "Gwall: Perthynas heb ei ychwanegu."
 msgid "Internal relationship has been removed."
 msgstr "Perthynas mewnol wedi'i ychwanegu"
 
-#: src/Database/Designer.php:117
+#: src/Database/Designer.php:119
 #, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
@@ -16875,108 +16869,102 @@ msgstr "Nid oedd modd llwytho ategynnau mewnforio, gwiriwch eich arsefydliad!"
 msgid "Invalid routine type: \"%s\""
 msgstr "Indecs gweinydd annilys: %s"
 
-#: src/Database/Routines.php:103 src/Database/Routines.php:129
-#: src/Database/Routines.php:205 src/Database/Routines.php:977
-#: src/Events/Events.php:87 src/Events/Events.php:96 src/Events/Events.php:128
-#: src/Triggers/Triggers.php:84 src/Triggers/Triggers.php:93
-#: src/Triggers/Triggers.php:126
-#, php-format
-msgid "The following query has failed: \"%s\""
-msgstr ""
-
-#: src/Database/Routines.php:107 src/Database/Routines.php:133
-#: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:981 src/Events/Events.php:91
-#: src/Events/Events.php:100 src/Events/Events.php:113
-#: src/Events/Events.php:132 src/Html/Generator.php:793
-#: src/Triggers/Triggers.php:88 src/Triggers/Triggers.php:97
-#: src/Triggers/Triggers.php:111 src/Triggers/Triggers.php:130
-msgid "MySQL said: "
-msgstr "Dywedodd MySQL: "
-
-#: src/Database/Routines.php:136
+#: src/Database/Routines.php:126
 #, fuzzy, php-format
 #| msgid "Database %1$s has been created."
 msgid "Routine %1$s has been created."
 msgstr "Cafodd y gronfa ddata %1$s ei chreu."
 
-#: src/Database/Routines.php:147 src/Events/Events.php:147
-#: src/Triggers/Triggers.php:145
+#: src/Database/Routines.php:137 src/Events/Events.php:145
+#: src/Triggers/Triggers.php:130
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
-#: src/Database/Routines.php:220
+#: src/Database/Routines.php:205
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
-#: src/Database/Routines.php:221 src/Events/Events.php:111
-#: src/Triggers/Triggers.php:109
+#: src/Database/Routines.php:206 src/Events/Events.php:122
+#: src/Triggers/Triggers.php:99
 msgid "The backed up query was:"
 msgstr ""
 
-#: src/Database/Routines.php:269
+#: src/Database/Routines.php:208 src/Database/Routines.php:1220
+#: src/Events/Events.php:124 src/Events/Events.php:164
+#: src/Html/Generator.php:793 src/Triggers/Triggers.php:101
+#: src/Triggers/Triggers.php:268
+msgid "MySQL said: "
+msgstr "Dywedodd MySQL: "
+
+#: src/Database/Routines.php:254
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Cafodd golwg %s ei ollwng"
 
-#: src/Database/Routines.php:274
+#: src/Database/Routines.php:259
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "Routine %1$s has been modified."
 msgstr "Cafodd golwg %s ei ollwng"
 
-#: src/Database/Routines.php:628
+#: src/Database/Routines.php:613
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
-#: src/Database/Routines.php:646
+#: src/Database/Routines.php:631
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
-#: src/Database/Routines.php:666 src/Database/Routines.php:731
+#: src/Database/Routines.php:651 src/Database/Routines.php:716
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
 
-#: src/Database/Routines.php:713
+#: src/Database/Routines.php:698
 msgid "You must provide a valid return type for the routine."
 msgstr ""
 
-#: src/Database/Routines.php:783 src/Events/Events.php:258
-#: src/Triggers/Triggers.php:187
+#: src/Database/Routines.php:768 src/Events/Events.php:259
+#: src/Triggers/Triggers.php:172
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
-#: src/Database/Routines.php:790
+#: src/Database/Routines.php:775
 #, fuzzy
 #| msgid "Invalid server index: %s"
 msgid "Invalid routine type!"
 msgstr "Indecs gweinydd annilys: %s"
 
-#: src/Database/Routines.php:796
+#: src/Database/Routines.php:781
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a routine name!"
 msgstr "Enw tabl annilys"
 
-#: src/Database/Routines.php:867
+#: src/Database/Routines.php:852
 msgid "You must provide a routine definition."
 msgstr ""
 
-#: src/Database/Routines.php:993
+#: src/Database/Routines.php:973
 #, php-format
 msgid "Execution results of routine %s"
 msgstr ""
 
-#: src/Database/Routines.php:1008
+#: src/Database/Routines.php:988
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 msgstr[1] ""
+
+#: src/Database/Routines.php:1218 src/Events/Events.php:162
+#: src/Triggers/Triggers.php:266
+#, php-format
+msgid "The following query has failed: \"%s\""
+msgstr ""
 
 #: src/Dbal/DatabaseInterface.php:1067
 #, php-format
@@ -16999,36 +16987,36 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2339 src/Display/Results.php:2354
+#: src/Display/Results.php:2337 src/Display/Results.php:2352
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Cafodd y rhes ei dileu"
 
-#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:910
+#: src/Display/Results.php:2909 src/Display/Results.php:3225 src/Sql.php:912
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Cymerodd yr ymholiad %01.4f eiliad"
 
-#: src/Display/Results.php:3195
+#: src/Display/Results.php:3193
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Yn dangos rhesi"
 
-#: src/Display/Results.php:3208
+#: src/Display/Results.php:3206
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3213
+#: src/Display/Results.php:3211
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "cyfanswm"
 
-#: src/Display/Results.php:3511
+#: src/Display/Results.php:3509
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -17275,41 +17263,41 @@ msgstr ""
 msgid "Report"
 msgstr "Mewnforio"
 
-#: src/Events/Events.php:110
-msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
-
-#: src/Events/Events.php:117
-#, fuzzy, php-format
-#| msgid "View %s has been dropped."
-msgid "Event %1$s has been modified."
-msgstr "Cafodd golwg %s ei ollwng"
-
-#: src/Events/Events.php:135
+#: src/Events/Events.php:88
 #, fuzzy, php-format
 #| msgid "Database %1$s has been created."
 msgid "Event %1$s has been created."
 msgstr "Cafodd y gronfa ddata %1$s ei chreu."
 
-#: src/Events/Events.php:267
+#: src/Events/Events.php:121
+msgid "Sorry, we failed to restore the dropped event."
+msgstr ""
+
+#: src/Events/Events.php:133
+#, fuzzy, php-format
+#| msgid "View %s has been dropped."
+msgid "Event %1$s has been modified."
+msgstr "Cafodd golwg %s ei ollwng"
+
+#: src/Events/Events.php:268
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide an event name!"
 msgstr "Enw tabl annilys"
 
-#: src/Events/Events.php:281
+#: src/Events/Events.php:282
 msgid "You must provide a valid interval value for the event."
 msgstr ""
 
-#: src/Events/Events.php:296
+#: src/Events/Events.php:297
 msgid "You must provide a valid execution time for the event."
 msgstr ""
 
-#: src/Events/Events.php:299
+#: src/Events/Events.php:300
 msgid "You must provide a valid type for the event."
 msgstr ""
 
-#: src/Events/Events.php:328
+#: src/Events/Events.php:329
 msgid "You must provide an event definition."
 msgstr ""
 
@@ -17543,14 +17531,14 @@ msgid ""
 "requires these functions!"
 msgstr ""
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:61
+#: src/Http/Middleware/TokenRequestParamChecking.php:46
+msgid "Error: Token mismatch"
+msgstr ""
+
+#: src/Http/Middleware/TokenRequestParamChecking.php:78
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
-msgstr ""
-
-#: src/Http/Middleware/TokenRequestParamChecking.php:69
-msgid "Error: Token mismatch"
 msgstr ""
 
 #: src/I18n/LanguageManager.php:976
@@ -17609,54 +17597,54 @@ msgstr "Caiff geiriau eu gwahanu gan nod bwlch (\" \")."
 msgid "The trigger name cannot end with a space character."
 msgstr "Caiff geiriau eu gwahanu gan nod bwlch (\" \")."
 
-#: src/Import/Import.php:947
+#: src/Import/Import.php:946
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
 
-#: src/Import/Import.php:1164
+#: src/Import/Import.php:1163
 #, fuzzy, php-format
 #| msgid "Count tables"
 msgid "Go to table: %s"
 msgstr "Cyfrifwch y tablau"
 
-#: src/Import/Import.php:1172
+#: src/Import/Import.php:1171
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Strwythur yn unig"
 
-#: src/Import/Import.php:1179 src/Import/Import.php:1228
+#: src/Import/Import.php:1178 src/Import/Import.php:1227
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
 msgstr "Data ar goll ar gyfer %s"
 
-#: src/Import/Import.php:1190
+#: src/Import/Import.php:1189
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: src/Import/Import.php:1211
+#: src/Import/Import.php:1210
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: src/Import/Import.php:1213
+#: src/Import/Import.php:1212
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: src/Import/Import.php:1214
+#: src/Import/Import.php:1213
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: src/Import/Import.php:1215
+#: src/Import/Import.php:1214
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: src/Import/Import.php:1222
+#: src/Import/Import.php:1221
 #, fuzzy, php-format
 #| msgid "No databases"
 msgid "Go to database: %s"
@@ -17677,11 +17665,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "cyfeiriadur lanlwytho y gweinydd gwe"
 
-#: src/InsertEdit.php:819 src/Sql.php:901
+#: src/InsertEdit.php:815 src/Sql.php:903
 msgid "Showing SQL query"
 msgstr ""
 
-#: src/InsertEdit.php:843 src/Sql.php:882
+#: src/InsertEdit.php:839 src/Sql.php:884
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -18731,7 +18719,7 @@ msgstr ""
 msgid "Export contents"
 msgstr ""
 
-#: src/Plugins/Export/Helpers/Pdf.php:149
+#: src/Plugins/Export/Helpers/Pdf.php:148
 msgid "Purpose:"
 msgstr ""
 
@@ -18816,8 +18804,8 @@ msgstr ""
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr ""
 
-#: src/Plugins/Import/ImportOds.php:157 src/Plugins/Import/ImportXml.php:73
-#: src/Plugins/Import/ImportXml.php:111
+#: src/Plugins/Import/ImportOds.php:157 src/Plugins/Import/ImportXml.php:72
+#: src/Plugins/Import/ImportXml.php:110
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -18863,7 +18851,7 @@ msgstr ""
 msgid "XML"
 msgstr ""
 
-#: src/Plugins.php:406
+#: src/Plugins.php:243
 msgid "This format has no options"
 msgstr ""
 
@@ -18914,45 +18902,45 @@ msgstr "Dangos lliw"
 msgid "Only show keys"
 msgstr "Dangos allweddau'n unig"
 
-#: src/Plugins/Schema/SchemaDia.php:55 src/Plugins/Schema/SchemaEps.php:63
-#: src/Plugins/Schema/SchemaPdf.php:65
+#: src/Plugins/Schema/SchemaDia.php:54 src/Plugins/Schema/SchemaEps.php:62
+#: src/Plugins/Schema/SchemaPdf.php:64
 #, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
 msgstr "Cread"
 
-#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
-#: src/Plugins/Schema/SchemaPdf.php:68
+#: src/Plugins/Schema/SchemaDia.php:57 src/Plugins/Schema/SchemaEps.php:65
+#: src/Plugins/Schema/SchemaPdf.php:67
 msgid "Landscape"
 msgstr "Tirlun"
 
-#: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
-#: src/Plugins/Schema/SchemaPdf.php:68
+#: src/Plugins/Schema/SchemaDia.php:57 src/Plugins/Schema/SchemaEps.php:65
+#: src/Plugins/Schema/SchemaPdf.php:67
 msgid "Portrait"
 msgstr "Portread"
 
-#: src/Plugins/Schema/SchemaEps.php:57 src/Plugins/Schema/SchemaPdf.php:59
-#: src/Plugins/Schema/SchemaSvg.php:56
+#: src/Plugins/Schema/SchemaEps.php:56 src/Plugins/Schema/SchemaPdf.php:58
+#: src/Plugins/Schema/SchemaSvg.php:55
 msgid "Same width for all tables"
 msgstr ""
 
-#: src/Plugins/Schema/SchemaPdf.php:81
+#: src/Plugins/Schema/SchemaPdf.php:80
 msgid "Show grid"
 msgstr "Dangos grid"
 
-#: src/Plugins/Schema/SchemaPdf.php:93
+#: src/Plugins/Schema/SchemaPdf.php:92
 #, fuzzy
 #| msgid "Number of tables"
 msgid "Order of the tables"
 msgstr "Nifer y tablau"
 
-#: src/Plugins/Schema/SchemaPdf.php:96
+#: src/Plugins/Schema/SchemaPdf.php:95
 #, fuzzy
 #| msgid "Ascending"
 msgid "Name (Ascending)"
 msgstr "Esgynnol"
 
-#: src/Plugins/Schema/SchemaPdf.php:96
+#: src/Plugins/Schema/SchemaPdf.php:95
 #, fuzzy
 #| msgid "Descending"
 msgid "Name (Descending)"
@@ -19513,23 +19501,23 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: src/Sql.php:445
+#: src/Sql.php:447
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:898
+#: src/Sql.php:900
 msgid "Showing as PHP code"
 msgstr ""
 
-#: src/Sql.php:1244
+#: src/Sql.php:1246
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: src/Sql.php:1258
+#: src/Sql.php:1260
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -19591,13 +19579,13 @@ msgstr ""
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
-#: src/Table/TableMover.php:309
+#: src/Table/TableMover.php:312
 #, fuzzy, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
 msgstr "Cronfa ddata ffynhonnell"
 
-#: src/Table/TableMover.php:318
+#: src/Table/TableMover.php:321
 #, fuzzy, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
@@ -19769,47 +19757,47 @@ msgstr "Crëwch fersiwn %s o %s.%s"
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
 
-#: src/Triggers/Triggers.php:108
+#: src/Triggers/Triggers.php:98
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
-#: src/Triggers/Triggers.php:115
+#: src/Triggers/Triggers.php:105
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "Cafodd golwg %s ei ollwng"
 
-#: src/Triggers/Triggers.php:133
+#: src/Triggers/Triggers.php:118
 #, fuzzy, php-format
 #| msgid "Database %1$s has been created."
 msgid "Trigger %1$s has been created."
 msgstr "Cafodd y gronfa ddata %1$s ei chreu."
 
-#: src/Triggers/Triggers.php:195
+#: src/Triggers/Triggers.php:180
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a trigger name!"
 msgstr "Enw tabl annilys"
 
-#: src/Triggers/Triggers.php:201
+#: src/Triggers/Triggers.php:186
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid timing for the trigger!"
 msgstr "Enw tabl annilys"
 
-#: src/Triggers/Triggers.php:207
+#: src/Triggers/Triggers.php:192
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid event for the trigger!"
 msgstr "Enw tabl annilys"
 
-#: src/Triggers/Triggers.php:217
+#: src/Triggers/Triggers.php:202
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name!"
 msgstr "Enw tabl annilys"
 
-#: src/Triggers/Triggers.php:224
+#: src/Triggers/Triggers.php:209
 msgid "You must provide a trigger definition."
 msgstr ""
 
