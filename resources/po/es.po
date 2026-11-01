@@ -206,7 +206,7 @@ msgstr "después de %s"
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:223
 #: src/Display/Results.php:921 src/Plugins/Export/ExportSql.php:1970
-#: src/Plugins/Schema/SchemaPdf.php:95
+#: src/Plugins/Schema/SchemaPdf.php:95 src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Ninguna"
 
@@ -282,6 +282,7 @@ msgstr "columna(s)"
 #: src/Controllers/Server/PrivilegesController.php:319
 #: src/Normalization.php:235 src/Tracking/Tracking.php:288
 #: src/Tracking/Tracking.php:403
+#: resources/templates/events/editor-form.twig:120
 msgid "Go"
 msgstr "Continuar"
 
@@ -447,6 +448,16 @@ msgstr "Cargando"
 #: resources/templates/triggers/list.twig:106
 #: src/Controllers/JavaScriptMessagesController.php:159
 #: src/Tracking/Tracking.php:201 src/Tracking/Tracking.php:541
+#: resources/templates/database/routines/index.twig:79
+#: resources/templates/database/routines/index.twig:87
+#: resources/templates/database/routines/index.twig:99
+#: resources/templates/database/routines/index.twig:103
+#: resources/templates/database/routines/index.twig:114
+#: resources/templates/database/routines/index.twig:122
+#: resources/templates/events/index.twig:159
+#: resources/templates/events/index.twig:167
+#: resources/templates/events/index.twig:179
+#: resources/templates/events/index.twig:183
 msgid "Close"
 msgstr "Cerrar"
 
@@ -490,6 +501,7 @@ msgstr "Es una clave foránea."
 #: src/Plugins/Export/Helpers/Pdf.php:463
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:598
+#: src/Plugins/Export/Helpers/Pdf.php:470
 msgid "Column"
 msgstr "Columna"
 
@@ -547,6 +559,7 @@ msgstr "Motor"
 #: resources/templates/table/structure/display_structure.twig:480
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:14
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:18
+#: resources/templates/events/editor-form.twig:108
 msgid "Comment"
 msgstr "Comentario"
 
@@ -590,7 +603,7 @@ msgstr "Grupo de nodo"
 #: src/Navigation/Nodes/NodeColumn.php:38
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:239 src/Util.php:1063 src/Util.php:1385
-#: src/Util.php:1402
+#: src/Util.php:1402 src/Import/Import.php:1160
 msgid "Structure"
 msgstr "Estructura"
 
@@ -609,6 +622,10 @@ msgstr "Estructura"
 #: src/Plugins/Export/ExportOdt.php:498
 #: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:308
+#: resources/templates/database/routines/index.twig:56
+#: resources/templates/events/index.twig:46
+#: resources/templates/triggers/list.twig:47
+#: src/Plugins/Export/Helpers/Pdf.php:312
 msgid "Name"
 msgstr "Nombre"
 
@@ -641,6 +658,9 @@ msgstr "Nombre"
 #: src/Plugins/Export/Helpers/Pdf.php:465
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:577
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:599
+#: resources/templates/database/routines/index.twig:57
+#: resources/templates/events/index.twig:48
+#: src/Plugins/Export/Helpers/Pdf.php:472
 msgid "Type"
 msgstr "Tipo"
 
@@ -680,6 +700,7 @@ msgstr ""
 #: src/Plugins/Export/Helpers/Pdf.php:469
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:580
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
+#: src/Plugins/Export/Helpers/Pdf.php:476
 msgid "Default"
 msgstr "Predeterminado"
 
@@ -712,6 +733,8 @@ msgstr ""
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:16
 #: resources/templates/table/zoom_search/index.twig:38
+#: resources/templates/server/databases/index.twig:29
+#: resources/templates/server/databases/index.twig:123
 msgid "Collation"
 msgstr "Cotejamiento"
 
@@ -745,6 +768,7 @@ msgstr "Atributos"
 #: src/Plugins/Export/Helpers/Pdf.php:467
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:579
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
+#: src/Plugins/Export/Helpers/Pdf.php:474
 msgid "Null"
 msgstr "Nulo"
 
@@ -769,6 +793,7 @@ msgstr "Ajustar privilegios"
 #: src/Plugins/Export/Helpers/Pdf.php:485
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:592
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
+#: src/Plugins/Export/Helpers/Pdf.php:493
 msgid "Comments"
 msgstr "Comentarios"
 
@@ -787,6 +812,7 @@ msgstr "Mover columna"
 #: src/Plugins/Export/ExportOdt.php:416
 #: src/Plugins/Export/ExportTexytext.php:314
 #: src/Plugins/Export/Helpers/Pdf.php:492
+#: src/Plugins/Export/Helpers/Pdf.php:501
 msgid "Media type"
 msgstr "Tipo de medio"
 
@@ -832,6 +858,7 @@ msgstr "Opciones de transformación de entrada"
 #: src/Controllers/Operations/TableController.php:320
 #: src/Controllers/Table/DropColumnController.php:63
 #: src/Controllers/Table/ReplaceController.php:288
+#: src/Controllers/Table/ReplaceController.php:289
 msgid "No change"
 msgstr "Sin cambios"
 
@@ -1021,7 +1048,10 @@ msgstr "Reconsultar"
 #: src/ConfigStorage/UserGroups.php:113
 #: src/Controllers/JavaScriptMessagesController.php:384
 #: src/Display/Results.php:1832 src/Html/Generator.php:520
-#: src/Html/Generator.php:777
+#: src/Html/Generator.php:777 resources/templates/events/index.twig:77
+#: resources/templates/events/index.twig:80
+#: resources/templates/events/row.twig:23
+#: resources/templates/events/row.twig:26 src/Display/Results.php:1834
 msgid "Edit"
 msgstr "Editar"
 
@@ -1040,6 +1070,7 @@ msgstr "Editar"
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:386
 #: src/Display/Results.php:2360 src/Tracking/Tracking.php:225
+#: src/Display/Results.php:2362
 msgid "Delete"
 msgstr "Borrar"
 
@@ -1062,6 +1093,7 @@ msgstr "Borrar"
 #: src/Plugins/Export/ExportOdt.php:182
 #: src/Plugins/Export/ExportTexytext.php:115 src/Server/Privileges.php:1557
 #: src/Server/Privileges.php:1559 src/Server/Status/Processes.php:107
+#: resources/templates/server/databases/index.twig:106
 msgid "Database"
 msgstr "Base de datos"
 
@@ -1089,6 +1121,7 @@ msgstr "Historial"
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:94
 #: src/Import/Import.php:1160 src/Import/Import.php:1218
+#: src/Import/Import.php:1161 src/Import/Import.php:1219
 msgid "Options"
 msgstr "Opciones"
 
@@ -1199,7 +1232,7 @@ msgstr "Tiempo necesario:"
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
 #: src/Config/Descriptions.php:927 src/Export/Export.php:698
-#: src/Html/Generator.php:576
+#: src/Html/Generator.php:576 src/Export/Export.php:697
 msgid "Refresh"
 msgstr "Actualizar"
 
@@ -1354,6 +1387,7 @@ msgstr "Pulsar para ordenar."
 #: resources/templates/table/structure/display_structure.twig:471
 #: resources/templates/table/tracking/main.twig:32
 #: resources/templates/table/tracking/report_table.twig:8
+#: resources/templates/server/databases/index.twig:163
 msgid "Action"
 msgstr "Acción"
 
@@ -1382,6 +1416,8 @@ msgstr "Acción"
 #: resources/templates/server/variables/index.twig:15
 #: resources/templates/table/search/index.twig:196
 #: src/Controllers/JavaScriptMessagesController.php:317
+#: resources/templates/server/databases/index.twig:321
+#: resources/templates/server/databases/index.twig:325
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -1399,6 +1435,7 @@ msgstr "Número de columnas"
 #: resources/templates/database/operations/index.twig:40
 #: resources/templates/export.twig:29
 #: resources/templates/server/databases/index.twig:47
+#: resources/templates/server/databases/index.twig:46
 msgid "Create"
 msgstr "Crear"
 
@@ -1421,6 +1458,7 @@ msgstr "Imprimir"
 #: src/Plugins/Export/Helpers/Pdf.php:478
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:582
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
+#: src/Plugins/Export/Helpers/Pdf.php:485
 msgid "Links to"
 msgstr "Enlaces a"
 
@@ -1471,6 +1509,7 @@ msgstr "¡No se ha definido ningún índice!"
 #: resources/templates/server/privileges/privileges_table.twig:83
 #: resources/templates/server/privileges/privileges_table.twig:110
 #: resources/templates/server/replication/database_multibox.twig:7
+#: resources/templates/database/search/main.twig:48
 msgid "Select all"
 msgstr "Seleccionar todo"
 
@@ -1852,6 +1891,10 @@ msgstr "Ordenar"
 #: resources/templates/table/search/index.twig:156
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1369
 #: src/Display/Results.php:1375 src/Util.php:1642 src/Util.php:1659
+#: resources/templates/server/databases/index.twig:109
+#: resources/templates/server/databases/index.twig:126
+#: resources/templates/server/databases/index.twig:145
+#: src/Display/Results.php:1371 src/Display/Results.php:1377
 msgid "Ascending"
 msgstr "Ascendente"
 
@@ -1864,6 +1907,10 @@ msgstr "Ascendente"
 #: resources/templates/table/search/index.twig:160
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1364
 #: src/Display/Results.php:1380 src/Util.php:1647 src/Util.php:1664
+#: resources/templates/server/databases/index.twig:111
+#: resources/templates/server/databases/index.twig:128
+#: resources/templates/server/databases/index.twig:147
+#: src/Display/Results.php:1366 src/Display/Results.php:1382
 msgid "Descending"
 msgstr "Descendente"
 
@@ -1966,6 +2013,7 @@ msgstr "Copiar base de datos a"
 #: resources/templates/database/operations/index.twig:123
 #: resources/templates/server/databases/index.twig:25
 #: src/Config/Descriptions.php:884
+#: resources/templates/server/databases/index.twig:24
 msgid "Database name"
 msgstr "Nombre de la base de datos"
 
@@ -2140,6 +2188,11 @@ msgstr "Editar privilegios"
 #: src/Controllers/JavaScriptMessagesController.php:366 src/Menu.php:241
 #: src/Menu.php:347 src/Menu.php:469 src/Server/Privileges.php:1272
 #: src/Util.php:1374 src/Util.php:1389 src/Util.php:1406
+#: resources/templates/database/routines/index.twig:17
+#: resources/templates/events/index.twig:18
+#: resources/templates/events/index.twig:85
+#: resources/templates/events/row.twig:31
+#: resources/templates/triggers/list.twig:17
 msgid "Export"
 msgstr "Exportar"
 
@@ -2186,6 +2239,10 @@ msgstr "Para los elementos que están marcados:"
 #: resources/templates/table/privileges/index.twig:116
 #: resources/templates/table/privileges/index.twig:117
 #: resources/templates/triggers/list.twig:15
+#: resources/templates/database/routines/index.twig:14
+#: resources/templates/events/index.twig:15
+#: resources/templates/server/databases/index.twig:64
+#: resources/templates/triggers/list.twig:14
 msgid "Check all"
 msgstr "Seleccionar todo"
 
@@ -2216,6 +2273,7 @@ msgid "Routine name"
 msgstr "Nombre de rutina"
 
 #: resources/templates/database/routines/editor_form.twig:43
+#: resources/templates/events/editor-form.twig:53
 #, php-format
 msgid "Change to %s"
 msgstr "Cambiar a %s"
@@ -2262,6 +2320,8 @@ msgstr "Juego de caracteres"
 #: src/Plugins/Export/ExportOdt.php:507
 #: src/Plugins/Export/ExportTexytext.php:372
 #: src/Plugins/Export/Helpers/Pdf.php:314
+#: resources/templates/events/editor-form.twig:87
+#: src/Plugins/Export/Helpers/Pdf.php:318
 msgid "Definition"
 msgstr "Definición"
 
@@ -2272,6 +2332,7 @@ msgstr "Definición"
 #: resources/templates/table/structure/display_table_stats.twig:81
 #: resources/templates/triggers/editor_form.twig:63
 #: src/Config/Descriptions.php:636 src/Config/Descriptions.php:652
+#: resources/templates/events/editor-form.twig:92
 msgid "Format"
 msgstr "Formato"
 
@@ -2291,6 +2352,7 @@ msgstr ""
 #: resources/templates/events/editor-form.twig:94
 #: resources/templates/triggers/editor_form.twig:66
 #: resources/templates/view_create.twig:54
+#: resources/templates/events/editor-form.twig:102
 msgid "Definer"
 msgstr "Definidor"
 
@@ -2319,7 +2381,7 @@ msgid "This routine does not require any parameters."
 msgstr "Esta rutina no requiere ningún parámetro."
 
 #: resources/templates/database/routines/index.twig:4 src/Menu.php:375
-#: src/Util.php:1393
+#: src/Util.php:1393 resources/templates/database/routines/index.twig:3
 msgid "Routines"
 msgstr "Rutinas"
 
@@ -2345,6 +2407,15 @@ msgstr "Rutinas"
 #: resources/templates/triggers/list.twig:22
 #: resources/templates/triggers/row.twig:52
 #: resources/templates/triggers/row.twig:58 src/Operations.php:532
+#: resources/templates/database/routines/index.twig:20
+#: resources/templates/events/index.twig:21
+#: resources/templates/events/index.twig:95
+#: resources/templates/events/index.twig:101
+#: resources/templates/events/row.twig:42
+#: resources/templates/events/row.twig:48
+#: resources/templates/server/databases/index.twig:67
+#: resources/templates/server/databases/index.twig:326
+#: resources/templates/triggers/list.twig:20
 msgid "Drop"
 msgstr "Eliminar"
 
@@ -2358,22 +2429,29 @@ msgstr "Eliminar"
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
 #: src/Menu.php:331 src/Navigation/Nodes/NodeTable.php:240 src/Util.php:1065
 #: src/Util.php:1387 src/Util.php:1404
+#: resources/templates/database/routines/index.twig:28
+#: resources/templates/database/search/main.twig:72
+#: resources/templates/server/databases/index.twig:76
 msgid "Search"
 msgstr "Buscar"
 
 #: resources/templates/database/routines/index.twig:37
+#: resources/templates/database/routines/index.twig:36
 msgid "Create new routine"
 msgstr "Crear nueva rutina"
 
 #: resources/templates/database/routines/index.twig:50
+#: resources/templates/database/routines/index.twig:49
 msgid "There are no routines to display."
 msgstr "No hay rutinas para mostrar."
 
 #: resources/templates/database/routines/index.twig:59
+#: resources/templates/database/routines/index.twig:58
 msgid "Returns"
 msgstr "Retorna"
 
 #: resources/templates/database/routines/index.twig:79
+#: resources/templates/database/routines/index.twig:78
 msgid "Routine editor"
 msgstr "Editor de rutina"
 
@@ -2389,6 +2467,9 @@ msgstr "Editor de rutina"
 #: resources/templates/table/structure/display_structure.twig:348
 #: resources/templates/triggers/list.twig:86
 #: src/Controllers/JavaScriptMessagesController.php:324
+#: resources/templates/database/routines/index.twig:83
+#: resources/templates/database/routines/index.twig:118
+#: resources/templates/events/index.twig:163
 msgid "Loading…"
 msgstr "Cargando…"
 
@@ -2396,22 +2477,29 @@ msgstr "Cargando…"
 #: resources/templates/events/index.twig:126
 #: resources/templates/server/privileges/users_overview.twig:177
 #: resources/templates/triggers/list.twig:91
+#: resources/templates/database/routines/index.twig:88
+#: resources/templates/events/index.twig:168
 msgid "Save changes"
 msgstr "Guardar cambios"
 
 #: resources/templates/database/routines/index.twig:99
+#: resources/templates/database/routines/index.twig:98
 msgid "Export routine"
 msgstr "Exportar rutina"
 
 #: resources/templates/database/routines/index.twig:114
 #: src/Controllers/Database/RoutinesController.php:331
 #: src/Controllers/Database/RoutinesController.php:339
+#: resources/templates/database/routines/index.twig:113
+#: src/Controllers/Database/RoutinesController.php:336
+#: src/Controllers/Database/RoutinesController.php:344
 msgid "Execute routine"
 msgstr "Ejecutar rutina"
 
 #: resources/templates/database/routines/index.twig:124
 #: resources/templates/database/routines/row.twig:35
 #: resources/templates/database/routines/row.twig:38
+#: resources/templates/database/routines/index.twig:123
 msgid "Execute"
 msgstr "Ejecutar"
 
@@ -2425,59 +2513,73 @@ msgid "Search in database"
 msgstr "Buscar en la base de datos"
 
 #: resources/templates/database/search/main.twig:8
+#: resources/templates/database/search/main.twig:9
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Palabras o valores a buscar (comodín: \"%\"):"
 
 #: resources/templates/database/search/main.twig:13
 #: resources/templates/table/find_replace/index.twig:31
+#: resources/templates/database/search/main.twig:14
 msgid "Find:"
 msgstr "Encontrado:"
 
 #: resources/templates/database/search/main.twig:17 src/Database/Search.php:79
+#: resources/templates/database/search/main.twig:18
 msgid "at least one of the words"
 msgstr "al menos una de estas palabras"
 
 #: resources/templates/database/search/main.twig:17
 #: resources/templates/database/search/main.twig:21
+#: resources/templates/database/search/main.twig:18
+#: resources/templates/database/search/main.twig:22
 msgid "Words are separated by a space character (\" \")."
 msgstr "Las palabras están separadas por un espacio (\" \")."
 
 #: resources/templates/database/search/main.twig:21 src/Database/Search.php:80
+#: resources/templates/database/search/main.twig:22
 msgid "all of the words"
 msgstr "todas las palabras"
 
 #: resources/templates/database/search/main.twig:25 src/Database/Search.php:81
+#: resources/templates/database/search/main.twig:26
 msgid "the exact phrase as substring"
 msgstr "la frase exacta como subcadena"
 
 #: resources/templates/database/search/main.twig:29 src/Database/Search.php:82
+#: resources/templates/database/search/main.twig:30
 msgid "the exact phrase as whole field"
 msgstr "la frase exacta como campo entero"
 
 #: resources/templates/database/search/main.twig:33 src/Database/Search.php:83
+#: resources/templates/database/search/main.twig:34
 msgid "as regular expression"
 msgstr "como expresión regular"
 
 #: resources/templates/database/search/main.twig:35
 #: resources/templates/database/structure/copy_form.twig:14
+#: resources/templates/database/search/main.twig:36
 msgid "Options:"
 msgstr "Opciones:"
 
 #: resources/templates/database/search/main.twig:39
+#: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
 msgstr "incluye coincidencias hexadecimales"
 
 #: resources/templates/database/search/main.twig:44
+#: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
 msgstr "Dentro de las tablas:"
 
 #: resources/templates/database/search/main.twig:48
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/replication/database_multibox.twig:8
+#: resources/templates/database/search/main.twig:49
 msgid "Unselect all"
 msgstr "Deseleccionar todo"
 
 #: resources/templates/database/search/main.twig:66
+#: resources/templates/database/search/main.twig:67
 msgid "Inside column:"
 msgstr "Dentro de la columna:"
 
@@ -2665,6 +2767,7 @@ msgstr ""
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:250
 #: src/Plugins/Export/ExportSql.php:907 src/Plugins/Export/ExportXml.php:356
 #: src/Plugins/Export/Helpers/Pdf.php:146
+#: src/Plugins/Export/Helpers/Pdf.php:147
 msgid "Database:"
 msgstr "Base de datos:"
 
@@ -2703,7 +2806,7 @@ msgid "Add to Favorites"
 msgstr "Agregar a Favoritos"
 
 #: resources/templates/database/structure/index.twig:15
-#: src/Plugins/Schema/SchemaPdf.php:86
+#: src/Plugins/Schema/SchemaPdf.php:86 src/Plugins/Schema/SchemaPdf.php:87
 msgid "Data dictionary"
 msgstr "Diccionario de datos"
 
@@ -2712,6 +2815,8 @@ msgstr "Diccionario de datos"
 #: src/Controllers/Database/ExportController.php:66
 #: src/Controllers/Database/TrackingController.php:117
 #: src/Controllers/Export/ExportController.php:287
+#: src/Controllers/Database/ExportController.php:65
+#: src/Controllers/Export/ExportController.php:286
 msgid "No tables found in database."
 msgstr "No se han encontrado tablas en la base de datos."
 
@@ -2736,7 +2841,7 @@ msgstr "Mostrar las consultas de creación"
 #: resources/templates/triggers/editor_form.twig:31
 #: resources/templates/triggers/list.twig:50 src/Config/Descriptions.php:935
 #: src/Plugins/Export/ExportXml.php:408 src/Server/Privileges.php:1563
-#: src/Server/Privileges.php:1565
+#: src/Server/Privileges.php:1565 resources/templates/triggers/list.twig:49
 msgid "Table"
 msgstr "Tabla"
 
@@ -2768,12 +2873,16 @@ msgstr "Crear vista"
 #: resources/templates/database/structure/structure_table_row.twig:17
 #: resources/templates/server/databases/index.twig:220
 #: resources/templates/server/databases/index.twig:232
+#: resources/templates/server/databases/index.twig:219
+#: resources/templates/server/databases/index.twig:231
 msgid "Not replicated"
 msgstr "Sin replicar"
 
 #: resources/templates/database/structure/structure_table_row.twig:18
 #: resources/templates/server/databases/index.twig:216
 #: resources/templates/server/databases/index.twig:228
+#: resources/templates/server/databases/index.twig:215
+#: resources/templates/server/databases/index.twig:227
 msgid "Replicated"
 msgstr "Replicado/a"
 
@@ -2800,6 +2909,7 @@ msgstr "en uso"
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:116
 #: src/Controllers/Server/DatabasesController.php:267 src/Import/Import.php:132
+#: src/Import/Import.php:133
 msgid "Rows"
 msgstr "Filas"
 
@@ -2870,11 +2980,13 @@ msgstr "Actualizado"
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:280 src/Menu.php:450
 #: src/Server/Status/Processes.php:110 src/Util.php:1372
+#: resources/templates/events/index.twig:47
 msgid "Status"
 msgstr "Estado actual"
 
 #: resources/templates/database/tracking/tables.twig:47
 #: resources/templates/events/index.twig:74
+#: resources/templates/events/index.twig:116
 msgid "Click to toggle"
 msgstr "Pulse para conmutar"
 
@@ -3056,6 +3168,7 @@ msgstr "Binario muy conocido"
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:472
 #: src/Display/Results.php:1833 src/Html/Generator.php:82
+#: src/Display/Results.php:1835
 msgid "Copy"
 msgstr "Copiar"
 
@@ -3066,7 +3179,7 @@ msgstr "Operaciones sobre los resultados de la consulta"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:471
-#: src/Export/Export.php:717
+#: src/Export/Export.php:717 src/Export/Export.php:716
 msgid "Copy to clipboard"
 msgstr "Copiar al portapapeles"
 
@@ -3095,6 +3208,7 @@ msgstr "Convertir a Kana"
 #: resources/templates/table/structure/display_structure.twig:361
 #: src/Controllers/Operations/ViewController.php:95 src/Html/Generator.php:728
 #: src/Import/Import.php:121 src/InsertEdit.php:412 src/Message.php:104
+#: src/Import/Import.php:122
 msgid "Error"
 msgstr "Error"
 
@@ -3156,24 +3270,29 @@ msgid "Event type"
 msgstr "Tipo de evento"
 
 #: resources/templates/events/editor-form.twig:50
+#: resources/templates/events/editor-form.twig:58
 msgid "Execute at"
 msgstr "Ejecutar en"
 
 #: resources/templates/events/editor-form.twig:56
+#: resources/templates/events/editor-form.twig:64
 msgid "Execute every"
 msgstr "Ejecutar cada"
 
 #: resources/templates/events/editor-form.twig:67
+#: resources/templates/events/editor-form.twig:75
 msgctxt "Start of recurring event"
 msgid "Start"
 msgstr "Inicio"
 
 #: resources/templates/events/editor-form.twig:73
+#: resources/templates/events/editor-form.twig:81
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Fin"
 
 #: resources/templates/events/editor-form.twig:88
+#: resources/templates/events/editor-form.twig:96
 msgid "On completion preserve"
 msgstr "Preservar al completar"
 
@@ -3181,41 +3300,49 @@ msgstr "Preservar al completar"
 #: src/Navigation/Nodes/NodeEventContainer.php:23
 #: src/Navigation/Nodes/NodeEventContainer.php:25
 #: src/Plugins/Export/ExportSql.php:977 src/Plugins/Export/ExportXml.php:92
-#: src/Util.php:1394
+#: src/Util.php:1394 resources/templates/events/index.twig:3
 msgid "Events"
 msgstr "Eventos"
 
 #: resources/templates/events/index.twig:31
+#: resources/templates/events/index.twig:30
 msgid "Create new event"
 msgstr "Crear nuevo evento"
 
 #: resources/templates/events/index.twig:40
+#: resources/templates/events/index.twig:39
 msgid "There are no events to display."
 msgstr "No existen eventos para mostrar."
 
 #: resources/templates/events/index.twig:69
+#: resources/templates/events/index.twig:111
 msgid "Event scheduler status"
 msgstr "Estado del planificador de eventos"
 
 #: resources/templates/events/index.twig:87
+#: resources/templates/events/index.twig:129
 msgid "ON"
 msgstr "Encendido"
 
 #: resources/templates/events/index.twig:98
+#: resources/templates/events/index.twig:140
 msgid "OFF"
 msgstr "Apagado"
 
 # Used on libraries/export/csv.php to decide what level of compatibility needs
 # due to excel version
 #: resources/templates/events/index.twig:116
+#: resources/templates/events/index.twig:158
 msgid "Event editor"
 msgstr "Editor de eventos"
 
 #: resources/templates/events/index.twig:136
+#: resources/templates/events/index.twig:178
 msgid "Export event"
 msgstr "Exportar evento"
 
 #: resources/templates/events/index.twig:147
+#: resources/templates/events/index.twig:189
 msgid "The event scheduler is disabled."
 msgstr "El planificador de eventos está desactivado."
 
@@ -3667,7 +3794,7 @@ msgstr "Escoger"
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:416
 #: src/Export/Export.php:740 src/Html/Generator.php:836
-#: src/Plugins/Schema/ExportRelationSchema.php:258
+#: src/Plugins/Schema/ExportRelationSchema.php:258 src/Export/Export.php:739
 msgid "Back"
 msgstr "Volver"
 
@@ -3725,8 +3852,8 @@ msgstr ""
 #, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr ""
-"Seleccionar directorio en el servidor web para subir los archivos "
-"[strong]%s[/strong]:"
+"Seleccionar directorio en el servidor web para subir los archivos [strong]"
+"%s[/strong]:"
 
 #: resources/templates/import.twig:65 resources/templates/import.twig:91
 msgid "There are no files to import!"
@@ -3957,6 +4084,7 @@ msgid "View:"
 msgstr "Vista:"
 
 #: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:147
+#: src/Plugins/Export/Helpers/Pdf.php:148
 msgid "Table:"
 msgstr "Tabla:"
 
@@ -4028,6 +4156,7 @@ msgstr "Carga SQL"
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:726
 #: src/Config/Descriptions.php:737 src/Menu.php:440 src/Util.php:1370
+#: resources/templates/server/databases/index.twig:3
 msgid "Databases"
 msgstr "Bases de datos"
 
@@ -4476,8 +4605,8 @@ msgid ""
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 "Habilitar funcionalidades avanzadas en el archivo de configuración "
-"(<code>config.inc.php</code>), por ejemplo comenzando desde <code>config."
-"sample.inc.php</code>."
+"(<code>config.inc.php</code>), por ejemplo comenzando desde "
+"<code>config.sample.inc.php</code>."
 
 #: resources/templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -4544,43 +4673,52 @@ msgid "default"
 msgstr "predeterminado"
 
 #: resources/templates/server/databases/index.twig:4
+#: resources/templates/server/databases/index.twig:3
 msgid "Databases statistics"
 msgstr "Estadísticas de la base"
 
 #: resources/templates/server/databases/index.twig:10
+#: resources/templates/server/databases/index.twig:9
 msgid "Create database"
 msgstr "Crear base de datos"
 
 #: resources/templates/server/databases/index.twig:51
+#: resources/templates/server/databases/index.twig:50
 msgid "No privileges to create databases"
 msgstr "No tienes permisos para crear bases de datos"
 
 #: resources/templates/server/databases/index.twig:157
 #: resources/templates/server/replication/index.twig:18
 #: resources/templates/server/replication/primary_replication.twig:3
+#: resources/templates/server/databases/index.twig:156
 msgid "Primary replication"
 msgstr "Replicación principal"
 
 #: resources/templates/server/databases/index.twig:161
 #: resources/templates/server/replication/replica_configuration.twig:2
+#: resources/templates/server/databases/index.twig:160
 msgid "Replica replication"
 msgstr "Replicación de la réplica"
 
 #: resources/templates/server/databases/index.twig:182
+#: resources/templates/server/databases/index.twig:181
 #, php-format
 msgid "Jump to database '%s'"
 msgstr "Saltar a la base de datos '%s'"
 
 #: resources/templates/server/databases/index.twig:239
+#: resources/templates/server/databases/index.twig:238
 #, php-format
 msgid "Check privileges for database \"%s\"."
 msgstr "Comprobar los privilegios para la base de datos \"%s\"."
 
 #: resources/templates/server/databases/index.twig:240
+#: resources/templates/server/databases/index.twig:239
 msgid "Check privileges"
 msgstr "Seleccionar privilegios"
 
 #: resources/templates/server/databases/index.twig:245
+#: resources/templates/server/databases/index.twig:244
 #, php-format
 msgid "Run SQL queries on database \"%s\"."
 msgstr "Ejecutar la(s) consulta(s) SQL en la base de datos \"%s\"."
@@ -4591,16 +4729,19 @@ msgstr "Ejecutar la(s) consulta(s) SQL en la base de datos \"%s\"."
 #: src/Config/Descriptions.php:753 src/Menu.php:219 src/Menu.php:327
 #: src/Menu.php:445 src/Navigation/Nodes/NodeTable.php:242 src/Util.php:1064
 #: src/Util.php:1371 src/Util.php:1386 src/Util.php:1403
+#: resources/templates/server/databases/index.twig:245
 msgid "SQL"
 msgstr "SQL"
 
 #: resources/templates/server/databases/index.twig:256
 #: resources/templates/server/engines/_innodb_buffer_pool.twig:34
 #: src/Controllers/JavaScriptMessagesController.php:298
+#: resources/templates/server/databases/index.twig:255
 msgid "Total:"
 msgstr "Total:"
 
 #: resources/templates/server/databases/index.twig:301
+#: resources/templates/server/databases/index.twig:300
 msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
@@ -4610,15 +4751,18 @@ msgstr ""
 
 #: resources/templates/server/databases/index.twig:303
 #: resources/templates/server/databases/index.twig:304
+#: resources/templates/server/databases/index.twig:302
 msgid "Enable statistics"
 msgstr "Activar estadísticas"
 
 #: resources/templates/server/databases/index.twig:311
+#: resources/templates/server/databases/index.twig:310
 msgid "No databases"
 msgstr "No hay bases de datos"
 
 #: resources/templates/server/databases/index.twig:321
 #: src/Controllers/JavaScriptMessagesController.php:342
+#: resources/templates/server/databases/index.twig:320
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -6144,7 +6288,7 @@ msgid "Start auto refresh"
 msgstr "Iniciar refresco automático"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2378
+#: src/Display/Results.php:2378 src/Display/Results.php:2380
 msgid "Kill"
 msgstr "Matar el proceso"
 
@@ -6481,6 +6625,8 @@ msgstr "Estado"
 #: src/Plugins/Export/ExportOdt.php:501
 #: src/Plugins/Export/ExportTexytext.php:370
 #: src/Plugins/Export/Helpers/Pdf.php:310 src/Server/Status/Processes.php:109
+#: resources/templates/triggers/list.twig:51
+#: src/Plugins/Export/Helpers/Pdf.php:314
 msgid "Time"
 msgstr "Tiempo"
 
@@ -6512,6 +6658,7 @@ msgstr "Gráfica de pastel perfilando resultados."
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:95
 #: src/Database/Routines.php:980 src/Message.php:87
+#: src/Database/Routines.php:1000
 msgid "Your SQL query has been executed successfully."
 msgstr "Su consulta se ejecutó con éxito."
 
@@ -6822,6 +6969,7 @@ msgstr "Arrastrar para reordenar"
 #: src/Controllers/JavaScriptMessagesController.php:470
 #: src/Controllers/JavaScriptMessagesController.php:622
 #: src/Error/ErrorHandler.php:424 src/InsertEdit.php:1390
+#: src/InsertEdit.php:1394
 msgid "Ignore"
 msgstr "Ignorar"
 
@@ -6849,7 +6997,7 @@ msgstr "y luego"
 
 #: resources/templates/table/insert/actions_panel.twig:20
 msgid "Go back to previous page"
-msgstr "Volver"
+msgstr "Volver a la página anterior"
 
 #: resources/templates/table/insert/actions_panel.twig:21
 msgid "Insert another new row"
@@ -6993,12 +7141,14 @@ msgstr "Vaciar la tabla (DELETE FROM)"
 #: resources/templates/table/operations/index.twig:459
 #: resources/templates/table/operations/view.twig:32
 #: src/Controllers/Database/StructureController.php:367
+#: src/Controllers/Database/StructureController.php:366
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Se descartó la vista %s."
 
 #: resources/templates/table/operations/index.twig:459
 #: src/Controllers/Database/StructureController.php:367
+#: src/Controllers/Database/StructureController.php:366
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Se ha eliminado la tabla %s."
@@ -7478,11 +7628,14 @@ msgstr "Tiempo"
 #: src/Plugins/Export/ExportOdt.php:504
 #: src/Plugins/Export/ExportTexytext.php:371
 #: src/Plugins/Export/Helpers/Pdf.php:312
+#: resources/templates/triggers/list.twig:52
+#: src/Plugins/Export/Helpers/Pdf.php:316
 msgid "Event"
 msgstr "Evento"
 
 #: resources/templates/triggers/export.twig:2
 #: src/Controllers/Triggers/IndexController.php:225
+#: src/Controllers/Triggers/IndexController.php:233
 #, php-format
 msgid "Export of trigger %s"
 msgstr "Exportar disparador %s"
@@ -7495,14 +7648,17 @@ msgstr "Exportar disparador %s"
 #: src/Plugins/Export/ExportSql.php:1833
 #: src/Plugins/Export/ExportTexytext.php:408
 #: src/Plugins/Export/ExportXml.php:112 src/Util.php:1395 src/Util.php:1411
+#: resources/templates/triggers/list.twig:3
 msgid "Triggers"
 msgstr "Disparadores"
 
 #: resources/templates/triggers/list.twig:30
+#: resources/templates/triggers/list.twig:29
 msgid "Create new trigger"
 msgstr "Crear nuevo disparador"
 
 #: resources/templates/triggers/list.twig:41
+#: resources/templates/triggers/list.twig:40
 msgid "There are no triggers to display."
 msgstr "No hay disparadores para mostrar."
 
@@ -7837,14 +7993,14 @@ msgstr "Método de caché sub-óptimo."
 #: src/Advisory/Rules.php:217
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Está utilizando el caché de consultas MySQL en una base de datos de bastante "
-"tráfico. Probablemente quiera considerar utilizar <a href=\"https://dev."
-"mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> en lugar del "
-"caché de consultas de MySQL, especialmente si tiene muchas réplicas."
+"tráfico. Probablemente quiera considerar utilizar <a href=\"https://"
+"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> en lugar "
+"del caché de consultas de MySQL, especialmente si tiene muchas réplicas."
 
 #: src/Advisory/Rules.php:223
 #, php-format
@@ -8077,8 +8233,8 @@ msgstr ""
 "independientemente del valor de estas variables. Para eliminarlas deberá re-"
 "escribir las consultas para evitar estas condiciones (en una tabla temporal: "
 "la presencia de una columna «BLOB» o «TEXT», o la presencia de una columna "
-"mayor a 512 bytes) como se menciona al comienzo del <a href=\"https://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">artículo de "
+"mayor a 512 bytes) como se menciona al comienzo del <a href=\"https://"
+"www.facebook.com/note.php?note_id=10150111255065841&comments\">artículo de "
 "Pythian Group</a>"
 
 #: src/Advisory/Rules.php:362
@@ -8525,8 +8681,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Especialmente en un sistema con gran cantidad de escrituras a tablas InnoDB, "
 "debería de configurar «innodb_log_file_size» a aproximadamente 25% de "
@@ -8573,13 +8729,13 @@ msgstr ""
 "Normalmente es suficiente definir {innodb_log_file_size} a el 25% del valor "
 "de {innodb_buffer_pool_size}. Un valor muy alto de {innodb_log_file_size} "
 "reduce considerablemente la velocidad de la recuperación luego de una caída "
-"de la base de datos. Revise también <a href=\"https://www.percona.com/"
-"blog/2006/07/03/choosing-proper-innodb_log_file_size/\">este artículo</a>. "
+"de la base de datos. Revise también <a href=\"https://www.percona.com/blog/"
+"2006/07/03/choosing-proper-innodb_log_file_size/\">este artículo</a>. "
 "Necesitará cerrar el servidor, eliminar los archivos de registros InnoDB, "
 "definir el nuevo valor en el archivo 'my.cnf', iniciar el servidor y luego "
 "verificar los registros de error para asegurarse que no hubo inconvenientes. "
-"Revise también <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">este artículo</a>"
+"Revise también <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">este artículo</a>"
 
 #: src/Advisory/Rules.php:717
 #, php-format
@@ -8648,8 +8804,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Definir «concurrent_insert» a 1 reduce la competencia entre lectores y "
-"escritores en una tabla particular. Revise también la <a href=\"https://dev."
-"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">documentación MySQL</a>"
+"escritores en una tabla particular. Revise también la <a href=\"https://"
+"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">documentación "
+"MySQL</a>"
 
 #: src/Advisory/Rules.php:757
 msgid "concurrent_insert is set to 0"
@@ -8754,9 +8911,8 @@ msgstr ""
 "tiempo). Ajustar cuidadosamente «query_cache_min_res_unit» a un valor menor "
 "podría ayudar también; por ejemplo, podría definirlo como el tamaño promedio "
 "de las consultas en el caché utilizando la siguiente fórmula: "
-"(«query_cache_size» - «qcache_free_memory») / "
-"«qcache_queries_in_cache» ((tamaño_caché - memoria_libre_caché) / "
-"cantidad_consultas_en_caché)"
+"(«query_cache_size» - «qcache_free_memory») / «qcache_queries_in_cache» "
+"((tamaño_caché - memoria_libre_caché) / cantidad_consultas_en_caché)"
 
 #: src/Advisory/Rules.php:829
 #, php-format
@@ -9965,13 +10121,13 @@ msgstr ""
 
 #: src/Config/Descriptions.php:355
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Más información en[a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]Rastreador de problemas de phpMyAdmin[/a] y[a@https://bugs.mysql."
-"com/19588]Errores de MySQL[/a]"
+"Más información en[a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]Rastreador de problemas de phpMyAdmin[/a] y[a@https://bugs.mysql.com/"
+"19588]Errores de MySQL[/a]"
 
 #: src/Config/Descriptions.php:359
 msgid ""
@@ -10698,7 +10854,8 @@ msgid "Confirm DROP queries"
 msgstr "Confirmar las consultas DROP"
 
 #: src/Config/Descriptions.php:614 src/Plugins/Schema/SchemaDia.php:63
-#: src/Plugins/Schema/SchemaPdf.php:73
+#: src/Plugins/Schema/SchemaPdf.php:73 src/Plugins/Schema/SchemaDia.php:64
+#: src/Plugins/Schema/SchemaPdf.php:74
 msgid "Paper size"
 msgstr "Tamaño del papel"
 
@@ -12249,18 +12406,30 @@ msgstr ""
 #: src/Controllers/Triggers/IndexController.php:66
 #: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:66
+#: src/Controllers/Database/ExportController.php:55
+#: src/Controllers/Database/ImportController.php:60
+#: src/Controllers/Database/StructureController.php:157
+#: src/Controllers/Events/IndexController.php:40
+#: src/Controllers/Operations/DatabaseController.php:228
+#: src/Controllers/Table/ImportController.php:69
 msgid "No database selected."
 msgstr "No se seleccionó base de datos."
 
 #: src/Controllers/Database/ExportController.php:121
 #: src/Controllers/Server/ExportController.php:58
 #: src/Controllers/Table/ExportController.php:93
+#: src/Controllers/Database/ExportController.php:120
+#: src/Controllers/Server/ExportController.php:57
+#: src/Controllers/Table/ExportController.php:92
 msgid "Could not load export plugins, please check your installation!"
 msgstr "No se cargaron los plugins de exportación. ¡Revise su instalación!"
 
 #: src/Controllers/Database/ImportController.php:72
 #: src/Controllers/Server/ImportController.php:64
 #: src/Controllers/Table/ImportController.php:89
+#: src/Controllers/Database/ImportController.php:70
+#: src/Controllers/Server/ImportController.php:62
+#: src/Controllers/Table/ImportController.php:87
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "No se pudieron cargar los plugins de importación. ¡Revise su instalación!"
@@ -12313,14 +12482,17 @@ msgstr "¡Usted no tiene los privilegios para administrar a los usuarios!"
 #: src/Controllers/Table/Structure/PrimaryController.php:72
 #: src/Controllers/Table/ZoomSearchController.php:104
 #: src/Controllers/Triggers/IndexController.php:74
+#: src/Controllers/Table/ImportController.php:74
 msgid "No table selected."
 msgstr "No hay tabla seleccionada."
 
 #: src/Controllers/Database/RoutinesController.php:166
+#: src/Controllers/Database/RoutinesController.php:171
 msgid "Add routine"
 msgstr "Agregar rutina"
 
 #: src/Controllers/Database/RoutinesController.php:170
+#: src/Controllers/Database/RoutinesController.php:175
 msgid "Edit routine"
 msgstr "Editar rutina"
 
@@ -12329,10 +12501,16 @@ msgstr "Editar rutina"
 #: src/Controllers/Database/RoutinesController.php:346
 #: src/Controllers/Events/IndexController.php:175
 #: src/Controllers/Triggers/IndexController.php:199
+#: src/Controllers/Database/RoutinesController.php:255
+#: src/Controllers/Database/RoutinesController.php:285
+#: src/Controllers/Database/RoutinesController.php:351
+#: src/Controllers/Events/IndexController.php:182
+#: src/Controllers/Triggers/IndexController.php:207
 msgid "Error in processing request:"
 msgstr "Error al procesar la petición:"
 
 #: src/Controllers/Database/RoutinesController.php:253
+#: src/Controllers/Database/RoutinesController.php:258
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12343,16 +12521,20 @@ msgstr ""
 
 #: src/Controllers/Database/RoutinesController.php:282
 #: src/Controllers/Database/RoutinesController.php:348
+#: src/Controllers/Database/RoutinesController.php:287
+#: src/Controllers/Database/RoutinesController.php:353
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "No se encontró rutina con nombre %1$s en la base de datos %2$s."
 
 #: src/Controllers/Database/RoutinesController.php:379
+#: src/Controllers/Database/RoutinesController.php:384
 #, php-format
 msgid "Export of routine %s"
 msgstr "Exportar la rutina %s"
 
 #: src/Controllers/Database/RoutinesController.php:398
+#: src/Controllers/Database/RoutinesController.php:403
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12379,6 +12561,8 @@ msgstr "¡Éxito!"
 
 #: src/Controllers/Database/StructureController.php:566
 #: src/Display/Results.php:3185
+#: src/Controllers/Database/StructureController.php:565
+#: src/Display/Results.php:3187
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12388,6 +12572,7 @@ msgstr ""
 "%sdocumentation%s."
 
 #: src/Controllers/Database/StructureController.php:735
+#: src/Controllers/Database/StructureController.php:734
 msgid "unknown"
 msgstr "desconocido"
 
@@ -12450,6 +12635,7 @@ msgid "Export of event %s"
 msgstr "Exportar evento %s"
 
 #: src/Controllers/Events/ExportController.php:67
+#: src/Controllers/Events/ExportController.php:75
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
@@ -12458,23 +12644,28 @@ msgstr ""
 "nombre %1$s en la base de datos %2$s."
 
 #: src/Controllers/Events/IndexController.php:65
+#: src/Controllers/Events/IndexController.php:61
 msgid "The event was dropped immediately after creation."
 msgstr "El evento ha sido descartado inmediatamente después de su creación."
 
 #: src/Controllers/Events/IndexController.php:112
+#: src/Controllers/Events/IndexController.php:129
 msgid "Add event"
 msgstr "Añadir evento"
 
 #: src/Controllers/Events/IndexController.php:116
+#: src/Controllers/Events/IndexController.php:133
 msgid "Edit event"
 msgstr "Editar evento"
 
 #: src/Controllers/Events/IndexController.php:175
+#: src/Controllers/Events/IndexController.php:184
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "No se encontró evento con nombre %1$s en la base de datos %2$s."
 
 #: src/Controllers/Export/ExportController.php:121 src/Export/Export.php:678
+#: src/Controllers/Export/ExportController.php:120 src/Export/Export.php:677
 msgid "Bad type!"
 msgstr "¡Tipo incorrecto!"
 
@@ -12510,15 +12701,17 @@ msgstr ""
 
 #: src/Controllers/HomeController.php:261
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"El parámetro [a@https://www.php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] es menor que la "
-"validez de la cookie configurada en phpMyAdmin. Por ello, la sesión expirará "
-"antes de lo configurado en phpMyAdmin."
+"El parámetro [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] es menor que la validez de la "
+"cookie configurada en phpMyAdmin. Por ello, la sesión expirará antes de lo "
+"configurado en phpMyAdmin."
 
 #: src/Controllers/HomeController.php:281
 msgid ""
@@ -12701,6 +12894,7 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Las sentencias \"DROP DATABASE\" están desactivadas."
 
 #: src/Controllers/Import/ImportController.php:697 src/Sql.php:920
+#: src/Sql.php:918
 msgid "[ROLLBACK occurred.]"
 msgstr "[Ocurrió un ROLLBACK.]"
 
@@ -14657,22 +14851,26 @@ msgid "No collation provided."
 msgstr "No se proporcionó reglas de clasificación."
 
 #: src/Controllers/Operations/DatabaseController.php:85
+#: src/Controllers/Operations/DatabaseController.php:82
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "No puede copiar la base de datos con el mismo nombre. Cambie el nombre e "
 "inténtelo de nuevo."
 
 #: src/Controllers/Operations/DatabaseController.php:170
+#: src/Controllers/Operations/DatabaseController.php:162
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Se renombró la base de datos %1$s a %2$s."
 
 #: src/Controllers/Operations/DatabaseController.php:183
+#: src/Controllers/Operations/DatabaseController.php:175
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Se copió la base de datos %1$s a %2$s."
 
 #: src/Controllers/Operations/DatabaseController.php:272
+#: src/Controllers/Operations/DatabaseController.php:264
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -15541,7 +15739,7 @@ msgstr "Datos incorrectos"
 msgid "Wrong data or no validation for %s"
 msgstr "Datos erróneos o sin validación para %s"
 
-#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1080
+#: src/Controllers/Sql/SqlController.php:218 src/Sql.php:1080 src/Sql.php:1078
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Se creó el favorito %s."
@@ -15619,7 +15817,8 @@ msgstr "Hay un problema con tu petición."
 
 #: src/Controllers/Table/GetFieldController.php:109
 #: src/Database/Routines.php:997 src/Import/Import.php:137
-#: src/InsertEdit.php:163 src/Sql.php:906
+#: src/InsertEdit.php:163 src/Sql.php:906 src/Database/Routines.php:1017
+#: src/Import/Import.php:138 src/Sql.php:904
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 "MySQL ha devuelto un conjunto de valores vacío (es decir: cero columnas)."
@@ -15667,6 +15866,7 @@ msgid "Internal relationships were successfully updated."
 msgstr "Las relaciones internas actualizadas satisfactoriamente."
 
 #: src/Controllers/Table/ReplaceController.php:182
+#: src/Controllers/Table/ReplaceController.php:183
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Fila: %1$s, Columna: %2$s, Error: %3$s"
@@ -15725,19 +15925,23 @@ msgid "No versions selected."
 msgstr "No se seleccionaron versiones."
 
 #: src/Controllers/Triggers/IndexController.php:155
+#: src/Controllers/Triggers/IndexController.php:163
 msgid "Add trigger"
 msgstr "Agregar disparador"
 
 #: src/Controllers/Triggers/IndexController.php:159
+#: src/Controllers/Triggers/IndexController.php:167
 msgid "Edit trigger"
 msgstr "Editar disparador"
 
 #: src/Controllers/Triggers/IndexController.php:201
+#: src/Controllers/Triggers/IndexController.php:209
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "No se encontró disparador con nombre %1$s en la base de datos %2$s."
 
 #: src/Controllers/Triggers/IndexController.php:242
+#: src/Controllers/Triggers/IndexController.php:250
 #, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
@@ -15838,7 +16042,7 @@ msgstr "Error: ¡no se pudo borrar la relación interna!"
 msgid "Internal relationship has been removed."
 msgstr "Se ha eliminado la relación interna."
 
-#: src/Database/Designer.php:119
+#: src/Database/Designer.php:119 src/Database/Designer.php:117
 msgid "Could not load schema plugins, please check your installation!"
 msgstr "No se pudieron cargar los plugins de esquema. ¡Revise su instalación!"
 
@@ -15847,52 +16051,61 @@ msgstr "No se pudieron cargar los plugins de esquema. ¡Revise su instalación!"
 msgid "Invalid routine type: \"%s\""
 msgstr "Tipo de rutina inválido: \"%s\""
 
-#: src/Database/Routines.php:126
+#: src/Database/Routines.php:126 src/Database/Routines.php:136
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Se creó la rutina %1$s."
 
 #: src/Database/Routines.php:137 src/Events/Events.php:145
-#: src/Triggers/Triggers.php:130
+#: src/Triggers/Triggers.php:130 src/Database/Routines.php:147
+#: src/Events/Events.php:147 src/Triggers/Triggers.php:145
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Ocurrieron uno o más errores al procesar el pedido:"
 
-#: src/Database/Routines.php:205
+#: src/Database/Routines.php:205 src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Pedimos disculpas por no haber podido recuperar la rutina eliminada."
 
 #: src/Database/Routines.php:206 src/Events/Events.php:122
-#: src/Triggers/Triggers.php:99
+#: src/Triggers/Triggers.php:99 src/Database/Routines.php:221
+#: src/Events/Events.php:111 src/Triggers/Triggers.php:109
 msgid "The backed up query was:"
 msgstr "La consulta respaldada era:"
 
 #: src/Database/Routines.php:208 src/Database/Routines.php:1220
 #: src/Events/Events.php:124 src/Events/Events.php:164
 #: src/Html/Generator.php:793 src/Triggers/Triggers.php:101
-#: src/Triggers/Triggers.php:268
+#: src/Triggers/Triggers.php:268 src/Database/Routines.php:107
+#: src/Database/Routines.php:133 src/Database/Routines.php:209
+#: src/Database/Routines.php:223 src/Database/Routines.php:981
+#: src/Events/Events.php:91 src/Events/Events.php:100 src/Events/Events.php:113
+#: src/Events/Events.php:132 src/Triggers/Triggers.php:88
+#: src/Triggers/Triggers.php:97 src/Triggers/Triggers.php:111
+#: src/Triggers/Triggers.php:130
 msgid "MySQL said: "
 msgstr "MySQL ha dicho: "
 
-#: src/Database/Routines.php:254
+#: src/Database/Routines.php:254 src/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Se modificó la rutina %1$s. Los privilegios se ajustaron."
 
-#: src/Database/Routines.php:259
+#: src/Database/Routines.php:259 src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Se modificó la rutina %1$s."
 
-#: src/Database/Routines.php:613
+#: src/Database/Routines.php:613 src/Database/Routines.php:628
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Debe proveer un nombre y tipo para cada parámetro de rutina."
 
-#: src/Database/Routines.php:631
+#: src/Database/Routines.php:631 src/Database/Routines.php:646
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Dirección \"%s\" inválida provista para el parámetro."
 
 #: src/Database/Routines.php:651 src/Database/Routines.php:716
+#: src/Database/Routines.php:666 src/Database/Routines.php:731
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15900,33 +16113,34 @@ msgstr ""
 "Debe proveer longitud/valores para los parámetros de tipo ENUM, SET, VARCHAR "
 "y VARBINARY."
 
-#: src/Database/Routines.php:698
+#: src/Database/Routines.php:698 src/Database/Routines.php:713
 msgid "You must provide a valid return type for the routine."
 msgstr "Debe proveer un tipo de retorno válido para la rutina."
 
 #: src/Database/Routines.php:768 src/Events/Events.php:259
-#: src/Triggers/Triggers.php:172
+#: src/Triggers/Triggers.php:172 src/Database/Routines.php:783
+#: src/Events/Events.php:258 src/Triggers/Triggers.php:187
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "¡El definidor tiene que ser en el formato \"usuario@sistema\"!"
 
-#: src/Database/Routines.php:775
+#: src/Database/Routines.php:775 src/Database/Routines.php:790
 msgid "Invalid routine type!"
 msgstr "Tipo de rutina inválido!"
 
-#: src/Database/Routines.php:781
+#: src/Database/Routines.php:781 src/Database/Routines.php:796
 msgid "You must provide a routine name!"
 msgstr "¡Debe proveer un nombre de rutina!"
 
-#: src/Database/Routines.php:852
+#: src/Database/Routines.php:852 src/Database/Routines.php:867
 msgid "You must provide a routine definition."
 msgstr "Debe proveer una definición de rutina."
 
-#: src/Database/Routines.php:973
+#: src/Database/Routines.php:973 src/Database/Routines.php:993
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Resultados de la ejecución de la rutina %s"
 
-#: src/Database/Routines.php:988
+#: src/Database/Routines.php:988 src/Database/Routines.php:1008
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -15934,7 +16148,12 @@ msgstr[0] "%d fila afectada por la última sentencia del procedimiento."
 msgstr[1] "%d filas afectadas por la última sentencia del procedimiento."
 
 #: src/Database/Routines.php:1218 src/Events/Events.php:162
-#: src/Triggers/Triggers.php:266
+#: src/Triggers/Triggers.php:266 src/Database/Routines.php:103
+#: src/Database/Routines.php:129 src/Database/Routines.php:205
+#: src/Database/Routines.php:977 src/Events/Events.php:87
+#: src/Events/Events.php:96 src/Events/Events.php:128
+#: src/Triggers/Triggers.php:84 src/Triggers/Triggers.php:93
+#: src/Triggers/Triggers.php:126
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "Falló la siguiente consulta: \"%s\""
@@ -15966,30 +16185,32 @@ msgstr ""
 "%s."
 
 #: src/Display/Results.php:2337 src/Display/Results.php:2352
+#: src/Display/Results.php:2339 src/Display/Results.php:2354
 msgid "The row has been deleted."
 msgstr "La fila se ha borrado."
 
 #: src/Display/Results.php:2909 src/Display/Results.php:3225 src/Sql.php:912
+#: src/Display/Results.php:2911 src/Display/Results.php:3227 src/Sql.php:910
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "La consulta tardó %01.4f segundos."
 
-#: src/Display/Results.php:3193
+#: src/Display/Results.php:3193 src/Display/Results.php:3195
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Mostrando filas %1s - %2s"
 
-#: src/Display/Results.php:3206
+#: src/Display/Results.php:3206 src/Display/Results.php:3208
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "%1$s en total, %2$s en la consulta"
 
-#: src/Display/Results.php:3211
+#: src/Display/Results.php:3211 src/Display/Results.php:3213
 #, php-format
 msgid "%s total"
 msgstr "total de %s"
 
-#: src/Display/Results.php:3509
+#: src/Display/Results.php:3509 src/Display/Results.php:3511
 msgid "Link not found!"
 msgstr "¡No se encontró el enlace!"
 
@@ -16146,8 +16367,8 @@ msgid ""
 msgstr ""
 "Esta es la cantidad de memoria asignada al caché de registros utilizado para "
 "el caché de los datos de la tabla. El valor predeterminado es 32MB. Esta "
-"memoria se utiliza para el caché de cambios a los archivos de datos handle (."
-"xtd) y apuntador de la fila (.xtr)."
+"memoria se utiliza para el caché de cambios a los archivos de datos handle "
+"(.xtd) y apuntador de la fila (.xtr)."
 
 #: src/Engines/Pbxt.php:52
 msgid "Log cache size"
@@ -16268,10 +16489,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"Este es el número de archivos de registro de transacción (pbxt/system/xlog*."
-"xt) que mantendrá el sistema. Si el número de archivos excede este valor los "
-"registros antiguos se eliminarán; si no, su nombre cambia y recibe el "
-"siguiente número más alto."
+"Este es el número de archivos de registro de transacción (pbxt/system/"
+"xlog*.xt) que mantendrá el sistema. Si el número de archivos excede este "
+"valor los registros antiguos se eliminarán; si no, su nombre cambia y recibe "
+"el siguiente número más alto."
 
 #: src/Engines/Pbxt.php:179
 #, php-format
@@ -16290,37 +16511,37 @@ msgstr "Demasiados mensajes de error, algunos no son mostrados."
 msgid "Report"
 msgstr "Reportar"
 
-#: src/Events/Events.php:88
+#: src/Events/Events.php:88 src/Events/Events.php:135
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "Se creó el evento %1$s."
 
-#: src/Events/Events.php:121
+#: src/Events/Events.php:121 src/Events/Events.php:110
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Pedimos disculpas por no haber podido recuperar el evento eliminado."
 
-#: src/Events/Events.php:133
+#: src/Events/Events.php:133 src/Events/Events.php:117
 #, php-format
 msgid "Event %1$s has been modified."
 msgstr "Se modificó el evento %1$s."
 
-#: src/Events/Events.php:268
+#: src/Events/Events.php:268 src/Events/Events.php:267
 msgid "You must provide an event name!"
 msgstr "¡Debe proveer un nombre de evento!"
 
-#: src/Events/Events.php:282
+#: src/Events/Events.php:282 src/Events/Events.php:281
 msgid "You must provide a valid interval value for the event."
 msgstr "Debe proveer un valor de intervalo válido para el evento."
 
-#: src/Events/Events.php:297
+#: src/Events/Events.php:297 src/Events/Events.php:296
 msgid "You must provide a valid execution time for the event."
 msgstr "Debe proveer un tiempo de ejecución válido para el evento."
 
-#: src/Events/Events.php:300
+#: src/Events/Events.php:300 src/Events/Events.php:299
 msgid "You must provide a valid type for the event."
 msgstr "Debe proveer un tipo válido para el evento."
 
-#: src/Events/Events.php:329
+#: src/Events/Events.php:329 src/Events/Events.php:328
 msgid "You must provide an event definition."
 msgstr "Debe proveer una definición de evento."
 
@@ -16390,8 +16611,8 @@ msgstr "El archivo no era un archivo subido."
 #: src/File.php:216
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"El archivo que intentó subir excede la directiva upload_max_filesize en php."
-"ini."
+"El archivo que intentó subir excede la directiva upload_max_filesize en "
+"php.ini."
 
 #: src/File.php:221
 msgid ""
@@ -16543,10 +16764,12 @@ msgstr ""
 "¡phpMyAdmin requiere estas funciones!"
 
 #: src/Http/Middleware/TokenRequestParamChecking.php:46
+#: src/Http/Middleware/TokenRequestParamChecking.php:69
 msgid "Error: Token mismatch"
 msgstr "Error: no coincide un «token»"
 
 #: src/Http/Middleware/TokenRequestParamChecking.php:78
+#: src/Http/Middleware/TokenRequestParamChecking.php:61
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -16598,7 +16821,7 @@ msgstr "El nombre del disparador no puede tener más de %d caracteres."
 msgid "The trigger name cannot end with a space character."
 msgstr "El nombre del disparador no puede terminar con un carácter de espacio."
 
-#: src/Import/Import.php:946
+#: src/Import/Import.php:946 src/Import/Import.php:947
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
@@ -16607,47 +16830,48 @@ msgstr ""
 "REPLACE y SET (sin opciones como GLOBAL) que contengan tablas de motores "
 "transaccionales."
 
-#: src/Import/Import.php:1163
+#: src/Import/Import.php:1163 src/Import/Import.php:1164
 #, php-format
 msgid "Go to table: %s"
 msgstr "Ir a la tabla: %s"
 
-#: src/Import/Import.php:1171
+#: src/Import/Import.php:1171 src/Import/Import.php:1172
 #, php-format
 msgid "Structure of %s"
 msgstr "Estructura de %s"
 
 #: src/Import/Import.php:1178 src/Import/Import.php:1227
+#: src/Import/Import.php:1179 src/Import/Import.php:1228
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Editar configuración de %s"
 
-#: src/Import/Import.php:1189
+#: src/Import/Import.php:1189 src/Import/Import.php:1190
 #, php-format
 msgid "Go to view: %s"
 msgstr "Ir a la vista: %s"
 
-#: src/Import/Import.php:1210
+#: src/Import/Import.php:1210 src/Import/Import.php:1211
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "Las siguientes estructureas fueron creadas o alteradas. Puedes:"
 
-#: src/Import/Import.php:1212
+#: src/Import/Import.php:1212 src/Import/Import.php:1213
 msgid "View a structure's contents by clicking on its name."
 msgstr "Puede ver los contenidos de una estructura pulsando en su nombre."
 
-#: src/Import/Import.php:1213
+#: src/Import/Import.php:1213 src/Import/Import.php:1214
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Cambie cualquiera de sus opciones pulsando el enlace \"Opciones\" "
 "correspondiente."
 
-#: src/Import/Import.php:1214
+#: src/Import/Import.php:1214 src/Import/Import.php:1215
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Edite la estructura siguiendo el enlace \"Estructura\"."
 
-#: src/Import/Import.php:1221
+#: src/Import/Import.php:1221 src/Import/Import.php:1222
 #, php-format
 msgid "Go to database: %s"
 msgstr "Ir a la base de datos: %s"
@@ -16665,11 +16889,13 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "directorio en el servidor web para subir los archivos:"
 
-#: src/InsertEdit.php:815 src/Sql.php:903
+#: src/InsertEdit.php:815 src/Sql.php:903 src/InsertEdit.php:819
+#: src/Sql.php:901
 msgid "Showing SQL query"
 msgstr "Mostrando la consulta SQL"
 
-#: src/InsertEdit.php:839 src/Sql.php:884
+#: src/InsertEdit.php:839 src/Sql.php:884 src/InsertEdit.php:843
+#: src/Sql.php:882
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "La Id de la fila insertada es: %1$d"
@@ -17510,8 +17736,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "incluir los nombres de las columnas en cada <code>INSERT</code> declaración "
-"<br> &nbsp; &nbsp; &nbsp; &nbsp; Ejemplo: <code>INSERT INTO tbl_name (col_A,"
-"col_B,col_C,col_C) VALUES (1,2,3)</code>"
+"<br> &nbsp; &nbsp; &nbsp; &nbsp; Ejemplo: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C,col_C) VALUES (1,2,3)</code>"
 
 #: src/Plugins/Export/ExportSql.php:465
 msgid ""
@@ -17673,6 +17899,7 @@ msgid "Export contents"
 msgstr "Exportar contenidos"
 
 #: src/Plugins/Export/Helpers/Pdf.php:148
+#: src/Plugins/Export/Helpers/Pdf.php:149
 msgid "Purpose:"
 msgstr "Propósito:"
 
@@ -17759,15 +17986,16 @@ msgstr "Tabla MediaWiki"
 #: src/Plugins/Import/ImportOds.php:86
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
-"Importar porcentakes como decimales propios <i>(por ejemplo: 12.00% "
-"como .12)</i>"
+"Importar porcentakes como decimales propios <i>(por ejemplo: 12.00% como "
+".12)</i>"
 
 #: src/Plugins/Import/ImportOds.php:92
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importar monedas <i>(por ejemplo: $5.00 como 5.00)</i>"
 
 #: src/Plugins/Import/ImportOds.php:157 src/Plugins/Import/ImportXml.php:72
-#: src/Plugins/Import/ImportXml.php:110
+#: src/Plugins/Import/ImportXml.php:110 src/Plugins/Import/ImportXml.php:73
+#: src/Plugins/Import/ImportXml.php:111
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -17811,7 +18039,7 @@ msgstr "No utilizar <code>AUTO_INCREMENT</code> con el valor 0"
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:243
+#: src/Plugins.php:243 src/Plugins.php:406
 msgid "This format has no options"
 msgstr "Este formato no tiene opciones"
 
@@ -17862,38 +18090,42 @@ msgid "Only show keys"
 msgstr "Mostrar las llaves solamente"
 
 #: src/Plugins/Schema/SchemaDia.php:54 src/Plugins/Schema/SchemaEps.php:62
-#: src/Plugins/Schema/SchemaPdf.php:64
+#: src/Plugins/Schema/SchemaPdf.php:64 src/Plugins/Schema/SchemaDia.php:55
+#: src/Plugins/Schema/SchemaEps.php:63 src/Plugins/Schema/SchemaPdf.php:65
 msgid "Orientation"
 msgstr "Orientación"
 
 #: src/Plugins/Schema/SchemaDia.php:57 src/Plugins/Schema/SchemaEps.php:65
-#: src/Plugins/Schema/SchemaPdf.php:67
+#: src/Plugins/Schema/SchemaPdf.php:67 src/Plugins/Schema/SchemaDia.php:58
+#: src/Plugins/Schema/SchemaEps.php:66 src/Plugins/Schema/SchemaPdf.php:68
 msgid "Landscape"
 msgstr "Orientación horizontal"
 
 #: src/Plugins/Schema/SchemaDia.php:57 src/Plugins/Schema/SchemaEps.php:65
-#: src/Plugins/Schema/SchemaPdf.php:67
+#: src/Plugins/Schema/SchemaPdf.php:67 src/Plugins/Schema/SchemaDia.php:58
+#: src/Plugins/Schema/SchemaEps.php:66 src/Plugins/Schema/SchemaPdf.php:68
 msgid "Portrait"
 msgstr "Orientación vertical"
 
 #: src/Plugins/Schema/SchemaEps.php:56 src/Plugins/Schema/SchemaPdf.php:58
-#: src/Plugins/Schema/SchemaSvg.php:55
+#: src/Plugins/Schema/SchemaSvg.php:55 src/Plugins/Schema/SchemaEps.php:57
+#: src/Plugins/Schema/SchemaPdf.php:59 src/Plugins/Schema/SchemaSvg.php:56
 msgid "Same width for all tables"
 msgstr "El mismo ancho para todas las tablas"
 
-#: src/Plugins/Schema/SchemaPdf.php:80
+#: src/Plugins/Schema/SchemaPdf.php:80 src/Plugins/Schema/SchemaPdf.php:81
 msgid "Show grid"
 msgstr "Mostrar la cuadrícula"
 
-#: src/Plugins/Schema/SchemaPdf.php:92
+#: src/Plugins/Schema/SchemaPdf.php:92 src/Plugins/Schema/SchemaPdf.php:93
 msgid "Order of the tables"
 msgstr "Orden de las tablas"
 
-#: src/Plugins/Schema/SchemaPdf.php:95
+#: src/Plugins/Schema/SchemaPdf.php:95 src/Plugins/Schema/SchemaPdf.php:96
 msgid "Name (Ascending)"
 msgstr "Nombre (Ascendente)"
 
-#: src/Plugins/Schema/SchemaPdf.php:95
+#: src/Plugins/Schema/SchemaPdf.php:95 src/Plugins/Schema/SchemaPdf.php:96
 msgid "Name (Descending)"
 msgstr "Nombre (Descendente)"
 
@@ -17903,8 +18135,8 @@ msgid ""
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
 "Convierte los valores booleanos a texto («T» y «F» de forma predeterminada). "
-"La primera opcion es para «TRUE» (verdadero), y la segunda por "
-"«FALSE» (falso). Distinto a cero = verdadero."
+"La primera opcion es para «TRUE» (verdadero), y la segunda por «FALSE» "
+"(falso). Distinto a cero = verdadero."
 
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:42
 msgid ""
@@ -18525,17 +18757,17 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "No existe una versión estable más reciente"
 
-#: src/Sql.php:447
+#: src/Sql.php:447 src/Sql.php:445
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 "Utilizando el favorito \"%s\" como consulta predeterminada para examinar."
 
-#: src/Sql.php:900
+#: src/Sql.php:900 src/Sql.php:898
 msgid "Showing as PHP code"
 msgstr "Mostrar como código PHP"
 
-#: src/Sql.php:1246
+#: src/Sql.php:1246 src/Sql.php:1244
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18544,7 +18776,7 @@ msgstr ""
 "La selección actual no contiene una columna única. La edición de la grilla y "
 "los enlaces de copiado, eliminación y edición no están disponibles. %s"
 
-#: src/Sql.php:1260
+#: src/Sql.php:1260 src/Sql.php:1258
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18609,12 +18841,12 @@ msgstr "No se han definido las partes del índice!"
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemas con los índices de la tabla `%s`"
 
-#: src/Table/TableMover.php:312
+#: src/Table/TableMover.php:312 src/Table/TableMover.php:309
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "¡No se encontró la base de datos de origen «%s»!"
 
-#: src/Table/TableMover.php:321
+#: src/Table/TableMover.php:321 src/Table/TableMover.php:318
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "¡No se encontró la base de datos de destino «%s»!"
@@ -18777,38 +19009,38 @@ msgstr "Se borró la versión %1$s de %2$s."
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Se ha creado la versión %1$s, se ha activado el seguimiento para %2$s."
 
-#: src/Triggers/Triggers.php:98
+#: src/Triggers/Triggers.php:98 src/Triggers/Triggers.php:108
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 "Pedimos disculpas por no haber podido recuperar el disparador eliminado."
 
-#: src/Triggers/Triggers.php:105
+#: src/Triggers/Triggers.php:105 src/Triggers/Triggers.php:115
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "Se modificó el disparador %1$s."
 
-#: src/Triggers/Triggers.php:118
+#: src/Triggers/Triggers.php:118 src/Triggers/Triggers.php:133
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "Disparador %1$s creado."
 
-#: src/Triggers/Triggers.php:180
+#: src/Triggers/Triggers.php:180 src/Triggers/Triggers.php:195
 msgid "You must provide a trigger name!"
 msgstr "¡Debe proveer un nombre de disparador!"
 
-#: src/Triggers/Triggers.php:186
+#: src/Triggers/Triggers.php:186 src/Triggers/Triggers.php:201
 msgid "You must provide a valid timing for the trigger!"
 msgstr "¡Debe proveer una sincronización válida para el disparador!"
 
-#: src/Triggers/Triggers.php:192
+#: src/Triggers/Triggers.php:192 src/Triggers/Triggers.php:207
 msgid "You must provide a valid event for the trigger!"
 msgstr "¡Debe proveer un evento válido para el disparador!"
 
-#: src/Triggers/Triggers.php:202
+#: src/Triggers/Triggers.php:202 src/Triggers/Triggers.php:217
 msgid "You must provide a valid table name!"
 msgstr "¡Debe proveer un nombre de tabla válido!"
 
-#: src/Triggers/Triggers.php:209
+#: src/Triggers/Triggers.php:209 src/Triggers/Triggers.php:224
 msgid "You must provide a trigger definition."
 msgstr "Debe proveer una definición del disparador."
 
