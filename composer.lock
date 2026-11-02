@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4256629eac4e572ccb05438ac22c41b0",
+    "content-hash": "a4adca0beae2cb40a83942afb9aae993",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -5439,7 +5439,8 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-06T06:15:36+00:00"
+            "time": "2026-10-06T06:15:36+00:00",
+            "published-time": "2026-10-06T06:15:47+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -9836,5 +9837,5 @@
     "platform-overrides": {
         "php": "8.2.99"
     },
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.11.0"
 }
