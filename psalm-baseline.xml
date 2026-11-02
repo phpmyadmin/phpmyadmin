@@ -6056,6 +6056,7 @@
       <code><![CDATA[$dbRights]]></code>
       <code><![CDATA[$dbRights[$row['User']]]]></code>
       <code><![CDATA[$groupAssignment]]></code>
+      <code><![CDATA[$groupAssignment]]></code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$alterUserQuery]]></code>
@@ -6083,9 +6084,6 @@
       <code><![CDATA[empty($row['password'])]]></code>
       <code><![CDATA[empty($row['password'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedVariable>
-      <code><![CDATA[$groupAssignment]]></code>
-    </UnusedVariable>
   </file>
   <file src="src/Server/Select.php">
     <DeprecatedMethod>
