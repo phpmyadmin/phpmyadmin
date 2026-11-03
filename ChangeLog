@@ -99,6 +99,7 @@ phpMyAdmin - ChangeLog
 - issue #20576 Fix IPv4 CIDR matching in AllowDeny rules
 - issue #20577 Fix SqlController missing parameter check
 - issue #20578 Fix cases where an invalid include will cause an error
+- issue #20587 Fix undefined global variable $maxsize
 
 5.2.3 (2025-10-07)
 - issue #19548 Fix missing tooltip in status monitor log table
