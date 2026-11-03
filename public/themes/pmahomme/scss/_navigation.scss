@@ -1,6 +1,11 @@
 // Navigation styles for the pmahomme theme
+// The panel width comes from the --navigation-width custom property set on <body>
+body {
+  margin-left: var(--navigation-width, 0);
+}
+
 #pma_navigation {
-  width: $navi-width;
+  width: var(--navigation-width);
   position: fixed;
   top: 0;
   left: 0;
@@ -356,7 +361,7 @@ li.fast_filter {
   cursor: col-resize;
   position: fixed;
   top: 0;
-  left: 240px;
+  left: var(--navigation-width);
   z-index: 801;
 }
 
@@ -369,7 +374,7 @@ li.fast_filter {
   font-weight: bold;
   position: fixed;
   top: 0;
-  left: $navi-width;
+  left: var(--navigation-width);
   text-align: center;
   cursor: pointer;
   z-index: 800;
@@ -380,4 +385,36 @@ li.fast_filter {
 
 #floating_menubar {
   z-index: 99;
+}
+
+// On narrow screens the panel is an overlay that the collapser opens and closes
+@media only screen and (width <= 768px) {
+  body {
+    margin-left: 0;
+  }
+
+  #pma_navigation {
+    width: 0;
+
+    &.show {
+      width: 100%;
+    }
+  }
+
+  #pma_navigation_resizer {
+    display: none;
+  }
+
+  #pma_navigation_collapser {
+    left: 0;
+  }
+
+  #pma_navigation.show #pma_navigation_collapser {
+    right: 0;
+    left: auto;
+  }
+
+  #pma_console {
+    margin-left: 0;
+  }
 }

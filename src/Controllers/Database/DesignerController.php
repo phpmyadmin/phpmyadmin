@@ -250,8 +250,6 @@ final readonly class DesignerController implements InvocableController
         // by designer/init.js and converted to JS variables.
         $this->response->addHTML($mainHtml);
 
-        $this->response->addHTML('<div id="PMA_disable_floating_menubar"></div>' . "\n");
-
         return $this->response->response();
     }
 

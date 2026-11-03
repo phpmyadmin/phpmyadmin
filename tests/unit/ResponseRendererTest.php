@@ -109,6 +109,7 @@ final class ResponseRendererTest extends AbstractTestCase
                     'scripts' => $header->getScripts()->getDisplay(),
                     'body_id' => '',
                     'navigation' => '',
+                    'navigation_width' => 240,
                     'custom_header' => '',
                     'load_user_preferences' => '',
                     'show_hint' => true,
