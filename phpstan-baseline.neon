@@ -2329,12 +2329,6 @@ parameters:
 			path: src/Controllers/Server/Variables/SetVariableController.php
 
 		-
-			message: '#^Parameter \#2 \$value of method PhpMyAdmin\\Controllers\\Server\\Variables\\SetVariableController\:\:formatVariable\(\) expects int\|string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/Variables/SetVariableController.php
-
-		-
 			message: '#^Parameter \#1 \$id of method PhpMyAdmin\\Config\\ConfigFile\:\:getServerName\(\) expects int, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
@@ -15112,12 +15106,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 1
-			path: tests/unit/Controllers/Server/VariablesControllerTest.php
-
-		-
-			message: '#^Cannot use array destructuring on mixed\.$#'
-			identifier: offsetAccess.nonArray
-			count: 7
 			path: tests/unit/Controllers/Server/VariablesControllerTest.php
 
 		-
