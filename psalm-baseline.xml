@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="7.0.0@618ca49c75d3fd828e58ee76f166329bb56794e7">
+<files psalm-version="7.0.1@c3909231356b5fce30739ff0cf62bf50e6b5e7c7">
   <file src="src/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$pattern]]></code>
@@ -3121,9 +3121,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool|Message]]></code>
     </PossiblyUnusedReturnValue>
-    <UnusedProperty>
-      <code><![CDATA[$serverId]]></code>
-    </UnusedProperty>
   </file>
   <file src="src/File.php">
     <DeprecatedMethod>
