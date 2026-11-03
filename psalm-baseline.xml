@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.19.2@fa716e443b23e6fa35bf58907e67ca692ec3c00a">
+<files psalm-version="7.0.1@c3909231356b5fce30739ff0cf62bf50e6b5e7c7">
   <file src="src/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$pattern]]></code>
@@ -13,9 +13,6 @@
       <code><![CDATA[$precondition]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $precondition]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Bookmarks/Bookmark.php">
     <MixedArgument>
@@ -113,15 +110,9 @@
     <MixedPropertyTypeCoercion>
       <code><![CDATA[$this->settings]]></code>
     </MixedPropertyTypeCoercion>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_COOKIE[$this->getCookieName($cookieName)]]]></code>
-    </PossiblyInvalidArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($path)]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[md5($verboseToLower) === $serverToLower]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Config/ConfigFile.php">
     <DeprecatedMethod>
@@ -232,6 +223,7 @@
       <code><![CDATA[$workPath]]></code>
       <code><![CDATA[$workPath]]></code>
       <code><![CDATA[$workPath]]></code>
+      <code><![CDATA[$workPath]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$opts['values']['iconv']]]></code>
@@ -271,17 +263,15 @@
       <code><![CDATA[$workPath]]></code>
       <code><![CDATA[$workPath]]></code>
     </PossiblyFalseArgument>
-    <PossiblyFalseIterator>
-      <code><![CDATA[$values[$path]]]></code>
-    </PossiblyFalseIterator>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST[$key]]]></code>
-      <code><![CDATA[$workPath]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$valueDefault]]></code>
-      <code><![CDATA[$workPath]]></code>
     </PossiblyInvalidCast>
+    <PossiblyInvalidIterator>
+      <code><![CDATA[$values[$path]]]></code>
+    </PossiblyInvalidIterator>
     <PossiblyNullOperand>
       <code><![CDATA[$form->index]]></code>
       <code><![CDATA[$this->displayFieldInput(
@@ -303,9 +293,6 @@
       <code><![CDATA[$vName]]></code>
       <code><![CDATA[$validator]]></code>
     </MixedAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($opts['errors'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Config/Forms/BaseForm.php">
     <MixedArgument>
@@ -401,6 +388,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Config/UserPreferencesHandler.php">
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[array_replace_recursive($this->config->settings, $configData)]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$configData['lang']]]></code>
       <code><![CDATA[$defaultValue]]></code>
@@ -424,9 +414,6 @@
       <code><![CDATA[$this->storageType]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[array_replace_recursive($this->config->settings, $configData)]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$defaultValue]]></code>
     </PossiblyInvalidArgument>
@@ -474,15 +461,13 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$k]]></code>
+      <code><![CDATA[$k2]]></code>
+      <code><![CDATA[$k2]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$this->validators[$field]]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$this->validators[$field]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code><![CDATA[$this->validators[$field]]]></code>
       <code><![CDATA[$this->validators[$field]]]></code>
       <code><![CDATA[$this->validators[$field]]]></code>
     </MixedArrayOffset>
@@ -504,18 +489,8 @@
     <MixedOperand>
       <code><![CDATA[$ip]]></code>
     </MixedOperand>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$k2]]></code>
-      <code><![CDATA[$k2]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$k2]]></code>
-      <code><![CDATA[$k2]]></code>
-    </PossiblyInvalidCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($errorList)]]></code>
-      <code><![CDATA[empty($values['Servers/1/controlpass'])]]></code>
-      <code><![CDATA[empty($values['Servers/1/controluser'])]]></code>
       <code><![CDATA[mb_strpos($k2, '/')]]></code>
     </RiskyTruthyFalsyComparison>
     <TooFewArguments>
@@ -659,30 +634,7 @@
       <code><![CDATA[$releaseLinks[$matches[1]]]]></code>
     </MixedOperand>
   </file>
-  <file src="src/Controllers/CollationConnectionController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/ColumnController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Console/Bookmark/AddController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Console/Bookmark/RefreshController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Database/DataDictionaryController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$relation]]></code>
     </MixedAssignment>
@@ -696,13 +648,9 @@
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
-      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
   </file>
   <file src="src/Controllers/Database/ExportController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$selectedTable]]></code>
       <code><![CDATA[$tableData]]></code>
@@ -722,27 +670,7 @@
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
   </file>
-  <file src="src/Controllers/Database/MultiTableQuery/TablesController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Database/PrivilegesController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Database/RoutinesController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_GET['item_name']]]></code>
       <code><![CDATA[$_GET['item_name']]]></code>
@@ -757,22 +685,9 @@
       <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['type'] ?? '']]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_name']]]></code>
-      <code><![CDATA[$_GET['item_type']]]></code>
-      <code><![CDATA[$_GET['item_type']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_type']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyNullOperand>
       <code><![CDATA[$title]]></code>
     </PossiblyNullOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_GET['execute_dialog'])]]></code>
       <code><![CDATA[empty($_GET['item_name'])]]></code>
@@ -796,19 +711,6 @@
       <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Controllers/Database/SearchController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[['db' => Current::$database]]]></code>
-    </MixedArgumentTypeCoercion>
-  </file>
-  <file src="src/Controllers/Database/SqlController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedArgument>
-  </file>
   <file src="src/Controllers/Database/Structure/CentralColumns/AddController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
@@ -823,9 +725,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['db']]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['db']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -873,24 +772,14 @@
     <MixedAssignment>
       <code><![CDATA[$favoriteTables]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedOperand>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/RealRowCountController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$parameters['table']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Database/Structure/ReplacePrefixController.php">
     <PossiblyUnusedMethod>
@@ -936,7 +825,6 @@
       <code><![CDATA[$replicaInfo['Wild_Do_Table']]]></code>
       <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
       <code><![CDATA[$request->getParam('pos')]]></code>
-      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($tables, strnatcasecmp(...))]]></code>
@@ -1024,13 +912,7 @@
   <file src="src/Controllers/Database/TrackingController.php">
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('selected')]]></code>
-      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-  </file>
-  <file src="src/Controllers/DatabaseController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/ErrorReportController.php">
     <MixedArrayAccess>
@@ -1092,42 +974,14 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Export/Template/CreateController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Export/Template/DeleteController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Export/Template/LoadController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/GitInfoController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/HomeController.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$languageStats[Current::$lang]]]></code>
-    </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$this->config->settings['Servers'][Current::$server]]]></code>
-    </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$this->config->settings['Servers'][Current::$server]]]></code>
-    </MixedArrayTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$languageStats]]></code>
-    </MixedAssignment>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['access_time'])]]></code>
-      <code><![CDATA[empty($this->config->selectedServer['verbose'])]]></code>
       <code><![CDATA[empty($this->config->selectedServer['verbose'])]]></code>
       <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['pmadb'])]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
@@ -1137,9 +991,6 @@
     </UnusedVariable>
   </file>
   <file src="src/Controllers/Import/ImportController.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[UrlParams::$params]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
@@ -1151,15 +1002,9 @@
       <code><![CDATA[$bookmarkVariables]]></code>
       <code><![CDATA[$consoleMessageId]]></code>
     </MixedAssignment>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyInvalidPropertyAssignmentValue>
       <code><![CDATA[$memoryLimit / 8]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <PropertyTypeCoercion>
       <code><![CDATA[$request->getParsedBodyParamAsString('import_type', '')]]></code>
     </PropertyTypeCoercion>
@@ -1182,66 +1027,6 @@
       <code><![CDATA[$options]]></code>
     </MixedAssignment>
   </file>
-  <file src="src/Controllers/Navigation/UpdateNavWidthConfigController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/NavigationController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Normalization/AddNewPrimaryController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Normalization/CreateNewColumnController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Normalization/FirstNormalForm/FirstStepController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Normalization/FirstNormalForm/FourthStepController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Normalization/FirstNormalForm/SecondStepController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Normalization/FirstNormalForm/ThirdStepController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Normalization/GetColumnsController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Normalization/MainController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Normalization/MoveRepeatingGroup.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Normalization/PartialDependenciesController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Normalization/SecondNormalForm/CreateNewTablesController.php">
     <MixedArgument>
       <code><![CDATA[$partialDependencies]]></code>
@@ -1251,14 +1036,6 @@
       <code><![CDATA[$partialDependencies]]></code>
       <code><![CDATA[$tablesName]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Normalization/SecondNormalForm/FirstStepController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/SecondNormalForm/NewTablesController.php">
     <MixedArgument>
@@ -1267,9 +1044,6 @@
     <MixedAssignment>
       <code><![CDATA[$partialDependencies]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/ThirdNormalForm/CreateNewTablesController.php">
     <MixedArgument>
@@ -1278,9 +1052,6 @@
     <MixedAssignment>
       <code><![CDATA[$newtables]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/ThirdNormalForm/FirstStepController.php">
     <MixedArgument>
@@ -1289,9 +1060,6 @@
     <MixedAssignment>
       <code><![CDATA[$tables]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Normalization/ThirdNormalForm/NewTablesController.php">
     <MixedArgument>
@@ -1302,29 +1070,13 @@
       <code><![CDATA[$dependencies]]></code>
       <code><![CDATA[$tables]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Operations/Database/CollationController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedArgument>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Operations/DatabaseController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedArgument>
     <PossiblyNullReference>
       <code><![CDATA[isSuccess]]></code>
     </PossiblyNullReference>
@@ -1339,9 +1091,6 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[is_array($partitionNames) ? $partitionNames : []]]></code>
     </MixedArgumentTypeCoercion>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($createOptions['checksum'])]]></code>
       <code><![CDATA[empty($createOptions['checksum'])]]></code>
@@ -1353,9 +1102,6 @@
     <MixedAssignment>
       <code><![CDATA[$newname]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Preferences/ExportController.php">
     <PossiblyUnusedMethod>
@@ -1398,9 +1144,6 @@
     <PossiblyFalseOperand>
       <code><![CDATA[$pos]]></code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[str_replace('/', '\'][\'', $key)]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -1433,28 +1176,10 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Server/BinlogController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Server/CollationsController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Server/Databases/CreateController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Server/Databases/DestroyController.php">
     <MixedAssignment>
       <code><![CDATA[$selectedDbs]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/DatabasesController.php">
     <MixedArgument>
@@ -1495,14 +1220,6 @@
       <code><![CDATA[$primaryInfo['Do_DB']]]></code>
       <code><![CDATA[$primaryInfo['Ignore_DB']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Server/EnginesController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/ExportController.php">
     <PossiblyUnusedMethod>
@@ -1523,21 +1240,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="src/Controllers/Server/PluginsController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Server/Privileges/AccountLockController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Server/Privileges/AccountUnlockController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/PrivilegesController.php">
     <MixedArgument>
@@ -1565,65 +1267,20 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Server/ShowEngineController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Server/SqlController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="src/Controllers/Server/Status/AdvisorController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/Monitor/ChartingDataController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Server/Status/Monitor/GeneralLogController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Server/Status/Monitor/LogVarsController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Server/Status/Monitor/QueryAnalyzerController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Server/Status/Monitor/SlowLogController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Server/Status/MonitorController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Server/Status/Processes/KillController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="src/Controllers/Server/Status/Processes/RefreshController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Server/Status/ProcessesController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/QueriesController.php">
     <PossiblyInvalidOperand>
@@ -1634,9 +1291,6 @@
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/StatusController.php">
     <ArgumentTypeCoercion>
@@ -1664,9 +1318,6 @@
       <code><![CDATA[$this->data->status['Uptime']]]></code>
       <code><![CDATA[$this->data->status['Uptime']]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/VariablesController.php">
     <InvalidOperand>
@@ -1687,9 +1338,6 @@
       <code><![CDATA[$this->data->status['Key_write_requests']]]></code>
       <code><![CDATA[$this->data->status['Qcache_total_blocks']]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <UnusedForeachValue>
       <code><![CDATA[$linkUrl]]></code>
       <code><![CDATA[$sectionLinks]]></code>
@@ -1732,9 +1380,6 @@
     <MixedAssignment>
       <code><![CDATA[$filterValue]]></code>
     </MixedAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Setup/HomeController.php">
     <MixedArgumentTypeCoercion>
@@ -1771,11 +1416,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Sql/EnumValuesController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Sql/RelationalValuesController.php">
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
@@ -1783,11 +1423,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="src/Controllers/Sql/SetValuesController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Sql/SqlController.php">
     <MixedArgument>
@@ -1818,7 +1453,6 @@
       <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
-      <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
@@ -1835,17 +1469,6 @@
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
-      <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
-      <code><![CDATA[$_POST['field_name'][$fieldindex]]]></code>
-      <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
-      <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
-      <code><![CDATA[$mimetype]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/ChangeController.php">
     <MixedArgument>
@@ -1867,28 +1490,15 @@
     <MixedPropertyTypeCoercion>
       <code><![CDATA[array_values($rowsToDelete)]]></code>
     </MixedPropertyTypeCoercion>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/ChartController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$sqlQuery]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$pos]]></code>
     </MixedAssignment>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyInvalidOperand>
       <code><![CDATA[$statement->limit->offset]]></code>
       <code><![CDATA[$statement->limit->rowCount]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/CreateController.php">
     <MixedArgument>
@@ -1896,7 +1506,6 @@
       <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
-      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
@@ -1906,11 +1515,6 @@
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$mimetype]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
@@ -1918,25 +1522,6 @@
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
-      <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
-      <code><![CDATA[$_POST['field_name'][$fieldindex]]]></code>
-      <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
-      <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
-      <code><![CDATA[$mimetype]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/DeleteConfirmController.php">
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/DeleteRowsController.php">
     <MixedArgument>
@@ -1948,14 +1533,6 @@
     <PossiblyInvalidIterator>
       <code><![CDATA[$selected]]></code>
     </PossiblyInvalidIterator>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/DropColumnConfirmationController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/DropColumnController.php">
     <MixedArgument>
@@ -1975,17 +1552,8 @@
     <PossiblyInvalidIterator>
       <code><![CDATA[$selected]]></code>
     </PossiblyInvalidIterator>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$message->isError()]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/ExportController.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[Current::$whereClause]]></code>
-    </MixedArgumentTypeCoercion>
     <PossiblyNullArgument>
       <code><![CDATA[$parser->list]]></code>
     </PossiblyNullArgument>
@@ -1994,9 +1562,6 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[array_values($_POST['rows_to_delete'])]]></code>
     </InvalidPropertyAssignmentValue>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <UnusedProperty>
       <code><![CDATA[$exportController]]></code>
     </UnusedProperty>
@@ -2013,26 +1578,9 @@
     <MixedAssignment>
       <code><![CDATA[$row]]></code>
     </MixedAssignment>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyNullArgument>
       <code><![CDATA[$row[0]]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/GetFieldController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$table]]></code>
-      <code><![CDATA[Current::$table]]></code>
-    </MixedArgument>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="src/Controllers/Table/GisVisualizationController.php">
     <DeprecatedClass>
@@ -2063,22 +1611,6 @@
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[UrlParams::$params]]></code>
-      <code><![CDATA[UrlParams::$params]]></code>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/IndexRenameController.php">
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/IndexesController.php">
     <MixedArgument>
@@ -2088,9 +1620,6 @@
     <MixedAssignment>
       <code><![CDATA[$fields]]></code>
     </MixedAssignment>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['columns']]]></code>
       <code><![CDATA[$oldIndex]]></code>
@@ -2098,83 +1627,10 @@
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_POST['index']['Index_choice']]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['columns']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['added_fields']]]></code>
       <code><![CDATA[$addFields]]></code>
     </PossiblyInvalidOperand>
-  </file>
-  <file src="src/Controllers/Table/Maintenance/AnalyzeController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Maintenance/CheckController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Maintenance/ChecksumController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Maintenance/OptimizeController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Maintenance/RepairController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Partition/AnalyzeController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Partition/CheckController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Partition/DropController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Partition/OptimizeController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Partition/RebuildController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Partition/RepairController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Partition/TruncateController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/PrivilegesController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/RecentFavoriteController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/RelationController.php">
     <InvalidArgument>
@@ -2194,13 +1650,6 @@
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$foreignTable]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['display_field']]]></code>
-      <code><![CDATA[$_POST['foreignDb']]]></code>
-      <code><![CDATA[$_POST['foreignDb']]]></code>
-      <code><![CDATA[$foreignTable]]></code>
-      <code><![CDATA[$foreignTable]]></code>
-    </PossiblyInvalidCast>
   </file>
   <file src="src/Controllers/Table/ReplaceController.php">
     <InvalidPropertyAssignmentValue>
@@ -2217,19 +1666,11 @@
       <code><![CDATA[$multiEditSalt[$key] ?? null]]></code>
       <code><![CDATA[$relationField]]></code>
       <code><![CDATA[$relationFieldValue]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$table]]></code>
-      <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$editedValues]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
-      <code><![CDATA[$multiEditColumnsPrev[$key]]]></code>
-      <code><![CDATA[$multiEditColumnsType[$key]]]></code>
-      <code><![CDATA[$multiEditColumns[$key]]]></code>
-      <code><![CDATA[$multiEditFuncs[$key]]]></code>
-      <code><![CDATA[$multiEditSalt[$key]]]></code>
       <code><![CDATA[$request->getParsedBodyParam('fields_name')['multi_edit']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
@@ -2265,34 +1706,18 @@
     <MixedOperand>
       <code><![CDATA[$relationFieldValue]]></code>
     </MixedOperand>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidArrayAssignment>
       <code><![CDATA[UrlParams::$params['where_clause'][]]]></code>
     </PossiblyInvalidArrayAssignment>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($mimeMap[$columnName]['input_transformation'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/SearchController.php">
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['column']]]></code>
       <code><![CDATA[$selectedOperator]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['column']]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <PropertyNotSetInConstructor>
       <code><![CDATA[$foreigners]]></code>
     </PropertyNotSetInConstructor>
@@ -2303,8 +1728,6 @@
   <file src="src/Controllers/Table/SqlController.php">
     <MixedArgument>
       <code><![CDATA[$request->getQueryParam('sql_query', true)]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
   </file>
   <file src="src/Controllers/Table/Structure/BrowseController.php">
@@ -2375,9 +1798,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/Structure/PrimaryController.php">
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2459,49 +1879,16 @@
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['field_attribute'][$i]]]></code>
-      <code><![CDATA[$_POST['field_attribute_orig'][$i]]]></code>
-      <code><![CDATA[$_POST['field_default_type'][$i]]]></code>
-      <code><![CDATA[$_POST['field_default_type_orig'][$i]]]></code>
-      <code><![CDATA[$_POST['field_default_value'][$i]]]></code>
-      <code><![CDATA[$_POST['field_default_value_orig'][$i]]]></code>
-      <code><![CDATA[$_POST['field_length'][$i]]]></code>
-      <code><![CDATA[$_POST['field_length_orig'][$i]]]></code>
-      <code><![CDATA[$_POST['field_name'][$fieldindex]]]></code>
-      <code><![CDATA[$_POST['field_name'][$i]]]></code>
-      <code><![CDATA[$_POST['field_name'][$i]]]></code>
-      <code><![CDATA[$_POST['field_type'][$i]]]></code>
-      <code><![CDATA[$_POST['field_type_orig'][$i]]]></code>
-      <code><![CDATA[$fieldcontent]]></code>
-      <code><![CDATA[$mimetype]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['field_expression'][$i]]]></code>
       <code><![CDATA[$_POST['field_virtuality'][$i]]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['field_adjust_privileges'][$i])]]></code>
       <code><![CDATA[empty($_POST['field_move_to'][$i])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Controllers/Table/Structure/SpatialController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Controllers/Table/Structure/UniqueController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/Table/StructureController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$table]]></code>
-    </MixedArgument>
     <MixedOperand>
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
@@ -2534,22 +1921,10 @@
   <file src="src/Controllers/Table/TrackingController.php">
     <MixedArgument>
       <code><![CDATA[$version]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$table]]></code>
-      <code><![CDATA[Current::$table]]></code>
-      <code><![CDATA[Current::$table]]></code>
-      <code><![CDATA[Current::$table]]></code>
-      <code><![CDATA[Current::$table]]></code>
-      <code><![CDATA[Current::$table]]></code>
-      <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$entries]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayOffset>
-      <code><![CDATA[$trackedTables[Current::$table]]]></code>
-      <code><![CDATA[$trackedTables[Current::$table]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$reportExportType]]></code>
       <code><![CDATA[$selectedVersions]]></code>
@@ -2557,27 +1932,12 @@
       <code><![CDATA[$toggleActivation]]></code>
       <code><![CDATA[$version]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[Current::$table]]></code>
-    </MixedOperand>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[UrlParams::$params]]></code>
-      <code><![CDATA[UrlParams::$params]]></code>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
   </file>
   <file src="src/Controllers/Table/ZoomSearchController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][0]]]]></code>
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][1]]]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$table]]></code>
-    </MixedArgument>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyFalseArgument>
       <code><![CDATA[$key]]></code>
     </PossiblyFalseArgument>
@@ -2590,19 +1950,10 @@
       <code><![CDATA[$dataLabel]]></code>
       <code><![CDATA[$selectedOperator]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['where_clause']]]></code>
-      <code><![CDATA[$_POST['where_clause_sign']]]></code>
-      <code><![CDATA[$dataLabel]]></code>
-      <code><![CDATA[$dataLabel]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['maxPlotLimit']]]></code>
       <code><![CDATA[$_POST['where_clause']]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <PropertyNotSetInConstructor>
       <code><![CDATA[$foreigners]]></code>
     </PropertyNotSetInConstructor>
@@ -2620,20 +1971,10 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/ThemeSetController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Controllers/ThemesController.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="src/Controllers/Transformation/OverviewController.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Transformation/WrapperController.php">
     <ArgumentTypeCoercion>
@@ -2648,26 +1989,12 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Triggers/IndexController.php">
-    <MixedArgument>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-    </MixedArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_REQUEST['item_name']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyNullArgument>
       <code><![CDATA[$this->triggers->getTriggerByName(
                             Current::$database,
@@ -2675,9 +2002,6 @@
                             $_REQUEST['item_name'],
                         )]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
       <code><![CDATA[empty($_POST['editor_process_add'])]]></code>
@@ -2711,16 +2035,11 @@
     <MixedAssignment>
       <code><![CDATA[$db]]></code>
       <code><![CDATA[$table]]></code>
-      <code><![CDATA[UrlParams::$params['db']]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$view['as']]]></code>
       <code><![CDATA[$view['column_names']]]></code>
     </MixedOperand>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[UrlParams::$params]]></code>
-      <code><![CDATA[UrlParams::$params]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2868,27 +2187,8 @@
       <code><![CDATA[$_POST['unique_indexes'] ?? '[]']]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['comment']]]></code>
-      <code><![CDATA[$_POST['connection']]]></code>
-      <code><![CDATA[$_POST['field_attribute'][$i]]]></code>
-      <code><![CDATA[$_POST['field_collation'][$i] ?? '']]></code>
-      <code><![CDATA[$_POST['field_comments'][$i] ?? '']]></code>
-      <code><![CDATA[$_POST['field_default_type'][$i]]]></code>
-      <code><![CDATA[$_POST['field_default_value'][$i]]]></code>
-      <code><![CDATA[$_POST['field_expression'][$i] ?? '']]></code>
-      <code><![CDATA[$_POST['field_extra'][$i] ?? '']]></code>
-      <code><![CDATA[$_POST['field_length'][$i]]]></code>
-      <code><![CDATA[$_POST['field_type'][$i]]]></code>
-      <code><![CDATA[$_POST['field_virtuality'][$i] ?? '']]></code>
       <code><![CDATA[$_POST['field_where']]]></code>
       <code><![CDATA[$_POST['field_where']]]></code>
-      <code><![CDATA[$_POST['fulltext_indexes'] ?? '[]']]></code>
-      <code><![CDATA[$_POST['indexes'] ?? '[]']]></code>
-      <code><![CDATA[$_POST['primary_indexes'] ?? '[]']]></code>
-      <code><![CDATA[$_POST['spatial_indexes'] ?? '[]']]></code>
-      <code><![CDATA[$_POST['tbl_collation']]]></code>
-      <code><![CDATA[$_POST['tbl_storage_engine']]]></code>
-      <code><![CDATA[$_POST['unique_indexes'] ?? '[]']]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidIterator>
       <code><![CDATA[$_POST['partitions']]]></code>
@@ -3036,12 +2336,6 @@
       <code><![CDATA[$_POST['t_x'][$key]]]></code>
       <code><![CDATA[$_POST['t_y'][$key]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['t_x'][$key]]]></code>
-      <code><![CDATA[$_POST['t_y'][$key]]]></code>
-      <code><![CDATA[$db]]></code>
-      <code><![CDATA[$tab]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidIterator>
       <code><![CDATA[$_POST['t_h']]]></code>
     </PossiblyInvalidIterator>
@@ -3147,20 +2441,6 @@
       <code><![CDATA[$_POST['funcs'][$routine->paramName[$i]]]]></code>
       <code><![CDATA[$_POST['params'][$routine->paramName[$i]]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_name']]]></code>
-      <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_POST['item_original_name']]]></code>
-      <code><![CDATA[$_POST['item_original_type']]]></code>
-      <code><![CDATA[$_POST['item_returnopts_num']]]></code>
-      <code><![CDATA[$_POST['item_returnopts_text']]]></code>
-      <code><![CDATA[$_POST['item_type']]]></code>
-      <code><![CDATA[$itemReturnType]]></code>
-      <code><![CDATA[$itemReturnType]]></code>
-      <code><![CDATA[$itemReturnType]]></code>
-      <code><![CDATA[$itemReturnType]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$_POST['item_returnlength']]]></code>
@@ -3190,7 +2470,6 @@
     </PossiblyUndefinedArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
-      <code><![CDATA[empty($_POST['funcs'][$routine->paramName[$i]])]]></code>
       <code><![CDATA[empty($_POST['item_adjust_privileges'])]]></code>
       <code><![CDATA[empty($_POST['item_returnlength'])]]></code>
       <code><![CDATA[empty($_POST['item_returnlength'])]]></code>
@@ -3561,9 +2840,7 @@
       <code><![CDATA[$order->expr->column]]></code>
     </PossiblyNullPropertyFetch>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $colVisibCurrent]]></code>
       <code><![CDATA[! $colVisibElement]]></code>
-      <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$posMimeOctetstream]]></code>
       <code><![CDATA[empty($expr->alias)]]></code>
@@ -3702,10 +2979,6 @@
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$exception['uri']]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['url']]]></code>
-      <code><![CDATA[$exception['url']]]></code>
-    </PossiblyInvalidCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['description'])]]></code>
       <code><![CDATA[empty($_POST['exception'])]]></code>
@@ -3727,6 +3000,8 @@
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$aliases[$db->getName()]['alias']]]></code>
+      <code><![CDATA[$db['tables']]]></code>
+      <code><![CDATA[$tbl['columns']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$aliases[$dbName]['alias']]]></code>
@@ -3749,6 +3024,7 @@
       <code><![CDATA[$aliases[$dbName]['tables'][$tableName]['columns'][$col]]]></code>
       <code><![CDATA[$col]]></code>
       <code><![CDATA[$colAs]]></code>
+      <code><![CDATA[$db]]></code>
       <code><![CDATA[$dbAlias]]></code>
       <code><![CDATA[$dbAlias]]></code>
       <code><![CDATA[$table]]></code>
@@ -3766,9 +3042,6 @@
     <MixedOperand>
       <code><![CDATA[$tmpSelect]]></code>
     </MixedOperand>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$error['message']]]></code>
-    </PossiblyNullArrayAccess>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($postParams['structure_or_data_forced'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -3835,9 +3108,6 @@
       <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables'][$this->serverId]]]></code>
       <code><![CDATA[$_SESSION['tmpval'][$this->tableType->value . 'Tables'][$this->serverId]]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$_SESSION['tmpval']['favorites_synced'][Current::$server]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$table]]></code>
     </MixedAssignment>
@@ -3887,10 +3157,6 @@
       <code><![CDATA[bool]]></code>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])]]></code>
-      <code><![CDATA[empty($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/FileListing.php">
     <DeprecatedMethod>
@@ -3946,6 +3212,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Gis/Ds/Polygon.php">
+    <ImmutableDependency>
+      <code><![CDATA[SplDoublyLinkedList]]></code>
+    </ImmutableDependency>
     <NullArgument>
       <code><![CDATA[$polygon]]></code>
     </NullArgument>
@@ -3977,15 +3246,7 @@
     </DeprecatedClass>
     <MixedArgument>
       <code><![CDATA[$dataRow[$i] ?? null]]></code>
-      <code><![CDATA[$tempPoint[0]]]></code>
-      <code><![CDATA[$tempPoint[1]]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow['data_length']]]></code>
-      <code><![CDATA[$tempPoint[0]]]></code>
-      <code><![CDATA[$tempPoint[1]]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$dataRow]]></code>
       <code><![CDATA[$noOfPoints]]></code>
@@ -3994,10 +3255,6 @@
       <code><![CDATA[$black]]></code>
       <code><![CDATA[$lineColor]]></code>
     </PossiblyFalseArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow['data_length']]]></code>
-    </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisMultiLineString.php">
     <DeprecatedClass>
@@ -4005,21 +3262,12 @@
     </DeprecatedClass>
     <MixedArgument>
       <code><![CDATA[$dataRow[$i][$j] ?? null]]></code>
-      <code><![CDATA[$tempPoint[0]]]></code>
-      <code><![CDATA[$tempPoint[1]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow[$i][$j]]]></code>
-      <code><![CDATA[$dataRow[$i]['data_length']]]></code>
-      <code><![CDATA[$dataRow['data_length']]]></code>
       <code><![CDATA[$point['x']]]></code>
       <code><![CDATA[$point['y']]]></code>
       <code><![CDATA[$rowData['parts'][$i]]]></code>
       <code><![CDATA[$rowData['parts'][$i]['points']]]></code>
-      <code><![CDATA[$tempPoint[0]]]></code>
-      <code><![CDATA[$tempPoint[1]]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$dataRow]]></code>
@@ -4035,13 +3283,6 @@
       <code><![CDATA[$black]]></code>
       <code><![CDATA[$lineColor]]></code>
     </PossiblyFalseArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow[$i][$j]]]></code>
-      <code><![CDATA[$dataRow[$i]['data_length']]]></code>
-      <code><![CDATA[$dataRow['data_length']]]></code>
-    </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisMultiPoint.php">
     <DeprecatedClass>
@@ -4051,8 +3292,6 @@
       <code><![CDATA[$dataRow[$i] ?? null]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow['data_length']]]></code>
       <code><![CDATA[$rowData['points'][$i]]]></code>
       <code><![CDATA[$rowData['points'][$i]]]></code>
       <code><![CDATA[$rowData['points'][$i]['x']]]></code>
@@ -4070,10 +3309,6 @@
       <code><![CDATA[$black]]></code>
       <code><![CDATA[$pointColor]]></code>
     </PossiblyFalseArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow['data_length']]]></code>
-    </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisMultiPolygon.php">
     <DeprecatedClass>
@@ -4091,15 +3326,6 @@
       <code><![CDATA[$ring['points']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$dataRow[$k]]]></code>
-      <code><![CDATA[$dataRow[$k]]]></code>
-      <code><![CDATA[$dataRow[$k]]]></code>
-      <code><![CDATA[$dataRow[$k][$i]]]></code>
-      <code><![CDATA[$dataRow[$k][$i]]]></code>
-      <code><![CDATA[$dataRow[$k][$i][$j]]]></code>
-      <code><![CDATA[$dataRow[$k][$i]['data_length']]]></code>
-      <code><![CDATA[$dataRow[$k]['data_length']]]></code>
-      <code><![CDATA[$dataRow['data_length']]]></code>
       <code><![CDATA[$innerPoint['x']]]></code>
       <code><![CDATA[$innerPoint['y']]]></code>
       <code><![CDATA[$labelPoint[0]]]></code>
@@ -4167,17 +3393,6 @@
       <code><![CDATA[$black]]></code>
       <code><![CDATA[$fillColor]]></code>
     </PossiblyFalseArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$dataRow[$k]]]></code>
-      <code><![CDATA[$dataRow[$k]]]></code>
-      <code><![CDATA[$dataRow[$k]]]></code>
-      <code><![CDATA[$dataRow[$k][$i]]]></code>
-      <code><![CDATA[$dataRow[$k][$i]]]></code>
-      <code><![CDATA[$dataRow[$k][$i][$j]]]></code>
-      <code><![CDATA[$dataRow[$k][$i]['data_length']]]></code>
-      <code><![CDATA[$dataRow[$k]['data_length']]]></code>
-      <code><![CDATA[$dataRow['data_length']]]></code>
-    </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisPoint.php">
     <DeprecatedClass>
@@ -4205,13 +3420,6 @@
     <MixedArgument>
       <code><![CDATA[$dataRow[$i][$j] ?? null]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow[$i][$j]]]></code>
-      <code><![CDATA[$dataRow[$i]['data_length']]]></code>
-      <code><![CDATA[$dataRow['data_length']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$dataRow]]></code>
       <code><![CDATA[$noOfLines]]></code>
@@ -4221,13 +3429,6 @@
       <code><![CDATA[$black]]></code>
       <code><![CDATA[$fillColor]]></code>
     </PossiblyFalseArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow[$i]]]></code>
-      <code><![CDATA[$dataRow[$i][$j]]]></code>
-      <code><![CDATA[$dataRow[$i]['data_length']]]></code>
-      <code><![CDATA[$dataRow['data_length']]]></code>
-    </PossiblyNullArrayAccess>
   </file>
   <file src="src/Gis/GisVisualization.php">
     <ArgumentTypeCoercion>
@@ -4357,15 +3558,10 @@
     </InvalidArgument>
     <MixedArgument>
       <code><![CDATA[$alt]]></code>
-      <code><![CDATA[$database]]></code>
-      <code><![CDATA[$database]]></code>
-      <code><![CDATA[$sqlQuery]]></code>
-      <code><![CDATA[$sqlQuery]]></code>
       <code><![CDATA[$title]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$key]]></code>
-      <code><![CDATA[['db' => $database]]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
@@ -4375,8 +3571,6 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$alt]]></code>
-      <code><![CDATA[$database]]></code>
-      <code><![CDATA[$sqlQuery]]></code>
       <code><![CDATA[$title]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
@@ -4487,9 +3681,6 @@
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[Current::$sqlQuery]]></code>
-    </MixedArgument>
   </file>
   <file src="src/Http/Middleware/ThemeInitialization.php">
     <PossiblyUnusedMethod>
@@ -4525,6 +3716,27 @@
       <code><![CDATA[$availableLocales !== false]]></code>
     </RedundantConditionGivenDocblockType>
   </file>
+  <file src="src/Identifiers/DatabaseName.php">
+    <ImpureMethodCall>
+      <code><![CDATA[InvalidDatabaseName::fromEmptyName()]]></code>
+      <code><![CDATA[InvalidDatabaseName::fromLongName(self::MAX_LENGTH)]]></code>
+      <code><![CDATA[InvalidDatabaseName::fromNameWithTrailingSpace()]]></code>
+    </ImpureMethodCall>
+  </file>
+  <file src="src/Identifiers/TableName.php">
+    <ImpureMethodCall>
+      <code><![CDATA[InvalidTableName::fromEmptyName()]]></code>
+      <code><![CDATA[InvalidTableName::fromLongName(self::MAX_LENGTH)]]></code>
+      <code><![CDATA[InvalidTableName::fromNameWithTrailingSpace()]]></code>
+    </ImpureMethodCall>
+  </file>
+  <file src="src/Identifiers/TriggerName.php">
+    <ImpureMethodCall>
+      <code><![CDATA[InvalidTriggerName::fromEmptyName()]]></code>
+      <code><![CDATA[InvalidTriggerName::fromLongName(self::MAX_LENGTH)]]></code>
+      <code><![CDATA[InvalidTriggerName::fromNameWithTrailingSpace()]]></code>
+    </ImpureMethodCall>
+  </file>
   <file src="src/Image/ImageWrapper.php">
     <LessSpecificReturnStatement>
       <code><![CDATA[imagesx($this->image)]]></code>
@@ -4549,6 +3761,10 @@
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']::getUploadStatus($id)]]></code>
     </MixedMethodCall>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[progressCheck]]></code>
+      <code><![CDATA[sessionCheck]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Import/Import.php">
     <ArgumentTypeCoercion>
@@ -4557,22 +3773,12 @@
     <DocblockTypeContradiction>
       <code><![CDATA[$nameArray === false]]></code>
     </DocblockTypeContradiction>
-    <MixedArgument>
-      <code><![CDATA[$active]]></code>
-    </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$active]]></code>
       <code><![CDATA[$cellValue]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[ImportSettings::$maximumTime]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$lastCumulativeSize]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$sqlDelimiter]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidPropertyFetch>
       <code><![CDATA[$lastCumulativeSize->precision]]></code>
       <code><![CDATA[$lastCumulativeSize->precision]]></code>
@@ -4581,9 +3787,6 @@
       <code><![CDATA[$lastCumulativeSize->scale]]></code>
       <code><![CDATA[$lastCumulativeSize->scale]]></code>
     </PossiblyInvalidPropertyFetch>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[ImportSettings::$runQuery]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Indexes/Index.php">
     <DeprecatedMethod>
@@ -4622,6 +3825,10 @@
       <code><![CDATA[hasPrimary]]></code>
       <code><![CDATA[isPacked]]></code>
     </PossiblyUnusedMethod>
+    <UnusedProperty>
+      <code><![CDATA[$schema]]></code>
+      <code><![CDATA[$table]]></code>
+    </UnusedProperty>
   </file>
   <file src="src/Indexes/IndexColumn.php">
     <MixedAssignment>
@@ -4634,6 +3841,9 @@
       <code><![CDATA[getExpression]]></code>
       <code><![CDATA[hasExpression]]></code>
     </PossiblyUnusedMethod>
+    <UnusedProperty>
+      <code><![CDATA[$expression]]></code>
+    </UnusedProperty>
   </file>
   <file src="src/InsertEdit.php">
     <InvalidArgument>
@@ -4697,11 +3907,6 @@
       <code><![CDATA[$_GET['sql_signature']]]></code>
       <code><![CDATA[$whereClause]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['sql_query']]]></code>
-      <code><![CDATA[$_GET['sql_signature']]]></code>
-      <code><![CDATA[$whereClause]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['where_clause'][0]]]></code>
     </PossiblyInvalidOperand>
@@ -4719,7 +3924,6 @@
     </PossiblyInvalidArgument>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$ruleData[2]]]></code>
-      <code><![CDATA[$ruleData[2]]]></code>
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/Linter.php">
@@ -4731,6 +3935,9 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/ListDatabase.php">
+    <ImmutableDependency>
+      <code><![CDATA[ArrayObject]]></code>
+    </ImmutableDependency>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($this->config->selectedServer['hide_db'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -4804,9 +4011,6 @@
       <code><![CDATA[$path[0]]]></code>
       <code><![CDATA[$path[0]]]></code>
       <code><![CDATA[$value]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
-      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$path]]></code>
@@ -4823,12 +4027,6 @@
       <code><![CDATA[$_POST['n' . $count . '_vPath']]]></code>
       <code><![CDATA[$_POST['vPath']]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['aPath']]]></code>
-      <code><![CDATA[$_POST['n' . $count . '_aPath']]]></code>
-      <code><![CDATA[$_POST['n' . $count . '_vPath']]]></code>
-      <code><![CDATA[$_POST['vPath']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidPropertyAssignmentValue>
       <code><![CDATA[$_POST['searchClause']]]></code>
       <code><![CDATA[$_POST['searchClause2']]]></code>
@@ -4986,9 +4184,6 @@
     <RedundantCast>
       <code><![CDATA[(string) $dependon]]></code>
     </RedundantCast>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$dropCols]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Operations.php">
     <MixedArgumentTypeCoercion>
@@ -5004,13 +4199,6 @@
       <code><![CDATA[$copyMode]]></code>
       <code><![CDATA[$newRowFormat]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['comment']]]></code>
-      <code><![CDATA[$_POST['db_collation']]]></code>
-      <code><![CDATA[$_POST['prev_comment']]]></code>
-      <code><![CDATA[$_POST['tbl_collation']]]></code>
-      <code><![CDATA[$newRowFormat]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['new_pack_keys']]]></code>
     </PossiblyInvalidOperand>
@@ -5093,6 +4281,9 @@
       <code><![CDATA[getSubPartitions]]></code>
       <code><![CDATA[hasSubPartitions]]></code>
     </PossiblyUnusedMethod>
+    <PossiblyUnusedProperty>
+      <code><![CDATA[$description]]></code>
+    </PossiblyUnusedProperty>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$dbi->fetchValue('SELECT @@have_partitioning;')]]></code>
       <code><![CDATA[empty($row['SUBPARTITION_NAME'])]]></code>
@@ -5235,19 +4426,9 @@
       <code><![CDATA[$tmpHost]]></code>
       <code><![CDATA[Core::getIp()]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST[$config->config->CaptchaResponseParam]]]></code>
-      <code><![CDATA[$_POST['pma_username']]]></code>
-      <code><![CDATA[$_REQUEST['pma_servername']]]></code>
-      <code><![CDATA[$tmpHost]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidPropertyAssignmentValue>
       <code><![CDATA[$password]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-      <code><![CDATA[bool]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyCast>
       <code><![CDATA[$_GET['session_expired']]]></code>
     </RiskyCast>
@@ -5264,9 +4445,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$oldUser]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$oldUser]]></code>
-    </PossiblyInvalidCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$colon]]></code>
       <code><![CDATA[empty($config->selectedServer['auth_http_realm'])]]></code>
@@ -5305,9 +4483,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[array_merge($config->selectedServer, $singleSignonCfgUpdate)]]></code>
     </MixedPropertyTypeCoercion>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[Response]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($config->selectedServer['SignonURL'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -5834,9 +5009,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Plugins/Import/ImportLdi.php">
-    <MixedArgument>
-      <code><![CDATA[ImportSettings::$importFile]]></code>
-    </MixedArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
@@ -5918,9 +5090,6 @@
       <code><![CDATA[$_POST['sql_delimiter']]]></code>
       <code><![CDATA[$_REQUEST['sql_compatibility'] ?? null]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['sql_delimiter']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
@@ -5962,6 +5131,7 @@
     </MixedArrayAssignment>
     <MixedReturnStatement>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
     </MixedReturnStatement>
   </file>
   <file src="src/Plugins/Import/Upload/UploadProgress.php">
@@ -5971,7 +5141,6 @@
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
       <code><![CDATA[$ret['finished']]]></code>
-      <code><![CDATA[$ret['total']]]></code>
       <code><![CDATA[$ret['total']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
@@ -5991,6 +5160,7 @@
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret]]></code>
+      <code><![CDATA[$ret]]></code>
     </MixedReturnStatement>
     <RedundantCondition>
       <code><![CDATA[$status !== []]]></code>
@@ -6004,7 +5174,6 @@
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
       <code><![CDATA[$ret['finished']]]></code>
-      <code><![CDATA[$ret['total']]]></code>
       <code><![CDATA[$ret['total']]]></code>
       <code><![CDATA[$status['bytes_processed']]]></code>
       <code><![CDATA[$status['content_length']]]></code>
@@ -6034,10 +5203,8 @@
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret]]></code>
+      <code><![CDATA[$ret]]></code>
     </MixedReturnStatement>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$status]]></code>
-    </RiskyTruthyFalsyComparison>
     <UnusedClass>
       <code><![CDATA[UploadSession]]></code>
     </UnusedClass>
@@ -6106,9 +5273,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$table]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$table]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidIterator>
       <code><![CDATA[$_POST['t_tbl']]]></code>
     </PossiblyInvalidIterator>
@@ -6139,7 +5303,6 @@
       <code><![CDATA[$x + $w]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$cw[mb_ord($c)]]]></code>
       <code><![CDATA[$this->CurrentFont['cw']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
@@ -6231,7 +5394,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$_REQUEST['pdf_orientation']]]></code>
       <code><![CDATA[$_REQUEST['pdf_paper']]]></code>
-      <code><![CDATA[$_REQUEST['pdf_table_order']]]></code>
     </PossiblyInvalidCast>
     <PossiblyNullArgument>
       <code><![CDATA[$rel['foreign_field']]]></code>
@@ -6355,10 +5517,6 @@
       <code><![CDATA[$_POST['t_x'][$key]]]></code>
       <code><![CDATA[$_POST['t_y'][$key]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['t_db'][$key]]]></code>
-      <code><![CDATA[$_POST['t_tbl'][$key]]]></code>
-    </PossiblyInvalidCast>
     <PossiblyUnusedProperty>
       <code><![CDATA[$offline]]></code>
     </PossiblyUnusedProperty>
@@ -6380,6 +5538,14 @@
       <code><![CDATA[$options[0]]]></code>
       <code><![CDATA[$options[1]]]></code>
     </MixedReturnStatement>
+    <UnusedClass>
+      <code><![CDATA[Bool2TextTransformationsPlugin]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Plugins/Transformations/Abs/CodeMirrorEditorTransformationPlugin.php">
+    <UnusedClass>
+      <code><![CDATA[CodeMirrorEditorTransformationPlugin]]></code>
+    </UnusedClass>
   </file>
   <file src="src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php">
     <DeprecatedMethod>
@@ -6396,7 +5562,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArrayAccess>
-      <code><![CDATA[$allowedPrograms[$options[0]]]]></code>
       <code><![CDATA[$allowedPrograms[0]]]></code>
     </MixedArrayAccess>
     <MixedArrayOffset>
@@ -6409,6 +5574,9 @@
       <code><![CDATA[$options[1]]]></code>
       <code><![CDATA[$program]]></code>
     </MixedOperand>
+    <PossiblyFalseOperand>
+      <code><![CDATA[fgets($pipes[1], 1024)]]></code>
+    </PossiblyFalseOperand>
   </file>
   <file src="src/Plugins/Transformations/Abs/HexTransformationsPlugin.php">
     <DeprecatedMethod>
@@ -6556,9 +5724,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['2fa_code']]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['2fa_code']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -6599,10 +5764,6 @@
       <code><![CDATA[$_POST['u2f_authentication_response']]]></code>
       <code><![CDATA[$_POST['u2f_registration_response']]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['u2f_authentication_response']]]></code>
-      <code><![CDATA[$_POST['u2f_registration_response']]]></code>
-    </PossiblyInvalidCast>
   </file>
   <file src="src/Plugins/TwoFactorPlugin.php">
     <DeprecatedMethod>
@@ -6612,6 +5773,7 @@
   </file>
   <file src="src/Plugins/UploadInterface.php">
     <PossiblyUnusedMethod>
+      <code><![CDATA[getIdKey]]></code>
       <code><![CDATA[getUploadStatus]]></code>
     </PossiblyUnusedMethod>
   </file>
@@ -6794,7 +5956,6 @@
       <code><![CDATA[$row['Table_priv']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$groupAssignment[$host['User']]]]></code>
       <code><![CDATA[$row['Db']]]></code>
       <code><![CDATA[$row['Grant_priv']]]></code>
       <code><![CDATA[$row['Proc_priv']]]></code>
@@ -6851,18 +6012,8 @@
       <code><![CDATA[$_POST[$currentGrant[0]]]]></code>
     </PossiblyInvalidArrayOffset>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['username']]]></code>
-      <code><![CDATA[$_POST['authentication_plugin']]]></code>
-      <code><![CDATA[$_POST['authentication_plugin']]]></code>
-      <code><![CDATA[$_POST['authentication_plugin']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$_POST['userGroup']]]></code>
-      <code><![CDATA[$_POST['username']]]></code>
-      <code><![CDATA[$hashedPassword]]></code>
       <code><![CDATA[$host['Host']]]></code>
       <code><![CDATA[$host['User']]]></code>
-      <code><![CDATA[$oldUserGroup]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['authentication_plugin']]]></code>
@@ -7105,17 +6256,6 @@
     <MoreSpecificReturnType>
       <code><![CDATA[non-empty-string]]></code>
     </MoreSpecificReturnType>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$k]]></code>
-      <code><![CDATA[$k]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$k]]></code>
-      <code><![CDATA[$k]]></code>
-    </PossiblyInvalidCast>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$k]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullOperand>
       <code><![CDATA[self::getServerPart($cf, $eol, $conf['Servers'])]]></code>
     </PossiblyNullOperand>
@@ -7224,16 +6364,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$table]]></code>
-      <code><![CDATA[Current::$table]]></code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[['db' => $db, 'table' => $table]]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$table]]></code>
-    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$query]]></code>
     </PossiblyInvalidArgument>
@@ -7241,9 +6371,6 @@
       <code><![CDATA[$this->config->settings['Servers'][Current::$server]]]></code>
       <code><![CDATA[$this->config->settings['Servers'][Current::$server]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$query]]></code>
-    </PossiblyInvalidCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['verbose'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -7332,16 +6459,11 @@
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['after_field']]]></code>
-      <code><![CDATA[$formParams['db']]]></code>
-      <code><![CDATA[$formParams['table']]]></code>
     </PossiblyInvalidCast>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($columnMeta['DefaultValue'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Table/Indexes.php">
     <PossiblyNullOperand>
@@ -7388,7 +6510,6 @@
     </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
-      <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
       <code><![CDATA[$_POST['customWhereClause']]]></code>
       <code><![CDATA[$_POST['orderByColumn']]]></code>
       <code><![CDATA[$_POST['table']]]></code>
@@ -7401,12 +6522,6 @@
       <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
       <code><![CDATA[$_POST['criteriaValues'][$columnIndex]]]></code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['criteriaColumnNames'][$columnIndex]]]></code>
-      <code><![CDATA[$_POST['criteriaColumnTypes'][$columnIndex]]]></code>
-      <code><![CDATA[$operator]]></code>
-      <code><![CDATA[$operator]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidIterator>
       <code><![CDATA[$_POST['criteriaColumnOperators']]]></code>
       <code><![CDATA[$columnsToDisplay]]></code>
@@ -7730,9 +6845,6 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_original_name']]]></code>
-    </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_definition']]]></code>
     </PossiblyInvalidOperand>
@@ -7780,8 +6892,6 @@
     <MixedAssignment>
       <code><![CDATA[$paramValue]]></code>
       <code><![CDATA[$paramsToEncrypt[$paramKey]]]></code>
-      <code><![CDATA[$params['server']]]></code>
-      <code><![CDATA[$params['server']]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
   </file>
@@ -7794,11 +6904,6 @@
       <code><![CDATA[$origAuthPlugin]]></code>
       <code><![CDATA[$origAuthPlugin]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['pma_pw']]]></code>
-      <code><![CDATA[$origAuthPlugin]]></code>
-      <code><![CDATA[$origAuthPlugin]]></code>
-    </PossiblyInvalidCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['authentication_plugin'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -7816,10 +6921,6 @@
     </MixedArgument>
   </file>
   <file src="src/Util.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$value]]></code>
-      <code><![CDATA[$value]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -7942,9 +7043,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$response]]></code>
     </PossiblyInvalidArgument>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$response]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/WebAuthn/CustomServer.php">
     <InvalidReturnStatement>
@@ -8026,7 +7124,6 @@
       <code><![CDATA[$buildTagEnv]]></code>
       <code><![CDATA[$envVar]]></code>
       <code><![CDATA[$githubActionEnv]]></code>
-      <code><![CDATA[$this->sqlWindowHandle]]></code>
       <code><![CDATA[empty($mode)]]></code>
       <code><![CDATA[empty(getenv('TESTSUITE_BROWSERSTACK_KEY'))]]></code>
       <code><![CDATA[empty(getenv('TESTSUITE_BROWSERSTACK_USER'))]]></code>
@@ -9795,9 +8892,6 @@
       <code><![CDATA[$server['only_db']]]></code>
       <code><![CDATA[testRender]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$server['only_db']]]></code>
-    </PossiblyInvalidCast>
   </file>
   <file src="tests/unit/Setup/ConfigGeneratorTest.php">
     <MixedAssignment>
@@ -9854,9 +8948,6 @@
       <code><![CDATA[array_column($this->result, $column)]]></code>
       <code><![CDATA[list<string|null>]]></code>
     </MixedReturnTypeCoercion>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[bool]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="tests/unit/Stubs/ResponseRenderer.php">
     <MixedAssignment>
