@@ -134,7 +134,6 @@ class StructureControllerTest extends AbstractTestCase
             ],
             'columns_with_index' => [],
             'central_list' => [],
-            'comments_map' => [],
             'browse_mime' => true,
             'show_column_comments' => true,
             'show_stats' => false,
@@ -154,7 +153,6 @@ class StructureControllerTest extends AbstractTestCase
                 2 => ['text' => 'name', 'icon' => ''],
                 3 => ['text' => 'datetimefield', 'icon' => ''],
             ],
-            'row_comments' => [1 => '', 2 => '', 3 => ''],
             'route' => '/table/structure',
         ]);
 

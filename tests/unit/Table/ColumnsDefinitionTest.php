@@ -114,7 +114,7 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 'displayed_type' => 'smallint(5)',
             ],
             'submit_attribute' => null,
-            'comments_map' => [],
+            'comment' => '',
             'fields_meta' => [$columnMeta],
             'is_backup' => true,
             'move_columns' => [
@@ -124,7 +124,7 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 FieldHelper::fromArray(['type' => MYSQLI_TYPE_STRING, 'name' => 'last_update']),
             ],
             'available_mime' => [],
-            'mime_map' => [],
+            'mime' => [],
         ];
         $expected = [
             'is_backup' => true,
