@@ -9,6 +9,7 @@ use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Middleware\TokenRequestParamChecking;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -49,6 +50,12 @@ final class TokenRequestParamCheckingTest extends TestCase
     {
         $_SESSION[' PMA_token '] = 'token';
         $_POST = ['test' => 'test'];
+        $expectedRoute = '/';
+        /**
+         * @psalm-suppress DeprecatedProperty
+         * @phpstan-ignore staticProperty.deprecated
+         */
+        Routing::$route = '/database/structure/add-prefix-table';
 
         $middleware = new TokenRequestParamChecking(new ResponseRenderer());
 
@@ -77,7 +84,12 @@ final class TokenRequestParamCheckingTest extends TestCase
         self::assertSame([], $handler->request->getParsedBody());
         self::assertSame([], $handler->request->getQueryParams());
         self::assertSame([], $handler->request->getCookieParams());
-        self::assertSame('/', $handler->request->getAttribute('route'));
+        self::assertSame($expectedRoute, $handler->request->getAttribute('route'));
+        /**
+         * @psalm-suppress DeprecatedProperty, TypeDoesNotContainType
+         * @phpstan-ignore staticProperty.deprecated
+         */
+        self::assertSame($expectedRoute, Routing::$route);
     }
 
     public function testCheckTokenRequestParamWithTokenMismatch(): void
