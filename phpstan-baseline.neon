@@ -43999,6 +43999,16 @@ parameters:
 			path: test/classes/Export/OptionsTest.php
 
 		-
+			message: "#^Cannot access offset 'DisableIS' on mixed\\.$#"
+			count: 1
+			path: test/classes/ExportTest.php
+
+		-
+			message: "#^Cannot access offset 'Server' on mixed\\.$#"
+			count: 1
+			path: test/classes/ExportTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$dbi of class PhpMyAdmin\\\\Export constructor expects PhpMyAdmin\\\\DatabaseInterface, mixed given\\.$#"
 			count: 1
 			path: test/classes/ExportTest.php
