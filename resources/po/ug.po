@@ -7,8 +7,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-01 00:29+0000\n"
-"PO-Revision-Date: 2026-11-03 14:19+0000\n"
-"Last-Translator: Abduqadir Abliz <sahran@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2026-11-03 16:06+0000\n"
+"Last-Translator: Maurício Meneghini Fauth "
+"<mauriciofauth@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ug/>\n"
 "Language: ug\n"
@@ -8712,7 +8713,7 @@ msgstr ""
 "Memcached </a> نى ئىشلىتىشنى ئويلىشىشقا ئەرزىيدۇ. ئەگەر سىزدە كۆپ نۇسخا بار."
 
 #: src/Advisory/Rules.php:223
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
