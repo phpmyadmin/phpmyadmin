@@ -487,7 +487,7 @@ class Sql
      */
     private function handleQueryExecuteError(bool $isGotoFile, string $error, string $fullSqlQuery): never
     {
-        if ($isGotoFile) {
+        if ($isGotoFile && $this->responseRenderer->isAjax()) {
             $message = Message::rawError($error);
             $this->responseRenderer->setRequestStatus(false);
             $this->responseRenderer->addJSON('message', $message);

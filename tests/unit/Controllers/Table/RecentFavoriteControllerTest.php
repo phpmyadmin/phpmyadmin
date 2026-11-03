@@ -37,8 +37,8 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         ];
 
         $dbiDummy = $this->createDbiDummy();
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
         $recent = RecentFavoriteTables::getInstance(TableType::Recent);
@@ -76,7 +76,9 @@ class RecentFavoriteControllerTest extends AbstractTestCase
         ];
 
         $dbiDummy = $this->createDbiDummy();
+        $dbiDummy->addResult('SHOW TABLES FROM `invalid_db` LIKE \'invalid\\\\_table\';', []);
         $dbiDummy->addResult('SELECT 1 FROM `invalid_db`.`invalid_table` LIMIT 1;', false);
+        $dbiDummy->addResult('SHOW TABLES FROM `invalid_db` LIKE \'invalid\\\\_table\';', []);
         $dbiDummy->addResult('SELECT 1 FROM `invalid_db`.`invalid_table` LIMIT 1;', false);
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
 
