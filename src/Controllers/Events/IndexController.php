@@ -44,13 +44,9 @@ final readonly class IndexController implements InvocableController
 
         $this->response->addScriptFiles(['events.js', 'sql.js']);
 
-        $hasPrivilege = $this->events->hasEventPrivilege($databaseName);
         $schedulerStatus = $this->events->getEventSchedulerStatus();
 
-        if (
-            $schedulerStatus !== 'DISABLED'
-            && ($request->hasBodyParam('editor_process_add') || $request->hasBodyParam('editor_process_edit'))
-        ) {
+        if ($schedulerStatus !== 'DISABLED' && $this->isFormSubmitted($request)) {
             $itemQuery = $this->events->getQueryFromRequest($request);
             $sqlQuery = $this->events->handleEditor($itemQuery, $request);
 
@@ -64,7 +60,6 @@ final readonly class IndexController implements InvocableController
                             'message',
                             __('The event was dropped immediately after creation.'),
                         );
-                        $this->response->addJSON('tableType', 'events');
 
                         return $this->response->response();
                     }
@@ -80,7 +75,7 @@ final readonly class IndexController implements InvocableController
                         $this->template->render('events/row', [
                             'db' => $databaseName->getName(),
                             'event' => $event,
-                            'has_privilege' => $hasPrivilege,
+                            'has_privilege' => $this->events->hasEventPrivilege($databaseName),
                             'sql_drop' => $sqlDrop,
                         ]),
                     );
@@ -92,8 +87,6 @@ final readonly class IndexController implements InvocableController
                     $this->response->addJSON('message', Current::$message);
                 }
 
-                $this->response->addJSON('tableType', 'events');
-
                 return $this->response->response();
             }
         }
@@ -103,10 +96,10 @@ final readonly class IndexController implements InvocableController
          */
         if (
             $schedulerStatus !== 'DISABLED'
-            && ($this->events->getErrorCount() > 0
-            || ! $request->hasBodyParam('editor_process_add')
-            && ! $request->hasBodyParam('editor_process_edit')
-            && ($request->has('add_item') || $request->has('edit_item')))
+            && (
+                $this->events->getErrorCount() > 0
+                || ! $this->isFormSubmitted($request) && $this->isEditorFormRequested($request)
+            )
         ) {
             if ($request->has('add_item')) {
                 $title = __('Add event');
@@ -131,7 +124,7 @@ final readonly class IndexController implements InvocableController
 
                         $this->response->addHTML($this->getMessageForMissingItem($request, $databaseName));
 
-                        return $this->showIndexPage($databaseName, $hasPrivilege, $schedulerStatus);
+                        return $this->showIndexPage($databaseName, $schedulerStatus);
                     }
 
                     $item['item_original_name'] = $item['item_name'];
@@ -163,7 +156,17 @@ final readonly class IndexController implements InvocableController
             return $this->response->response();
         }
 
-        return $this->showIndexPage($databaseName, $hasPrivilege, $schedulerStatus);
+        return $this->showIndexPage($databaseName, $schedulerStatus);
+    }
+
+    private function isFormSubmitted(ServerRequest $request): bool
+    {
+        return $request->hasBodyParam('editor_process_add') || $request->hasBodyParam('editor_process_edit');
+    }
+
+    private function isEditorFormRequested(ServerRequest $request): bool
+    {
+        return $request->has('add_item') || $request->has('edit_item');
     }
 
     private function getMessageForMissingItem(ServerRequest $request, DatabaseName $databaseName): Message
@@ -180,8 +183,9 @@ final readonly class IndexController implements InvocableController
         );
     }
 
-    private function showIndexPage(DatabaseName $databaseName, bool $hasPrivilege, string $schedulerStatus): Response
+    private function showIndexPage(DatabaseName $databaseName, string $schedulerStatus): Response
     {
+        $hasPrivilege = $this->events->hasEventPrivilege($databaseName);
         $items = [];
         if ($schedulerStatus !== 'DISABLED') {
             $items = $this->events->getDetails($databaseName->getName());

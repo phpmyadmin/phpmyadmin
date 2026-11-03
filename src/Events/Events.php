@@ -95,6 +95,13 @@ final class Events
         // Backup the old event, in case something goes wrong
         $itemOriginalName = $request->getParsedBodyParamAsString('item_original_name');
         $createItem = self::getDefinition($this->dbi, Current::$database, $itemOriginalName);
+        if ($createItem === null) {
+            $this->errors[] = __('Event not found.');
+            Current::$message = $this->handleErrors();
+
+            return '';
+        }
+
         $dropItem = 'DROP EVENT IF EXISTS '
             . Util::backquote($itemOriginalName)
             . ";\n";
@@ -141,9 +148,7 @@ final class Events
     {
         $message = Message::error(
             '<b>'
-            . __(
-                'One or more errors have occurred while processing your request:',
-            )
+            . __('One or more errors have occurred while processing your request:')
             . '</b>',
         );
         $message->addHtml('<ul>');
