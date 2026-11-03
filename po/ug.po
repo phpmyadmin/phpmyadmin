@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2026-03-03 23:09+0000\n"
-"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
+"PO-Revision-Date: 2026-11-03 14:19+0000\n"
+"Last-Translator: Abduqadir Abliz <sahran@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ug/>\n"
 "Language: ug\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 2026.11.1.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -265,14 +265,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:198
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
-"سوئال غەملەك قوزغىتىلغان بولۇپ ، مۇلازىمېتىر سېكۇنتتا% d سوئاللارنى "
-"تاپشۇرۇۋالىدۇ. ئەگەر بۇ سېكۇنتتا 100 دىن ئارتۇق سوئال بولسا ، بۇ قائىدە ئوت "
-"ئاچىدۇ."
+"سۈرۈشتۈرۈش غەملەك قوزغىتىلغان بولۇپ ، مۇلازىمېتىر سېكۇنتىغا 1 سوئال "
+"تاپشۇرۇۋالىدۇ. ئەگەر ھەر سېكۇنتتا 100 دىن ئارتۇق سوئال بولسا، بۇ قائىدە "
+"قوزغىتىلىدۇ."
 
 #: libraries/advisory_rules_generic.php:206
 #, fuzzy
