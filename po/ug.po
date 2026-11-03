@@ -7,8 +7,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2026-11-03 14:19+0000\n"
-"Last-Translator: Abduqadir Abliz <sahran@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2026-11-03 16:06+0000\n"
+"Last-Translator: Maurício Meneghini Fauth "
+"<mauriciofauth@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ug/>\n"
 "Language: ug\n"
@@ -17191,7 +17192,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:150
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
