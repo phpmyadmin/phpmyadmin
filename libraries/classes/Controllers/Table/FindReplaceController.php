@@ -267,6 +267,7 @@ class FindReplaceController extends AbstractController
         // change the collation of the 2nd operand to a case sensitive
         // binary collation to make sure that the comparison is case sensitive
         $sql_query .= ' GROUP BY ' . Util::backquote($column)
+            . ', CAST(' . Util::backquote($column) . ' AS BINARY)'
             . ' ORDER BY ' . Util::backquote($column) . ' ASC';
 
         $result = $this->dbi->fetchResult($sql_query, 0);
@@ -332,7 +333,8 @@ class FindReplaceController extends AbstractController
                     foreach ($toReplace as $row) {
                         $sql_query .= "\n WHEN " . Util::backquote($column)
                             . " = '" . $this->dbi->escapeString($row[0])
-                            . "' THEN '" . $this->dbi->escapeString($row[1]) . "'";
+                            . "' COLLATE " . $charSet . '_bin'
+                            . " THEN '" . $this->dbi->escapeString($row[1]) . "'";
                     }
 
                     $sql_query .= ' END';
