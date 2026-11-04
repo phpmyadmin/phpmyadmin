@@ -5946,7 +5946,7 @@
       <code>$GLOBALS['cfg']['Order']</code>
       <code>$delUrlParams</code>
     </InvalidArrayOffset>
-    <MixedArgument occurrences="64">
+    <MixedArgument occurrences="63">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['query']</code>
@@ -5999,7 +5999,6 @@
       <code>$sortDirection[$index]</code>
       <code>$sortDirection[$index]</code>
       <code>$sortDirection[$index]</code>
-      <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
       <code>$sqlQuery</code>
