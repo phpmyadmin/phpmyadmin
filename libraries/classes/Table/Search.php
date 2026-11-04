@@ -188,7 +188,7 @@ final class Search
 
             if ($func_type === 'REGEXP ^...$') {
                 $func_type = 'REGEXP';
-                $criteriaValues = '^' . $criteriaValues . '$';
+                $criteriaValues = '^(' . $criteriaValues . ')$';
             }
 
             if (
