@@ -1,0 +1,114 @@
+// Height of the console bar at the bottom of the page, which the list stops above
+$select-list-console-gap: 24px;
+$select-list-border: #ccc;
+$select-option-hover-bg: #f0f0f0;
+$select-option-checked-bg: #e6e6e6;
+$select-scrollbar-thumb: #c1c1c1;
+
+// Where the browser supports it: the chevron is the picker icon so it can turn while the list is open,
+// and the option list gets a fixed maximum height instead of running down to the bottom of the screen
+@supports (appearance: base-select) {
+  // Every drop-down list (not the multi-row list boxes), with or without the Bootstrap .form-select class
+  select:not([multiple], [size]:not([size="1"])) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-right: $form-select-padding-x;
+    background-image: none;
+
+    // Plain selects keep their compact padding, with a smaller gap before the chevron
+    &:not(.form-select) {
+      gap: 4px;
+      padding-right: 4px;
+    }
+
+    &,
+    &::picker(select) {
+      appearance: base-select;
+    }
+
+    &::picker-icon {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background: escape-svg($form-select-indicator) center / 16px no-repeat;
+      // Short enough to finish together with the list opening
+      transition: rotate 0.15s ease-out;
+    }
+
+    &:open::picker-icon {
+      rotate: 180deg;
+    }
+
+    // Plain list, close to the native one
+    &::picker(select) {
+      // The list fills the space below the box down to the console bar
+      max-height: calc(100% - #{$select-list-console-gap});
+      margin-top: 2px;
+      padding: 4px 0;
+      background: #fff;
+      border: 1px solid $select-list-border;
+      border-radius: 4px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      // Fade and slide in on open, fade out on close
+      opacity: 0;
+      translate: 0 -6px;
+      transition:
+        opacity 0.15s ease-out,
+        translate 0.15s ease-out,
+        display 0.15s allow-discrete,
+        overlay 0.15s allow-discrete;
+    }
+
+    &:open::picker(select) {
+      opacity: 1;
+      translate: 0 0;
+
+      @starting-style {
+        opacity: 0;
+        translate: 0 -6px;
+      }
+    }
+
+    // Slim scrollbar without arrow buttons
+    &::picker(select)::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::picker(select)::-webkit-scrollbar-thumb {
+      background-color: $select-scrollbar-thumb;
+      background-clip: padding-box;
+      border: 2px solid transparent;
+      border-radius: 8px;
+    }
+
+    option {
+      padding: 3px 12px;
+      cursor: pointer;
+
+      &:hover,
+      &:focus-visible {
+        background: $select-option-hover-bg;
+      }
+
+      &:checked {
+        background: $select-option-checked-bg;
+        font-weight: 600;
+      }
+
+      &::checkmark {
+        display: none;
+      }
+    }
+
+    optgroup {
+      padding-top: 4px;
+      font-weight: bold;
+
+      option {
+        padding-left: 24px;
+        font-weight: normal;
+      }
+    }
+  }
+}
