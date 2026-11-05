@@ -25,6 +25,14 @@
                     </tr>
                 {% endif %}
 
+                {% if tot_size is defined and mergetable == false %}
+                    <tr>
+                        <th class="name">{% trans 'Total' %}</th>
+                        <td class="value">{{ tot_size }}</td>
+                        <td class="unit">{{ tot_unit }}</td>
+                    </tr>
+                {% endif %}
+
                 {% if free_size is defined %}
                     <tr>
                         <th class="name">{% trans 'Overhead' %}</th>
@@ -38,13 +46,6 @@
                     </tr>
                 {% endif %}
 
-                {% if tot_size is defined and mergetable == false %}
-                    <tr>
-                        <th class="name">{% trans 'Total' %}</th>
-                        <td class="value">{{ tot_size }}</td>
-                        <td class="unit">{{ tot_unit }}</td>
-                    </tr>
-                {% endif %}
                 </tbody>
 
                 {# Optimize link if overhead #}
