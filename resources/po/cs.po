@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-01 00:29+0000\n"
-"PO-Revision-Date: 2026-08-21 11:52+0000\n"
-"Last-Translator: Adam Havránek <adamhavra@seznam.cz>\n"
+"PO-Revision-Date: 2026-11-06 14:51+0000\n"
+"Last-Translator: Adam Havránek <helak@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.9.dev0\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1867,10 +1867,8 @@ msgstr "Přidat jako"
 
 #. l10n: Short label for the comparison operator of a criteria row (=, >, LIKE, IN, BETWEEN…)
 #: resources/templates/database/multi_table_query/form.twig:90
-#, fuzzy
-#| msgid "Open"
 msgid "Op"
-msgstr "Otevřené"
+msgstr "Ot"
 
 #: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
@@ -2475,10 +2473,9 @@ msgid "Inside column:"
 msgstr "Uvnitř sloupce:"
 
 #: resources/templates/database/search/results.twig:3
-#, fuzzy, php-format
-#| msgid "Search results for \"<i>%s</i>\" %s:"
+#, php-format
 msgid "Search results for \"%s\" %s:"
-msgstr "Výsledky vyhledávání pro „<i>%s</i>“ %s:"
+msgstr "Výsledky vyhledávání pro „%s“ %s:"
 
 #: resources/templates/database/search/results.twig:11
 #, php-format
@@ -3085,10 +3082,8 @@ msgid "Error"
 msgstr "Chyba"
 
 #: resources/templates/error/get_display.twig:9
-#, fuzzy
-#| msgid "Back"
 msgid "Backtrace"
-msgstr "Zpět"
+msgstr "Zpětné trasování"
 
 #: resources/templates/error/report_form.twig:3
 msgid ""
@@ -3201,10 +3196,8 @@ msgid "Export event"
 msgstr "Exportovat událost"
 
 #: resources/templates/events/index.twig:147
-#, fuzzy
-#| msgid "The event scheduler is disabled"
 msgid "The event scheduler is disabled."
-msgstr "Plánovač událostí je vypnutý"
+msgstr "Plánovač událostí je deaktivován."
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -12017,10 +12010,8 @@ msgstr "Stránka s názvem \"%s\" již existuje. Přejmenuje ji na něco jiného
 #: src/Controllers/Triggers/IndexController.php:66
 #: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:66
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No database selected."
-msgstr "Nebyla vybrána žádná databáze."
+msgstr "Není vybrána žádná databáze."
 
 #: src/Controllers/Database/ExportController.php:121
 #: src/Controllers/Server/ExportController.php:58
@@ -12693,16 +12684,12 @@ msgid "Please enter the SQL query first."
 msgstr "Prosím, zadejte nejdříve SQL dotaz."
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#, fuzzy
-#| msgid "With selected:"
 msgid "Nothing selected"
-msgstr "Zaškrtnuté:"
+msgstr "Není nic vybráno"
 
 #: src/Controllers/JavaScriptMessagesController.php:146
-#, fuzzy
-#| msgid "Extra options"
 msgid "Enter an option"
-msgstr "Další možnosti"
+msgstr "Zadejte volbu"
 
 #: src/Controllers/JavaScriptMessagesController.php:149
 msgid "The host name is empty!"
@@ -13382,16 +13369,12 @@ msgid "Create the following table"
 msgstr "Vytvořit následující tabulku"
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#, fuzzy
-#| msgid "New table name"
 msgid "Enter new table name"
-msgstr "Nový název tabulky"
+msgstr "Zadejte název nové tabulky"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
-#| msgid "New column name"
 msgid "Enter column name"
-msgstr "Nový název sloupce"
+msgstr "Zadejte název sloupce"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Third step of normalization (3NF)"
@@ -13466,10 +13449,8 @@ msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "Graf můžete zvětšit táhnutím za pravý dolní roh."
 
 #: src/Controllers/JavaScriptMessagesController.php:462
-#, fuzzy
-#| msgid "Zoom search"
 msgid "Zoom search instructions"
-msgstr "Zoom vyhledávání"
+msgstr "Pokyny k vyhledávání v aplikaci Zoom"
 
 #: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Select two columns"
