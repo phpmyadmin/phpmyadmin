@@ -2506,7 +2506,8 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SELECT * FROM `information_schema`.`bookmark` WHERE `label` = \'test_tbl\''
-                . ' AND dbase = \'my_db\' AND (user = \'user\') LIMIT 1',
+                . ' AND ( dbase = \'\' OR dbase = \'my_db\' )'
+                . ' AND (user = \'user\') LIMIT 1',
                 'result' => [],
             ],
             [
