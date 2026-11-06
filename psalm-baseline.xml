@@ -4467,10 +4467,8 @@
       <code><![CDATA[$sessionCookieParams]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$_SESSION[' HMAC_secret ']]]></code>
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
       <code><![CDATA[$_SESSION['LAST_SIGNON_URL']]]></code>
-      <code><![CDATA[$hmacSecret]]></code>
       <code><![CDATA[$pmaToken]]></code>
       <code><![CDATA[$singleSignonCfgUpdate]]></code>
       <code><![CDATA[$singleSignonHost]]></code>
@@ -8669,6 +8667,8 @@
   </file>
   <file src="tests/unit/Plugins/Auth/AuthenticationSignonTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>

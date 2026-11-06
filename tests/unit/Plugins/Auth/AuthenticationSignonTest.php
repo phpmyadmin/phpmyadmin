@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Auth;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
@@ -15,6 +16,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 
 use function session_get_cookie_params;
 use function session_id;
@@ -23,6 +25,7 @@ use function session_name;
 use const PHP_VERSION_ID;
 
 #[CoversClass(AuthenticationSignon::class)]
+#[UsesClass(Core::class)]
 #[AllowMockObjectsWithoutExpectations]
 class AuthenticationSignonTest extends AbstractTestCase
 {
@@ -185,14 +188,98 @@ class AuthenticationSignonTest extends AbstractTestCase
         $_SESSION['PMA_single_signon_port'] = '12';
         $_SESSION['PMA_single_signon_cfgupdate'] = ['foo' => 'bar'];
         $_SESSION['PMA_single_signon_token'] = 'pmaToken';
+        $_SESSION['PMA_single_signon_HMAC_secret'] = 'signonSecret';
 
-        self::assertTrue(
-            $this->object->readCredentials(),
-        );
+        for ($request = 0; $request < 2; $request++) {
+            unset($_SESSION[' PMA_token '], $_SESSION[' HMAC_secret ']);
+            $this->object = new AuthenticationSignon(new ResponseRenderer());
 
-        self::assertSame('user123', $this->object->user);
+            self::assertTrue($this->object->readCredentials());
+            self::assertSame('user123', $this->object->user);
+            self::assertSame('pass123', $this->object->password);
+            self::assertSame('pmaToken', self::sessionString(' PMA_token '));
+            self::assertSame('signonSecret', self::sessionString('PMA_single_signon_HMAC_secret'));
+            self::assertSame('signonSecret', self::sessionString(' HMAC_secret '));
+        }
+    }
 
-        self::assertSame('pass123', $this->object->password);
+    public function testReadCredentialsPersistsHmacSecret(): void
+    {
+        $config = Config::getInstance();
+        $config->selectedServer['SignonScript'] = '';
+        $config->selectedServer['SignonSession'] = 'session123';
+        $_COOKIE['session123'] = true;
+        /** @var array<string, mixed> $_SESSION */
+        $_SESSION = [
+            'PMA_single_signon_user' => 'user123',
+            'PMA_single_signon_token' => 'pmaToken',
+        ];
+
+        self::assertTrue($this->object->readCredentials());
+        $secret = self::sessionString('PMA_single_signon_HMAC_secret');
+        self::assertNotSame('', $secret);
+        self::assertSame($secret, self::sessionString(' HMAC_secret '));
+        $whereClause = '`id` = 1';
+        $signature = Core::signSqlQuery($whereClause);
+
+        // TESTSUITE skips session switching; clear phpMyAdmin's copy for the next request.
+        unset($_SESSION[' HMAC_secret ']);
+        $this->object = new AuthenticationSignon(new ResponseRenderer());
+
+        self::assertTrue($this->object->readCredentials());
+        self::assertSame($secret, self::sessionString('PMA_single_signon_HMAC_secret'));
+        self::assertSame($secret, self::sessionString(' HMAC_secret '));
+        self::assertTrue(Core::checkSqlQuerySignature($whereClause, $signature));
+        self::assertFalse(Core::checkSqlQuerySignature('`id` = 2', $signature));
+        self::assertFalse(Core::checkSqlQuerySignature($whereClause, $signature . '0'));
+
+        $_SESSION = [
+            'PMA_single_signon_user' => 'user123',
+            'PMA_single_signon_token' => 'newToken',
+        ];
+        $this->object = new AuthenticationSignon(new ResponseRenderer());
+
+        self::assertTrue($this->object->readCredentials());
+        $newSecret = self::sessionString('PMA_single_signon_HMAC_secret');
+        self::assertNotSame('', $newSecret);
+        self::assertNotSame($secret, $newSecret);
+        self::assertSame($newSecret, self::sessionString(' HMAC_secret '));
+        self::assertFalse(Core::checkSqlQuerySignature($whereClause, $signature));
+    }
+
+    public function testReadCredentialsWithoutToken(): void
+    {
+        $config = Config::getInstance();
+        $config->selectedServer['SignonScript'] = '';
+        $config->selectedServer['SignonSession'] = 'session123';
+        $_COOKIE['session123'] = true;
+
+        foreach ([[], ['PMA_single_signon_token' => '']] as $token) {
+            $_SESSION = $token + [
+                'PMA_single_signon_user' => 'user123',
+                ' PMA_token ' => 'existingToken',
+                ' HMAC_secret ' => 'existingSecret',
+            ];
+            $this->object = new AuthenticationSignon(new ResponseRenderer());
+
+            self::assertTrue($this->object->readCredentials());
+            self::assertSame('existingToken', self::sessionString(' PMA_token '));
+            self::assertSame('existingSecret', self::sessionString(' HMAC_secret '));
+        }
+    }
+
+    /**
+     * Reads a session value after readCredentials() has run, which may have changed it.
+     *
+     * @param non-empty-string $key
+     */
+    private static function sessionString(string $key): string
+    {
+        $session = $_SESSION ?? [];
+        self::assertArrayHasKey($key, $session);
+        self::assertIsString($session[$key]);
+
+        return $session[$key];
     }
 
     public function testAuthSetUser(): void
