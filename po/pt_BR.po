@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-10-19 17:00+0000\n"
-"PO-Revision-Date: 2025-08-20 00:13+0000\n"
-"Last-Translator: Thomas Gabriel de Medeiros Silva <thomas."
-"translation@protonmail.com>\n"
+"PO-Revision-Date: 2026-11-07 13:44+0000\n"
+"Last-Translator: Maurício Meneghini Fauth "
+"<mauriciofauth@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -5453,6 +5453,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"A variável [code]HTTP_HOST[/code] está ausente, o que pode fazer com que o "
+"phpMyAdmin não funcione corretamente. Por favor, consulte a [doc@faq1-"
+"46]documentação[/doc] para possíveis problemas."
 
 #: libraries/classes/Controllers/HomeController.php:498
 msgid ""
@@ -5498,7 +5501,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:324
 msgid "Sorry an unexpected error happened!"
-msgstr ""
+msgstr "Desculpe, aconteceu um erro inesperado!"
 
 #: libraries/classes/Controllers/Import/ImportController.php:372
 #: libraries/classes/Controllers/Import/ImportController.php:610
@@ -7652,6 +7655,8 @@ msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
+"A solicitação de tela cheia foi negada porque a API Fullscreen está "
+"desativada nas preferências do usuário no navegador."
 
 #: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
@@ -8910,7 +8915,7 @@ msgstr "Um ou mais erros ocorreram durante o processamento da sua solicitação:
 
 #: libraries/classes/Database/Events.php:181
 msgid "The event was dropped immediately after creation."
-msgstr ""
+msgstr "O evento foi descartado imediatamente após a criação."
 
 #: libraries/classes/Database/Events.php:249
 msgid "Add event"
@@ -13386,7 +13391,7 @@ msgstr ""
 
 #: libraries/classes/Types.php:441
 msgid "Intended for storage of IPv4 addresses"
-msgstr ""
+msgstr "Destinado ao armazenamento de endereços IPv4"
 
 #: libraries/classes/Types.php:444
 msgid ""
@@ -13405,10 +13410,12 @@ msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
+"Armazena dados vetoriais otimizados para operações como busca por "
+"similaridade e aplicações de aprendizado de máquina"
 
 #: libraries/classes/Types.php:456
 msgid "Intended for storage of XML data"
-msgstr ""
+msgstr "Destinado ao armazenamento de dados em XML"
 
 #: libraries/classes/Types.php:812
 msgctxt "numeric types"
@@ -14715,10 +14722,8 @@ msgid "OFF"
 msgstr "Desligado"
 
 #: templates/database/events/index.twig:158
-#, fuzzy
-#| msgid "The slow query log is disabled."
 msgid "The event scheduler is disabled."
-msgstr "O log de queries lentas está desativado."
+msgstr "O agendador de eventos está desativado."
 
 #: templates/database/export/index.twig:61
 msgid ""
