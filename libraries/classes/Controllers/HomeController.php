@@ -348,7 +348,7 @@ class HomeController extends AbstractController
         }
 
         /**
-         * Check if user does not have defined query encryption key and it is being used.
+         * Check if user does not have defined URL query encryption key and it is being used.
          */
         if ($cfg['URLQueryEncryption']) {
             $encryptionKeyLength = 0;
@@ -360,7 +360,7 @@ class HomeController extends AbstractController
             if ($encryptionKeyLength < SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
                 $this->errors[] = [
                     'message' => __(
-                        'The configuration file needs a valid key for query encryption.'
+                        'The configuration file needs a valid key for URL query encryption.'
                         . ' A temporary key was automatically generated for you.'
                         . ' Please refer to the [doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc].'
                     ),
@@ -370,7 +370,7 @@ class HomeController extends AbstractController
                 $this->errors[] = [
                     'message' => sprintf(
                         __(
-                            'The query encryption key in the configuration file is longer than necessary.'
+                            'The URL query encryption key in the configuration file is longer than necessary.'
                             . ' It should only be %d bytes long.'
                             . ' Please refer to the [doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc].'
                         ),
