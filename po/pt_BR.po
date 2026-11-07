@@ -4,9 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-07 13:46+0000\n"
-"PO-Revision-Date: 2026-11-07 13:44+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@users.noreply."
-"hosted.weblate.org>\n"
+"PO-Revision-Date: 2026-11-08 14:51+0000\n"
+"Last-Translator: Maurício Meneghini Fauth "
+"<mauriciofauth@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1546,12 +1546,12 @@ msgstr "Unicode"
 #: libraries/classes/Charsets/Collation.php:551
 msgctxt "Collation"
 msgid "West European"
-msgstr "Oeste Europeu"
+msgstr "Europeu Ocidental"
 
 #: libraries/classes/Charsets/Collation.php:372
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Centro-Europeu"
+msgstr "Centro-europeu"
 
 #: libraries/classes/Charsets/Collation.php:377
 #: libraries/classes/Charsets/Collation.php:558
@@ -1625,7 +1625,7 @@ msgstr "Grego"
 #: libraries/classes/Charsets/Collation.php:427
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Tcheco-Eslováquio"
+msgstr "Tcheco-eslovaco"
 
 #: libraries/classes/Charsets/Collation.php:430
 #: libraries/classes/Charsets/Collation.php:596
@@ -1704,7 +1704,7 @@ msgstr "Islandês"
 #: libraries/classes/Charsets/Collation.php:525
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr "Latim Clássico"
+msgstr "Latim clássico"
 
 #: libraries/classes/Charsets/Collation.php:529
 msgctxt "Collation"
@@ -4573,7 +4573,7 @@ msgstr "Ordenar por"
 
 #: libraries/classes/Config/Descriptions.php:987
 msgid "Server connection collation"
-msgstr "Collation de conexão do servidor MySQL"
+msgstr "Ordenação de conexão do servidor"
 
 #: libraries/classes/Config/FormDisplay.php:605
 #, php-format
@@ -5096,7 +5096,7 @@ msgstr "Não foi possível carregar os plugins, verifique sua instalação!"
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:48
 #: libraries/classes/Controllers/Table/OperationsController.php:258
 msgid "No collation provided."
-msgstr "Nenhum agrupamento fornecido."
+msgstr "Nenhuma ordenação fornecida."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:90
 #: libraries/classes/Controllers/Table/CreateController.php:72
@@ -5387,34 +5387,27 @@ msgstr ""
 "consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:363
-#, fuzzy
-#| msgid ""
-#| "The configuration file needs a valid key for cookie encryption. A "
-#| "temporary key was automatically generated for you. Please refer to the "
-#| "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgid ""
 "The configuration file needs a valid key for URL query encryption. A "
 "temporary key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"O arquivo de configuração precisa de uma chave válida para a criptografia de "
-"cookies. Uma chave temporária foi gerada automaticamente para você. Por "
-"favor consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
+"O arquivo de configuração precisa de uma chave válida para a criptografia "
+"dos parâmetros de consulta da URL. Uma chave temporária foi gerada "
+"automaticamente para você. Por favor, consulte a "
+"[doc@cfg_URLQueryEncryptionSecretKey]documentação[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:373
-#, fuzzy, php-format
-#| msgid ""
-#| "The cookie encryption key in the configuration file is longer than "
-#| "necessary. It should only be %d bytes long. Please refer to the "
-#| "[doc@cfg_blowfish_secret]documentation[/doc]."
+#, php-format
 msgid ""
 "The URL query encryption key in the configuration file is longer than "
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"A chave de criptografia do cookie no arquivo de configuração é mais longa do "
-"que o necessário. Ela deve ter apenas %d bytes de comprimento. Por favor "
-"consulte a [doc@cfg_blowfish_secret]documentação[/doc]."
+"A chave de criptografia para os parâmetros de consulta da URL no arquivo de "
+"configuração é mais longa do que o necessário. Ela deveria ter apenas %d "
+"bytes. Por favor, consulte a "
+"[doc@cfg_URLQueryEncryptionSecretKey]documentação[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:391
 msgid ""
@@ -5694,10 +5687,10 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
-"Esta operação tentará converter seus dados para a nova collation. Em casos "
-"raros, especialmente onde um caractere não existe na nova collation, este "
+"Esta operação tentará converter seus dados para a nova ordenação. Em casos "
+"raros, especialmente onde um caractere não existe na nova ordenação, este "
 "processo poderia fazer com que os dados aparecessem incorretamente na nova "
-"collation; neste caso, sugerimos que você reverta à collation original e "
+"ordenação; neste caso, sugerimos que você reverta à ordenação original e "
 "siga as dicas em "
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:81
@@ -5706,7 +5699,7 @@ msgstr "Dados Ilegíveis"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:83
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr "Tem certeza de que deseja mudar a collatin e converter os dados?"
+msgstr "Tem certeza de que deseja mudar a ordenação e converter os dados?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:86
 msgid ""
@@ -5717,10 +5710,10 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"Por meio desta operação, o MySQL tenta mapear os valores dos dados entre "
-"collations. Se os conjuntos de caracteres são incompatíveis, poderá haver "
+"Por meio desta operação, o MySQL tenta mapear os valores dos dados entre as "
+"ordenações. Se os conjuntos de caracteres são incompatíveis, poderá haver "
 "perda de dados e esses dados <b>NÃO</b> poderão ser recuperados somente com "
-"a reversão de collation da coluna.<b> Para converter dados existentes, é "
+"a reversão da ordenação da coluna.<b> Para converter dados existentes, é "
 "sugerido que se use a funcionalidade de edição de coluna(s) (o link "
 "\"Alterar\") na página de estrutura da tabela. </b>"
 
@@ -5729,7 +5722,7 @@ msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Você tem certeza que quer mudar todos os agrupamento de colunas e converter "
+"Você tem certeza que quer mudar a ordenação de todas as colunas e converter "
 "os dados?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:97
@@ -9002,7 +8995,7 @@ msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1187
 msgid "Failed to set configured collation connection!"
-msgstr "Falha ao definir conexão do agrupamento configurado!"
+msgstr "Falha ao definir a ordenação de conexão configurada!"
 
 #: libraries/classes/DatabaseInterface.php:1975
 msgid "Missing connection parameters!"
@@ -13205,18 +13198,16 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Uma combinação de data e hora, o limite suportado vai de %1$s a %2$s"
 
 #: libraries/classes/Types.php:306
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Um timestamp, o limite vai de 1970-01-01 00:00:01 UTC até 2038-01-09 "
-"03:14:07 UTC, armazenado como o número de segundos desde a época (1970-01-01 "
+"Um timestamp, o intervalo é de 1970-01-01 00:00:01 UTC até 2038-01-19 "
+"03:14:07 UTC em plataformas de 32 bits (MariaDB 11.3 e anteriores), e até "
+"2106-02-07 06:28:15 UTC em plataformas de 64 bits (MariaDB 11.5 e "
+"posteriores), armazenado como o número de segundos desde a epoch (1970-01-01 "
 "00:00:00 UTC)"
 
 #: libraries/classes/Types.php:314
@@ -13861,7 +13852,7 @@ msgstr "coluna(s)"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 msgid "Collation:"
-msgstr "Colação:"
+msgstr "Ordenação:"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
@@ -14045,7 +14036,7 @@ msgstr ""
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
 #: templates/table/zoom_search/index.twig:38
 msgid "Collation"
-msgstr "Colação"
+msgstr "Ordenação"
 
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #: templates/database/operations/index.twig:68
@@ -14883,11 +14874,11 @@ msgstr "Mudar para o banco de dados copiado"
 
 #: templates/database/operations/index.twig:216
 msgid "Change all tables collations"
-msgstr "Mudar colação de todas as tabelas"
+msgstr "Mudar a ordenação de todas as tabelas"
 
 #: templates/database/operations/index.twig:220
 msgid "Change all tables columns collations"
-msgstr "Mudar colação das colunas de todas as tabelas"
+msgstr "Mudar a ordenação das colunas de todas as tabelas"
 
 #: templates/database/privileges/index.twig:9
 #: templates/table/privileges/index.twig:8
@@ -15901,7 +15892,7 @@ msgstr "Configurações gerais"
 
 #: templates/home/index.twig:56
 msgid "Server connection collation:"
-msgstr "Collation de conexão do servidor MySQL:"
+msgstr "Ordenação de conexão do servidor:"
 
 #: templates/home/index.twig:82 templates/preferences/manage/main.twig:56
 msgid "More settings"
@@ -17038,7 +17029,7 @@ msgstr "Informação"
 
 #: templates/server/collations/index.twig:4
 msgid "Character sets and collations"
-msgstr "Conjuntos de caracteres e collations"
+msgstr "Conjuntos de caracteres e ordenações"
 
 #: templates/server/collations/index.twig:23
 msgctxt "The collation is the default one"
@@ -18748,7 +18739,7 @@ msgstr "Comentários da tabela"
 
 #: templates/table/operations/index.twig:170
 msgid "Change all column collations"
-msgstr "Mudar colação de todas as colunas"
+msgstr "Mudar a ordenação de todas as colunas"
 
 #: templates/table/operations/index.twig:251
 msgid "Copy table to (database.table)"
