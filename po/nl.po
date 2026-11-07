@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-19 17:00+0000\n"
+"POT-Creation-Date: 2026-11-07 13:46+0000\n"
 "PO-Revision-Date: 2026-10-20 17:00+0000\n"
 "Last-Translator: dingo thirteen <dingo13@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/>"
-"\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1470,290 +1470,290 @@ msgid "Unknown"
 msgstr "Onbekend"
 
 #: libraries/classes/Charsets/Collation.php:203
-#: libraries/classes/Charsets/Collation.php:502
+#: libraries/classes/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "Duits (telefoonboek volgorde)"
 
 #: libraries/classes/Charsets/Collation.php:207
-#: libraries/classes/Charsets/Collation.php:499
+#: libraries/classes/Charsets/Collation.php:502
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Duits (woordenboek volgorde)"
 
 #: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:577
+#: libraries/classes/Charsets/Collation.php:580
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "Spaans (traditioneel)"
 
 #: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:570
+#: libraries/classes/Charsets/Collation.php:573
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Spaans (modern)"
 
-#: libraries/classes/Charsets/Collation.php:298
+#: libraries/classes/Charsets/Collation.php:301
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "niet hoofdlettergevoelig"
 
-#: libraries/classes/Charsets/Collation.php:301
+#: libraries/classes/Charsets/Collation.php:304
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "hoofdlettergevoelig"
 
-#: libraries/classes/Charsets/Collation.php:304
+#: libraries/classes/Charsets/Collation.php:307
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "niet accent gevoelig"
 
-#: libraries/classes/Charsets/Collation.php:307
+#: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "accent gevoelig"
 
-#: libraries/classes/Charsets/Collation.php:310
+#: libraries/classes/Charsets/Collation.php:313
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "kana-gevoelig"
 
-#: libraries/classes/Charsets/Collation.php:314
+#: libraries/classes/Charsets/Collation.php:317
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "meerdere niveaus"
 
-#: libraries/classes/Charsets/Collation.php:317
+#: libraries/classes/Charsets/Collation.php:320
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "binair"
 
-#: libraries/classes/Charsets/Collation.php:320
+#: libraries/classes/Charsets/Collation.php:323
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr "zonder buffer"
 
-#: libraries/classes/Charsets/Collation.php:339
+#: libraries/classes/Charsets/Collation.php:342
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binair"
 
-#: libraries/classes/Charsets/Collation.php:352
-#: libraries/classes/Charsets/Collation.php:601
+#: libraries/classes/Charsets/Collation.php:355
+#: libraries/classes/Charsets/Collation.php:604
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets/Collation.php:362
-#: libraries/classes/Charsets/Collation.php:548
+#: libraries/classes/Charsets/Collation.php:365
+#: libraries/classes/Charsets/Collation.php:551
 msgctxt "Collation"
 msgid "West European"
 msgstr "West-Europees"
 
-#: libraries/classes/Charsets/Collation.php:369
+#: libraries/classes/Charsets/Collation.php:372
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Centraal Europees"
 
-#: libraries/classes/Charsets/Collation.php:374
-#: libraries/classes/Charsets/Collation.php:555
+#: libraries/classes/Charsets/Collation.php:377
+#: libraries/classes/Charsets/Collation.php:558
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Russisch"
 
-#: libraries/classes/Charsets/Collation.php:379
+#: libraries/classes/Charsets/Collation.php:382
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Vereenvoudigd Chinees"
 
-#: libraries/classes/Charsets/Collation.php:382
+#: libraries/classes/Charsets/Collation.php:385
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Traditioneel Chinees"
 
-#: libraries/classes/Charsets/Collation.php:385
-#: libraries/classes/Charsets/Collation.php:470
+#: libraries/classes/Charsets/Collation.php:388
+#: libraries/classes/Charsets/Collation.php:473
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Chinees"
 
-#: libraries/classes/Charsets/Collation.php:393
-#: libraries/classes/Charsets/Collation.php:519
+#: libraries/classes/Charsets/Collation.php:396
+#: libraries/classes/Charsets/Collation.php:522
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japans"
 
-#: libraries/classes/Charsets/Collation.php:398
+#: libraries/classes/Charsets/Collation.php:401
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltisch"
 
-#: libraries/classes/Charsets/Collation.php:403
+#: libraries/classes/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armeens"
 
-#: libraries/classes/Charsets/Collation.php:406
+#: libraries/classes/Charsets/Collation.php:409
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cyrillisch"
 
-#: libraries/classes/Charsets/Collation.php:409
+#: libraries/classes/Charsets/Collation.php:412
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabisch"
 
-#: libraries/classes/Charsets/Collation.php:412
-#: libraries/classes/Charsets/Collation.php:534
+#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:537
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Koreaans"
 
-#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:418
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebreeuws"
 
-#: libraries/classes/Charsets/Collation.php:418
+#: libraries/classes/Charsets/Collation.php:421
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgisch"
 
-#: libraries/classes/Charsets/Collation.php:421
+#: libraries/classes/Charsets/Collation.php:424
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Grieks"
 
-#: libraries/classes/Charsets/Collation.php:424
+#: libraries/classes/Charsets/Collation.php:427
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Tsjecho-Slowaaks"
 
-#: libraries/classes/Charsets/Collation.php:427
-#: libraries/classes/Charsets/Collation.php:593
+#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:596
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Oekraïens"
 
-#: libraries/classes/Charsets/Collation.php:430
-#: libraries/classes/Charsets/Collation.php:589
+#: libraries/classes/Charsets/Collation.php:433
+#: libraries/classes/Charsets/Collation.php:592
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turks"
 
-#: libraries/classes/Charsets/Collation.php:433
-#: libraries/classes/Charsets/Collation.php:581
+#: libraries/classes/Charsets/Collation.php:436
+#: libraries/classes/Charsets/Collation.php:584
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Zweeds"
 
-#: libraries/classes/Charsets/Collation.php:436
-#: libraries/classes/Charsets/Collation.php:585
+#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:588
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thais"
 
-#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:442
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: libraries/classes/Charsets/Collation.php:464
+#: libraries/classes/Charsets/Collation.php:467
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgaars"
 
-#: libraries/classes/Charsets/Collation.php:476
+#: libraries/classes/Charsets/Collation.php:479
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Kroatisch"
 
-#: libraries/classes/Charsets/Collation.php:480
+#: libraries/classes/Charsets/Collation.php:483
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Tsjechisch"
 
-#: libraries/classes/Charsets/Collation.php:484
+#: libraries/classes/Charsets/Collation.php:487
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Deens"
 
-#: libraries/classes/Charsets/Collation.php:488
+#: libraries/classes/Charsets/Collation.php:491
 msgctxt "Collation"
 msgid "English"
 msgstr "Engels"
 
-#: libraries/classes/Charsets/Collation.php:492
+#: libraries/classes/Charsets/Collation.php:495
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/classes/Charsets/Collation.php:496
+#: libraries/classes/Charsets/Collation.php:499
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estisch"
 
-#: libraries/classes/Charsets/Collation.php:511
+#: libraries/classes/Charsets/Collation.php:514
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Hongaars"
 
-#: libraries/classes/Charsets/Collation.php:515
+#: libraries/classes/Charsets/Collation.php:518
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "IJslands"
 
-#: libraries/classes/Charsets/Collation.php:522
+#: libraries/classes/Charsets/Collation.php:525
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "Klassiek Latijn"
 
-#: libraries/classes/Charsets/Collation.php:526
+#: libraries/classes/Charsets/Collation.php:529
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Lets"
 
-#: libraries/classes/Charsets/Collation.php:530
+#: libraries/classes/Charsets/Collation.php:533
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litouws"
 
-#: libraries/classes/Charsets/Collation.php:538
+#: libraries/classes/Charsets/Collation.php:541
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "Birmees"
 
-#: libraries/classes/Charsets/Collation.php:541
+#: libraries/classes/Charsets/Collation.php:544
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perzisch"
 
-#: libraries/classes/Charsets/Collation.php:545
+#: libraries/classes/Charsets/Collation.php:548
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Pools"
 
-#: libraries/classes/Charsets/Collation.php:552
+#: libraries/classes/Charsets/Collation.php:555
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Roemeens"
 
-#: libraries/classes/Charsets/Collation.php:559
+#: libraries/classes/Charsets/Collation.php:562
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "Singalees"
 
-#: libraries/classes/Charsets/Collation.php:563
+#: libraries/classes/Charsets/Collation.php:566
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slowaaks"
 
-#: libraries/classes/Charsets/Collation.php:567
+#: libraries/classes/Charsets/Collation.php:570
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Sloveens"
 
-#: libraries/classes/Charsets/Collation.php:597
+#: libraries/classes/Charsets/Collation.php:600
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnamees"
@@ -5247,7 +5247,7 @@ msgstr "Ja"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:75
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:418
+#: libraries/classes/Controllers/Table/ReplaceController.php:412
 #: libraries/classes/Core.php:741 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Geen verandering"
@@ -5392,9 +5392,14 @@ msgstr ""
 "[doc@cfg_blowfish_secret]documentatie[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:363
+#, fuzzy
+#| msgid ""
+#| "The configuration file needs a valid key for query encryption. A "
+#| "temporary key was automatically generated for you. Please refer to the "
+#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgid ""
-"The configuration file needs a valid key for query encryption. A temporary "
-"key was automatically generated for you. Please refer to the "
+"The configuration file needs a valid key for URL query encryption. A "
+"temporary key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 "Het configuratiebestand heeft een geldige sleutel nodig voor query "
@@ -5402,10 +5407,14 @@ msgstr ""
 "meer informatie zie [doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:373
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "The query encryption key in the configuration file is longer than "
+#| "necessary. It should only be %d bytes long. Please refer to the "
+#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgid ""
-"The query encryption key in the configuration file is longer than necessary. "
-"It should only be %d bytes long. Please refer to the "
+"The URL query encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 "De query encryptie sleutel in het configuratiebestand is langer dan nodig. "
@@ -5544,7 +5553,7 @@ msgstr ""
 "tijdsbeperkingen van php worden versoepeld."
 
 #: libraries/classes/Controllers/Import/ImportController.php:736
-#: libraries/classes/Controllers/Sql/SqlController.php:162
+#: libraries/classes/Controllers/Sql/SqlController.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 
@@ -7019,7 +7028,7 @@ msgstr "Inhoud gegevenspunt"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2039
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2031
 #: templates/table/index_form.twig:170 templates/table/index_form.twig:213
 msgid "Ignore"
 msgstr "Negeren"
@@ -8506,6 +8515,7 @@ msgid "The number of threads that are not sleeping."
 msgstr "Het aantal threads dat actief bezig is."
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
+#: libraries/classes/Controllers/Sql/SqlController.php:131
 #: libraries/classes/Util.php:837
 msgid "Missing parameter:"
 msgstr "Ontbrekende parameter:"
@@ -8543,13 +8553,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Onveilige verbinding"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:235
+#: libraries/classes/Controllers/Sql/SqlController.php:242
 #: libraries/classes/Sql.php:1196
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bladwijzer %s is aangemaakt."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:242
+#: libraries/classes/Controllers/Sql/SqlController.php:249
 msgid "Bookmark not created!"
 msgstr "Bladwijzer niet aangemaakt!"
 
@@ -8689,7 +8699,7 @@ msgstr "De weergavekolom is succesvol bijgewerkt."
 msgid "Internal relationships were successfully updated."
 msgstr "Interne relaties zijn succesvol bijgewerkt."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:297
+#: libraries/classes/Controllers/Table/ReplaceController.php:291
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rij: %1$s, Kolom: %2$s, Fout: %3$s"
@@ -10075,11 +10085,11 @@ msgstr "Of"
 msgid "web server upload directory:"
 msgstr "uploadmap op webserver:"
 
-#: libraries/classes/InsertEdit.php:1345 libraries/classes/Sql.php:1007
+#: libraries/classes/InsertEdit.php:1337 libraries/classes/Sql.php:1007
 msgid "Showing SQL query"
 msgstr "Toont SQL-query"
 
-#: libraries/classes/InsertEdit.php:1369 libraries/classes/Sql.php:987
+#: libraries/classes/InsertEdit.php:1361 libraries/classes/Sql.php:987
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Toegevoegd rijnummer: %1$d"

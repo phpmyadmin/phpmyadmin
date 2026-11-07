@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-19 17:00+0000\n"
+"POT-Creation-Date: 2026-11-07 13:46+0000\n"
 "PO-Revision-Date: 2026-06-02 06:01+0000\n"
 "Last-Translator: Sandra Swift <nolamiller1203+weblate@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -1455,290 +1455,290 @@ msgid "Unknown"
 msgstr "不明"
 
 #: libraries/classes/Charsets/Collation.php:203
-#: libraries/classes/Charsets/Collation.php:502
+#: libraries/classes/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "ドイツ語（電話帳順）"
 
 #: libraries/classes/Charsets/Collation.php:207
-#: libraries/classes/Charsets/Collation.php:499
+#: libraries/classes/Charsets/Collation.php:502
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "ドイツ語（辞書順）"
 
 #: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:577
+#: libraries/classes/Charsets/Collation.php:580
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "スペイン語（古典）"
 
 #: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:570
+#: libraries/classes/Charsets/Collation.php:573
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "スペイン語（現代）"
 
-#: libraries/classes/Charsets/Collation.php:298
+#: libraries/classes/Charsets/Collation.php:301
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "大文字小文字を区別しない"
 
-#: libraries/classes/Charsets/Collation.php:301
+#: libraries/classes/Charsets/Collation.php:304
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "大文字小文字を区別する"
 
-#: libraries/classes/Charsets/Collation.php:304
+#: libraries/classes/Charsets/Collation.php:307
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "アクセントを区別しない"
 
-#: libraries/classes/Charsets/Collation.php:307
+#: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "アクセントを区別する"
 
-#: libraries/classes/Charsets/Collation.php:310
+#: libraries/classes/Charsets/Collation.php:313
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "かなを区別する"
 
-#: libraries/classes/Charsets/Collation.php:314
+#: libraries/classes/Charsets/Collation.php:317
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "マルチレベル"
 
-#: libraries/classes/Charsets/Collation.php:317
+#: libraries/classes/Charsets/Collation.php:320
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "バイナリ"
 
-#: libraries/classes/Charsets/Collation.php:320
+#: libraries/classes/Charsets/Collation.php:323
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr "パッドなし"
 
-#: libraries/classes/Charsets/Collation.php:339
+#: libraries/classes/Charsets/Collation.php:342
 msgctxt "Collation"
 msgid "Binary"
 msgstr "バイナリ"
 
-#: libraries/classes/Charsets/Collation.php:352
-#: libraries/classes/Charsets/Collation.php:601
+#: libraries/classes/Charsets/Collation.php:355
+#: libraries/classes/Charsets/Collation.php:604
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets/Collation.php:362
-#: libraries/classes/Charsets/Collation.php:548
+#: libraries/classes/Charsets/Collation.php:365
+#: libraries/classes/Charsets/Collation.php:551
 msgctxt "Collation"
 msgid "West European"
 msgstr "西ヨーロッパ諸語"
 
-#: libraries/classes/Charsets/Collation.php:369
+#: libraries/classes/Charsets/Collation.php:372
 msgctxt "Collation"
 msgid "Central European"
 msgstr "中央ヨーロッパ諸語"
 
-#: libraries/classes/Charsets/Collation.php:374
-#: libraries/classes/Charsets/Collation.php:555
+#: libraries/classes/Charsets/Collation.php:377
+#: libraries/classes/Charsets/Collation.php:558
 msgctxt "Collation"
 msgid "Russian"
 msgstr "ロシア語"
 
-#: libraries/classes/Charsets/Collation.php:379
+#: libraries/classes/Charsets/Collation.php:382
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "簡体字中国語"
 
-#: libraries/classes/Charsets/Collation.php:382
+#: libraries/classes/Charsets/Collation.php:385
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "繁体字中国語"
 
-#: libraries/classes/Charsets/Collation.php:385
-#: libraries/classes/Charsets/Collation.php:470
+#: libraries/classes/Charsets/Collation.php:388
+#: libraries/classes/Charsets/Collation.php:473
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "中国語"
 
-#: libraries/classes/Charsets/Collation.php:393
-#: libraries/classes/Charsets/Collation.php:519
+#: libraries/classes/Charsets/Collation.php:396
+#: libraries/classes/Charsets/Collation.php:522
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "日本語"
 
-#: libraries/classes/Charsets/Collation.php:398
+#: libraries/classes/Charsets/Collation.php:401
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "バルト諸語"
 
-#: libraries/classes/Charsets/Collation.php:403
+#: libraries/classes/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "アルメニア語"
 
-#: libraries/classes/Charsets/Collation.php:406
+#: libraries/classes/Charsets/Collation.php:409
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "キリル諸語"
 
-#: libraries/classes/Charsets/Collation.php:409
+#: libraries/classes/Charsets/Collation.php:412
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "アラビア語"
 
-#: libraries/classes/Charsets/Collation.php:412
-#: libraries/classes/Charsets/Collation.php:534
+#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:537
 msgctxt "Collation"
 msgid "Korean"
 msgstr "韓国語"
 
-#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:418
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "ヘブライ語"
 
-#: libraries/classes/Charsets/Collation.php:418
+#: libraries/classes/Charsets/Collation.php:421
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "グルジア語"
 
-#: libraries/classes/Charsets/Collation.php:421
+#: libraries/classes/Charsets/Collation.php:424
 msgctxt "Collation"
 msgid "Greek"
 msgstr "ギリシア語"
 
-#: libraries/classes/Charsets/Collation.php:424
+#: libraries/classes/Charsets/Collation.php:427
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "チェコ・スロバキア語"
 
-#: libraries/classes/Charsets/Collation.php:427
-#: libraries/classes/Charsets/Collation.php:593
+#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:596
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "ウクライナ語"
 
-#: libraries/classes/Charsets/Collation.php:430
-#: libraries/classes/Charsets/Collation.php:589
+#: libraries/classes/Charsets/Collation.php:433
+#: libraries/classes/Charsets/Collation.php:592
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "トルコ語"
 
-#: libraries/classes/Charsets/Collation.php:433
-#: libraries/classes/Charsets/Collation.php:581
+#: libraries/classes/Charsets/Collation.php:436
+#: libraries/classes/Charsets/Collation.php:584
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "スウェーデン語"
 
-#: libraries/classes/Charsets/Collation.php:436
-#: libraries/classes/Charsets/Collation.php:585
+#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:588
 msgctxt "Collation"
 msgid "Thai"
 msgstr "タイ語"
 
-#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:442
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "不明"
 
-#: libraries/classes/Charsets/Collation.php:464
+#: libraries/classes/Charsets/Collation.php:467
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "ブルガリア語"
 
-#: libraries/classes/Charsets/Collation.php:476
+#: libraries/classes/Charsets/Collation.php:479
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "クロアチア語"
 
-#: libraries/classes/Charsets/Collation.php:480
+#: libraries/classes/Charsets/Collation.php:483
 msgctxt "Collation"
 msgid "Czech"
 msgstr "チェコ語"
 
-#: libraries/classes/Charsets/Collation.php:484
+#: libraries/classes/Charsets/Collation.php:487
 msgctxt "Collation"
 msgid "Danish"
 msgstr "デンマーク語"
 
-#: libraries/classes/Charsets/Collation.php:488
+#: libraries/classes/Charsets/Collation.php:491
 msgctxt "Collation"
 msgid "English"
 msgstr "英語"
 
-#: libraries/classes/Charsets/Collation.php:492
+#: libraries/classes/Charsets/Collation.php:495
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "エスペラント語"
 
-#: libraries/classes/Charsets/Collation.php:496
+#: libraries/classes/Charsets/Collation.php:499
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "エストニア語"
 
-#: libraries/classes/Charsets/Collation.php:511
+#: libraries/classes/Charsets/Collation.php:514
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "ハンガリー語"
 
-#: libraries/classes/Charsets/Collation.php:515
+#: libraries/classes/Charsets/Collation.php:518
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "アイスランド語"
 
-#: libraries/classes/Charsets/Collation.php:522
+#: libraries/classes/Charsets/Collation.php:525
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "古典ラテン語"
 
-#: libraries/classes/Charsets/Collation.php:526
+#: libraries/classes/Charsets/Collation.php:529
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "ラトビア語"
 
-#: libraries/classes/Charsets/Collation.php:530
+#: libraries/classes/Charsets/Collation.php:533
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "リトアニア語"
 
-#: libraries/classes/Charsets/Collation.php:538
+#: libraries/classes/Charsets/Collation.php:541
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "ビルマ語"
 
-#: libraries/classes/Charsets/Collation.php:541
+#: libraries/classes/Charsets/Collation.php:544
 msgctxt "Collation"
 msgid "Persian"
 msgstr "ペルシア語"
 
-#: libraries/classes/Charsets/Collation.php:545
+#: libraries/classes/Charsets/Collation.php:548
 msgctxt "Collation"
 msgid "Polish"
 msgstr "ポーランド語"
 
-#: libraries/classes/Charsets/Collation.php:552
+#: libraries/classes/Charsets/Collation.php:555
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "ルーマニア語"
 
-#: libraries/classes/Charsets/Collation.php:559
+#: libraries/classes/Charsets/Collation.php:562
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "シンハラ語"
 
-#: libraries/classes/Charsets/Collation.php:563
+#: libraries/classes/Charsets/Collation.php:566
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "スロバキア語"
 
-#: libraries/classes/Charsets/Collation.php:567
+#: libraries/classes/Charsets/Collation.php:570
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "スロベニア語"
 
-#: libraries/classes/Charsets/Collation.php:597
+#: libraries/classes/Charsets/Collation.php:600
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "ベトナム語"
@@ -5147,7 +5147,7 @@ msgstr "はい"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:75
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:418
+#: libraries/classes/Controllers/Table/ReplaceController.php:412
 #: libraries/classes/Core.php:741 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "変更なし"
@@ -5292,8 +5292,8 @@ msgstr ""
 #| "temporary key was automatically generated for you. Please refer to the "
 #| "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgid ""
-"The configuration file needs a valid key for query encryption. A temporary "
-"key was automatically generated for you. Please refer to the "
+"The configuration file needs a valid key for URL query encryption. A "
+"temporary key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 "クッキーの暗号化のために、構成ファイルに有効なキーが必要です。一時的なキーが"
@@ -5307,8 +5307,8 @@ msgstr ""
 #| "necessary. It should only be %d bytes long. Please refer to the "
 #| "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgid ""
-"The query encryption key in the configuration file is longer than necessary. "
-"It should only be %d bytes long. Please refer to the "
+"The URL query encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 "構成ファイル内にあるクッキーの暗号化キーが必要以上に長いです。必要なのは %d "
@@ -5444,7 +5444,7 @@ msgstr ""
 "の時間制限を伸ばさない限りこのデータのインポートはできません。"
 
 #: libraries/classes/Controllers/Import/ImportController.php:736
-#: libraries/classes/Controllers/Sql/SqlController.php:162
+#: libraries/classes/Controllers/Sql/SqlController.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "DROP DATABASE 文は無効にされています。"
 
@@ -6894,7 +6894,7 @@ msgstr "プロット点におけるデータ内容"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2039
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2031
 #: templates/table/index_form.twig:170 templates/table/index_form.twig:213
 msgid "Ignore"
 msgstr "無視"
@@ -8321,6 +8321,7 @@ msgid "The number of threads that are not sleeping."
 msgstr "スリープしていないスレッドの数。"
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
+#: libraries/classes/Controllers/Sql/SqlController.php:131
 #: libraries/classes/Util.php:837
 msgid "Missing parameter:"
 msgstr "パラメータがありません："
@@ -8357,13 +8358,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "セキュリティで保護されていない接続"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:235
+#: libraries/classes/Controllers/Sql/SqlController.php:242
 #: libraries/classes/Sql.php:1196
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:242
+#: libraries/classes/Controllers/Sql/SqlController.php:249
 msgid "Bookmark not created!"
 msgstr "ブックマークが作成されていません!"
 
@@ -8502,7 +8503,7 @@ msgstr "表示カラムは正常に更新されました。"
 msgid "Internal relationships were successfully updated."
 msgstr "内部リレーションは正常に更新されました。"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:297
+#: libraries/classes/Controllers/Table/ReplaceController.php:291
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "行:%1$s ,カラム%2$s ,エラー:%3$s"
@@ -9866,11 +9867,11 @@ msgstr "または"
 msgid "web server upload directory:"
 msgstr "ウェブサーバ上のアップロードディレクトリ:"
 
-#: libraries/classes/InsertEdit.php:1345 libraries/classes/Sql.php:1007
+#: libraries/classes/InsertEdit.php:1337 libraries/classes/Sql.php:1007
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: libraries/classes/InsertEdit.php:1369 libraries/classes/Sql.php:987
+#: libraries/classes/InsertEdit.php:1361 libraries/classes/Sql.php:987
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"

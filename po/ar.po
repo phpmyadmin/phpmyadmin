@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-19 17:00+0000\n"
+"POT-Creation-Date: 2026-11-07 13:46+0000\n"
 "PO-Revision-Date: 2024-02-01 15:01+0000\n"
 "Last-Translator: Mohammed Al Otaibi <mopes.03.belle@icloud.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/5-2/ar/"
@@ -1289,292 +1289,292 @@ msgid "Unknown"
 msgstr "غير معروف"
 
 #: libraries/classes/Charsets/Collation.php:203
-#: libraries/classes/Charsets/Collation.php:502
+#: libraries/classes/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "الألمانية (ترتيب دفتر الهاتف)"
 
 #: libraries/classes/Charsets/Collation.php:207
-#: libraries/classes/Charsets/Collation.php:499
+#: libraries/classes/Charsets/Collation.php:502
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "الألمانية (ترتيب القاموس)"
 
 #: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:577
+#: libraries/classes/Charsets/Collation.php:580
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "الإسبانية (التقليدية)"
 
 #: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:570
+#: libraries/classes/Charsets/Collation.php:573
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "الإسبانية (الحديثة)"
 
-#: libraries/classes/Charsets/Collation.php:298
+#: libraries/classes/Charsets/Collation.php:301
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "غير حساس لحالة الأحرف"
 
-#: libraries/classes/Charsets/Collation.php:301
+#: libraries/classes/Charsets/Collation.php:304
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "حساس لحالة الأحرف"
 
-#: libraries/classes/Charsets/Collation.php:304
+#: libraries/classes/Charsets/Collation.php:307
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "غير حساس لحالة اللهجة"
 
-#: libraries/classes/Charsets/Collation.php:307
+#: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "حساس لحالة اللهجة"
 
-#: libraries/classes/Charsets/Collation.php:310
+#: libraries/classes/Charsets/Collation.php:313
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "حساسة للكانا"
 
-#: libraries/classes/Charsets/Collation.php:314
+#: libraries/classes/Charsets/Collation.php:317
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "متعدد المستويات"
 
-#: libraries/classes/Charsets/Collation.php:317
+#: libraries/classes/Charsets/Collation.php:320
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "ثنائي"
 
-#: libraries/classes/Charsets/Collation.php:320
+#: libraries/classes/Charsets/Collation.php:323
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:339
+#: libraries/classes/Charsets/Collation.php:342
 msgctxt "Collation"
 msgid "Binary"
 msgstr "ثنائي"
 
-#: libraries/classes/Charsets/Collation.php:352
-#: libraries/classes/Charsets/Collation.php:601
+#: libraries/classes/Charsets/Collation.php:355
+#: libraries/classes/Charsets/Collation.php:604
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "يونيكود"
 
-#: libraries/classes/Charsets/Collation.php:362
-#: libraries/classes/Charsets/Collation.php:548
+#: libraries/classes/Charsets/Collation.php:365
+#: libraries/classes/Charsets/Collation.php:551
 msgctxt "Collation"
 msgid "West European"
 msgstr "أوروبا الغربية"
 
-#: libraries/classes/Charsets/Collation.php:369
+#: libraries/classes/Charsets/Collation.php:372
 msgctxt "Collation"
 msgid "Central European"
 msgstr "أوروبا الوسطى"
 
-#: libraries/classes/Charsets/Collation.php:374
-#: libraries/classes/Charsets/Collation.php:555
+#: libraries/classes/Charsets/Collation.php:377
+#: libraries/classes/Charsets/Collation.php:558
 msgctxt "Collation"
 msgid "Russian"
 msgstr "الروسية"
 
-#: libraries/classes/Charsets/Collation.php:379
+#: libraries/classes/Charsets/Collation.php:382
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "الصينية المبسطة"
 
-#: libraries/classes/Charsets/Collation.php:382
+#: libraries/classes/Charsets/Collation.php:385
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "الصينية التقليدية"
 
-#: libraries/classes/Charsets/Collation.php:385
-#: libraries/classes/Charsets/Collation.php:470
+#: libraries/classes/Charsets/Collation.php:388
+#: libraries/classes/Charsets/Collation.php:473
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "الصينية"
 
-#: libraries/classes/Charsets/Collation.php:393
-#: libraries/classes/Charsets/Collation.php:519
+#: libraries/classes/Charsets/Collation.php:396
+#: libraries/classes/Charsets/Collation.php:522
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "اليابانية"
 
-#: libraries/classes/Charsets/Collation.php:398
+#: libraries/classes/Charsets/Collation.php:401
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "البلطيق"
 
-#: libraries/classes/Charsets/Collation.php:403
+#: libraries/classes/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "الأرمنية"
 
-#: libraries/classes/Charsets/Collation.php:406
+#: libraries/classes/Charsets/Collation.php:409
 #, fuzzy
 #| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "السيريلية"
 
-#: libraries/classes/Charsets/Collation.php:409
+#: libraries/classes/Charsets/Collation.php:412
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "العربية"
 
-#: libraries/classes/Charsets/Collation.php:412
-#: libraries/classes/Charsets/Collation.php:534
+#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:537
 msgctxt "Collation"
 msgid "Korean"
 msgstr "الكورية"
 
-#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:418
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "العبرية"
 
-#: libraries/classes/Charsets/Collation.php:418
+#: libraries/classes/Charsets/Collation.php:421
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "الجورجية"
 
-#: libraries/classes/Charsets/Collation.php:421
+#: libraries/classes/Charsets/Collation.php:424
 msgctxt "Collation"
 msgid "Greek"
 msgstr "اليونانية"
 
-#: libraries/classes/Charsets/Collation.php:424
+#: libraries/classes/Charsets/Collation.php:427
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "السلوفاكية"
 
-#: libraries/classes/Charsets/Collation.php:427
-#: libraries/classes/Charsets/Collation.php:593
+#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:596
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "الأكرانية"
 
-#: libraries/classes/Charsets/Collation.php:430
-#: libraries/classes/Charsets/Collation.php:589
+#: libraries/classes/Charsets/Collation.php:433
+#: libraries/classes/Charsets/Collation.php:592
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "التركية"
 
-#: libraries/classes/Charsets/Collation.php:433
-#: libraries/classes/Charsets/Collation.php:581
+#: libraries/classes/Charsets/Collation.php:436
+#: libraries/classes/Charsets/Collation.php:584
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "السويدية"
 
-#: libraries/classes/Charsets/Collation.php:436
-#: libraries/classes/Charsets/Collation.php:585
+#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:588
 msgctxt "Collation"
 msgid "Thai"
 msgstr "التايلندية"
 
-#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:442
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "غير معروف"
 
-#: libraries/classes/Charsets/Collation.php:464
+#: libraries/classes/Charsets/Collation.php:467
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "البلغارية"
 
-#: libraries/classes/Charsets/Collation.php:476
+#: libraries/classes/Charsets/Collation.php:479
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "الكرواتية"
 
-#: libraries/classes/Charsets/Collation.php:480
+#: libraries/classes/Charsets/Collation.php:483
 msgctxt "Collation"
 msgid "Czech"
 msgstr "التشيكية"
 
-#: libraries/classes/Charsets/Collation.php:484
+#: libraries/classes/Charsets/Collation.php:487
 msgctxt "Collation"
 msgid "Danish"
 msgstr "الدنمركية"
 
-#: libraries/classes/Charsets/Collation.php:488
+#: libraries/classes/Charsets/Collation.php:491
 msgctxt "Collation"
 msgid "English"
 msgstr "الإنجليزية"
 
-#: libraries/classes/Charsets/Collation.php:492
+#: libraries/classes/Charsets/Collation.php:495
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "إسبرانتو"
 
-#: libraries/classes/Charsets/Collation.php:496
+#: libraries/classes/Charsets/Collation.php:499
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "الإستونية"
 
-#: libraries/classes/Charsets/Collation.php:511
+#: libraries/classes/Charsets/Collation.php:514
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "الهنجارية"
 
-#: libraries/classes/Charsets/Collation.php:515
+#: libraries/classes/Charsets/Collation.php:518
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "الأيسلندية"
 
-#: libraries/classes/Charsets/Collation.php:522
+#: libraries/classes/Charsets/Collation.php:525
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "اللاتينية الكلاسيكية"
 
-#: libraries/classes/Charsets/Collation.php:526
+#: libraries/classes/Charsets/Collation.php:529
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "اللاتفية"
 
-#: libraries/classes/Charsets/Collation.php:530
+#: libraries/classes/Charsets/Collation.php:533
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "الليتوانية"
 
-#: libraries/classes/Charsets/Collation.php:538
+#: libraries/classes/Charsets/Collation.php:541
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "البورمية"
 
-#: libraries/classes/Charsets/Collation.php:541
+#: libraries/classes/Charsets/Collation.php:544
 msgctxt "Collation"
 msgid "Persian"
 msgstr "فارسية"
 
-#: libraries/classes/Charsets/Collation.php:545
+#: libraries/classes/Charsets/Collation.php:548
 msgctxt "Collation"
 msgid "Polish"
 msgstr "البولندية"
 
-#: libraries/classes/Charsets/Collation.php:552
+#: libraries/classes/Charsets/Collation.php:555
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "الرومانية"
 
-#: libraries/classes/Charsets/Collation.php:559
+#: libraries/classes/Charsets/Collation.php:562
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "السنهالية"
 
-#: libraries/classes/Charsets/Collation.php:563
+#: libraries/classes/Charsets/Collation.php:566
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "السلوفاكية"
 
-#: libraries/classes/Charsets/Collation.php:567
+#: libraries/classes/Charsets/Collation.php:570
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "السلوفينية"
 
-#: libraries/classes/Charsets/Collation.php:597
+#: libraries/classes/Charsets/Collation.php:600
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "الفيتنامية"
@@ -4885,7 +4885,7 @@ msgstr "نعم"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:75
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:418
+#: libraries/classes/Controllers/Table/ReplaceController.php:412
 #: libraries/classes/Core.php:741 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "لا تغييرات"
@@ -5015,16 +5015,16 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:363
 msgid ""
-"The configuration file needs a valid key for query encryption. A temporary "
-"key was automatically generated for you. Please refer to the "
+"The configuration file needs a valid key for URL query encryption. A "
+"temporary key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:373
 #, php-format
 msgid ""
-"The query encryption key in the configuration file is longer than necessary. "
-"It should only be %d bytes long. Please refer to the "
+"The URL query encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 
@@ -5157,7 +5157,7 @@ msgstr ""
 "يستطيع استكمال هذا الاستيراد، ما لم يتم زيادة حد وقت PHP."
 
 #: libraries/classes/Controllers/Import/ImportController.php:736
-#: libraries/classes/Controllers/Sql/SqlController.php:162
+#: libraries/classes/Controllers/Sql/SqlController.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "تم تعطيل عبارات «Drop Database»."
 
@@ -6607,7 +6607,7 @@ msgstr "محتوى نقطة البيانات"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2039
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2031
 #: templates/table/index_form.twig:170 templates/table/index_form.twig:213
 msgid "Ignore"
 msgstr "تجاهل"
@@ -7950,6 +7950,7 @@ msgid "The number of threads that are not sleeping."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
+#: libraries/classes/Controllers/Sql/SqlController.php:131
 #: libraries/classes/Util.php:837
 msgid "Missing parameter:"
 msgstr "مدخلات مفقودة:"
@@ -7984,13 +7985,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr ""
 
-#: libraries/classes/Controllers/Sql/SqlController.php:235
+#: libraries/classes/Controllers/Sql/SqlController.php:242
 #: libraries/classes/Sql.php:1196
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "تم إنشاء العلامة المرجعية %s."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:242
+#: libraries/classes/Controllers/Sql/SqlController.php:249
 msgid "Bookmark not created!"
 msgstr "المرجعية لم يتم إنشاؤها!"
 
@@ -8135,7 +8136,7 @@ msgstr "تم إيقاف العمليّة %s بنجاح."
 msgid "Internal relationships were successfully updated."
 msgstr "العلاقات الداخلية تم تحديثها بنجاح ."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:297
+#: libraries/classes/Controllers/Table/ReplaceController.php:291
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -9456,11 +9457,11 @@ msgstr "أو"
 msgid "web server upload directory:"
 msgstr "دليل تحميل خادم الويب:"
 
-#: libraries/classes/InsertEdit.php:1345 libraries/classes/Sql.php:1007
+#: libraries/classes/InsertEdit.php:1337 libraries/classes/Sql.php:1007
 msgid "Showing SQL query"
 msgstr "عرض استعلام SQL"
 
-#: libraries/classes/InsertEdit.php:1369 libraries/classes/Sql.php:987
+#: libraries/classes/InsertEdit.php:1361 libraries/classes/Sql.php:987
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""

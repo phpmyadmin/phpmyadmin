@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-19 17:00+0000\n"
+"POT-Creation-Date: 2026-11-07 13:46+0000\n"
 "PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -1364,13 +1364,13 @@ msgid "Unknown"
 msgstr "үлмэдэх"
 
 #: libraries/classes/Charsets/Collation.php:203
-#: libraries/classes/Charsets/Collation.php:502
+#: libraries/classes/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:207
-#: libraries/classes/Charsets/Collation.php:499
+#: libraries/classes/Charsets/Collation.php:502
 #, fuzzy
 #| msgid "Data Dictionary"
 msgctxt "Collation"
@@ -1378,370 +1378,370 @@ msgid "German (dictionary order)"
 msgstr "Өгөгдлийн толь"
 
 #: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:577
+#: libraries/classes/Charsets/Collation.php:580
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:570
+#: libraries/classes/Charsets/Collation.php:573
 #, fuzzy
 #| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Испани"
 
-#: libraries/classes/Charsets/Collation.php:298
+#: libraries/classes/Charsets/Collation.php:301
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "Том жижиг хамаагүй"
 
-#: libraries/classes/Charsets/Collation.php:301
+#: libraries/classes/Charsets/Collation.php:304
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "Том жижиг хамаатай"
 
-#: libraries/classes/Charsets/Collation.php:304
+#: libraries/classes/Charsets/Collation.php:307
 #, fuzzy
 #| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "Том жижиг хамаагүй"
 
-#: libraries/classes/Charsets/Collation.php:307
+#: libraries/classes/Charsets/Collation.php:310
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "Том жижиг хамаатай"
 
-#: libraries/classes/Charsets/Collation.php:310
+#: libraries/classes/Charsets/Collation.php:313
 #, fuzzy
 #| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "Том жижиг хамаатай"
 
-#: libraries/classes/Charsets/Collation.php:314
+#: libraries/classes/Charsets/Collation.php:317
 #, fuzzy
 #| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "олонхэлийн"
 
-#: libraries/classes/Charsets/Collation.php:317
+#: libraries/classes/Charsets/Collation.php:320
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Хоёртын"
 
-#: libraries/classes/Charsets/Collation.php:320
+#: libraries/classes/Charsets/Collation.php:323
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:339
+#: libraries/classes/Charsets/Collation.php:342
 #, fuzzy
 #| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Хоёртын"
 
-#: libraries/classes/Charsets/Collation.php:352
-#: libraries/classes/Charsets/Collation.php:601
+#: libraries/classes/Charsets/Collation.php:355
+#: libraries/classes/Charsets/Collation.php:604
 #, fuzzy
 #| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Юникод"
 
-#: libraries/classes/Charsets/Collation.php:362
-#: libraries/classes/Charsets/Collation.php:548
+#: libraries/classes/Charsets/Collation.php:365
+#: libraries/classes/Charsets/Collation.php:551
 #, fuzzy
 #| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
 msgstr "Баруун-Европ"
 
-#: libraries/classes/Charsets/Collation.php:369
+#: libraries/classes/Charsets/Collation.php:372
 #, fuzzy
 #| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Төв-Европ"
 
-#: libraries/classes/Charsets/Collation.php:374
-#: libraries/classes/Charsets/Collation.php:555
+#: libraries/classes/Charsets/Collation.php:377
+#: libraries/classes/Charsets/Collation.php:558
 #, fuzzy
 #| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Орос"
 
-#: libraries/classes/Charsets/Collation.php:379
+#: libraries/classes/Charsets/Collation.php:382
 #, fuzzy
 #| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Энгийн хятад"
 
-#: libraries/classes/Charsets/Collation.php:382
+#: libraries/classes/Charsets/Collation.php:385
 #, fuzzy
 #| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Уламжлалт хятд"
 
-#: libraries/classes/Charsets/Collation.php:385
-#: libraries/classes/Charsets/Collation.php:470
+#: libraries/classes/Charsets/Collation.php:388
+#: libraries/classes/Charsets/Collation.php:473
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "Хятад хэл"
 
-#: libraries/classes/Charsets/Collation.php:393
-#: libraries/classes/Charsets/Collation.php:519
+#: libraries/classes/Charsets/Collation.php:396
+#: libraries/classes/Charsets/Collation.php:522
 #, fuzzy
 #| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Япон"
 
-#: libraries/classes/Charsets/Collation.php:398
+#: libraries/classes/Charsets/Collation.php:401
 #, fuzzy
 #| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Балти"
 
-#: libraries/classes/Charsets/Collation.php:403
+#: libraries/classes/Charsets/Collation.php:406
 #, fuzzy
 #| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Армян"
 
-#: libraries/classes/Charsets/Collation.php:406
+#: libraries/classes/Charsets/Collation.php:409
 #, fuzzy
 #| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Кирилл"
 
-#: libraries/classes/Charsets/Collation.php:409
+#: libraries/classes/Charsets/Collation.php:412
 #, fuzzy
 #| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Араб"
 
-#: libraries/classes/Charsets/Collation.php:412
-#: libraries/classes/Charsets/Collation.php:534
+#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:537
 #, fuzzy
 #| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Солонгос"
 
-#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:418
 #, fuzzy
 #| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Иврей"
 
-#: libraries/classes/Charsets/Collation.php:418
+#: libraries/classes/Charsets/Collation.php:421
 #, fuzzy
 #| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Гүрж"
 
-#: libraries/classes/Charsets/Collation.php:421
+#: libraries/classes/Charsets/Collation.php:424
 #, fuzzy
 #| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Грек"
 
-#: libraries/classes/Charsets/Collation.php:424
+#: libraries/classes/Charsets/Collation.php:427
 #, fuzzy
 #| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Чехословак"
 
-#: libraries/classes/Charsets/Collation.php:427
-#: libraries/classes/Charsets/Collation.php:593
+#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:596
 #, fuzzy
 #| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Украин"
 
-#: libraries/classes/Charsets/Collation.php:430
-#: libraries/classes/Charsets/Collation.php:589
+#: libraries/classes/Charsets/Collation.php:433
+#: libraries/classes/Charsets/Collation.php:592
 #, fuzzy
 #| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Турк"
 
-#: libraries/classes/Charsets/Collation.php:433
-#: libraries/classes/Charsets/Collation.php:581
+#: libraries/classes/Charsets/Collation.php:436
+#: libraries/classes/Charsets/Collation.php:584
 #, fuzzy
 #| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Швед"
 
-#: libraries/classes/Charsets/Collation.php:436
-#: libraries/classes/Charsets/Collation.php:585
+#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:588
 #, fuzzy
 #| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Таи"
 
-#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:442
 #, fuzzy
 #| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "үлмэдэх"
 
-#: libraries/classes/Charsets/Collation.php:464
+#: libraries/classes/Charsets/Collation.php:467
 #, fuzzy
 #| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Болгар"
 
-#: libraries/classes/Charsets/Collation.php:476
+#: libraries/classes/Charsets/Collation.php:479
 #, fuzzy
 #| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Хорват"
 
-#: libraries/classes/Charsets/Collation.php:480
+#: libraries/classes/Charsets/Collation.php:483
 #, fuzzy
 #| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Чех"
 
-#: libraries/classes/Charsets/Collation.php:484
+#: libraries/classes/Charsets/Collation.php:487
 #, fuzzy
 #| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Дани"
 
-#: libraries/classes/Charsets/Collation.php:488
+#: libraries/classes/Charsets/Collation.php:491
 #, fuzzy
 #| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Англи"
 
-#: libraries/classes/Charsets/Collation.php:492
+#: libraries/classes/Charsets/Collation.php:495
 #, fuzzy
 #| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Есперанто"
 
-#: libraries/classes/Charsets/Collation.php:496
+#: libraries/classes/Charsets/Collation.php:499
 #, fuzzy
 #| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Эстони"
 
-#: libraries/classes/Charsets/Collation.php:511
+#: libraries/classes/Charsets/Collation.php:514
 #, fuzzy
 #| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Унгар"
 
-#: libraries/classes/Charsets/Collation.php:515
+#: libraries/classes/Charsets/Collation.php:518
 #, fuzzy
 #| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Исланд"
 
-#: libraries/classes/Charsets/Collation.php:522
+#: libraries/classes/Charsets/Collation.php:525
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:526
+#: libraries/classes/Charsets/Collation.php:529
 #, fuzzy
 #| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Латви"
 
-#: libraries/classes/Charsets/Collation.php:530
+#: libraries/classes/Charsets/Collation.php:533
 #, fuzzy
 #| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Латви"
 
-#: libraries/classes/Charsets/Collation.php:538
+#: libraries/classes/Charsets/Collation.php:541
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:541
+#: libraries/classes/Charsets/Collation.php:544
 #, fuzzy
 #| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Перс"
 
-#: libraries/classes/Charsets/Collation.php:545
+#: libraries/classes/Charsets/Collation.php:548
 #, fuzzy
 #| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Польш"
 
-#: libraries/classes/Charsets/Collation.php:552
+#: libraries/classes/Charsets/Collation.php:555
 #, fuzzy
 #| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Румын"
 
-#: libraries/classes/Charsets/Collation.php:559
+#: libraries/classes/Charsets/Collation.php:562
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:563
+#: libraries/classes/Charsets/Collation.php:566
 #, fuzzy
 #| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Словак"
 
-#: libraries/classes/Charsets/Collation.php:567
+#: libraries/classes/Charsets/Collation.php:570
 #, fuzzy
 #| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Словени"
 
-#: libraries/classes/Charsets/Collation.php:597
+#: libraries/classes/Charsets/Collation.php:600
 #, fuzzy
 #| msgid "Table name"
 msgctxt "Collation"
@@ -5206,7 +5206,7 @@ msgstr "Тийм"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:75
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:418
+#: libraries/classes/Controllers/Table/ReplaceController.php:412
 #: libraries/classes/Core.php:741 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Солигдохгүй"
@@ -5332,16 +5332,16 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:363
 msgid ""
-"The configuration file needs a valid key for query encryption. A temporary "
-"key was automatically generated for you. Please refer to the "
+"The configuration file needs a valid key for URL query encryption. A "
+"temporary key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:373
 #, php-format
 msgid ""
-"The query encryption key in the configuration file is longer than necessary. "
-"It should only be %d bytes long. Please refer to the "
+"The URL query encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 
@@ -5459,7 +5459,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:736
-#: libraries/classes/Controllers/Sql/SqlController.php:162
+#: libraries/classes/Controllers/Sql/SqlController.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"ӨС устгах\" нь хаалттай."
 
@@ -7093,7 +7093,7 @@ msgstr "Өгөгдөл заагчийн хэмжээ"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2039
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2031
 #: templates/table/index_form.twig:170 templates/table/index_form.twig:213
 msgid "Ignore"
 msgstr "Үл тоох"
@@ -8547,6 +8547,7 @@ msgid "The number of threads that are not sleeping."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
+#: libraries/classes/Controllers/Sql/SqlController.php:131
 #: libraries/classes/Util.php:837
 #, fuzzy
 #| msgid "Add new field"
@@ -8583,14 +8584,14 @@ msgstr ""
 msgid "Insecure connection"
 msgstr ""
 
-#: libraries/classes/Controllers/Sql/SqlController.php:235
+#: libraries/classes/Controllers/Sql/SqlController.php:242
 #: libraries/classes/Sql.php:1196
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "Тэмдэглэл %s нь үүсгэгдлээ"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:242
+#: libraries/classes/Controllers/Sql/SqlController.php:249
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
@@ -8744,7 +8745,7 @@ msgstr "Thread %s нь устгагдав."
 msgid "Internal relationships were successfully updated."
 msgstr "Дотоод холбоо нэмэгдэв"
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:297
+#: libraries/classes/Controllers/Table/ReplaceController.php:291
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -10186,11 +10187,11 @@ msgstr "Эсвэл"
 msgid "web server upload directory:"
 msgstr "web-сервэр түлхэх хавтас"
 
-#: libraries/classes/InsertEdit.php:1345 libraries/classes/Sql.php:1007
+#: libraries/classes/InsertEdit.php:1337 libraries/classes/Sql.php:1007
 msgid "Showing SQL query"
 msgstr "SQL асуудал харуулах"
 
-#: libraries/classes/InsertEdit.php:1369 libraries/classes/Sql.php:987
+#: libraries/classes/InsertEdit.php:1361 libraries/classes/Sql.php:987
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""

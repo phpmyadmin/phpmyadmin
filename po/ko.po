@@ -3,12 +3,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-19 17:00+0000\n"
+"POT-Creation-Date: 2026-11-07 13:46+0000\n"
 "PO-Revision-Date: 2026-10-26 07:34+0000\n"
-"Last-Translator: kim8ccf3a4116ec4691 "
-"<kim8ccf3a4116ec4691@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
-"ko/>\n"
+"Last-Translator: kim8ccf3a4116ec4691 <kim8ccf3a4116ec4691@users.noreply."
+"hosted.weblate.org>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/5-2/ko/"
+">\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1388,290 +1388,290 @@ msgid "Unknown"
 msgstr "알수없음"
 
 #: libraries/classes/Charsets/Collation.php:203
-#: libraries/classes/Charsets/Collation.php:502
+#: libraries/classes/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr "독일어(전화번호부 정렬)"
 
 #: libraries/classes/Charsets/Collation.php:207
-#: libraries/classes/Charsets/Collation.php:499
+#: libraries/classes/Charsets/Collation.php:502
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "독일어(사전순 정렬)"
 
 #: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:577
+#: libraries/classes/Charsets/Collation.php:580
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr "스페인어(고전)"
 
 #: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:570
+#: libraries/classes/Charsets/Collation.php:573
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "스페인어(현대)"
 
-#: libraries/classes/Charsets/Collation.php:298
+#: libraries/classes/Charsets/Collation.php:301
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "대소문자 구분없음"
 
-#: libraries/classes/Charsets/Collation.php:301
+#: libraries/classes/Charsets/Collation.php:304
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "대소문자 구분"
 
-#: libraries/classes/Charsets/Collation.php:304
+#: libraries/classes/Charsets/Collation.php:307
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "악센트 구분안함"
 
-#: libraries/classes/Charsets/Collation.php:307
+#: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "악센트 구분"
 
-#: libraries/classes/Charsets/Collation.php:310
+#: libraries/classes/Charsets/Collation.php:313
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "히라가나와 가타가나를 구분"
 
-#: libraries/classes/Charsets/Collation.php:314
+#: libraries/classes/Charsets/Collation.php:317
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "다중레벨"
 
-#: libraries/classes/Charsets/Collation.php:317
+#: libraries/classes/Charsets/Collation.php:320
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "바이너리"
 
-#: libraries/classes/Charsets/Collation.php:320
+#: libraries/classes/Charsets/Collation.php:323
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr "패드-없음"
 
-#: libraries/classes/Charsets/Collation.php:339
+#: libraries/classes/Charsets/Collation.php:342
 msgctxt "Collation"
 msgid "Binary"
 msgstr "바이너리"
 
-#: libraries/classes/Charsets/Collation.php:352
-#: libraries/classes/Charsets/Collation.php:601
+#: libraries/classes/Charsets/Collation.php:355
+#: libraries/classes/Charsets/Collation.php:604
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "유니코드"
 
-#: libraries/classes/Charsets/Collation.php:362
-#: libraries/classes/Charsets/Collation.php:548
+#: libraries/classes/Charsets/Collation.php:365
+#: libraries/classes/Charsets/Collation.php:551
 msgctxt "Collation"
 msgid "West European"
 msgstr "서유럽어"
 
-#: libraries/classes/Charsets/Collation.php:369
+#: libraries/classes/Charsets/Collation.php:372
 msgctxt "Collation"
 msgid "Central European"
 msgstr "중부유럽어"
 
-#: libraries/classes/Charsets/Collation.php:374
-#: libraries/classes/Charsets/Collation.php:555
+#: libraries/classes/Charsets/Collation.php:377
+#: libraries/classes/Charsets/Collation.php:558
 msgctxt "Collation"
 msgid "Russian"
 msgstr "러시아어"
 
-#: libraries/classes/Charsets/Collation.php:379
+#: libraries/classes/Charsets/Collation.php:382
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "중국어(간체)"
 
-#: libraries/classes/Charsets/Collation.php:382
+#: libraries/classes/Charsets/Collation.php:385
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "중국어(번체)"
 
-#: libraries/classes/Charsets/Collation.php:385
-#: libraries/classes/Charsets/Collation.php:470
+#: libraries/classes/Charsets/Collation.php:388
+#: libraries/classes/Charsets/Collation.php:473
 msgctxt "Collation"
 msgid "Chinese"
 msgstr "중국어"
 
-#: libraries/classes/Charsets/Collation.php:393
-#: libraries/classes/Charsets/Collation.php:519
+#: libraries/classes/Charsets/Collation.php:396
+#: libraries/classes/Charsets/Collation.php:522
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "일본어"
 
-#: libraries/classes/Charsets/Collation.php:398
+#: libraries/classes/Charsets/Collation.php:401
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "발트어"
 
-#: libraries/classes/Charsets/Collation.php:403
+#: libraries/classes/Charsets/Collation.php:406
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "아르메니아어"
 
-#: libraries/classes/Charsets/Collation.php:406
+#: libraries/classes/Charsets/Collation.php:409
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "키릴어"
 
-#: libraries/classes/Charsets/Collation.php:409
+#: libraries/classes/Charsets/Collation.php:412
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "아랍어"
 
-#: libraries/classes/Charsets/Collation.php:412
-#: libraries/classes/Charsets/Collation.php:534
+#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:537
 msgctxt "Collation"
 msgid "Korean"
 msgstr "한국어"
 
-#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:418
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "히브리어"
 
-#: libraries/classes/Charsets/Collation.php:418
+#: libraries/classes/Charsets/Collation.php:421
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "조지아어"
 
-#: libraries/classes/Charsets/Collation.php:421
+#: libraries/classes/Charsets/Collation.php:424
 msgctxt "Collation"
 msgid "Greek"
 msgstr "그리스어"
 
-#: libraries/classes/Charsets/Collation.php:424
+#: libraries/classes/Charsets/Collation.php:427
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "체코슬로바키아어"
 
-#: libraries/classes/Charsets/Collation.php:427
-#: libraries/classes/Charsets/Collation.php:593
+#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:596
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "우크라이나어"
 
-#: libraries/classes/Charsets/Collation.php:430
-#: libraries/classes/Charsets/Collation.php:589
+#: libraries/classes/Charsets/Collation.php:433
+#: libraries/classes/Charsets/Collation.php:592
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "튀르키예어"
 
-#: libraries/classes/Charsets/Collation.php:433
-#: libraries/classes/Charsets/Collation.php:581
+#: libraries/classes/Charsets/Collation.php:436
+#: libraries/classes/Charsets/Collation.php:584
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "스웨덴어"
 
-#: libraries/classes/Charsets/Collation.php:436
-#: libraries/classes/Charsets/Collation.php:585
+#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:588
 msgctxt "Collation"
 msgid "Thai"
 msgstr "태국어"
 
-#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:442
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "알수없음"
 
-#: libraries/classes/Charsets/Collation.php:464
+#: libraries/classes/Charsets/Collation.php:467
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "불가리아어"
 
-#: libraries/classes/Charsets/Collation.php:476
+#: libraries/classes/Charsets/Collation.php:479
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "크로아티아어"
 
-#: libraries/classes/Charsets/Collation.php:480
+#: libraries/classes/Charsets/Collation.php:483
 msgctxt "Collation"
 msgid "Czech"
 msgstr "체코어"
 
-#: libraries/classes/Charsets/Collation.php:484
+#: libraries/classes/Charsets/Collation.php:487
 msgctxt "Collation"
 msgid "Danish"
 msgstr "덴마크어"
 
-#: libraries/classes/Charsets/Collation.php:488
+#: libraries/classes/Charsets/Collation.php:491
 msgctxt "Collation"
 msgid "English"
 msgstr "영어"
 
-#: libraries/classes/Charsets/Collation.php:492
+#: libraries/classes/Charsets/Collation.php:495
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "에스페란토어"
 
-#: libraries/classes/Charsets/Collation.php:496
+#: libraries/classes/Charsets/Collation.php:499
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "에스토니아어"
 
-#: libraries/classes/Charsets/Collation.php:511
+#: libraries/classes/Charsets/Collation.php:514
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "헝가리어"
 
-#: libraries/classes/Charsets/Collation.php:515
+#: libraries/classes/Charsets/Collation.php:518
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "아이슬란드어"
 
-#: libraries/classes/Charsets/Collation.php:522
+#: libraries/classes/Charsets/Collation.php:525
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr "고전 라틴어"
 
-#: libraries/classes/Charsets/Collation.php:526
+#: libraries/classes/Charsets/Collation.php:529
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "라트비아어"
 
-#: libraries/classes/Charsets/Collation.php:530
+#: libraries/classes/Charsets/Collation.php:533
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "리투아니아어"
 
-#: libraries/classes/Charsets/Collation.php:538
+#: libraries/classes/Charsets/Collation.php:541
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "버마어"
 
-#: libraries/classes/Charsets/Collation.php:541
+#: libraries/classes/Charsets/Collation.php:544
 msgctxt "Collation"
 msgid "Persian"
 msgstr "페르시아어"
 
-#: libraries/classes/Charsets/Collation.php:545
+#: libraries/classes/Charsets/Collation.php:548
 msgctxt "Collation"
 msgid "Polish"
 msgstr "폴란드어"
 
-#: libraries/classes/Charsets/Collation.php:552
+#: libraries/classes/Charsets/Collation.php:555
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "루마니어어"
 
-#: libraries/classes/Charsets/Collation.php:559
+#: libraries/classes/Charsets/Collation.php:562
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "싱할라어"
 
-#: libraries/classes/Charsets/Collation.php:563
+#: libraries/classes/Charsets/Collation.php:566
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "슬로바키아어"
 
-#: libraries/classes/Charsets/Collation.php:567
+#: libraries/classes/Charsets/Collation.php:570
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "슬로베니아어"
 
-#: libraries/classes/Charsets/Collation.php:597
+#: libraries/classes/Charsets/Collation.php:600
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "베트남어"
@@ -5037,7 +5037,7 @@ msgstr "예"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:75
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:418
+#: libraries/classes/Controllers/Table/ReplaceController.php:412
 #: libraries/classes/Core.php:741 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "변화 없음"
@@ -5171,19 +5171,28 @@ msgstr ""
 "야합니다. 이 [doc@cfg_blowfish_secret]문서[/doc]를 참조하세요."
 
 #: libraries/classes/Controllers/HomeController.php:363
+#, fuzzy
+#| msgid ""
+#| "The configuration file needs a valid key for query encryption. A "
+#| "temporary key was automatically generated for you. Please refer to the "
+#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgid ""
-"The configuration file needs a valid key for query encryption. A temporary "
-"key was automatically generated for you. Please refer to the "
+"The configuration file needs a valid key for URL query encryption. A "
+"temporary key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 "설정 파일에는 쿼리 암호화를 위한 유효한 키가 필요합니다. 임시 키가 자동으로 "
 "생성됩니다. 이 [doc@cfg_URLQueryEncryptionSecretKey]문서[/doc]를 참조하세요."
 
 #: libraries/classes/Controllers/HomeController.php:373
-#, php-format
+#, fuzzy, php-format
+#| msgid ""
+#| "The query encryption key in the configuration file is longer than "
+#| "necessary. It should only be %d bytes long. Please refer to the "
+#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgid ""
-"The query encryption key in the configuration file is longer than necessary. "
-"It should only be %d bytes long. Please refer to the "
+"The URL query encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 "설정 파일의 쿼리 암호화 키가 필요 이상으로 깁니다. 이 키는 %d 바이트 길이 여"
@@ -5315,7 +5324,7 @@ msgstr ""
 "는 이 가져오기를 마칠 수 없음을 뜻합니다."
 
 #: libraries/classes/Controllers/Import/ImportController.php:736
-#: libraries/classes/Controllers/Sql/SqlController.php:162
+#: libraries/classes/Controllers/Sql/SqlController.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."
 
@@ -6753,7 +6762,7 @@ msgstr "데이터 포인트 내용"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2039
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2031
 #: templates/table/index_form.twig:170 templates/table/index_form.twig:213
 msgid "Ignore"
 msgstr "무시"
@@ -8169,6 +8178,7 @@ msgid "The number of threads that are not sleeping."
 msgstr "절전 모드가 아닌 스레드 개수입니다."
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
+#: libraries/classes/Controllers/Sql/SqlController.php:131
 #: libraries/classes/Util.php:837
 msgid "Missing parameter:"
 msgstr "매개 변수 누락:"
@@ -8205,13 +8215,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "보호되지 않은 연결"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:235
+#: libraries/classes/Controllers/Sql/SqlController.php:242
 #: libraries/classes/Sql.php:1196
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "북마크 %s가 생성되었습니다."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:242
+#: libraries/classes/Controllers/Sql/SqlController.php:249
 msgid "Bookmark not created!"
 msgstr "북마크가 생성되지 않았습니다!"
 
@@ -8349,7 +8359,7 @@ msgstr "열 표시가 정상적으로 갱신 되었습니다."
 msgid "Internal relationships were successfully updated."
 msgstr "내부 릴레이션이 정상적으로 갱신되었습니다."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:297
+#: libraries/classes/Controllers/Table/ReplaceController.php:291
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "행: %1$s, 열: %2$s, 오류: %3$s"
@@ -9692,11 +9702,11 @@ msgstr "또는"
 msgid "web server upload directory:"
 msgstr "웹 서버 업로드 디렉터리:"
 
-#: libraries/classes/InsertEdit.php:1345 libraries/classes/Sql.php:1007
+#: libraries/classes/InsertEdit.php:1337 libraries/classes/Sql.php:1007
 msgid "Showing SQL query"
 msgstr "SQL 쿼리 보기"
 
-#: libraries/classes/InsertEdit.php:1369 libraries/classes/Sql.php:987
+#: libraries/classes/InsertEdit.php:1361 libraries/classes/Sql.php:987
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "삽입된 행의 id: %1$d"

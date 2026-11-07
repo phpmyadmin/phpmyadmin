@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-10-19 17:00+0000\n"
+"POT-Creation-Date: 2026-11-07 13:46+0000\n"
 "PO-Revision-Date: 2024-12-14 09:01+0000\n"
 "Last-Translator: Ajo van Opeain <ajo.opeain@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/5-2/sk/"
@@ -1330,334 +1330,334 @@ msgid "Unknown"
 msgstr "Neznámy"
 
 #: libraries/classes/Charsets/Collation.php:203
-#: libraries/classes/Charsets/Collation.php:502
+#: libraries/classes/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "German (phone book order)"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:207
-#: libraries/classes/Charsets/Collation.php:499
+#: libraries/classes/Charsets/Collation.php:502
 #, fuzzy
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "Dátový slovník"
 
 #: libraries/classes/Charsets/Collation.php:216
-#: libraries/classes/Charsets/Collation.php:577
+#: libraries/classes/Charsets/Collation.php:580
 msgctxt "Collation"
 msgid "Spanish (traditional)"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:220
-#: libraries/classes/Charsets/Collation.php:570
+#: libraries/classes/Charsets/Collation.php:573
 #, fuzzy
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Španielština"
 
-#: libraries/classes/Charsets/Collation.php:298
+#: libraries/classes/Charsets/Collation.php:301
 #, fuzzy
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "nerozlišovať veľké a malé písmená"
 
-#: libraries/classes/Charsets/Collation.php:301
+#: libraries/classes/Charsets/Collation.php:304
 #, fuzzy
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
-#: libraries/classes/Charsets/Collation.php:304
+#: libraries/classes/Charsets/Collation.php:307
 #, fuzzy
 msgctxt "Collation variant"
 msgid "accent-insensitive"
 msgstr "nerozlišovať veľké a malé písmená"
 
-#: libraries/classes/Charsets/Collation.php:307
+#: libraries/classes/Charsets/Collation.php:310
 #, fuzzy
 msgctxt "Collation variant"
 msgid "accent-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
-#: libraries/classes/Charsets/Collation.php:310
+#: libraries/classes/Charsets/Collation.php:313
 #, fuzzy
 msgctxt "Collation variant"
 msgid "kana-sensitive"
 msgstr "rozlišovať veľké a malé písmená"
 
-#: libraries/classes/Charsets/Collation.php:314
+#: libraries/classes/Charsets/Collation.php:317
 #, fuzzy
 msgctxt "Collation variant"
 msgid "multi-level"
 msgstr "mnohojazyčný"
 
-#: libraries/classes/Charsets/Collation.php:317
+#: libraries/classes/Charsets/Collation.php:320
 #, fuzzy
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Binárny"
 
-#: libraries/classes/Charsets/Collation.php:320
+#: libraries/classes/Charsets/Collation.php:323
 msgctxt "Collation variant"
 msgid "no-pad"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:339
+#: libraries/classes/Charsets/Collation.php:342
 #, fuzzy
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binárny"
 
-#: libraries/classes/Charsets/Collation.php:352
-#: libraries/classes/Charsets/Collation.php:601
+#: libraries/classes/Charsets/Collation.php:355
+#: libraries/classes/Charsets/Collation.php:604
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
-#: libraries/classes/Charsets/Collation.php:362
-#: libraries/classes/Charsets/Collation.php:548
+#: libraries/classes/Charsets/Collation.php:365
+#: libraries/classes/Charsets/Collation.php:551
 msgctxt "Collation"
 msgid "West European"
 msgstr "Západoeurópsky"
 
-#: libraries/classes/Charsets/Collation.php:369
+#: libraries/classes/Charsets/Collation.php:372
 msgctxt "Collation"
 msgid "Central European"
 msgstr "Stredoeurópsky"
 
-#: libraries/classes/Charsets/Collation.php:374
-#: libraries/classes/Charsets/Collation.php:555
+#: libraries/classes/Charsets/Collation.php:377
+#: libraries/classes/Charsets/Collation.php:558
 #, fuzzy
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Ruština"
 
-#: libraries/classes/Charsets/Collation.php:379
+#: libraries/classes/Charsets/Collation.php:382
 #, fuzzy
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "Zjednodušená Čínština"
 
-#: libraries/classes/Charsets/Collation.php:382
+#: libraries/classes/Charsets/Collation.php:385
 #, fuzzy
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tradičná Čínština"
 
-#: libraries/classes/Charsets/Collation.php:385
-#: libraries/classes/Charsets/Collation.php:470
+#: libraries/classes/Charsets/Collation.php:388
+#: libraries/classes/Charsets/Collation.php:473
 msgctxt "Collation"
 msgid "Chinese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:393
-#: libraries/classes/Charsets/Collation.php:519
+#: libraries/classes/Charsets/Collation.php:396
+#: libraries/classes/Charsets/Collation.php:522
 #, fuzzy
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japončina"
 
-#: libraries/classes/Charsets/Collation.php:398
+#: libraries/classes/Charsets/Collation.php:401
 #, fuzzy
 msgctxt "Collation"
 msgid "Baltic"
 msgstr "Baltické"
 
-#: libraries/classes/Charsets/Collation.php:403
+#: libraries/classes/Charsets/Collation.php:406
 #, fuzzy
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Arménština"
 
-#: libraries/classes/Charsets/Collation.php:406
+#: libraries/classes/Charsets/Collation.php:409
 #, fuzzy
 msgctxt "Collation"
 msgid "Cyrillic"
 msgstr "Cyrilika"
 
-#: libraries/classes/Charsets/Collation.php:409
+#: libraries/classes/Charsets/Collation.php:412
 #, fuzzy
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabština"
 
-#: libraries/classes/Charsets/Collation.php:412
-#: libraries/classes/Charsets/Collation.php:534
+#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:537
 #, fuzzy
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Kórejčina"
 
-#: libraries/classes/Charsets/Collation.php:415
+#: libraries/classes/Charsets/Collation.php:418
 #, fuzzy
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Hebrejsky"
 
-#: libraries/classes/Charsets/Collation.php:418
+#: libraries/classes/Charsets/Collation.php:421
 #, fuzzy
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Gruzínčina"
 
-#: libraries/classes/Charsets/Collation.php:421
+#: libraries/classes/Charsets/Collation.php:424
 #, fuzzy
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Gréčtina"
 
-#: libraries/classes/Charsets/Collation.php:424
+#: libraries/classes/Charsets/Collation.php:427
 #, fuzzy
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Čeština/Slovenčina"
 
-#: libraries/classes/Charsets/Collation.php:427
-#: libraries/classes/Charsets/Collation.php:593
+#: libraries/classes/Charsets/Collation.php:430
+#: libraries/classes/Charsets/Collation.php:596
 #, fuzzy
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrajinsky"
 
-#: libraries/classes/Charsets/Collation.php:430
-#: libraries/classes/Charsets/Collation.php:589
+#: libraries/classes/Charsets/Collation.php:433
+#: libraries/classes/Charsets/Collation.php:592
 #, fuzzy
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turecky"
 
-#: libraries/classes/Charsets/Collation.php:433
-#: libraries/classes/Charsets/Collation.php:581
+#: libraries/classes/Charsets/Collation.php:436
+#: libraries/classes/Charsets/Collation.php:584
 #, fuzzy
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Švédština"
 
-#: libraries/classes/Charsets/Collation.php:436
-#: libraries/classes/Charsets/Collation.php:585
+#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:588
 #, fuzzy
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Thajčina"
 
-#: libraries/classes/Charsets/Collation.php:439
+#: libraries/classes/Charsets/Collation.php:442
 #, fuzzy
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "neznámy"
 
-#: libraries/classes/Charsets/Collation.php:464
+#: libraries/classes/Charsets/Collation.php:467
 #, fuzzy
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulharština"
 
-#: libraries/classes/Charsets/Collation.php:476
+#: libraries/classes/Charsets/Collation.php:479
 #, fuzzy
 msgctxt "Collation"
 msgid "Croatian"
 msgstr "Chorvátsky"
 
-#: libraries/classes/Charsets/Collation.php:480
+#: libraries/classes/Charsets/Collation.php:483
 #, fuzzy
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Čeština"
 
-#: libraries/classes/Charsets/Collation.php:484
+#: libraries/classes/Charsets/Collation.php:487
 #, fuzzy
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Dánština"
 
-#: libraries/classes/Charsets/Collation.php:488
+#: libraries/classes/Charsets/Collation.php:491
 #, fuzzy
 msgctxt "Collation"
 msgid "English"
 msgstr "Anglicky"
 
-#: libraries/classes/Charsets/Collation.php:492
+#: libraries/classes/Charsets/Collation.php:495
 #, fuzzy
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: libraries/classes/Charsets/Collation.php:496
+#: libraries/classes/Charsets/Collation.php:499
 #, fuzzy
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estónsky"
 
-#: libraries/classes/Charsets/Collation.php:511
+#: libraries/classes/Charsets/Collation.php:514
 #, fuzzy
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Maďarsky"
 
-#: libraries/classes/Charsets/Collation.php:515
+#: libraries/classes/Charsets/Collation.php:518
 #, fuzzy
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandčina"
 
-#: libraries/classes/Charsets/Collation.php:522
+#: libraries/classes/Charsets/Collation.php:525
 msgctxt "Collation"
 msgid "Classical Latin"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:526
+#: libraries/classes/Charsets/Collation.php:529
 #, fuzzy
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Lotyšstina"
 
-#: libraries/classes/Charsets/Collation.php:530
+#: libraries/classes/Charsets/Collation.php:533
 #, fuzzy
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Litovsky"
 
-#: libraries/classes/Charsets/Collation.php:538
+#: libraries/classes/Charsets/Collation.php:541
 msgctxt "Collation"
 msgid "Burmese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:541
+#: libraries/classes/Charsets/Collation.php:544
 #, fuzzy
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Perština"
 
-#: libraries/classes/Charsets/Collation.php:545
+#: libraries/classes/Charsets/Collation.php:548
 #, fuzzy
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Poľština"
 
-#: libraries/classes/Charsets/Collation.php:552
+#: libraries/classes/Charsets/Collation.php:555
 #, fuzzy
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumunština"
 
-#: libraries/classes/Charsets/Collation.php:559
+#: libraries/classes/Charsets/Collation.php:562
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr ""
 
-#: libraries/classes/Charsets/Collation.php:563
+#: libraries/classes/Charsets/Collation.php:566
 #, fuzzy
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovenčina"
 
-#: libraries/classes/Charsets/Collation.php:567
+#: libraries/classes/Charsets/Collation.php:570
 #, fuzzy
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovinčina"
 
-#: libraries/classes/Charsets/Collation.php:597
+#: libraries/classes/Charsets/Collation.php:600
 #, fuzzy
 msgctxt "Collation"
 msgid "Vietnamese"
@@ -5096,7 +5096,7 @@ msgstr "Áno"
 #: libraries/classes/Controllers/Database/Structure/EmptyTableController.php:75
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
-#: libraries/classes/Controllers/Table/ReplaceController.php:418
+#: libraries/classes/Controllers/Table/ReplaceController.php:412
 #: libraries/classes/Core.php:741 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Žiadna zmena"
@@ -5230,16 +5230,16 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:363
 msgid ""
-"The configuration file needs a valid key for query encryption. A temporary "
-"key was automatically generated for you. Please refer to the "
+"The configuration file needs a valid key for URL query encryption. A "
+"temporary key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:373
 #, php-format
 msgid ""
-"The query encryption key in the configuration file is longer than necessary. "
-"It should only be %d bytes long. Please refer to the "
+"The URL query encryption key in the configuration file is longer than "
+"necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 
@@ -5372,7 +5372,7 @@ msgstr ""
 "časový limit behu skriptu v php."
 
 #: libraries/classes/Controllers/Import/ImportController.php:736
-#: libraries/classes/Controllers/Sql/SqlController.php:162
+#: libraries/classes/Controllers/Sql/SqlController.php:169
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Príkaz \"DROP DATABASE\" je zakázaný."
 
@@ -6817,7 +6817,7 @@ msgstr "Obsah datového bodu"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2039
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2031
 #: templates/table/index_form.twig:170 templates/table/index_form.twig:213
 msgid "Ignore"
 msgstr "Ignorovať"
@@ -8265,6 +8265,7 @@ msgid "The number of threads that are not sleeping."
 msgstr "Počet nespiacich vlákien."
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:46
+#: libraries/classes/Controllers/Sql/SqlController.php:131
 #: libraries/classes/Util.php:837
 msgid "Missing parameter:"
 msgstr "Chýbajúci parameter:"
@@ -8298,13 +8299,13 @@ msgstr ""
 msgid "Insecure connection"
 msgstr "Nezabezpečené pripojenie"
 
-#: libraries/classes/Controllers/Sql/SqlController.php:235
+#: libraries/classes/Controllers/Sql/SqlController.php:242
 #: libraries/classes/Sql.php:1196
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Príkaz %s bol zaradený medzi obľúbené."
 
-#: libraries/classes/Controllers/Sql/SqlController.php:242
+#: libraries/classes/Controllers/Sql/SqlController.php:249
 msgid "Bookmark not created!"
 msgstr "Záložka nebola vytvorená!"
 
@@ -8446,7 +8447,7 @@ msgstr "Zobrazený stĺpec bol aktualizovný."
 msgid "Internal relationships were successfully updated."
 msgstr "Interné vzťahy boli úspešne zmenené."
 
-#: libraries/classes/Controllers/Table/ReplaceController.php:297
+#: libraries/classes/Controllers/Table/ReplaceController.php:291
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -9786,11 +9787,11 @@ msgstr "Alebo"
 msgid "web server upload directory:"
 msgstr "upload adresár web serveru:"
 
-#: libraries/classes/InsertEdit.php:1345 libraries/classes/Sql.php:1007
+#: libraries/classes/InsertEdit.php:1337 libraries/classes/Sql.php:1007
 msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
-#: libraries/classes/InsertEdit.php:1369 libraries/classes/Sql.php:987
+#: libraries/classes/InsertEdit.php:1361 libraries/classes/Sql.php:987
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Vložený riadok id: %1$d"
