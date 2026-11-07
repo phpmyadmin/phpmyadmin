@@ -16566,7 +16566,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 13
+			count: 15
 			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
