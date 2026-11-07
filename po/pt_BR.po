@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2023-12-30 21:39+0000\n"
-"Last-Translator: Marco Aurélio Cardoso <marcoaurelio.cardoso@gmail.com>\n"
+"PO-Revision-Date: 2026-11-08 14:51+0000\n"
+"Last-Translator: Maurício Meneghini Fauth "
+"<mauriciofauth@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-1/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1551,12 +1552,12 @@ msgstr "Unicode"
 #: libraries/classes/Charsets/Collation.php:527
 msgctxt "Collation"
 msgid "West European"
-msgstr "Oeste Europeu"
+msgstr "Europeu Ocidental"
 
 #: libraries/classes/Charsets/Collation.php:355
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Centro-Europeu"
+msgstr "Centro-europeu"
 
 #: libraries/classes/Charsets/Collation.php:360
 #: libraries/classes/Charsets/Collation.php:534
@@ -1630,7 +1631,7 @@ msgstr "Grego"
 #: libraries/classes/Charsets/Collation.php:410
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Tcheco-Eslováquio"
+msgstr "Tcheco-eslovaco"
 
 #: libraries/classes/Charsets/Collation.php:413
 #: libraries/classes/Charsets/Collation.php:572
@@ -1709,7 +1710,7 @@ msgstr "Islandês"
 #: libraries/classes/Charsets/Collation.php:501
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr "Latim Clássico"
+msgstr "Latim clássico"
 
 #: libraries/classes/Charsets/Collation.php:505
 msgctxt "Collation"
@@ -4555,7 +4556,7 @@ msgstr "Ordenar por"
 
 #: libraries/classes/Config/Descriptions.php:996
 msgid "Server connection collation"
-msgstr "Collation de conexão do servidor MySQL"
+msgstr "Ordenação de conexão do servidor"
 
 #: libraries/classes/Config/FormDisplay.php:123
 #: libraries/classes/Config/Validator.php:536
@@ -5243,7 +5244,7 @@ msgstr ""
 #: libraries/classes/Controllers/Database/OperationsController.php:363
 #: libraries/classes/Controllers/Table/OperationsController.php:272
 msgid "No collation provided."
-msgstr "Nenhum agrupamento fornecido."
+msgstr "Nenhuma ordenação fornecida."
 
 #: libraries/classes/Controllers/Database/SearchController.php:55
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
@@ -5698,10 +5699,10 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
-"Esta operação tentará converter seus dados para a nova collation. Em casos "
-"raros, especialmente onde um caractere não existe na nova collation, este "
+"Esta operação tentará converter seus dados para a nova ordenação. Em casos "
+"raros, especialmente onde um caractere não existe na nova ordenação, este "
 "processo poderia fazer com que os dados aparecessem incorretamente na nova "
-"collation; neste caso, sugerimos que você reverta à collation original e "
+"ordenação; neste caso, sugerimos que você reverta à ordenação original e "
 "siga as dicas em "
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:76
@@ -5710,7 +5711,7 @@ msgstr "Dados Ilegíveis"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:78
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr "Tem certeza de que deseja mudar a collatin e converter os dados?"
+msgstr "Tem certeza de que deseja mudar a ordenação e converter os dados?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:81
 msgid ""
@@ -5721,19 +5722,19 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"Por meio desta operação, o MySQL tenta mapear os valores dos dados entre "
-"collations. Se os conjuntos de caracteres são incompatíveis, poderá haver "
+"Por meio desta operação, o MySQL tenta mapear os valores dos dados entre as "
+"ordenações. Se os conjuntos de caracteres são incompatíveis, poderá haver "
 "perda de dados e esses dados <b>NÃO</b> poderão ser recuperados somente com "
-"a reversão de collation da coluna.<b> Para converter dados existentes, é "
-"sugerido que se use a funcionalidade de edição de coluna(s) (o link \"Alterar"
-"\") na página de estrutura da tabela. </b>"
+"a reversão da ordenação da coluna.<b> Para converter dados existentes, é "
+"sugerido que se use a funcionalidade de edição de coluna(s) (o link "
+"\"Alterar\") na página de estrutura da tabela. </b>"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:90
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Você tem certeza que quer mudar todos os agrupamento de colunas e converter "
+"Você tem certeza que quer mudar a ordenação de todas as colunas e converter "
 "os dados?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:94
@@ -9029,7 +9030,7 @@ msgstr ""
 #: libraries/classes/DatabaseInterface.php:1158
 #: libraries/classes/DatabaseInterface.php:1155
 msgid "Failed to set configured collation connection!"
-msgstr "Falha ao definir conexão do agrupamento configurado!"
+msgstr "Falha ao definir a ordenação de conexão configurada!"
 
 #: libraries/classes/DatabaseInterface.php:1946
 #: libraries/classes/DatabaseInterface.php:1938
@@ -14296,7 +14297,7 @@ msgstr "coluna(s)"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 msgid "Collation:"
-msgstr "Colação:"
+msgstr "Ordenação:"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
@@ -14442,7 +14443,7 @@ msgstr ""
 #: templates/database/operations/index.twig:203
 #: templates/table/structure/display_structure.twig:420
 msgid "Collation"
-msgstr "Colação"
+msgstr "Ordenação"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
@@ -15224,12 +15225,12 @@ msgstr "Mudar para o banco de dados copiado"
 #: templates/database/operations/index.twig:222
 #: templates/database/operations/index.twig:221
 msgid "Change all tables collations"
-msgstr "Mudar colação de todas as tabelas"
+msgstr "Mudar a ordenação de todas as tabelas"
 
 #: templates/database/operations/index.twig:226
 #: templates/database/operations/index.twig:225
 msgid "Change all tables columns collations"
-msgstr "Mudar colação das colunas de todas as tabelas"
+msgstr "Mudar a ordenação das colunas de todas as tabelas"
 
 #: templates/database/privileges/index.twig:9
 #: templates/table/privileges/index.twig:8
@@ -16095,7 +16096,7 @@ msgstr "Configurações gerais"
 
 #: templates/home/index.twig:56
 msgid "Server connection collation:"
-msgstr "Collation de conexão do servidor MySQL:"
+msgstr "Ordenação de conexão do servidor:"
 
 #: templates/home/index.twig:79 templates/preferences/manage/main.twig:56
 msgid "More settings"
@@ -16928,7 +16929,7 @@ msgstr "Informação"
 
 #: templates/server/collations/index.twig:5
 msgid "Character sets and collations"
-msgstr "Conjuntos de caracteres e collations"
+msgstr "Conjuntos de caracteres e ordenações"
 
 #: templates/server/collations/index.twig:32
 msgid "(default)"
@@ -18536,7 +18537,7 @@ msgstr "Comentários da tabela"
 
 #: templates/table/operations/index.twig:158
 msgid "Change all column collations"
-msgstr "Mudar colação de todas as colunas"
+msgstr "Mudar a ordenação de todas as colunas"
 
 #: templates/table/operations/index.twig:227
 msgid "Copy table to (database.table)"
