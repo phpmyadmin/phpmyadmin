@@ -1343,8 +1343,6 @@ class Sql
             && $justOneTable
             && ! Utilities::isSystemSchema($db);
 
-        $_SESSION['tmpval']['possible_as_geometry'] = $editable;
-
         $displayParts = DisplayParts::fromArray([
             'hasEditLink' => true,
             'deleteLink' => DeleteLinkEnum::DELETE_ROW,
