@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-01 00:29+0000\n"
-"PO-Revision-Date: 2026-09-09 18:51+0000\n"
-"Last-Translator: kx4x <abdalamasterpiece@proton.me>\n"
+"PO-Revision-Date: 2026-11-07 17:51+0000\n"
+"Last-Translator: Maurício Meneghini Fauth "
+"<mauriciofauth@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.9.1\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -291,7 +292,7 @@ msgstr "Comentários de tabela:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:70
 msgid "Collation:"
-msgstr "Colação:"
+msgstr "Ordenação:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:73
 msgid "Storage Engine:"
@@ -710,7 +711,7 @@ msgstr ""
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:16
 #: resources/templates/table/zoom_search/index.twig:38
 msgid "Collation"
-msgstr "Colação"
+msgstr "Ordenação"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:39
 #: resources/templates/database/central_columns/edit.twig:13
@@ -2020,11 +2021,11 @@ msgstr "Mudar para o banco de dados copiado"
 
 #: resources/templates/database/operations/index.twig:217
 msgid "Change all tables collations"
-msgstr "Mudar colação de todas as tabelas"
+msgstr "Mudar a ordenação de todas as tabelas"
 
 #: resources/templates/database/operations/index.twig:221
 msgid "Change all tables columns collations"
-msgstr "Mudar colação das colunas de todas as tabelas"
+msgstr "Mudar a ordenação das colunas de todas as tabelas"
 
 #: resources/templates/database/privileges/index.twig:5
 #: resources/templates/table/privileges/index.twig:5
@@ -3221,10 +3222,8 @@ msgid "Export event"
 msgstr "Exportação do evento %s"
 
 #: resources/templates/events/index.twig:147
-#, fuzzy
-#| msgid "The slow query log is disabled."
 msgid "The event scheduler is disabled."
-msgstr "O log de queries lentas está desativado."
+msgstr "O agendador de eventos está desativado."
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -3534,7 +3533,7 @@ msgstr "Alterar a senha"
 
 #: resources/templates/home/index.twig:55
 msgid "Server connection collation:"
-msgstr "Collation de conexão do servidor MySQL:"
+msgstr "Ordenação de conexão do servidor:"
 
 #: resources/templates/home/index.twig:81
 #: resources/templates/preferences/manage/main.twig:55
@@ -4541,7 +4540,7 @@ msgstr "Informação"
 
 #: resources/templates/server/collations/index.twig:4
 msgid "Character sets and collations"
-msgstr "Conjuntos de caracteres e collations"
+msgstr "Conjuntos de caracteres e ordenações"
 
 #: resources/templates/server/collations/index.twig:23
 msgctxt "The collation is the default one"
@@ -6983,7 +6982,7 @@ msgstr "Comentários da tabela"
 
 #: resources/templates/table/operations/index.twig:178
 msgid "Change all column collations"
-msgstr "Mudar colação de todas as colunas"
+msgstr "Mudar a ordenação de todas as colunas"
 
 #: resources/templates/table/operations/index.twig:259
 msgid "Copy table to (database.table)"
@@ -8962,12 +8961,12 @@ msgstr "Unicode"
 #: src/Charsets/Collation.php:270 src/Charsets/Collation.php:454
 msgctxt "Collation"
 msgid "West European"
-msgstr "Oeste Europeu"
+msgstr "Europeu Ocidental"
 
 #: src/Charsets/Collation.php:277
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Centro-Europeu"
+msgstr "Centro-europeu"
 
 #: src/Charsets/Collation.php:282 src/Charsets/Collation.php:461
 msgctxt "Collation"
@@ -9037,7 +9036,7 @@ msgstr "Grego"
 #: src/Charsets/Collation.php:332
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "Tcheco-Eslováquio"
+msgstr "Tcheco-eslovaco"
 
 #: src/Charsets/Collation.php:335 src/Charsets/Collation.php:499
 msgctxt "Collation"
@@ -9112,7 +9111,7 @@ msgstr "Islandês"
 #: src/Charsets/Collation.php:428
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr "Latim Clássico"
+msgstr "Latim clássico"
 
 #: src/Charsets/Collation.php:432
 msgctxt "Collation"
@@ -11777,7 +11776,7 @@ msgstr "Ordenar por"
 
 #: src/Config/Descriptions.php:965
 msgid "Server connection collation"
-msgstr "Collation de conexão do servidor MySQL"
+msgstr "Ordenação de conexão do servidor"
 
 #: src/Config/FormDisplay.php:582
 #, php-format
@@ -12445,7 +12444,7 @@ msgstr ""
 
 #: src/Controllers/Events/IndexController.php:65
 msgid "The event was dropped immediately after creation."
-msgstr ""
+msgstr "O evento foi descartado imediatamente após a criação."
 
 #: src/Controllers/Events/IndexController.php:112
 msgid "Add event"
@@ -12604,6 +12603,9 @@ msgid ""
 "to not work properly. Please refer to [doc@faq1-46]documentation[/doc] for "
 "possible issues."
 msgstr ""
+"A variável [code]HTTP_HOST[/code] está ausente, o que pode fazer com que o "
+"phpMyAdmin não funcione corretamente. Por favor, consulte a [doc@faq1-"
+"46]documentação[/doc] para possíveis problemas."
 
 #: src/Controllers/HomeController.php:462
 msgid ""
@@ -12640,7 +12642,7 @@ msgstr "Parâmetro de formato incorreto"
 
 #: src/Controllers/Import/ImportController.php:252
 msgid "Sorry an unexpected error happened!"
-msgstr ""
+msgstr "Desculpe, aconteceu um erro inesperado!"
 
 #: src/Controllers/Import/ImportController.php:297
 #: src/Controllers/Import/ImportController.php:508
@@ -12823,10 +12825,10 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
-"Esta operação tentará converter seus dados para a nova collation. Em casos "
-"raros, especialmente onde um caractere não existe na nova collation, este "
+"Esta operação tentará converter seus dados para a nova ordenação. Em casos "
+"raros, especialmente onde um caractere não existe na nova ordenação, este "
 "processo poderia fazer com que os dados aparecessem incorretamente na nova "
-"collation; neste caso, sugerimos que você reverta à collation original e "
+"ordenação; neste caso, sugerimos que você reverta à ordenação original e "
 "siga as dicas em "
 
 #: src/Controllers/JavaScriptMessagesController.php:94
@@ -12835,7 +12837,7 @@ msgstr "Dados Ilegíveis"
 
 #: src/Controllers/JavaScriptMessagesController.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr "Tem certeza de que deseja mudar a collatin e converter os dados?"
+msgstr "Tem certeza de que deseja mudar a ordenação e converter os dados?"
 
 #: src/Controllers/JavaScriptMessagesController.php:99
 msgid ""
@@ -12846,10 +12848,10 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
-"Por meio desta operação, o MySQL tenta mapear os valores dos dados entre "
-"collations. Se os conjuntos de caracteres são incompatíveis, poderá haver "
+"Por meio desta operação, o MySQL tenta mapear os valores dos dados entre as "
+"ordenações. Se os conjuntos de caracteres são incompatíveis, poderá haver "
 "perda de dados e esses dados <b>NÃO</b> poderão ser recuperados somente com "
-"a reversão de collation da coluna.<b> Para converter dados existentes, é "
+"a reversão da ordenação da coluna.<b> Para converter dados existentes, é "
 "sugerido que se use a funcionalidade de edição de coluna(s) (o link "
 "\"Alterar\") na página de estrutura da tabela. </b>"
 
@@ -12858,7 +12860,7 @@ msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
 msgstr ""
-"Você tem certeza que quer mudar todos os agrupamento de colunas e converter "
+"Você tem certeza que quer mudar a ordenação de todas as colunas e converter "
 "os dados?"
 
 #: src/Controllers/JavaScriptMessagesController.php:112
@@ -14249,6 +14251,8 @@ msgid ""
 "The fullscreen request was denied because the Fullscreen API is disabled by "
 "user preference in the browser."
 msgstr ""
+"A solicitação de tela cheia foi negada porque a API Fullscreen está "
+"desativada nas preferências do usuário no navegador."
 
 #: src/Controllers/JavaScriptMessagesController.php:705
 msgctxt "Month name"
@@ -14657,7 +14661,7 @@ msgstr "String"
 #: src/Controllers/Operations/Database/CollationController.php:42
 #: src/Controllers/Operations/TableController.php:254
 msgid "No collation provided."
-msgstr "Nenhum agrupamento fornecido."
+msgstr "Nenhuma ordenação fornecida."
 
 #: src/Controllers/Operations/DatabaseController.php:85
 msgid "Cannot copy database to the same name. Change the name and try again."
@@ -15947,7 +15951,7 @@ msgstr ""
 
 #: src/Dbal/DatabaseInterface.php:1108
 msgid "Failed to set configured collation connection!"
-msgstr "Falha ao definir conexão do agrupamento configurado!"
+msgstr "Falha ao definir a ordenação de conexão configurada!"
 
 #: src/Dbal/DbiMysqli.php:117
 #, php-format
@@ -18900,18 +18904,16 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Uma combinação de data e hora, o limite suportado vai de %1$s a %2$s"
 
 #: src/Types.php:209
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Um timestamp, o limite vai de 1970-01-01 00:00:01 UTC até 2038-01-09 "
-"03:14:07 UTC, armazenado como o número de segundos desde a época (1970-01-01 "
+"Um timestamp, o intervalo é de 1970-01-01 00:00:01 UTC até 2038-01-19 "
+"03:14:07 UTC em plataformas de 32 bits (MariaDB 11.3 e anteriores), e até "
+"2106-02-07 06:28:15 UTC em plataformas de 64 bits (MariaDB 11.5 e "
+"posteriores), armazenado como o número de segundos desde a epoch (1970-01-01 "
 "00:00:00 UTC)"
 
 #: src/Types.php:215
@@ -19087,7 +19089,7 @@ msgstr ""
 
 #: src/Types.php:290
 msgid "Intended for storage of IPv4 addresses"
-msgstr ""
+msgstr "Destinado ao armazenamento de endereços IPv4"
 
 #: src/Types.php:291
 msgid ""
@@ -19106,10 +19108,12 @@ msgid ""
 "Stores vector data optimized for operations such as similarity search and "
 "machine learning applications"
 msgstr ""
+"Armazena dados vetoriais otimizados para operações como busca por "
+"similaridade e aplicações de aprendizado de máquina"
 
 #: src/Types.php:297
 msgid "Intended for storage of XML data"
-msgstr ""
+msgstr "Destinado ao armazenamento de dados em XML"
 
 #: src/Types.php:615
 msgctxt "numeric types"
