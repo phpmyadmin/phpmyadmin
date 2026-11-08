@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-01 00:29+0000\n"
+"POT-Creation-Date: 2026-11-08 00:26+0000\n"
 "PO-Revision-Date: 2025-09-20 04:06+0000\n"
 "Last-Translator: Phil Jope <Phil.Jope@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16588,11 +16588,11 @@ msgstr ""
 "Die Funktionen ini_get und/oder ini_set sind in der php.ini deaktiviert. "
 "phpMyAdmin benötigt diese Funktionen!"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:46
+#: src/Http/Middleware/TokenRequestParamChecking.php:47
 msgid "Error: Token mismatch"
 msgstr "Fehler: Token stimmen nicht überein"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:78
+#: src/Http/Middleware/TokenRequestParamChecking.php:84
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."

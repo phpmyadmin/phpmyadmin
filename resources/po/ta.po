@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-01 00:29+0000\n"
+"POT-Creation-Date: 2026-11-08 00:26+0000\n"
 "PO-Revision-Date: 2026-07-28 04:01+0000\n"
 "Last-Translator: Rajkumar Ramadoss <lionrajkumar@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16212,11 +16212,11 @@ msgstr ""
 "Ini_get மற்றும்/அல்லது ini_set செயல்பாடுகள் php.ini இல் முடக்கப்பட்டுள்ளன. Phpmyadmin "
 "க்கு இந்த செயல்பாடுகள் தேவை!"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:46
+#: src/Http/Middleware/TokenRequestParamChecking.php:47
 msgid "Error: Token mismatch"
 msgstr "பிழை: கிள்ளாக்கு பொருந்தாத தன்மை"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:78
+#: src/Http/Middleware/TokenRequestParamChecking.php:84
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."

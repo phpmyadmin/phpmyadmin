@@ -3,10 +3,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-01 00:29+0000\n"
+"POT-Creation-Date: 2026-11-08 00:26+0000\n"
 "PO-Revision-Date: 2026-11-07 17:51+0000\n"
-"Last-Translator: Maurício Meneghini Fauth "
-"<mauriciofauth@users.noreply.hosted.weblate.org>\n"
+"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@users.noreply."
+"hosted.weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -12604,8 +12604,8 @@ msgid ""
 "possible issues."
 msgstr ""
 "A variável [code]HTTP_HOST[/code] está ausente, o que pode fazer com que o "
-"phpMyAdmin não funcione corretamente. Por favor, consulte a [doc@faq1-"
-"46]documentação[/doc] para possíveis problemas."
+"phpMyAdmin não funcione corretamente. Por favor, consulte a "
+"[doc@faq1-46]documentação[/doc] para possíveis problemas."
 
 #: src/Controllers/HomeController.php:462
 msgid ""
@@ -16542,11 +16542,11 @@ msgstr ""
 "As funções ini_get e/ou ini_set estão desabilitadas no php.ini. O phpMyAdmin "
 "requer estas funções!"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:46
+#: src/Http/Middleware/TokenRequestParamChecking.php:47
 msgid "Error: Token mismatch"
 msgstr "Erro: Incompatibilidade de token"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:78
+#: src/Http/Middleware/TokenRequestParamChecking.php:84
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."

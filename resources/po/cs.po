@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-01 00:29+0000\n"
+"POT-Creation-Date: 2026-11-08 00:26+0000\n"
 "PO-Revision-Date: 2026-11-06 14:51+0000\n"
 "Last-Translator: Adam Havránek <helak@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16192,11 +16192,11 @@ msgstr ""
 "V souboru php.ini je zakázaná funkce ini_get nebo ini_set. phpMyAdmin však "
 "tyto funkce vyžaduje!"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:46
+#: src/Http/Middleware/TokenRequestParamChecking.php:47
 msgid "Error: Token mismatch"
 msgstr "Chyba: neplatný token"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:78
+#: src/Http/Middleware/TokenRequestParamChecking.php:84
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."

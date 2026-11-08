@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-01 00:29+0000\n"
+"POT-Creation-Date: 2026-11-08 00:26+0000\n"
 "PO-Revision-Date: 2026-10-26 07:34+0000\n"
 "Last-Translator: kim8ccf3a4116ec4691 <kim8ccf3a4116ec4691@users.noreply."
 "hosted.weblate.org>\n"
@@ -15970,11 +15970,11 @@ msgstr ""
 "php.ini에서 ini_get 및 / 또는 ini_set 함수가 비활성화되어 있습니다. "
 "phpMyAdmin에는이 함수가 필요합니다!"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:46
+#: src/Http/Middleware/TokenRequestParamChecking.php:47
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 
-#: src/Http/Middleware/TokenRequestParamChecking.php:78
+#: src/Http/Middleware/TokenRequestParamChecking.php:84
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
