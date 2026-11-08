@@ -2092,7 +2092,7 @@ Cookie authentication options
         $cfg['ArbitraryServerRegexp'] = '@^192\.168\.0\.[0-9]{1,}$@';
 
         // Allow connection to server name ending with -mysql:
-        $cfg['ArbitraryServerRegexp'] = '@^[^:]\-mysql$@';
+        $cfg['ArbitraryServerRegexp'] = '@^[^:]+\-mysql$@';
 
     .. note::
 
@@ -2989,7 +2989,7 @@ Languages
 .. config:option:: $cfg['DefaultConnectionCollation']
 
     :type: string
-    :default: ``'utf8mb4_general_ci'``
+    :default: ``'utf8mb4_unicode_ci'``
 
     Defines the default connection collation to use, if not user-defined.
     See the `MySQL documentation for charsets
@@ -3820,12 +3820,12 @@ Default options for Transformations
 .. config:option:: $cfg['DefaultTransformations']['TextImageLink']
 
     :type: array
-    :default: ``['', 100, 50]``
+    :default: ``[null, 100, 50]``
 
 .. config:option:: $cfg['DefaultTransformations']['TextLink']
 
     :type: array
-    :default: ``['', '', '']``
+    :default: ``[null, null, null]``
 
 Console settings
 ----------------
