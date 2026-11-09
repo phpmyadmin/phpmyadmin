@@ -24,8 +24,11 @@ use PhpMyAdmin\UrlParams;
 
 use function __;
 use function array_merge;
+use function count;
 use function implode;
 use function is_array;
+use function is_numeric;
+use function max;
 
 #[Route('/table/export', ['GET', 'POST'])]
 readonly class ExportController implements InvocableController
@@ -108,7 +111,7 @@ readonly class ExportController implements InvocableController
             Current::$table,
             Current::$sqlQuery,
             Current::$numTables,
-            0,
+            $this->getUnlimNumRows($request),
             $exportList,
             $request->getParam('format'),
             $request->getParam('what'),
@@ -121,5 +124,22 @@ readonly class ExportController implements InvocableController
         ]));
 
         return $this->response->response();
+    }
+
+    /**
+     * Number of rows of the query being exported: the selected rows when exporting
+     * specific rows, otherwise the total number of rows returned by the query.
+     */
+    private function getUnlimNumRows(ServerRequest $request): int
+    {
+        if (is_array(Current::$whereClause) && Current::$whereClause !== []) {
+            return count(Current::$whereClause);
+        }
+
+        if (! is_numeric($request->getParam('unlim_num_rows'))) {
+            return 0;
+        }
+
+        return max(0, (int) $request->getParam('unlim_num_rows'));
     }
 }
