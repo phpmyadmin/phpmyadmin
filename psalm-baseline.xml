@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="7.0.1@c3909231356b5fce30739ff0cf62bf50e6b5e7c7">
+<files psalm-version="7.2.0@7c1fcd8a86b7912663bffd385da323dd8dcce1c5">
   <file src="src/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$pattern]]></code>
@@ -79,7 +79,7 @@
     </UnusedClass>
   </file>
   <file src="src/Command/TwigLintCommand.php">
-    <MixedArgument>
+    <MixedArgumentTypeCoercion>
       <code><![CDATA[static function (int $level, string $message, string $file, int $line) use (&$prevErrorHandler) {
                     if ($level === E_USER_DEPRECATED) {
                         $templateLine = 0;
@@ -92,10 +92,13 @@
 
                     return $prevErrorHandler ? $prevErrorHandler($level, $message, $file, $line) : false;
                 }]]></code>
-    </MixedArgument>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$showDeprecations]]></code>
     </MixedAssignment>
+    <MixedFunctionCall>
+      <code><![CDATA[$prevErrorHandler($level, $message, $file, $line)]]></code>
+    </MixedFunctionCall>
     <UndefinedVariable>
       <code><![CDATA[$prevErrorHandler]]></code>
     </UndefinedVariable>
@@ -2514,8 +2517,6 @@
       <code><![CDATA[array<mixed>]]></code>
     </InvalidReturnType>
     <MixedArgument>
-      <code><![CDATA[$a]]></code>
-      <code><![CDATA[$b]]></code>
       <code><![CDATA[$this->versionComment]]></code>
       <code><![CDATA[$this->versionString]]></code>
     </MixedArgument>
@@ -2532,10 +2533,6 @@
       <code><![CDATA[$this->versionComment]]></code>
       <code><![CDATA[$this->versionString]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$a['Data_length']]]></code>
-      <code><![CDATA[$b['Data_length']]]></code>
-    </MixedOperand>
     <MixedReturnStatement>
       <code><![CDATA[SessionCache::get('mysql_cur_role')]]></code>
       <code><![CDATA[SessionCache::get('mysql_cur_user')]]></code>
@@ -2570,6 +2567,12 @@
       <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
       <code><![CDATA[$resultTarget[$row[$keyIndex]]]]></code>
     </PossiblyInvalidArrayOffset>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$a['Data_length']]]></code>
+      <code><![CDATA[$a['Index_length']]]></code>
+      <code><![CDATA[$b['Data_length']]]></code>
+      <code><![CDATA[$b['Index_length']]]></code>
+    </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$_SERVER['SCRIPT_NAME']]]></code>
       <code><![CDATA[$version['@@sql_mode']]]></code>
@@ -2584,6 +2587,10 @@
       <code><![CDATA[$resultTarget]]></code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
+      <code><![CDATA[$a['Data_length']]]></code>
+      <code><![CDATA[$a['Index_length']]]></code>
+      <code><![CDATA[$b['Data_length']]]></code>
+      <code><![CDATA[$b['Index_length']]]></code>
       <code><![CDATA[$row['Data_free']]]></code>
       <code><![CDATA[$row['Data_length']]]></code>
       <code><![CDATA[$row['Data_length']]]></code>
@@ -2768,8 +2775,14 @@
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['repeat_cells']]]></code>
       <code><![CDATA[$colOrder]]></code>
+      <code><![CDATA[$colOrder]]></code>
+      <code><![CDATA[$colOrder]]></code>
+      <code><![CDATA[$colVisib]]></code>
+      <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
+      <code><![CDATA[$columnOrder]]></code>
+      <code><![CDATA[$columnVisibility]]></code>
       <code><![CDATA[$firstShownRec]]></code>
       <code><![CDATA[$firstShownRec]]></code>
       <code><![CDATA[$geoOption]]></code>
@@ -3215,9 +3228,6 @@
     <ImmutableDependency>
       <code><![CDATA[SplDoublyLinkedList]]></code>
     </ImmutableDependency>
-    <NullArgument>
-      <code><![CDATA[$polygon]]></code>
-    </NullArgument>
   </file>
   <file src="src/Gis/GisGeometry.php">
     <DeprecatedClass>
@@ -8214,9 +8224,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidScalarArgument>
-      <code><![CDATA[$_SESSION]]></code>
-    </InvalidScalarArgument>
   </file>
   <file src="tests/unit/Error/ErrorReportTest.php">
     <DeprecatedMethod>
@@ -8315,7 +8322,7 @@
   </file>
   <file src="tests/unit/Gis/GisVisualizationTest.php">
     <DeprecatedClass>
-      <code><![CDATA[$pdf]]></code>
+      <code><![CDATA[TCPDF]]></code>
       <code><![CDATA[TCPDF_STATIC::class]]></code>
       <code><![CDATA[TCPDF_STATIC::class]]></code>
     </DeprecatedClass>
