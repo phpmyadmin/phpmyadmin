@@ -1851,7 +1851,6 @@
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$newCol]]></code>
-      <code><![CDATA[$sortedCol]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['field_attribute'][$i]]]></code>
@@ -2776,8 +2775,6 @@
       <code><![CDATA[$_SESSION['tmpval']['repeat_cells']]]></code>
       <code><![CDATA[$colOrder]]></code>
       <code><![CDATA[$colOrder]]></code>
-      <code><![CDATA[$colOrder]]></code>
-      <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
@@ -2798,7 +2795,6 @@
       <code><![CDATA[$relationalDisplay]]></code>
       <code><![CDATA[$relationalDisplay]]></code>
       <code><![CDATA[$sessionMaxRows]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -6304,7 +6300,6 @@
   <file src="src/Sql.php">
     <MixedArgument>
       <code><![CDATA[$request->getQueryParam('label')]]></code>
-      <code><![CDATA[$sortCol]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -6318,7 +6313,6 @@
       <code><![CDATA[$_SESSION['tmpval']['possible_as_geometry']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$sortCol]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
     </MixedAssignment>
     <MixedOperand>
@@ -6344,7 +6338,6 @@
     </PossiblyInvalidArgument>
     <PossiblyInvalidOperand>
       <code><![CDATA[$numRows]]></code>
-      <code><![CDATA[$sortCol]]></code>
     </PossiblyInvalidOperand>
     <PossiblyInvalidPropertyFetch>
       <code><![CDATA[$statement->altered[0]->field->column]]></code>
@@ -6577,7 +6570,6 @@
       <code><![CDATA[$index]]></code>
       <code><![CDATA[$index[0]]]></code>
       <code><![CDATA[$options['expr']]]></code>
-      <code><![CDATA[$this->uiprefs[$property->value]]]></code>
       <code><![CDATA[$this->uiprefs[$property->value]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -8994,7 +8986,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedAssignment>
-      <code><![CDATA[$isDefineProperty]]></code>
       <code><![CDATA[$sql]]></code>
     </MixedAssignment>
     <UndefinedAttributeClass>

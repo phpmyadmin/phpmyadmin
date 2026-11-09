@@ -3160,12 +3160,6 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 2
@@ -12181,12 +12175,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Binary operation "\." between ''ORDER BY '' and \(array\<string\>\|string\) results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -12243,7 +12231,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 4
+			count: 3
 			path: src/Sql.php
 
 		-
@@ -12334,12 +12322,6 @@ parameters:
 			message: '#^Parameter \#2 \$list of static method PhpMyAdmin\\SqlParser\\Utils\\Query\:\:replaceClause\(\) expects PhpMyAdmin\\SqlParser\\TokensList, PhpMyAdmin\\SqlParser\\TokensList\|null given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Sql.php
-
-		-
-			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Sql.php
 
 		-
@@ -12809,12 +12791,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$array of function array_map expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Table/Table.php
