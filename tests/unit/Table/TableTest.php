@@ -1473,12 +1473,35 @@ class TableTest extends AbstractTestCase
         self::assertNull($table->getSortedColumn());
     }
 
-    public function testSortedColumnUiPreferenceIsRemovedForUnknownColumn(): void
+    #[DataProvider('providerForSortedColumnValidation')]
+    public function testSortedColumnValidation(string $sortedColumn, bool $isKept): void
     {
-        $table = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
-        self::assertTrue($table->setSortedColumn('`unknown` DESC'));
+        $dbi = self::createStub(DatabaseInterface::class);
+        $dbi->method('getColumnNames')->willReturn(['a.b', 'first name', 'x`y', 'user_id', 'ü']);
+        $table = new Table('tablé', 'dü', $dbi);
+        self::assertTrue($table->setSortedColumn($sortedColumn));
 
-        self::assertNull($table->getSortedColumn());
+        self::assertSame($isKept ? $sortedColumn : null, $table->getSortedColumn());
+    }
+
+    /** @return iterable<string, array{string, bool}> */
+    public static function providerForSortedColumnValidation(): iterable
+    {
+        yield 'column with period' => ['`a.b` ASC', true];
+        yield 'table-qualified column with period' => ['`tablé`.`a.b` DESC', true];
+        yield 'database-qualified column' => ['`dü`.`tablé`.`a.b` DESC', false];
+        yield 'last part of column with period' => ['`b` ASC', false];
+        yield 'column with space' => ['`first name` ASC', true];
+        yield 'column with backquote' => ['`x``y` ASC', true];
+        yield 'multibyte column' => ['`ü` ASC', true];
+        yield 'unquoted column' => ['user_id', true];
+        yield 'suffix of column' => ['`id` ASC', false];
+        yield 'unknown column' => ['`unknown` DESC', false];
+        yield 'other table' => ['`other`.`a.b` ASC', false];
+        yield 'other database' => ['`other`.`tablé`.`a.b` ASC', false];
+        yield 'second column unknown' => ['`a.b` ASC, `unknown` DESC', false];
+        yield 'expression' => ['CONCAT(`a.b`) ASC', false];
+        yield 'position' => ['1', false];
     }
 
     public function testColumnOrderUiPreferenceIsIgnoredForView(): void

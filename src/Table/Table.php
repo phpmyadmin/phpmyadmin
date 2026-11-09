@@ -21,6 +21,7 @@ use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 use PhpMyAdmin\Triggers\Triggers;
@@ -41,7 +42,6 @@ use function is_string;
 use function json_decode;
 use function json_encode;
 use function mb_stripos;
-use function mb_strlen;
 use function mb_substr;
 use function preg_match;
 use function preg_replace;
@@ -54,7 +54,6 @@ use function stripos;
 use function strtolower;
 use function strtoupper;
 use function substr;
-use function substr_compare;
 use function trim;
 
 /**
@@ -1214,25 +1213,36 @@ class Table implements Stringable
             return null;
         }
 
-        if (! isset($_POST['discard_remembered_sort'])) {
-            // check if the column name exists in this table
-            $tmp = explode(' ', $sortedColumn);
-            $colname = str_replace('`', '', $tmp[0]);
-            //get the available column name without backquoting
-            $columnsFromDb = $this->getColumns(false);
-
-            foreach ($columnsFromDb as $column) {
-                // check if $each_col ends with $colname
-                if (substr_compare($column, $colname, mb_strlen($column) - mb_strlen($colname)) === 0) {
-                    return $sortedColumn;
-                }
-            }
+        if (! isset($_POST['discard_remembered_sort']) && $this->sortedColumnExists($sortedColumn)) {
+            return $sortedColumn;
         }
 
         // remove the property, since it no longer exists in database
         $this->removeUiProp(UiProperty::SortedColumn);
 
         return null;
+    }
+
+    private function sortedColumnExists(string $sortedColumn): bool
+    {
+        $statement = (new Parser('SELECT * FROM t ORDER BY ' . $sortedColumn))->statements[0] ?? null;
+        if (! $statement instanceof SelectStatement || $statement->order === null || $statement->order === []) {
+            return false;
+        }
+
+        $columns = $this->getColumns(false, false);
+        foreach ($statement->order as $order) {
+            if (
+                $order->expr === null
+                || ! in_array($order->expr->column, $columns, true)
+                || ! in_array($order->expr->table, [null, $this->name], true)
+                || $order->expr->database !== null
+            ) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /** @return list<int>|null */
