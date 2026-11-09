@@ -7,9 +7,11 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\Controllers\Table\AbstractController;
 use PhpMyAdmin\SqlParser\Context;
 
+use function __;
 use function _ngettext;
 use function count;
 use function implode;
+use function is_array;
 use function sprintf;
 use function trim;
 
@@ -19,6 +21,14 @@ final class ReservedWordCheckController extends AbstractController
     {
         if ($GLOBALS['cfg']['ReservedWordDisableWarning'] !== false) {
             $this->response->setRequestStatus(false);
+
+            return;
+        }
+
+        if (! isset($_POST['field_name']) || ! is_array($_POST['field_name'])) {
+            $this->response->setRequestStatus(false);
+            $this->response->setHttpResponseCode(400);
+            $this->response->addJSON('message', __('Missing parameter:') . ' field_name');
 
             return;
         }
