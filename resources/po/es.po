@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-08 00:26+0000\n"
-"PO-Revision-Date: 2026-10-28 00:51+0000\n"
+"PO-Revision-Date: 2026-11-10 14:51+0000\n"
 "Last-Translator: Salvador Peña <sal@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.11.dev0\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -11681,7 +11681,7 @@ msgstr "Crear código PHP"
 
 #: src/Config/Descriptions.php:929
 msgid "Login cookie validity warning"
-msgstr "ADVERTENCIA de inicio de sesión cookie validez"
+msgstr "Advertencia de validez de cookie de inicio de sesión"
 
 #: src/Config/Descriptions.php:930
 msgid "Textarea columns"
