@@ -6537,7 +6537,6 @@
       <code><![CDATA[$index]]></code>
       <code><![CDATA[$index[0]]]></code>
       <code><![CDATA[$options['expr']]]></code>
-      <code><![CDATA[$this->uiprefs[$property->value]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
@@ -6560,9 +6559,6 @@
     <MixedOperand>
       <code><![CDATA[$index[0]]]></code>
     </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[json_decode($value, true)]]></code>
-    </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['constraint_name'][$masterFieldMd5]]]></code>
     </PossiblyInvalidArgument>
@@ -6579,16 +6575,10 @@
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]->refTableName]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[true|Message]]></code>
-    </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($existrelForeign[$masterFieldMd5]->onDelete)]]></code>
       <code><![CDATA[empty($existrelForeign[$masterFieldMd5]->onUpdate)]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnsupportedPropertyReferenceUsage>
-      <code><![CDATA[$this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
-    </UnsupportedPropertyReferenceUsage>
   </file>
   <file src="src/Table/TableMover.php">
     <MixedAssignment>

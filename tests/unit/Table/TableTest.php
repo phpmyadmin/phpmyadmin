@@ -1460,32 +1460,33 @@ class TableTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for setUiProp
-     */
-    public function testSetUiProp(): void
+    public function testSortedColumnUiPreference(): void
     {
-        $tableName = 'PMA_BookMark';
-        $db = 'PMA';
+        $table = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
+        self::assertNull($table->getSortedColumn());
 
-        $table = new Table($tableName, $db, $this->mockedDbi);
+        self::assertTrue($table->setSortedColumn('`column3` DESC'));
+        $otherObjectForSameTable = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
+        self::assertSame('`column3` DESC', $otherObjectForSameTable->getSortedColumn());
 
-        $property = UiProperty::ColumnOrder;
-        $value = 'UiProp_value';
-        $tableCreateTime = null;
-        $table->setUiProp($property, $value, $tableCreateTime);
+        self::assertTrue($table->removeUiProp(UiProperty::SortedColumn));
+        self::assertNull($table->getSortedColumn());
+    }
 
-        //set UI prop successfully
-        self::assertSame($value, $table->uiprefs[$property->value]);
+    public function testSortedColumnUiPreferenceIsRemovedForUnknownColumn(): void
+    {
+        $table = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
+        self::assertTrue($table->setSortedColumn('`unknown` DESC'));
 
-        //removeUiProp
-        $table->removeUiProp($property);
-        $isDefineProperty = isset($table->uiprefs[$property->value]);
-        self::assertFalse($isDefineProperty);
+        self::assertNull($table->getSortedColumn());
+    }
 
-        //getUiProp after removeUiProp
-        $isDefineProperty = $table->getUiProp($property);
-        self::assertFalse($isDefineProperty);
+    public function testColumnOrderUiPreferenceIsIgnoredForView(): void
+    {
+        $table = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
+
+        self::assertTrue($table->setColumnOrder([1, 0], null));
+        self::assertNull($table->getColumnOrder());
     }
 
     /**
