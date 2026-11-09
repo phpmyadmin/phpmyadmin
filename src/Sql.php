@@ -679,7 +679,6 @@ class Sql
                 assert($statement instanceof SelectStatement);
 
                 assert($statement->options !== null);
-                /** @var int|null $noCacheIndex */
                 $noCacheIndex = array_find_key(
                     $statement->options->options,
                     static fn (mixed $value): bool => is_string($value) && strtoupper($value) === 'SQL_NO_CACHE',
