@@ -29,14 +29,12 @@ use Stringable;
 
 use function __;
 use function array_keys;
-use function array_map;
 use function array_merge;
 use function count;
 use function end;
 use function explode;
 use function implode;
 use function in_array;
-use function intval;
 use function is_array;
 use function is_numeric;
 use function is_string;
@@ -66,9 +64,6 @@ use function trim;
  */
 class Table implements Stringable
 {
-    /** @var mixed[] UI preferences */
-    public array $uiprefs = [];
-
     /** @var string[] errors occurred */
     public array $errors = [];
 
@@ -1087,13 +1082,11 @@ class Table implements Stringable
 
     /**
      * Return UI preferences for this table from phpMyAdmin database.
-     *
-     * @return mixed[]
      */
-    protected function getUiPrefsFromDb(UiPreferencesFeature|null $uiPreferencesFeature): array
+    private function getUiPrefsFromDb(UiPreferencesFeature|null $uiPreferencesFeature): UiPreferences
     {
         if ($uiPreferencesFeature === null) {
-            return [];
+            return new UiPreferences();
         }
 
         // Read from phpMyAdmin database
@@ -1108,28 +1101,31 @@ class Table implements Stringable
 
         $value = $this->dbi->queryAsControlUser($sqlQuery)->fetchValue();
         if (is_string($value)) {
-            return json_decode($value, true);
+            return UiPreferences::fromArray(json_decode($value, true));
         }
 
-        return [];
+        return new UiPreferences();
     }
 
     /**
      * Save this table's UI preferences into phpMyAdmin database.
      */
-    protected function saveUiPrefsToDb(UiPreferencesFeature $uiPreferencesFeature): true|Message
-    {
+    private function saveUiPrefsToDb(
+        UiPreferencesFeature $uiPreferencesFeature,
+        UiPreferences $uiPreferences,
+    ): true|Message {
         $table = Util::backquote($uiPreferencesFeature->database) . '.'
             . Util::backquote($uiPreferencesFeature->tableUiPrefs);
 
         $config = Config::getInstance();
         $username = $config->selectedServer['user'];
+        $prefs = (string) json_encode($uiPreferences->toArray());
         $sqlQuery = ' REPLACE INTO ' . $table
             . ' (username, db_name, table_name, prefs) VALUES ('
             . $this->dbi->quoteString($username, ConnectionType::ControlUser) . ', '
             . $this->dbi->quoteString($this->dbName, ConnectionType::ControlUser) . ', '
             . $this->dbi->quoteString($this->name, ConnectionType::ControlUser) . ', '
-            . $this->dbi->quoteString((string) json_encode($this->uiprefs), ConnectionType::ControlUser) . ')';
+            . $this->dbi->quoteString($prefs, ConnectionType::ControlUser) . ')';
 
         $success = $this->dbi->tryQuery($sqlQuery, ConnectionType::ControlUser);
 
@@ -1177,128 +1173,178 @@ class Table implements Stringable
      * If pmadb and table_uiprefs is set, it will load the UI preferences from
      * phpMyAdmin database.
      */
-    protected function loadUiPrefs(): void
+    private function getUiPreferences(): UiPreferences
     {
         $serverId = Current::$server;
 
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name])) {
             // check whether we can get from pmadb
-            $uiPrefs = $this->getUiPrefsFromDb($this->relation->getRelationParameters()->uiPreferencesFeature);
-            $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name] = $uiPrefs;
+            $uiPreferences = $this->getUiPrefsFromDb($this->relation->getRelationParameters()->uiPreferencesFeature);
+            $this->saveUiPreferencesToSession($uiPreferences);
+
+            return $uiPreferences;
         }
 
-        $this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name];
+        return UiPreferences::fromArray($_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]);
+    }
+
+    private function saveUiPreferencesToSession(UiPreferences $uiPreferences): void
+    {
+        $serverId = Current::$server;
+        $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name] = $uiPreferences->toArray();
+    }
+
+    private function saveUiPreferences(UiPreferences $uiPreferences): true|Message
+    {
+        $this->saveUiPreferencesToSession($uiPreferences);
+
+        $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
+        if ($uiPreferencesFeature === null) {
+            return true;
+        }
+
+        return $this->saveUiPrefsToDb($uiPreferencesFeature, $uiPreferences);
+    }
+
+    public function getSortedColumn(): string|null
+    {
+        $sortedColumn = $this->getUiPreferences()->sortedColumn;
+        if ($sortedColumn === null) {
+            return null;
+        }
+
+        if (! isset($_POST['discard_remembered_sort'])) {
+            // check if the column name exists in this table
+            $tmp = explode(' ', $sortedColumn);
+            $colname = str_replace('`', '', $tmp[0]);
+            //get the available column name without backquoting
+            $columnsFromDb = $this->getColumns(false);
+
+            foreach ($columnsFromDb as $column) {
+                // check if $each_col ends with $colname
+                if (substr_compare($column, $colname, mb_strlen($column) - mb_strlen($colname)) === 0) {
+                    return $sortedColumn;
+                }
+            }
+        }
+
+        // remove the property, since it no longer exists in database
+        $this->removeUiProp(UiProperty::SortedColumn);
+
+        return null;
+    }
+
+    /** @return list<int>|null */
+    public function getColumnOrder(): array|null
+    {
+        $uiPreferences = $this->getUiPreferences();
+
+        return $this->getColumnPreference(
+            UiProperty::ColumnOrder,
+            $uiPreferences->columnOrder,
+            $uiPreferences->createTime,
+        );
+    }
+
+    /** @return list<int>|null */
+    public function getColumnVisibility(): array|null
+    {
+        $uiPreferences = $this->getUiPreferences();
+
+        return $this->getColumnPreference(
+            UiProperty::ColumnVisibility,
+            $uiPreferences->columnVisibility,
+            $uiPreferences->createTime,
+        );
     }
 
     /**
-     * Get a property from UI preferences.
-     * Return false if the property is not found.
+     * @param list<int>|null $value
      *
-     * @return ($property is UiProperty::SortedColumn ? string|false : array<int>|false)
+     * @return list<int>|null
      */
-    public function getUiProp(UiProperty $property): array|string|false
+    private function getColumnPreference(UiProperty $property, array|null $value, string|null $createTime): array|null
     {
-        if ($this->uiprefs === []) {
-            $this->loadUiPrefs();
-        }
-
-        // do checking based on property
-        if ($property === UiProperty::SortedColumn) {
-            if (! isset($this->uiprefs[$property->value])) {
-                return false;
-            }
-
-            if (is_string($this->uiprefs[$property->value]) && ! isset($_POST['discard_remembered_sort'])) {
-                // check if the column name exists in this table
-                $tmp = explode(' ', $this->uiprefs[$property->value]);
-                $colname = $tmp[0];
-                //remove backquoting from colname
-                $colname = str_replace('`', '', $colname);
-                //get the available column name without backquoting
-                $availColumns = $this->getColumns(false);
-
-                foreach ($availColumns as $eachCol) {
-                    // check if $each_col ends with $colname
-                    if (substr_compare($eachCol, $colname, mb_strlen($eachCol) - mb_strlen($colname)) === 0) {
-                        return $this->uiprefs[$property->value];
-                    }
-                }
-            }
-
-            // remove the property, since it no longer exists in database
-            $this->removeUiProp($property);
-
-            return false;
-        }
-
-        if ($this->isView() || ! isset($this->uiprefs[$property->value])) {
-            return false;
+        if ($this->isView() || $value === null) {
+            return null;
         }
 
         // check if the table has not been modified
-        if ($this->getStatusInfo('Create_time') === $this->uiprefs['CREATE_TIME']) {
-            return array_map(intval(...), $this->uiprefs[$property->value]);
+        if ($this->getStatusInfo('Create_time') === $createTime) {
+            return $value;
         }
 
         // remove the property, since the table has been modified
         $this->removeUiProp($property);
 
-        return false;
+        return null;
     }
 
-    /**
-     * Set a property from UI preferences.
-     * If pmadb and table_uiprefs is set, it will save the UI preferences to
-     * phpMyAdmin database.
-     *
-     * @param int[]|string $value           Value for the property
-     * @param string|null  $tableCreateTime Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
-     */
-    public function setUiProp(
+    public function setSortedColumn(string $sortedColumn): true|Message
+    {
+        return $this->saveUiPreferences($this->getUiPreferences()->withSortedColumn($sortedColumn));
+    }
+
+    /** @param list<int> $columnOrder */
+    public function setColumnOrder(array $columnOrder, string|null $tableCreateTimeSeenByClient): true|Message
+    {
+        $uiPreferences = $this->getUiPreferencesForCurrentTableStructure(
+            UiProperty::ColumnOrder,
+            $tableCreateTimeSeenByClient,
+        );
+        if ($uiPreferences instanceof Message) {
+            return $uiPreferences;
+        }
+
+        return $this->saveUiPreferences($uiPreferences->withColumnOrder($columnOrder));
+    }
+
+    /** @param list<int> $columnVisibility */
+    public function setColumnVisibility(
+        array $columnVisibility,
+        string|null $tableCreateTimeSeenByClient,
+    ): true|Message {
+        $uiPreferences = $this->getUiPreferencesForCurrentTableStructure(
+            UiProperty::ColumnVisibility,
+            $tableCreateTimeSeenByClient,
+        );
+        if ($uiPreferences instanceof Message) {
+            return $uiPreferences;
+        }
+
+        return $this->saveUiPreferences($uiPreferences->withColumnVisibility($columnVisibility));
+    }
+
+    private function getUiPreferencesForCurrentTableStructure(
         UiProperty $property,
-        array|string $value,
-        string|null $tableCreateTime = null,
-    ): bool|Message {
-        if ($this->uiprefs === []) {
-            $this->loadUiPrefs();
+        string|null $tableCreateTimeSeenByClient,
+    ): UiPreferences|Message {
+        $uiPreferences = $this->getUiPreferences();
+        if ($this->isView()) {
+            return $uiPreferences;
         }
 
-        // we want to save the create time if the property is PROP_COLUMN_ORDER
         if (
-            ! $this->isView()
-            && ($property === UiProperty::ColumnOrder || $property === UiProperty::ColumnVisibility)
+            $tableCreateTimeSeenByClient === null
+            || $tableCreateTimeSeenByClient !== $this->getStatusInfo('CREATE_TIME')
         ) {
-            $currCreateTime = $this->getStatusInfo('CREATE_TIME');
-            if ($tableCreateTime === null || $tableCreateTime !== $currCreateTime) {
-                // there is no $table_create_time, or
-                // supplied $table_create_time is older than current create time,
-                // so don't save
-                return Message::error(
-                    sprintf(
-                        __(
-                            'Cannot save UI property "%s". The changes made will ' .
-                            'not be persistent after you refresh this page. ' .
-                            'Please check if the table structure has been changed.',
-                        ),
-                        $property->value,
+            // there is no $table_create_time, or
+            // supplied $table_create_time is older than current create time,
+            // so don't save
+            return Message::error(
+                sprintf(
+                    __(
+                        'Cannot save UI property "%s". The changes made will ' .
+                        'not be persistent after you refresh this page. ' .
+                        'Please check if the table structure has been changed.',
                     ),
-                );
-            }
-
-            $this->uiprefs['CREATE_TIME'] = $currCreateTime;
+                    $property->value,
+                ),
+            );
         }
 
-        // save the value
-        $this->uiprefs[$property->value] = $value;
-
-        // check if pmadb is set
-        $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
-        if ($uiPreferencesFeature !== null) {
-            return $this->saveUiPrefsToDb($uiPreferencesFeature);
-        }
-
-        return true;
+        return $uiPreferences->withCreateTime($tableCreateTimeSeenByClient);
     }
 
     /**
@@ -1306,21 +1352,12 @@ class Table implements Stringable
      */
     public function removeUiProp(UiProperty $property): true|Message
     {
-        if ($this->uiprefs === []) {
-            $this->loadUiPrefs();
+        $uiPreferences = $this->getUiPreferences();
+        if (! $uiPreferences->has($property)) {
+            return true;
         }
 
-        if (isset($this->uiprefs[$property->value])) {
-            unset($this->uiprefs[$property->value]);
-
-            // check if pmadb is set
-            $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
-            if ($uiPreferencesFeature !== null) {
-                return $this->saveUiPrefsToDb($uiPreferencesFeature);
-            }
-        }
-
-        return true;
+        return $this->saveUiPreferences($uiPreferences->without($property));
     }
 
     /**

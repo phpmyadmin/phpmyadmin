@@ -646,10 +646,10 @@ class ResultsTest extends AbstractTestCase
         $output = (new ReflectionMethod(DisplayResults::class, 'getRowValues'))->invokeArgs($this->object, [
             ['3600', 'true'],
             0,
-            false,
+            null,
             [],
             'disabled',
-            false,
+            null,
             $query,
             Query::getAll($query)->statement,
         ]);

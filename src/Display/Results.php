@@ -46,7 +46,6 @@ use Random\Randomizer;
 
 use function __;
 use function array_filter;
-use function array_is_list;
 use function array_key_exists;
 use function array_map;
 use function array_merge;
@@ -703,10 +702,10 @@ class Results
         $columns = [];
 
         for ($j = 0, $numberOfColumns = count($this->fieldsMeta); $j < $numberOfColumns; $j++) {
-            $isColumnHidden = $colVisib !== false && $colVisib[$j] === 0;
+            $isColumnHidden = $colVisib !== null && $colVisib[$j] === 0;
 
             // assign $i with the appropriate column order
-            $i = $colOrder !== false ? $colOrder[$j] : $j;
+            $i = $colOrder !== null ? $colOrder[$j] : $j;
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -1928,9 +1927,9 @@ class Results
      *
      * @param list<string|null>        $row         current row data
      * @param int                      $rowNumber   the index of current row
-     * @param list<int>|false          $colOrder    the column order, false when not set
+     * @param list<int>|null           $colOrder
      * @param ForeignKeyRelatedTable[] $map         the list of relations
-     * @param list<int>|false          $colVisib    the column visibility, false when not set
+     * @param list<int>|null           $colVisib
      * @param string                   $urlSqlQuery the analyzed sql query
      * @psalm-param 'double-click'|'click'|'disabled' $gridEditConfig
      *
@@ -1939,10 +1938,10 @@ class Results
     private function getRowValues(
         array $row,
         int $rowNumber,
-        array|false $colOrder,
+        array|null $colOrder,
         array $map,
         string $gridEditConfig,
-        array|false $colVisib,
+        array|null $colVisib,
         string $urlSqlQuery,
         Statement|null $statement,
     ): string {
@@ -1955,14 +1954,14 @@ class Results
         $columnCount = count($this->fieldsMeta);
         for ($currentColumn = 0; $currentColumn < $columnCount; ++$currentColumn) {
             // assign $i with appropriate column order
-            $i = $colOrder !== false ? $colOrder[$currentColumn] : $currentColumn;
+            $i = $colOrder !== null ? $colOrder[$currentColumn] : $currentColumn;
 
             $meta = $this->fieldsMeta[$i];
             $orgFullColName = $this->db . '.' . $meta->orgtable . '.' . $meta->orgname;
 
             $notNullClass = $meta->isNotNull() ? 'not_null' : '';
             $relationClass = isset($map[$meta->name]) ? 'relation' : '';
-            $hideClass = $colVisib !== false && $colVisib[$currentColumn] === 0 ? 'hide' : '';
+            $hideClass = $colVisib !== null && $colVisib[$currentColumn] === 0 ? 'hide' : '';
 
             $gridEdit = '';
             if ($meta->orgtable !== '' && $gridEditConfig !== 'disabled') {
@@ -2222,41 +2221,36 @@ class Results
     /**
      * Get column order and column visibility
      *
-     * @return array{list<int>|false, list<int>|false} 2 element array - $col_order, $col_visib
+     * @return array{list<int>|null, list<int>|null}
      */
     private function getColumnParams(StatementInfo $statementInfo): array
     {
-        $colOrder = false;
-        $colVisib = false;
+        $colOrder = null;
+        $colVisib = null;
 
         if ($this->isSelect($statementInfo)) {
             $pmatable = new Table($this->table, $this->db, $this->dbi);
-            $colOrder = $pmatable->getUiProp(UiProperty::ColumnOrder);
+            $colOrder = $pmatable->getColumnOrder();
             $fieldsCount = count($this->fieldsMeta);
-            if ($colOrder !== false && ! $this->isValidColumnOrder($colOrder, $fieldsCount)) {
+            if ($colOrder !== null && ! $this->isValidColumnOrder($colOrder, $fieldsCount)) {
                 $pmatable->removeUiProp(UiProperty::ColumnOrder);
-                $colOrder = false;
+                $colOrder = null;
             }
 
-            $colVisib = $pmatable->getUiProp(UiProperty::ColumnVisibility);
-            if ($colVisib !== false && (! array_is_list($colVisib) || $fieldsCount !== count($colVisib))) {
+            $colVisib = $pmatable->getColumnVisibility();
+            if ($colVisib !== null && $fieldsCount !== count($colVisib)) {
                 $pmatable->removeUiProp(UiProperty::ColumnVisibility);
-                $colVisib = false;
+                $colVisib = null;
             }
         }
 
         return [$colOrder, $colVisib];
     }
 
-    /**
-     * @param array<int> $colOrder
-     *
-     * @psalm-assert-if-true list<int> $colOrder
-     * @phpstan-assert-if-true list<int> $colOrder
-     */
+    /** @param list<int> $colOrder */
     private function isValidColumnOrder(array $colOrder, int $fieldsCount): bool
     {
-        if (! array_is_list($colOrder) || count($colOrder) !== $fieldsCount) {
+        if (count($colOrder) !== $fieldsCount) {
             return false;
         }
 
