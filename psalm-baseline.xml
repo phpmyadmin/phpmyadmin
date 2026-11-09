@@ -2651,10 +2651,6 @@
       <code><![CDATA[$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
-      <code><![CDATA[$colOrder]]></code>
-      <code><![CDATA[$colVisib]]></code>
-      <code><![CDATA[$colVisib]]></code>
-      <code><![CDATA[$colVisibCurrent]]></code>
       <code><![CDATA[$lastShownRec]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
@@ -2703,8 +2699,6 @@
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['repeat_cells']]]></code>
-      <code><![CDATA[$colOrder[$j]]]></code>
-      <code><![CDATA[$colVisib[$j]]]></code>
       <code><![CDATA[$query['display_binary']]]></code>
       <code><![CDATA[$query['display_blob']]]></code>
       <code><![CDATA[$query['geoOption']]]></code>
@@ -2747,24 +2741,8 @@
       <code><![CDATA[$query['sql']]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$this->fieldsMeta[$i]]]></code>
-      <code><![CDATA[$this->fieldsMeta[$i]]]></code>
       <code><![CDATA[$this->highlightColumns[$identifier]]]></code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$row[$i]]]></code>
-      <code><![CDATA[$this->fieldsMeta[$i]]]></code>
-      <code><![CDATA[$this->fieldsMeta[$i]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$_SESSION['tmpval']['geoOption']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -2773,19 +2751,10 @@
       <code><![CDATA[$_SESSION['tmpval']['query'][$sqlMd5]]]></code>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['repeat_cells']]]></code>
-      <code><![CDATA[$colOrder]]></code>
-      <code><![CDATA[$colOrder]]></code>
-      <code><![CDATA[$colVisib]]></code>
-      <code><![CDATA[$colVisib]]></code>
-      <code><![CDATA[$colVisibCurrent]]></code>
-      <code><![CDATA[$columnOrder]]></code>
-      <code><![CDATA[$columnVisibility]]></code>
       <code><![CDATA[$firstShownRec]]></code>
       <code><![CDATA[$firstShownRec]]></code>
       <code><![CDATA[$geoOption]]></code>
       <code><![CDATA[$hiddenFields['session_max_rows']]]></code>
-      <code><![CDATA[$i]]></code>
-      <code><![CDATA[$i]]></code>
       <code><![CDATA[$identifier]]></code>
       <code><![CDATA[$lastShownRec]]></code>
       <code><![CDATA[$meta->name]]></code>
@@ -2849,8 +2818,6 @@
       <code><![CDATA[$order->expr->column]]></code>
     </PossiblyNullPropertyFetch>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $colVisibElement]]></code>
-      <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$posMimeOctetstream]]></code>
       <code><![CDATA[empty($expr->alias)]]></code>
       <code><![CDATA[empty($expr->column)]]></code>

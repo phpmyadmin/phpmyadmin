@@ -46,6 +46,7 @@ use Random\Randomizer;
 
 use function __;
 use function array_filter;
+use function array_is_list;
 use function array_key_exists;
 use function array_map;
 use function array_merge;
@@ -702,11 +703,10 @@ class Results
         $columns = [];
 
         for ($j = 0, $numberOfColumns = count($this->fieldsMeta); $j < $numberOfColumns; $j++) {
-            // PHP 7.4 fix for accessing array offset on bool
-            $colVisibCurrent = $colVisib[$j] ?? null;
+            $isColumnHidden = $colVisib !== false && $colVisib[$j] === 0;
 
             // assign $i with the appropriate column order
-            $i = $colOrder ? $colOrder[$j] : $j;
+            $i = $colOrder !== false ? $colOrder[$j] : $j;
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
@@ -724,8 +724,7 @@ class Results
                     $statementInfo,
                     $sessionMaxRows,
                     $comments,
-                    $colVisib,
-                    $colVisibCurrent,
+                    $isColumnHidden,
                 );
 
                 $orderLink = $sortedHeaderData['order_link'];
@@ -742,7 +741,7 @@ class Results
                 $columns[] = [
                     'column_name' => $this->fieldsMeta[$i]->name,
                     'comments' => $comments,
-                    'is_column_hidden' => $colVisib && ! $colVisibCurrent,
+                    'is_column_hidden' => $isColumnHidden,
                     'is_column_numeric' => $this->isColumnNumeric($this->fieldsMeta[$i]),
                     'has_condition' => $conditionField,
                 ];
@@ -1137,9 +1136,6 @@ class Results
      * @param list<SortExpression> $sortExpressions
      * @param int                  $sessionMaxRows  maximum rows resulted by sql
      * @param string               $comments        comment for row
-     * @param bool|mixed[]         $colVisib        column is visible(false)
-     *                                              or column isn't visible(string array)
-     * @param int|string|null      $colVisibElement element of $col_visib array
      *
      * @return array{
      *   column_name: string,
@@ -1157,8 +1153,7 @@ class Results
         StatementInfo $statementInfo,
         int $sessionMaxRows,
         string $comments,
-        bool|array $colVisib,
-        int|string|null $colVisibElement,
+        bool $isColumnHidden,
     ): array {
         // Checks if the table name is required; it's the case
         // for a query with a "JOIN" statement and if the column
@@ -1221,7 +1216,7 @@ class Results
             'comments' => $comments,
             'is_browse_pointer_enabled' => $this->config->config->BrowsePointerEnable,
             'is_browse_marker_enabled' => $this->config->config->BrowseMarkerEnable,
-            'is_column_hidden' => $colVisib && ! $colVisibElement,
+            'is_column_hidden' => $isColumnHidden,
             'is_column_numeric' => $this->isColumnNumeric($fieldsMeta),
         ];
     }
@@ -1933,13 +1928,9 @@ class Results
      *
      * @param list<string|null>        $row         current row data
      * @param int                      $rowNumber   the index of current row
-     * @param mixed[]|false            $colOrder    the column order false when
-     *                                             a property not found false
-     *                                             when a property not found
+     * @param list<int>|false          $colOrder    the column order, false when not set
      * @param ForeignKeyRelatedTable[] $map         the list of relations
-     * @param bool|mixed[]|string      $colVisib    column is visible(false);
-     *                                             column isn't visible(string
-     *                                             array)
+     * @param list<int>|false          $colVisib    the column visibility, false when not set
      * @param string                   $urlSqlQuery the analyzed sql query
      * @psalm-param 'double-click'|'click'|'disabled' $gridEditConfig
      *
@@ -1951,7 +1942,7 @@ class Results
         array|false $colOrder,
         array $map,
         string $gridEditConfig,
-        bool|array|string $colVisib,
+        array|false $colVisib,
         string $urlSqlQuery,
         Statement|null $statement,
     ): string {
@@ -1964,16 +1955,14 @@ class Results
         $columnCount = count($this->fieldsMeta);
         for ($currentColumn = 0; $currentColumn < $columnCount; ++$currentColumn) {
             // assign $i with appropriate column order
-            $i = is_array($colOrder) ? $colOrder[$currentColumn] : $currentColumn;
+            $i = $colOrder !== false ? $colOrder[$currentColumn] : $currentColumn;
 
             $meta = $this->fieldsMeta[$i];
             $orgFullColName = $this->db . '.' . $meta->orgtable . '.' . $meta->orgname;
 
             $notNullClass = $meta->isNotNull() ? 'not_null' : '';
             $relationClass = isset($map[$meta->name]) ? 'relation' : '';
-            $hideClass = is_array($colVisib) && isset($colVisib[$currentColumn]) && ! $colVisib[$currentColumn]
-                ? 'hide'
-                : '';
+            $hideClass = $colVisib !== false && $colVisib[$currentColumn] === 0 ? 'hide' : '';
 
             $gridEdit = '';
             if ($meta->orgtable !== '' && $gridEditConfig !== 'disabled') {
@@ -2233,7 +2222,7 @@ class Results
     /**
      * Get column order and column visibility
      *
-     * @return mixed[] 2 element array - $col_order, $col_visib
+     * @return array{list<int>|false, list<int>|false} 2 element array - $col_order, $col_visib
      */
     private function getColumnParams(StatementInfo $statementInfo): array
     {
@@ -2244,29 +2233,40 @@ class Results
             $pmatable = new Table($this->table, $this->db, $this->dbi);
             $colOrder = $pmatable->getUiProp(UiProperty::ColumnOrder);
             $fieldsCount = count($this->fieldsMeta);
-            /* Validate the value */
-            if (is_array($colOrder)) {
-                foreach ($colOrder as $value) {
-                    if ($value >= $fieldsCount) {
-                        $pmatable->removeUiProp(UiProperty::ColumnOrder);
-                        break;
-                    }
-                }
-
-                if ($fieldsCount !== count($colOrder)) {
-                    $pmatable->removeUiProp(UiProperty::ColumnOrder);
-                    $colOrder = false;
-                }
+            if ($colOrder !== false && ! $this->isValidColumnOrder($colOrder, $fieldsCount)) {
+                $pmatable->removeUiProp(UiProperty::ColumnOrder);
+                $colOrder = false;
             }
 
             $colVisib = $pmatable->getUiProp(UiProperty::ColumnVisibility);
-            if (is_array($colVisib) && $fieldsCount !== count($colVisib)) {
+            if ($colVisib !== false && (! array_is_list($colVisib) || $fieldsCount !== count($colVisib))) {
                 $pmatable->removeUiProp(UiProperty::ColumnVisibility);
                 $colVisib = false;
             }
         }
 
         return [$colOrder, $colVisib];
+    }
+
+    /**
+     * @param array<int> $colOrder
+     *
+     * @psalm-assert-if-true list<int> $colOrder
+     * @phpstan-assert-if-true list<int> $colOrder
+     */
+    private function isValidColumnOrder(array $colOrder, int $fieldsCount): bool
+    {
+        if (! array_is_list($colOrder) || count($colOrder) !== $fieldsCount) {
+            return false;
+        }
+
+        foreach ($colOrder as $value) {
+            if ($value < 0 || $value >= $fieldsCount) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**

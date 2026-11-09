@@ -107,7 +107,7 @@ final class SaveController implements InvocableController
             // find the remembered sort expression
             $sortedCol = $this->tableObj->getUiProp(UiProperty::SortedColumn);
             // if the old column name is part of the remembered sort expression
-            if (str_contains((string) $sortedCol, Util::backquote($_POST['field_orig'][$i]))) {
+            if ($sortedCol !== false && str_contains($sortedCol, Util::backquote($_POST['field_orig'][$i]))) {
                 // delete the whole remembered sort expression
                 $this->tableObj->removeUiProp(UiProperty::SortedColumn);
             }
