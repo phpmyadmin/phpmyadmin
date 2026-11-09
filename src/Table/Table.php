@@ -1194,8 +1194,10 @@ class Table implements Stringable
     /**
      * Get a property from UI preferences.
      * Return false if the property is not found.
+     *
+     * @return ($property is UiProperty::SortedColumn ? string|false : array<int>|false)
      */
-    public function getUiProp(UiProperty $property): mixed
+    public function getUiProp(UiProperty $property): array|string|false
     {
         if ($this->uiprefs === []) {
             $this->loadUiPrefs();
@@ -1207,7 +1209,7 @@ class Table implements Stringable
                 return false;
             }
 
-            if (! isset($_POST['discard_remembered_sort'])) {
+            if (is_string($this->uiprefs[$property->value]) && ! isset($_POST['discard_remembered_sort'])) {
                 // check if the column name exists in this table
                 $tmp = explode(' ', $this->uiprefs[$property->value]);
                 $colname = $tmp[0];

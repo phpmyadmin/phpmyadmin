@@ -96,7 +96,7 @@ class Sql
         if (! $statementInfo->flags->order) {
             // Retrieving the name of the column we should sort after.
             $sortCol = $tableObject->getUiProp(UiProperty::SortedColumn);
-            if (empty($sortCol)) {
+            if ($sortCol === false || $sortCol === '') {
                 return $statementInfo;
             }
 
