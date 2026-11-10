@@ -16,6 +16,7 @@ import checkNumberOfFields from './modules/functions/checkNumberOfFields.ts';
 import onloadNavigation from './modules/navigation/event-loader.ts';
 import { onloadFunctions, teardownFunctions } from './modules/functions/event-loader.ts';
 import { ThemeColorModeToggle } from './modules/themes-manager.ts';
+import { onloadLoginForm } from './modules/login-form.ts';
 
 AJAX.registerOnload('main.js', () => AJAX.removeSubmitEvents());
 $(AJAX.loadEventHandler());
@@ -47,6 +48,9 @@ $(floatingMenuBar());
 $(breadcrumbScrollToTop());
 
 $(onloadNavigation());
+
+// Login form: password visibility toggle and locking the form while logging in
+$(onloadLoginForm);
 
 AJAX.registerTeardown('main.js', Indexes.off());
 AJAX.registerOnload('main.js', Indexes.on());
