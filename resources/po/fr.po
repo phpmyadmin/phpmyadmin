@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-08 00:26+0000\n"
-"PO-Revision-Date: 2026-10-26 16:55+0000\n"
-"Last-Translator: kjo-sdds <kjo-sdds@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2026-11-10 14:51+0000\n"
+"Last-Translator: Marc Delisle <lem9@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.11.dev0\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -13624,16 +13624,12 @@ msgid "Create the following table"
 msgstr "Créer la table suivante"
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#, fuzzy
-#| msgid "New table name"
 msgid "Enter new table name"
-msgstr "Saisir nouveau nom de table"
+msgstr "Saisir le nouveau nom de table"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
-#| msgid "New column name"
 msgid "Enter column name"
-msgstr "Saisir nom de colonne"
+msgstr "Saisir le nom de la colonne"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Third step of normalization (3NF)"
@@ -13712,8 +13708,6 @@ msgstr ""
 "L'image peut être redimensionnée en faisant glisser le coin inférieur droit."
 
 #: src/Controllers/JavaScriptMessagesController.php:462
-#, fuzzy
-#| msgid "Zoom search"
 msgid "Zoom search instructions"
 msgstr "Instruction de recherche par zoom"
 
