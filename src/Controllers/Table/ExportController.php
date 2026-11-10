@@ -111,7 +111,7 @@ readonly class ExportController implements InvocableController
             Current::$table,
             Current::$sqlQuery,
             Current::$numTables,
-            $this->getUnlimNumRows($request),
+            $this->getNumberOfRowsToExport($request),
             $exportList,
             $request->getParam('format'),
             $request->getParam('what'),
@@ -126,17 +126,15 @@ readonly class ExportController implements InvocableController
         return $this->response->response();
     }
 
-    /**
-     * Number of rows of the query being exported: the selected rows when exporting
-     * specific rows, otherwise the total number of rows returned by the query.
-     */
-    private function getUnlimNumRows(ServerRequest $request): int
+    private function getNumberOfRowsToExport(ServerRequest $request): int
     {
-        if (is_array(Current::$whereClause) && Current::$whereClause !== []) {
-            return count(Current::$whereClause);
+        $selectedRows = Current::$whereClause ?? [];
+        if ($selectedRows !== []) {
+            return count($selectedRows);
         }
 
-        if (! is_numeric($request->getParam('unlim_num_rows'))) {
+        $isQueryResultRowCountValid = is_numeric($request->getParam('unlim_num_rows'));
+        if (! $isQueryResultRowCountValid) {
             return 0;
         }
 
