@@ -132,6 +132,30 @@ div.null_div {
   min-width: 50px;
 }
 
+div.crlf_div {
+  font-style: normal;
+  max-width: 100%;
+}
+
+div.crlf_div label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 0;
+}
+
+div.crlf_div .line-ending-label {
+  white-space: nowrap;
+}
+
+div.crlf_div select {
+  box-sizing: border-box;
+  max-width: 100%;
+  flex: 1 1 auto;
+}
+
 .pma-fieldset {
   .formelement {
     float: left;
