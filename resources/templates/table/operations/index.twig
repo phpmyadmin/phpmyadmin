@@ -54,7 +54,7 @@
         <div class="col-auto">
           <div class="input-group">
             {% if database_list is not empty %}
-              <select id="moveTableDatabaseInput" class="form-select" name="target_db" aria-label="{{ t('Database') }}">
+              <select id="moveTableDatabaseInput" class="form-select search" name="target_db" aria-label="{{ t('Database') }}">
                 {% for each_db in database_list %}
                   <option value="{{ each_db.name }}"{{ each_db.is_selected ? ' selected' }}>{{ each_db.name }}</option>
                 {% endfor %}
@@ -159,7 +159,7 @@
           <label for="collationSelect">{{ t('Collation') }}</label>
         </div>
         <div class="col-6">
-          <select class="form-select" id="collationSelect" lang="en" dir="ltr" name="tbl_collation">
+          <select class="form-select search" id="collationSelect" lang="en" dir="ltr" name="tbl_collation">
             <option value=""></option>
             {% for charset in charsets %}
               <optgroup label="{{ charset.getName() }}" title="{{ charset.getDescription() }}">
@@ -262,7 +262,7 @@
         <div class="col-auto">
           <div class="input-group">
             {% if database_list is not empty %}
-              <select class="form-select" name="target_db" aria-label="{{ t('Database') }}">
+              <select class="form-select search" name="target_db" aria-label="{{ t('Database') }}">
                 {% for each_db in database_list %}
                   <option value="{{ each_db.name }}"{{ each_db.is_selected ? ' selected' }}>{{ each_db.name }}</option>
                 {% endfor %}

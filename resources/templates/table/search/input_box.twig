@@ -1,7 +1,7 @@
 {# Get inputbox based on different column types (Foreign key, geometrical, enum) #}
 {% if has_foreigner %}
     {% if foreign_data.dispRow is iterable %}
-        <select name="criteriaValues[{{ column_index }}]"
+        <select name="criteriaValues[{{ column_index }}]" class="search"
             id="{{ column_id }}{{ column_index }}">
             {{ foreign_dropdown|raw }}
         </select>
@@ -45,10 +45,10 @@
     #}
     {% if (column_type starts with 'enum' and not in_zoom_search_edit)
         or (column_type starts with 'set' and in_zoom_search_edit) %}
-        <select name="criteriaValues[{{ column_index }}]"
+        <select name="criteriaValues[{{ column_index }}]" class="search"
             id="{{ column_id }}{{ column_index }}">
     {% else %}
-        <select name="criteriaValues[{{ column_index }}]"
+        <select name="criteriaValues[{{ column_index }}]" class="search"
             id="{{ column_id }}{{ column_index }}"
             multiple="multiple"
             size="{{ min(3, cnt_value) }}">
