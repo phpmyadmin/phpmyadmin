@@ -812,6 +812,11 @@ class Export
                         }
                     }
 
+                    // Skip tables that cannot be read
+                    if ($tableObject->getColumns() === []) {
+                        continue;
+                    }
+
                     if (
                         ! $exportPlugin->exportStructure(
                             $db,
@@ -1077,6 +1082,11 @@ class Export
                     }
                 }
             } elseif (isset($GLOBALS['sql_create_table'])) {
+                // Skip tables that cannot be read
+                if ($tableObject->getColumns() === []) {
+                    return;
+                }
+
                 if (
                     ! $exportPlugin->exportStructure(
                         $db,
