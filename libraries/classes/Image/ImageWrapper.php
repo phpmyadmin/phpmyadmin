@@ -92,7 +92,7 @@ final class ImageWrapper
             return null;
         }
 
-        $image = imagecreatefromstring($data);
+        $image = @imagecreatefromstring($data);
         if ($image === false) {
             return null;
         }
