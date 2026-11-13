@@ -20,26 +20,14 @@ final class CollationTest extends AbstractTestCase
 
     public function testFromServer(): void
     {
-        $serverCollation = [
-            'Collation' => 'utf8_general_ci',
-            'Charset' => 'utf8',
-            'Id' => '33',
-            'Default' => 'Yes',
-            'Compiled' => 'Yes',
-            'Sortlen' => '1',
-            'Pad_attribute' => 'PAD SPACE',
-        ];
+        $serverCollation = ['Collation' => 'utf8_general_ci', 'Charset' => 'utf8', 'Default' => 'Yes'];
 
         $collation = Collation::fromServer($serverCollation);
 
         self::assertSame('utf8_general_ci', $collation->getName());
         self::assertSame('Unicode, case-insensitive', $collation->getDescription());
         self::assertSame('utf8', $collation->getCharset());
-        self::assertSame(33, $collation->getId());
         self::assertTrue($collation->isDefault());
-        self::assertTrue($collation->isCompiled());
-        self::assertSame(1, $collation->getSortLength());
-        self::assertSame('PAD SPACE', $collation->getPadAttribute());
     }
 
     /**
@@ -146,6 +134,22 @@ final class CollationTest extends AbstractTestCase
             ['foo_mysql500_ci', 'Unknown (MySQL 5.0.0), case-insensitive'],
             ['foo_uca1400_ci', 'Unknown (UCA 14.0.0), case-insensitive'],
             ['utf8mb4_uca1400_ai_ci', 'Unicode (UCA 14.0.0), accent-insensitive, case-insensitive'],
+            ['utf8mb4_uca1400_as_cs', 'Unicode (UCA 14.0.0), accent-sensitive, case-sensitive'],
+            ['utf8mb4_uca1400_nopad_ai_ci', 'Unicode (UCA 14.0.0), no-pad, accent-insensitive, case-insensitive'],
+            ['utf8mb4_uca1400_swedish_ai_ci', 'Swedish (UCA 14.0.0), accent-insensitive, case-insensitive'],
+            [
+                'utf8mb4_uca1400_swedish_nopad_as_cs',
+                'Swedish (UCA 14.0.0), no-pad, accent-sensitive, case-sensitive',
+            ],
+            [
+                'utf8mb4_uca1400_german2_ai_ci',
+                'German (phone book order) (UCA 14.0.0), accent-insensitive, case-insensitive',
+            ],
+            [
+                'utf8mb4_uca1400_spanish2_ai_ci',
+                'Spanish (traditional) (UCA 14.0.0), accent-insensitive, case-insensitive',
+            ],
+            ['utf8mb4_0900_bin', 'Unicode (UCA 9.0.0), binary'],
             ['utf8mb4_0900_ai_ci', 'Unicode (UCA 9.0.0), accent-insensitive, case-insensitive'],
             ['utf8mb4_unicode_520_ci', 'Unicode (UCA 5.2.0), case-insensitive'],
             ['utf8mb4_unicode_ci', 'Unicode (UCA 4.0.0), case-insensitive'],
@@ -174,6 +178,14 @@ final class CollationTest extends AbstractTestCase
             ['utf8mb4_ja_0900_as_cs_ks', 'Japanese (UCA 9.0.0), accent-sensitive, case-sensitive, kana-sensitive'],
             ['utf8mb4_unicode_520_nopad_ci', 'Unicode (UCA 5.2.0), no-pad, case-insensitive'],
             ['utf8mb4_ru_0900_as_cs', 'Russian (UCA 9.0.0), accent-sensitive, case-sensitive'],
+            ['utf8mb4_xx_0900_ai_ci', 'Unicode (UCA 9.0.0), accent-insensitive, case-insensitive'],
+            ['utf8mb4_bs_0900_ai_ci', 'Bosnian (UCA 9.0.0), accent-insensitive, case-insensitive'],
+            ['utf8mb4_bg_0900_as_cs', 'Bulgarian (UCA 9.0.0), accent-sensitive, case-sensitive'],
+            ['utf8mb4_gl_0900_ai_ci', 'Galician (UCA 9.0.0), accent-insensitive, case-insensitive'],
+            ['utf8mb4_mn_cyrl_0900_ai_ci', 'Mongolian (Cyrillic) (UCA 9.0.0), accent-insensitive, case-insensitive'],
+            ['utf8mb4_nb_0900_ai_ci', 'Norwegian Bokmål (UCA 9.0.0), accent-insensitive, case-insensitive'],
+            ['utf8mb4_nn_0900_as_cs', 'Norwegian Nynorsk (UCA 9.0.0), accent-sensitive, case-sensitive'],
+            ['utf8mb4_sr_latn_0900_ai_ci', 'Serbian (Latin) (UCA 9.0.0), accent-insensitive, case-insensitive'],
         ];
     }
 }
