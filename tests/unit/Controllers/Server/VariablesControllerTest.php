@@ -11,9 +11,7 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
-use PhpMyAdmin\Providers\ServerVariables\VoidProvider as ServerVariablesVoidProvider;
-use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Server\VariableFormatter;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -21,8 +19,6 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
-use ReflectionMethod;
-use ReflectionProperty;
 
 use function __;
 use function htmlspecialchars;
@@ -76,7 +72,11 @@ class VariablesControllerTest extends AbstractTestCase
             ->with('SHOW SESSION VARIABLES;')
             ->willReturn($resultStub);
 
-        $controller = new VariablesController($response, new Template(new Config()), $this->mockedDbi);
+        $controller = new VariablesController(
+            $response,
+            new VariableFormatter(new Template(new Config())),
+            $this->mockedDbi,
+        );
 
         $controller(self::createStub(ServerRequest::class));
         $html = $response->getHTMLResult();
@@ -109,123 +109,5 @@ class VariablesControllerTest extends AbstractTestCase
         $name = 'auto_increment_offset';
         $value = htmlspecialchars(str_replace('_', ' ', $name));
         self::assertStringContainsString($value, $html);
-    }
-
-    /**
-     * Test for formatVariable()
-     */
-    public function testFormatVariable(): void
-    {
-        $controller = new VariablesController(
-            ResponseRenderer::getInstance(),
-            new Template(new Config()),
-            $this->mockedDbi,
-        );
-
-        $nameForValueByte = 'byte_variable';
-        $nameForValueNotByte = 'not_a_byte_variable';
-
-        //name is_numeric and the value type is byte
-        $args = [$nameForValueByte, '3'];
-        $voidProviderMock = $this->createMock(ServerVariablesVoidProvider::class);
-
-        $voidProviderMock
-            ->expects(self::exactly(2))
-            ->method('getVariableType')
-            ->willReturn('byte', 'string');
-
-        $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
-        $response->setValue(null, $voidProviderMock);
-
-        [$formattedValue, $isHtmlFormatted] = ((new ReflectionMethod(VariablesController::class, 'formatVariable'))
-            ->invokeArgs($controller, $args));
-
-        self::assertSame('<abbr title="3">3 B</abbr>', $formattedValue);
-        self::assertTrue($isHtmlFormatted);
-
-        //name is_numeric and the value type is not byte
-        $args = [$nameForValueNotByte, '3'];
-        [$formattedValue, $isHtmlFormatted] = ((new ReflectionMethod(VariablesController::class, 'formatVariable'))
-            ->invokeArgs($controller, $args));
-        self::assertSame('3', $formattedValue);
-        self::assertFalse($isHtmlFormatted);
-
-        //value is not a number
-        $args = [$nameForValueNotByte, 'value'];
-        [$formattedValue, $isHtmlFormatted] = ((new ReflectionMethod(VariablesController::class, 'formatVariable'))
-            ->invokeArgs($controller, $args));
-        self::assertSame('value', $formattedValue);
-        self::assertFalse($isHtmlFormatted);
-    }
-
-    /**
-     * Test for formatVariable()
-     */
-    public function testFormatVariableMariaDbMySqlKbs(): void
-    {
-        if (! ServerVariablesProvider::mariaDbMySqlKbsExists()) {
-            self::markTestSkipped('MariaDbMySqlKbs is missing');
-        }
-
-        $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
-        $response->setValue(null, null);
-
-        $controller = new VariablesController(
-            ResponseRenderer::getInstance(),
-            new Template(new Config()),
-            $this->mockedDbi,
-        );
-
-        $nameForValueByte = 'wsrep_replicated_bytes';
-        $nameForValueNotByte = 'wsrep_thread_count';
-
-        //name is_numeric and the value type is byte
-        $args = [$nameForValueByte, '3'];
-
-        [$formattedValue, $isHtmlFormatted] = ((new ReflectionMethod(VariablesController::class, 'formatVariable'))
-            ->invokeArgs($controller, $args));
-
-        self::assertSame('<abbr title="3">3 B</abbr>', $formattedValue);
-        self::assertTrue($isHtmlFormatted);
-
-        //name is_numeric and the value type is not byte
-        $args = [$nameForValueNotByte, '3'];
-        [$formattedValue, $isHtmlFormatted] = ((new ReflectionMethod(VariablesController::class, 'formatVariable'))
-            ->invokeArgs($controller, $args));
-        self::assertSame('3', $formattedValue);
-        self::assertFalse($isHtmlFormatted);
-
-        //value is not a number
-        $args = [$nameForValueNotByte, 'value'];
-        [$formattedValue, $isHtmlFormatted] = ((new ReflectionMethod(VariablesController::class, 'formatVariable'))
-            ->invokeArgs($controller, $args));
-        self::assertSame('value', $formattedValue);
-        self::assertFalse($isHtmlFormatted);
-    }
-
-    /**
-     * Test for formatVariable() using VoidProvider
-     */
-    public function testFormatVariableVoidProvider(): void
-    {
-        $response = new ReflectionProperty(ServerVariablesProvider::class, 'instance');
-        $response->setValue(null, new ServerVariablesVoidProvider());
-
-        $controller = new VariablesController(
-            ResponseRenderer::getInstance(),
-            new Template(new Config()),
-            $this->mockedDbi,
-        );
-
-        $nameForValueByte = 'wsrep_replicated_bytes';
-
-        //name is_numeric and the value type is byte
-        $args = [$nameForValueByte, '3'];
-
-        [$formattedValue, $isHtmlFormatted] = ((new ReflectionMethod(VariablesController::class, 'formatVariable'))
-            ->invokeArgs($controller, $args));
-
-        self::assertSame('3', $formattedValue);
-        self::assertFalse($isHtmlFormatted);
     }
 }
