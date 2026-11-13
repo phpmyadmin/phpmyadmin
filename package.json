@@ -10,13 +10,13 @@
     "node": ">=12"
   },
   "dependencies": {
-    "@babel/cli": "^7.28.3",
-    "@babel/core": "^7.28.3",
-    "@babel/preset-env": "^7.28.3",
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
     "@popperjs/core": "^2.11.8",
     "@zxcvbn-ts/core": "^2.0.1",
-    "autoprefixer": "^10.4.21",
-    "bootstrap": "5.3.8",
+    "autoprefixer": "^10.6.1",
+    "bootstrap": "5.3.9",
     "codemirror": "5.65.10",
     "jquery": "3.7.1",
     "jquery-debounce-throttle": "^1.0.6-rc.0",
