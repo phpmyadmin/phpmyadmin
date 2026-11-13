@@ -1802,7 +1802,7 @@ textarea {
 
 #pma_console {
   position: relative;
-  margin-left: var(--navigation-width, 0);
+  margin-left: var(--navigation-width);
 
   .templates {
     display: none;

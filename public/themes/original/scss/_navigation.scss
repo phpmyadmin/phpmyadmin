@@ -10,9 +10,11 @@
   padding-bottom: 1em;
 }
 
-// The panel width comes from the --navigation-width custom property set on <body>
+// The server sets --navigation-width on <body> only on pages with the navigation panel
 body {
-  margin-left: var(--navigation-width, 0);
+  --navigation-width: 0;
+
+  margin-left: var(--navigation-width);
 }
 
 #pma_navigation {
