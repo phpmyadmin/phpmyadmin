@@ -17,6 +17,7 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Plugins;
@@ -27,6 +28,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 #[CoversClass(ExportController::class)]
 class ExportControllerTest extends AbstractTestCase
@@ -162,5 +164,61 @@ class ExportControllerTest extends AbstractTestCase
 
         // Should return 200 instead of 400 for missing db/table params
         self::assertSame(200, $result->getStatusCode());
+    }
+
+    /** @param string[]|null $whereClause */
+    #[DataProvider('providerForNumberOfRowsToExport')]
+    public function testNumberOfRowsToExport(string|null $unlimNumRows, array|null $whereClause, string $expected): void
+    {
+        Current::$database = 'test_db';
+        Current::$table = 'test_table';
+        Current::$sqlQuery = '';
+        Current::$whereClause = $whereClause;
+        $config = Config::getInstance();
+        $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
+        $config->selectedServer['DisableIS'] = true;
+        Export::$singleTable = true;
+
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addResult('SELECT COUNT(*) FROM `test_db`.`test_table`', [['50000']]);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
+
+        $response = new ResponseRenderer();
+        $relation = new Relation($dbi, $config);
+        $template = new Template($config);
+        $userPreferences = new UserPreferences($dbi, $relation, $template, $config, new Clock());
+        $pageSettings = new PageSettings($userPreferences, $response);
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            $userPreferences,
+            new LanguageManager($config),
+            new ThemeManager(),
+        );
+        $options = new Options($relation, new TemplateModel($dbi), $userPreferencesHandler);
+        $pluginFactory = $this->createPluginFactory($dbi, $config);
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody($unlimNumRows === null ? [] : ['unlim_num_rows' => $unlimNumRows]);
+
+        $controller = new ExportController($response, $options, $pageSettings, $pluginFactory);
+        $controller($request);
+
+        Current::$whereClause = null;
+
+        self::assertStringContainsString(
+            'id="limit_to" name="limit_to" size="5" value="' . $expected . '"',
+            $response->getHTMLResult(),
+        );
+    }
+
+    /** @return iterable<string, array{string|null, string[]|null, string}> */
+    public static function providerForNumberOfRowsToExport(): iterable
+    {
+        yield 'no query, table row count' => [null, null, '50000'];
+        yield 'query results row count' => ['12', null, '12'];
+        yield 'invalid row count falls back to table count' => ['abc', null, '50000'];
+        yield 'selected rows count' => ['12', ['`id` = 1', '`id` = 2'], '2'];
     }
 }

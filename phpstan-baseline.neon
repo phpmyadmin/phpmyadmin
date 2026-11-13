@@ -15093,7 +15093,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 3
 			path: tests/unit/Controllers/Table/ExportControllerTest.php
 
 		-
