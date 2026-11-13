@@ -8,10 +8,16 @@ use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use ReflectionProperty;
 
 #[CoversClass(Collation::class)]
-class CollationTest extends AbstractTestCase
+final class CollationTest extends AbstractTestCase
 {
+    public static function setUpBeforeClass(): void
+    {
+        (new ReflectionProperty(Collation::class, 'suffixesCache'))->setValue(null, []);
+    }
+
     public function testFromServer(): void
     {
         $serverCollation = [
