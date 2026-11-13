@@ -1460,32 +1460,56 @@ class TableTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for setUiProp
-     */
-    public function testSetUiProp(): void
+    public function testSortedColumnUiPreference(): void
     {
-        $tableName = 'PMA_BookMark';
-        $db = 'PMA';
+        $table = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
+        self::assertNull($table->getSortedColumn());
 
-        $table = new Table($tableName, $db, $this->mockedDbi);
+        self::assertTrue($table->setSortedColumn('`column3` DESC'));
+        $otherObjectForSameTable = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
+        self::assertSame('`column3` DESC', $otherObjectForSameTable->getSortedColumn());
 
-        $property = UiProperty::ColumnOrder;
-        $value = 'UiProp_value';
-        $tableCreateTime = null;
-        $table->setUiProp($property, $value, $tableCreateTime);
+        self::assertTrue($table->removeUiProp(UiProperty::SortedColumn));
+        self::assertNull($table->getSortedColumn());
+    }
 
-        //set UI prop successfully
-        self::assertSame($value, $table->uiprefs[$property->value]);
+    #[DataProvider('providerForSortedColumnValidation')]
+    public function testSortedColumnValidation(string $sortedColumn, bool $isKept): void
+    {
+        $dbi = self::createStub(DatabaseInterface::class);
+        $dbi->method('getColumnNames')->willReturn(['a.b', 'first name', 'x`y', 'user_id', 'ü']);
+        $table = new Table('tablé', 'dü', $dbi);
+        self::assertTrue($table->setSortedColumn($sortedColumn));
 
-        //removeUiProp
-        $table->removeUiProp($property);
-        $isDefineProperty = isset($table->uiprefs[$property->value]);
-        self::assertFalse($isDefineProperty);
+        self::assertSame($isKept ? $sortedColumn : null, $table->getSortedColumn());
+    }
 
-        //getUiProp after removeUiProp
-        $isDefineProperty = $table->getUiProp($property);
-        self::assertFalse($isDefineProperty);
+    /** @return iterable<string, array{string, bool}> */
+    public static function providerForSortedColumnValidation(): iterable
+    {
+        yield 'column with period' => ['`a.b` ASC', true];
+        yield 'table-qualified column with period' => ['`tablé`.`a.b` DESC', true];
+        yield 'database-qualified column' => ['`dü`.`tablé`.`a.b` DESC', false];
+        yield 'last part of column with period' => ['`b` ASC', false];
+        yield 'column with space' => ['`first name` ASC', true];
+        yield 'column with backquote' => ['`x``y` ASC', true];
+        yield 'multibyte column' => ['`ü` ASC', true];
+        yield 'unquoted column' => ['user_id', true];
+        yield 'suffix of column' => ['`id` ASC', false];
+        yield 'unknown column' => ['`unknown` DESC', false];
+        yield 'other table' => ['`other`.`a.b` ASC', false];
+        yield 'other database' => ['`other`.`tablé`.`a.b` ASC', false];
+        yield 'second column unknown' => ['`a.b` ASC, `unknown` DESC', false];
+        yield 'expression' => ['CONCAT(`a.b`) ASC', false];
+        yield 'position' => ['1', false];
+    }
+
+    public function testColumnOrderUiPreferenceIsIgnoredForView(): void
+    {
+        $table = new Table('PMA_BookMark', 'PMA', $this->mockedDbi);
+
+        self::assertTrue($table->setColumnOrder([1, 0], null));
+        self::assertNull($table->getColumnOrder());
     }
 
     /**

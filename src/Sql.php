@@ -26,7 +26,6 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\SqlParser\Utils\StatementInfo;
 use PhpMyAdmin\SqlParser\Utils\StatementType;
 use PhpMyAdmin\Table\Table;
-use PhpMyAdmin\Table\UiProperty;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -95,8 +94,8 @@ class Sql
 
         if (! $statementInfo->flags->order) {
             // Retrieving the name of the column we should sort after.
-            $sortCol = $tableObject->getUiProp(UiProperty::SortedColumn);
-            if (empty($sortCol)) {
+            $sortCol = $tableObject->getSortedColumn();
+            if ($sortCol === null || $sortCol === '') {
                 return $statementInfo;
             }
 
@@ -118,8 +117,7 @@ class Sql
             $statementInfo = Query::getAll($fullSqlQuery);
         } else {
             // Store the remembered table into session.
-            $tableObject->setUiProp(
-                UiProperty::SortedColumn,
+            $tableObject->setSortedColumn(
                 Query::getClause(
                     $statementInfo->statement,
                     $statementInfo->parser->list,
@@ -679,7 +677,6 @@ class Sql
                 assert($statement instanceof SelectStatement);
 
                 assert($statement->options !== null);
-                /** @var int|null $noCacheIndex */
                 $noCacheIndex = array_find_key(
                     $statement->options->options,
                     static fn (mixed $value): bool => is_string($value) && strtoupper($value) === 'SQL_NO_CACHE',
