@@ -24,9 +24,9 @@
   <link rel="stylesheet" type="text/css" href="{{ header.theme_path }}/css/theme{{ pma.text_dir == 'rtl' ? '.rtl' }}.css?v={{ pma.version|url_encode }}">
   <title>{{ header.title }}</title>
   {{ header.scripts|raw }}
-  <noscript><style>html{display:block}</style></noscript>
+  <noscript><style>html{display:block}#pma_navigation_resizer,#pma_navigation_collapser{display:none}</style></noscript>
 </head>
-<body{{ header.body_id is not empty ? ' id=' ~ header.body_id }}>
+<body{{ header.body_id is not empty ? ' id=' ~ header.body_id }}{% if header.navigation is not empty %} style="--navigation-width: {{ header.navigation_width }}px"{% endif %}>
 {{ header.navigation|raw }}
 {{ header.custom_header|raw }}
 {{ header.load_user_preferences|raw }}
