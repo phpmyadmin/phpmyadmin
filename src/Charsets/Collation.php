@@ -26,22 +26,14 @@ final class Collation
     private static array $suffixesCache = [];
 
     /**
-     * @param string $name         The collation name
-     * @param string $charset      The name of the character set with which the collation is associated
-     * @param int    $id           The collation ID
-     * @param bool   $isDefault    Whether the collation is the default for its character set
-     * @param bool   $isCompiled   Whether the character set is compiled into the server
-     * @param int    $sortLength   Used for determining the memory used to sort strings in this collation
-     * @param string $padAttribute The collation pad attribute
+     * @param string $name      The collation name
+     * @param string $charset   The name of the character set with which the collation is associated
+     * @param bool   $isDefault Whether the collation is the default for its character set
      */
     private function __construct(
         private string $name,
         private string $charset,
-        private int $id,
         private bool $isDefault,
-        private bool $isCompiled,
-        private int $sortLength,
-        private string $padAttribute,
     ) {
         $this->description = $this->buildDescription();
     }
@@ -52,11 +44,7 @@ final class Collation
         return new self(
             $state['Collation'] ?? '',
             $state['Charset'] ?? '',
-            (int) ($state['Id'] ?? 0),
             isset($state['Default']) && ($state['Default'] === 'Yes' || $state['Default'] === '1'),
-            isset($state['Compiled']) && ($state['Compiled'] === 'Yes' || $state['Compiled'] === '1'),
-            (int) ($state['Sortlen'] ?? 0),
-            $state['Pad_attribute'] ?? '',
         );
     }
 
@@ -75,29 +63,9 @@ final class Collation
         return $this->charset;
     }
 
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
     public function isDefault(): bool
     {
         return $this->isDefault;
-    }
-
-    public function isCompiled(): bool
-    {
-        return $this->isCompiled;
-    }
-
-    public function getSortLength(): int
-    {
-        return $this->sortLength;
-    }
-
-    public function getPadAttribute(): string
-    {
-        return $this->padAttribute;
     }
 
     /**
