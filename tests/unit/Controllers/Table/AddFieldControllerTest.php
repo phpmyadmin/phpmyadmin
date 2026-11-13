@@ -50,7 +50,7 @@ class AddFieldControllerTest extends AbstractTestCase
             'length' => '',
             'extracted_columnspec' => [],
             'submit_attribute' => null,
-            'comments_map' => [],
+            'comment' => '',
             'fields_meta' => null,
             'is_backup' => false,
             'move_columns' => [],
@@ -168,7 +168,7 @@ class AddFieldControllerTest extends AbstractTestCase
                     'Text_Plain_Substring\\.php',
                 ],
             ],
-            'mime_map' => [],
+            'mime' => [],
         ];
 
         $relation = new Relation($dbi);
