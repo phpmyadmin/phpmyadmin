@@ -146,6 +146,22 @@ final class CollationTest extends AbstractTestCase
             ['foo_mysql500_ci', 'Unknown (MySQL 5.0.0), case-insensitive'],
             ['foo_uca1400_ci', 'Unknown (UCA 14.0.0), case-insensitive'],
             ['utf8mb4_uca1400_ai_ci', 'Unicode (UCA 14.0.0), accent-insensitive, case-insensitive'],
+            ['utf8mb4_uca1400_as_cs', 'Unicode (UCA 14.0.0), accent-sensitive, case-sensitive'],
+            ['utf8mb4_uca1400_nopad_ai_ci', 'Unicode (UCA 14.0.0), no-pad, accent-insensitive, case-insensitive'],
+            ['utf8mb4_uca1400_swedish_ai_ci', 'Swedish (UCA 14.0.0), accent-insensitive, case-insensitive'],
+            [
+                'utf8mb4_uca1400_swedish_nopad_as_cs',
+                'Swedish (UCA 14.0.0), no-pad, accent-sensitive, case-sensitive',
+            ],
+            [
+                'utf8mb4_uca1400_german2_ai_ci',
+                'German (phone book order) (UCA 14.0.0), accent-insensitive, case-insensitive',
+            ],
+            [
+                'utf8mb4_uca1400_spanish2_ai_ci',
+                'Spanish (traditional) (UCA 14.0.0), accent-insensitive, case-insensitive',
+            ],
+            ['utf8mb4_0900_bin', 'Unicode (UCA 9.0.0), binary'],
             ['utf8mb4_0900_ai_ci', 'Unicode (UCA 9.0.0), accent-insensitive, case-insensitive'],
             ['utf8mb4_unicode_520_ci', 'Unicode (UCA 5.2.0), case-insensitive'],
             ['utf8mb4_unicode_ci', 'Unicode (UCA 4.0.0), case-insensitive'],
