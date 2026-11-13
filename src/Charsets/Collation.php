@@ -166,6 +166,13 @@ final class Collation
             }
 
             if ($level === 4) {
+                /* Script of the language, e.g. utf8mb4_sr_latn_0900_ai_ci */
+                $script = $this->getScript($part);
+                if ($script !== null) {
+                    $name .= ' (' . $script . ')';
+                    continue;
+                }
+
                 /* Next will be suffix */
                 $level = 5;
                 /* Variant */
@@ -221,6 +228,15 @@ final class Collation
             '520' => 'UCA 5.2.0',
             'mysql561' => 'MySQL 5.6.1',
             'mysql500' => 'MySQL 5.0.0',
+            default => null,
+        };
+    }
+
+    private function getScript(string $part): string|null
+    {
+        return match ($part) {
+            'cyrl' => _pgettext('Collation', 'Cyrillic'),
+            'latn' => _pgettext('Collation', 'Latin'),
             default => null,
         };
     }
@@ -374,6 +390,10 @@ final class Collation
         switch ($part) {
             case 'general':
                 break;
+            case 'bosnian':
+            case 'bs':
+                $name = _pgettext('Collation', 'Bosnian');
+                break;
             case 'bulgarian':
             case 'bg':
                 $name = _pgettext('Collation', 'Bulgarian');
@@ -409,6 +429,10 @@ final class Collation
             case 'estonian':
             case 'et':
                 $name = _pgettext('Collation', 'Estonian');
+                break;
+            case 'galician':
+            case 'gl':
+                $name = _pgettext('Collation', 'Galician');
                 break;
             case 'german1':
                 $name = _pgettext('Collation', 'German (dictionary order)');
@@ -448,9 +472,19 @@ final class Collation
             case 'ko':
                 $name = _pgettext('Collation', 'Korean');
                 break;
+            case 'mongolian':
+            case 'mn':
+                $name = _pgettext('Collation', 'Mongolian');
+                break;
             case 'myanmar':
             case 'my':
                 $name = _pgettext('Collation', 'Burmese');
+                break;
+            case 'nb':
+                $name = _pgettext('Collation', 'Norwegian Bokmål');
+                break;
+            case 'nn':
+                $name = _pgettext('Collation', 'Norwegian Nynorsk');
                 break;
             case 'persian':
                 $name = _pgettext('Collation', 'Persian');
@@ -468,6 +502,10 @@ final class Collation
                 break;
             case 'ru':
                 $name = _pgettext('Collation', 'Russian');
+                break;
+            case 'serbian':
+            case 'sr':
+                $name = _pgettext('Collation', 'Serbian');
                 break;
             case 'si':
             case 'sinhala':
