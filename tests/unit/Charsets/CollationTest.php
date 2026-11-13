@@ -184,6 +184,13 @@ class CollationTest extends AbstractTestCase
             ['utf8mb4_ja_0900_as_cs_ks', 'Japanese (UCA 9.0.0), accent-sensitive, case-sensitive, kana-sensitive'],
             ['utf8mb4_unicode_520_nopad_ci', 'Unicode (UCA 5.2.0), no-pad, case-insensitive'],
             ['utf8mb4_ru_0900_as_cs', 'Russian (UCA 9.0.0), accent-sensitive, case-sensitive'],
+            ['utf8mb4_bs_0900_ai_ci', 'Bosnian (UCA 9.0.0), accent-insensitive, case-insensitive'],
+            ['utf8mb4_bg_0900_as_cs', 'Bulgarian (UCA 9.0.0), accent-sensitive, case-sensitive'],
+            ['utf8mb4_gl_0900_ai_ci', 'Galician (UCA 9.0.0), accent-insensitive, case-insensitive'],
+            ['utf8mb4_mn_cyrl_0900_ai_ci', 'Mongolian (Cyrillic) (UCA 9.0.0), accent-insensitive, case-insensitive'],
+            ['utf8mb4_nb_0900_ai_ci', 'Norwegian Bokmål (UCA 9.0.0), accent-insensitive, case-insensitive'],
+            ['utf8mb4_nn_0900_as_cs', 'Norwegian Nynorsk (UCA 9.0.0), accent-sensitive, case-sensitive'],
+            ['utf8mb4_sr_latn_0900_ai_ci', 'Serbian (Latin) (UCA 9.0.0), accent-insensitive, case-insensitive'],
         ];
     }
 }
