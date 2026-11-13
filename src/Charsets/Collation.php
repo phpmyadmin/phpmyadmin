@@ -17,10 +17,7 @@ use function implode;
  */
 final class Collation
 {
-    /**
-     * A description of the collation
-     */
-    private string $description;
+    private string|null $description = null;
 
     /** @var array<string, string|null> */
     private static array $suffixesCache = [];
@@ -35,7 +32,6 @@ final class Collation
         private string $charset,
         private bool $isDefault,
     ) {
-        $this->description = $this->buildDescription();
     }
 
     /** @param string[] $state State obtained from the database server */
@@ -55,7 +51,7 @@ final class Collation
 
     public function getDescription(): string
     {
-        return $this->description;
+        return $this->description ??= $this->buildDescription();
     }
 
     public function getCharset(): string
