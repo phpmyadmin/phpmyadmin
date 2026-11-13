@@ -206,7 +206,7 @@ const DatabaseRoutines = {
                     slidingMessage(data.message);
                     bootstrap.Modal.getOrCreateInstance('#routinesEditorModal').hide();
 
-                    const tableId = '#' + data.tableType + 'Table';
+                    const tableId = '#routinesTable';
                     // If we are in 'edit' mode, we must
                     // remove the reference to the old row.
                     if (isEditMode && $editRow !== null) {
