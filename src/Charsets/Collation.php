@@ -84,95 +84,56 @@ final class Collation
         $name = $charsetName ?? _pgettext('Collation', 'Unknown');
         $variant = $charset === 'utf8mb4' ? 'UCA 4.0.0' : null;
         $suffixes = [];
-        $languageSkipped = false;
+        $languageFound = false;
 
-        /* Next will be language */
-        $level = 1;
-        foreach ($parts as $part) {
-            if ($level === 1) {
-                /* Locale name or code */
-                if ($part === 'german' || $part === 'de') {
-                    /* Name is set by the next token */
-                    $level = 2;
-                    continue;
-                }
-
-                if ($part === 'es') {
-                    /* Name is set by the next token */
-                    $level = 3;
-                    continue;
-                }
-
-                /* Next will be variant */
-                $level = 4;
-                $language = $this->getLanguageName($part, $name, $unicode, $unknown);
-                if ($language !== null) {
-                    $name = $language;
-                    continue;
-                }
-
-                $languageSkipped = true;
-                // Not parsed token, fall to next level
-            }
-
-            if ($level === 2) {
-                /* Next will be variant */
-                $level = 4;
-                /* Germal variant */
-                if ($part === 'pb') {
-                    $name = _pgettext('Collation', 'German (phone book order)');
-                    continue;
-                }
-
-                $name = _pgettext('Collation', 'German (dictionary order)');
-                // Not parsed token, fall to next level
-            }
-
-            if ($level === 3) {
-                /* Next will be variant */
-                $level = 4;
-                /* Spanish variant */
-                if ($part === 'trad') {
-                    $name = _pgettext('Collation', 'Spanish (traditional)');
-                    continue;
-                }
-
-                $name = _pgettext('Collation', 'Spanish (modern)');
-                // Not parsed token, fall to next level
-            }
-
-            if ($level === 4) {
-                /* Script of the language, e.g. utf8mb4_sr_latn_0900_ai_ci */
-                $script = $this->getScript($part);
-                if ($script !== null) {
-                    $name .= ' (' . $script . ')';
-                    continue;
-                }
-
-                /* Next will be suffix */
-                $level = 5;
-                /* Variant */
-                $variantFound = $this->getVariant($part);
-                if ($variantFound !== null) {
-                    $variant = $variantFound;
-                    if ($languageSkipped) {
-                        /* MariaDB puts the language after the variant, e.g. utf8mb4_uca1400_swedish_ai_ci */
-                        $level = 1;
-                        $languageSkipped = false;
-                    }
-
-                    continue;
-                }
-                // Not parsed token, fall to next level
-            }
-
-            /* Suffixes */
-            $suffix = $this->addSuffixes($part);
-            if ($suffix === null) {
+        foreach ($parts as $i => $part) {
+            /* "cs" is Czech right after the charset, e.g. utf8mb4_cs_0900_ai_ci, and case-sensitive elsewhere */
+            if ($i === 0 && $part === 'cs') {
+                $name = _pgettext('Collation', 'Czech');
+                $languageFound = true;
                 continue;
             }
 
-            $suffixes[] = $suffix;
+            $suffix = $this->addSuffixes($part);
+            if ($suffix !== null) {
+                $suffixes[] = $suffix;
+                continue;
+            }
+
+            $variantFound = $this->getVariant($part);
+            if ($variantFound !== null) {
+                $variant = $variantFound;
+                continue;
+            }
+
+            /* Script of the language, e.g. utf8mb4_sr_latn_0900_ai_ci */
+            $script = $this->getScript($part);
+            if ($script !== null) {
+                $name .= ' (' . $script . ')';
+                continue;
+            }
+
+            if ($languageFound) {
+                continue;
+            }
+
+            /* The token after "de" and "es" can choose the sort order, e.g. utf8mb4_de_pb_0900_ai_ci */
+            $next = $parts[$i + 1] ?? '';
+            $language = match ($part) {
+                'german', 'de' => $next === 'pb'
+                    ? _pgettext('Collation', 'German (phone book order)')
+                    : _pgettext('Collation', 'German (dictionary order)'),
+                'es' => $next === 'trad'
+                    ? _pgettext('Collation', 'Spanish (traditional)')
+                    : _pgettext('Collation', 'Spanish (modern)'),
+                default => $this->getLanguageName($part, $name, $unicode, $unknown),
+            };
+            if ($language === null) {
+                continue;
+            }
+
+            $name = $language;
+            $languageFound = true;
         }
 
         return $this->buildName($name, $variant, $suffixes);
