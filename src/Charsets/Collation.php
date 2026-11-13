@@ -136,21 +136,15 @@ final class Collation
             $languageFound = true;
         }
 
-        return $this->buildName($name, $variant, $suffixes);
-    }
-
-    /** @param string[] $suffixes */
-    private function buildName(string $result, string|null $variant, array $suffixes): string
-    {
         if ($variant !== null) {
-            $result .= ' (' . $variant . ')';
+            $name .= ' (' . $variant . ')';
         }
 
         if ($suffixes !== []) {
-            $result .= ', ' . implode(', ', $suffixes);
+            $name .= ', ' . implode(', ', $suffixes);
         }
 
-        return $result;
+        return $name;
     }
 
     private function getVariant(string $part): string|null
