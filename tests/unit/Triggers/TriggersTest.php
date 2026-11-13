@@ -32,7 +32,9 @@ class TriggersTest extends AbstractTestCase
         $this->setLanguage();
 
         $dummyDbi = $this->createDbiDummy();
-        $dummyDbi->addResult('SELECT 1 FROM `pma_test`.`table1` LIMIT 1;', []);
+        $dummyDbi->addResult('SHOW TABLES FROM `pma_test` LIKE \'table1\';', [['table1']]);
+        $dummyDbi->addResult('SHOW TABLES FROM `pma_test` LIKE \'table`2\';', []);
+        $dummyDbi->addResult('SHOW TABLES FROM `pma_test` LIKE \'table3\';', []);
         $dummyDbi->addResult('SELECT 1 FROM `pma_test`.`table``2` LIMIT 1;', false);
         $dummyDbi->addResult('SELECT 1 FROM `pma_test`.`table3` LIMIT 1;', false);
         $dbi = $this->createDatabaseInterface($dummyDbi);
