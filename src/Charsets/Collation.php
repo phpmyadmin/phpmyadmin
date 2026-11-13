@@ -114,6 +114,7 @@ final class Collation
         $suffixes = [];
         $unicode = false;
         $unknown = false;
+        $languageSkipped = false;
 
         $level = 0;
         foreach ($parts as $part) {
@@ -133,6 +134,8 @@ final class Collation
                 if ($found) {
                     continue;
                 }
+
+                $languageSkipped = true;
                 // Not parsed token, fall to next level
             }
 
@@ -169,6 +172,12 @@ final class Collation
                 $variantFound = $this->getVariant($part);
                 if ($variantFound !== null) {
                     $variant = $variantFound;
+                    if ($languageSkipped) {
+                        /* MariaDB puts the language after the variant, e.g. utf8mb4_uca1400_swedish_ai_ci */
+                        $level = 1;
+                        $languageSkipped = false;
+                    }
+
                     continue;
                 }
                 // Not parsed token, fall to next level
