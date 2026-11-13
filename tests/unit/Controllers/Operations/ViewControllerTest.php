@@ -43,7 +43,7 @@ class ViewControllerTest extends AbstractTestCase
         Current::$sqlQuery = '';
 
         $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
+        $this->dummyDbi->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
         $this->dummyDbi->addResult('SELECT @@lower_case_table_names', [['0']]);
         $this->dummyDbi->addResult('SHOW WARNINGS', []);
 

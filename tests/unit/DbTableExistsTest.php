@@ -37,7 +37,7 @@ final class DbTableExistsTest extends AbstractTestCase
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $dbTableExists = new DbTableExists($dbi);
         self::assertTrue($dbTableExists->hasTable(DatabaseName::from('test_db'), TableName::from('test_table')));
@@ -50,6 +50,7 @@ final class DbTableExistsTest extends AbstractTestCase
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', []);
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $dbTableExists = new DbTableExists($dbi);
@@ -63,6 +64,7 @@ final class DbTableExistsTest extends AbstractTestCase
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', []);
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', false);
         $dbi = $this->createDatabaseInterface($dbiDummy);
         $dbTableExists = new DbTableExists($dbi);

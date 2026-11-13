@@ -46,6 +46,16 @@ final class DbTableExists
 
     private function tableExists(DatabaseName $database, TableName $table): bool
     {
+        // SHOW TABLES reads only metadata, so it won't fail if the view contains an error.
+        $result = $this->dbi->tryQuery(sprintf(
+            'SHOW TABLES FROM %s LIKE %s;',
+            Util::backquote($database),
+            $this->dbi->quoteString($this->dbi->escapeMysqlWildcards($table->getName())),
+        ));
+        if ($result !== false && $result->numRows() === 1) {
+            return true;
+        }
+
         // SHOW TABLES doesn't show temporary tables, so try select.
         return $this->dbi->tryQuery(sprintf(
             'SELECT 1 FROM %s.%s LIMIT 1;',
