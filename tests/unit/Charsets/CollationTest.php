@@ -20,26 +20,14 @@ final class CollationTest extends AbstractTestCase
 
     public function testFromServer(): void
     {
-        $serverCollation = [
-            'Collation' => 'utf8_general_ci',
-            'Charset' => 'utf8',
-            'Id' => '33',
-            'Default' => 'Yes',
-            'Compiled' => 'Yes',
-            'Sortlen' => '1',
-            'Pad_attribute' => 'PAD SPACE',
-        ];
+        $serverCollation = ['Collation' => 'utf8_general_ci', 'Charset' => 'utf8', 'Default' => 'Yes'];
 
         $collation = Collation::fromServer($serverCollation);
 
         self::assertSame('utf8_general_ci', $collation->getName());
         self::assertSame('Unicode, case-insensitive', $collation->getDescription());
         self::assertSame('utf8', $collation->getCharset());
-        self::assertSame(33, $collation->getId());
         self::assertTrue($collation->isDefault());
-        self::assertTrue($collation->isCompiled());
-        self::assertSame(1, $collation->getSortLength());
-        self::assertSame('PAD SPACE', $collation->getPadAttribute());
     }
 
     /**
