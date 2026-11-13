@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-08 00:26+0000\n"
-"PO-Revision-Date: 2026-08-22 22:52+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"PO-Revision-Date: 2026-11-14 17:51+0000\n"
+"Last-Translator: Andi Chandler <andibing@users.noreply.hosted.weblate.org>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.9.dev0\n"
+"X-Generator: Weblate 2026.12.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1870,10 +1870,8 @@ msgstr "Add as"
 
 #. l10n: Short label for the comparison operator of a criteria row (=, >, LIKE, IN, BETWEEN…)
 #: resources/templates/database/multi_table_query/form.twig:90
-#, fuzzy
-#| msgid "Open"
 msgid "Op"
-msgstr "Open"
+msgstr "Op"
 
 #: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
@@ -2478,10 +2476,9 @@ msgid "Inside column:"
 msgstr "Inside column:"
 
 #: resources/templates/database/search/results.twig:3
-#, fuzzy, php-format
-#| msgid "Search results for \"<i>%s</i>\" %s:"
+#, php-format
 msgid "Search results for \"%s\" %s:"
-msgstr "Search results for \"<i>%s</i>\" %s:"
+msgstr "Search results for \"%s\" %s:"
 
 #: resources/templates/database/search/results.twig:11
 #, php-format
@@ -3086,10 +3083,8 @@ msgid "Error"
 msgstr "Error"
 
 #: resources/templates/error/get_display.twig:9
-#, fuzzy
-#| msgid "Back"
 msgid "Backtrace"
-msgstr "Back"
+msgstr "Backtrace"
 
 #: resources/templates/error/report_form.twig:3
 msgid ""
@@ -3203,10 +3198,8 @@ msgid "Export event"
 msgstr "Export event"
 
 #: resources/templates/events/index.twig:147
-#, fuzzy
-#| msgid "The event scheduler is disabled"
 msgid "The event scheduler is disabled."
-msgstr "The event scheduler is disabled"
+msgstr "The event scheduler is disabled."
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
@@ -11994,10 +11987,8 @@ msgstr ""
 #: src/Controllers/Triggers/IndexController.php:66
 #: src/Controllers/Triggers/IndexController.php:84
 #: src/Controllers/View/CreateController.php:66
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No database selected."
-msgstr "No databases selected."
+msgstr "No database selected."
 
 #: src/Controllers/Database/ExportController.php:121
 #: src/Controllers/Server/ExportController.php:58
@@ -12669,16 +12660,12 @@ msgid "Please enter the SQL query first."
 msgstr "Please enter the SQL query first."
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#, fuzzy
-#| msgid "With selected:"
 msgid "Nothing selected"
-msgstr "With selected:"
+msgstr "Nothing selected"
 
 #: src/Controllers/JavaScriptMessagesController.php:146
-#, fuzzy
-#| msgid "Extra options"
 msgid "Enter an option"
-msgstr "Extra options"
+msgstr "Enter an option"
 
 #: src/Controllers/JavaScriptMessagesController.php:149
 msgid "The host name is empty!"
@@ -13358,16 +13345,12 @@ msgid "Create the following table"
 msgstr "Create the following table"
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#, fuzzy
-#| msgid "New table name"
 msgid "Enter new table name"
-msgstr "New table name"
+msgstr "Enter new table name"
 
 #: src/Controllers/JavaScriptMessagesController.php:427
-#, fuzzy
-#| msgid "New column name"
 msgid "Enter column name"
-msgstr "New column name"
+msgstr "Enter column name"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
 msgid "Third step of normalization (3NF)"
@@ -13442,10 +13425,8 @@ msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "The plot can be resized by dragging it along the bottom right corner."
 
 #: src/Controllers/JavaScriptMessagesController.php:462
-#, fuzzy
-#| msgid "Zoom search"
 msgid "Zoom search instructions"
-msgstr "Zoom search"
+msgstr "Zoom search instructions"
 
 #: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Select two columns"
