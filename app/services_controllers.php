@@ -65,6 +65,7 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Import\Ajax;
+use PhpMyAdmin\Import\ImportForm;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Navigation\Navigation;
@@ -171,12 +172,9 @@ return [
         'class' => Database\ImportController::class,
         'arguments' => [
             ResponseRenderer::class,
-            DatabaseInterface::class,
             PageSettings::class,
             DbTableExists::class,
-            Config::class,
-            Ajax::class,
-            PluginFactory::class,
+            ImportForm::class,
         ],
     ],
     Database\MultiTableQuery\QueryController::class => [
@@ -665,9 +663,7 @@ return [
             ResponseRenderer::class,
             DatabaseInterface::class,
             PageSettings::class,
-            Config::class,
-            Ajax::class,
-            PluginFactory::class,
+            ImportForm::class,
         ],
     ],
     Server\PluginsController::class => [
@@ -964,12 +960,9 @@ return [
         'class' => Table\ImportController::class,
         'arguments' => [
             ResponseRenderer::class,
-            DatabaseInterface::class,
             PageSettings::class,
             DbTableExists::class,
-            Config::class,
-            Ajax::class,
-            PluginFactory::class,
+            ImportForm::class,
         ],
     ],
     Table\IndexesController::class => [
