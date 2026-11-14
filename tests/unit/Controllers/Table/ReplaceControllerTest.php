@@ -28,6 +28,7 @@ use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UrlParams;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -123,7 +124,16 @@ class ReplaceControllerTest extends AbstractTestCase
 
         $replaceController = new ReplaceController(
             $response,
-            new InsertEdit($dbi, $relation, $transformations, new FileListing(), $template, $config, $response),
+            new InsertEdit(
+                $dbi,
+                $relation,
+                $transformations,
+                new FileListing(),
+                $template,
+                $config,
+                $response,
+                new IniReader(),
+            ),
             $transformations,
             $relation,
             $dbi,
