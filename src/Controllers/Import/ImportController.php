@@ -29,6 +29,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
+use PhpMyAdmin\Utils\IniReader;
 use Throwable;
 
 use function __;
@@ -58,6 +59,7 @@ final readonly class ImportController implements InvocableController
         private DatabaseInterface $dbi,
         private BookmarkRepository $bookmarkRepository,
         private Config $config,
+        private IniReader $iniReader,
     ) {
     }
 
@@ -338,7 +340,7 @@ final readonly class ImportController implements InvocableController
 
         // We can not read all at once, otherwise we can run out of memory
         // Calculate value of the limit
-        $memoryLimit = Util::getRealSize(ini_get('memory_limit'));
+        $memoryLimit = $this->iniReader->getMemoryLimitInBytes();
         // 2 MB as default
         if ($memoryLimit === 0) {
             $memoryLimit = 2 * 1024 * 1024;

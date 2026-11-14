@@ -24,6 +24,7 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -710,7 +711,7 @@ final class ExportLatexTest extends AbstractTestCase
         $exportLatex = $this->getExportLatex($dbi);
         $exportLatex->setExportOptions($request, new SettingsExport());
         ob_start();
-        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi), new IniReader());
         $export->exportTable(
             'testdb',
             'testtable',
