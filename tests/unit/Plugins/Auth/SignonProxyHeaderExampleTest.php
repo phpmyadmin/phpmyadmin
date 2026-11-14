@@ -34,9 +34,7 @@ class SignonProxyHeaderExampleTest extends AbstractTestCase
     {
         parent::setUp();
 
-        // The example reports refused requests to the PHP error log.
         $this->logFile = (string) tempnam(sys_get_temp_dir(), 'pma-signon');
-        ini_set('error_log', $this->logFile);
 
         /** @psalm-suppress UnresolvableInclude */
         require_once __DIR__ . '/../../../../examples/signon-proxy-header.php';
@@ -125,6 +123,10 @@ class SignonProxyHeaderExampleTest extends AbstractTestCase
             'look-alike unicode letter' => ['127.0.0.1', $kelvin, 1, ['', '', 'identity' => $kelvin]],
         ];
 
+        // The example reports refused requests to the PHP error log. Newer PHPUnit versions take over the
+        // error log while a test runs, so it is redirected here instead of in setUp().
+        $previousErrorLog = ini_set('error_log', $this->logFile);
+
         foreach ($cases as $name => [$remoteAddress, $header, $server, $expected]) {
             $_SERVER = [];
             if ($remoteAddress !== null) {
@@ -138,6 +140,8 @@ class SignonProxyHeaderExampleTest extends AbstractTestCase
             /** @psalm-suppress UndefinedFunction */
             self::assertSame($expected, get_login_credentials('', $server), $name);
         }
+
+        ini_set('error_log', (string) $previousErrorLog);
 
         $log = (string) file_get_contents($this->logFile);
         self::assertStringContainsString(
