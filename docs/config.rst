@@ -1530,15 +1530,53 @@ Server connection settings
 
     .. versionadded:: 3.5.0
 
+    .. versionchanged:: 6.0.0
+
+        The number of the server is passed as second parameter, the identity
+        of the user can be returned under the ``identity`` key,
+        :config:option:`$cfg['Servers'][$i]['SignonURL']` is no longer
+        required and the script is loaded only once per request.
+
     Name of PHP script to be sourced and executed to obtain login
     credentials. This is alternative approach to session based single
     signon. The script has to provide a function called
     ``get_login_credentials`` which returns list of username and
-    password, accepting single parameter of existing username (can be
-    empty). See :file:`examples/signon-script.php` for an example:
+    password, accepting the existing username (can be empty) as first
+    parameter. See :file:`examples/signon-script.php` for an example:
 
     .. literalinclude:: ../examples/signon-script.php
         :language: php
+
+    If the function declares a second parameter accepting an integer, it
+    receives the number of the server the user is logging in to (``$i`` in
+    the configuration), so one script can serve several servers.
+
+    The function can also return the identity of the person it
+    authenticated, for example an e-mail address, under the ``identity`` key:
+    ``return [$user, $password, 'identity' => $email];``. This should be done
+    whenever the script decides who the user is on every request, for example
+    from a header set by a reverse proxy (see
+    :file:`examples/signon-proxy-header.php`). phpMyAdmin then:
+
+    * starts a new phpMyAdmin session when the identity differs from the one
+      the session was started for, and does not carry out a request changing
+      anything (anything but ``GET`` or ``HEAD``) that was sent with the old
+      session; the user is sent to the start page instead. Data the browser
+      keeps itself, such as auto-saved queries, is not affected;
+    * asks for the second factor again when the same person continues on a
+      server where they log in as a different MySQL user;
+    * when the login is refused and
+      :config:option:`$cfg['Servers'][$i]['SignonURL']` is not set, calls the
+      function also with the numbers of the other servers using the same
+      script, to offer the user the servers they can log in to. Someone
+      opening the start page without choosing a server is sent to the first
+      of them. The function must therefore not have side effects, and all
+      servers using the script must report the identity in the same form.
+
+    Returning an empty username refuses the login. The user is then sent to
+    :config:option:`$cfg['Servers'][$i]['SignonURL']`, or, if that is not
+    set, shown an error page naming the identity, the servers they can log
+    in to and a link to :config:option:`$cfg['Servers'][$i]['LogoutURL']`.
 
     .. seealso:: :ref:`auth_signon`
 
@@ -1576,9 +1614,14 @@ Server connection settings
     :type: string
     :default: ``''``
 
+    .. versionchanged:: 6.0.0
+
+        Optional when :config:option:`$cfg['Servers'][$i]['SignonScript']` is used.
+
     :term:`URL` where user will be redirected
     to log in for signon authentication method. Should be absolute
-    including protocol.
+    including protocol. When a signon script is used and this is not set,
+    refused users are shown an error page instead.
 
     .. seealso:: :ref:`auth_signon`
 

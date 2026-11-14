@@ -1157,7 +1157,10 @@ Signon authentication mode
   :config:option:`$cfg['Servers'][$i]['SignonScript']`).
 * When no credentials are available, the user is being redirected to
   :config:option:`$cfg['Servers'][$i]['SignonURL']`, where you should handle
-  the login process.
+  the login process. When a signon script is used, this URL is optional:
+  without it, the user is shown an error page instead.
+* The setup script can not configure a signon script; set it in
+  :file:`config.inc.php`.
 
 The very basic example of saving credentials in a session is available as
 :file:`examples/signon.php`:
