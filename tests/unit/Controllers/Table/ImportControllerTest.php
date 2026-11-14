@@ -25,6 +25,7 @@ use PhpMyAdmin\Plugins\PluginType;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use Random\Engine\Mt19937;
@@ -108,6 +109,7 @@ class ImportControllerTest extends AbstractTestCase
                 $config,
                 new Ajax(new Randomizer(new Mt19937(42))),
                 $this->createPluginFactory($dbi, $config),
+                new IniReader(),
             ),
         ))($request);
         self::assertSame($expected, $response->getHTMLResult());

@@ -13,6 +13,7 @@ use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Plugins\TransformationsInterface;
 use PhpMyAdmin\Utils\Gis;
+use PhpMyAdmin\Utils\IniReader;
 
 use function __;
 use function array_fill;
@@ -87,6 +88,7 @@ class InsertEdit
         private readonly Template $template,
         private readonly Config $config,
         private readonly ResponseRenderer $responseRenderer,
+        private readonly IniReader $iniReader,
     ) {
     }
 
@@ -444,7 +446,7 @@ class InsertEdit
             'longblob' => 4294967296,// yeah, really
         };
 
-        $thisFieldMaxSize = Util::getUploadSizeInBytes();
+        $thisFieldMaxSize = $this->iniReader->getUploadSizeInBytes();
 
         return Util::getFormattedMaximumUploadSize(min($thisFieldMaxSize, $maxFieldSize)) . "\n";
     }
