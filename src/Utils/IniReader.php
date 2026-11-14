@@ -4,16 +4,30 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
-use PhpMyAdmin\Util;
-
 use function ini_get;
+use function ini_parse_quantity;
 use function min;
 
 class IniReader
 {
-    public function get(string $option): string|false
+    protected function get(string $option): string
     {
-        return ini_get($option);
+        return (string) ini_get($option);
+    }
+
+    private static function toBytes(string $value): int
+    {
+        if ($value === '') {
+            return 0;
+        }
+
+        // Using error suppression operator because ini_parse_quantity() can throw a warning if the value is invalid
+        return @ini_parse_quantity($value);
+    }
+
+    public function getMemoryLimitInBytes(): int
+    {
+        return self::toBytes($this->get('memory_limit'));
     }
 
     /**
@@ -22,17 +36,10 @@ class IniReader
      */
     public function getUploadSizeInBytes(): int
     {
-        $fileSize = $this->get('upload_max_filesize');
-        if ($fileSize === '' || $fileSize === false) {
-            $fileSize = '5M';
-        }
+        $uploadMaxFilesize = $this->get('upload_max_filesize');
+        $size = $uploadMaxFilesize === '' ? 5 * 1024 * 1024 : self::toBytes($uploadMaxFilesize);
+        $postSize = self::toBytes($this->get('post_max_size'));
 
-        $size = Util::getRealSize($fileSize);
-        $postSize = $this->get('post_max_size');
-        if ($postSize !== '' && $postSize !== false) {
-            $size = min($size, Util::getRealSize($postSize));
-        }
-
-        return $size;
+        return $postSize > 0 ? min($size, $postSize) : $size;
     }
 }

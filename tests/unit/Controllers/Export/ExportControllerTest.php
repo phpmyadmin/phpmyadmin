@@ -25,6 +25,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
+use PhpMyAdmin\Utils\IniReader;
 use PhpMyAdmin\ZipExtension;
 use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -207,7 +208,7 @@ final class ExportControllerTest extends AbstractTestCase
         $pluginFactory = $this->createPluginFactory($dbi, $config, $outputHandler);
         $exportController = new ExportController(
             new ResponseRenderer(),
-            new Export($dbi, $outputHandler, $pluginFactory),
+            new Export($dbi, $outputHandler, $pluginFactory, new IniReader()),
             ResponseFactory::create(),
             $config,
             $userPreferencesHandler,
@@ -382,7 +383,7 @@ final class ExportControllerTest extends AbstractTestCase
         $pluginFactory = $this->createPluginFactory($dbi, $config, $outputHandler);
         $exportController = new ExportController(
             new ResponseRenderer(),
-            new Export($dbi, $outputHandler, $pluginFactory),
+            new Export($dbi, $outputHandler, $pluginFactory, new IniReader()),
             ResponseFactory::create(),
             $config,
             $userPreferencesHandler,

@@ -38,7 +38,6 @@ use function htmlspecialchars;
 use function htmlspecialchars_decode;
 use function implode;
 use function in_array;
-use function ini_parse_quantity;
 use function is_array;
 use function is_object;
 use function is_scalar;
@@ -1724,19 +1723,6 @@ class Util
         }
 
         return '';
-    }
-
-    /**
-     * Converts numbers like 10M into bytes
-     */
-    public static function getRealSize(string $size): int
-    {
-        if ($size === '') {
-            return 0;
-        }
-
-        // Using error suppression operator because ini_parse_quantity() can throw a warning if the value is invalid
-        return @ini_parse_quantity($size);
     }
 
     public static function unquoteDefaultValue(string $value): string

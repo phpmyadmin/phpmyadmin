@@ -441,6 +441,7 @@ return [
             DatabaseInterface::class,
             BookmarkRepository::class,
             Config::class,
+            IniReader::class,
         ],
     ],
     Import\SimulateDmlController::class => [

@@ -124,7 +124,7 @@ return [
     Events::class => ['class' => Events::class, 'arguments' => [DatabaseInterface::class, Config::class]],
     Export::class => [
         'class' => Export::class,
-        'arguments' => [DatabaseInterface::class, OutputHandler::class, PluginFactory::class],
+        'arguments' => [DatabaseInterface::class, OutputHandler::class, PluginFactory::class, IniReader::class],
     ],
     Options::class => [
         'class' => Options::class,
