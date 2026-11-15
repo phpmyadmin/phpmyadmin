@@ -5067,6 +5067,7 @@
       <code><![CDATA[$this->CurrentFont['cw']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
+      <code><![CDATA[$cw]]></code>
       <code><![CDATA[$h]]></code>
       <code><![CDATA[$il]]></code>
       <code><![CDATA[$l]]></code>
@@ -5089,9 +5090,6 @@
       <code><![CDATA[Pdf]]></code>
       <code><![CDATA[Pdf]]></code>
     </PropertyNotSetInConstructor>
-    <UnsupportedPropertyReferenceUsage>
-      <code><![CDATA[$cw = &$this->CurrentFont['cw']]]></code>
-    </UnsupportedPropertyReferenceUsage>
   </file>
   <file src="src/Plugins/Schema/Pdf/PdfRelationSchema.php">
     <DeprecatedMethod>
