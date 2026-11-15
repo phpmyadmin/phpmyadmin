@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-15 00:26+0000\n"
-"PO-Revision-Date: 2026-10-25 08:31+0000\n"
+"PO-Revision-Date: 2026-11-16 11:23+0000\n"
 "Last-Translator: Burak Yavuz <bourock@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.11.dev0\n"
+"X-Generator: Weblate 2026.12.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -8801,7 +8801,7 @@ msgstr "Kiril"
 #: src/Charsets/Collation.php:166
 msgctxt "Collation"
 msgid "Latin"
-msgstr ""
+msgstr "Latin"
 
 #: src/Charsets/Collation.php:178
 msgctxt "Collation variant"
@@ -8949,12 +8949,9 @@ msgid "Thai"
 msgstr "Tayca"
 
 #: src/Charsets/Collation.php:240
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Bosnian"
-msgstr "Estçe"
+msgstr "Boşnakça"
 
 #: src/Charsets/Collation.php:241
 msgctxt "Collation"
@@ -8989,7 +8986,7 @@ msgstr "Estçe"
 #: src/Charsets/Collation.php:249
 msgctxt "Collation"
 msgid "Galician"
-msgstr ""
+msgstr "Galiçyaca"
 
 #: src/Charsets/Collation.php:252
 msgctxt "Collation"
@@ -9019,7 +9016,7 @@ msgstr "Litvanyaca"
 #: src/Charsets/Collation.php:259
 msgctxt "Collation"
 msgid "Mongolian"
-msgstr ""
+msgstr "Moğolca"
 
 #: src/Charsets/Collation.php:260
 msgctxt "Collation"
@@ -9029,12 +9026,12 @@ msgstr "Birmanca"
 #: src/Charsets/Collation.php:261
 msgctxt "Collation"
 msgid "Norwegian Bokmål"
-msgstr ""
+msgstr "Norveççe Bokmal"
 
 #: src/Charsets/Collation.php:262
 msgctxt "Collation"
 msgid "Norwegian Nynorsk"
-msgstr ""
+msgstr "Norveççe Nynorsk"
 
 #: src/Charsets/Collation.php:263
 msgctxt "Collation"
@@ -9054,7 +9051,7 @@ msgstr "Rumence"
 #: src/Charsets/Collation.php:268
 msgctxt "Collation"
 msgid "Serbian"
-msgstr ""
+msgstr "Sırpça"
 
 #: src/Charsets/Collation.php:269
 msgctxt "Collation"
@@ -12448,33 +12445,24 @@ msgstr ""
 "[doc@cfg_blowfish_secret]belgelerine[/doc] bakın."
 
 #: src/Controllers/HomeController.php:349
-#, fuzzy
-#| msgid ""
-#| "The configuration file needs a valid key for query encryption. A "
-#| "temporary key was automatically generated for you. Please refer to the "
-#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgid ""
 "The configuration file needs a valid key for URL query encryption. A "
 "temporary key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"Yapılandırma dosyası, sorgu şifrelemesi için geçerli bir anahtara ihtiyaç "
-"duyar. Sizin için otomatik olarak geçici bir anahtar oluşturuldu. Lütfen "
-"[doc@cfg_URLQueryEncryptionSecretKey]belgelerine[/doc] bakın."
+"Yapılandırma dosyası, URL sorgu şifrelemesi için geçerli bir anahtara "
+"ihtiyaç duyar. Sizin için otomatik olarak geçici bir anahtar oluşturuldu. "
+"Lütfen [doc@cfg_URLQueryEncryptionSecretKey]belgelerine[/doc] bakın."
 
 #: src/Controllers/HomeController.php:359
-#, fuzzy, php-format
-#| msgid ""
-#| "The query encryption key in the configuration file is longer than "
-#| "necessary. It should only be %d bytes long. Please refer to the "
-#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
+#, php-format
 msgid ""
 "The URL query encryption key in the configuration file is longer than "
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"Yapılandırma dosyasındaki sorgu şifreleme anahtarı gereğinden uzun. Sadece "
-"%d bayt uzunluğunda olmalıdır. Lütfen "
+"Yapılandırma dosyasındaki URL sorgu şifreleme anahtarı gereğinden uzun. "
+"Sadece %d bayt uzunluğunda olmalıdır. Lütfen "
 "[doc@cfg_URLQueryEncryptionSecretKey]belgelerine[/doc] bakın."
 
 #: src/Controllers/HomeController.php:377
@@ -16125,10 +16113,8 @@ msgid "Event %1$s has been created."
 msgstr "Olay %1$s oluşturuldu."
 
 #: src/Events/Events.php:99
-#, fuzzy
-#| msgid "Session not found."
 msgid "Event not found."
-msgstr "Oturum bulunamadı."
+msgstr "Olay bulunamadı."
 
 #: src/Events/Events.php:128
 msgid "Sorry, we failed to restore the dropped event."
@@ -18579,10 +18565,8 @@ msgid "Trigger %1$s has been created."
 msgstr "Tetikleyici %1$s oluşturuldu."
 
 #: src/Triggers/Triggers.php:102
-#, fuzzy
-#| msgid "Session not found."
 msgid "Trigger not found."
-msgstr "Oturum bulunamadı."
+msgstr "Tetikleyici bulunamadı."
 
 #: src/Triggers/Triggers.php:131
 msgid "Sorry, we failed to restore the dropped trigger."
