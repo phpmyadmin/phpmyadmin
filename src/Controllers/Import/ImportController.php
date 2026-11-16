@@ -30,6 +30,7 @@ use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 use Throwable;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function _ngettext;
@@ -114,10 +115,12 @@ final readonly class ImportController implements InvocableController
             ImportSettings::$importType = 'query';
             $format = 'sql';
             $_SESSION['sql_from_query_box'] = true;
+            $delimiter = $request->getParsedBodyParamAsString('sql_delimiter');
+            Assert::stringNotEmpty($delimiter);
 
             // If there is a request to ROLLBACK when finished.
             if ($request->hasBodyParam('rollback_query')) {
-                $this->import->handleRollbackRequest(Import::$importText);
+                $this->import->handleRollbackRequest(Import::$importText, $delimiter);
             }
 
             // refresh navigation and main panels

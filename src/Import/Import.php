@@ -927,10 +927,10 @@ final class Import
         ImportSettings::$importNotice = $message;
     }
 
-    public function handleRollbackRequest(string $sqlQuery): void
+    /** @param non-empty-string $sqlDelimiter */
+    public function handleRollbackRequest(string $sqlQueries, string $sqlDelimiter): void
     {
-        $sqlDelimiter = $_POST['sql_delimiter'];
-        $queries = explode($sqlDelimiter, $sqlQuery);
+        $queries = explode($sqlDelimiter, $sqlQueries);
         foreach ($queries as $sqlQuery) {
             if ($sqlQuery === '') {
                 continue;
