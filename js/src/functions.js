@@ -118,6 +118,28 @@ Functions.userAgent = function () {
 };
 
 /**
+ * Parses a time string for the timepicker, handling the decimal places of the seconds
+ * as a fraction (e.g. "12:34:56.5" is 500 milliseconds and not 5 milliseconds)
+ *
+ * @param {string} timeFormat
+ * @param {string} timeString
+ * @param {object} options
+ *
+ * @return {object|false}
+ */
+Functions.parseDatepickerTime = function (timeFormat, timeString, options) {
+    var normalizedTimeString = timeString;
+    if (timeFormat.indexOf('l') !== -1) {
+        var digits = timeFormat.indexOf('c') !== -1 ? 6 : 3;
+        normalizedTimeString = timeString.replace(/(:\d{2})\.(\d+)$/, function (match, seconds, fraction) {
+            return seconds + '.' + (fraction + '000000').substring(0, digits);
+        });
+    }
+
+    return $.datepicker.parseTime(timeFormat, normalizedTimeString, $.extend({}, options, { parse: 'strict' }));
+};
+
+/**
  * Adds a date/time picker to an element
  *
  * @param {object} $thisElement a jQuery object pointing to the element
@@ -183,6 +205,31 @@ Functions.addDatepicker = function ($thisElement, type, options) {
                     $('div.ui-datepicker').append($note);
                 }
             }, 0);
+        },
+        parse: Functions.parseDatepickerTime,
+        afterInject: function () {
+            var tpInst = this;
+            if (! tpInst.$timeObj) {
+                return;
+            }
+
+            // Replace the change handler of the time input of the timepicker,
+            // as it ignores the milliseconds and microseconds and uses the current ones instead
+            tpInst.$timeObj.off('change').on('change', function () {
+                var settings = tpInst.inst.settings;
+                var parsedTime = $.datepicker.parseTime(settings.timeFormat, this.value, settings);
+                if (! parsedTime) {
+                    this.value = tpInst.formattedTime;
+                    this.blur();
+                    return;
+                }
+
+                var update = new Date();
+                update.setHours(parsedTime.hour, parsedTime.minute, parsedTime.second, parsedTime.millisec);
+                update.setMicroseconds(parsedTime.microsec);
+                // eslint-disable-next-line no-underscore-dangle
+                $.datepicker._setTime(tpInst.inst, update);
+            });
         },
         onSelect: function () {
             $thisElement.data('datepicker').inline = true;
