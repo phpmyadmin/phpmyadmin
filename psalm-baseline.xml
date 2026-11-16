@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="7.11.0@9e0d0f88bc0a4233357a9aeb4b32da060644e196">
+<files psalm-version="7.13.1@a328b905f1b2a8a4b4efc414e005962bc8d0b16d">
   <file src="src/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$pattern]]></code>
@@ -250,6 +250,7 @@
       <code><![CDATA[$valueDefault]]></code>
       <code><![CDATA[$valueDefaultJs]]></code>
       <code><![CDATA[$values[$path]]]></code>
+      <code><![CDATA[$values[$systemPath]]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$ip]]></code>
@@ -493,6 +494,9 @@
     <MixedOperand>
       <code><![CDATA[$ip]]></code>
     </MixedOperand>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$uv[$i]]]></code>
+    </PossiblyInvalidArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($errorList)]]></code>
       <code><![CDATA[mb_strpos($k2, '/')]]></code>
@@ -979,7 +983,6 @@
   <file src="src/Controllers/HomeController.php">
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['access_time'])]]></code>
-      <code><![CDATA[empty($this->config->selectedServer['verbose'])]]></code>
       <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['pmadb'])]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
@@ -1314,7 +1317,6 @@
     <MixedAssignment>
       <code><![CDATA[$dontFormat]]></code>
       <code><![CDATA[$filterAlert]]></code>
-      <code><![CDATA[$filterCategory]]></code>
       <code><![CDATA[$filterText]]></code>
       <code><![CDATA[$flush]]></code>
     </MixedAssignment>
@@ -1677,9 +1679,6 @@
     <PossiblyInvalidArrayAssignment>
       <code><![CDATA[UrlParams::$params['where_clause'][]]]></code>
     </PossiblyInvalidArrayAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($mimeMap[$columnName]['input_transformation'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/SearchController.php">
     <PossiblyInvalidArgument>
@@ -1982,8 +1981,14 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <MixedArgument>
+      <code><![CDATA[$path[$depth + 1]]]></code>
+    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$a[$key]]]></code>
+      <code><![CDATA[$path[$depth - 1][$key]]]></code>
+      <code><![CDATA[$path[$depth][$keysLast]]]></code>
+      <code><![CDATA[$path[$depth][$keys[$depth]]]]></code>
       <code><![CDATA[$value[$key]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
@@ -1996,6 +2001,7 @@
       <code><![CDATA[$_REQUEST[$urlQueryParamKey]]]></code>
       <code><![CDATA[$a[$lastKey]]]></code>
       <code><![CDATA[$parsedBody[$urlQueryParamKey]]]></code>
+      <code><![CDATA[$path[$depth]]]></code>
       <code><![CDATA[$queryParams[$urlQueryParamKey]]]></code>
       <code><![CDATA[$secret]]></code>
       <code><![CDATA[$secret]]></code>
@@ -2005,12 +2011,6 @@
       <code><![CDATA[$secret]]></code>
       <code><![CDATA[$secret]]></code>
     </MixedOperand>
-    <NullArgument>
-      <code><![CDATA[$path[$depth + 1]]]></code>
-    </NullArgument>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$path[$depth - 1]]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['SERVER_NAME']]]></code>
     </PossiblyUndefinedArrayOffset>
@@ -2317,12 +2317,8 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$itemParamDir ?? []]]></code>
-      <code><![CDATA[$retval['item_param_opts_num'][$idx]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$opt['value']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$itemParamLength]]></code>
       <code><![CDATA[$itemParamLength]]></code>
@@ -2332,8 +2328,6 @@
       <code><![CDATA[$itemParamOptsText]]></code>
       <code><![CDATA[$itemParamType]]></code>
       <code><![CDATA[$itemParamType]]></code>
-      <code><![CDATA[$opt]]></code>
-      <code><![CDATA[$retval['item_param_opts_num'][$idx][]]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
@@ -2382,6 +2376,9 @@
     <PossiblyNullReference>
       <code><![CDATA[has]]></code>
     </PossiblyNullReference>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$arr[1]]]></code>
+    </PossiblyUndefinedArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
       <code><![CDATA[empty($_POST['item_adjust_privileges'])]]></code>
@@ -2730,7 +2727,6 @@
       <code><![CDATA[empty($statement->order)]]></code>
       <code><![CDATA[empty($statementInfo->statement->from[0]->table)]]></code>
       <code><![CDATA[empty($this->mediaTypeMap[$orgFullColName]['input_transformation'])]]></code>
-      <code><![CDATA[empty($this->mediaTypeMap[$orgFullColName]['transformation'])]]></code>
       <code><![CDATA[strpos($linkRelations['default_page'], '?')]]></code>
     </RiskyTruthyFalsyComparison>
     <WeakHash>
@@ -3451,7 +3447,6 @@
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$suhosinGetMaxValueLength]]></code>
-      <code><![CDATA[empty($server['socket'])]]></code>
       <code><![CDATA[empty($server['ssl_ca'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -3791,9 +3786,6 @@
     <ImmutableDependency>
       <code><![CDATA[ArrayObject]]></code>
     </ImmutableDependency>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($this->config->selectedServer['hide_db'])]]></code>
-    </RiskyTruthyFalsyComparison>
     <UnusedProperty>
       <code><![CDATA[$userPrivilegesFactory]]></code>
     </UnusedProperty>
@@ -3813,11 +3805,6 @@
     <PossiblyFalseOperand>
       <code><![CDATA[mb_strpos($tab, '_')]]></code>
     </PossiblyFalseOperand>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($this->config->selectedServer['host'])]]></code>
-      <code><![CDATA[empty($this->config->selectedServer['port'])]]></code>
-      <code><![CDATA[empty($this->config->selectedServer['verbose'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Message.php">
     <DeprecatedMethod>
@@ -4300,8 +4287,6 @@
     </PossiblyInvalidArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$colon]]></code>
-      <code><![CDATA[empty($config->selectedServer['auth_http_realm'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
       <code><![CDATA[empty($oldUser)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -4336,9 +4321,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[array_merge($config->selectedServer, $singleSignonCfgUpdate)]]></code>
     </MixedPropertyTypeCoercion>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($config->selectedServer['SignonURL'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/AuthenticationPlugin.php">
     <ArgumentTypeCoercion>
@@ -4363,9 +4345,6 @@
     <RiskyCast>
       <code><![CDATA[$_REQUEST['access_time']]]></code>
     </RiskyCast>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($config->selectedServer['LogoutURL'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/AuthenticationPluginFactory.php">
     <DeprecatedMethod>
@@ -4388,9 +4367,6 @@
       <code><![CDATA[$record[$columns[$i]]]]></code>
       <code><![CDATA[$record[$columns[$i]]]]></code>
     </PossiblyNullArgument>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($this->config->selectedServer['port'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/ExportOds.php">
     <PossiblyNullArgument>
@@ -4491,7 +4467,6 @@
       <code><![CDATA[empty($tableStatus['Check_time'])]]></code>
       <code><![CDATA[empty($tableStatus['Create_time'])]]></code>
       <code><![CDATA[empty($tableStatus['Update_time'])]]></code>
-      <code><![CDATA[empty($this->config->selectedServer['port'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/ExportToon.php">
@@ -4515,9 +4490,6 @@
     <PossiblyNullOperand>
       <code><![CDATA[$charset]]></code>
     </PossiblyNullOperand>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($this->config->selectedServer['port'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/Helpers/Pdf.php">
     <DeprecatedClass>
@@ -5872,13 +5844,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($server['host'])]]></code>
-      <code><![CDATA[empty($server['only_db'])]]></code>
-      <code><![CDATA[empty($server['port'])]]></code>
-      <code><![CDATA[empty($server['user'])]]></code>
-      <code><![CDATA[empty($server['verbose'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Server/Status/Data.php">
     <InvalidOperand>
@@ -6147,9 +6112,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$query]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$this->config->settings['Servers'][Current::$server]]]></code>
-    </PossiblyInvalidArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['verbose'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -6397,23 +6359,9 @@
   </file>
   <file src="src/Table/TableMover.php">
     <MixedAssignment>
-      <code><![CDATA[$altered]]></code>
-      <code><![CDATA[$altered]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[has]]></code>
-      <code><![CDATA[has]]></code>
-    </MixedMethodCall>
-    <MixedPropertyAssignment>
-      <code><![CDATA[$altered]]></code>
-      <code><![CDATA[$altered]]></code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch>
-      <code><![CDATA[$altered->options]]></code>
-      <code><![CDATA[$altered->options]]></code>
-    </MixedPropertyFetch>
     <PossiblyNullArgument>
       <code><![CDATA[$commentsCopyRow['column_name']]]></code>
       <code><![CDATA[$commentsCopyRow['comment']]]></code>
@@ -6426,6 +6374,10 @@
       <code><![CDATA[$statement->altered]]></code>
       <code><![CDATA[$statement->altered]]></code>
     </PossiblyNullIterator>
+    <PossiblyNullReference>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+    </PossiblyNullReference>
     <PossiblyUndefinedVariable>
       <code><![CDATA[$maintainRelations]]></code>
     </PossiblyUndefinedVariable>
@@ -6969,12 +6921,11 @@
   </file>
   <file src="tests/unit/Config/DescriptionTest.php">
     <MixedAssignment>
-      <code><![CDATA[$second]]></code>
       <code><![CDATA[$val2]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$second]]></code>
-    </MixedOperand>
+    <PossiblyInvalidIterator>
+      <code><![CDATA[$val]]></code>
+    </PossiblyInvalidIterator>
     <PossiblyNullIterator>
       <code><![CDATA[$val]]></code>
     </PossiblyNullIterator>
