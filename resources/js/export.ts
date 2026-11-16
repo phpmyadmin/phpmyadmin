@@ -756,9 +756,11 @@ function toggleQuickOrCustom () {
         return;
     }
 
-    const selectedPluginElement = document.querySelector('#plugins > option[selected]');
-    const selectedPluginName = selectedPluginElement instanceof HTMLOptionElement ? selectedPluginElement.value : null;
-    if (selectedPluginName === null) {
+    formatSpecificOptionsElement?.querySelectorAll('div.format_specific_options')
+        .forEach((element) => element.classList.add('d-none'));
+
+    const selectedPluginName = $('#plugins').val();
+    if (typeof selectedPluginName !== 'string') {
         return;
     }
 
