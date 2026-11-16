@@ -82,6 +82,7 @@ AJAX.registerOnload('table/operations.js', function () {
         event.preventDefault();
         const $form = $(this);
         const argsep = CommonParams.get('arg_separator');
+        ajaxShowMessage(window.Messages.strCopyingTable, false);
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_copy=Go', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($form.find('input[name=\'switch_to_new\']').prop('checked')) {
