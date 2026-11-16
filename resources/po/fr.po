@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-15 00:26+0000\n"
-"PO-Revision-Date: 2026-11-10 14:51+0000\n"
-"Last-Translator: Marc Delisle <lem9@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2026-11-16 11:23+0000\n"
+"Last-Translator: kjo-sdds <kjo-sdds@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2026.11.2.dev0\n"
+"X-Generator: Weblate 2026.12.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -8889,7 +8889,7 @@ msgstr "Cyrillique"
 #: src/Charsets/Collation.php:166
 msgctxt "Collation"
 msgid "Latin"
-msgstr ""
+msgstr "Latin"
 
 #: src/Charsets/Collation.php:178
 msgctxt "Collation variant"
@@ -9037,12 +9037,9 @@ msgid "Thai"
 msgstr "Thaï"
 
 #: src/Charsets/Collation.php:240
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Bosnian"
-msgstr "Estonien"
+msgstr "Bosnien"
 
 #: src/Charsets/Collation.php:241
 msgctxt "Collation"
@@ -9077,7 +9074,7 @@ msgstr "Estonien"
 #: src/Charsets/Collation.php:249
 msgctxt "Collation"
 msgid "Galician"
-msgstr ""
+msgstr "Galicien"
 
 #: src/Charsets/Collation.php:252
 msgctxt "Collation"
@@ -9107,7 +9104,7 @@ msgstr "Lituanien"
 #: src/Charsets/Collation.php:259
 msgctxt "Collation"
 msgid "Mongolian"
-msgstr ""
+msgstr "Mongol"
 
 #: src/Charsets/Collation.php:260
 msgctxt "Collation"
@@ -9117,12 +9114,12 @@ msgstr "Birman"
 #: src/Charsets/Collation.php:261
 msgctxt "Collation"
 msgid "Norwegian Bokmål"
-msgstr ""
+msgstr "Norvégien Bokmål"
 
 #: src/Charsets/Collation.php:262
 msgctxt "Collation"
 msgid "Norwegian Nynorsk"
-msgstr ""
+msgstr "Norvégien Nynorsk"
 
 #: src/Charsets/Collation.php:263
 msgctxt "Collation"
@@ -9142,7 +9139,7 @@ msgstr "Roumain"
 #: src/Charsets/Collation.php:268
 msgctxt "Collation"
 msgid "Serbian"
-msgstr ""
+msgstr "Serbe"
 
 #: src/Charsets/Collation.php:269
 msgctxt "Collation"
@@ -12582,11 +12579,6 @@ msgstr ""
 "Veuillez consulter la [doc@cfg_blowfish_secret]documentation[/doc]."
 
 #: src/Controllers/HomeController.php:349
-#, fuzzy
-#| msgid ""
-#| "The configuration file needs a valid key for query encryption. A "
-#| "temporary key was automatically generated for you. Please refer to the "
-#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgid ""
 "The configuration file needs a valid key for URL query encryption. A "
 "temporary key was automatically generated for you. Please refer to the "
@@ -12598,11 +12590,7 @@ msgstr ""
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 
 #: src/Controllers/HomeController.php:359
-#, fuzzy, php-format
-#| msgid ""
-#| "The query encryption key in the configuration file is longer than "
-#| "necessary. It should only be %d bytes long. Please refer to the "
-#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
+#, php-format
 msgid ""
 "The URL query encryption key in the configuration file is longer than "
 "necessary. It should only be %d bytes long. Please refer to the "
@@ -16315,10 +16303,8 @@ msgid "Event %1$s has been created."
 msgstr "L'évènement %1$s a été créé."
 
 #: src/Events/Events.php:99
-#, fuzzy
-#| msgid "Session not found."
 msgid "Event not found."
-msgstr "Session introuvable."
+msgstr "Événement introuvable."
 
 #: src/Events/Events.php:128
 msgid "Sorry, we failed to restore the dropped event."
@@ -18808,10 +18794,8 @@ msgid "Trigger %1$s has been created."
 msgstr "Le déclencheur %1$s a été créé."
 
 #: src/Triggers/Triggers.php:102
-#, fuzzy
-#| msgid "Session not found."
 msgid "Trigger not found."
-msgstr "Session introuvable."
+msgstr "Déclencheur introuvable."
 
 #: src/Triggers/Triggers.php:131
 msgid "Sorry, we failed to restore the dropped trigger."
