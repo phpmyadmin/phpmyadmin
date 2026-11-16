@@ -3595,9 +3595,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Import/Import.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$sqlDelimiter]]></code>
-    </ArgumentTypeCoercion>
     <DocblockTypeContradiction>
       <code><![CDATA[$nameArray === false]]></code>
     </DocblockTypeContradiction>

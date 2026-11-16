@@ -6763,12 +6763,6 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: '#^Parameter \#1 \$separator of function explode expects non\-empty\-string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: '#^Parameter \#1 \$sql of method PhpMyAdmin\\Import\\Import\:\:runQuery\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
