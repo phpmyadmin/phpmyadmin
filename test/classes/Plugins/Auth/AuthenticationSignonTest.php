@@ -75,6 +75,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
 
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logoutURL';
+        $GLOBALS['cfg']['Server']['SignonSession'] = '';
 
         $this->object->logOut();
     }
@@ -86,6 +87,7 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         $GLOBALS['header'] = [];
         $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
         $GLOBALS['cfg']['Server']['LogoutURL'] = '';
+        $GLOBALS['cfg']['Server']['SignonSession'] = '';
 
         $this->object->logOut();
     }
@@ -157,6 +159,40 @@ class AuthenticationSignonTest extends AbstractNetworkTestCase
         self::assertSame($sessionID, session_id());
 
         self::assertArrayNotHasKey('LAST_SIGNON_URL', $_SESSION);
+    }
+
+    public function testAuthLogoutClearsSignonCredentials(): void
+    {
+        $this->mockResponse('Location: https://example.com/SignonURL');
+
+        $GLOBALS['cfg']['Server']['SignonURL'] = 'https://example.com/SignonURL';
+        $GLOBALS['cfg']['Server']['LogoutURL'] = '';
+        $GLOBALS['cfg']['Server']['SignonSession'] = 'session123';
+        $GLOBALS['cfg']['Server']['SignonCookieParams'] = [];
+        $GLOBALS['cfg']['Server']['SignonScript'] = '';
+        $GLOBALS['cfg']['Server']['host'] = 'localhost';
+        $GLOBALS['cfg']['Server']['port'] = '80';
+        $_COOKIE['session123'] = true;
+        $_SESSION['PMA_single_signon_user'] = 'user123';
+        $_SESSION['PMA_single_signon_password'] = 'pass123';
+        $_SESSION['PMA_single_signon_host'] = 'local';
+        $_SESSION['PMA_single_signon_port'] = '12';
+        $_SESSION['PMA_single_signon_cfgupdate'] = ['foo' => 'bar'];
+        $_SESSION['PMA_single_signon_token'] = 'pmaToken';
+        $_SESSION['PMA_single_signon_HMAC_secret'] = 'hmacSecret';
+
+        $this->object->logOut();
+
+        self::assertArrayNotHasKey('PMA_single_signon_user', $_SESSION);
+        self::assertArrayNotHasKey('PMA_single_signon_password', $_SESSION);
+        self::assertArrayNotHasKey('PMA_single_signon_host', $_SESSION);
+        self::assertArrayNotHasKey('PMA_single_signon_port', $_SESSION);
+        self::assertArrayNotHasKey('PMA_single_signon_cfgupdate', $_SESSION);
+        self::assertArrayNotHasKey('PMA_single_signon_token', $_SESSION);
+        self::assertArrayNotHasKey('PMA_single_signon_HMAC_secret', $_SESSION);
+
+        // The single signon session must not log the user back in after logging out
+        self::assertFalse($this->object->readCredentials());
     }
 
     public function testAuthCheckKeep(): void

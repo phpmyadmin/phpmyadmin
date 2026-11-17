@@ -291,6 +291,61 @@ class AuthenticationSignon extends AuthenticationPlugin
     }
 
     /**
+     * Perform logout
+     */
+    public function logOut(): void
+    {
+        /* Session name */
+        $sessionName = $GLOBALS['cfg']['Server']['SignonSession'];
+
+        /* Does session exist? */
+        if (isset($_COOKIE[$sessionName])) {
+            /* End current session */
+            $oldSession = session_name();
+            $oldId = session_id();
+            $oldCookieParams = session_get_cookie_params();
+            if (! defined('TESTSUITE')) {
+                session_write_close();
+
+                /* Load single signon session */
+                $this->setCookieParams();
+                session_name($sessionName);
+                session_id($_COOKIE[$sessionName]);
+                session_start();
+            }
+
+            /* Remove the credentials, so the single signon session does not log the user back in */
+            unset(
+                $_SESSION['PMA_single_signon_user'],
+                $_SESSION['PMA_single_signon_password'],
+                $_SESSION['PMA_single_signon_host'],
+                $_SESSION['PMA_single_signon_port'],
+                $_SESSION['PMA_single_signon_cfgupdate'],
+                $_SESSION['PMA_single_signon_token'],
+                $_SESSION['PMA_single_signon_HMAC_secret']
+            );
+
+            /* End single signon session and restart phpMyAdmin session, which is destroyed below */
+            if (! defined('TESTSUITE')) {
+                session_write_close();
+
+                $this->setCookieParams($oldCookieParams);
+                if ($oldSession !== false) {
+                    session_name($oldSession);
+                }
+
+                if ($oldId !== false && $oldId !== '') {
+                    session_id($oldId);
+                }
+
+                session_start();
+            }
+        }
+
+        parent::logOut();
+    }
+
+    /**
      * Returns URL for login form.
      *
      * @return string
