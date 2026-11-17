@@ -65,8 +65,8 @@
 
                         <tr class="sort_order query-form__tr--bg-none">
                             <td>{% trans 'Sort' %}</td>
-                            <td><input type="radio" name="sort[{{ id }}]">{% trans 'Ascending' %}</td>
-                            <td><input type="radio" name="sort[{{ id }}]">{% trans 'Descending' %}</td>
+                            <td><input type="radio" name="sort[{{ id }}]" value="ASC" class="sort_or">{% trans 'Ascending' %}</td>
+                            <td><input type="radio" name="sort[{{ id }}]" value="DESC" class="sort_or">{% trans 'Descending' %}</td>
                         </tr>
 
                         <tr class="logical_operator query-form__tr--bg-none query-form__tr--hide">
