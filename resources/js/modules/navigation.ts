@@ -810,11 +810,13 @@ const ResizeHandler = function () {
         const $collapser = $('#pma_navigation_collapser');
         const windowWidth = $(window).width();
         $('#pma_navigation').width(pos);
+        document.body.classList.toggle('pma-navigation-collapsed', pos === 0);
         $('body').css('margin-' + this.left, pos + 'px');
         // Issue #15127 : Adding fixed positioning to menubar
         // Issue #15570 : Panels on homescreen go underneath of floating menubar
         $('#floating_menubar')
-            .css('margin-' + this.left, $('#pma_navigation').width() + $('#pma_navigation_resizer').width())
+            // The new width, not the panel's current one, which is still changing while the panel slides
+            .css('margin-' + this.left, pos + $('#pma_navigation_resizer').width())
             .append($('#server-breadcrumb'))
             .append($('#topmenucontainer'));
 
@@ -854,7 +856,7 @@ const ResizeHandler = function () {
             $('#pma_navigation_resizer').css({ 'width': '3px' });
         } else {
             $collapser
-                .css(this.left, windowWidth - 22)
+                .css(this.left, windowWidth - $collapser.outerWidth() - 2)
                 .html(this.getSymbol(100))
                 .prop('title', window.Messages.strHidePanel);
 
@@ -904,19 +906,17 @@ const ResizeHandler = function () {
      * @return {string}
      */
     this.getSymbol = function (width) {
-        if (this.left === 'left') {
-            if (width === 0) {
-                return '&rarr;';
-            } else {
-                return '&larr;';
-            }
-        } else {
-            if (width === 0) {
-                return '&larr;';
-            } else {
-                return '&rarr;';
-            }
-        }
+        // Lucide "panel-right-open" (arrow to the left) and "panel-right-close" (arrow to the right) icons
+        // (https://lucide.dev), ISC License
+        const arrowLeft = '<path d="m10 15-3-3 3-3"/>';
+        const arrowRight = '<path d="m8 9 3 3-3 3"/>';
+        const pointsRight = (this.left === 'left') === (width === 0);
+
+        return '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"'
+            + ' stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+            + '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/>'
+            + (pointsRight ? arrowRight : arrowLeft)
+            + '</svg>';
     };
 
     /**
@@ -926,6 +926,11 @@ const ResizeHandler = function () {
      */
     this.mousedown = function (event): void {
         event.preventDefault();
+        // A hidden panel is shown again only with the collapser button, not by dragging its edge
+        if (document.body.classList.contains('pma-navigation-collapsed')) {
+            return;
+        }
+
         $(document)
             .on('mousemove', { 'resize_handler': event.data.resize_handler }, event.data.resize_handler.mousemove)
             .on('mouseup', { 'resize_handler': event.data.resize_handler }, event.data.resize_handler.mouseup);
@@ -974,6 +979,17 @@ const ResizeHandler = function () {
         }
 
         updateNavigationWidthConfig(panelWidth);
+
+        // The theme animates the panel while it slides in or out, but not while it is dragged to a new width
+        document.body.classList.add('pma-navigation-animating');
+        clearTimeout(event.data.resize_handler.animationTimeout);
+        event.data.resize_handler.animationTimeout = setTimeout(function () {
+            document.body.classList.remove('pma-navigation-animating');
+            // The menu bar has its final width now, so its tabs may have wrapped onto more or fewer rows
+            $('body').css('padding-top', $('#floating_menubar').outerHeight(true));
+            $(window).trigger('resize');
+        }, 300);
+
         event.data.resize_handler.setWidth(panelWidth);
         event.data.resize_handler.panelWidth = width;
     };
@@ -1030,6 +1046,17 @@ const ResizeHandler = function () {
         const initialResizeValue = Number(navigationDiv.data('config-navigation-width'));
         this.setWidth(initialResizeValue);
         $('#topmenu').menuResizer('resize');
+
+        // The collapser button is as tall as the breadcrumb bar beside it, whatever the zoom level or font
+        const syncCollapserHeight = function () {
+            const breadcrumb = document.getElementById('server-breadcrumb');
+            if (breadcrumb) {
+                $('#pma_navigation_collapser').css('height', breadcrumb.getBoundingClientRect().height + 'px');
+            }
+        };
+
+        $(window).on('resize', syncCollapserHeight);
+        setTimeout(syncCollapserHeight, 4);
     };
 
     this.treeInit();

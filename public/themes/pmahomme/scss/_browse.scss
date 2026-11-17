@@ -1,0 +1,35 @@
+// Query results (Browse): row actions, the "With selected" bar and the result operations use Lucide icons
+// (https://lucide.dev, ISC License) drawn over the theme images, coloured like the images they replace
+$browse-icons: (
+  // Edit: pencil
+  "b_edit": "<g stroke='%23d08a3a'><path d='M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z'/><path d='m15 5 4 4'/></g>",
+  // Copy, Copy to clipboard: copy
+  "b_insrow": "<g stroke='%233a9a3a'><rect width='14' height='14' x='8' y='8' rx='2' ry='2'/><path d='M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2'/></g>",
+  // Delete: trash
+  "b_drop": "<g stroke='%23d9443a'><path d='M10 11v6'/><path d='M14 11v6'/><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6'/><path d='M3 6h18'/><path d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'/></g>",
+  // Display chart: chart-column, like the Status tab
+  "b_chart": "<path d='M3 3v16a2 2 0 0 0 2 2h16' stroke='%23888'/><path d='M18 17V9' stroke='%233a9a3a'/><path d='M13 17V5' stroke='%233b78c4'/><path d='M8 17v-3' stroke='%23d9443a'/>",
+  // Visualize GIS data: globe
+  "b_globe": "<g stroke='%233b78c4'><circle cx='12' cy='12' r='10'/><path d='M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20'/><path d='M2 12h20'/></g>",
+  // Create view: scan-eye
+  "b_view_add": "<g stroke='%23888'><path d='M3 7V5a2 2 0 0 1 2-2h2'/><path d='M17 3h2a2 2 0 0 1 2 2v2'/><path d='M21 17v2a2 2 0 0 1-2 2h-2'/><path d='M7 21H5a2 2 0 0 1-2-2v-2'/></g><g stroke='%233a9a3a'><circle cx='12' cy='12' r='1'/><path d='M18.944 12.33a1 1 0 0 0 0-.66 7.5 7.5 0 0 0-13.888 0 1 1 0 0 0 0 .66 7.5 7.5 0 0 0 13.888 0'/></g>",
+  // Bookmark this SQL query: bookmark
+  "b_bookmark": "<path d='m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z' stroke='%233b78c4' fill='%23dbe7f6'/>",
+);
+
+.sqlqueryresults {
+  @each $name, $paths in $browse-icons {
+    .icon.ic_#{$name} {
+      // The icons sat 1.5px below the middle of the text; lift them so both line up
+      position: relative;
+      top: -1.5px;
+      background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>#{$paths}</svg>") center / contain no-repeat;
+    }
+  }
+}
+
+// "With selected" under every list with check boxes: Lucide corner-left-up, drawn at the image's 38x22 size
+// with its shaft under the centre of the check box column above and its tail pointing to "Check all"
+.icon.ic_select_all_arrow {
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 22' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M11.5 7 16.5 2 21.5 7'/><path d='M34 17H20.5a4 4 0 0 1-4-4V2'/></svg>") center / contain no-repeat;
+}

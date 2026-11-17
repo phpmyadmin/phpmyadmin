@@ -1,0 +1,152 @@
+// Icons used on many pages: Lucide (https://lucide.dev, ISC License), drawn over the theme images and coloured
+// like the images they replace
+$page-icon-key: "<path d='M12.4 2.7a2.5 2.5 0 0 1 3.4 0l5.5 5.5a2.5 2.5 0 0 1 0 3.4l-3.7 3.7a2.5 2.5 0 0 1-3.4 0L8.7 9.8a2.5 2.5 0 0 1 0-3.4z'/><path d='m14 7 3 3'/><path d='m9.4 10.6-6.814 6.814A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814'/>";
+$page-icon-unique: "<path d='M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z'/><path d='m9 12 2 2 4-4'/>";
+$page-icon-index: "<path d='M21 12h-8'/><path d='M21 6H8'/><path d='M21 18h-8'/><path d='M3 6v4c0 1.1.9 2 2 2h3'/><path d='M3 10v6c0 1.1.9 2 2 2h3'/>";
+$page-icon-spatial: "<path d='M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z'/><path d='M15 5.764v15'/><path d='M9 3.236v15'/>";
+$page-icon-fulltext: "<path d='M21 6H3'/><path d='M10 12H3'/><path d='M10 18H3'/><circle cx='17' cy='15' r='3'/><path d='m21 19-1.9-1.9'/>";
+$page-icon-table: "<path d='M12 3v18'/><rect width='18' height='18' x='3' y='3' rx='2'/><path d='M3 9h18'/><path d='M3 15h18'/>";
+$page-icon-search: "<path d='m21 21-4.34-4.34'/><circle cx='11' cy='11' r='8'/>";
+$page-icon-eraser: "<path d='m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21'/><path d='M22 21H7'/><path d='m5 11 9 9'/>";
+$page-icon-pencil: "<path d='M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z'/><path d='m15 5 4 4'/>";
+$page-icon-trash: "<path d='M10 11v6'/><path d='M14 11v6'/><path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6'/><path d='M3 6h18'/><path d='M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'/>";
+// Disabled actions ("bd_" images) are drawn in this grey
+$page-icon-disabled: "%23bbb";
+$page-icons: (
+  // Print: printer
+  "b_print": "<g stroke='%23777'><path d='M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2'/><path d='M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6'/></g><rect x='6' y='14' width='12' height='8' rx='1' stroke='%233b78c4'/>",
+  // Data dictionary: book-open-text
+  "b_tblanalyse": "<path d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z' stroke='%233b78c4'/><path d='M12 7v14' stroke='%233b78c4'/><g stroke='%23888'><path d='M6 8h2'/><path d='M6 12h2'/><path d='M16 8h2'/><path d='M16 12h2'/></g>",
+  // Table structure: list, like the Structure tab
+  "b_props": "<g stroke='%233a9a3a'><path d='M3 5h.01'/><path d='M3 12h.01'/><path d='M3 19h.01'/><path d='M8 5h13'/><path d='M8 12h13'/><path d='M8 19h13'/></g>",
+  // Relation view: network, like the Designer tab
+  "b_relations": "<g stroke='%233b78c4'><rect x='16' y='16' width='6' height='6' rx='1'/><rect x='2' y='16' width='6' height='6' rx='1'/><rect x='9' y='2' width='6' height='6' rx='1'/></g><g stroke='%23888'><path d='M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3'/><path d='M12 12V8'/></g>",
+  // Find and replace: replace
+  "b_find_replace": "<g stroke='%23888'><path d='M14 4a2 2 0 0 1 2-2'/><path d='M16 10a2 2 0 0 1-2-2'/><path d='M20 2a2 2 0 0 1 2 2'/><path d='M22 8a2 2 0 0 1-2 2'/></g><path d='m3 7 3 3 3-3' stroke='%233a9a3a'/><path d='M6 10V5a3 3 0 0 1 3-3h1' stroke='%233a9a3a'/><rect x='2' y='14' width='8' height='8' rx='2' stroke='%233b78c4'/>",
+  // Page locked by unsaved changes, and user lock / unlock: lock and lock-open
+  "s_lock": "<g stroke='%23666'><rect width='18' height='11' x='3' y='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></g>",
+  "s_unlock": "<g stroke='%23666'><rect width='18' height='11' x='3' y='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 9.9-1'/></g>",
+  // Save: save
+  "b_save": "<g stroke='%233b78c4'><path d='M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z'/><path d='M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7'/><path d='M7 3v4a1 1 0 0 0 1 1h7'/></g>",
+  // Cancel / close: x
+  "b_close": "<g stroke='%23d9443a'><path d='M18 6 6 18'/><path d='m6 6 12 12'/></g>",
+  // Drop: trash
+  "b_drop": "<g stroke='%23d9443a'>#{$page-icon-trash}</g>",
+  "bd_drop": "<g stroke='#{$page-icon-disabled}'>#{$page-icon-trash}</g>",
+  "bd_edit": "<g stroke='#{$page-icon-disabled}'>#{$page-icon-pencil}</g>",
+  // Rename: pencil-line
+  "b_rename": "<g stroke='%23d08a3a'><path d='M13 21h8'/>#{$page-icon-pencil}</g>",
+  // Primary key: key-square
+  "b_primary": "<g stroke='%23e0a000'>#{$page-icon-key}</g>",
+  "bd_primary": "<g stroke='#{$page-icon-disabled}'>#{$page-icon-key}</g>",
+  // Unique: badge-check
+  "b_unique": "<g stroke='%233b78c4'>#{$page-icon-unique}</g>",
+  "bd_unique": "<g stroke='#{$page-icon-disabled}'>#{$page-icon-unique}</g>",
+  // Index: list-tree
+  "b_index": "<g stroke='%233a9a3a'>#{$page-icon-index}</g>",
+  "bd_index": "<g stroke='#{$page-icon-disabled}'>#{$page-icon-index}</g>",
+  // Spatial: map
+  "b_spatial": "<g stroke='%232a9d8f'>#{$page-icon-spatial}</g>",
+  "bd_spatial": "<g stroke='#{$page-icon-disabled}'>#{$page-icon-spatial}</g>",
+  // Fulltext: text-search
+  "b_ftext": "<g stroke='%23777'><path d='M21 6H3'/><path d='M10 12H3'/><path d='M10 18H3'/></g><g stroke='%233b78c4'><circle cx='17' cy='15' r='3'/><path d='m21 19-1.9-1.9'/></g>",
+  "bd_ftext": "<g stroke='#{$page-icon-disabled}'>#{$page-icon-fulltext}</g>",
+  // Browse, Distinct values: table, like the Browse tab
+  "b_browse": "<g stroke='%236b8fb8'>#{$page-icon-table}</g>",
+  "bd_browse": "<g stroke='#{$page-icon-disabled}'>#{$page-icon-table}</g>",
+  // Table: table
+  "s_tbl": "<g stroke='%23888'>#{$page-icon-table}</g>",
+  // Insert: square-plus
+  "b_insrow": "<g stroke='%233a9a3a'><rect width='18' height='18' x='3' y='3' rx='2'/><path d='M8 12h8'/><path d='M12 8v8'/></g>",
+  // Search: search
+  "b_search": "<g stroke='%233b78c4'>#{$page-icon-search}</g>",
+  "bd_select": "<g stroke='#{$page-icon-disabled}'>#{$page-icon-search}</g>",
+  "b_select": "<g stroke='%233b78c4'>#{$page-icon-search}</g>",
+  // Empty: eraser
+  "b_empty": "<g stroke='%23777'>#{$page-icon-eraser}</g>",
+  "bd_empty": "<g stroke='#{$page-icon-disabled}'>#{$page-icon-eraser}</g>",
+  // SQL: scroll-text, like the SQL tab
+  "b_sql": "<g stroke='%234a8fd8'><path d='M15 12h-5'/><path d='M15 8h-5'/><path d='M19 17V5a2 2 0 0 0-2-2H4'/><path d='M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3'/></g>",
+  // Operations: wrench, like the Operations tab
+  "b_tblops": "<g stroke='%234a7bd0'><path d='M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z'/></g>",
+  // Move columns: move-vertical
+  "b_move": "<g stroke='%23777'><path d='M12 2v20'/><path d='m8 18 4 4 4-4'/><path d='m8 6 4-4 4 4'/></g>",
+  // Normalize: layers
+  "normalize": "<g stroke='%233b78c4'><path d='M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z'/><path d='M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12'/><path d='M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17'/></g>",
+  // Propose table structure: gauge
+  "b_tbloptimize": "<path d='M3.34 19a10 10 0 1 1 17.32 0' stroke='%23777'/><path d='m12 14 4-4' stroke='%23d9443a'/>",
+  // Edit, Rename / Copy database: pencil
+  "b_edit": "<g stroke='%23d08a3a'>#{$page-icon-pencil}</g>",
+  // Comment: message-square
+  "b_comment": "<path d='M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z' stroke='%233b78c4' fill='%23dbe7f6'/>",
+  // Remove database: trash-2, like Drop
+  "b_deltbl": "<g stroke='%23d9443a'><path d='M3 6h18'/><path d='M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6'/><path d='M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2'/><line x1='10' x2='10' y1='11' y2='17'/><line x1='14' x2='14' y1='11' y2='17'/></g>",
+  // Collation: arrow-down-a-z, like the collation on the home page
+  "s_asci": "<g stroke='%23444'><path d='m3 16 4 4 4-4'/><path d='M7 20V4'/><path d='M20 8h-5'/><path d='M15 10V6.5a2.5 2.5 0 0 1 5 0V10'/><path d='M15 14h5l-5 6h5'/></g>",
+  // Export: file-down, like the Export tab
+  "b_tblexport": "<g stroke='%236b8fb8'><path d='M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z'/><path d='M14 2v5a1 1 0 0 0 1 1h5'/></g><g stroke='%233a9a3a'><path d='M12 18v-6'/><path d='m9 15 3 3 3-3'/></g>",
+  // Edit privileges: user-pen
+  "b_usredit": "<g stroke='%23888'><path d='M11.5 15H7a4 4 0 0 0-4 4v2'/><circle cx='10' cy='7' r='4'/></g><path d='M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z' stroke='%23d08a3a'/>",
+  // Add user account: user-plus
+  "b_usradd": "<g stroke='%23888'><path d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/></g><g stroke='%233a9a3a'><line x1='19' x2='19' y1='8' y2='14'/><line x1='22' x2='16' y1='11' y2='11'/></g>",
+  // Create new routine / event / trigger: code-xml, calendar-plus and workflow (like the tabs) with a plus
+  "b_routine_add": "<g stroke='%233b78c4'><path d='m16 14 3-3-3-3'/><path d='M7 8 3 12l4 4'/></g><path d='m13.5 4-4 12' stroke='%23888'/><g stroke='%233a9a3a'><path d='M19 16v6'/><path d='M22 19h-6'/></g>",
+  "b_event_add": "<g stroke='%23888'><path d='M21 12.598V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5'/><path d='M16 2v4'/><path d='M8 2v4'/><path d='M3 10h18'/></g><g stroke='%233a9a3a'><path d='M19 16v6'/><path d='M16 19h6'/></g>",
+  "b_trigger_add": "<g stroke='%23888'><rect width='8' height='8' x='3' y='3' rx='2'/><rect width='7' height='7' x='13' y='13' rx='2'/></g><path d='M7 11v4a2 2 0 0 0 2 2h4' stroke='%23e0a000'/><g stroke='%233a9a3a'><path d='M19 2v6'/><path d='M22 5h-6'/></g>",
+  // Tracking: eye, like the Tracking tab
+  "eye": "<path d='M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0' stroke='%236b8fb8'/><circle cx='12' cy='12' r='3' stroke='%232f5f9e' fill='%233b78c4'/>",
+  // Create new table: a table with a plus, like "New" in the navigation tree
+  "b_table_add": "<g stroke='%236b8fb8'><path d='M21 12V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7'/><path d='M12 3v18'/><path d='M3 9h18'/><path d='M3 15h9'/></g><g stroke='%233a9a3a'><path d='M19 16v6'/><path d='M22 19h-6'/></g>",
+);
+
+@each $name, $paths in $page-icons {
+  .icon.ic_#{$name} {
+    // These sat 1.5px below the middle of the text beside them; lift them so both line up
+    position: relative;
+    top: -1.5px;
+    background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>#{$paths}</svg>") center / contain no-repeat;
+  }
+}
+
+// Icons in pill buttons (such as Table structure / Relation view) are already centred on their text
+.nav-pills .icon {
+  top: 0;
+}
+
+// "Zoom search" beside "Table search": zoom-in, so the two search pills differ
+.nav-pills .icon.ic_b_select {
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b78c4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><path d='m21 21-4.35-4.35'/><path d='M11 8v6' stroke='%233a9a3a'/><path d='M8 11h6' stroke='%233a9a3a'/></svg>") center / contain no-repeat;
+}
+
+// Date picker button beside date and time fields: Lucide "calendar". It is an <img> of b_calendar.png, so the
+// image is pushed out of its box by the padding and the icon is drawn as its background
+img.ui-datepicker-trigger {
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  padding-left: 16px;
+  vertical-align: middle;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='18' height='18' x='3' y='4' rx='2' stroke='%236b8fb8'/><path d='M3 10h18' stroke='%236b8fb8'/><g stroke='%23d9443a'><path d='M8 2v4'/><path d='M16 2v4'/></g></svg>") center / contain no-repeat;
+  cursor: pointer;
+}
+
+// Browse results "Full texts" / "Partial texts" toggle: Lucide "type" between "move-left" and "move-right",
+// pointing out (show full texts) or in (show partial texts). It is an <img>, so the image is pushed out of its
+// box by the padding and the icon is drawn as its background
+$fulltext-letter: "<g stroke='%233b78c4'><path d='M30 4v16'/><path d='M22 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2'/><path d='M27 20h6'/></g>";
+
+img.fulltext {
+  box-sizing: border-box;
+  width: 50px;
+  height: 20px;
+  padding-left: 50px;
+  vertical-align: middle;
+}
+
+img.fulltext[src$="s_fulltext.png"] {
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 24' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>#{$fulltext-letter}<g stroke='%236b8fb8'><path d='M6 8 2 12l4 4'/><path d='M2 12h14'/><path d='M54 8l4 4-4 4'/><path d='M44 12h14'/></g></svg>") center / contain no-repeat;
+}
+
+img.fulltext[src$="s_partialtext.png"] {
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 24' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>#{$fulltext-letter}<g stroke='%236b8fb8'><path d='M12 8l4 4-4 4'/><path d='M2 12h14'/><path d='M48 8l-4 4 4 4'/><path d='M44 12h14'/></g></svg>") center / contain no-repeat;
+}

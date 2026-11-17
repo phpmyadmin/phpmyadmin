@@ -1,0 +1,41 @@
+// Database structure page (list of tables): Lucide icons (https://lucide.dev, ISC License)
+// drawn over the theme images, coloured like the images they replace; the "bd_" variants are the disabled ones
+$db-structure-table: "<path d='M12 3v18'/><rect width='18' height='18' x='3' y='3' rx='2'/><path d='M3 9h18'/><path d='M3 15h18'/>";
+$db-structure-search: "<path d='m21 21-4.34-4.34'/><circle cx='11' cy='11' r='8'/>";
+$db-structure-eraser: "<path d='m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21'/><path d='M22 21H7'/><path d='m5 11 9 9'/>";
+$db-structure-star: "<path d='M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z'/>";
+$db-structure-disabled: "%23bbb";
+$db-structure-icons: (
+  // Browse: table
+  "b_browse": "<g stroke='%236b8fb8'>#{$db-structure-table}</g>",
+  "bd_browse": "<g stroke='#{$db-structure-disabled}'>#{$db-structure-table}</g>",
+  // Structure: list
+  "b_props": "<g stroke='%233a9a3a'><path d='M3 12h.01'/><path d='M3 18h.01'/><path d='M3 6h.01'/><path d='M8 12h13'/><path d='M8 18h13'/><path d='M8 6h13'/></g>",
+  // Search: search
+  "b_select": "<g stroke='%233b78c4'>#{$db-structure-search}</g>",
+  "bd_select": "<g stroke='#{$db-structure-disabled}'>#{$db-structure-search}</g>",
+  // Insert: square-plus
+  "b_insrow": "<g stroke='%233a9a3a'><rect width='18' height='18' x='3' y='3' rx='2'/><path d='M8 12h8'/><path d='M12 8v8'/></g>",
+  // Empty: eraser
+  "b_empty": "<g stroke='%23777'>#{$db-structure-eraser}</g>",
+  "bd_empty": "<g stroke='#{$db-structure-disabled}'>#{$db-structure-eraser}</g>",
+  // Drop: trash-2
+  "b_drop": "<g stroke='%23d9443a'><path d='M3 6h18'/><path d='M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6'/><path d='M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2'/><line x1='10' x2='10' y1='11' y2='17'/><line x1='14' x2='14' y1='11' y2='17'/></g>",
+  // Favorites: star, filled once the table is a favorite
+  "b_no_favorite": "<g stroke='%23aaa'>#{$db-structure-star}</g>",
+  "b_favorite": "<g stroke='%23e0a000' fill='%23f5c518'>#{$db-structure-star}</g>",
+);
+
+#tableslistcontainer {
+  @each $name, $paths in $db-structure-icons {
+    .icon.ic_#{$name} {
+      background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>#{$paths}</svg>") center / contain no-repeat;
+    }
+  }
+
+  // The icons sat 1.5px below the middle of the text; lift them so both line up (the help icon centres itself)
+  .icon:not(.ic_b_help) {
+    position: relative;
+    top: -1.5px;
+  }
+}

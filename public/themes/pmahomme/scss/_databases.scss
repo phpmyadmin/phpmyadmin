@@ -1,0 +1,20 @@
+// Databases page (the "New" link in the navigation tree): Lucide icons (https://lucide.dev, ISC License)
+// drawn over the theme images, coloured like the images they replace
+$databases-icons: (
+  // SQL: scroll-text
+  "b_sql": "<g stroke='%234a8fd8'><path d='M15 12h-5'/><path d='M15 8h-5'/><path d='M19 17V5a2 2 0 0 0-2-2H4'/><path d='M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3'/></g>",
+  // Check privileges: id-card
+  "s_rights": "<g stroke='%23888'><path d='M16 10h2'/><path d='M16 14h2'/><rect x='2' y='5' width='20' height='14' rx='2'/></g><g stroke='%23d08a3a'><path d='M13 19a4 4 0 00-8 0'/><circle cx='9' cy='12' r='3'/></g>",
+  // Search: search
+  "b_search": "<g stroke='%233b78c4'><path d='m21 21-4.34-4.34'/><circle cx='11' cy='11' r='8'/></g>",
+  // Create database: database-plus
+  "b_newdb": "<g stroke='%238a8a8a'><path d='M21 12.536V5'/><path d='M3 12A9 3 0 0 0 15.1824 14.8061'/><path d='M3 5V19A9 3 0 0 0 13.318 21.968'/><ellipse cx='12' cy='5' rx='9' ry='3'/></g><g stroke='%233a9a3a'><path d='M19 16v6'/><path d='M22 19h-6'/></g>",
+);
+
+.server-databases {
+  @each $name, $paths in $databases-icons {
+    .icon.ic_#{$name} {
+      background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>#{$paths}</svg>") center / contain no-repeat;
+    }
+  }
+}
