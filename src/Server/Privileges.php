@@ -731,11 +731,13 @@ class Privileges
      */
     public function getGrants(string $user, string $host): string
     {
-        $grants = $this->dbi->fetchSingleColumn(
-            'SHOW GRANTS FOR '
-            . $this->dbi->quoteString($user) . '@'
-            . $this->dbi->quoteString($host),
-        );
+        $account = $this->dbi->quoteString($user);
+        // MariaDB roles have an empty host and SHOW GRANTS fails with an error when it is given
+        if ($host !== '' || ! $this->dbi->isMariaDB()) {
+            $account .= '@' . $this->dbi->quoteString($host);
+        }
+
+        $grants = $this->dbi->fetchSingleColumn('SHOW GRANTS FOR ' . $account);
         $response = '';
         foreach ($grants as $oneGrant) {
             $response .= $oneGrant . ";\n\n";

@@ -308,6 +308,25 @@ class PrivilegesTest extends AbstractTestCase
         self::assertStringContainsString('<textarea class="export"', $export);
     }
 
+    public function testGetExportUserDefinitionTextareaForMariaDbRole(): void
+    {
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addResult(
+            'SHOW GRANTS FOR \'PMA_role\'',
+            [['GRANT USAGE ON *.* TO `PMA_role`'], ['GRANT SELECT ON `db`.* TO `PMA_role`']],
+            ['Grants for PMA_role'],
+        );
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $dbi->setVersion(['@@version' => '11.8.3-MariaDB']);
+        $serverPrivileges = $this->getPrivileges($dbi);
+
+        $export = $serverPrivileges->getExportUserDefinitionTextarea('PMA_role', '', null);
+
+        self::assertStringContainsString('GRANT USAGE ON *.* TO `PMA_role`;', $export);
+        self::assertStringContainsString('GRANT SELECT ON `db`.* TO `PMA_role`;', $export);
+        $dummyDbi->assertAllQueriesConsumed();
+    }
+
     public function testAddUser(): void
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
