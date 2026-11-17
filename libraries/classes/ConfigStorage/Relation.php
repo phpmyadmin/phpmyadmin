@@ -445,6 +445,20 @@ class Relation
             $tableObj = new Table($table, $db);
             $show_create_table = $tableObj->showCreate();
             if ($show_create_table !== '') {
+                // Strip MariaDB system versioning clauses that confuse the SQL parser.
+                // PERIOD FOR SYSTEM_TIME and ROW START/END columns are not relevant
+                // for foreign key detection and cause parsing failures.
+                // See: https://github.com/phpmyadmin/phpmyadmin/issues/20095
+                $show_create_table = (string) preg_replace(
+                    '/^\s*`?\w+`?\s+\w+(?:\(\d+\))?\s+GENERATED ALWAYS AS ROW (?:START|END)[^\n]*,?\n?/im',
+                    '',
+                    $show_create_table
+                );
+                $show_create_table = (string) preg_replace(
+                    '/^\s*PERIOD\s+FOR\s+SYSTEM_TIME\s*\([^)]*\),?\n?/im',
+                    '',
+                    $show_create_table
+                );
                 $parser = new Parser($show_create_table);
                 $stmt = $parser->statements[0];
                 $foreign['foreign_keys_data'] = [];
