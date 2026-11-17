@@ -21,6 +21,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Clock\MockClock;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
+use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -120,6 +121,7 @@ class HeaderTest extends AbstractTestCase
             'codemirror_enable' => true,
             'lint_enable' => true,
             'theme_path' => '',
+            'asset_version' => $config->getAssetVersion(),
             'server' => 0,
             'title' => 'phpMyAdmin',
             'scripts' => $header->getScripts()->getDisplay(),
@@ -153,6 +155,15 @@ class HeaderTest extends AbstractTestCase
             'common_query',
             $header->getJsParams(),
         );
+    }
+
+    public function testGetJsParamsDoesNotExposeVersion(): void
+    {
+        $header = $this->getNewHeaderInstance();
+        $params = $header->getJsParams();
+        self::assertArrayHasKey('asset_version', $params);
+        self::assertArrayNotHasKey('version', $params);
+        self::assertStringNotContainsString(Version::VERSION, $header->getJsParamsCode());
     }
 
     public function testGetJsParamsCode(): void
