@@ -2708,6 +2708,9 @@ Editing mode
       opposite of ``'blob'``);
     * ``'all'`` to disallow editing of all ``BINARY`` or ``BLOB`` columns.
 
+    A protected column can still be emptied by checking the "Empty" checkbox
+    shown next to it in the insert/edit form.
+
 .. config:option:: $cfg['ShowFunctionFields']
 
     :type: boolean
