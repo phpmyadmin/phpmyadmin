@@ -204,6 +204,23 @@
     <input type="hidden" name="goto" value="{{ url('/sql') }}">
 {% endif %}
 
+  <template id="crlf-div-template-{{ unique_id }}">
+    <div class="crlf_div">
+      <label>
+        <span class="line-ending-label">
+          <span class="line-ending-text">{% trans 'Line ending:' %}</span>
+          <span>
+            <img src="themes/dot.gif" class="icon ic_b_help" title="{% trans 'The suggested value was detected from your existing data.' %}" alt="{% trans 'The suggested value was detected from your existing data.' %}">
+          </span>
+        </span>
+        <select class="line-ending-select">
+          <option value="LF">LF</option>
+          <option value="CRLF">CRLF</option>
+        </select>
+      </label>
+    </div>
+  </template>
+
   <div class="table-responsive-md">
     <table class="table table-striped table-hover table-sm table_results data ajax w-auto" data-uniqueId="{{ unique_id }}">
 
