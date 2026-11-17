@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Console;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\Features\SqlHistoryFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -18,11 +17,8 @@ use function mb_strlen;
 
 readonly class History
 {
-    private SqlHistoryFeature|null $sqlHistoryFeature;
-
-    public function __construct(private DatabaseInterface $dbi, Relation $relation, private Config $config)
+    public function __construct(private DatabaseInterface $dbi, private Relation $relation, private Config $config)
     {
-        $this->sqlHistoryFeature = $relation->getRelationParameters()->sqlHistoryFeature;
     }
 
     public function setHistory(string $db, string $table, string $username, string $sqlquery): void
@@ -42,14 +38,15 @@ readonly class History
             array_shift($_SESSION['sql_history']);
         }
 
-        if ($this->sqlHistoryFeature === null || ! $this->config->config->QueryHistoryDB) {
+        $sqlHistoryFeature = $this->relation->getRelationParameters()->sqlHistoryFeature;
+        if ($sqlHistoryFeature === null || ! $this->config->config->QueryHistoryDB) {
             return;
         }
 
         $this->dbi->queryAsControlUser(
             'INSERT INTO '
-            . Util::backquote($this->sqlHistoryFeature->database) . '.'
-            . Util::backquote($this->sqlHistoryFeature->history) . '
+            . Util::backquote($sqlHistoryFeature->database) . '.'
+            . Util::backquote($sqlHistoryFeature->history) . '
                   (`username`,
                     `db`,
                     `table`,
@@ -73,7 +70,8 @@ readonly class History
      */
     public function getHistory(string $username): array|false
     {
-        if ($this->sqlHistoryFeature === null) {
+        $sqlHistoryFeature = $this->relation->getRelationParameters()->sqlHistoryFeature;
+        if ($sqlHistoryFeature === null) {
             return false;
         }
 
@@ -90,8 +88,8 @@ readonly class History
                     `table`,
                     `sqlquery`,
                     `timevalue`
-               FROM ' . Util::backquote($this->sqlHistoryFeature->database)
-                . '.' . Util::backquote($this->sqlHistoryFeature->history) . '
+               FROM ' . Util::backquote($sqlHistoryFeature->database)
+                . '.' . Util::backquote($sqlHistoryFeature->history) . '
               WHERE `username` = ' . $this->dbi->quoteString($username) . '
            ORDER BY `id` DESC';
 
@@ -100,14 +98,15 @@ readonly class History
 
     private function purgeHistory(string $username): void
     {
-        if (! $this->config->config->QueryHistoryDB || $this->sqlHistoryFeature === null) {
+        $sqlHistoryFeature = $this->relation->getRelationParameters()->sqlHistoryFeature;
+        if (! $this->config->config->QueryHistoryDB || $sqlHistoryFeature === null) {
             return;
         }
 
         $searchQuery = '
             SELECT `timevalue`
-            FROM ' . Util::backquote($this->sqlHistoryFeature->database)
-                . '.' . Util::backquote($this->sqlHistoryFeature->history) . '
+            FROM ' . Util::backquote($sqlHistoryFeature->database)
+                . '.' . Util::backquote($sqlHistoryFeature->history) . '
             WHERE `username` = ' . $this->dbi->quoteString($username) . '
             ORDER BY `timevalue` DESC
             LIMIT ' . $this->config->config->QueryHistoryMax . ', 1';
@@ -120,8 +119,8 @@ readonly class History
 
         $this->dbi->queryAsControlUser(
             'DELETE FROM '
-            . Util::backquote($this->sqlHistoryFeature->database) . '.'
-            . Util::backquote($this->sqlHistoryFeature->history) . '
+            . Util::backquote($sqlHistoryFeature->database) . '.'
+            . Util::backquote($sqlHistoryFeature->history) . '
               WHERE `username` = ' . $this->dbi->quoteString($username, ConnectionType::ControlUser)
             . '
                 AND `timevalue` <= ' . $this->dbi->quoteString($maxTime, ConnectionType::ControlUser),
