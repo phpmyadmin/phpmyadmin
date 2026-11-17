@@ -2313,6 +2313,10 @@ class ExportSql extends ExportPlugin
             $fieldSet[$j] = Util::backquoteCompat($colAs, $compat, $sql_backquotes);
         }
 
+        if ($fieldSet === []) {
+            return true;
+        }
+
         if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] === 'UPDATE') {
             // update
             $schemaInsert = 'UPDATE ';
