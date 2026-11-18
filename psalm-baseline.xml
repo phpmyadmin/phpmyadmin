@@ -323,7 +323,8 @@
     </RedundantCast>
   </file>
   <file src="libraries/classes/Config.php">
-    <InvalidArgument occurrences="1">
+    <InvalidArgument occurrences="2">
+      <code>$optionalParams</code>
       <code>$optionalParams</code>
     </InvalidArgument>
     <InvalidArrayOffset occurrences="1">
