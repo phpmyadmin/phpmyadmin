@@ -79,7 +79,7 @@
         "symfony/polyfill-mbstring": "^1.24",
         "symfony/polyfill-php84": "^1.33",
         "twig/twig": "^3.21",
-        "webmozart/assert": "^1.10 || ^2.0",
+        "webmozart/assert": "^2.5",
         "williamdes/mariadb-mysql-kbs": "^1.2"
     },
     "conflict": {
@@ -142,7 +142,7 @@
         ],
         "update:baselines": [
             "@php phpstan analyse --generate-baseline",
-            "@php psalm --no-cache --threads=max --set-baseline=psalm-baseline.xml"
+            "@php psalm --no-cache --set-baseline=psalm-baseline.xml"
         ],
         "twig-lint": "@php bin/console lint:twig --ansi --show-deprecations"
     },

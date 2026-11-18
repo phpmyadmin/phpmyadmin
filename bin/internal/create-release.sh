@@ -191,7 +191,6 @@ cleanup_composer_vendors() {
         vendor/nikic/fast-route/.hhconfig \
         vendor/nikic/fast-route/FastRoute.hhi \
         vendor/twig/twig/README.rst \
-        vendor/webmozart/assert/.php-cs-fixer.php \
         vendor/twig/twig/src/Test/ \
         vendor/phpdocumentor/reflection-common/.yamllint.yaml \
         vendor/psr/event-dispatcher/.editorconfig \
