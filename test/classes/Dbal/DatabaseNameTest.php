@@ -21,24 +21,21 @@ class DatabaseNameTest extends TestCase
     public function testEmptyName(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Expected a different value than "".');
+        $this->expectExceptionMessage('The database name must be a non-empty string.');
         DatabaseName::fromValue('');
     }
 
     public function testNameWithTrailingWhitespace(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Expected a value not to end with " ". Got: "a "');
+        $this->expectExceptionMessage('The database name cannot end with a space character.');
         DatabaseName::fromValue('a ');
     }
 
     public function testLongName(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage(
-            'Expected a value to contain at most 64 characters. Got: '
-            . '"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"'
-        );
+        $this->expectExceptionMessage('The database name cannot be longer than 64 characters.');
         DatabaseName::fromValue(str_repeat('a', 65));
     }
 
@@ -69,9 +66,9 @@ class DatabaseNameTest extends TestCase
     public static function providerForTestInvalidMixedNames(): array
     {
         return [
-            [null, 'Expected a string. Got: NULL'],
-            [1, 'Expected a string. Got: integer'],
-            [['db'], 'Expected a string. Got: array'],
+            [null, 'The database name must be a non-empty string.'],
+            [1, 'The database name must be a non-empty string.'],
+            [['db'], 'The database name must be a non-empty string.'],
         ];
     }
 }

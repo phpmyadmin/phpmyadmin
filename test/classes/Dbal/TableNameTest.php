@@ -21,24 +21,21 @@ class TableNameTest extends TestCase
     public function testEmptyName(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Expected a different value than "".');
+        $this->expectExceptionMessage('The table name must be a non-empty string.');
         TableName::fromValue('');
     }
 
     public function testNameWithTrailingWhitespace(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Expected a value not to end with " ". Got: "a "');
+        $this->expectExceptionMessage('The table name cannot end with a space character.');
         TableName::fromValue('a ');
     }
 
     public function testLongName(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage(
-            'Expected a value to contain at most 64 characters. Got: '
-            . '"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"'
-        );
+        $this->expectExceptionMessage('The table name cannot be longer than 64 characters.');
         TableName::fromValue(str_repeat('a', 65));
     }
 
@@ -69,9 +66,9 @@ class TableNameTest extends TestCase
     public static function providerForTestInvalidMixedNames(): array
     {
         return [
-            [null, 'Expected a string. Got: NULL'],
-            [1, 'Expected a string. Got: integer'],
-            [['table'], 'Expected a string. Got: array'],
+            [null, 'The table name must be a non-empty string.'],
+            [1, 'The table name must be a non-empty string.'],
+            [['table'], 'The table name must be a non-empty string.'],
         ];
     }
 }

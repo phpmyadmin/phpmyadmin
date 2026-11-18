@@ -8,6 +8,9 @@ use Stringable;
 use Webmozart\Assert\Assert;
 use Webmozart\Assert\InvalidArgumentException;
 
+use function __;
+use function sprintf;
+
 /**
  * @psalm-immutable
  */
@@ -32,9 +35,30 @@ final class DatabaseName implements Stringable
      */
     private function __construct($name)
     {
-        Assert::stringNotEmpty($name);
-        Assert::maxLength($name, self::MAX_LENGTH);
-        Assert::notEndsWith($name, ' ');
+        try {
+            Assert::stringNotEmpty($name);
+        } catch (InvalidArgumentException $exception) {
+            $message = __('The database name must be a non-empty string.');
+
+            throw new InvalidArgumentException($message, $exception->getCode(), $exception);
+        }
+
+        try {
+            Assert::maxLength($name, self::MAX_LENGTH);
+        } catch (InvalidArgumentException $exception) {
+            $message = sprintf(__('The database name cannot be longer than %d characters.'), self::MAX_LENGTH);
+
+            throw new InvalidArgumentException($message, $exception->getCode(), $exception);
+        }
+
+        try {
+            Assert::notEndsWith($name, ' ');
+        } catch (InvalidArgumentException $exception) {
+            $message = __('The database name cannot end with a space character.');
+
+            throw new InvalidArgumentException($message, $exception->getCode(), $exception);
+        }
+
         $this->name = $name;
     }
 

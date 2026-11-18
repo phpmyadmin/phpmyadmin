@@ -5864,6 +5864,13 @@
       <code>$urlParams['sql_query']</code>
     </MixedAssignment>
   </file>
+  <file src="libraries/classes/Dbal/DatabaseName.php">
+    <ImpureFunctionCall occurrences="3">
+      <code>__</code>
+      <code>__</code>
+      <code>__</code>
+    </ImpureFunctionCall>
+  </file>
   <file src="libraries/classes/Dbal/DbiMysqli.php">
     <MixedArgument occurrences="9">
       <code>$host</code>
@@ -5933,6 +5940,13 @@
       <code>array_column($this-&gt;result-&gt;fetch_all(), 0)</code>
       <code>array_column($this-&gt;result-&gt;fetch_all(), 1, 0)</code>
     </MixedReturnTypeCoercion>
+  </file>
+  <file src="libraries/classes/Dbal/TableName.php">
+    <ImpureFunctionCall occurrences="3">
+      <code>__</code>
+      <code>__</code>
+      <code>__</code>
+    </ImpureFunctionCall>
   </file>
   <file src="libraries/classes/Display/Results.php">
     <InvalidArgument occurrences="5">
