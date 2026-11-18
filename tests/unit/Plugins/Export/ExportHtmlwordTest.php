@@ -28,6 +28,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Triggers\Event;
 use PhpMyAdmin\Triggers\Timing;
 use PhpMyAdmin\Triggers\Trigger;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
@@ -611,7 +612,7 @@ final class ExportHtmlwordTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['htmlword_structure_or_data' => 'structure']);
         $exportHtmlword->setExportOptions($request, new SettingsExport());
-        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi), new IniReader());
         ob_start();
         $export->exportTable(
             'test_db',

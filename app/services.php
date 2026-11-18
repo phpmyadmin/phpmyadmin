@@ -73,6 +73,7 @@ use PhpMyAdmin\UrlRedirector;
 use PhpMyAdmin\UserPassword;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Utils\HttpRequest;
+use PhpMyAdmin\Utils\IniReader;
 use PhpMyAdmin\VersionInformation;
 use Psr\Clock\ClockInterface;
 use Random\Randomizer;
@@ -123,7 +124,7 @@ return [
     Events::class => ['class' => Events::class, 'arguments' => [DatabaseInterface::class, Config::class]],
     Export::class => [
         'class' => Export::class,
-        'arguments' => [DatabaseInterface::class, OutputHandler::class, PluginFactory::class],
+        'arguments' => [DatabaseInterface::class, OutputHandler::class, PluginFactory::class, IniReader::class],
     ],
     Options::class => [
         'class' => Options::class,
@@ -155,7 +156,7 @@ return [
     ],
     ImportForm::class => [
         'class' => ImportForm::class,
-        'arguments' => [DatabaseInterface::class, Config::class, Ajax::class, PluginFactory::class],
+        'arguments' => [DatabaseInterface::class, Config::class, Ajax::class, PluginFactory::class, IniReader::class],
     ],
     SimulateDml::class => ['class' => SimulateDml::class, 'arguments' => [DatabaseInterface::class]],
     InsertEdit::class => [
@@ -168,6 +169,7 @@ return [
             Template::class,
             Config::class,
             ResponseRenderer::class,
+            IniReader::class,
         ],
     ],
     Middleware\ErrorHandling::class => [
@@ -462,6 +464,7 @@ return [
     ],
     LanguageManager::class => ['class' => LanguageManager::class, 'factory' => [LanguageManager::class, 'getInstance']],
     ClockInterface::class => ['class' => Clock::class],
+    IniReader::class => ['class' => IniReader::class],
     Randomizer::class => ['class' => Randomizer::class],
     Footer::class => ['class' => Footer::class, 'arguments' => [Template::class, Config::class]],
     UrlRedirector::class => [

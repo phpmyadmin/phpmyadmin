@@ -25,6 +25,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ExportController::class)]
@@ -73,7 +74,7 @@ final class ExportControllerTest extends AbstractTestCase
 
         return new ExportController(
             $responseRenderer,
-            new Export($dbi, new OutputHandler(), $pluginFactory),
+            new Export($dbi, new OutputHandler(), $pluginFactory, new IniReader()),
             new Options($relation, new TemplateModel($dbi), $userPreferencesHandler),
             new PageSettings($userPreferences, $responseRenderer),
             new DbTableExists($dbi),

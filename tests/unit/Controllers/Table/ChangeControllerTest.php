@@ -20,6 +20,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ChangeController::class)]
@@ -65,6 +66,7 @@ final class ChangeControllerTest extends AbstractTestCase
             $template,
             $config,
             $response,
+            new IniReader(),
         );
 
         (new ChangeController(
@@ -177,6 +179,7 @@ final class ChangeControllerTest extends AbstractTestCase
             $template,
             $config,
             $response,
+            new IniReader(),
         );
 
         (new ChangeController(

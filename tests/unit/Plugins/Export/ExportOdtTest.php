@@ -31,6 +31,7 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Triggers\Event;
 use PhpMyAdmin\Triggers\Timing;
 use PhpMyAdmin\Triggers\Trigger;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
@@ -808,7 +809,7 @@ final class ExportOdtTest extends AbstractTestCase
 
         $exportOdt = $this->getExportOdt($dbi);
         $exportOdt->setExportOptions($request, new SettingsExport());
-        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi), new IniReader());
         $export->exportTable(
             'testdb',
             'testtable',

@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Crypto\Crypto;
-use PhpMyAdmin\Tests\UrlTest;
 use Twig\Attribute\AsTwigFunction;
 
 use function base64_decode;
@@ -18,9 +17,7 @@ use function http_build_query;
 use function in_array;
 use function ini_get;
 use function is_array;
-use function is_string;
 use function json_encode;
-use function method_exists;
 use function str_contains;
 use function strtr;
 
@@ -303,32 +300,21 @@ class Url
      */
     public static function getArgSeparator(): string
     {
-        if (is_string(self::$inputArgSeparator)) {
-            return self::$inputArgSeparator;
-        }
+        return self::$inputArgSeparator ??= self::selectArgSeparator(ini_get('arg_separator.input'));
+    }
 
-        $separator = self::getArgSeparatorValueFromIni();
-        if (! is_string($separator) || $separator === '' || str_contains($separator, '&')) {
-            return self::$inputArgSeparator = '&';
+    public static function selectArgSeparator(string|false $separator): string
+    {
+        if ($separator === false || $separator === '' || str_contains($separator, '&')) {
+            return '&';
         }
 
         if (str_contains($separator, ';')) {
-            return self::$inputArgSeparator = ';';
+            return ';';
         }
 
         // uses first character
-        return self::$inputArgSeparator = $separator[0];
-    }
-
-    /** @return string|false */
-    private static function getArgSeparatorValueFromIni(): string|bool
-    {
-        /** @phpstan-ignore-next-line */
-        if (method_exists(UrlTest::class, 'getInputArgSeparator')) {
-            return UrlTest::getInputArgSeparator();
-        }
-
-        return ini_get('arg_separator.input');
+        return $separator[0];
     }
 
     /**

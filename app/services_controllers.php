@@ -95,6 +95,7 @@ use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UserPassword;
 use PhpMyAdmin\UserPrivilegesFactory;
+use PhpMyAdmin\Utils\IniReader;
 use PhpMyAdmin\VersionInformation;
 use Psr\Clock\ClockInterface;
 use Random\Randomizer;
@@ -440,6 +441,7 @@ return [
             DatabaseInterface::class,
             BookmarkRepository::class,
             Config::class,
+            IniReader::class,
         ],
     ],
     Import\SimulateDmlController::class => [
@@ -588,6 +590,7 @@ return [
             ThemeManager::class,
             ResponseFactory::class,
             UserPreferencesHandler::class,
+            IniReader::class,
         ],
     ],
     Preferences\NavigationController::class => [

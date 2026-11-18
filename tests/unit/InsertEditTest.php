@@ -20,11 +20,13 @@ use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
+use PhpMyAdmin\Tests\Stubs\IniReaderStub;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -81,6 +83,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
 
         $this->dbi->setVersion([
@@ -183,6 +186,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
         $result = (new ReflectionMethod(InsertEdit::class, 'analyzeWhereClauses'))
             ->invokeArgs($this->insertEdit, [$clauses, 'table', 'db']);
@@ -225,6 +229,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
 
         $result = (new ReflectionMethod(InsertEdit::class, 'hasUniqueCondition'))
@@ -257,6 +262,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
 
         $result = (new ReflectionMethod(InsertEdit::class, 'loadFirstRow'))
@@ -513,17 +519,25 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetMaxUploadSize(): void
     {
-        $type = 'tinyblob';
-        $result = (new ReflectionMethod(InsertEdit::class, 'getMaxUploadSize'))->invokeArgs($this->insertEdit, [$type]);
+        $config = new Config();
+        $relation = new Relation($this->dbi, $config);
+        $insertEdit = new InsertEdit(
+            $this->dbi,
+            $relation,
+            new Transformations($this->dbi, $relation),
+            new FileListing(),
+            new Template($config),
+            $config,
+            new ResponseRenderer(),
+            new IniReaderStub(['upload_max_filesize' => '32K', 'post_max_size' => '8M']),
+        );
+        $method = new ReflectionMethod(InsertEdit::class, 'getMaxUploadSize');
 
-        self::assertSame("(Max: 256B)\n", $result);
+        // the column type limit is lower than the upload limit
+        self::assertSame("(Max: 256B)\n", $method->invokeArgs($insertEdit, ['tinyblob']));
 
-        // case 2
-        // this should stub Util::getUploadSizeInBytes() but it's not possible
-        $type = 'blob';
-        $result = (new ReflectionMethod(InsertEdit::class, 'getMaxUploadSize'))->invokeArgs($this->insertEdit, [$type]);
-
-        self::assertSame("(Max: 64KiB)\n", $result);
+        // the upload limit is lower than the column type limit
+        self::assertSame("(Max: 32KiB)\n", $method->invokeArgs($insertEdit, ['blob']));
     }
 
     /**
@@ -890,6 +904,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
 
         $currentRow['f'] = '123';
@@ -1081,6 +1096,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
         $this->insertEdit->setSessionForEditNext('`a` = 2');
 
@@ -1134,6 +1150,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
         $result = $this->insertEdit->executeSqlQuery($query);
 
@@ -1159,6 +1176,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
         $result = $this->insertEdit->executeSqlQuery($query);
 
@@ -1192,6 +1210,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
 
         $result = (array) (new ReflectionMethod(InsertEdit::class, 'getWarningMessages'))
@@ -1240,6 +1259,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
 
         $result = $this->insertEdit->getDisplayValueForForeignTableColumn('=1', $map, 'f');
@@ -2035,6 +2055,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData('db', 'table', 'a', $extraData);
@@ -2084,6 +2105,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
 
         $result = $this->insertEdit->getTableColumns('db', 'table');
@@ -2126,6 +2148,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
 
         $result = $this->insertEdit->determineInsertOrEdit('1', 'db', 'table');
@@ -2175,6 +2198,7 @@ class InsertEditTest extends AbstractTestCase
             new Template($config),
             $config,
             new ResponseRenderer(),
+            new IniReader(),
         );
 
         self::assertSame(

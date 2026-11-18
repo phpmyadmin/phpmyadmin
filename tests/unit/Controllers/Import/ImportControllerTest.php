@@ -20,6 +20,7 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ImportController::class)]
@@ -108,6 +109,7 @@ class ImportControllerTest extends AbstractTestCase
             $this->dbi,
             $bookmarkRepository,
             $config,
+            new IniReader(),
         );
 
         $this->dummyDbi->addSelectDb('pma_test');

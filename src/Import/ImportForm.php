@@ -15,6 +15,7 @@ use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Plugins\PluginType;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
+use PhpMyAdmin\Utils\IniReader;
 
 use function is_numeric;
 use function is_string;
@@ -26,6 +27,7 @@ final readonly class ImportForm
         private Config $config,
         private Ajax $ajax,
         private PluginFactory $pluginFactory,
+        private IniReader $iniReader,
     ) {
     }
 
@@ -56,7 +58,7 @@ final readonly class ImportForm
         $pluginName = $this->getFormat($request->getParam('format'));
         $pluginName = Plugins::validatePluginNameOrUseDefault($importList, $pluginName);
 
-        $maxUploadSize = Util::getUploadSizeInBytes();
+        $maxUploadSize = $this->iniReader->getUploadSizeInBytes();
 
         return [
             'upload_id' => $uploadId,

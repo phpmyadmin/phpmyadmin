@@ -22,6 +22,7 @@ use PhpMyAdmin\Plugins\PluginFactory;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\IniReader;
 
 use function __;
 use function array_filter;
@@ -31,7 +32,6 @@ use function htmlentities;
 use function http_build_query;
 use function implode;
 use function in_array;
-use function ini_get;
 use function is_array;
 use function is_numeric;
 use function mb_strlen;
@@ -56,6 +56,7 @@ class Export
         private DatabaseInterface $dbi,
         public OutputHandler $outputHandler,
         private PluginFactory $pluginFactory,
+        private IniReader $iniReader,
     ) {
     }
 
@@ -116,7 +117,7 @@ class Export
      */
     public function getMemoryLimit(): int
     {
-        $memoryLimit = Util::getRealSize(ini_get('memory_limit'));
+        $memoryLimit = $this->iniReader->getMemoryLimitInBytes();
 
         // Some of memory is needed for other things and as threshold.
         // During export I had allocated (see memory_get_usage function)
