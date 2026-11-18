@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-18 15:48+0000\n"
-"PO-Revision-Date: 2026-11-16 11:35+0000\n"
+"PO-Revision-Date: 2026-11-19 19:30+0000\n"
 "Last-Translator: Hotripak <hotr1pak@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "uk/>\n"
@@ -9168,22 +9168,17 @@ msgstr ""
 "Помилка в обробці запиту: Немає тригера з ім'ям %1$s в базі даних %2$s."
 
 #: libraries/classes/Dbal/DatabaseName.php:41
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "The database name must be a non-empty string."
-msgstr "Відсутнє ім'я бази даних!"
+msgstr "Ім'я бази даних має бути непорожнім рядком."
 
 #: libraries/classes/Dbal/DatabaseName.php:49
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "Будь ласка, введіть не більше {0} символів"
+msgstr "Назва бази даних не може перевищувати %d символів."
 
 #: libraries/classes/Dbal/DatabaseName.php:57
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The database name cannot end with a space character."
-msgstr "Слова розділені пробілом (\" \")."
+msgstr "Назва бази даних не може закінчуватися символом пробілу."
 
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9199,22 +9194,17 @@ msgstr ""
 "помилку може бути доступна, але вона приховується директивою конфігурації %s."
 
 #: libraries/classes/Dbal/TableName.php:41
-#, fuzzy
-#| msgid "The table name is empty!"
 msgid "The table name must be a non-empty string."
-msgstr "Порожня назва таблиці!"
+msgstr "Ім'я таблиці має бути непорожнім рядком."
 
 #: libraries/classes/Dbal/TableName.php:49
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "Будь ласка, введіть не більше {0} символів"
+msgstr "Назва таблиці не може містити більше ніж %d символів."
 
 #: libraries/classes/Dbal/TableName.php:57
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The table name cannot end with a space character."
-msgstr "Слова розділені пробілом (\" \")."
+msgstr "Назва таблиці не може закінчуватися символом пробілу."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
