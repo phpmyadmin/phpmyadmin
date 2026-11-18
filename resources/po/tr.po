@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-15 00:26+0000\n"
-"PO-Revision-Date: 2026-11-16 11:23+0000\n"
+"PO-Revision-Date: 2026-11-19 19:30+0000\n"
 "Last-Translator: Burak Yavuz <bourock@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -16387,7 +16387,7 @@ msgstr "Veritabanı adı %d karakterden uzun olamaz."
 
 #: src/Identifiers/InvalidDatabaseName.php:25
 msgid "The database name cannot end with a space character."
-msgstr "Veritabanı adı bir boşluk karakteriyle bitemez."
+msgstr "Veritabanı adı boşluk karakteriyle bitemez."
 
 #: src/Identifiers/InvalidTableName.php:14
 msgid "The table name must be a non-empty string."
@@ -16400,7 +16400,7 @@ msgstr "Tablo adı %d karakterden uzun olamaz."
 
 #: src/Identifiers/InvalidTableName.php:25
 msgid "The table name cannot end with a space character."
-msgstr "Tablo adı bir boşluk karakteriyle bitemez."
+msgstr "Tablo adı boşluk karakteriyle bitemez."
 
 #: src/Identifiers/InvalidTriggerName.php:14
 msgid "The trigger name must not be empty."
