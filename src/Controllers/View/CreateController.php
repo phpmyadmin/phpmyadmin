@@ -57,10 +57,6 @@ final class CreateController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        if (Current::$database === '') {
-            return $this->response->missingParameterError('db');
-        }
-
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             return $this->response->respondWithErrorMessage(__('No database selected.'));
