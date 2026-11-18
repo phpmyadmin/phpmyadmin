@@ -2209,7 +2209,7 @@ parameters:
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Binary operation "/" between mixed and float\|int\<1, max\>\|string results in an error\.$#'
+			message: '#^Binary operation "/" between mixed and float\<5\.0E\-324, max\>\|int\<1, max\>\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
 			path: src/Controllers/Server/Status/StatusController.php
@@ -2599,15 +2599,6 @@ parameters:
 			path: src/Controllers/Table/GetFieldController.php
 
 		-
-			message: '''
-				#^Access to constant on deprecated class TCPDF\:
-				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
-			'''
-			identifier: classConstant.deprecatedClass
-			count: 1
-			path: src/Controllers/Table/GisVisualizationController.php
-
-		-
 			message: '#^Cannot access offset ''max_rows'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -2623,6 +2614,15 @@ parameters:
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 4
+			path: src/Controllers/Table/GisVisualizationController.php
+
+		-
+			message: '''
+				#^Fetching class constant class of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 1
 			path: src/Controllers/Table/GisVisualizationController.php
 
 		-
@@ -8405,15 +8405,6 @@ parameters:
 
 		-
 			message: '''
-				#^Access to constant on deprecated class TCPDF\:
-				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
-			'''
-			identifier: classConstant.deprecatedClass
-			count: 1
-			path: src/Plugins/Export/ExportPdf.php
-
-		-
-			message: '''
 				#^Call to method Open\(\) of deprecated class TCPDF\:
 				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
 			'''
@@ -8433,6 +8424,15 @@ parameters:
 		-
 			message: '#^Class PhpMyAdmin\\Plugins\\Export\\ExportPdf has an uninitialized property \$pdf\. Give it default value or assign it in the constructor\.$#'
 			identifier: property.uninitialized
+			count: 1
+			path: src/Plugins/Export/ExportPdf.php
+
+		-
+			message: '''
+				#^Fetching class constant class of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: classConstant.deprecatedClass
 			count: 1
 			path: src/Plugins/Export/ExportPdf.php
 
@@ -8815,15 +8815,15 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Binary operation "\+\=" between mixed and float\|int results in an error\.$#'
+			message: '#^Binary operation "\+\=" between mixed and float\<5\.0E\-324, max\>\|int\<1, max\> results in an error\.$#'
 			identifier: assignOp.invalid
-			count: 3
+			count: 1
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Binary operation "\+\=" between mixed and float\|int\<1, max\> results in an error\.$#'
+			message: '#^Binary operation "\+\=" between mixed and float\|int results in an error\.$#'
 			identifier: assignOp.invalid
-			count: 1
+			count: 3
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -10403,19 +10403,19 @@ parameters:
 
 		-
 			message: '''
-				#^Access to constant on deprecated class TCPDF\:
-				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
+				Use dependency injection instead\.$#
 			'''
-			identifier: classConstant.deprecatedClass
+			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Plugins/Schema/SchemaPdf.php
 
 		-
 			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
+				#^Fetching class constant class of deprecated class TCPDF\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
 			'''
-			identifier: staticMethod.deprecated
+			identifier: classConstant.deprecatedClass
 			count: 1
 			path: src/Plugins/Schema/SchemaPdf.php
 
@@ -11647,7 +11647,7 @@ parameters:
 			path: src/Server/Status/Monitor.php
 
 		-
-			message: '#^Binary operation "\+\=" between \(float\|int\<min, 1\>\) and mixed results in an error\.$#'
+			message: '#^Binary operation "\+\=" between \(NAN\|float\<min, 1\.0\>\|int\<min, 1\>\) and mixed results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 1
 			path: src/Server/Status/Monitor.php
@@ -11683,7 +11683,7 @@ parameters:
 			path: src/Server/Status/Monitor.php
 
 		-
-			message: '#^Cannot access offset int\<\-1, max\> on float\|int\<2, max\>\|string\|null\.$#'
+			message: '#^Cannot access offset int\<\-1, max\> on float\<1\.0000000000000002, max\>\|int\<2, max\>\|string\|null\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Server/Status/Monitor.php
@@ -13738,7 +13738,7 @@ parameters:
 			path: tests/unit/Command/TwigLintCommandTest.php
 
 		-
-			message: '#^Parameter \#1 \$array of function sort expects TArray of array\<T\>, mixed given\.$#'
+			message: '#^Parameter \#1 \$array of function sort expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: tests/unit/Command/TwigLintCommandTest.php
@@ -15488,15 +15488,6 @@ parameters:
 
 		-
 			message: '''
-				#^Access to constant on deprecated class TCPDF_STATIC\:
-				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
-			'''
-			identifier: classConstant.deprecatedClass
-			count: 2
-			path: tests/unit/Gis/GisVisualizationTest.php
-
-		-
-			message: '''
 				#^Call to method Output\(\) of deprecated class TCPDF\:
 				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
 			'''
@@ -15529,6 +15520,15 @@ parameters:
 			'''
 			identifier: method.deprecatedClass
 			count: 1
+			path: tests/unit/Gis/GisVisualizationTest.php
+
+		-
+			message: '''
+				#^Fetching class constant class of deprecated class TCPDF_STATIC\:
+				TCPDF is deprecated\: migrate to tecnickcom/tc\-lib\-pdf\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 2
 			path: tests/unit/Gis/GisVisualizationTest.php
 
 		-
