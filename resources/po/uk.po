@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-15 00:26+0000\n"
-"PO-Revision-Date: 2026-11-16 11:23+0000\n"
+"PO-Revision-Date: 2026-11-19 19:30+0000\n"
 "Last-Translator: Hotripak <hotr1pak@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
@@ -16377,29 +16377,29 @@ msgstr "Ігнорувати непідтримуваний код мови."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 msgid "The database name must be a non-empty string."
-msgstr "Ім'я бази даних повинно бути не непорожнім рядком."
+msgstr "Ім'я бази даних має бути непорожнім рядком."
 
 #: src/Identifiers/InvalidDatabaseName.php:20
 #, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "Ім'я бази даних не може бути більше %d символів."
+msgstr "Назва бази даних не може перевищувати %d символів."
 
 #: src/Identifiers/InvalidDatabaseName.php:25
 msgid "The database name cannot end with a space character."
-msgstr "Ім'я бази даних не може закінчуватися пробілом."
+msgstr "Назва бази даних не може закінчуватися символом пробілу."
 
 #: src/Identifiers/InvalidTableName.php:14
 msgid "The table name must be a non-empty string."
-msgstr "Ім’я таблиці має бути не порожнім рядком."
+msgstr "Ім'я таблиці має бути непорожнім рядком."
 
 #: src/Identifiers/InvalidTableName.php:20
 #, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "Ім’я таблиці не може перевищувати %d символів."
+msgstr "Назва таблиці не може містити більше ніж %d символів."
 
 #: src/Identifiers/InvalidTableName.php:25
 msgid "The table name cannot end with a space character."
-msgstr "Ім'я таблиці не може закінчуватися пробілом."
+msgstr "Назва таблиці не може закінчуватися символом пробілу."
 
 #: src/Identifiers/InvalidTriggerName.php:14
 msgid "The trigger name must not be empty."
