@@ -1,5 +1,10 @@
 // configures general layout for detailed layout configuration please refer to the css files
 
+// The server sets --navigation-width on <body> only on pages with the navigation panel
+body {
+  --navigation-width: 0;
+}
+
 $browse-marker-background: #eee;
 $border-color: #ddd;
 $button-color: #fff;

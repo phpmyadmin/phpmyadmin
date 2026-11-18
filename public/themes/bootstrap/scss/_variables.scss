@@ -1,5 +1,10 @@
 // Variables
 
+// The server sets --navigation-width on <body> only on pages with the navigation panel
+body {
+  --navigation-width: 0;
+}
+
 // Links
 
 $link-decoration: none;
