@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2025-06-20 21:02+0000\n"
 "Last-Translator: Akalanka Wijesing <akalankawijesing@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -257,9 +257,9 @@ msgstr "කෑෂ්ගත කරන ක්‍රමය ප්‍රශස්ත
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:196
@@ -921,8 +921,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:626
@@ -1834,14 +1834,14 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:118
 #, fuzzy
 #| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+#| "Use user-friendly editor for editing SQL queries ([a@https://"
+#| "codemirror.net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"විමසුම් සංස්කරණය සඳහා, පේළි අංක සහිත, වාක්‍ය වින්‍යාස ඉස්මතු කෙරෙන [a@https://codemirror."
-"net/]CodeMirror[/a] සංස්කාරකය භාවිතා කරන්න."
+"විමසුම් සංස්කරණය සඳහා, පේළි අංක සහිත, වාක්‍ය වින්‍යාස ඉස්මතු කෙරෙන [a@https://"
+"codemirror.net/]CodeMirror[/a] සංස්කාරකය භාවිතා කරන්න."
 
 #: libraries/classes/Config/Descriptions.php:123
 msgid ""
@@ -2400,9 +2400,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:370
@@ -5486,15 +5486,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"ඔබගේ [a@https://www.php.net/manual/en/session.configuration.php#ini.session."
-"gc-maxlifetime@_blank]session.gc_maxlifetime[/a] PHP පරාමිතිය phpMyAdmin හි "
-"සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා "
-"ඇති කාලයට පෙර කල් ඉකුත් විය හැක."
+"ඔබගේ [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] PHP පරාමිතිය phpMyAdmin හි සිටුවා "
+"ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා ඇති "
+"කාලයට පෙර කල් ඉකුත් විය හැක."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9397,6 +9399,23 @@ msgid ""
 "%2$s."
 msgstr "%2$s දත්තගබඩාවේ %1$s නමින් ප්‍රේරක කිසිවක් හමු නොවිණි"
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "දත්තගබඩා නම හිස්ව පවතී!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, php-format
+msgid "The database name cannot be longer than %d characters."
+msgstr ""
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "වචන වෙන් කෙරෙන්නේ හිස් තැනකිනි(\" \")."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
@@ -9407,6 +9426,23 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "වගුවෙහි නම හිස්ව ඇත!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, php-format
+msgid "The table name cannot be longer than %d characters."
+msgstr ""
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "වචන වෙන් කෙරෙන්නේ හිස් තැනකිනි(\" \")."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -12014,13 +12050,13 @@ msgstr ""
 "LINUX ONLY: Launches an external application and feeds it the field data via "
 "standard input. Returns the standard output of the application. The default "
 "is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
+"manually edit the file libraries/transformations/"
+"text_plain__external.inc.php and list the tools you want to make available. "
+"The first option is then the number of the program you want to use and the "
+"second option is the parameters for the program. The third option, if set to "
+"1, will convert the output using htmlspecialchars() (Default 1). The fourth "
+"option, if set to 1, will prevent wrapping and ensure that the output "
+"appears all on one line (Default 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:121
 #, php-format
@@ -21859,8 +21895,8 @@ msgstr "තීර නම්"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "සෑම ප්‍රතිඑලයක්ම ප්‍රස්තාරයක් ඇඳීමට භාවිතා කල නොහැක. <a href=\"./Documentation."
-#~ "html#faq6-29\" target=\"Documentation\">FAQ 6.29</a> බලන්න"
+#~ "සෑම ප්‍රතිඑලයක්ම ප්‍රස්තාරයක් ඇඳීමට භාවිතා කල නොහැක. <a href=\"./"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a> බලන්න"
 
 #~ msgid "Add a New User"
 #~ msgstr "නව භාවිතා කරන්නෙක් එක් කරන්න"

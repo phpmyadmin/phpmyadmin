@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-05-26 19:11+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -298,15 +298,15 @@ msgstr "Оптимальный метод кеширования."
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Вы используете механизм кеширования запросов MySQL с базой данных, имеющей "
 "достаточно объемный трафик. Стоит обратить внимание на возможность "
-"использования <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached."
-"html\">memcached</a> вместо механизма кеширования запросов MySQL, в "
-"особенности при наличии нескольких подчиненных серверов."
+"использования <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> вместо механизма кеширования запросов MySQL, "
+"в особенности при наличии нескольких подчиненных серверов."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -574,8 +574,8 @@ msgstr ""
 "исправления данной проблемы вы должны переписать запросы таким образом, "
 "чтобы исключить условия (Внутри временной таблицы: Наличие столбца BLOB или "
 "TEXT, или наличие столбца более, чем 512 байт), упомянутые в <a "
-"href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables."
-"html\">Документации MySQL</a>"
+"href=\"https://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">Документации MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
@@ -1000,8 +1000,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "В особенности на системах с большим количеством записей в таблицы InnoDB "
 "необходимо установить {innodb_log_file_size} в 25%% от "
@@ -1047,11 +1047,11 @@ msgid ""
 msgstr ""
 "Обычно бывает достаточно установить {innodb_log_file_size} в 25%% от размера "
 "{innodb_buffer_pool_size}. Очень большое значение {innodb_log_file_size} "
-"заметно замедляет восстановление после сбоя. Смотрите <a href=\"https://www."
-"percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">данную "
-"статью</a>. Необходимо остановить сервер, удалить файлы журналов InnoDB, "
-"установить новое значение в my.cnf, запустить сервер и проверить журнал "
-"ошибок на предмет наличия проблем. Смотрите также <a href=\"https://"
+"заметно замедляет восстановление после сбоя. Смотрите <a href=\"https://"
+"www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">данную статью</a>. Необходимо остановить сервер, удалить файлы журналов "
+"InnoDB, установить новое значение в my.cnf, запустить сервер и проверить "
+"журнал ошибок на предмет наличия проблем. Смотрите также <a href=\"https://"
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">данную запись блога</a>"
 
@@ -1787,9 +1787,9 @@ msgid ""
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"В конфигурации PHP включён несовместимый с phpMyAdmin параметр mbstring."
-"func_overload. Для предотвращения возможной потери данных данный параметр "
-"должен быть отключён!"
+"В конфигурации PHP включён несовместимый с phpMyAdmin параметр "
+"mbstring.func_overload. Для предотвращения возможной потери данных данный "
+"параметр должен быть отключён!"
 
 #: libraries/classes/Common.php:578
 msgid ""
@@ -2430,13 +2430,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Подробнее смотрите на [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] и [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"Подробнее смотрите на [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] и [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -4869,8 +4869,8 @@ msgid ""
 "%5$d)."
 msgstr ""
 "%1$sLogin cookie validity%2$s более %3$ssession.gc_maxlifetime%4$s секунд "
-"может вызывать случайные сбросы сессии (текущее значение session."
-"gc_maxlifetime - %5$d)."
+"может вызывать случайные сбросы сессии (текущее значение "
+"session.gc_maxlifetime - %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5312,16 +5312,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"Значение PHP параметра [a@https://www.php.net/manual/en/session."
-"configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/"
-"a] меньше, чем длительность хранения cookie, определённая в phpMyAdmin. По "
-"этой причине сессия входа может закончиться быстрее установленной в "
-"phpMyAdmin."
+"Значение PHP параметра [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] меньше, чем длительность "
+"хранения cookie, определённая в phpMyAdmin. По этой причине сессия входа "
+"может закончиться быстрее установленной в phpMyAdmin."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9220,6 +9221,24 @@ msgid ""
 msgstr ""
 "Ошибка обработки запроса: Триггер с именем %1$s не найден в базе данных %2$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Не указано имя базы данных!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Введите не более {0} символ(а/ов)"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Слова разделяются пробелом (\" \")."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "SSL-соединение, выполняемое сервером, автоматически включающее его."
@@ -9232,6 +9251,24 @@ msgid ""
 msgstr ""
 "Ошибка 1045: пользователю отказано в доступе. Подробности об ошибке могут "
 "быть доступны, но скрыты директивой конфигурации %s."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Не задано имя таблицы!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Введите не более {0} символ(а/ов)"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Слова разделяются пробелом (\" \")."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -10851,8 +10888,8 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 "phpMyAdmin не смог установить соединение с сервером MySQL. Проверьте хост, "
-"имя пользователя и пароль установленные в конфигурационном файле config.inc."
-"php и удостоверьтесь, что они соответствуют данным полученным от "
+"имя пользователя и пароль установленные в конфигурационном файле "
+"config.inc.php и удостоверьтесь, что они соответствуют данным полученным от "
 "администратора сервера MySQL."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:151
@@ -16932,8 +16969,9 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Подключите дополнительные функции в конфигурационном файле (<code>config.inc."
-"php</code>), начните с примера в <code>config.sample.inc.php</code>."
+"Подключите дополнительные функции в конфигурационном файле "
+"(<code>config.inc.php</code>), начните с примера в "
+"<code>config.sample.inc.php</code>."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."

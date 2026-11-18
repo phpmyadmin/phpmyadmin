@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-01-05 04:01+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -275,9 +275,9 @@ msgstr "Кеш упита"
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:196
@@ -942,8 +942,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:626
@@ -2348,9 +2348,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:370
@@ -5323,10 +5323,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:288
@@ -9497,6 +9498,23 @@ msgid ""
 "%2$s."
 msgstr "Табеле нису пронађене у бази."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Име базе није задато!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, php-format
+msgid "The database name cannot be longer than %d characters."
+msgstr ""
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Речи се одвајају размаком (\" \")."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
@@ -9507,6 +9525,23 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Има табеле је празно!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, php-format
+msgid "The table name cannot be longer than %d characters."
+msgstr ""
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Речи се одвајају размаком (\" \")."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -10011,8 +10046,8 @@ msgstr ""
 #: libraries/classes/File.php:266
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"Послата датотека превазилази вредност директиве upload_max_filesize у php."
-"ini."
+"Послата датотека превазилази вредност директиве upload_max_filesize у "
+"php.ini."
 
 #: libraries/classes/File.php:271
 msgid ""
@@ -11130,9 +11165,9 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 "phpMyAdmin је покушао да се повеже на MySQL сервер, али је сервер одбио "
-"повезивање. Проверите назив домаћина, корисничко име и лозинку у config.inc."
-"php и уверите се да одговарају подацима које сте добили од администратора "
-"MySQL сервера."
+"повезивање. Проверите назив домаћина, корисничко име и лозинку у "
+"config.inc.php и уверите се да одговарају подацима које сте добили од "
+"администратора MySQL сервера."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:151
 msgid "Retry to connect"

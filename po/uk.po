@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-11-16 11:35+0000\n"
 "Last-Translator: Hotripak <hotr1pak@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -290,9 +290,9 @@ msgstr "Субоптимальний метод кешування."
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Ви використовуєте механізм кешування запитів MySQL з базою даних, що має "
 "досить високий трафік. Можливо замість механізму кешування запитів MySQL "
@@ -561,9 +561,9 @@ msgstr ""
 "Однак деякі тимчасові таблиці завжди записуються на диск, незалежно від "
 "значення цих змінних. Щоб усунути це потрібно переписати запити таким чином, "
 "щоб уникнути умов (У тимчасовій таблиці: наявність стовпчика BLOB або TEXT "
-"або стовпчика розміром понад 512 байт) згаданих у <a href=\"https://dev."
-"mysql.com/doc/refman/8.0/en/internal-temporary-tables.html\">Документації "
-"MySQL</a>"
+"або стовпчика розміром понад 512 байт) згаданих у <a href=\"https://"
+"dev.mysql.com/doc/refman/8.0/en/internal-temporary-"
+"tables.html\">Документації MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
@@ -970,8 +970,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Особливо на системах з великою кількістю записів в таблиці InnoDB, необхідно "
 "встановити {innodb_log_file_size} в 25 % від {innodb_buffer_pool_size}. "
@@ -2397,13 +2397,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Більше інформації на [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]трекер помилок phpMyAdmin [/a] і [a@https://bugs.mysql."
-"com/19588]MySQL помилок[/a]"
+"Більше інформації на [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]трекер помилок phpMyAdmin [/a] і [a@https://bugs.mysql.com/19588]MySQL "
+"помилок[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -2700,8 +2700,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Показує посилання на [a@https://www.php.net/manual/en/function.phpinfo."
-"php]phpinfo()[/a]."
+"Показує посилання на [a@https://www.php.net/manual/en/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -4838,9 +4838,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%1$sТермін придатності cookie входу%2$s перевищує %3$sssession."
-"gc_maxlifetime%4$s і може викликати випадкові скидання сеансу (наразі "
-"session.gc_maxlifetime рівний %5$d)."
+"%1$sТермін придатності cookie входу%2$s перевищує "
+"%3$sssession.gc_maxlifetime%4$s і може викликати випадкові скидання сеансу "
+"(наразі session.gc_maxlifetime рівний %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5286,15 +5286,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"Параметр PHP [a@https://www.php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] менший, ніж "
-"параметр терміну зберігання кук визначений в phpMyAdmin. Тому Ваша сесія "
-"закінчиться раніше, ніж налаштовано в phpMyAdmin."
+"Параметр PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] менший, ніж параметр терміну "
+"зберігання кук визначений в phpMyAdmin. Тому Ваша сесія закінчиться раніше, "
+"ніж налаштовано в phpMyAdmin."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9165,6 +9167,24 @@ msgid ""
 msgstr ""
 "Помилка в обробці запиту: Немає тригера з ім'ям %1$s в базі даних %2$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Відсутнє ім'я бази даних!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Будь ласка, введіть не більше {0} символів"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Слова розділені пробілом (\" \")."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "SSL-з'єднання здійснюється сервером, автоматичне включення."
@@ -9177,6 +9197,24 @@ msgid ""
 msgstr ""
 "Помилка 1045: користувачу заборонено доступ. Додаткова інформація про "
 "помилку може бути доступна, але вона приховується директивою конфігурації %s."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Порожня назва таблиці!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Будь ласка, введіть не більше {0} символів"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Слова розділені пробілом (\" \")."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -17536,8 +17574,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"Тепер додайте дані рядка в кінець розділу [mysqld] конфігураційного файлу my."
-"cnf, після чого перезапустіть сервер MySQL."
+"Тепер додайте дані рядка в кінець розділу [mysqld] конфігураційного файлу "
+"my.cnf, після чого перезапустіть сервер MySQL."
 
 #: templates/server/replication/primary_configuration.twig:21
 msgid ""

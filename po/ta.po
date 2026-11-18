@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-07-28 04:01+0000\n"
 "Last-Translator: Rajkumar Ramadoss <lionrajkumar@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/"
@@ -285,9 +285,9 @@ msgstr "வினவல் இடைமாற்று பயன்படுத�
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "நீங்கள் MySQL வினவல் தற்காலிக சேமிப்பை மிகவும் அதிக போக்குவரத்து தரவுத்தளத்துடன் "
 "பயன்படுத்துகிறீர்கள். <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
@@ -877,8 +877,8 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"இணைப்புகள் பொதுவாக அங்கீகரிக்க முடியாதபோது கைவிடப்படுகின்றன. <a href=\"https://www."
-"percona.com/blog/2008/08/23/how-to-to-track-down-the-source-of-"
+"இணைப்புகள் பொதுவாக அங்கீகரிக்க முடியாதபோது கைவிடப்படுகின்றன. <a href=\"https://"
+"www.percona.com/blog/2008/08/23/how-to-to-track-down-the-source-of-"
 "aborted_connects/\"> இந்தக் கட்டுரை உங்களுக்கு உதவக்கூடும் மூலத்தைக் கண்காணிக்கவும்."
 
 #: libraries/advisory_rules_generic.php:551
@@ -977,8 +977,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "குறிப்பாக இன்னோடிபி அட்டவணைகளுக்கு நிறைய எழுத்துக்களைக் கொண்ட ஒரு கணினியில் நீங்கள் "
 "{innodb_log_file_size} {innodb_buffer_pool_size of இன் 25% ஆக அமைக்க வேண்டும். "
@@ -1023,13 +1023,13 @@ msgid ""
 msgstr ""
 "{innodb_log_file_size} முதல் 25% வரை {innodb_buffer_pool_size of அளவில் அமைக்க "
 "இது போதுமானது. ஒரு தரவுத்தள செயலிழந்த பிறகு மிகப் பெரிய {innodb_log_file_size "
-"the மீட்பு நேரத்தைக் குறைக்கிறது. <a href=\"https://www.percona.com/"
-"blog/2006/07/03/choosing-proper-intnodb_log_file_size/\"> இந்தக் கட்டுரை </a>. "
-"நீங்கள் சேவையகத்தை நிறுத்த வேண்டும், INNODB பதிவுக் கோப்புகளை அகற்ற வேண்டும், புதிய "
-"மதிப்பை My.CNF இல் அமைக்க வேண்டும், சேவையகத்தைத் தொடங்கவும், பின்னர் எல்லாம் சரியாக "
-"நடந்தால் பிழை பதிவுகளைச் சரிபார்க்கவும். <a href=\"https://mysqldatabaseadminastry."
-"blogspot.com/2007/01/increase-indblogfilesize-pay.html\"> இந்த வலைப்பதிவு "
-"நுழைவு </a>"
+"the மீட்பு நேரத்தைக் குறைக்கிறது. <a href=\"https://www.percona.com/blog/"
+"2006/07/03/choosing-proper-intnodb_log_file_size/\"> இந்தக் கட்டுரை </a>. நீங்கள் "
+"சேவையகத்தை நிறுத்த வேண்டும், INNODB பதிவுக் கோப்புகளை அகற்ற வேண்டும், புதிய மதிப்பை "
+"My.CNF இல் அமைக்க வேண்டும், சேவையகத்தைத் தொடங்கவும், பின்னர் எல்லாம் சரியாக நடந்தால் பிழை "
+"பதிவுகளைச் சரிபார்க்கவும். <a href=\"https://"
+"mysqldatabaseadminastry.blogspot.com/2007/01/increase-indblogfilesize-"
+"pay.html\"> இந்த வலைப்பதிவு நுழைவு </a>"
 
 #: libraries/advisory_rules_generic.php:676
 #, php-format
@@ -1065,8 +1065,8 @@ msgstr ""
 "நினைவகத்தில் 80% வரை அமைக்கலாம். அவ்வாறு இல்லையென்றால், உங்கள் பிற சேவைகள் மற்றும் இன்-இன்-"
 "இன் அல்லாத-அட்டவணைகளின் நினைவக நுகர்வு கவனமாக மதிப்பிட வேண்டும், அதற்கேற்ப இந்த மாறியை "
 "அமைக்க வேண்டும். இது மிக அதிகமாக அமைக்கப்பட்டால், உங்கள் கணினி மாற்றத் தொடங்கும், இது "
-"செயல்திறனை கணிசமாகக் குறைக்கிறது. <a href=\"https://www.percona.com/"
-"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">இந்தக் கட்டுரை</a>"
+"செயல்திறனை கணிசமாகக் குறைக்கிறது. <a href=\"https://www.percona.com/blog/"
+"2007/11/03/choosing-innodb_buffer_pool_size/\">இந்தக் கட்டுரை</a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -2380,13 +2380,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"More செய்தி on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin சிக்கல் tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a ]]"
+"More செய்தி on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin சிக்கல் tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a ]]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -5235,15 +5235,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"உங்கள் PHP [a@https://www.php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] அளவுரு,phpMyAdminல் "
-"கட்டமைக்கப்பட்ட பயனர் நிலை பதிவுத்துணுக்கு(cookie) செல்லுபடியாகும் காலத்தை விட குறைவாக "
-"உள்ளது, இதனால் உங்கள் புகுபதிகை(login) phpMyAdmin கட்டமைக்கப்பட்டதை விட விரைவில் "
+"உங்கள் PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] அளவுரு,phpMyAdminல் கட்டமைக்கப்பட்ட "
+"பயனர் நிலை பதிவுத்துணுக்கு(cookie) செல்லுபடியாகும் காலத்தை விட குறைவாக உள்ளது, "
+"இதனால் உங்கள் புகுபதிகை(login) phpMyAdmin கட்டமைக்கப்பட்டதை விட விரைவில் "
 "காலாவதியாகிவிடும்."
 
 #: libraries/classes/Controllers/HomeController.php:288
@@ -6103,9 +6105,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log இயலசெய்யப்பட்டுள்ளது,ஆனாலும் வழங்கி %d நொடிகளைவிட அதிகநேரம்."
-"எடுத்துகொள்ளும் வினவல்களை மட்டுமே பதிவு செய்கிறது. உங்கள் கணிணிஅமைப்பை பொறுத்து "
-"long_query_time ஐ ௦-2 நொடிகளாக அமைக்க அறிவுறுத்தப்படுகிறது."
+"slow_query_log இயலசெய்யப்பட்டுள்ளது,ஆனாலும் வழங்கி %d நொடிகளைவிட "
+"அதிகநேரம்.எடுத்துகொள்ளும் வினவல்களை மட்டுமே பதிவு செய்கிறது. உங்கள் கணிணிஅமைப்பை "
+"பொறுத்து long_query_time ஐ ௦-2 நொடிகளாக அமைக்க அறிவுறுத்தப்படுகிறது."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:226
 #, php-format
@@ -9082,6 +9084,24 @@ msgid ""
 msgstr ""
 "செயலாக்க கோரிக்கையில் பிழை: தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் தூண்டுதல் இல்லை."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "தரவுத்தளத்தின் பெயர் வெறுமையாக உள்ளது!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "தயவுசெய்து {0} எழுத்துக்களை விட அதிகமாக உள்ளிட வேண்டாம்"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "சொற்கள் ஓர் இடைவெளி எழுத்தால் (\" \") பிரிக்கப்பட்டிருக்கும்."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "சேவையகத்தால் செயல்படுத்தப்பட்ட SSL இணைப்பு, தானாகவே அதை இயக்குகிறது."
@@ -9094,6 +9114,24 @@ msgid ""
 msgstr ""
 "பிழை 1045: பயனருக்கு அணுகல் மறுக்கப்பட்டது. கூடுதல் பிழை தகவல்கள் கிடைக்கக்கூடும், ஆனால் "
 "%s உள்ளமைவு கட்டளை மூலம் மறைக்கப்படுகிறது."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "அட்டவணை பெயர் காலியாக உள்ளது!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "தயவுசெய்து {0} எழுத்துக்களை விட அதிகமாக உள்ளிட வேண்டாம்"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "சொற்கள் ஓர் இடைவெளி எழுத்தால் (\" \") பிரிக்கப்பட்டிருக்கும்."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13

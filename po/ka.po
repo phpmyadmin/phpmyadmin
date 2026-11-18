@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2025-12-04 08:03+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -252,9 +252,9 @@ msgstr "კეშინგის მეთოდი ოპტიმალურ�
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:196
@@ -852,8 +852,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:626
@@ -2106,9 +2106,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:370
@@ -4860,10 +4860,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:288
@@ -8436,6 +8437,21 @@ msgstr ""
 "მოთხოვნის დამუშავების შეცდომა: ტრიგერი სახელით %1$s ბაზაში %2$s აღმოჩენილი "
 "არაა."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "მონაცემთა ბაზა ცარიელია!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, php-format
+msgid "The database name cannot be longer than %d characters."
+msgstr ""
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+msgid "The database name cannot end with a space character."
+msgstr ""
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
@@ -8445,6 +8461,21 @@ msgstr ""
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
+msgstr ""
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "ცხრილის სახელი ცარიელია!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, php-format
+msgid "The table name cannot be longer than %d characters."
+msgstr ""
+
+#: libraries/classes/Dbal/TableName.php:57
+msgid "The table name cannot end with a space character."
 msgstr ""
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
@@ -17835,18 +17866,18 @@ msgstr "სვეტების სახელები"
 #, fuzzy
 #~| msgid ""
 #~| "ase create web server writable folder [em]config[/em] in phpMyAdmin  "
-#~| "level directory as described in [a@../Documentation."
-#~| "html#setup_script]umentation[/a]. Otherwise you will be only able to "
-#~| "download or display "
+#~| "level directory as described in [a@../"
+#~| "Documentation.html#setup_script]umentation[/a]. Otherwise you will be "
+#~| "only able to download or display "
 #~ msgid ""
 #~ "Please create web server writable folder [em]config[/em] in phpMyAdmin "
 #~ "top level directory as described in [doc@setup_script]documentation[/"
 #~ "doc]. Otherwise you will be only able to download or display it."
 #~ msgstr ""
 #~ "Please create web server writable folder [em]config[/em] in phpMyAdmin "
-#~ "top level directory as described in [a@../Documentation."
-#~ "html#setup_script]documentation[/a]. Otherwise you will be only able to "
-#~ "download or display it."
+#~ "top level directory as described in [a@../"
+#~ "Documentation.html#setup_script]documentation[/a]. Otherwise you will be "
+#~ "only able to download or display it."
 
 #, fuzzy
 #~| msgid "File could not be read"
@@ -19158,11 +19189,11 @@ msgstr "სვეტების სახელები"
 #~ msgstr "PMA-ის მონაცემთა ბაზა"
 
 #~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
+#~ "SQL queries settings, for SQL Query box options see [a@?"
+#~ "page=form&amp;formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
 #~ msgstr ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
+#~ "SQL queries settings, for SQL Query box options see [a@?"
+#~ "page=form&amp;formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
 
 #~ msgid "<code>AUTO_INCREMENT</code>"
 #~ msgstr "Add AUTO_INCREMENT value"

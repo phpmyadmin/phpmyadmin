@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-11-08 14:51+0000\n"
 "Last-Translator: Burak Yavuz <bourock@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -286,14 +286,14 @@ msgstr "Yetersiz önbellekleme yöntemi."
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Oldukça yüksek trafikli veritabanı ile MySQL Sorgu önbelleği "
-"kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a href=\"https://dev.mysql."
-"com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> kullanmayı düşünmek "
-"değebilir, özellikle de çoklu kopya sunuculara sahipseniz."
+"kullanıyorsunuz. MySQL Sorgu önbelleği yerine <a href=\"https://"
+"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> kullanmayı "
+"düşünmek değebilir, özellikle de çoklu kopya sunuculara sahipseniz."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -966,8 +966,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Özellikle InnoDB tablolarına çok fazla yazmalı bir sistemde, "
 "{innodb_log_file_size} değerini {innodb_buffer_pool_size} değerinin %25'ine "
@@ -1089,9 +1089,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "{concurrent_insert} 1'e ayarlamak verilen bir tablo için okuyucular ve "
-"yazıcılar arasındaki bağlantıyı azaltır. Aynı zamanda <a href=\"https://dev."
-"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL Belgelerine</a> "
-"bakın"
+"yazıcılar arasındaki bağlantıyı azaltır. Aynı zamanda <a href=\"https://"
+"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL Belgelerine</"
+"a> bakın"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -2394,9 +2394,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 "[a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin sorun "
 "izleyici[/a] ve [a@https://bugs.mysql.com/19588]MySQL Hataları[/a] üzerine "
@@ -4840,9 +4840,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%1$sOturum açma tanımlama bilgisi geçerliliğinin%2$s %3$ssession."
-"gc_maxlifetime%4$s saniyeden büyük olması gelişi güzel oturum geçersizliğine "
-"sebep olabilir (şu anki session.gc_maxlifetime %5$d)."
+"%1$sOturum açma tanımlama bilgisi geçerliliğinin%2$s "
+"%3$ssession.gc_maxlifetime%4$s saniyeden büyük olması gelişi güzel oturum "
+"geçersizliğine sebep olabilir (şu anki session.gc_maxlifetime %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5290,10 +5290,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
 "phpMyAdmin içinde yapılandırılmış tanımlama bilgisi geçerliliği, [a@https://"
 "www.php.net/manual/tr/session.configuration.php#ini.session.gc-"
@@ -8911,10 +8912,10 @@ msgid ""
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"\"%1$s\" saat dilimi sunucu %2$d için kullanılamaz. Lütfen "
-"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em] için yapılandırma "
-"ayarlarınızı denetleyin. phpMyAdmin, veritabanı sunucusunun şu anki "
-"varsayılan saat dilimini kullanıyor."
+"\"%1$s\" saat dilimi sunucu %2$d için kullanılamaz. Lütfen [em]"
+"$cfg['Servers'][%3$d]['SessionTimeZone'][/em] için yapılandırma ayarlarınızı "
+"denetleyin. phpMyAdmin, veritabanı sunucusunun şu anki varsayılan saat "
+"dilimini kullanıyor."
 
 #: libraries/classes/DatabaseInterface.php:1187
 msgid "Failed to set configured collation connection!"
@@ -9171,6 +9172,24 @@ msgstr ""
 "İstek işlenirken hata oldu: %2$s veritabanında %1$s adıyla tetikleyici "
 "bulunamadı."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Veritabanı adı boş!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Lütfen {0} karakterden daha fazla girmeyin"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Kelimeler boşlukla ayrılır (\" \")."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
@@ -9184,6 +9203,24 @@ msgid ""
 msgstr ""
 "Hata 1045: Kullanıcı için erişim reddedildi. Ek hata bilgileri mevcut "
 "olabilir, ancak %s yapılandırma yönergesi tarafından gizleniyor."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Tablo adı boş!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Lütfen {0} karakterden daha fazla girmeyin"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Kelimeler boşlukla ayrılır (\" \")."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -20439,9 +20476,9 @@ msgstr "Sütun adları"
 #~ msgstr ""
 #~ "Eğer SQL Onaylayıcı hizmetini kullanmak isterseniz, [strong]tüm SQL "
 #~ "ifadelerinin istatistiksel amaç için isimsiz olarak saklanacağının[/"
-#~ "strong] farkında olmalısınız.[br][em][a@https://sqlvalidator.mimer."
-#~ "com/]Mimer SQL Onaylayıcı[/a], Telif Hakkı 2002 Upright Database "
-#~ "Technology. Tüm hakları saklıdır.[/em]"
+#~ "strong] farkında olmalısınız.[br][em][a@https://"
+#~ "sqlvalidator.mimer.com/]Mimer SQL Onaylayıcı[/a], Telif Hakkı 2002 "
+#~ "Upright Database Technology. Tüm hakları saklıdır.[/em]"
 
 #~ msgid "Requires SQL Validator to be enabled."
 #~ msgstr "SQL Onaylayıcının etkinleştirilmesi gerekir."

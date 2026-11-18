@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-09-26 08:52+0000\n"
 "Last-Translator: Anusuk Sangubon <jaideejung007@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/5-2/th/"
@@ -274,9 +274,9 @@ msgstr "วิธีการแคชยังไม่เหมาะสมท
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "กำลังใช้แคชแบบสอบถาม (Query cache) ของ MySQL กับฐานข้อมูลที่มีปริมาณการใช้งานค่อนข้างสูง "
 "ควรพิจารณาเปลี่ยนไปใช้ <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
@@ -520,8 +520,8 @@ msgstr ""
 "ตารางชั่วคราวบางตารางจะถูกเขียนลงดิสก์เสมอโดยไม่ขึ้นกับค่าของตัวแปรเหล่านี้ "
 "หากต้องการขจัดปัญหานี้ จะต้องเขียนคำสั่งใหม่เพื่อหลีกเลี่ยงเงื่อนไขดังกล่าว (ภายในตารางชั่วคราว: "
 "การมีคอลัมน์ BLOB หรือ TEXT หรือมีคอลัมน์ที่ขนาดใหญ่กว่า 512 ไบต์) ตามที่ระบุไว้ใน <a "
-"href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables."
-"html\">เอกสารประกอบของ MySQL</a>"
+"href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-"
+"tables.html\">เอกสารประกอบของ MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
@@ -813,9 +813,9 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"โดยทั่วไปการเชื่อมต่อมักจะถูกยกเลิกเมื่อไม่ผ่านการยืนยันตัวตน <a href=\"https://www.percona."
-"com/blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/"
-"\">บทความนี้</a> อาจช่วยค้นหาต้นตอของปัญหาได้"
+"โดยทั่วไปการเชื่อมต่อมักจะถูกยกเลิกเมื่อไม่ผ่านการยืนยันตัวตน <a href=\"https://"
+"www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">บทความนี้</a> อาจช่วยค้นหาต้นตอของปัญหาได้"
 
 #: libraries/advisory_rules_generic.php:551
 #, php-format
@@ -907,8 +907,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "โดยเฉพาะในระบบที่มีการเขียนข้อมูลลงในตาราง InnoDB จำนวนมาก ควรกำหนด "
 "{innodb_log_file_size} ไว้ที่ 25% ของ {innodb_buffer_pool_size} อย่างไรก็ตาม "
@@ -916,8 +916,8 @@ msgstr ""
 "จึงไม่ควรตั้งค่านี้สูงเกินกว่า 256 MiB มากนัก ทั้งนี้ ไม่สามารถเปลี่ยนค่าของตัวแปรนี้ได้ทันที "
 "แต่ต้องปิดเซิร์ฟเวอร์ ลบไฟล์ล็อกของ InnoDB ออก ระบุค่าใหม่ในไฟล์ my.cnf "
 "เริ่มการทำงานของเซิร์ฟเวอร์ใหม่ แล้วตรวจสอบบันทึกข้อผิดพลาดว่าระบบทำงานได้เรียบร้อยหรือไม่ "
-"ดูข้อมูลเพิ่มเติมได้ที่ <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">บทความบล็อกนี้</a>"
+"ดูข้อมูลเพิ่มเติมได้ที่ <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">บทความบล็อกนี้</a>"
 
 #: libraries/advisory_rules_generic.php:626
 #: libraries/advisory_rules_generic.php:653
@@ -995,8 +995,9 @@ msgstr ""
 "สามารถกำหนดค่านี้ได้สูงถึง 80% ของหน่วยความจำที่ใช้งานได้ หากไม่เป็นเช่นนั้น "
 "จำเป็นต้องประเมินการใช้หน่วยความจำของบริการอื่นและตารางที่ไม่ใช่ InnoDB อย่างรอบคอบ "
 "แล้วจึงกำหนดค่าตัวแปรนี้ให้เหมาะสม หากกำหนดไว้สูงเกินไป ระบบจะเริ่มใช้หน่วยความจำเสมือน "
-"(Swap) ซึ่งทำให้ประสิทธิภาพลดลงอย่างเห็นได้ชัด ดูข้อมูลเพิ่มเติมได้ที่ <a href=\"https://www."
-"percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">บทความนี้</a>"
+"(Swap) ซึ่งทำให้ประสิทธิภาพลดลงอย่างเห็นได้ชัด ดูข้อมูลเพิ่มเติมได้ที่ <a href=\"https://"
+"www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">บทความนี้</"
+"a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -1026,8 +1027,8 @@ msgid ""
 msgstr ""
 "การกำหนด {concurrent_insert} เป็น 1 "
 "ช่วยลดการแย่งใช้ทรัพยากรระหว่างกระบวนการอ่านและเขียนสำหรับตารางนั้น ๆ ดูข้อมูลเพิ่มเติมได้ที่ "
-"<a href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts."
-"html\">เอกสารประกอบของ MySQL</a>"
+"<a href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">เอกสารประกอบของ MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -2274,13 +2275,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"ดูข้อมูลเพิ่มเติมได้ที่ [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]ระบบติดตามปัญหาของ phpMyAdmin[/a] และ [a@https://bugs.mysql."
-"com/19588]ระบบรายงานข้อผิดพลาดของ MySQL[/a]"
+"ดูข้อมูลเพิ่มเติมได้ที่ [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]ระบบติดตามปัญหาของ phpMyAdmin[/a] และ [a@https://bugs.mysql.com/"
+"19588]ระบบรายงานข้อผิดพลาดของ MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -2558,8 +2559,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"แสดงลิงก์ไปยังผลลัพธ์ของ [a@https://www.php.net/manual/en/function.phpinfo."
-"php]phpinfo()[/a]"
+"แสดงลิงก์ไปยังผลลัพธ์ของ [a@https://www.php.net/manual/en/"
+"function.phpinfo.php]phpinfo()[/a]"
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -4643,9 +4644,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"การกำหนดค่า %1$sอายุการใช้งานของคุกกี้เข้าสู่ระบบ%2$s สูงกว่า %3$ssession."
-"gc_maxlifetime%4$s อาจทำให้เซสชันสิ้นสุดลงโดยไม่คาดคิด (ปัจจุบัน session."
-"gc_maxlifetime คือ %5$d)"
+"การกำหนดค่า %1$sอายุการใช้งานของคุกกี้เข้าสู่ระบบ%2$s สูงกว่า "
+"%3$ssession.gc_maxlifetime%4$s อาจทำให้เซสชันสิ้นสุดลงโดยไม่คาดคิด (ปัจจุบัน "
+"session.gc_maxlifetime คือ %5$d)"
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5070,13 +5071,15 @@ msgstr "หรือสลับไปที่แท็บ 'การดำเ�
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"พารามิเตอร์ PHP [a@https://www.php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] "
+"พารามิเตอร์ PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] "
 "ต่ำกว่าอายุการใช้งานของคุกกี้ที่กำหนดค่าไว้ใน phpMyAdmin "
 "ส่งผลให้การเข้าสู่ระบบอาจหมดอายุก่อนเวลาที่ตั้งไว้ใน phpMyAdmin"
 
@@ -8574,8 +8577,8 @@ msgid ""
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"ไม่สามารถใช้เขตเวลา \"%1$s\" สำหรับเซิร์ฟเวอร์ %2$d โปรดตรวจสอบการตั้งค่าใน "
-"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em] ขณะนี้ phpMyAdmin "
+"ไม่สามารถใช้เขตเวลา \"%1$s\" สำหรับเซิร์ฟเวอร์ %2$d โปรดตรวจสอบการตั้งค่าใน [em]"
+"$cfg['Servers'][%3$d]['SessionTimeZone'][/em] ขณะนี้ phpMyAdmin "
 "กำลังใช้เขตเวลาเริ่มต้นของเซิร์ฟเวอร์ฐานข้อมูล"
 
 #: libraries/classes/DatabaseInterface.php:1187
@@ -8828,6 +8831,24 @@ msgid ""
 "%2$s."
 msgstr "เกิดข้อผิดพลาดในการประมวลผลคำขอ: ไม่พบทริกเกอร์ชื่อ %1$s ในฐานข้อมูล %2$s"
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "ไม่ได้ระบุชื่อฐานข้อมูล"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "โปรดระบุอักขระไม่เกิน {0} ตัว"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "แยกแต่ละคำด้วยอักขระเว้นวรรค (\" \")"
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "เซิร์ฟเวอร์บังคับใช้การเชื่อมต่อแบบ SSL ระบบจึงเปิดใช้งานโดยอัตโนมัติ"
@@ -8840,6 +8861,24 @@ msgid ""
 msgstr ""
 "ข้อผิดพลาด 1045: ปฏิเสธการเข้าถึงสำหรับผู้ใช้ อาจมีข้อมูลข้อผิดพลาดเพิ่มเติม "
 "แต่ถูกซ่อนไว้โดยคำสั่งการตั้งค่า %s"
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "ชื่อตารางว่างเปล่า"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "โปรดระบุอักขระไม่เกิน {0} ตัว"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "แยกแต่ละคำด้วยอักขระเว้นวรรค (\" \")"
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -9146,8 +9185,8 @@ msgid ""
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
 "ปริมาณหน่วยความจำที่จัดสรรให้กับแคชระเบียนที่ใช้สำหรับแคชข้อมูลตาราง ค่าเริ่มต้นคือ 32MB "
-"หน่วยความจำนี้ใช้สำหรับแคชการเปลี่ยนแปลงในไฟล์ข้อมูลตัวจัดการ (.xtd) และไฟล์พอยน์เตอร์แถว (."
-"xtr)"
+"หน่วยความจำนี้ใช้สำหรับแคชการเปลี่ยนแปลงในไฟล์ข้อมูลตัวจัดการ (.xtd) และไฟล์พอยน์เตอร์แถว "
+"(.xtr)"
 
 #: libraries/classes/Engines/Pbxt.php:52
 msgid "Log cache size"
@@ -11492,8 +11531,8 @@ msgid ""
 "option is a URL prefix like \"https://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"แสดงรูปภาพและลิงก์ โดยคอลัมน์จะเก็บชื่อไฟล์ ตัวเลือกแรกคือคำนำหน้า URL เช่น \"https://www."
-"example.com/\" ส่วนตัวเลือกที่สองและสามคือความกว้างและความสูงในหน่วยพิกเซล"
+"แสดงรูปภาพและลิงก์ โดยคอลัมน์จะเก็บชื่อไฟล์ ตัวเลือกแรกคือคำนำหน้า URL เช่น \"https://"
+"www.example.com/\" ส่วนตัวเลือกที่สองและสามคือความกว้างและความสูงในหน่วยพิกเซล"
 
 #: libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php:30
 msgid ""
@@ -11501,8 +11540,8 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"แสดงลิงก์ โดยคอลัมน์จะเก็บชื่อไฟล์ ตัวเลือกแรกคือคำนำหน้า URL เช่น \"https://www.example."
-"com/\" ส่วนตัวเลือกที่สองคือชื่อเรื่องของลิงก์"
+"แสดงลิงก์ โดยคอลัมน์จะเก็บชื่อไฟล์ ตัวเลือกแรกคือคำนำหน้า URL เช่น \"https://"
+"www.example.com/\" ส่วนตัวเลือกที่สองคือชื่อเรื่องของลิงก์"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
@@ -15488,8 +15527,8 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"ชื่อไฟล์บีบอัดต้องลงท้ายด้วย <strong>.[รูปแบบ].[ชนิดการบีบอัด]</strong> เช่น <strong>.sql."
-"zip</strong>"
+"ชื่อไฟล์บีบอัดต้องลงท้ายด้วย <strong>.[รูปแบบ].[ชนิดการบีบอัด]</strong> เช่น "
+"<strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
 msgid "Upload a file"

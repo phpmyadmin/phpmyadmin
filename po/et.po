@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2023-11-21 17:04+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -288,14 +288,14 @@ msgstr "Väheoptimaalse puhverdamise meetod."
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Sa kasutad MySQL päringu puhvrit küllaltki suure liiklusega andmebaasis. "
-"MySQL päringu puhvri kasutamise asemel võiksid kaaluda <a href=\"https://dev."
-"mysql.com/doc/refman/5.6/en/ha-memcached.html\">mälu puhvrit</a>, seda eriti "
-"suure hulga koopiaserverite puhul."
+"MySQL päringu puhvri kasutamise asemel võiksid kaaluda <a href=\"https://"
+"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">mälu puhvrit</a>, seda "
+"eriti suure hulga koopiaserverite puhul."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -969,8 +969,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Eriti süsteemides, kus on palju InnoDB tabelite kirjutamisi, peaksid "
 "{innodb_log_file_size} väärtuseks määrama 25% {innodb_buffer_pool_size} "
@@ -1058,8 +1058,8 @@ msgstr ""
 "pead hoolikalt hindama teiste teenuste ja mitte-InnoDB tabelite mälu "
 "tarbimist ning vastavalt sellele määrama selle muutuja väärtuse. Kui see on "
 "määratud liiga kõrgeks, siis su süsteem hakkab andmeid saalima ning see "
-"vähendab jõudlust oluliselt. Vaata ka <a href=\"https://www.percona.com/"
-"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">seda artiklit</a>"
+"vähendab jõudlust oluliselt. Vaata ka <a href=\"https://www.percona.com/blog/"
+"2007/11/03/choosing-innodb_buffer_pool_size/\">seda artiklit</a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -2376,12 +2376,12 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Rohkem infot [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmini[/a] ja [a@https://bugs.mysql.com/19588]MySQLi[/a] "
+"Rohkem infot [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmini[/a] ja [a@https://bugs.mysql.com/19588]MySQLi[/a] "
 "veahaldussüsteemides"
 
 #: libraries/classes/Config/Descriptions.php:370
@@ -2775,8 +2775,8 @@ msgid ""
 msgstr ""
 "phpMyAdmin'i versiooniuuendusteks ja vearaportite saatmiseks kasutatava "
 "proksiserveri aadress. See on vajalik juhul kui server, kuhu on phpMyAdmin "
-"on paigaldatud, ei oma otseühendust Internetiga. Vorming on \"hostinimi:"
-"port\"."
+"on paigaldatud, ei oma otseühendust Internetiga. Vorming on "
+"\"hostinimi:port\"."
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid ""
@@ -4782,9 +4782,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%1$sSisselogimise küpsise kehtivus%2$s on suurem, kui %3$ssession."
-"gc_maxlifetime%4$s. See võib põhjustada juhuslikke sessiooni vananemisi "
-"(session.gc_maxlifetime on hetkel %5$d)."
+"%1$sSisselogimise küpsise kehtivus%2$s on suurem, kui "
+"%3$ssession.gc_maxlifetime%4$s. See võib põhjustada juhuslikke sessiooni "
+"vananemisi (session.gc_maxlifetime on hetkel %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5226,15 +5226,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"PHP parameeter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] väärtus on "
-"väiksem, kui phpMyAdminis seadistatud küpsise kehtivus. Seetõttu võib "
-"sessioon aeguda kiiremini, kui phpMyAdminis seadistatud."
+"PHP parameeter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] väärtus on väiksem, kui "
+"phpMyAdminis seadistatud küpsise kehtivus. Seetõttu võib sessioon aeguda "
+"kiiremini, kui phpMyAdminis seadistatud."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9089,6 +9091,24 @@ msgid ""
 msgstr ""
 "Päringu töötlemise viga: andmebaasist %2$s ei leitud päästikut nimega %1$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Andmebaasi nimi on tühi!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Palun sisesta kuni {0} märki"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Sõnad on eraldatud tühikuga (\" \")."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Server sunnib SSL ühendust, lubatud automaatselt."
@@ -9101,6 +9121,24 @@ msgid ""
 msgstr ""
 "Viga 1045: kasutajal puudub juurdepääs. Täiendav veateave võib olla "
 "saadaval, kuid konfiguratsiooni direktiivi %s tõttu on see peidetud."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Tabeli nimi on tühi!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Palun sisesta kuni {0} märki"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Sõnad on eraldatud tühikuga (\" \")."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -19557,8 +19595,8 @@ msgstr "Veergude nimed"
 #~ "swekey.conf)."
 #~ msgstr ""
 #~ "[a@https://swekey.com]SweKey riistvara autentimise[/a] seadistusfaili "
-#~ "asukoht (see ei asu sinu dokumentide juurkaustas, soovitatav: /etc/swekey."
-#~ "conf)."
+#~ "asukoht (see ei asu sinu dokumentide juurkaustas, soovitatav: /etc/"
+#~ "swekey.conf)."
 
 #~ msgid "SweKey config file"
 #~ msgstr "SweKey seadistuse fail"

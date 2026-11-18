@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-06-02 06:01+0000\n"
 "Last-Translator: Sandra Swift <nolamiller1203+weblate@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -290,15 +290,15 @@ msgstr "準最適キャッシュ方式です。"
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "MySQL のクエリキャッシュをかなりトラフィックの高いデータベースに対して使用し"
-"ています。 MySQL のクエリキャッシュの代わりに <a href=\"https://dev.mysql."
-"com/doc/refman/5.6/ja/ha-memcached.html\">memcached</a> の使用を検討する価値"
-"があると思われます。これは、複数のレプリカを使用している場合は、特に推奨しま"
-"す。"
+"ています。 MySQL のクエリキャッシュの代わりに <a href=\"https://"
+"dev.mysql.com/doc/refman/5.6/ja/ha-memcached.html\">memcached</a> の使用を検"
+"討する価値があると思われます。これは、複数のレプリカを使用している場合は、特"
+"に推奨します。"
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -984,8 +984,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、"
 "{innodb_log_file_size} は {innodb_buffer_pool_size} の 25 % に設定するといい"
@@ -1031,12 +1031,12 @@ msgid ""
 msgstr ""
 "一般的には、innodb_log_file_size に {innodb_buffer_pool_size} の 25 % の値を"
 "設定すれば十分です。innodb_log_file_size の値が非常に大きい場合、データベース"
-"が多量に破損した後の修復に時間がかかるようになります。<a href=\"https://www."
-"percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">こちらの"
-"記事 (英語)</a> も参照してください。なお、この変数を変更するには、サーバを停"
-"止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定してから、サーバ"
-"を起動し直す必要があります。それから、全ての設定が正しく行えたかを確認するた"
-"めに、エラーログを確認しなければなりません。設定に関しては、<a "
+"が多量に破損した後の修復に時間がかかるようになります。<a href=\"https://"
+"www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">こち"
+"らの記事 (英語)</a> も参照してください。なお、この変数を変更するには、サーバ"
+"を停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定してから、"
+"サーバを起動し直す必要があります。それから、全ての設定が正しく行えたかを確認"
+"するために、エラーログを確認しなければなりません。設定に関しては、<a "
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧くだ"
 "さい"
@@ -1076,9 +1076,9 @@ msgstr ""
 "う。そのような状況以外では、使用されている他のサービスや InnoDB ではないテー"
 "ブルの使用メモリ量を慎重に見極めながら、この変数を設定する必要があります。大"
 "きすぎる値を設定されてしまった場合、システムはメモリスワップをするようにな"
-"り、パフォーマンスは著しく低下するようになります。<a href=\"https://www."
-"percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">こちらの記事 "
-"(英語)</a> も参考にしてください"
+"り、パフォーマンスは著しく低下するようになります。<a href=\"https://"
+"www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">こちらの"
+"記事 (英語)</a> も参考にしてください"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -2390,9 +2390,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 "詳細は [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin "
 "issue tracker[/a] と [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -4798,8 +4798,8 @@ msgid ""
 "%5$d)."
 msgstr ""
 "%1$sログインクッキーの有効期間%2$sが %3$ssession.gc_maxlifetime%4$s を超えて"
-"いる場合、セッションがランダムに無効化される原因となります。現在、session."
-"gc_maxlifetimeは%5$dです。"
+"いる場合、セッションがランダムに無効化される原因となります。現在、"
+"session.gc_maxlifetimeは%5$dです。"
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5234,16 +5234,17 @@ msgstr "代わりにデータベースの操作タブを使って設定するこ
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"お使いの PHP のパラメータ [a@https://www.php.net/manual/ja/session."
-"configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/"
-"a] が、phpMyAdmin に設定されているクッキーの有効期間より短くなっています。こ"
-"のため、phpMyAdmin に設定されているよりも早くログインの期限が切れるかもしれま"
-"せん。"
+"お使いの PHP のパラメータ [a@https://www.php.net/manual/ja/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] が、phpMyAdmin に設定されている"
+"クッキーの有効期間より短くなっています。このため、phpMyAdmin に設定されている"
+"よりも早くログインの期限が切れるかもしれません。"
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9062,6 +9063,24 @@ msgstr ""
 "リクエストの処理中にエラーが発生しました：データベース %2$s に %1$s という名"
 "前のトリガはありません。"
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "データベース名が空です!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "{0}文字以上を入力してください"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "各単語は空白文字 (\" \") で区切ってください。"
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "サーバによりSSL接続が自動的に有効に（強制）されています。"
@@ -9074,6 +9093,24 @@ msgid ""
 msgstr ""
 "エラー1045：ユーザーのアクセスが拒否されました。追加のエラー情報が利用できる"
 "場合がありますが、%s 構成ディレクティブによって隠されています。"
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "テーブル名が空です!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "{0}文字以上を入力してください"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "各単語は空白文字 (\" \") で区切ってください。"
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -20588,10 +20625,10 @@ msgstr "カラム名"
 #~ "$cfg['LeftFrameTableSeparator'] directive, so only the folder is called "
 #~ "like the alias, the table name itself stays unchanged"
 #~ msgstr ""
-#~ "[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアス"
-#~ "は、$cfg['LeftFrameTableSeparator'] の指示に応じてテーブルを分割/入れ子す"
-#~ "るために使用されます。そのフォルダはエイリアスのように呼び出されるだけで、"
-#~ "テーブル名自体はそのまま変わることありません。"
+#~ "[kbd]nested[/kbd] に設定した場合、テーブル名のエイリアスは、"
+#~ "$cfg['LeftFrameTableSeparator'] の指示に応じてテーブルを分割/入れ子するた"
+#~ "めに使用されます。そのフォルダはエイリアスのように呼び出されるだけで、テー"
+#~ "ブル名自体はそのまま変わることありません。"
 
 #~ msgid "Display table comment instead of its name"
 #~ msgstr "テーブルの名前の代わりにコメントを表示する"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2024-01-26 03:52+0000\n"
 "Last-Translator: Vlăduț Ilie <vladilie94@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -291,13 +291,13 @@ msgstr "Metodă de memorare în cache sub cea optimă."
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Folosești cache interogări MySQL pentru o bază de date cu trafic destul de "
-"mare. Poate trebuie să iei în considerare folosirea <a href=\"https://dev."
-"mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> în loc de "
+"mare. Poate trebuie să iei în considerare folosirea <a href=\"https://"
+"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> în loc de "
 "cache interogări MySQL, mai ales dacă ai mai multe replici."
 
 #: libraries/advisory_rules_generic.php:196
@@ -565,8 +565,9 @@ msgstr ""
 "independent de valoarea acestor variabile. Pentru a le elimina, va trebui să "
 "rescrieți interogările pentru a evita acele condiții (într-un tabel "
 "temporar: prezența unei coloane BLOB sau TEXT sau prezența unei coloane mai "
-"mare de 512 octeți) așa cum este menționat în <a href=\"https://dev.mysql."
-"com/doc/refman/8.0/en/internal-temporary-tables.html\">Documentația MySQL</a>"
+"mare de 512 octeți) așa cum este menționat în <a href=\"https://"
+"dev.mysql.com/doc/refman/8.0/en/internal-temporary-"
+"tables.html\">Documentația MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
@@ -997,8 +998,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "De obicei, este suficientă setarea propietății {innodb_log_file_size} la 25%"
 "% din mărimea lui {innodb_buffer_pool_size}. O valoare foarte mare pentru "
@@ -1100,8 +1101,8 @@ msgstr ""
 "cu atenție consumul de memorie al celorlalte servicii și tabelele non-InnoDB "
 "și să setezi această variabilă în consecință. Dacă este setată o valoare "
 "prea mare, sistemul tău va începe să se schimbe, ceea ce scade semnificativ "
-"performanța. De asemenea, vezi <a href=\"https://www.percona.com/"
-"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">acest articol</a>"
+"performanța. De asemenea, vezi <a href=\"https://www.percona.com/blog/"
+"2007/11/03/choosing-innodb_buffer_pool_size/\">acest articol</a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -2471,13 +2472,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Mai multe informații la [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] și [a@https://bugs.mysql."
-"com/19588]Erori MySQL[/a]"
+"Mai multe informații la [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] și [a@https://bugs.mysql.com/19588]Erori "
+"MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -2782,8 +2783,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Arată o legătură la ieșirea [a@https://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]."
+"Arată o legătură la ieșirea [a@https://php.net/manual/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -5389,14 +5390,16 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"Parametrul tău PHP [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] este mai "
-"mic decât valabilitatea cookie-urilor configurată în phpMyAdmin, de aceea "
+"Parametrul tău PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] este mai mic decât "
+"valabilitatea cookie-urilor configurată în phpMyAdmin, de aceea "
 "autentificarea ta ar putea expira mai devreme decât este configurată în "
 "phpMyAdmin."
 
@@ -9242,6 +9245,24 @@ msgid ""
 "%2$s."
 msgstr "Niciun declanșator cu numele %1$s găsit în baza de date %2$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Numele bazei de date este gol!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Te rog introdu nu mai mult de {0} caractere"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Cuvintele sunt separate printr-un caracter spațiu („ ”)."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Conexiunea SSL a fost impusă de server, este activată automat."
@@ -9252,6 +9273,24 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Numele tabelului este gol!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Te rog introdu nu mai mult de {0} caractere"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Cuvintele sunt separate printr-un caracter spațiu („ ”)."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -11410,8 +11449,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "include numele coloanelor în fiecare declarație <code>INSEREAZĂ</"
-"code><br>&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN tbl_name (col_A,"
-"col_B,col_C) VALORILE (1,2,3)</code>"
+"code><br>&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN tbl_name "
+"(col_A,col_B,col_C) VALORILE (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:472
 msgid ""
@@ -11420,8 +11459,8 @@ msgid ""
 "(7,8,9)</code>"
 msgstr ""
 "inserează mai multe rînduri în fiecare declarație <code>INSEREAZĂ</"
-"code><br>&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN tbl_name (col_A,"
-"col_B,col_C) VALORILE (1,2,3), (4,5,6), (7,8,9)</code>"
+"code><br>&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN tbl_name "
+"(col_A,col_B,col_C) VALORILE (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:477
 msgid ""
@@ -11893,13 +11932,13 @@ msgstr ""
 #| "UX ONLY: Launches an external application and feeds it the field data  "
 #| "standard input. Returns the standard output of the application. The ault "
 #| "is Tidy, to pretty-print HTML code. For security reasons, you e to "
-#| "manually edit the file libraries/transformations/t_plain__external.inc."
-#| "php and list the tools you want to make ilable. The first option is then "
-#| "the number of the program you want to  and the second option is the "
-#| "parameters for the program. The third ion, if set to 1, will convert the "
-#| "output using htmlspecialchars() fault 1). The fourth option, if set to 1, "
-#| "will prevent wrapping and ure that the output appears all on one line "
-#| "(Default 1)."
+#| "manually edit the file libraries/transformations/"
+#| "t_plain__external.inc.php and list the tools you want to make ilable. The "
+#| "first option is then the number of the program you want to  and the "
+#| "second option is the parameters for the program. The third ion, if set to "
+#| "1, will convert the output using htmlspecialchars() fault 1). The fourth "
+#| "option, if set to 1, will prevent wrapping and ure that the output "
+#| "appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17104,8 +17143,9 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Activează funcționalități avansate în fișierul de configurare (<code>config."
-"inc.php</code>), de exemplu începând cu <code>config.sample.inc.php</code>."
+"Activează funcționalități avansate în fișierul de configurare "
+"(<code>config.inc.php</code>), de exemplu începând cu "
+"<code>config.sample.inc.php</code>."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -17733,8 +17773,8 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"Asigură-te că ai un ID unic de server în fișierul tău de configurare (my."
-"cnf). Dacă nu, te rog adaugă următoarea linie în secțiunea [mysqld]:"
+"Asigură-te că ai un ID unic de server în fișierul tău de configurare "
+"(my.cnf). Dacă nu, te rog adaugă următoarea linie în secțiunea [mysqld]:"
 
 #: templates/server/replication/change_primary.twig:26
 msgid "Port:"
@@ -20061,9 +20101,9 @@ msgstr "Nume coloane"
 #~ "authentication[/a] (not located in your document root; suggested: /etc/"
 #~ "swekey.conf)."
 #~ msgstr ""
-#~ "Calea către fișierul de configurare pentru [a@https://swekey."
-#~ "com]autentificarea hardware SweKey [/a] (ce nu se află în rădăcină; "
-#~ "sugestie: /etc/swekey.conf)"
+#~ "Calea către fișierul de configurare pentru [a@https://"
+#~ "swekey.com]autentificarea hardware SweKey [/a] (ce nu se află în "
+#~ "rădăcină; sugestie: /etc/swekey.conf)"
 
 #~ msgid "SweKey config file"
 #~ msgstr "Fișierul de configurare SweKey"
@@ -20748,9 +20788,9 @@ msgstr "Nume coloane"
 #~ msgstr ""
 #~ "Dacă doriți să utilizați serviciul de Validare SQL, ar trebui să fiți "
 #~ "conștienți de faptul că [strong] toate declarațiile SQL sunt stocate "
-#~ "anonim cu scopuri statistice [/strong]. [br] [em] [a@https://sqlvalidator."
-#~ "mimer.com/] Mimer SQL Validator [/a], Copyright 2002 Upright Database "
-#~ "Technology. Toate drepturile rezervate.[/em]"
+#~ "anonim cu scopuri statistice [/strong]. [br] [em] [a@https://"
+#~ "sqlvalidator.mimer.com/] Mimer SQL Validator [/a], Copyright 2002 Upright "
+#~ "Database Technology. Toate drepturile rezervate.[/em]"
 
 #, fuzzy
 #~| msgid "Requires SQL Validator to be enabled"

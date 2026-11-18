@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-11-14 11:51+0000\n"
 "Last-Translator: Adam Havránek <helak@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-2/cs/>"
-"\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/5-2/cs/"
+">\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -283,9 +283,9 @@ msgstr "Neoptimální metoda vyrovnávací paměti."
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Používáte mezipaměť dotazů MySQL na poměrně zatížené databázi. Mohlo by být "
 "výhodnější použít místo ní <a href=\"https://dev.mysql.com/doc/refman/5.6/en/"
@@ -959,8 +959,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Obzvláště na systémech s velkým počtem zápisů do InnoDB je vhodné nastavit "
 "{innodb_log_file_size} na 25% {innodb_buffer_pool_size}. Nicméně čím je tato "
@@ -1049,8 +1049,8 @@ msgstr ""
 "případ, nastavte tuto hodnotu po pečlivém zvážení požadavků na paměť pro "
 "další služby a tabulky jiné než InnoDB. Při nastavení příliš vysoké hodnoty "
 "začne systém využívat odkládací paměť, což výrazně zhorší jeho celkový "
-"výkon. Více informací naleznete v <a href=\"https://www.percona.com/"
-"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">tomto článku</a>"
+"výkon. Více informací naleznete v <a href=\"https://www.percona.com/blog/"
+"2007/11/03/choosing-innodb_buffer_pool_size/\">tomto článku</a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -1080,8 +1080,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Nastavením {concurrent_insert} na 1 omezíte blokování mezi čtením a zápisem "
-"pro jednotlivé tabulky. Podrobněji je toto popsáno v <a href=\"https://dev."
-"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">dokumentaci MySQL</a>"
+"pro jednotlivé tabulky. Podrobněji je toto popsáno v <a href=\"https://"
+"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">dokumentaci MySQL</"
+"a>"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -2367,13 +2368,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Další informace viz [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] a [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"Další informace viz [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] a [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -2673,8 +2674,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Zobrazí odkaz na výstup funkce [a@https://www.php.net/manual/en/function."
-"phpinfo.php]phpinfo()[/a]."
+"Zobrazí odkaz na výstup funkce [a@https://www.php.net/manual/en/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -4791,9 +4792,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%1$sPlatnost přihlašovací cookie%2$s větší než %3$sssession."
-"gc_maxlifetime%4$s může způsobit náhodné ukončení relace (session."
-"gc_maxlifetime je nastaveno na %5$d)."
+"%1$sPlatnost přihlašovací cookie%2$s větší než "
+"%3$sssession.gc_maxlifetime%4$s může způsobit náhodné ukončení relace "
+"(session.gc_maxlifetime je nastaveno na %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5236,15 +5237,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"Nastavení PHP parametru ([a@https://www.php.net/manual/en/session."
-"configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/"
-"a]) je menší než platnost cookie nastavená v phpMyAdminovi. Z tohoto důvodu "
-"bude vaše přihlášení neplatné dříve, než jak je nastaveno v phpMyAdminovi."
+"Nastavení PHP parametru ([a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a]) je menší než platnost cookie "
+"nastavená v phpMyAdminovi. Z tohoto důvodu bude vaše přihlášení neplatné "
+"dříve, než jak je nastaveno v phpMyAdminovi."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9076,6 +9079,24 @@ msgstr ""
 "Chyba při zpracování požadavku: V databázi %2$s nebyl nalezen žádný trigger "
 "s názvem %1$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Název databáze je prázdný!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Prosím nezadávejte více než {0} znaků"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Slova jsou oddělena mezerou („ “)."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Server vyžaduje připojení SSL, bylo automaticky zapnuto."
@@ -9088,6 +9109,24 @@ msgid ""
 msgstr ""
 "Error 1045: Přístup zamítnut. Další podrobnosti jsou skryty administrátorem "
 "%s."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Název tabulky je prázdný!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Prosím nezadávejte více než {0} znaků"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Slova jsou oddělena mezerou („ “)."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -10689,9 +10728,9 @@ msgid ""
 "the administrator of the MySQL server."
 msgstr ""
 "phpMyAdmin se pokusil připojit k MySQL serveru, a ten odmítl připojení. "
-"Zkontrolujte název serveru, uživatelské jméno a heslo v souboru config.inc."
-"php a ujistěte se, že jsou totožné s těmi, které máte od administrátora "
-"MySQL serveru."
+"Zkontrolujte název serveru, uživatelské jméno a heslo v souboru "
+"config.inc.php a ujistěte se, že jsou totožné s těmi, které máte od "
+"administrátora MySQL serveru."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:151
 msgid "Retry to connect"
@@ -17312,8 +17351,8 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"Ujistěte se, že máte unikátní ID serveru ve vašem konfiguračním souboru (my."
-"cnf). Pokud ne, prosím přidejte následující řádek to sekce [mysqld]:"
+"Ujistěte se, že máte unikátní ID serveru ve vašem konfiguračním souboru "
+"(my.cnf). Pokud ne, prosím přidejte následující řádek to sekce [mysqld]:"
 
 #: templates/server/replication/change_primary.twig:26
 msgid "Port:"
@@ -19244,8 +19283,8 @@ msgstr "Názvy sloupců"
 #~ msgid ""
 #~ "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 #~ msgstr ""
-#~ "Chybný formset, zkontrolujte pole $formsets v souboru setup/frames/form."
-#~ "inc.php!"
+#~ "Chybný formset, zkontrolujte pole $formsets v souboru setup/frames/"
+#~ "form.inc.php!"
 
 #~ msgid "Unknonwn"
 #~ msgstr "neznámý"
@@ -19512,8 +19551,8 @@ msgstr "Názvy sloupců"
 #~ "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 #~ "configuration file!"
 #~ msgstr ""
-#~ "V konfiguračním souboru musí být nastaven parametr "
-#~ "[code]$cfg['PmaAbsoluteUri'][/code]!"
+#~ "V konfiguračním souboru musí být nastaven parametr [code]"
+#~ "$cfg['PmaAbsoluteUri'][/code]!"
 
 #~ msgid "This %soption%s should be enabled if your web server supports it."
 #~ msgstr ""
@@ -20171,9 +20210,9 @@ msgstr "Názvy sloupců"
 #~ msgstr ""
 #~ "Pokud si přejete používat službu kontrolování SQL, je potřeba si "
 #~ "uvědomit, že [strong]všechny SQL dotazy jsou anonymně ukládány pro "
-#~ "statistické účely[/strong].[br][em][a@https://sqlvalidator.mimer."
-#~ "com/]Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
-#~ "Všechna práva vyhrazena.[/em]"
+#~ "statistické účely[/strong].[br][em][a@https://"
+#~ "sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright 2002 Upright "
+#~ "Database Technology. Všechna práva vyhrazena.[/em]"
 
 #~ msgid "Requires SQL Validator to be enabled."
 #~ msgstr "Vyžaduje povolené kontrolování SQL."
@@ -21263,8 +21302,8 @@ msgstr "Názvy sloupců"
 #~ msgstr "Databáze PMA"
 
 #~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
+#~ "SQL queries settings, for SQL Query box options see [a@?"
+#~ "page=form&amp;formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
 #~ msgstr ""
 #~ "Nastavení SQL dotazů, pro nastavení políček pro SQL dotazy si prohlédněte "
 #~ "nastavení [a@?page=form&amp;formset=main_frame#tab_Sql_box]navigačního "

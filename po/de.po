@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2025-05-01 11:02+0000\n"
 "Last-Translator: M393 <maximilian.kroeg@geocept.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/5-2/de/"
@@ -295,15 +295,15 @@ msgstr "Suboptimale Zwischenspeicher-Methode."
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Sie verwenden den MySQL-Abfrage-Cache mit einer Datenbank mit hohem "
-"Datenverkehr. Es könnte eine Überlegung wert sein, ein <a href=\"https://dev."
-"mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> anstelle des "
-"MySQL-Abfrage-Caches zu verwenden, insbesondere wenn Sie mehrere Replikas "
-"haben."
+"Datenverkehr. Es könnte eine Überlegung wert sein, ein <a href=\"https://"
+"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> anstelle "
+"des MySQL-Abfrage-Caches zu verwenden, insbesondere wenn Sie mehrere "
+"Replikas haben."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -539,8 +539,8 @@ msgstr ""
 "auf den Datenträger geschrieben. Um dies zu verhindern, müssen Sie Ihre "
 "Abfragen so umschreiben, dass diese Bedingungen (Innerhalb einer temporären "
 "Tabelle: Vorhandensein eines BLOB- oder TEXT-Spalte oder eine Spalte größer "
-"als 512 Bytes) nicht eintreten, wie am Anfang von <a href=\"https://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">Artikel der "
+"als 512 Bytes) nicht eintreten, wie am Anfang von <a href=\"https://"
+"www.facebook.com/note.php?note_id=10150111255065841&comments\">Artikel der "
 "Pythian Group</a> erwähnt wird"
 
 #: libraries/advisory_rules_generic.php:331
@@ -1003,8 +1003,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Vor allem auf einem System mit vielen Schreibzugriffen auf InnoDB-Tabellen "
 "sollten Sie {innodb_log_file_size} auf 25% von {innodb_buffer_pool_size} "
@@ -1096,8 +1096,8 @@ msgstr ""
 "Speicherverbrauch von anderen Diensten und nicht-InnoDB-Tabellen bewerten "
 "und diese Variable entsprechend einstellen. Wenn der Wert zu hoch ist, "
 "beginnt Ihr System Speicher auf die Festplatte auszulagern, was die Leistung "
-"erheblich senkt. Siehe auch <a href=\"https://www.percona.com/"
-"blog/2007/11/03/choosing-innodb_buffer_pool_size/\">diesen Artikel</a>"
+"erheblich senkt. Siehe auch <a href=\"https://www.percona.com/blog/"
+"2007/11/03/choosing-innodb_buffer_pool_size/\">diesen Artikel</a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -2456,13 +2456,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Mehr Informationen auf [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] und [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"Mehr Informationen auf [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] und [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -2874,8 +2874,8 @@ msgstr ""
 "Die URL des Proxys, der beim Abrufen der Informationen über die neueste "
 "Version von phpMyAdmin oder beim Senden von Fehlerberichten verwendet werden "
 "soll. Diese benötigen Sie, wenn der Server, auf dem phpMyAdmin installiert "
-"ist, keinen direkten Zugang zum Internet hat. Das Format ist: \"Hostname:"
-"Portnummer\"."
+"ist, keinen direkten Zugang zum Internet hat. Das Format ist: "
+"\"Hostname:Portnummer\"."
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid ""
@@ -4909,8 +4909,8 @@ msgid ""
 "%5$d)."
 msgstr ""
 "%1$sLogincookie-Gültigkeit%2$s größer als %3$ssession.gc_maxlifetime%4$s "
-"kann zufälligen Ablauf von Sitzungen verursachen (aktuell beträgt session."
-"gc_maxlifetime: %5$d)."
+"kann zufälligen Ablauf von Sitzungen verursachen (aktuell beträgt "
+"session.gc_maxlifetime: %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5369,15 +5369,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"Ihre PHP Einstellung [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] ist "
-"niedriger als die in phpMyAdmin konfigurierte Cookiegültigkeit, deshalb kann "
-"Ihre Anmeldung eher ablaufen als in phpMyAdmin konfiguriert."
+"Ihre PHP Einstellung [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] ist niedriger als die in "
+"phpMyAdmin konfigurierte Cookiegültigkeit, deshalb kann Ihre Anmeldung eher "
+"ablaufen als in phpMyAdmin konfiguriert."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9344,6 +9346,24 @@ msgstr ""
 "Fehler bei der Verarbeitung der Anfrage: Kein Auslöser mit dem Namen %1$s in "
 "Datenbank %2$s gefunden."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Der Datenbankname ist leer!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Bitte nicht mehr als {0} Zeichen eingeben"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Die Wörter werden durch Leerzeichen (\" \") getrennt."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "SSL-Verbindung vom Server erzwungen, aktiviere automatisch."
@@ -9357,6 +9377,24 @@ msgstr ""
 "Fehler 1045: Zugriff für Benutzer verweigert. Möglicherweise sind "
 "zusätzliche Fehlerinformationen verfügbar, die jedoch durch die %s-"
 "Konfigurationsanweisung ausgeblendet werden."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Der Tabellenname ist leer!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Bitte nicht mehr als {0} Zeichen eingeben"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Die Wörter werden durch Leerzeichen (\" \") getrennt."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -11517,8 +11555,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "Spaltennamen bei jedem <code>INSERT</code> Schlüsselwort verwenden <br> "
-"&nbsp; &nbsp; &nbsp; Beispiel: <code>INSERT INTO tbl_name (col_A,col_B,"
-"col_C) VALUES (1,2,3)</code>"
+"&nbsp; &nbsp; &nbsp; Beispiel: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:472
 msgid ""
@@ -11773,8 +11811,8 @@ msgstr "Ungültiges Format des Mediawiki-Inputs in Zeile: <br>%s."
 #: libraries/classes/Plugins/Import/ImportOds.php:80
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
-"Prozentwerte als normale Dezimalzahlen importieren <i>(z.B. wird 12.00% "
-"zu .12)</i>"
+"Prozentwerte als normale Dezimalzahlen importieren <i>(z.B. wird 12.00% zu "
+".12)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:86
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
@@ -17124,9 +17162,9 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Zusätzliche Funktionen können in der Konfigurationsdatei (<code>config.inc."
-"php</code>) aktiviert werden. Beispiele finden sich in der <code>config."
-"sample.inc.php</code>."
+"Zusätzliche Funktionen können in der Konfigurationsdatei "
+"(<code>config.inc.php</code>) aktiviert werden. Beispiele finden sich in der "
+"<code>config.sample.inc.php</code>."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."

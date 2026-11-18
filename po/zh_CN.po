@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-10-15 09:51+0000\n"
 "Last-Translator: Lesterbor <qianfan@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -261,14 +261,14 @@ msgstr "最佳缓存模式。"
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "您正在一台具有相当高流量的数据库中使用 MySQL 查询缓存。使用 <a "
-"href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached."
-"html\">memcached</a> 代替 MySQL 查询缓存将更好，尤其是当您有多台从服务器的时"
-"候。"
+"href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> 代替 MySQL 查询缓存将更好，尤其是当您有多台从"
+"服务器的时候。"
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -500,9 +500,9 @@ msgid ""
 msgstr ""
 "增加 {max_heap_table_size} 和 {tmp_table_size} 可能会有帮助。但有些临时表总是"
 "会写入硬盘，和这些变量无关。要避免这些，您需要重写您的查询来避免 <a "
-"href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables."
-"html\">MySQL 文档</a>中所提到的这些条件 (临时表内: 具有 BLOB 或 TEXT 字段或具"
-"有大于 512 字节的字段)"
+"href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-"
+"tables.html\">MySQL 文档</a>中所提到的这些条件 (临时表内: 具有 BLOB 或 TEXT "
+"字段或具有大于 512 字节的字段)"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
@@ -784,9 +784,9 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"连接通常因为无法被授权而中止。<a href=\"https://www.percona.com/"
-"blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">这篇文章"
-"</a>对您追踪来源可能有所帮助。"
+"连接通常因为无法被授权而中止。<a href=\"https://www.percona.com/blog/"
+"2008/08/23/how-to-track-down-the-source-of-aborted_connects/\">这篇文章</a>对"
+"您追踪来源可能有所帮助。"
 
 #: libraries/advisory_rules_generic.php:551
 #, php-format
@@ -875,15 +875,15 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "在一个 InnoDB 表写入很多的系统上您应该将 {innodb_log_file_size} 设为 "
 "{innodb_buffer_pool_size} 的 25%。因为该值越大，当数据库崩溃时恢复的时间就越"
 "长，所以该值不应高于 256 MB 。请注意您不能简单的修改该变量的值。您需要关闭服"
 "务器，删除 InnoDB 日志文件，在 my.cnf 中设置新的值，启动服务器，一切正常后再"
-"检查错误日志。参见<a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">这篇博客</a>"
+"检查错误日志。参见<a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">这篇博客</a>"
 
 #: libraries/advisory_rules_generic.php:626
 #: libraries/advisory_rules_generic.php:653
@@ -983,8 +983,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "设置 {concurrent_insert} 为 1 可以减少在相同表上的读取和写入冲突。参见 <a "
-"href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts."
-"html\">MySQL 文档</a>"
+"href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">MySQL 文档</a>"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -2185,13 +2185,13 @@ msgstr "设置存储设置的备选主机端口号，若使用默认值或没有
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"更多信息参见 [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin问题跟踪系统 (外链，英文)[/a] 和 [a@https://bugs.mysql."
-"com/19588]MySQL 缺陷 (Bugs) (外链，英文)[/a]"
+"更多信息参见 [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin问题跟踪系统 (外链，英文)[/a] 和 [a@https://bugs.mysql.com/"
+"19588]MySQL 缺陷 (Bugs) (外链，英文)[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -4922,15 +4922,17 @@ msgstr "或者也可以去某个数据库的“操作”选项卡那里进行设
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"您的 PHP 参数 [a@https://www.php.net/manual/zh/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 短于您在 phpMyAdmin "
-"中设置的 Cookies 有效期，因此您的登录会话有效期可能会比您在 phpMyAdmin 中设置"
-"的时间要更短。"
+"您的 PHP 参数 [a@https://www.php.net/manual/zh/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] 短于您在 phpMyAdmin 中设置的 "
+"Cookies 有效期，因此您的登录会话有效期可能会比您在 phpMyAdmin 中设置的时间要"
+"更短。"
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -8623,6 +8625,24 @@ msgid ""
 "%2$s."
 msgstr "处理请求时出错：在数据库 %2$s 中找不到名为 %1$s 的触发器。"
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "数据库名不能为空！"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "请输入不超过{0}位字符"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "每个单词用空格（“ ”）分开。"
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "服务器要求 SSL 连接，已自动启用 SSL。"
@@ -8633,6 +8653,24 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr "错误1045:用户的访问被拒绝。其他错误信息可能可用，但被%s配置指令隐藏。"
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "表名不能为空！"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "请输入不超过{0}位字符"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "每个单词用空格（“ ”）分开。"
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -10684,8 +10722,8 @@ msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"以上兼有<br> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name (col_A,"
-"col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"以上兼有<br> &nbsp; &nbsp; &nbsp; 如：<code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:482
 msgid ""
@@ -11133,11 +11171,11 @@ msgid ""
 msgstr ""
 "仅 LINUX：调用外部程序并通过标准输入传入字段数据。返回此应用程序的标准输出。"
 "默认为 Tidy，可以很好的打印 HTML 代码。为了安全起见，您需要手动编辑 "
-"libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin."
-"php 文件来加入可以运行的工具。第一个选项是您想要使用的程序编号，由于历史的原"
-"因，第二个选项应该为空。第三个参数如果设为 1 的话将会用 htmlspecialchars() 处"
-"理输出 (默认为 1)。第四个参数如果设为 1 的话，将禁止换行，确保所有内容显示在"
-"一行中 (默认为 1)。"
+"libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php 文件来加入可以运行的工具。第一个选项是您想"
+"要使用的程序编号，由于历史的原因，第二个选项应该为空。第三个参数如果设为 1 的"
+"话将会用 htmlspecialchars() 处理输出 (默认为 1)。第四个参数如果设为 1 的话，"
+"将禁止换行，确保所有内容显示在一行中 (默认为 1)。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:121
 #, php-format
@@ -11243,8 +11281,9 @@ msgid ""
 "option is a URL prefix like \"https://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"显示图像和链接，字段内包含文件名。第一个选项是类似“https://www.example."
-"com/”这样的 URL 前缀。第二和第三个选项是以像素为单位的宽度和高度。"
+"显示图像和链接，字段内包含文件名。第一个选项是类似“https://"
+"www.example.com/”这样的 URL 前缀。第二和第三个选项是以像素为单位的宽度和高"
+"度。"
 
 #: libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php:30
 msgid ""
@@ -15196,8 +15235,8 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"压缩文件名必须以 <strong>.[格式].[压缩方式]</strong> 结尾。如：<strong>.sql."
-"zip</strong>"
+"压缩文件名必须以 <strong>.[格式].[压缩方式]</strong> 结尾。如："
+"<strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
 msgid "Upload a file"
@@ -16051,8 +16090,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"在配置文件 (<code>config.inc.php</code>) 中启用高级功能，参见 <code>config."
-"sample.inc.php</code> 中的范例。"
+"在配置文件 (<code>config.inc.php</code>) 中启用高级功能，参见 "
+"<code>config.sample.inc.php</code> 中的范例。"
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -20414,8 +20453,9 @@ msgstr "字段名"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./Documentation."
-#~ "html#faq6-29\" target=\"Documentation\">常见问题 (FAQ) 6.29</a>"
+#~ "请注意不是所有的结果表都能绘图。参见<a href=\"./"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">常见问题 (FAQ) "
+#~ "6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "添加新用户"

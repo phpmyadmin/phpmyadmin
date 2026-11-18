@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2022-02-17 10:34+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -303,14 +303,14 @@ msgstr "O método para a caché non é o máis óptimo."
 #| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Está a empregar a caché de consultas de MySQL cunha base de datos de "
-"bastante tráfico. Sería boa idea considerar o uso de <a href=\"https://dev."
-"mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> no canto da "
-"caché de consultas de MySQL, especialmente se ten varios escravos."
+"bastante tráfico. Sería boa idea considerar o uso de <a href=\"https://"
+"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> no canto "
+"da caché de consultas de MySQL, especialmente se ten varios escravos."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -560,9 +560,9 @@ msgstr ""
 "disco, independentemente do valor destas variábeis. Para eliminalas hai que "
 "reescribir as consultas para que eviten esas condicións (Nunha táboa "
 "temporal: presenza dunha columna tipo BLOB ou TEXT ou presenza dunha columna "
-"maior de 512 bytes), como se menciona no comezo dun <a href=\"https://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">artigo do grupo "
-"Pythian</a>"
+"maior de 512 bytes), como se menciona no comezo dun <a href=\"https://"
+"www.facebook.com/note.php?note_id=10150111255065841&comments\">artigo do "
+"grupo Pythian</a>"
 
 #: libraries/advisory_rules_generic.php:331
 #, php-format
@@ -1054,8 +1054,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Especialmente nun sistema con moitas escritas nas táboas de InnoDB, habería "
 "que configurar innodb_log_file size como o 25%% de "
@@ -1113,13 +1113,13 @@ msgstr ""
 "Normalmente abonda con configurar {innodb_log_file_size} como o 25%% do "
 "tamaño de {innodb_buffer_pool_size}. Un innodb_log_file moi grande enlentece "
 "considerabelmente o tempo de recuperación a seguir unha quebra da base de "
-"datos. Consulte tamén <a href=\"https://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">este artigo</a>. Hai "
-"que apagar o servidor, retirar os ficheiros de rexistro de InnoDB, "
-"configurar o novo valor en my.cnf, iniciar o servidor, e a seguir comprobar "
-"os rexistros de erro para comprobar que todo fose ben. Consulte tamén <a "
-"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">esta entrada de blogue</a>"
+"datos. Consulte tamén <a href=\"https://www.mysqlperformanceblog.com/"
+"2006/07/03/choosing-proper-innodb_log_file_size/\">este artigo</a>. Hai que "
+"apagar o servidor, retirar os ficheiros de rexistro de InnoDB, configurar o "
+"novo valor en my.cnf, iniciar o servidor, e a seguir comprobar os rexistros "
+"de erro para comprobar que todo fose ben. Consulte tamén <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">esta entrada de blogue</a>"
 
 #: libraries/advisory_rules_generic.php:676
 #, php-format
@@ -1168,8 +1168,8 @@ msgstr ""
 "memoria dos demais servizos e as táboas que non sexan de InnoDB e configurar "
 "esta variábel en consecuencia. Se se configura demasiado alta, o sistema "
 "comezará a gravar no disco, o que reduce o desempeño de maneira "
-"significativa. Consulte tamén <a href=\"https://www.mysqlperformanceblog."
-"com/2007/11/03/choosing-innodb_buffer_pool_size/\">este artigo</a>"
+"significativa. Consulte tamén <a href=\"https://www.mysqlperformanceblog.com/"
+"2007/11/03/choosing-innodb_buffer_pool_size/\">este artigo</a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -1199,8 +1199,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Configurar {concurrent_insert} como 1 reduce a contención entre as lecturas "
-"e as escritas nunha táboa dada. Consulte tamén a <a href=\"https://dev.mysql."
-"com/doc/refman/5.5/en/concurrent-inserts.html\">documentación do MySQL</a>"
+"e as escritas nunha táboa dada. Consulte tamén a <a href=\"https://"
+"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">documentación do "
+"MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -2105,8 +2106,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:118
 #, fuzzy
 #| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+#| "Use user-friendly editor for editing SQL queries ([a@https://"
+#| "codemirror.net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -2637,8 +2638,9 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Déixeo en branco se non quere a funcionalidade de [a@https://wiki.phpmyadmin."
-"net/pma/bookmark]bookmark[/a]  ; por omisión: [kbd]pma_bookmark[/kbd]"
+"Déixeo en branco se non quere a funcionalidade de [a@https://"
+"wiki.phpmyadmin.net/pma/bookmark]bookmark[/a]  ; por omisión: "
+"[kbd]pma_bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:351
 #, fuzzy
@@ -2687,17 +2689,17 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:366
 #, fuzzy
 #| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
+#| "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/"
+#| "2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/"
+#| "a]"
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Máis información no [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]Seguidor de erros de PMA[/a] e en [a@https://bugs.mysql."
-"com/19588]Erros do MySQL[/a]"
+"Máis información no [a@https://sourceforge.net/p/phpmyadmin/bugs/"
+"2606/]Seguidor de erros de PMA[/a] e en [a@https://bugs.mysql.com/"
+"19588]Erros do MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -3027,8 +3029,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Mostra unha ligazón á saída de [a@https://www.php.net/manual/function."
-"phpinfo.php]phpinfo()[/a]."
+"Mostra unha ligazón á saída de [a@https://www.php.net/manual/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -3068,8 +3070,8 @@ msgstr ""
 #| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
-"Permitir que se mostren as estatísticas das bases de datos e das táboas (p."
-"ex. o uso do espazo)."
+"Permitir que se mostren as estatísticas das bases de datos e das táboas "
+"(p.ex. o uso do espazo)."
 
 #: libraries/classes/Config/Descriptions.php:506
 msgid ""
@@ -5298,8 +5300,8 @@ msgid ""
 "%5$d)."
 msgstr ""
 "Unha %svalidez das cookies de rexistro%s maior de %ssession.gc_maxlifetime%s "
-"pode causar invalidacións aleatorias da sesión  (actualmente a session."
-"gc_maxlifetime é %d)."
+"pode causar invalidacións aleatorias da sesión  (actualmente a "
+"session.gc_maxlifetime é %d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5760,15 +5762,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"O parámetro PHP [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] é menor do "
-"que a validez das cookies que se configurou en phpMyAdmin; por causa disto, "
-"o rexistro podería caducar antes do que está configurado en phpMyAdmin."
+"O parámetro PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] é menor do que a validez das "
+"cookies que se configurou en phpMyAdmin; por causa disto, o rexistro podería "
+"caducar antes do que está configurado en phpMyAdmin."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9760,6 +9764,24 @@ msgid ""
 "%2$s."
 msgstr "Non se atopou ningún disparador co nome %1$s na base de datos %2$s"
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "O nome da base de datos está baleiro!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Non introduza máis de {0} caracteres"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "As palabras divídense cun carácter de espazo (« »)."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
@@ -9770,6 +9792,24 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "O nome da táboa está baleiro!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Non introduza máis de {0} caracteres"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "As palabras divídense cun carácter de espazo (« »)."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -10210,10 +10250,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"Este é o número de ficheiros de rexistro de transaccións (pbxt/system/xlog*."
-"xt) que vai manter o sistema. Se o número de ficheiros de rexistro excede "
-"este valor, os ficheiros de rexistro antigos elimínanse; se non, múdaselles "
-"o nome e dáselles o número máis alto seguinte."
+"Este é o número de ficheiros de rexistro de transaccións (pbxt/system/"
+"xlog*.xt) que vai manter o sistema. Se o número de ficheiros de rexistro "
+"excede este valor, os ficheiros de rexistro antigos elimínanse; se non, "
+"múdaselles o nome e dáselles o número máis alto seguinte."
 
 #: libraries/classes/Engines/Pbxt.php:169
 #: libraries/classes/Html/Generator.php:745
@@ -10282,8 +10322,8 @@ msgstr "O ficheiro non foi subido como un ficheiro."
 #: libraries/classes/File.php:266
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"O tamaño do ficheiro enviado excede a directiva upload_max_filesize de php."
-"ini."
+"O tamaño do ficheiro enviado excede a directiva upload_max_filesize de "
+"php.ini."
 
 #: libraries/classes/File.php:271
 msgid ""
@@ -11924,8 +11964,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "incluír os nomes das columnas en todas as instrucións <code>INSERT</code> "
-"<br> &nbsp;&nbsp;&nbsp; Exemplo: <code>INSERT INTO nome_taboa (col_A,col_B,"
-"col_C) VALUES (1,2,3)</code>"
+"<br> &nbsp;&nbsp;&nbsp; Exemplo: <code>INSERT INTO nome_taboa "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:472
 msgid ""
@@ -17944,8 +17984,8 @@ msgid ""
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 "Active as funcionalidades avanzadas no ficheiro de configuración "
-"(<code>config.inc.php</code>) comezando, por exemplo con <code>config.sample."
-"inc.php</code>."
+"(<code>config.inc.php</code>) comezando, por exemplo con "
+"<code>config.sample.inc.php</code>."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -21063,9 +21103,9 @@ msgstr "Nomes das columnas"
 #~ "authentication[/a] (not located in your document root; suggested: /etc/"
 #~ "swekey.conf)."
 #~ msgstr ""
-#~ "A ruta ao ficheiro de configuración da [a@https://swekey."
-#~ "com]autenticación de hardware SweKey[/a] (non se localiza na raíz dos "
-#~ "documentos; suxírese: /etc/swekey.conf)"
+#~ "A ruta ao ficheiro de configuración da [a@https://"
+#~ "swekey.com]autenticación de hardware SweKey[/a] (non se localiza na raíz "
+#~ "dos documentos; suxírese: /etc/swekey.conf)"
 
 #~ msgid "SweKey config file"
 #~ msgstr "Ficheiro de configuración SweKey"
@@ -21806,9 +21846,9 @@ msgstr "Nomes das columnas"
 #~ msgstr ""
 #~ "Se desexa empregar o servizo do validador de SQL ha de te ren conta que "
 #~ "[strong]todas as instrucións de SQL se almacenan de maneira anónima con "
-#~ "finalidade estatística[/strong].[br][em][a@https://sqlválidator.mimer."
-#~ "com/]Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
-#~ "Todos os dereitos reservados.[/em]"
+#~ "finalidade estatística[/strong].[br][em][a@https://"
+#~ "sqlválidator.mimer.com/]Mimer SQL Validator[/a], Copyright 2002 Upright "
+#~ "Database Technology. Todos os dereitos reservados.[/em]"
 
 #, fuzzy
 #~| msgid "Requires SQL Validator to be enabled"
@@ -22697,12 +22737,12 @@ msgstr "Nomes das columnas"
 #~ msgstr "Base de datos PMA"
 
 #~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
+#~ "SQL queries settings, for SQL Query box options see [a@?"
+#~ "page=form&amp;formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
 #~ msgstr ""
 #~ "Configuración das solicitudes de SQL; para as opcións da caixa Procuras "
-#~ "SQL vexa a configuración da [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]moldura de navegación[/a]"
+#~ "SQL vexa a configuración da [a@?"
+#~ "page=form&amp;formset=main_frame#tab_Sql_box]moldura de navegación[/a]"
 
 #~ msgid "Remove carriage return/line field characters within columns"
 #~ msgstr "Eliminar os caracteres CRLF dentro dos campos"

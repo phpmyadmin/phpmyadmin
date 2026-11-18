@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2024-07-03 07:27+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -267,9 +267,9 @@ msgstr "次佳的查詢快取方法。"
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "您正在於一台流量大的資料庫使用 MySQL 查詢快取。可以考慮改用 <a href=\"HTTP://"
 "dev.mysql.com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> 來取代 "
@@ -507,8 +507,8 @@ msgstr ""
 "增加 {max_heap_table_size} 和 {tmp_table_size} 可能有所幫助，但某些暫存資料表"
 "仍然會寫到磁碟，與這些變數無關。要解決這個問題，必須重寫查詢條件，避免在暫存"
 "資料表中儲存 BLOB 或 TEXT 類型的欄位，或者使用長度大於 512 位元組的欄位，如 "
-"<a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables."
-"html\">MySQL 說明文件</a>所提到的狀況"
+"<a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-"
+"tables.html\">MySQL 說明文件</a>所提到的狀況"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
@@ -887,8 +887,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "特別在某些會大量寫入資料到 InnoDB 資料表的系統上，應設定 "
 "{innodb_log_file_size} 為 {innodb_buffer_pool_size} 的 25%。不論如何，這個值"
@@ -932,9 +932,9 @@ msgstr ""
 "href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">此篇文章</a>。若要修改這個值，必須先關閉伺服器並刪除"
 "所有已有的 InnoDB 的記錄檔，再在 my.cnf 設定新的值，然後啟動伺服器並檢查錯誤"
-"記錄查看是否一切順利。請參閱<a href=\"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">此部落格文"
-"章</a>"
+"記錄查看是否一切順利。請參閱<a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">此部落格文章</a>"
 
 #: libraries/advisory_rules_generic.php:676
 #, php-format
@@ -998,8 +998,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "將 {concurrent_insert} 設為 1 可以減少在相同表上的讀取和寫入衝突，請參閱 <a "
-"href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts."
-"html\">MySQL 說明文件</a>"
+"href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">MySQL 說明文件</a>"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -2211,13 +2211,13 @@ msgstr "設定儲存空間主機的備用連接埠；若使用預設值或不修
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"詳情請參閱 [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin 問題追蹤系統[/a]與 [a@https://bugs.mysql."
-"com/19588]MySQL 問題回報[/a]"
+"詳情請參閱 [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin 問題追蹤系統[/a]與 [a@https://bugs.mysql.com/19588]MySQL 問題"
+"回報[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -4975,15 +4975,17 @@ msgstr "或者前往任一個資料庫的「操作」分頁設定。"
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"在 PHP 設定參數 [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] 所設定的時間"
-"短於在 phpMyAdmin 設定的 cookie 有效時間，因此登入連線有效時間可能比在 "
-"phpMyAdmin 設定的時間要短。"
+"在 PHP 設定參數 [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] 所設定的時間短於在 phpMyAdmin "
+"設定的 cookie 有效時間，因此登入連線有效時間可能比在 phpMyAdmin 設定的時間要"
+"短。"
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -8686,6 +8688,24 @@ msgid ""
 "%2$s."
 msgstr "請求出現問題：資料庫 %2$s 沒有名為 %1$s 的觸發器。"
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "請填寫資料庫名稱！"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "請輸入不超過 {0} 個字元"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "每個字詞用(半形)空格分隔。"
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "伺服器強制使用 SSL 連線，正在自動啟用。"
@@ -8696,6 +8716,24 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr "錯誤1045：使用者被拒絕。可能有其他錯誤訊息，但被%s設定隱藏。"
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "資料表名稱不能為空！"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "請輸入不超過 {0} 個字元"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "每個字詞用(半形)空格分隔。"
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -9000,8 +9038,8 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"用於快取表資料的快取記憶體大小。預設值為 32MB。該快取用於記錄處理器資料 (*."
-"xtd) 和行指標 (*.xtr) 檔案。"
+"用於快取表資料的快取記憶體大小。預設值為 32MB。該快取用於記錄處理器資料 "
+"(*.xtd) 和行指標 (*.xtr) 檔案。"
 
 #: libraries/classes/Engines/Pbxt.php:52
 msgid "Log cache size"
@@ -10758,8 +10796,8 @@ msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
-"以上皆是<br> &nbsp; &nbsp; &nbsp; 如: <code>INSERT INTO tbl_name (col_A,"
-"col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
+"以上皆是<br> &nbsp; &nbsp; &nbsp; 如: <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:482
 msgid ""
@@ -15335,8 +15373,8 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"壓縮檔案名稱必須以 <strong>.[格式].[壓縮方式]</strong> 結尾。如： <strong>."
-"sql.zip</strong>"
+"壓縮檔案名稱必須以 <strong>.[格式].[壓縮方式]</strong> 結尾。如： "
+"<strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
 #, fuzzy
@@ -16214,8 +16252,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"在設定檔 (<code>config.inc.php</code>) 啓用進階功能，請參閱 <code>config."
-"sample.inc.php</code> 的範例。"
+"在設定檔 (<code>config.inc.php</code>) 啓用進階功能，請參閱 "
+"<code>config.sample.inc.php</code> 的範例。"
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -19687,9 +19725,9 @@ msgstr "欄位名稱"
 
 #~ msgid "Failed to use Blowfish from mcrypt!"
 #~ msgstr ""
-#~ "無法使用 Blowfish 密文進行加密！（<a href=\"https://www.question-defense."
-#~ "com/tools/phpmyadmin-blowfish-secret-generator\" target=\"_blank\">參考資"
-#~ "料</a>）"
+#~ "無法使用 Blowfish 密文進行加密！（<a href=\"https://www.question-"
+#~ "defense.com/tools/phpmyadmin-blowfish-secret-generator\" "
+#~ "target=\"_blank\">參考資料</a>）"
 
 #~ msgid "Unfortunately the submission failed."
 #~ msgstr "錯誤報告傳送失敗。"
@@ -20638,8 +20676,9 @@ msgstr "欄位名稱"
 #~ "Note that not every result table can be put to the chart. See <a href=\"./"
 #~ "Documentation.html#faq6-29\" target=\"Documentation\">FAQ 6.29</a>"
 #~ msgstr ""
-#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./Documentation."
-#~ "html#faq6-29\" target=\"Documentation\">常見問題 (FAQ) 6.29</a>"
+#~ "請注意不是所有的結果表都能繪圖。參見<a href=\"./"
+#~ "Documentation.html#faq6-29\" target=\"Documentation\">常見問題 (FAQ) "
+#~ "6.29</a>"
 
 #~ msgid "Add a New User"
 #~ msgstr "新增新使用者"

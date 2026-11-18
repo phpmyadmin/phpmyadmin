@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2023-11-23 05:05+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -289,9 +289,9 @@ msgstr "Podoptimalni način predpomnjenja."
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Uporabljate predpomnjenje poizvedb MySQL s precej prometno zbirko podatkov. "
 "Morda bi bilo koristno razmisliti o uporabi <a href=\"https://dev.mysql.com/"
@@ -525,8 +525,8 @@ msgstr ""
 "vrednosti teh spremenljivk. Da se tega znebite, boste morali preoblikovati "
 "vaše poizvedbe in se tako izogniti tem pogojem (znotraj začasne tabele: "
 "prisotnost stolpca BLOB ali TEXT ali prisotnost stolpca, večjega od 512 "
-"bajtov), kot je omenjeno na začetku <a href=\"https://www.facebook.com/note."
-"php?note_id=10150111255065841&comments\">članka skupine Pythian</a>"
+"bajtov), kot je omenjeno na začetku <a href=\"https://www.facebook.com/"
+"note.php?note_id=10150111255065841&comments\">članka skupine Pythian</a>"
 
 #: libraries/advisory_rules_generic.php:331
 #, php-format
@@ -967,8 +967,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Še posebej na sistemu z veliko pisanji v tabele InnoDB bi morali nastaviti "
 "{innodb_log_file_size} na 25 % {innodb_buffer_pool_size}. Kakor koli, večja "
@@ -977,9 +977,9 @@ msgstr ""
 "te spremenljivke ne morete preprosto spremeniti. Zaustaviti morate strežnik, "
 "odstraniti dnevniške datoteke InnoDB, nastaviti novo vrednost v my.cnf, "
 "zagnati strežnik in nato preveriti dnevnike napak, če je vse potekalo v "
-"redu. Oglejte si tudi <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">to objavo na blogu</"
-"a>"
+"redu. Oglejte si tudi <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">to objavo na blogu</a>"
 
 #: libraries/advisory_rules_generic.php:626
 #: libraries/advisory_rules_generic.php:653
@@ -1019,9 +1019,9 @@ msgstr ""
 "innodb_log_file_size/\">ta članek</a>. Zaustaviti morate strežnik, "
 "odstraniti dnevniške datoteke InnoDB, nastaviti novo vrednost v my.cnf, "
 "zagnati strežnik in nato preveriti dnevnike napak, če je vse potekalo v "
-"redu. Oglejte si tudi <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">to objavo na blogu</"
-"a>"
+"redu. Oglejte si tudi <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">to objavo na blogu</a>"
 
 #: libraries/advisory_rules_generic.php:676
 #, php-format
@@ -2396,13 +2396,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Več informacij na [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]sledilniku težav phpMyAdmin[/a] in [a@https://bugs.mysql."
-"com/19588]hroščih MySQL[/a]"
+"Več informacij na [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]sledilniku težav phpMyAdmin[/a] in [a@https://bugs.mysql.com/"
+"19588]hroščih MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -2702,8 +2702,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Prikaže povezavo do podatkov [a@https://www.php.net/manual/en/function."
-"phpinfo.php]phpinfo()[/a]."
+"Prikaže povezavo do podatkov [a@https://www.php.net/manual/en/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -4817,9 +4817,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%1$sVeljavnost prijavnega piškotka%2$s večja od %3$ssession."
-"gc_maxlifetime%4$s lahko povzroči naključno razvrednotenje seje (session."
-"gc_maxlifetime je trenutno %5$d)."
+"%1$sVeljavnost prijavnega piškotka%2$s večja od "
+"%3$ssession.gc_maxlifetime%4$s lahko povzroči naključno razvrednotenje seje "
+"(session.gc_maxlifetime je trenutno %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5265,15 +5265,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"Vaš parameter PHP [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] je nižji od "
-"veljavnosti piškotkov, določene v phpMyAdminu. Zaradi tega se bo vaša "
-"prijava morda iztekla prej, kot je določeno v phpMyAdminu."
+"Vaš parameter PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] je nižji od veljavnosti "
+"piškotkov, določene v phpMyAdminu. Zaradi tega se bo vaša prijava morda "
+"iztekla prej, kot je določeno v phpMyAdminu."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9154,6 +9156,24 @@ msgstr ""
 "Napaka v obdelavi zahteve: Sprožilca imenovanega %1$s ni mogoče najti v "
 "zbirki podatkov %2$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Ime zbirke podatkov je prazno!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Prosimo, ne vnesete več kot {0} znakov"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Besede so ločene s presledkom (\" \")."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Povezavo SSL je vsilil strežnik; samodejno sem jo omogočil."
@@ -9166,6 +9186,24 @@ msgid ""
 msgstr ""
 "Napaka 1045: Uporabnik nima dostopa. Dodatne informacije so morda na voljo, "
 "vendar so skrite zaradi konfiguracijske direktive %s."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Ime tabele je prazno!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Prosimo, ne vnesete več kot {0} znakov"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Besede so ločene s presledkom (\" \")."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -16856,8 +16894,9 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Omogočite napredne funkcije v konfiguracijski datoteki (<code>config.inc."
-"php</code>); začnite na primer s <code>config.sample.inc.php</code>."
+"Omogočite napredne funkcije v konfiguracijski datoteki "
+"(<code>config.inc.php</code>); začnite na primer s "
+"<code>config.sample.inc.php</code>."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."

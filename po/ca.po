@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2022-03-12 11:57+0000\n"
 "Last-Translator: roger <616steam@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -304,15 +304,15 @@ msgstr "Mètode d'emmagatzematge en memòria cau subòptima."
 #| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Estàs utilitzant la memòria cau de consultes de MySQL amb una base de dades "
-"de força transit. Valdria la pena considerar l'ús <a href=\"https://dev."
-"mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> en lloc de la "
-"memòria cau de consultes de MySQL, especialment si tens diversos servidors "
-"esclaus."
+"de força transit. Valdria la pena considerar l'ús <a href=\"https://"
+"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> en lloc de "
+"la memòria cau de consultes de MySQL, especialment si tens diversos "
+"servidors esclaus."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -546,9 +546,9 @@ msgstr ""
 "valor d'aquestes variables. Per eliminar-les haureu de reescriure les "
 "vostres consultes per evitar aquestes condicions (dins d'una taula temporal: "
 "la presència d'una columna BLOB o TEXT o la presència d'una columna més gran "
-"que 512 bytes) com s'esmenta al començament d'un <a href=\"https://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">article de the "
-"Pythian Group</a>"
+"que 512 bytes) com s'esmenta al començament d'un <a href=\"https://"
+"www.facebook.com/note.php?note_id=10150111255065841&comments\">article de "
+"the Pythian Group</a>"
 
 #: libraries/advisory_rules_generic.php:331
 #, php-format
@@ -1042,8 +1042,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Sobretot en un sistema amb una gran quantitat d'escriptures en taules "
 "InnoDB, has d'establir {innodb_log_file_size} al 25%% de "
@@ -1191,8 +1191,8 @@ msgid ""
 msgstr ""
 "Amb l'establiment de {concurrent_insert} a 1, es redueix la competència "
 "entre els lectors i escriptors per a una taula qualsevol. Consulteu també la "
-"<a href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts."
-"html\">documentació de MySQL</a>"
+"<a href=\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">documentació de MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -2557,13 +2557,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Més informació a [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] i [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"Més informació a [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] i [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -2875,8 +2875,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Mostra l'enllaç a la sortida de [a@https://php.net/manual/function.phpinfo."
-"php]phpinfo()[/a]."
+"Mostra l'enllaç a la sortida de [a@https://php.net/manual/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -5057,9 +5057,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"El valor %1$slogin cookie validity%2$s més gran que %3$ssession."
-"gc_maxlifetime%4$s (actualment %5$d) pot provocar la invalidació aleatòria "
-"de sessions."
+"El valor %1$slogin cookie validity%2$s més gran que "
+"%3$ssession.gc_maxlifetime%4$s (actualment %5$d) pot provocar la invalidació "
+"aleatòria de sessions."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5518,16 +5518,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"El vostre paràmetre de PHP [a@https://www.php.net/manual/en/session."
-"configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/"
-"a] és més baix que la validesa de la galeta configurada a phpMyAdmin, a "
-"causa d'això, la vostra identificació podria vèncer abans del configurat a "
-"phpMyAdmin."
+"El vostre paràmetre de PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] és més baix que la validesa de "
+"la galeta configurada a phpMyAdmin, a causa d'això, la vostra identificació "
+"podria vèncer abans del configurat a phpMyAdmin."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9465,6 +9466,24 @@ msgid ""
 "%2$s."
 msgstr "No s'ha trobat un disparador amb nom %1$s a la base de dades %2$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "El nom de la base de dades està en blanc!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Introduïu no més de {0} caràcters"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Paraules separades per un espai (\" \")."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Connexió SSL forçada pel servidor, habilitant-la automàticament."
@@ -9475,6 +9494,24 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "El nom de la taula és buit!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Introduïu no més de {0} caràcters"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Paraules separades per un espai (\" \")."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -17426,8 +17463,8 @@ msgid ""
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 "Habilita les funcionalitats avançades al fitxer de configuració "
-"(<code>config.inc.php</code>), per exemple a partir de <code>config.sample."
-"inc.php</code>."
+"(<code>config.inc.php</code>), per exemple a partir de "
+"<code>config.sample.inc.php</code>."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -18157,8 +18194,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"Ara, afegiu les següents línies al final de la secció [mysqld] del vostre my."
-"cnf i després reinicieu el servidor MySQL."
+"Ara, afegiu les següents línies al final de la secció [mysqld] del vostre "
+"my.cnf i després reinicieu el servidor MySQL."
 
 #: templates/server/replication/primary_configuration.twig:21
 #, fuzzy
@@ -21221,9 +21258,9 @@ msgstr "Nom de les columnes"
 #~ msgstr ""
 #~ "Si voleu utilitzar el servei de SQL Validator, heu de tenir en compte que "
 #~ "[strong]totes les instruccions SQL s'emmagatzemen de forma anònima amb "
-#~ "fins estadístics[/strong]. [br] [em][a@https://sqlvalidator.mimer."
-#~ "com/]Mimer SQL Validator[/a], Copyright 2002 Copyright 2002 Upright "
-#~ "Database Technology. Tots els drets reservats.[/em]"
+#~ "fins estadístics[/strong]. [br] [em][a@https://"
+#~ "sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright 2002 Copyright "
+#~ "2002 Upright Database Technology. Tots els drets reservats.[/em]"
 
 #, fuzzy
 #~| msgid "Requires SQL Validator to be enabled"
@@ -21238,8 +21275,8 @@ msgstr "Nom de les columnes"
 #~ "[strong]Warning:[/strong] requires PHP SOAP extension or PEAR SOAP to be "
 #~ "installed."
 #~ msgstr ""
-#~ "[strong]Atenció:[/strong] Necessita l'extensió de PHP SOAP o bé instal."
-#~ "lar PEAR SOAP"
+#~ "[strong]Atenció:[/strong] Necessita l'extensió de PHP SOAP o bé "
+#~ "instal.lar PEAR SOAP"
 
 #, fuzzy
 #~| msgid ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2023-11-11 17:57+0000\n"
 "Last-Translator: Benito Alessandrino <bennygames.yt@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -296,15 +296,15 @@ msgstr "Metodo di caching subottimale."
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "State usando la cache delle query MySQL con un traffico di database "
 "piuttosto alto. Potrebbe essere utile prendere in considerazione <a "
-"href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached."
-"html\">memcached</a> invece della cache delle query MySQL, soprattutto se "
-"avete repliche multiple."
+"href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> invece della cache delle query MySQL, "
+"soprattutto se avete repliche multiple."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -571,9 +571,9 @@ msgstr ""
 "disco, indipendentemente dal valore di queste variabili. Per eliminarle "
 "dovrete riscrivere le query per evitare queste condizioni (All'interno delle "
 "tabelle temporanee: Presenza di un campo BLOB o di un TEXT o presenza di un "
-"campo più grande di 512 byte) come menzionato nella <a href=\"https://dev."
-"mysql.com/doc/refman/8.0/en/internal-temporary-tables.html\">Documentazione "
-"MySQL</a>"
+"campo più grande di 512 byte) come menzionato nella <a href=\"https://"
+"dev.mysql.com/doc/refman/8.0/en/internal-temporary-"
+"tables.html\">Documentazione MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
@@ -1005,8 +1005,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Si dovrebbe impostare {innodb_log_file_size} al 25% di "
 "{innodb_buffer_pool_size}, soprattutto in sistemi che processano numerose "
@@ -1053,9 +1053,9 @@ msgstr ""
 "Di solito è sufficiente impostare {innodb_log_file_size} al 25% della "
 "dimensione di {innodb_buffer_pool_size}. Un {innodb_log_file_size} molto "
 "grande rallenta considerevolmente il tempo di ripristino in seguito ad un "
-"crash del database. Vedere anche <a href=\"https://www.percona.com/"
-"blog/2006/07/03/choosing-proper-innodb_log_file_size/\">questo articolo</a>. "
-"È necessario fare uno shutdown del server, rimuovere i file log InnoDB, "
+"crash del database. Vedere anche <a href=\"https://www.percona.com/blog/"
+"2006/07/03/choosing-proper-innodb_log_file_size/\">questo articolo</a>. È "
+"necessario fare uno shutdown del server, rimuovere i file log InnoDB, "
 "impostare il nuovo valore in my.cnf, avviare il server, quindi controllare "
 "nei log degli errori se tutto è andato a buon fine. Consultare anche <a "
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
@@ -1128,8 +1128,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Impostare {concurrent_insert} a 1 riduce i conflitti tra letture e scritture "
-"su una data tabella. V. anche la <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\">Documentazione MySQL</a>"
+"su una data tabella. V. anche la <a href=\"https://dev.mysql.com/doc/refman/"
+"5.5/en/concurrent-inserts.html\">Documentazione MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -2466,13 +2466,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Maggiori informazioni su [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] e [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"Maggiori informazioni su [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] e [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -2781,8 +2781,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Mostra il collegamento all'output di [a@https://php.net/manual/function."
-"phpinfo.php]phpinfo()[/a]."
+"Mostra il collegamento all'output di [a@https://php.net/manual/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -5388,14 +5388,16 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"Il parametro [a@https://www.php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] di PHP (configurato "
-"in php.ini) ha un valore inferiore al periodo di validitá del cookie di "
+"Il parametro [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] di PHP (configurato in "
+"php.ini) ha un valore inferiore al periodo di validitá del cookie di "
 "sessione configurato da phpMyAdmin; per questo motivo, questa sessione "
 "potrebbe scadere prima del periodo impostato in phpMyAdmin."
 
@@ -9354,6 +9356,24 @@ msgstr ""
 "Errore nell'elaborazione della richiesta: non é stata trovato alcun trigger "
 "con nome %1$s nel database %2$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Il nome del database è vuoto!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Si prega di inserire non più di {0} caratteri"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Le parole sono separate da spazi (\" \")."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
@@ -9368,6 +9388,24 @@ msgstr ""
 "Errore 1045: accesso negato per l'utente. Potrebbero essere disponibili "
 "ulteriori informazioni sull'errore, ma sono nascoste dalla direttiva di "
 "configurazione %s."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Il nome della tabella è vuoto!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Si prega di inserire non più di {0} caratteri"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Le parole sono separate da spazi (\" \")."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -12011,13 +12049,14 @@ msgstr ""
 "via standard input. Restituisce lo standard output dell'applicazione. "
 "L'impostazione predefinita è Tidy, per stampare in maniera corretta il "
 "codice HTML. Per motivi di sicurezza, dovete editare manualmente il file "
-"libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin."
-"php e inserire gli strumenti che volete rendere disponibili. La prima "
-"opzione è il numero del programma che volete utilizzare. La seconda opzione "
-"dovrebbe essere blank per ragioni storiche. La terza opzione, se impostata a "
-"1, convertirà l'output utilizzando htmlspecialchars() (Default 1). La quarta "
-"opzione, se impostata a 1, inserirà un NOWRAP al contenuto della cella così "
-"che l'intero output sarà mostrato sulla stessa riga (Default 1)."
+"libraries/classes/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php e inserire gli strumenti che volete "
+"rendere disponibili. La prima opzione è il numero del programma che volete "
+"utilizzare. La seconda opzione dovrebbe essere blank per ragioni storiche. "
+"La terza opzione, se impostata a 1, convertirà l'output utilizzando "
+"htmlspecialchars() (Default 1). La quarta opzione, se impostata a 1, "
+"inserirà un NOWRAP al contenuto della cella così che l'intero output sarà "
+"mostrato sulla stessa riga (Default 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:121
 #, php-format
@@ -17114,8 +17153,9 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Attiva funzionalità avanzate nel file di configuratione (<code>config.inc."
-"php</code>), per esempio partendo da <code>config.sample.inc.php</code>."
+"Attiva funzionalità avanzate nel file di configuratione "
+"(<code>config.inc.php</code>), per esempio partendo da "
+"<code>config.sample.inc.php</code>."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -17711,8 +17751,8 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"Assicurati di avere un server-id unico nella file di configurazione (my."
-"cnf). Altrimenti, aggiungi la linea seguente nella sezione [mysqld]:"
+"Assicurati di avere un server-id unico nella file di configurazione "
+"(my.cnf). Altrimenti, aggiungi la linea seguente nella sezione [mysqld]:"
 
 #: templates/server/replication/change_primary.twig:26
 msgid "Port:"
@@ -19957,9 +19997,9 @@ msgstr "Nomi colonne"
 #~ "authentication[/a] (not located in your document root; suggested: /etc/"
 #~ "swekey.conf)."
 #~ msgstr ""
-#~ "Il percorso per il file di configurazione per [a@https://swekey."
-#~ "com]autenticazione con hardware SweKey[/a] (non salvata nella cartella "
-#~ "document root; percorso consigliato: /etc/swekey.conf)."
+#~ "Il percorso per il file di configurazione per [a@https://"
+#~ "swekey.com]autenticazione con hardware SweKey[/a] (non salvata nella "
+#~ "cartella document root; percorso consigliato: /etc/swekey.conf)."
 
 #~ msgid "SweKey config file"
 #~ msgstr "File di configurazione SweKey"
@@ -20172,8 +20212,8 @@ msgstr "Nomi colonne"
 #~ "Drizzle documentation is at <a href=\"https://www.drizzle.org/content/"
 #~ "documentation/\">https://www.drizzle.org/content/documentation/</a>"
 #~ msgstr ""
-#~ "La documentazione su Drizzle si trova qui <a href=\"https://www.drizzle."
-#~ "org/content/documentation/\">https://www.drizzle.org/content/"
+#~ "La documentazione su Drizzle si trova qui <a href=\"https://"
+#~ "www.drizzle.org/content/documentation/\">https://www.drizzle.org/content/"
 #~ "documentation/</a>"
 
 #~ msgid "Version string (%s) matches Drizzle versioning scheme"

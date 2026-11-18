@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-01-04 03:01+0000\n"
 "Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/5-2/el/"
@@ -298,15 +298,15 @@ msgstr "Ημί βέλτιστη μέθοδος λανθάνουσας μνήμη
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Χρησιμοποιείτε την προσωρινή μνήμη ερωτημάτων (Query cache) του MySQL με μια "
 "βάση δεδομένων σχετικά υψηλής κίνησης. Ίσως αξίζει να εξετάσετε τη χρήση του "
-"<a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached."
-"html\">memcached</a> αντί για την προσωρινή μνήμη ερωτημάτων του MySQL, "
-"ειδικά αν έχετε πολλαπλούς αντιγράφους (replicas)."
+"<a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> αντί για την προσωρινή μνήμη ερωτημάτων του "
+"MySQL, ειδικά αν έχετε πολλαπλούς αντιγράφους (replicas)."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -573,9 +573,9 @@ msgstr ""
 "από την τιμή αυτών των μεταβλητών. Για να το αποτρέψετε αυτό θα πρέπει να "
 "ξαναγράψετε τα ερωτήματά σας για να αποφύγετε αυτές τις συνθήκες (Εντός ενός "
 "προσωρινού πίνακα: Παρουσία μιας στήλης BLOB ή TEXT ή παρουσία μιας στήλης "
-"μεγαλύτερης από 512 bytes) όπως αναφέρθηκε στην <a href=\"https://dev.mysql."
-"com/doc/refman/8.0/en/internal-temporary-tables.html\">τεκμηρίωση της MySQL</"
-"a>"
+"μεγαλύτερης από 512 bytes) όπως αναφέρθηκε στην <a href=\"https://"
+"dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html\">τεκμηρίωση "
+"της MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
@@ -1008,8 +1008,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Ειδικά σε ένα σύστημα με πολλές εγγραφές σε πίνακες InnoDB θα πρέπει να "
 "ορίσετε το {innodb_log_file_size} στο 25% του {innodb_buffer_pool_size}. "
@@ -1057,14 +1057,14 @@ msgstr ""
 "Είναι συνήθως αρκετό να ορίσετε το {innodb_log_file_size} στο 25% του "
 "μεγέθους του {innodb_buffer_pool_size}. Ένα πολύ μεγάλο "
 "{innodb_log_file_size} επιβραδύνει το χρόνο επαναφοράς σημαντικά μετά από "
-"μια κατάρρευση βάσης δεδομένων. Δείτε επίσης <a href=\"https://www.percona."
-"com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">αυτό το άρθρο</"
-"a>. Χρειάζεται να τερματίσετε τον διακομιστή, να απομακρύνετε τα αρχεία "
-"καταγραφής της InnoDB, να ορίσετε τη νέα τιμή στο my.cnf, να εκκινήσετε τον "
-"διακομιστή και μετά να ελέγξετε τις καταγραφές σφαλμάτων αν όλα πήγαν καλά. "
-"Δείτε επίσης <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">αυτό το άρθρο "
-"ιστολογίου</a>"
+"μια κατάρρευση βάσης δεδομένων. Δείτε επίσης <a href=\"https://"
+"www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">αυτό "
+"το άρθρο</a>. Χρειάζεται να τερματίσετε τον διακομιστή, να απομακρύνετε τα "
+"αρχεία καταγραφής της InnoDB, να ορίσετε τη νέα τιμή στο my.cnf, να "
+"εκκινήσετε τον διακομιστή και μετά να ελέγξετε τις καταγραφές σφαλμάτων αν "
+"όλα πήγαν καλά. Δείτε επίσης <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">αυτό το άρθρο ιστολογίου</a>"
 
 #: libraries/advisory_rules_generic.php:676
 #, php-format
@@ -1133,8 +1133,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Ο ορισμός του {concurrent_insert} σε 1 μειώνει τη διαμάχη μεταξύ αναγνώσεων "
-"και εγγραφών για ένα πίνακα. Δείτε επίσης την <a href=\"https://dev.mysql."
-"com/doc/refman/5.5/en/concurrent-inserts.html\">τεκμηρίωση της MySQL</a>"
+"και εγγραφών για ένα πίνακα. Δείτε επίσης την <a href=\"https://"
+"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">τεκμηρίωση της "
+"MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -2470,13 +2471,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 "Περισσότερες πληροφορίες στο [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] και [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"issues/8970]phpMyAdmin issue tracker[/a] και [a@https://bugs.mysql.com/"
+"19588]MySQL Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -2786,8 +2787,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Εμφανίζει σύνδεσμο για το προϊόν του [a@https://php.net/manual/function."
-"phpinfo.php]phpinfo()[/a]."
+"Εμφανίζει σύνδεσμο για το προϊόν του [a@https://php.net/manual/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -2904,8 +2905,8 @@ msgstr ""
 "Το url του διακομιστή για χρήση όταν λαμβάνονται οι πληροφορίες για την "
 "τελευταία έκδοση του phpMyAdmin ή όταν υποβάλλονται αναφορές σφάλματος. Το "
 "χρειάζεστε αν ο διακομιστής που έχει εγκατασταθεί το phpMyAdmin δεν έχει "
-"άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: «όνομαδιακομιστή:"
-"αριθμόςθύρας»."
+"άμεση πρόσβαση στο διαδίκτυο. Η σύνταξη είναι: "
+"«όνομαδιακομιστή:αριθμόςθύρας»."
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid ""
@@ -4963,9 +4964,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"Αν η %1$sLogin cookie validity%2$s είναι μεγαλύτερη από %3$ssession."
-"gc_maxlifetime%4$s μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας (το τρέχον "
-"session.gc_maxlifetime είναι %5$d)."
+"Αν η %1$sLogin cookie validity%2$s είναι μεγαλύτερη από "
+"%3$ssession.gc_maxlifetime%4$s μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας "
+"(το τρέχον session.gc_maxlifetime είναι %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5419,15 +5420,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"Η παράμετρος PHP [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] είναι "
-"μικρότερη από την ρυθμισμένη εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας "
-"αυτού, η σύνδεσή σας ίσως λήξει νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
+"Η παράμετρος PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] είναι μικρότερη από την "
+"ρυθμισμένη εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας αυτού, η σύνδεσή σας "
+"ίσως λήξει νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9369,6 +9372,24 @@ msgstr ""
 "Σφάλμα κατά την επεξεργασία του αιτήματος: Δεν βρέθηκε trigger με το όνομα "
 "%1$s στη βάση δεδομένων %2$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Το όνομα της βάσης δεδομένων είναι κενό!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Εισάγετε όχι περισσότερους από {0} χαρακτήρες"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Οι λέξεις χωρίζονται από τον χαρακτήρα διαστήματος (« »)."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Ο διακομιστής δεσμεύει για σύνδεση SSL και ενεργοποιείται αυτόματα."
@@ -9381,6 +9402,24 @@ msgid ""
 msgstr ""
 "Σφάλμα 1045: Η πρόσβαση απορρίφθηκε για τον χρήστη. Επιπλέον πληροφορίες "
 "σφάλματος μπορεί να είναι διαθέσιμες, αλλά αποκρύπτονται από τη ρύθμιση %s."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Το όνομα του πίνακα είναι κενό!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Εισάγετε όχι περισσότερους από {0} χαρακτήρες"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Οι λέξεις χωρίζονται από τον χαρακτήρα διαστήματος (« »)."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -9895,8 +9934,8 @@ msgstr "Το αρχείο δεν ήταν αρχείο αποστολής."
 #: libraries/classes/File.php:266
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"Το προς αποστολή αρχείο υπερβαίνει την οδηγία upload_max_filesize στο php."
-"ini."
+"Το προς αποστολή αρχείο υπερβαίνει την οδηγία upload_max_filesize στο "
+"php.ini."
 
 #: libraries/classes/File.php:271
 msgid ""
@@ -16896,8 +16935,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Μπορείτε να ορίσετε περισσότερες ρυθμίσεις αλλάζοντας το αρχείο config.inc."
-"php, π.χ. χρησιμοποιώντας τον %sκώδικα Εγκατάστασης%s."
+"Μπορείτε να ορίσετε περισσότερες ρυθμίσεις αλλάζοντας το αρχείο "
+"config.inc.php, π.χ. χρησιμοποιώντας τον %sκώδικα Εγκατάστασης%s."
 
 #: templates/preferences/manage/main.twig:81
 msgid "Save as JSON file"
@@ -20203,9 +20242,9 @@ msgstr "Ονόματα στηλών"
 #~ "authentication[/a] (not located in your document root; suggested: /etc/"
 #~ "swekey.conf)."
 #~ msgstr ""
-#~ "Η διαδρομή για το αρχείο ρυθμίσεων για την [a@https://swekey."
-#~ "com]επικύρωση υλικού SweKey[/a] (δεν βρίσκεται στο ριζικό φάκελο του "
-#~ "εγγράφου; προτείνεται: /etc/swekey.conf)."
+#~ "Η διαδρομή για το αρχείο ρυθμίσεων για την [a@https://"
+#~ "swekey.com]επικύρωση υλικού SweKey[/a] (δεν βρίσκεται στο ριζικό φάκελο "
+#~ "του εγγράφου; προτείνεται: /etc/swekey.conf)."
 
 #~ msgid "SweKey config file"
 #~ msgstr "Αρχείο ρυθμίσεων SweKey"
@@ -20937,9 +20976,10 @@ msgstr "Ονόματα στηλών"
 #~ msgstr ""
 #~ "Αν θέλετε να χρησιμοποιήσετε την υπηρεσία Εγκυροποίησης SQL, πρέπει να "
 #~ "γνωρίζετε ότι [strong]όλες οι δηλώσεις SQL αποθηκεύονται ανώνυμα για "
-#~ "στατιστικούς λόγους[/strong].[br][em][a@https://sqlvalidator.mimer."
-#~ "com/]Εγκυροποιητής SQL Mimer[/a], Πνευματικά Δικαιώματα 2002 Upright "
-#~ "Database Technology. Με επιφύλαξη παντός δικαιώματος.[/em]"
+#~ "στατιστικούς λόγους[/strong].[br][em][a@https://"
+#~ "sqlvalidator.mimer.com/]Εγκυροποιητής SQL Mimer[/a], Πνευματικά "
+#~ "Δικαιώματα 2002 Upright Database Technology. Με επιφύλαξη παντός "
+#~ "δικαιώματος.[/em]"
 
 #~ msgid "Requires SQL Validator to be enabled."
 #~ msgstr "Απαιτεί την ενεργοποίηση του Εγκυροποιητή SQL."

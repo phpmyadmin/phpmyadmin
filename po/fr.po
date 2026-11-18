@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-11-16 11:35+0000\n"
 "Last-Translator: kjo-sdds <kjo-sdds@users.noreply.hosted.weblate.org>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
-"fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -256,8 +256,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"La documentation de Percona est disponible sur <a href=\"https://www.percona."
-"com/software/documentation/\"> https://www.percona.com/software/"
+"La documentation de Percona est disponible sur <a href=\"https://"
+"www.percona.com/software/documentation/\"> https://www.percona.com/software/"
 "documentation/</a>"
 
 #: libraries/advisory_rules_generic.php:164
@@ -298,14 +298,14 @@ msgstr "Méthode de cache non efficace."
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Le cache de requêtes MySQL est utilisé avec une base de données très "
-"sollicitée. Merci d'envisager l'utilisation de <a href=\"https://dev.mysql."
-"com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> à la place, "
-"spécialement en cas de nombreux serveurs répliqués."
+"sollicitée. Merci d'envisager l'utilisation de <a href=\"https://"
+"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> à la "
+"place, spécialement en cas de nombreux serveurs répliqués."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -573,8 +573,8 @@ msgstr ""
 "temporaires, il faut modifier les requêtes pour éviter ces conditions (dans "
 "une table temporaire : présence d'une colonne BLOB ou TEXT ou d'une colonne "
 "de taille supérieure à 512 octets) tel que décrit dans la <a href=\"https://"
-"dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables."
-"html\">documentation MySQL</a>"
+"dev.mysql.com/doc/refman/8.0/en/internal-temporary-"
+"tables.html\">documentation MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
@@ -1001,8 +1001,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "En particulier si ce système effectue de nombreuses écritures dans des "
 "tables InnoDB, il faudrait régler innodb_log_file à 25% de "
@@ -1010,10 +1010,10 @@ msgstr ""
 "sera le temps de recouvrement en cas de panne de la base de données, alors "
 "cette valeur ne devrait pas dépasser 256 Mio. Merci de noter qu'il n'est pas "
 "possible de simplement changer la valeur de cette variable. Il faut fermer "
-"le serveur, enlever les journaux InnoDB, placer la nouvelle valeur dans my."
-"cnf, démarrer le serveur, puis vérifier les journaux d'erreurs. Voir aussi "
-"<a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">cet article de blogue</a>"
+"le serveur, enlever les journaux InnoDB, placer la nouvelle valeur dans "
+"my.cnf, démarrer le serveur, puis vérifier les journaux d'erreurs. Voir "
+"aussi <a href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/"
+"increase-innodblogfilesize-proper-way.html\">cet article de blogue</a>"
 
 #: libraries/advisory_rules_generic.php:626
 #: libraries/advisory_rules_generic.php:653
@@ -1152,8 +1152,8 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.php:18
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
-"query_cache_size a une valeur de 0 ou query_cache_type est à défini à « "
-"Désactivé » (OFF)"
+"query_cache_size a une valeur de 0 ou query_cache_type est à défini à "
+"« Désactivé » (OFF)"
 
 #: libraries/advisory_rules_mysql_before80003.php:23
 #, no-php-format
@@ -2441,9 +2441,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 "Davantage d'informations sur [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]ce bogue phpMyAdmin[/a] et [a@https://bugs.mysql.com/19588]ce "
@@ -2818,8 +2818,8 @@ msgid ""
 "`LoginCookieValidity`."
 msgstr ""
 "Désactiver l'avertissement affiché sur la page principale si la valeur du "
-"paramètre PHP session.gc_maxlifetime est moindre que celle de « "
-"LoginCookieValidity »."
+"paramètre PHP session.gc_maxlifetime est moindre que celle de "
+"« LoginCookieValidity »."
 
 #: libraries/classes/Config/Descriptions.php:517
 msgid ""
@@ -5369,16 +5369,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"La valeur du paramètre PHP [a@https://www.php.net/manual/fr/session."
-"configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/"
-"a] est plus petite que la durée du Cookie configurée dans phpMyAdmin ; la "
-"session de travail pourrait donc expirer plus tôt que la valeur configurée "
-"dans phpMyAdmin."
+"La valeur du paramètre PHP [a@https://www.php.net/manual/fr/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] est plus petite que la durée "
+"du Cookie configurée dans phpMyAdmin ; la session de travail pourrait donc "
+"expirer plus tôt que la valeur configurée dans phpMyAdmin."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -7571,8 +7572,8 @@ msgstr ""
 "navigateur ne prenne pas en charge le stockage ou que le quota d'espace ait "
 "été atteint. Dans Firefox, un stockage corrompu peut également causer ce "
 "problème, et vider les « Données de site Web hors connexion » peut aider. "
-"Dans Safari, ce problème est habituellement causé par l'utilisation de la « "
-"Navigation en mode privé »."
+"Dans Safari, ce problème est habituellement causé par l'utilisation de la "
+"« Navigation en mode privé »."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Copy tables to"
@@ -9303,6 +9304,24 @@ msgstr ""
 "Erreur dans le traitement de la demande : aucun déclencheur nommé %1$s n'a "
 "été trouvé dans la base de données %2$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "Le nom de la base de données est vide !"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Merci de saisir au maximum {0} caractères"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Séparer les mots par une espace (« »)."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "Connexion SSL imposée par le serveur, activée automatiquement."
@@ -9316,6 +9335,24 @@ msgstr ""
 "Erreur 1045 : Accès refusé pour l'utilisateur. Des informations "
 "supplémentaires sur les erreurs peuvent être disponibles, mais elles sont "
 "masquées par la directive de configuration %s."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "Le nom de la table est vide !"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Merci de saisir au maximum {0} caractères"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Séparer les mots par une espace (« »)."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -11471,8 +11508,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "inclure les noms de colonnes dans chaque instruction <code>INSERT</code><br> "
-"&nbsp; &nbsp; &nbsp; Par exemple : <code>INSERT INTO tbl_name (col_A,col_B,"
-"col_C) VALUES (1,2,3)</code>"
+"&nbsp; &nbsp; &nbsp; Par exemple : <code>INSERT INTO tbl_name "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:472
 msgid ""
@@ -11505,8 +11542,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Décharger les colonnes binaires en format hexadécimal <i>(par exemple, « abc "
-"» devient 0x616263)</i>"
+"Décharger les colonnes binaires en format hexadécimal <i>(par exemple, "
+"« abc » devient 0x616263)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:510
 msgid ""
@@ -11924,10 +11961,10 @@ msgstr ""
 "contenant une valeur TIMESTAMP UNIX en tant que date formatée. La première "
 "option est le décalage (en heures) à ajouter (par défaut, 0). La seconde "
 "option sert à indiquer le format de date ou d'heure. La troisième option "
-"définit si l'utilisateur veut voir la date locale (« local ») ou UTC (« utc "
-"»). Pour le format « local », le second paramètre utilise le format de la "
-"fonction PHP strftime() et pour le format « utc », il utilise la fonction "
-"gmdate()."
+"définit si l'utilisateur veut voir la date locale (« local ») ou UTC "
+"(« utc »). Pour le format « local », le second paramètre utilise le format "
+"de la fonction PHP strftime() et pour le format « utc », il utilise la "
+"fonction gmdate()."
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:72
@@ -14176,9 +14213,9 @@ msgid ""
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Merci de saisir les valeurs des options de transformation en suivant ce "
-"format : 'a', 100, b,'c'…<br>S'il faut saisir une barre oblique inverse (« "
-"\\ ») ou une apostrophe (« ' ») parmi ces valeurs, la faire précéder d'une "
-"barre oblique inverse (par exemple '\\\\xyz' ou 'a\\'b')."
+"format : 'a', 100, b,'c'…<br>S'il faut saisir une barre oblique inverse "
+"(« \\ ») ou une apostrophe (« ' ») parmi ces valeurs, la faire précéder "
+"d'une barre oblique inverse (par exemple '\\\\xyz' ou 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:88
 #: templates/transformation_overview.twig:37
@@ -17086,8 +17123,8 @@ msgid ""
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 "Activer les fonctions avancées dans le fichier de configuration "
-"(<code>config.inc.php</code>), en se basant par exemple sur <code>config."
-"sample.inc.php</code>."
+"(<code>config.inc.php</code>), en se basant par exemple sur "
+"<code>config.sample.inc.php</code>."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -17766,8 +17803,8 @@ msgid ""
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
-"Une fois que le serveur MySQL est redémarré, merci de cliquer sur « Exécuter "
-"». Par la suite, un message devrait vous informer que ce serveur "
+"Une fois que le serveur MySQL est redémarré, merci de cliquer sur "
+"« Exécuter ». Par la suite, un message devrait vous informer que ce serveur "
 "<strong>est</strong> configuré comme original."
 
 #: templates/server/replication/primary_replication.twig:5
@@ -19961,9 +19998,9 @@ msgstr "Noms de colonnes"
 #~ "authentication[/a] (not located in your document root; suggested: /etc/"
 #~ "swekey.conf)."
 #~ msgstr ""
-#~ "Le chemin du fichier de configuration pour [a@https://swekey."
-#~ "com]l'authentification matérielle Swekey[/a] (ne pas placer sous la "
-#~ "racine des documents; suggestion : /etc/swekey.conf)."
+#~ "Le chemin du fichier de configuration pour [a@https://"
+#~ "swekey.com]l'authentification matérielle Swekey[/a] (ne pas placer sous "
+#~ "la racine des documents; suggestion : /etc/swekey.conf)."
 
 #~ msgid "SweKey config file"
 #~ msgstr "Fichier de configuration SweKey"
@@ -20176,8 +20213,8 @@ msgstr "Noms de colonnes"
 #~ "Drizzle documentation is at <a href=\"https://www.drizzle.org/content/"
 #~ "documentation/\">https://www.drizzle.org/content/documentation/</a>"
 #~ msgstr ""
-#~ "La documentation de Drizzle est disponible sur <a href=\"https://www."
-#~ "drizzle.org/content/documentation/\"> https://www.drizzle.org/content/"
+#~ "La documentation de Drizzle est disponible sur <a href=\"https://"
+#~ "www.drizzle.org/content/documentation/\"> https://www.drizzle.org/content/"
 #~ "documentation/</a>"
 
 #~ msgid "Version string (%s) matches Drizzle versioning scheme"

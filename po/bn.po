@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2022-02-17 10:34+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -286,14 +286,14 @@ msgstr "সহযোগী ক্যাশ করার পদ্ধতি।"
 #| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "আপনি অনেক ব্যবহৃত একটি ডাটাবেইজে MySQL অনুসন্ধান ক্যাশ ব্যবহার করছেন। এটি অনেক "
-"মুল্যবান হতে পারে, MySQL অনুসন্ধান ক্যাশের পরিবর্তে <a href=\"https://dev.mysql."
-"com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> ব্যবহার করতে পারেন, "
-"বিশেষত আপনার যদি অনেকগুলো slave থাকে।"
+"মুল্যবান হতে পারে, MySQL অনুসন্ধান ক্যাশের পরিবর্তে <a href=\"https://"
+"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> ব্যবহার "
+"করতে পারেন, বিশেষত আপনার যদি অনেকগুলো slave থাকে।"
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -854,8 +854,8 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"সাধারনত প্রমাণীকরন করা না গেলে সংযোগ বাতিল করা হয়। <a href=\"https://www."
-"mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-"
+"সাধারনত প্রমাণীকরন করা না গেলে সংযোগ বাতিল করা হয়। <a href=\"https://"
+"www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> সংযোগটি চিহ্নিত করতে সাহায্য করবে।"
 
 #: libraries/advisory_rules_generic.php:551
@@ -946,8 +946,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "যে সিস্টেমে অনেক বেশী InnoDB টেবলে লেখা হয় {innodb_log_file_size} কে "
 "{innodb_buffer_pool_size} এর 25%% নির্ধারন করতে হয়। এর মানটি যত বেশী হবে "
@@ -1820,8 +1820,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:118
 #, fuzzy
 #| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+#| "Use user-friendly editor for editing SQL queries ([a@https://"
+#| "codemirror.net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -2376,13 +2376,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:366
 #, fuzzy
 #| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
+#| "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/"
+#| "2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/"
+#| "a]"
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
 "আরো তথ্যের জন্য [a@https://sf.net/support/tracker.php?aid=1849494]PMA bug "
 "tracker[/a] এবং [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
@@ -5424,20 +5424,22 @@ msgstr ""
 #: libraries/classes/Controllers/HomeController.php:271
 #, fuzzy
 #| msgid ""
-#| "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-#| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-#| "than cookie validity configured in phpMyAdmin, because of this, your "
-#| "login will expire sooner than configured in phpMyAdmin."
+#| "Your PHP parameter [a@https://www.php.net/manual/en/"
+#| "session.configuration.php#ini.session.gc-"
+#| "maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie "
+#| "validity configured in phpMyAdmin, because of this, your login will "
+#| "expire sooner than configured in phpMyAdmin."
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"আপনার পিএইছপি চলক[a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] মান "
-"phpMyAdmin এর কুকির থেকে কম স্থায়ী, এ জন্য আপনার লগইনের কার্যকাল দ্রুত শেষ হয়ে "
-"যাবে।"
+"আপনার পিএইছপি চলক[a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] মান phpMyAdmin এর কুকির থেকে কম "
+"স্থায়ী, এ জন্য আপনার লগইনের কার্যকাল দ্রুত শেষ হয়ে যাবে।"
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9486,6 +9488,23 @@ msgid ""
 "%2$s."
 msgstr "ডাটাবেইজ %2$s এ %1$s নামে কোন ট্রিগার পাওয়া যায়নি"
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "ডাটাবেইজের নাম দেওয়া হয় নাই!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, php-format
+msgid "The database name cannot be longer than %d characters."
+msgstr ""
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "শব্দগুলো ফাকা (\" \") বর্ণ দিয়ে আলাদা করা।"
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
@@ -9496,6 +9515,23 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "টেবিলের নামটি খালি!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, php-format
+msgid "The table name cannot be longer than %d characters."
+msgstr ""
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "শব্দগুলো ফাকা (\" \") বর্ণ দিয়ে আলাদা করা।"
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -12132,13 +12168,13 @@ msgstr ""
 "LINUX ONLY: Launches an external application and feeds it the field data via "
 "standard input. Returns the standard output of the application. The default "
 "is Tidy, to pretty-print HTML code. For security reasons, you have to "
-"manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
+"manually edit the file libraries/transformations/"
+"text_plain__external.inc.php and list the tools you want to make available. "
+"The first option is then the number of the program you want to use and the "
+"second option is the parameters for the program. The third option, if set to "
+"1, will convert the output using htmlspecialchars() (Default 1). The fourth "
+"option, if set to 1, will prevent wrapping and ensure that the output "
+"appears all on one line (Default 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:121
 #, php-format

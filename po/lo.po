@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-08-01 23:19+0000\n"
 "Last-Translator: BoneNI <bounkirdni@gmail.com>\n"
 "Language-Team: Lao <https://hosted.weblate.org/projects/phpmyadmin/5-2/lo/>\n"
@@ -276,9 +276,9 @@ msgstr "ວິທີການເຮັດແຄຊຍັງບໍ່ດີເທ
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "ເຈົ້າກຳລັງໃຊ້ແຄຊ໌ການສອບຖາມຂອງ MySQL ກັບຖານຂໍ້ມູນທີ່ມີການເຂົ້າເຖິງຂ້ອນຂ້າງສູງ. "
 "ມັນອາດຈະຄຸ້ມຄ່າທີ່ຈະພິຈາລະນາໃຊ້ <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
@@ -495,9 +495,9 @@ msgstr ""
 "ການເພີ່ມ {max_heap_table_size} ແລະ {tmp_table_size} ອາດຈະຊ່ວຍໄດ້. ແນວໃດກໍຕາມ "
 "ຕາຕະລາງຊົ່ວຄາວບາງຢ່າງກໍຈະຖືກຂຽນລົງດິສກ໌ສະເໝີ ໂດຍບໍ່ຂຶ້ນກັບຄ່າເຫຼົ່ານີ້. ເພື່ອກຳຈັດບັນຫານີ້ "
 "ທ່ານຈະຕ້ອງຂຽນຄຳສັ່ງສອບຖາມໃໝ່ເພື່ອຫຼີກລ່ຽງເງື່ອນໄຂເຫຼົ່ານັ້ນ (ພາຍໃນຕາຕະລາງຊົ່ວຄາວ: ມີຄໍລຳ BLOB ຫຼື "
-"TEXT ຫຼື ມີຄໍລຳທີ່ມີຂະໜາດໃຫຍ່ກວ່າ 512 ໄບຕ໌) ຕາມທີ່ໄດ້ລະບຸໄວ້ໃນ <a href=\"https://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">ບົດຄວາມໂດຍ Pythian "
-"Group</a>"
+"TEXT ຫຼື ມີຄໍລຳທີ່ມີຂະໜາດໃຫຍ່ກວ່າ 512 ໄບຕ໌) ຕາມທີ່ໄດ້ລະບຸໄວ້ໃນ <a href=\"https://"
+"www.facebook.com/note.php?note_id=10150111255065841&comments\">ບົດຄວາມໂດຍ "
+"Pythian Group</a>"
 
 #: libraries/advisory_rules_generic.php:331
 #, php-format
@@ -522,8 +522,8 @@ msgid ""
 msgstr ""
 "ການເພີ່ມຄ່າ {max_heap_table_size} ແລະ {tmp_table_size} ອາດຈະຊ່ວຍໄດ້. ແນວໃດກໍຕາມ "
 "ຕາຕະລາງຊົ່ວຄາວບາງຢ່າງກໍຖືກຂຽນລົງດິສກ໌ສະເໝີ ໂດຍບໍ່ຂຶ້ນກັບຄ່າເຫຼົ່ານີ້. ເພື່ອແກ້ໄຂບັນຫານີ້ "
-"ເຈົ້າຈະຕ້ອງຂຽນຄຳສັ່ງສອບຖາມໃໝ່ເພື່ອຫຼີກລ່ຽງເງື່ອນໄຂເຫຼົ່ານັ້ນ ຕາມທີ່ລະບຸໄວ້ໃນ <a href=\"https://dev."
-"mysql.com/doc/refman/8.0/en/internal-temporary-tables.html\">ຄູ່ມື MySQL</a>"
+"ເຈົ້າຈະຕ້ອງຂຽນຄຳສັ່ງສອບຖາມໃໝ່ເພື່ອຫຼີກລ່ຽງເງື່ອນໄຂເຫຼົ່ານັ້ນ ຕາມທີ່ລະບຸໄວ້ໃນ <a href=\"https://"
+"dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html\">ຄູ່ມື MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
@@ -814,9 +814,9 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
-"ການເຊື່ອມຕໍ່ໂດຍປົກກະຕິຈະຖືກຍົກເລີກ ເມື່ອບໍ່ສາມາດຢືນຢັນສິດໄດ້.<a href=\"https://www.percona."
-"com/blog/2008/08/23/how-to-track-down-the-source-of-aborted_connects/"
-"\">ບົດຄວາມນີ້</a> ອາດຊ່ວຍທ່ານຕິດຕາມຫາຕົ້ນຕໍຂອງບັນຫາໄດ້."
+"ການເຊື່ອມຕໍ່ໂດຍປົກກະຕິຈະຖືກຍົກເລີກ ເມື່ອບໍ່ສາມາດຢືນຢັນສິດໄດ້.<a href=\"https://"
+"www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">ບົດຄວາມນີ້</a> ອາດຊ່ວຍທ່ານຕິດຕາມຫາຕົ້ນຕໍຂອງບັນຫາໄດ້."
 
 #: libraries/advisory_rules_generic.php:551
 #, php-format
@@ -906,8 +906,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "ໂດຍສະເພາະໃນລະບົບທີ່ມີການຂຽນລົງໃນຕາຕະລາງ InnoDB ຫຼາຍ, ທ່ານຄວນຕັ້ງຄ່າ "
 "{innodb_log_file_size} ໃຫ້ເປັນ 25% ຂອງ {innodb_buffer_pool_size}. ແຕ່ຢ່າງໃດກໍຕາມ "
@@ -955,9 +955,9 @@ msgstr ""
 "href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
 "innodb_log_file_size/\">ບົດຄວາມນີ້</a>. ເຈົ້າຈຳເປັນຕ້ອງປິດເຊີເວີ, ລຶບໄຟລ໌ລັອກ (log files) "
 "ຂອງ InnoDB ອອກ, ກຳນົດຄ່າໃໝ່ໃນ my.cnf, ເປີດເຊີເວີ, ແລ້ວກວດກາເບິ່ງລັອກຂໍ້ຜິດພາດ (error "
-"logs) ວ່າທຸກຢ່າງຮຽບຮ້ອຍດີຫຼືບໍ່. ເບິ່ງຕື່ມທີ່ <a href=\"https://mysqldatabaseadministration."
-"blogspot.com/2007/01/increase-innodblogfilesize-proper-way."
-"html\">ບົດຄວາມໃນບລັອກນີ້</a>"
+"logs) ວ່າທຸກຢ່າງຮຽບຮ້ອຍດີຫຼືບໍ່. ເບິ່ງຕື່ມທີ່ <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">ບົດຄວາມໃນບລັອກນີ້</a>"
 
 #: libraries/advisory_rules_generic.php:676
 #, php-format
@@ -1022,8 +1022,8 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "ການຕັ້ງຄ່າ {concurrent_insert} ເປັນ 1 ຈະຊ່ວຍຫຼຸດຜ່ອນການຍາດແຍ່ງລະຫວ່າງຜູ້ອ່ານ ແລະ "
-"ຜູ້ຂຽນຂໍ້ມູນໃນຕາຕະລາງ. ເບິ່ງເພີ່ມເຕີມໄດ້ທີ່ <a href=\"https://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\">ເອກະສານ MySQL</a>"
+"ຜູ້ຂຽນຂໍ້ມູນໃນຕາຕະລາງ. ເບິ່ງເພີ່ມເຕີມໄດ້ທີ່ <a href=\"https://dev.mysql.com/doc/refman/"
+"5.5/en/concurrent-inserts.html\">ເອກະສານ MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -2251,13 +2251,13 @@ msgstr "ພອດສຳຮອງສຳລັບເຊື່ອມຕໍ່ກັ
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"ຂໍ້ມູນເພີ່ມເຕີມທີ່ [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] ແລະ [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"ຂໍ້ມູນເພີ່ມເຕີມທີ່ [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] ແລະ [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -2520,8 +2520,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"ສະແດງລິ້ງໄປຫາໜ້າຜົນລັບຂອງ [a@https://www.php.net/manual/en/function.phpinfo."
-"php]phpinfo()[/a]."
+"ສະແດງລິ້ງໄປຫາໜ້າຜົນລັບຂອງ [a@https://www.php.net/manual/en/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -4641,8 +4641,8 @@ msgid ""
 "may go to 'Operations' tab of any database to set up the phpMyAdmin "
 "configuration storage there."
 msgstr ""
-"ເຈົ້າບໍ່ມີສິດທີ່ຈຳເປັນໃນການສ້າງຖານຂໍ້ມູນທີ່ມີຊື່ວ່າ '%s'. ເຈົ້າສາມາດໄປທີ່ແທັບ "
-"'ການຈັດການ' (Operations) ຂອງຖານຂໍ້ມູນໃດໜຶ່ງ ເພື່ອຕັ້ງຄ່າບ່ອນເກັບການຕັ້ງຄ່າ phpMyAdmin ຢູ່ທີ່ນັ້ນ."
+"ເຈົ້າບໍ່ມີສິດທີ່ຈຳເປັນໃນການສ້າງຖານຂໍ້ມູນທີ່ມີຊື່ວ່າ '%s'. ເຈົ້າສາມາດໄປທີ່ແທັບ 'ການຈັດການ' "
+"(Operations) ຂອງຖານຂໍ້ມູນໃດໜຶ່ງ ເພື່ອຕັ້ງຄ່າບ່ອນເກັບການຕັ້ງຄ່າ phpMyAdmin ຢູ່ທີ່ນັ້ນ."
 
 #: libraries/classes/ConfigStorage/UserGroups.php:112
 msgid "View users"
@@ -5012,15 +5012,16 @@ msgstr "ຫຼື ໄປທີ່ແຖບ 'ການຈັດການ (Operati
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"ຄ່າພາຣາມິເຕີ PHP [a@https://www.php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] "
-"ຕຳ່ກວ່າອາຍຸຂອງຄຸກກີ້ທີ່ຕັ້ງໄວ້ໃນ phpMyAdmin, "
-"ເຊິ່ງອາດເຮັດໃຫ້ການເຂົ້າລະບົບຂອງທ່ານໝົດອາຍຸໄວກວ່າທີ່ກຳນົດໄວ້."
+"ຄ່າພາຣາມິເຕີ PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] ຕຳ່ກວ່າອາຍຸຂອງຄຸກກີ້ທີ່ຕັ້ງໄວ້ໃນ "
+"phpMyAdmin, ເຊິ່ງອາດເຮັດໃຫ້ການເຂົ້າລະບົບຂອງທ່ານໝົດອາຍຸໄວກວ່າທີ່ກຳນົດໄວ້."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -8458,8 +8459,8 @@ msgid ""
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"ບໍ່ສາມາດໃຊ້ເຂດເວລາ \\\"%1$s\\\" ສຳລັບເຊີເວີ %2$d. ກະລຸນາກວດສອບການຕັ້ງຄ່າຂອງທ່ານສຳລັບ "
-"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. ປັດຈຸບັນ phpMyAdmin "
+"ບໍ່ສາມາດໃຊ້ເຂດເວລາ \\\"%1$s\\\" ສຳລັບເຊີເວີ %2$d. ກະລຸນາກວດສອບການຕັ້ງຄ່າຂອງທ່ານສຳລັບ [em]"
+"$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. ປັດຈຸບັນ phpMyAdmin "
 "ແມ່ນກຳລັງໃຊ້ເຂດເວລາເລີ່ມຕົ້ນຂອງຖານຂໍ້ມູນເຊີເວີ."
 
 #: libraries/classes/DatabaseInterface.php:1187
@@ -8710,6 +8711,24 @@ msgid ""
 "%2$s."
 msgstr "ຂໍ້ຜິດພາດ: ບໍ່ພົບ trigger ຊື່ %1$s ໃນຖານຂໍ້ມູນ %2$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "ຊື່ຖານຂໍ້ມູນຫວ່າງເປົ່າ!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "ກະລຸນາປ້ອນຂໍ້ມູນບໍ່ເກີນ {0} ຕົວອັກສອນ"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "ແຍກຄຳດ້ວຍການຍະຫວ່າງ (\" \")."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "ເຊີເວີບັງຄັບໃຫ້ເຊື່ອມຕໍ່ຜ່ານ SSL, ກຳລັງເປີດໃຊ້ງານອັດຕະໂນມັດ."
@@ -8720,6 +8739,24 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr "ຂໍ້ຜິດພາດ 1045: ບໍ່ອະນຸຍາດໃຫ້ຜູ້ໃຊ້ເຂົ້າເຖິງ. ຂໍ້ມູນເພີ່ມເຕີມຖືກເຊື່ອງໄວ້ໂດຍ %s."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "ຊື່ຕາຕະລາງຫວ່າງເປົ່າ!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "ກະລຸນາປ້ອນຂໍ້ມູນບໍ່ເກີນ {0} ຕົວອັກສອນ"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "ແຍກຄຳດ້ວຍການຍະຫວ່າງ (\" \")."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -11340,8 +11377,8 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"ສະແດງລິ້ງ; ໂດຍທີ່ຄໍລຳນັ້ນຈະເກັບຊື່ໄຟລ໌. ຕົວເລືອກທຳອິດແມ່ນ URL ນຳໜ້າ ເຊັ່ນ \"https://www."
-"example.com/\". ຕົວເລືອກທີສອງແມ່ນຫົວຂໍ້ຂອງລິ້ງ."
+"ສະແດງລິ້ງ; ໂດຍທີ່ຄໍລຳນັ້ນຈະເກັບຊື່ໄຟລ໌. ຕົວເລືອກທຳອິດແມ່ນ URL ນຳໜ້າ ເຊັ່ນ \"https://"
+"www.example.com/\". ຕົວເລືອກທີສອງແມ່ນຫົວຂໍ້ຂອງລິ້ງ."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
@@ -15306,8 +15343,8 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"ຊື່ໄຟລ໌ທີ່ຖືກບີບອັດຕ້ອງລົງທ້າຍດ້ວຍ <strong>.[ຮູບແບບ].[ການບີບອັດ]</strong>. ຕົວຢ່າງ: <strong>."
-"sql.zip</strong>"
+"ຊື່ໄຟລ໌ທີ່ຖືກບີບອັດຕ້ອງລົງທ້າຍດ້ວຍ <strong>.[ຮູບແບບ].[ການບີບອັດ]</strong>. ຕົວຢ່າງ: "
+"<strong>.sql.zip</strong>"
 
 #: templates/import.twig:40
 msgid "Upload a file"

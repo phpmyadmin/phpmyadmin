@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2026-11-07 13:46+0000\n"
+"POT-Creation-Date: 2026-11-18 15:48+0000\n"
 "PO-Revision-Date: 2026-11-08 14:51+0000\n"
 "Last-Translator: dingo thirteen <dingo13@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/>"
-"\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/5-2/nl/"
+">\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -294,14 +294,14 @@ msgstr "Suboptimale cachingmethode."
 #: libraries/advisory_rules_generic.php:190
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "U gebruikt MySQL-querycache op een druk gebruikte database. U kan overwegen "
-"om <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached."
-"html\">memcached</a> te gebruiken in plaats van MySQL-querycache, vooral als "
-"u verschillende replica's heeft."
+"om <a href=\"https://dev.mysql.com/doc/refman/5.6/en/ha-"
+"memcached.html\">memcached</a> te gebruiken in plaats van MySQL-querycache, "
+"vooral als u verschillende replica's heeft."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -536,9 +536,9 @@ msgstr ""
 "onafhankelijk van de waarde van deze variabelen. Om dit te vermijden zullen "
 "deze query's herschreven moeten worden, om deze voorwaarden te vermijden "
 "(bij tijdelijke tabellen: Gebruik van een BLOB of TEXT kolom of een kolom "
-"groter dan 512 bytes) zoals vermeld wordt in een <a href=\"https://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">artikel van de "
-"Pythian Group</a>"
+"groter dan 512 bytes) zoals vermeld wordt in een <a href=\"https://"
+"www.facebook.com/note.php?note_id=10150111255065841&comments\">artikel van "
+"de Pythian Group</a>"
 
 #: libraries/advisory_rules_generic.php:331
 #, php-format
@@ -568,8 +568,9 @@ msgstr ""
 "onafhankelijk van de waarde van deze variabelen. Om dit te vermijden zullen "
 "deze query's herschreven moeten worden, om deze voorwaarden te vermijden "
 "(bij tijdelijke tabellen: Gebruik van een BLOB of TEXT kolom of een kolom "
-"groter dan 512 bytes) zoals vermeld wordt in de <a href=\"https://dev.mysql."
-"com/doc/refman/8.0/en/internal-temporary-tables.html\">MySQL Documentatie</a>"
+"groter dan 512 bytes) zoals vermeld wordt in de <a href=\"https://"
+"dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html\">MySQL "
+"Documentatie</a>"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
@@ -997,8 +998,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Vooral op een systeem met veel schrijfacties naar InnoDB-tabellen, is het "
 "aan te raden om {innodb_log_file_size} in te stellen op 25% van "
@@ -1045,8 +1046,8 @@ msgid ""
 msgstr ""
 "Doorgaans is het voldoende om {innodb_log_file_size} in te stellen op 25% "
 "van {innodb_buffer_pool_size}. Een grote {innodb_log_file_size} verlengt de "
-"hersteltijd na een database-crash enorm. Bekijk ook <a href=\"https://www."
-"percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">dit "
+"hersteltijd na een database-crash enorm. Bekijk ook <a href=\"https://"
+"www.percona.com/blog/2006/07/03/choosing-proper-innodb_log_file_size/\">dit "
 "artikel</a>. De server moet uitgeschakeld worden, de InnoDB-logbestanden "
 "moeten worden verwijderd, de nieuwe waarde moet worden ingesteld in my.cnf, "
 "de server herstart en dan moeten de foutenlogboeken bekeken worden om te "
@@ -1089,8 +1090,9 @@ msgstr ""
 "zorgvuldig het geheugengebruik van de andere diensten en niet-InnoDB-"
 "tabellen inschatten en deze waarde gepast instellen. Als deze te hoog wordt "
 "ingesteld, kan het systeem swapgeheugen gaan gebruiken, waardoor de "
-"prestaties sterk verminderd worden. Bekijk ook <a href=\"https://www.percona."
-"com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">dit artikel</a>"
+"prestaties sterk verminderd worden. Bekijk ook <a href=\"https://"
+"www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\">dit "
+"artikel</a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -1120,8 +1122,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "{concurrent_insert} instellen op 1 vermindert geschillen tussen lezers en "
-"schrijvers voor een bepaalde tabel. Bekijk ook de <a href=\"https://dev."
-"mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL-documentatie</a>"
+"schrijvers voor een bepaalde tabel. Bekijk ook de <a href=\"https://"
+"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL-"
+"documentatie</a>"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -2436,13 +2439,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Zie voor meer informatie: [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] en [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"Zie voor meer informatie: [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] en [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -2751,8 +2754,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Toon link naar de uitvoer van [a@https://www.php.net/manual/en/function."
-"phpinfo.php]phpinfo()[/a]."
+"Toon link naar de uitvoer van [a@https://www.php.net/manual/en/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -4887,9 +4890,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%1$sAanmeldingscookiegeldigheid%2$s groter dan %3$ssession."
-"gc_maxlifetime%4$s kan willekeurige sessieproblemen veroorzaken (huidige "
-"waarde van session.gc_maxlifetime is %5$d)."
+"%1$sAanmeldingscookiegeldigheid%2$s groter dan "
+"%3$ssession.gc_maxlifetime%4$s kan willekeurige sessieproblemen veroorzaken "
+"(huidige waarde van session.gc_maxlifetime is %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5340,15 +5343,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:271
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"De PHP-parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is korter "
-"dan de ingestelde cookie validatie in phpMyAdmin. Hierdoor verloopt uw "
-"sessie eerder dan in phpMyAdmin is ingesteld."
+"De PHP-parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is korter dan de ingestelde "
+"cookie validatie in phpMyAdmin. Hierdoor verloopt uw sessie eerder dan in "
+"phpMyAdmin is ingesteld."
 
 #: libraries/classes/Controllers/HomeController.php:288
 msgid ""
@@ -9260,6 +9265,24 @@ msgstr ""
 "Fout opgetreden in de verwerking van de aanvraag: Geen trigger met naam %1$s "
 "gevonden in database %2$s."
 
+#: libraries/classes/Dbal/DatabaseName.php:41
+#, fuzzy
+#| msgid "The database name is empty!"
+msgid "The database name must be a non-empty string."
+msgstr "De databasenaam is leeg!"
+
+#: libraries/classes/Dbal/DatabaseName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The database name cannot be longer than %d characters."
+msgstr "Vul a.u,b, niet meer dan {0} tekens in"
+
+#: libraries/classes/Dbal/DatabaseName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The database name cannot end with a space character."
+msgstr "Woorden worden gesplitst door een spatiekarakter (\" \")."
+
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr "SSL-verbinding afgedwongen door de server en automatisch geactiveerd."
@@ -9272,6 +9295,24 @@ msgid ""
 msgstr ""
 "Fout 1045: Toegang geweigerd voor gebruiker. Additionele informatie is "
 "misschien beschikbaar maar is verborgen door de %s configuratie regel."
+
+#: libraries/classes/Dbal/TableName.php:41
+#, fuzzy
+#| msgid "The table name is empty!"
+msgid "The table name must be a non-empty string."
+msgstr "De tabelnaam is leeg!"
+
+#: libraries/classes/Dbal/TableName.php:49
+#, fuzzy, php-format
+#| msgid "Please enter no more than {0} characters"
+msgid "The table name cannot be longer than %d characters."
+msgstr "Vul a.u,b, niet meer dan {0} tekens in"
+
+#: libraries/classes/Dbal/TableName.php:57
+#, fuzzy
+#| msgid "Words are separated by a space character (\" \")."
+msgid "The table name cannot end with a space character."
+msgstr "Woorden worden gesplitst door een spatiekarakter (\" \")."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
@@ -12198,8 +12239,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
-"Connectie met server is uitgeschakeld, stel in phpMyAdmin configuratie a.u."
-"b, $cfg['AllowArbitraryServer'] in."
+"Connectie met server is uitgeschakeld, stel in phpMyAdmin configuratie "
+"a.u.b, $cfg['AllowArbitraryServer'] in."
 
 #: libraries/classes/ReplicationGui.php:474
 msgid "Replication started successfully."
@@ -17015,9 +17056,9 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Geavanceerde functionaliteit kan in het configuratiebestand (<code>config."
-"inc.php</code>) ingeschakeld worden, als voorbeeld kunt u gebruik maken van "
-"<code>config.sample.inc.php</code>."
+"Geavanceerde functionaliteit kan in het configuratiebestand "
+"(<code>config.inc.php</code>) ingeschakeld worden, als voorbeeld kunt u "
+"gebruik maken van <code>config.sample.inc.php</code>."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -19581,8 +19622,8 @@ msgstr "Kolomnamen"
 #~ msgid ""
 #~ "Incorrect formset, check $formsets array in setup/frames/form.inc.php!"
 #~ msgstr ""
-#~ "Ongeldige formset, controleer de array $formsets in setup/frames/form.inc."
-#~ "php!"
+#~ "Ongeldige formset, controleer de array $formsets in setup/frames/"
+#~ "form.inc.php!"
 
 #~ msgid "Unknonwn"
 #~ msgstr "Onbekend"
