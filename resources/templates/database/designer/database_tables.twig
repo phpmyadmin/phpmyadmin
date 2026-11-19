@@ -63,12 +63,12 @@
         <tbody id="id_tbody_{{ t_n_url }}"
             {{- tab_pos[t_n] is defined and tab_pos[t_n]['V'] is empty ? ' style="display: none"' }}>
             {% set display_field = designerTable.displayField %}
-            {% for j in 0..tab_column[t_n]|length - 1 %}
-                {% set col_name = tab_column[t_n][j].name %}
-                {% set tmp_column = t_n ~ '.' ~ tab_column[t_n][j].name %}
+            {% for column in tab_column[t_n]|default([]) %}
+                {% set col_name = column.name %}
+                {% set tmp_column = t_n ~ '.' ~ column.name %}
                 {% set click_field_param = [
                     designerTable.tableName|escape('url'),
-                    tab_column[t_n][j].name|url_encode
+                    column.name|url_encode
                 ] %}
                 {% if tables_all_keys[tmp_column] is defined %}
                     {% if not designerTable.supportsForeignkeys() %}
@@ -80,15 +80,15 @@
                     {% endif %}
                 {% endif %}
                 {% set click_field_param = click_field_param|merge([db]) %}
-                <tr id="id_tr_{{ designerTable.tableName|escape('url') }}.{{ tab_column[t_n][j].name }}" class="tab_field
-                    {{- display_field == tab_column[t_n][j].name ? '_3' }}" click_field_param="
+                <tr id="id_tr_{{ designerTable.tableName|escape('url') }}.{{ column.name }}" class="tab_field
+                    {{- display_field == column.name ? '_3' }}" click_field_param="
                     {{- click_field_param|join(',') }}">
                     {% if has_query %}
                         <td class="select_all">
                             <input class="select_all_store_col"
-                                value="{{ t_n_url }}{{ tab_column[t_n][j].name|url_encode }}"
+                                value="{{ t_n_url }}{{ column.name|url_encode }}"
                                 type="checkbox"
-                                id="select_{{ t_n_url }}._{{ tab_column[t_n][j].name|url_encode }}"
+                                id="select_{{ t_n_url }}._{{ column.name|url_encode }}"
                                 style="margin: 0;"
                                 title="{{ t('Select "%s"')|format(col_name) }}"
                                 id_check_all="select_all_{{ i }}"
@@ -98,11 +98,11 @@
                         </td>
                     {% endif %}
                     <td width="10px" colspan="3" id="{{ t_n_url }}.
-                        {{- tab_column[t_n][j].name|url_encode }}">
+                        {{- column.name|url_encode }}">
                         <div class="text-nowrap">
-                            {% set type = columns_type[t_n ~ '.' ~ tab_column[t_n][j].name] %}
+                            {% set type = columns_type[t_n ~ '.' ~ column.name] %}
                             <img src="{{ image(type) }}.png" alt="*">
-                            {{ tab_column[t_n][j].name }} : {{ tab_column[t_n][j].type }}
+                            {{ column.name }} : {{ column.type }}
                         </div>
                     </td>
                     {% if has_query %}
