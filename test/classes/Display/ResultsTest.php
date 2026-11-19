@@ -1807,4 +1807,23 @@ class ResultsTest extends AbstractTestCase
             '', // orderImg
         ], $data);
     }
+
+    public function testGetSingleAndMultiSortUrlsWithFunctionColumnFromDerivedTable(): void
+    {
+        $data = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSingleAndMultiSortUrls',
+            [
+                ['`COUNT(*)` ASC'], // sortExpression,
+                ['`COUNT(*)`'], // sortExpressionNoDirection,
+                '`c`.',
+                'COUNT(*)',
+                ['ASC'], // sortDirection,
+                new FieldMetadata(MYSQLI_TYPE_LONG, 0, (object) []),
+            ]
+        );
+
+        self::assertSame("\n" . 'ORDER BY `COUNT(*)` DESC', $data[0]);
+    }
 }
