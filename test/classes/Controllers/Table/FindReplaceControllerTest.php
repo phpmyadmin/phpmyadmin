@@ -117,4 +117,36 @@ class FindReplaceControllerTest extends AbstractTestCase
 
         self::assertSame($result, $sql_query);
     }
+
+    public function testReplaceWithRegexKeepsLetterCase(): void
+    {
+        $dbi = $this->createMock(DatabaseInterface::class);
+        $dbi->method('getColumns')->willReturn([
+            ['Field' => 'Field1', 'Type' => 'varchar(50)', 'Null' => 'NO', 'Collation' => 'utf8mb4_general_ci'],
+        ]);
+        $dbi->method('escapeString')->willReturnArgument(0);
+        $dbi->expects(self::once())
+            ->method('fetchResult')
+            ->with(
+                'SELECT `Field1`, 1, COUNT(*) FROM `db`.`table`'
+                . " WHERE `Field1` RLIKE '[0-9]' COLLATE utf8mb4_bin"
+                . ' GROUP BY `Field1`, CAST(`Field1` AS BINARY) ORDER BY `Field1` ASC',
+                0
+            )
+            ->willReturn([
+                'AB1' => ['AB1', 1, 1],
+                'Ab1' => ['Ab1', 1, 1],
+            ]);
+
+        $tableSearch = new FindReplaceController(ResponseRenderer::getInstance(), new Template(), 'db', 'table', $dbi);
+
+        $tableSearch->replace(0, '[0-9]', 'X', true, 'utf8mb4');
+
+        $result = 'UPDATE `table` SET `Field1` = CASE'
+            . "\n WHEN `Field1` = 'AB1' COLLATE utf8mb4_bin THEN 'ABX'"
+            . "\n WHEN `Field1` = 'Ab1' COLLATE utf8mb4_bin THEN 'AbX' END"
+            . " WHERE `Field1` RLIKE '[0-9]' COLLATE utf8mb4_bin";
+
+        self::assertSame($result, $GLOBALS['sql_query']);
+    }
 }
