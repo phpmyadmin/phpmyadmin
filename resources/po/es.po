@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-15 00:26+0000\n"
-"PO-Revision-Date: 2026-11-10 14:51+0000\n"
+"PO-Revision-Date: 2026-11-19 19:30+0000\n"
 "Last-Translator: Salvador Peña <sal@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2026.11.2.dev0\n"
+"X-Generator: Weblate 2026.12.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -8903,7 +8903,7 @@ msgstr "Cirílico"
 #: src/Charsets/Collation.php:166
 msgctxt "Collation"
 msgid "Latin"
-msgstr ""
+msgstr "Latina"
 
 #: src/Charsets/Collation.php:178
 msgctxt "Collation variant"
@@ -9051,12 +9051,9 @@ msgid "Thai"
 msgstr "Tailandés"
 
 #: src/Charsets/Collation.php:240
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Bosnian"
-msgstr "Estonio"
+msgstr "Bosnio"
 
 #: src/Charsets/Collation.php:241
 msgctxt "Collation"
@@ -9091,7 +9088,7 @@ msgstr "Estonio"
 #: src/Charsets/Collation.php:249
 msgctxt "Collation"
 msgid "Galician"
-msgstr ""
+msgstr "Gálico"
 
 #: src/Charsets/Collation.php:252
 msgctxt "Collation"
@@ -9121,7 +9118,7 @@ msgstr "Lituano"
 #: src/Charsets/Collation.php:259
 msgctxt "Collation"
 msgid "Mongolian"
-msgstr ""
+msgstr "Mongol"
 
 #: src/Charsets/Collation.php:260
 msgctxt "Collation"
@@ -9131,12 +9128,12 @@ msgstr "Birmano"
 #: src/Charsets/Collation.php:261
 msgctxt "Collation"
 msgid "Norwegian Bokmål"
-msgstr ""
+msgstr "Bokmål noruego"
 
 #: src/Charsets/Collation.php:262
 msgctxt "Collation"
 msgid "Norwegian Nynorsk"
-msgstr ""
+msgstr "Nynorsk noruego"
 
 #: src/Charsets/Collation.php:263
 msgctxt "Collation"
@@ -9156,7 +9153,7 @@ msgstr "Rumano"
 #: src/Charsets/Collation.php:268
 msgctxt "Collation"
 msgid "Serbian"
-msgstr ""
+msgstr "Serbio"
 
 #: src/Charsets/Collation.php:269
 msgctxt "Collation"
@@ -9354,7 +9351,7 @@ msgstr "INSERTs completos"
 
 #: src/Config/ConfigFile.php:723
 msgid "extended inserts"
-msgstr "INSERTs extensos"
+msgstr "INSERTs extendidos"
 
 #: src/Config/ConfigFile.php:724
 msgid "both of the above"
@@ -12601,33 +12598,24 @@ msgstr ""
 "[doc@cfg_blowfish_secret]documentación[/doc]."
 
 #: src/Controllers/HomeController.php:349
-#, fuzzy
-#| msgid ""
-#| "The configuration file needs a valid key for query encryption. A "
-#| "temporary key was automatically generated for you. Please refer to the "
-#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgid ""
 "The configuration file needs a valid key for URL query encryption. A "
 "temporary key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
 "El archivo de configuración necesita una clave válida para el cifrado de "
-"consulta. Se ha generado automáticamente una clave temporal para ti. "
+"consulta de URL. Se ha generado automáticamente una clave temporal para ti. "
 "Consulta la [doc@cfg_URLQueryEncryptionSecretKey]documentación[/doc]."
 
 #: src/Controllers/HomeController.php:359
-#, fuzzy, php-format
-#| msgid ""
-#| "The query encryption key in the configuration file is longer than "
-#| "necessary. It should only be %d bytes long. Please refer to the "
-#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
+#, php-format
 msgid ""
 "The URL query encryption key in the configuration file is longer than "
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"La clave de cifrado de consulta en el archivo de configuración es más larga "
-"de lo necesario. Sólo debería tener %d bytes de longitud. Consulta la "
+"La clave de cifrado de consulta de URL en el archivo de configuración es más "
+"larga de lo necesario. Sólo debería tener %d bytes de longitud. Consulta la "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentación[/doc]."
 
 #: src/Controllers/HomeController.php:377
@@ -16335,10 +16323,8 @@ msgid "Event %1$s has been created."
 msgstr "Se creó el evento %1$s."
 
 #: src/Events/Events.php:99
-#, fuzzy
-#| msgid "Session not found."
 msgid "Event not found."
-msgstr "Sesión no encontrada."
+msgstr "Evento no encontrado."
 
 #: src/Events/Events.php:128
 msgid "Sorry, we failed to restore the dropped event."
@@ -16605,7 +16591,7 @@ msgstr "Ignorando código de idioma no compatible."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 msgid "The database name must be a non-empty string."
-msgstr "El nombre de la base de datos debe ser una cadena no vacía."
+msgstr "El nombre de la base de datos no debe ser una cadena vacía."
 
 #: src/Identifiers/InvalidDatabaseName.php:20
 #, php-format
@@ -16615,11 +16601,11 @@ msgstr "El nombre de la base de datos no puede tener más de %d caracteres."
 #: src/Identifiers/InvalidDatabaseName.php:25
 msgid "The database name cannot end with a space character."
 msgstr ""
-"El nombre de la base de datos no puede terminar con un carácter de espacio."
+"El nombre de la base de datos no puede terminar con un caracter espacio."
 
 #: src/Identifiers/InvalidTableName.php:14
 msgid "The table name must be a non-empty string."
-msgstr "El nombre de la tabla debe ser una cadena no vacía."
+msgstr "El nombre de la tabla no debe ser una cadena vacía."
 
 #: src/Identifiers/InvalidTableName.php:20
 #, php-format
@@ -16628,7 +16614,7 @@ msgstr "El nombre de la tabla no puede tener más de %d caracteres."
 
 #: src/Identifiers/InvalidTableName.php:25
 msgid "The table name cannot end with a space character."
-msgstr "El nombre de la tabla no puede terminar con un carácter de espacio."
+msgstr "El nombre de la tabla no puede terminar con un caracter espacio."
 
 #: src/Identifiers/InvalidTriggerName.php:14
 msgid "The trigger name must not be empty."
@@ -18828,10 +18814,8 @@ msgid "Trigger %1$s has been created."
 msgstr "Disparador %1$s creado."
 
 #: src/Triggers/Triggers.php:102
-#, fuzzy
-#| msgid "Session not found."
 msgid "Trigger not found."
-msgstr "Sesión no encontrada."
+msgstr "Disparador no encontrado."
 
 #: src/Triggers/Triggers.php:131
 msgid "Sorry, we failed to restore the dropped trigger."
