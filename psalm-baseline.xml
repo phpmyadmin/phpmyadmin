@@ -7640,6 +7640,7 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Controllers/Table/ImportControllerTest.php">
