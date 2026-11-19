@@ -691,7 +691,9 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la "$SIGN_FILES"
+# Allows word splitting
+# shellcheck disable=SC2086
+ls -la $SIGN_FILES
 
 cd ..
 
