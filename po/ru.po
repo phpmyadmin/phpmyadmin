@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-18 15:48+0000\n"
-"PO-Revision-Date: 2026-05-26 19:11+0000\n"
-"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
+"PO-Revision-Date: 2026-11-19 19:30+0000\n"
+"Last-Translator: Roman Serov <cgtalium@yandex.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
 "Language: ru\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.6.dev0\n"
+"X-Generator: Weblate 2026.12.dev0\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -9222,10 +9222,8 @@ msgstr ""
 "Ошибка обработки запроса: Триггер с именем %1$s не найден в базе данных %2$s."
 
 #: libraries/classes/Dbal/DatabaseName.php:41
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "The database name must be a non-empty string."
-msgstr "Не указано имя базы данных!"
+msgstr "Имя базы данных не должно быть пустой строкой."
 
 #: libraries/classes/Dbal/DatabaseName.php:49
 #, fuzzy, php-format
@@ -9253,10 +9251,8 @@ msgstr ""
 "быть доступны, но скрыты директивой конфигурации %s."
 
 #: libraries/classes/Dbal/TableName.php:41
-#, fuzzy
-#| msgid "The table name is empty!"
 msgid "The table name must be a non-empty string."
-msgstr "Не задано имя таблицы!"
+msgstr "Имя таблицы не должно быть пустой строкой."
 
 #: libraries/classes/Dbal/TableName.php:49
 #, fuzzy, php-format
@@ -15474,7 +15470,7 @@ msgstr "Сортировать по ключу:"
 #: templates/display/results/table.twig:122
 #: templates/table/search/index.twig:102
 msgid "Extra options"
-msgstr "Расширенные параметры"
+msgstr "Дополнительные опции"
 
 #: templates/display/results/table.twig:144
 msgid "Relational key"
