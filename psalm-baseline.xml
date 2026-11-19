@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="7.10.0@2d8a48d1611508108eaa653ef599010da65eff3f">
+<files psalm-version="7.11.0@9e0d0f88bc0a4233357a9aeb4b32da060644e196">
   <file src="src/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$pattern]]></code>
@@ -113,6 +113,9 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($path)]]></code>
     </RiskyTruthyFalsyComparison>
+    <WeakHash>
+      <code><![CDATA[md5($verboseToLower)]]></code>
+    </WeakHash>
   </file>
   <file src="src/Config/ConfigFile.php">
     <DeprecatedMethod>
@@ -764,6 +767,11 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
+    <WeakHash>
+      <code><![CDATA[hash('sha1', $this->config->selectedServer['user'])]]></code>
+      <code><![CDATA[md5($favoriteTableName)]]></code>
+      <code><![CDATA[md5(Current::$database . '.' . $favoriteTableName)]]></code>
+    </WeakHash>
   </file>
   <file src="src/Controllers/Database/Structure/RealRowCountController.php">
     <PossiblyInvalidCast>
@@ -893,6 +901,10 @@
       <code><![CDATA[int]]></code>
       <code><![CDATA[int]]></code>
     </UnnecessaryVarAnnotation>
+    <WeakHash>
+      <code><![CDATA[md5($currentTable['TABLE_NAME'])]]></code>
+      <code><![CDATA[md5(Current::$database . '.' . $currentTable['TABLE_NAME'])]]></code>
+    </WeakHash>
   </file>
   <file src="src/Controllers/Database/TrackingController.php">
     <MixedArgument>
@@ -1408,6 +1420,9 @@
       <code><![CDATA[$favoriteTables]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
+    <WeakHash>
+      <code><![CDATA[hash('sha1', $this->config->selectedServer['user'])]]></code>
+    </WeakHash>
   </file>
   <file src="src/Controllers/Table/AddFieldController.php">
     <MixedArgument>
@@ -1600,6 +1615,9 @@
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$foreignTable]]></code>
     </PossiblyInvalidArgument>
+    <WeakHash>
+      <code><![CDATA[md5($column->field)]]></code>
+    </WeakHash>
   </file>
   <file src="src/Controllers/Table/ReplaceController.php">
     <InvalidPropertyAssignmentValue>
@@ -1897,6 +1915,9 @@
       <code><![CDATA[$_POST['get_data_row']]]></code>
       <code><![CDATA[empty($_POST['maxPlotLimit'])]]></code>
     </RiskyTruthyFalsyComparison>
+    <WeakHash>
+      <code><![CDATA[md5($columnName)]]></code>
+    </WeakHash>
   </file>
   <file src="src/Controllers/TableController.php">
     <PossiblyUnusedMethod>
@@ -2244,6 +2265,11 @@
       <code><![CDATA[$value['foreign_db']]]></code>
       <code><![CDATA[$value['foreign_table']]]></code>
     </PossiblyNullOperand>
+  </file>
+  <file src="src/Database/MultiTableQuery.php">
+    <WeakHash>
+      <code><![CDATA[md5($table)]]></code>
+    </WeakHash>
   </file>
   <file src="src/Database/Routine.php">
     <PossiblyUnusedProperty>
@@ -2707,6 +2733,10 @@
       <code><![CDATA[empty($this->mediaTypeMap[$orgFullColName]['transformation'])]]></code>
       <code><![CDATA[strpos($linkRelations['default_page'], '?')]]></code>
     </RiskyTruthyFalsyComparison>
+    <WeakHash>
+      <code><![CDATA[md5($this->server . $this->db . $this->sqlQuery)]]></code>
+      <code><![CDATA[md5($this->server . $this->db . $this->sqlQuery)]]></code>
+    </WeakHash>
   </file>
   <file src="src/Encoding.php">
     <DeprecatedMethod>
@@ -2778,6 +2808,15 @@
       <code><![CDATA[$step['function']]]></code>
       <code><![CDATA[$step['line']]]></code>
     </MixedOperand>
+    <WeakHash>
+      <code><![CDATA[md5(
+                $this->errorNumber .
+                $this->getMessage() .
+                $this->getFile() .
+                $this->getLine() .
+                $backtrace,
+            )]]></code>
+    </WeakHash>
   </file>
   <file src="src/Error/ErrorHandler.php">
     <DeprecatedMethod>
@@ -2965,6 +3004,9 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool|Message]]></code>
     </PossiblyUnusedReturnValue>
+    <WeakHash>
+      <code><![CDATA[md5($table->db . '.' . $table->table)]]></code>
+    </WeakHash>
   </file>
   <file src="src/File.php">
     <DeprecatedMethod>
@@ -3723,6 +3765,11 @@
       <code><![CDATA[$editField->salt]]></code>
       <code><![CDATA[empty($columnMime['input_transformation'])]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/InsertEditColumn.php">
+    <WeakHash>
+      <code><![CDATA[md5($this->field)]]></code>
+    </WeakHash>
   </file>
   <file src="src/IpAllowDeny.php">
     <DeprecatedMethod>
@@ -5531,6 +5578,9 @@
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['debug']['queries']]]></code>
     </MixedArrayAssignment>
+    <WeakHash>
+      <code><![CDATA[md5($query)]]></code>
+    </WeakHash>
   </file>
   <file src="src/Replication/Replication.php">
     <LessSpecificReturnStatement>
@@ -5642,6 +5692,11 @@
       <code><![CDATA[empty($found[3])]]></code>
       <code><![CDATA[empty($found[3])]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Scripts.php">
+    <WeakHash>
+      <code><![CDATA[md5($filename)]]></code>
+    </WeakHash>
   </file>
   <file src="src/Server/Plugin.php">
     <MixedArgument>
@@ -5949,6 +6004,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Session.php">
+    <InsecureCookie>
+      <code><![CDATA[setcookie($httpCookieName, '', 1)]]></code>
+    </InsecureCookie>
     <MixedArgument>
       <code><![CDATA[$config->getCookie('phpMyAdmin')]]></code>
     </MixedArgument>
@@ -6263,6 +6321,11 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['displayAllColumns'])]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Table/SearchForm.php">
+    <WeakHash>
+      <code><![CDATA[md5($columnName)]]></code>
+    </WeakHash>
   </file>
   <file src="src/Table/Table.php">
     <DeprecatedMethod>
@@ -7196,6 +7259,9 @@
       <code><![CDATA[stristr(PHP_OS, 'darwin')]]></code>
       <code><![CDATA[stristr(PHP_OS, 'win')]]></code>
     </RiskyTruthyFalsyComparison>
+    <WeakHash>
+      <code><![CDATA[md5('server 66')]]></code>
+    </WeakHash>
   </file>
   <file src="tests/unit/ConsoleTest.php">
     <DeprecatedMethod>
@@ -7218,6 +7284,16 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+  </file>
+  <file src="tests/unit/Controllers/Database/DesignerControllerTest.php">
+    <WeakRandom>
+      <code><![CDATA[new Mt19937(42)]]></code>
+    </WeakRandom>
+  </file>
+  <file src="tests/unit/Controllers/Database/ImportControllerTest.php">
+    <WeakRandom>
+      <code><![CDATA[new Mt19937(42)]]></code>
+    </WeakRandom>
   </file>
   <file src="tests/unit/Controllers/Database/PrivilegesControllerTest.php">
     <DeprecatedMethod>
@@ -7337,6 +7413,13 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+  </file>
+  <file src="tests/unit/Controllers/Import/StatusControllerTest.php">
+    <WeakRandom>
+      <code><![CDATA[new Mt19937(42)]]></code>
+      <code><![CDATA[new Mt19937(42)]]></code>
+      <code><![CDATA[new Mt19937(42)]]></code>
+    </WeakRandom>
   </file>
   <file src="tests/unit/Controllers/NavigationControllerTest.php">
     <DeprecatedMethod>
@@ -7563,6 +7646,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <WeakRandom>
+      <code><![CDATA[new Mt19937(42)]]></code>
+    </WeakRandom>
   </file>
   <file src="tests/unit/Controllers/Table/IndexRenameControllerTest.php">
     <DeprecatedMethod>
@@ -7714,6 +7800,15 @@
       <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
     </TypeDoesNotContainType>
+    <WeakHash>
+      <code><![CDATA[hash('sha1', '132654987gguieunofz')]]></code>
+      <code><![CDATA[hash('sha1', 'firstSession')]]></code>
+      <code><![CDATA[hash('sha1', 'firstSession')]]></code>
+      <code><![CDATA[hash('sha1', 'secondSession')]]></code>
+      <code><![CDATA[hash('sha1', 'test')]]></code>
+      <code><![CDATA[hash('sha1', 'test')]]></code>
+      <code><![CDATA[hash('sha1', 'test')]]></code>
+    </WeakHash>
   </file>
   <file src="tests/unit/CreateAddFieldTest.php">
     <DeprecatedMethod>
@@ -7852,6 +7947,10 @@
     <MixedReturnStatement>
       <code><![CDATA[mixed[]]]></code>
     </MixedReturnStatement>
+    <WeakRandom>
+      <code><![CDATA[new Mt19937(42)]]></code>
+      <code><![CDATA[new Mt19937(42)]]></code>
+    </WeakRandom>
   </file>
   <file src="tests/unit/EncodingTest.php">
     <DeprecatedMethod>
@@ -7964,6 +8063,9 @@
       <code><![CDATA[TCPDF_STATIC::class]]></code>
       <code><![CDATA[TCPDF_STATIC::class]]></code>
     </DeprecatedClass>
+    <WeakHash>
+      <code><![CDATA[md5($name)]]></code>
+    </WeakHash>
   </file>
   <file src="tests/unit/GitTest.php">
     <RedundantConditionGivenDocblockType>
@@ -8048,6 +8150,9 @@
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
     </MixedArrayAccess>
+    <WeakRandom>
+      <code><![CDATA[new Mt19937(42)]]></code>
+    </WeakRandom>
   </file>
   <file src="tests/unit/Import/ImportTest.php">
     <MixedArgument>
@@ -8119,6 +8224,12 @@
       <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
     </TypeDoesNotContainType>
+    <WeakHash>
+      <code><![CDATA[hash('sha1', 'test')]]></code>
+      <code><![CDATA[hash('sha1', 'test')]]></code>
+      <code><![CDATA[md5('col')]]></code>
+      <code><![CDATA[md5('qwerty')]]></code>
+    </WeakHash>
   </file>
   <file src="tests/unit/IpAllowDenyTest.php">
     <DeprecatedMethod>
@@ -8440,6 +8551,11 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[testTransformation]]></code>
     </PossiblyInvalidArgument>
+  </file>
+  <file src="tests/unit/Plugins/TwoFactor/WebAuthnTest.php">
+    <WeakRandom>
+      <code><![CDATA[new Mt19937(42)]]></code>
+    </WeakRandom>
   </file>
   <file src="tests/unit/PluginsTest.php">
     <DeprecatedMethod>
@@ -8827,5 +8943,17 @@
     <UndefinedAttributeClass>
       <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
     </UndefinedAttributeClass>
+  </file>
+  <file src="tests/unit/WebAuthn/CustomServerTest.php">
+    <WeakRandom>
+      <code><![CDATA[new Mt19937(42)]]></code>
+      <code><![CDATA[new Mt19937(42)]]></code>
+    </WeakRandom>
+  </file>
+  <file src="tests/unit/WebAuthn/WebauthnLibServerTest.php">
+    <WeakRandom>
+      <code><![CDATA[new Mt19937(42)]]></code>
+      <code><![CDATA[new Mt19937(42)]]></code>
+    </WeakRandom>
   </file>
 </files>

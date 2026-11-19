@@ -310,21 +310,21 @@
         },
         {
             "name": "phpmyadmin/motranslator",
-            "version": "6.0.1",
+            "version": "6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmyadmin/motranslator.git",
-                "reference": "325812bd30c868751c76a38692ddfcd5129b3186"
+                "reference": "89b568d050dd6aed11b8c5600113feef22e59e82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/motranslator/zipball/325812bd30c868751c76a38692ddfcd5129b3186",
-                "reference": "325812bd30c868751c76a38692ddfcd5129b3186",
+                "url": "https://api.github.com/repos/phpmyadmin/motranslator/zipball/89b568d050dd6aed11b8c5600113feef22e59e82",
+                "reference": "89b568d050dd6aed11b8c5600113feef22e59e82",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.2",
-                "symfony/expression-language": "^6.4 || ^7.0"
+                "symfony/expression-language": "^6.4.48 || ^7.4.21"
             },
             "require-dev": {
                 "phpmyadmin/coding-standard": "^4.0",
@@ -377,21 +377,21 @@
                 "issues": "https://github.com/phpmyadmin/motranslator/issues",
                 "source": "https://github.com/phpmyadmin/motranslator"
             },
-            "time": "2026-08-14T19:26:37+00:00",
-            "published-time": "2026-08-14T19:27:40+00:00"
+            "time": "2026-11-18T22:27:33+00:00",
+            "published-time": "2026-11-18T22:28:48+00:00"
         },
         {
             "name": "phpmyadmin/shapefile",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmyadmin/shapefile.git",
-                "reference": "4020955e62bbcf2289f54884984383b4d4b39f8a"
+                "reference": "77555b6e255824f134b0c1813d8f128c7cbfbae4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/shapefile/zipball/4020955e62bbcf2289f54884984383b4d4b39f8a",
-                "reference": "4020955e62bbcf2289f54884984383b4d4b39f8a",
+                "url": "https://api.github.com/repos/phpmyadmin/shapefile/zipball/77555b6e255824f134b0c1813d8f128c7cbfbae4",
+                "reference": "77555b6e255824f134b0c1813d8f128c7cbfbae4",
                 "shasum": ""
             },
             "require": {
@@ -448,21 +448,21 @@
                 "issues": "https://github.com/phpmyadmin/shapefile/issues",
                 "source": "https://github.com/phpmyadmin/shapefile"
             },
-            "time": "2026-08-14T13:38:23+00:00",
-            "published-time": "2026-08-14T13:39:18+00:00"
+            "time": "2026-11-19T01:24:06+00:00",
+            "published-time": "2026-11-19T01:25:14+00:00"
         },
         {
             "name": "phpmyadmin/sql-parser",
-            "version": "6.0.1",
+            "version": "6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmyadmin/sql-parser.git",
-                "reference": "ae022ff35c8107110fb73baf96c16c3ae71b9b95"
+                "reference": "68b4c7604689ef491afc39df8a2ec6939dc0802f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/sql-parser/zipball/ae022ff35c8107110fb73baf96c16c3ae71b9b95",
-                "reference": "ae022ff35c8107110fb73baf96c16c3ae71b9b95",
+                "url": "https://api.github.com/repos/phpmyadmin/sql-parser/zipball/68b4c7604689ef491afc39df8a2ec6939dc0802f",
+                "reference": "68b4c7604689ef491afc39df8a2ec6939dc0802f",
                 "shasum": ""
             },
             "require": {
@@ -484,7 +484,7 @@
                 "phpunit/phpunit": "^11.5",
                 "psalm/plugin-phpunit": "^0.19.2",
                 "vimeo/psalm": "^6.0",
-                "zumba/json-serializer": "^3.2"
+                "zumba/json-serializer": "~3.2.4"
             },
             "suggest": {
                 "ext-mbstring": "For best performance",
@@ -539,8 +539,8 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-10-07T15:34:04+00:00",
-            "published-time": "2026-10-07T15:35:21+00:00"
+            "time": "2026-11-18T20:06:03+00:00",
+            "published-time": "2026-11-18T20:09:38+00:00"
         },
         {
             "name": "psr/cache",
@@ -9631,16 +9631,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "7.10.0",
+            "version": "7.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "2d8a48d1611508108eaa653ef599010da65eff3f"
+                "reference": "9e0d0f88bc0a4233357a9aeb4b32da060644e196"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/2d8a48d1611508108eaa653ef599010da65eff3f",
-                "reference": "2d8a48d1611508108eaa653ef599010da65eff3f",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/9e0d0f88bc0a4233357a9aeb4b32da060644e196",
+                "reference": "9e0d0f88bc0a4233357a9aeb4b32da060644e196",
                 "shasum": ""
             },
             "require": {
@@ -9673,7 +9673,8 @@
                 "spatie/array-to-xml": "^2.17.0 || ^3.0",
                 "symfony/console": "^6.0 || ^7.0 || ^8.0",
                 "symfony/filesystem": "~6.3.12 || ~6.4.3 || ^7.0.3 || ^8.0",
-                "symfony/polyfill-php84": "^1.31.0"
+                "symfony/polyfill-php84": "^1.31.0",
+                "weirdan/doctrine-psalm-plugin": "^2.12.0"
             },
             "provide": {
                 "psalm/psalm": "self.version"
@@ -9748,8 +9749,8 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2026-11-18T00:08:31+00:00",
-            "published-time": "2026-11-18T00:45:22+00:00"
+            "time": "2026-11-18T22:06:23+00:00",
+            "published-time": "2026-11-19T00:44:54+00:00"
         },
         {
             "name": "web-auth/cose-lib",
@@ -9829,16 +9830,16 @@
         },
         {
             "name": "web-auth/webauthn-lib",
-            "version": "5.3.13",
+            "version": "5.3.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-auth/webauthn-lib.git",
-                "reference": "19eb8e4107467052e5b24c023832ef8164062e89"
+                "reference": "768fb8cf7bebaad8a08b3015e206dda95e3320fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/19eb8e4107467052e5b24c023832ef8164062e89",
-                "reference": "19eb8e4107467052e5b24c023832ef8164062e89",
+                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/768fb8cf7bebaad8a08b3015e206dda95e3320fa",
+                "reference": "768fb8cf7bebaad8a08b3015e206dda95e3320fa",
                 "shasum": ""
             },
             "require": {
@@ -9899,7 +9900,7 @@
                 "webauthn"
             ],
             "support": {
-                "source": "https://github.com/web-auth/webauthn-lib/tree/5.3.13"
+                "source": "https://github.com/web-auth/webauthn-lib/tree/5.3.14"
             },
             "funding": [
                 {
@@ -9911,8 +9912,90 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2026-11-17T19:20:46+00:00",
-            "published-time": "2026-11-17T20:10:27+00:00"
+            "time": "2026-11-18T16:46:55+00:00",
+            "published-time": "2026-11-18T16:56:49+00:00"
+        },
+        {
+            "name": "weirdan/doctrine-psalm-plugin",
+            "version": "v2.12.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/psalm/psalm-plugin-doctrine.git",
+                "reference": "b6491aa083eeab33ee8e221319bc835b6d3ffdae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-doctrine/zipball/b6491aa083eeab33ee8e221319bc835b6d3ffdae",
+                "reference": "b6491aa083eeab33ee8e221319bc835b6d3ffdae",
+                "shasum": ""
+            },
+            "require": {
+                "composer-runtime-api": "^2",
+                "php": "^8.2",
+                "psalm/psalm-plugin-api": "^0.4",
+                "vimeo/psalm": "^7.0.0-rc28|dev-master"
+            },
+            "conflict": {
+                "doctrine/collections": "<1.8",
+                "doctrine/orm": "<2.6",
+                "doctrine/persistence": "<2.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^5.0",
+                "doctrine/coding-standard": "^9.0",
+                "doctrine/collections": "^1.8 || ^2.0",
+                "doctrine/dbal": "^2.13 || ^3.0 || ^4.0",
+                "doctrine/doctrine-bundle": "^1.11 || ^2.0 || ^3.0",
+                "doctrine/orm": "^2.6 || ^3.0",
+                "doctrine/persistence": "^2.0 || ^3.0 || ^4.0",
+                "phly/keep-a-changelog": "^2.1",
+                "phpunit/phpunit": "^10.5 || ^11.5 || ^12.0 || ^13.0",
+                "squizlabs/php_codesniffer": "^3.3",
+                "weirdan/codeception-psalm-module": "^0.14.1"
+            },
+            "type": "psalm-plugin",
+            "extra": {
+                "psalm": {
+                    "pluginClass": "Weirdan\\DoctrinePsalmPlugin\\Plugin"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Weirdan\\DoctrinePsalmPlugin\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruce Weirdan",
+                    "email": "weirdan@gmail.com"
+                }
+            ],
+            "description": "Stubs to let Psalm understand Doctrine better",
+            "keywords": [
+                "code",
+                "dbal",
+                "doctrine",
+                "doctrine2",
+                "extension",
+                "inspection",
+                "orm",
+                "php",
+                "plugin",
+                "psalm",
+                "psalm-plugin",
+                "static analysis",
+                "static-analysis"
+            ],
+            "support": {
+                "issues": "https://github.com/psalm/psalm-plugin-doctrine/issues",
+                "source": "https://github.com/psalm/psalm-plugin-doctrine/tree/v2.12.2"
+            },
+            "time": "2026-11-18T15:54:13+00:00",
+            "published-time": "2026-11-18T15:54:25+00:00"
         }
     ],
     "aliases": [],
