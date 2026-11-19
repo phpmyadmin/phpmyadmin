@@ -22,6 +22,7 @@ use function array_merge;
 use function defined;
 use function file_exists;
 use function in_array;
+use function is_string;
 use function session_get_cookie_params;
 use function session_id;
 use function session_name;
@@ -179,7 +180,14 @@ class AuthenticationSignon extends AuthenticationPlugin
                 $pmaToken = $_SESSION['PMA_single_signon_token'];
             }
 
-            $hmacSecret = $_SESSION['PMA_single_signon_HMAC_secret'] ?? Util::generateRandom(16);
+            if (
+                ! isset($_SESSION['PMA_single_signon_HMAC_secret'])
+                || ! is_string($_SESSION['PMA_single_signon_HMAC_secret'])
+            ) {
+                $_SESSION['PMA_single_signon_HMAC_secret'] = Util::generateRandom(16);
+            }
+
+            $hmacSecret = $_SESSION['PMA_single_signon_HMAC_secret'];
 
             /* End single signon session */
             if (! defined('TESTSUITE')) {
