@@ -334,7 +334,7 @@ AJAX.registerOnload('table/select.js', function () {
                         // Add datepicker wherever required.
                         Functions.addDatepicker($('#min_value'), dataType);
                         Functions.addDatepicker($('#max_value'), dataType);
-                        $('#rangeSearchModalGo').on('click',  function () {
+                        $('#rangeSearchModalGo').off('click').on('click', function () {
                             var minValue = $('#min_value').val();
                             var maxValue = $('#max_value').val();
                             var finalValue = '';
@@ -374,7 +374,6 @@ AJAX.registerOnload('table/select.js', function () {
                                 $targetField.val(finalValue);
                             }
                             $('#rangeSearchModal').modal('hide');
-                            $(this).off('click');
                         });
                     } else {
                         Functions.ajaxShowMessage(response.error);
