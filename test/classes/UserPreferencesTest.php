@@ -282,6 +282,19 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         ], $result);
     }
 
+    public function testApplyWithInvalidLoginCookieValidity(): void
+    {
+        $GLOBALS['cfg']['UserprefsDisallow'] = [];
+        $result = $this->userPreferences->apply(
+            [
+                'LoginCookieValidity' => '',
+                'FirstDayOfCalendar' => 1,
+            ]
+        );
+
+        self::assertSame(['FirstDayOfCalendar' => 1], $result);
+    }
+
     /**
      * Test for persistOption
      */
