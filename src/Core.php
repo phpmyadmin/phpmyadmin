@@ -13,10 +13,9 @@ use Psr\Clock\ClockInterface;
 use Twig\Attribute\AsTwigFilter;
 
 use function __;
-use function array_pop;
+use function array_shift;
 use function array_walk_recursive;
 use function chr;
-use function count;
 use function explode;
 use function filter_var;
 use function function_exists;
@@ -285,14 +284,13 @@ class Core
      */
     public static function arrayRead(string $path, array $array, mixed $default = null): mixed
     {
-        $keys = explode('/', $path);
-        $value =& $array;
-        foreach ($keys as $key) {
-            if (! isset($value[$key])) {
+        $value = $array;
+        foreach (explode('/', $path) as $key) {
+            if (! is_array($value) || ! isset($value[$key])) {
                 return $default;
             }
 
-            $value =& $value[$key];
+            $value = $value[$key];
         }
 
         return $value;
@@ -307,18 +305,28 @@ class Core
      */
     public static function arrayWrite(string $path, array &$array, mixed $value): void
     {
-        $keys = explode('/', $path);
-        $lastKey = array_pop($keys);
-        $a =& $array;
-        foreach ($keys as $key) {
-            if (! isset($a[$key])) {
-                $a[$key] = [];
-            }
+        $array = self::arrayWriteKeys($array, explode('/', $path), $value);
+    }
 
-            $a =& $a[$key];
+    /**
+     * @param mixed[]                $array
+     * @param non-empty-list<string> $keys
+     *
+     * @return mixed[]
+     */
+    private static function arrayWriteKeys(array $array, array $keys, mixed $value): array
+    {
+        $key = array_shift($keys);
+        if ($keys === []) {
+            $array[$key] = $value;
+
+            return $array;
         }
 
-        $a[$lastKey] = $value;
+        $child = $array[$key] ?? [];
+        $array[$key] = self::arrayWriteKeys(is_array($child) ? $child : [], $keys, $value);
+
+        return $array;
     }
 
     /**
