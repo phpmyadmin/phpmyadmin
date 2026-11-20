@@ -3523,12 +3523,6 @@ parameters:
 			path: src/Core.php
 
 		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: src/Core.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 3

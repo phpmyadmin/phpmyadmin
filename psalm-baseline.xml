@@ -1981,31 +1981,18 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$path[$depth + 1]]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$a[$key]]]></code>
-      <code><![CDATA[$path[$depth - 1][$key]]]></code>
-      <code><![CDATA[$path[$depth][$keysLast]]]></code>
-      <code><![CDATA[$path[$depth][$keys[$depth]]]]></code>
-      <code><![CDATA[$value[$key]]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$a[$key]]]></code>
-      <code><![CDATA[$a[$lastKey]]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$_GET[$urlQueryParamKey]]]></code>
       <code><![CDATA[$_POST[$urlQueryParamKey]]]></code>
       <code><![CDATA[$_REQUEST[$urlQueryParamKey]]]></code>
-      <code><![CDATA[$a[$lastKey]]]></code>
+      <code><![CDATA[$array[$key]]]></code>
+      <code><![CDATA[$child]]></code>
       <code><![CDATA[$parsedBody[$urlQueryParamKey]]]></code>
-      <code><![CDATA[$path[$depth]]]></code>
       <code><![CDATA[$queryParams[$urlQueryParamKey]]]></code>
       <code><![CDATA[$secret]]></code>
       <code><![CDATA[$secret]]></code>
       <code><![CDATA[$urlQueryParamValue]]></code>
+      <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$secret]]></code>
@@ -2017,9 +2004,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_SERVER['REMOTE_ADDR'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnsupportedReferenceUsage>
-      <code><![CDATA[$path[$depth] =& $path[$depth - 1][$key]]]></code>
-    </UnsupportedReferenceUsage>
   </file>
   <file src="src/CreateAddField.php">
     <MixedArgument>

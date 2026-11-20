@@ -120,6 +120,10 @@ class CoreTest extends AbstractTestCase
             'default_val',
             Core::arrayRead('sarr/not_exiting/1', $arr, 'default_val'),
         );
+
+        self::assertSame('default_val', Core::arrayRead('int/x', $arr, 'default_val'));
+        self::assertSame('default_val', Core::arrayRead('str/0', $arr, 'default_val'));
+        self::assertSame('default_val', Core::arrayRead('str/x/y', $arr, 'default_val'));
     }
 
     /**
@@ -169,6 +173,15 @@ class CoreTest extends AbstractTestCase
 
         Core::arrayWrite('sarr/0/2', $arr, null);
         self::assertNull($arr['sarr'][0][2]);
+
+        Core::arrayWrite('int/x', $arr, 'val_int_x');
+        self::assertSame(['x' => 'val_int_x'], $arr['int']);
+
+        Core::arrayWrite('str/0', $arr, 'val_str_0');
+        self::assertSame(['val_str_0'], $arr['str']);
+
+        Core::arrayWrite('arr/0/x/y', $arr, 'val_arr_0_x_y');
+        self::assertSame([['x' => ['y' => 'val_arr_0_x_y']], 'val_arr_1', 'val_arr_2'], $arr['arr']);
     }
 
     /**
