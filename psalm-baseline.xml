@@ -1985,14 +1985,11 @@
       <code><![CDATA[$_GET[$urlQueryParamKey]]]></code>
       <code><![CDATA[$_POST[$urlQueryParamKey]]]></code>
       <code><![CDATA[$_REQUEST[$urlQueryParamKey]]]></code>
-      <code><![CDATA[$array[$key]]]></code>
-      <code><![CDATA[$child]]></code>
       <code><![CDATA[$parsedBody[$urlQueryParamKey]]]></code>
       <code><![CDATA[$queryParams[$urlQueryParamKey]]]></code>
       <code><![CDATA[$secret]]></code>
       <code><![CDATA[$secret]]></code>
       <code><![CDATA[$urlQueryParamValue]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$secret]]></code>
@@ -6684,6 +6681,13 @@
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/Utils/NestedArray.php">
+    <MixedAssignment>
+      <code><![CDATA[$array[$key]]]></code>
+      <code><![CDATA[$child]]></code>
+      <code><![CDATA[$value]]></code>
+    </MixedAssignment>
+  </file>
   <file src="src/Utils/SessionCache.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -7692,45 +7696,6 @@
       <code><![CDATA[testPopulateRequestWithEncryptedQueryParamsWithInvalidParam]]></code>
       <code><![CDATA[testPopulateRequestWithEncryptedQueryParamsWithInvalidParam]]></code>
     </InvalidArgument>
-    <MixedArgument>
-      <code><![CDATA[$arr['arr']]]></code>
-      <code><![CDATA[$arr['arr']]]></code>
-      <code><![CDATA[$arr['sarr']]]></code>
-      <code><![CDATA[$arr['sarr']['arr1']]]></code>
-      <code><![CDATA[$arr['sarr']['arr1']]]></code>
-      <code><![CDATA[$arr['sarr'][0]]]></code>
-      <code><![CDATA[$arr['sarr'][0]]]></code>
-      <code><![CDATA[$arr['sarr'][0][1]]]></code>
-      <code><![CDATA[$arr['sarr'][0][1]]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$arr['arr'][0]]]></code>
-      <code><![CDATA[$arr['arr'][1]]]></code>
-      <code><![CDATA[$arr['arr'][2]]]></code>
-      <code><![CDATA[$arr['sarr']['arr1']]]></code>
-      <code><![CDATA[$arr['sarr']['arr1']]]></code>
-      <code><![CDATA[$arr['sarr']['arr1']]]></code>
-      <code><![CDATA[$arr['sarr']['arr1']]]></code>
-      <code><![CDATA[$arr['sarr']['arr1']]]></code>
-      <code><![CDATA[$arr['sarr']['arr1'][0]]]></code>
-      <code><![CDATA[$arr['sarr']['arr1'][1]]]></code>
-      <code><![CDATA[$arr['sarr']['arr1'][2]]]></code>
-      <code><![CDATA[$arr['sarr']['not_existing']]]></code>
-      <code><![CDATA[$arr['sarr']['not_existing'][1]]]></code>
-      <code><![CDATA[$arr['sarr'][0]]]></code>
-      <code><![CDATA[$arr['sarr'][0]]]></code>
-      <code><![CDATA[$arr['sarr'][0]]]></code>
-      <code><![CDATA[$arr['sarr'][0]]]></code>
-      <code><![CDATA[$arr['sarr'][0]]]></code>
-      <code><![CDATA[$arr['sarr'][0]]]></code>
-      <code><![CDATA[$arr['sarr'][0]]]></code>
-      <code><![CDATA[$arr['sarr'][0][0]]]></code>
-      <code><![CDATA[$arr['sarr'][0][1]]]></code>
-      <code><![CDATA[$arr['sarr'][0][1]]]></code>
-      <code><![CDATA[$arr['sarr'][0][1]]]></code>
-      <code><![CDATA[$arr['sarr'][0][1][0]]]></code>
-      <code><![CDATA[$arr['sarr'][0][2]]]></code>
-    </MixedArrayAccess>
     <TypeDoesNotContainType>
       <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
@@ -8831,6 +8796,47 @@
       <code><![CDATA[! ini_get('allow_url_fopen')]]></code>
       <code><![CDATA[! ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="tests/unit/Utils/NestedArrayTest.php">
+    <MixedArgument>
+      <code><![CDATA[$arr['arr']]]></code>
+      <code><![CDATA[$arr['arr']]]></code>
+      <code><![CDATA[$arr['sarr']]]></code>
+      <code><![CDATA[$arr['sarr']['arr1']]]></code>
+      <code><![CDATA[$arr['sarr']['arr1']]]></code>
+      <code><![CDATA[$arr['sarr'][0]]]></code>
+      <code><![CDATA[$arr['sarr'][0]]]></code>
+      <code><![CDATA[$arr['sarr'][0][1]]]></code>
+      <code><![CDATA[$arr['sarr'][0][1]]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$arr['arr'][0]]]></code>
+      <code><![CDATA[$arr['arr'][1]]]></code>
+      <code><![CDATA[$arr['arr'][2]]]></code>
+      <code><![CDATA[$arr['sarr']['arr1']]]></code>
+      <code><![CDATA[$arr['sarr']['arr1']]]></code>
+      <code><![CDATA[$arr['sarr']['arr1']]]></code>
+      <code><![CDATA[$arr['sarr']['arr1']]]></code>
+      <code><![CDATA[$arr['sarr']['arr1']]]></code>
+      <code><![CDATA[$arr['sarr']['arr1'][0]]]></code>
+      <code><![CDATA[$arr['sarr']['arr1'][1]]]></code>
+      <code><![CDATA[$arr['sarr']['arr1'][2]]]></code>
+      <code><![CDATA[$arr['sarr']['not_existing']]]></code>
+      <code><![CDATA[$arr['sarr']['not_existing'][1]]]></code>
+      <code><![CDATA[$arr['sarr'][0]]]></code>
+      <code><![CDATA[$arr['sarr'][0]]]></code>
+      <code><![CDATA[$arr['sarr'][0]]]></code>
+      <code><![CDATA[$arr['sarr'][0]]]></code>
+      <code><![CDATA[$arr['sarr'][0]]]></code>
+      <code><![CDATA[$arr['sarr'][0]]]></code>
+      <code><![CDATA[$arr['sarr'][0]]]></code>
+      <code><![CDATA[$arr['sarr'][0][0]]]></code>
+      <code><![CDATA[$arr['sarr'][0][1]]]></code>
+      <code><![CDATA[$arr['sarr'][0][1]]]></code>
+      <code><![CDATA[$arr['sarr'][0][1]]]></code>
+      <code><![CDATA[$arr['sarr'][0][1][0]]]></code>
+      <code><![CDATA[$arr['sarr'][0][2]]]></code>
+    </MixedArrayAccess>
   </file>
   <file src="tests/unit/Utils/SessionCacheTest.php">
     <DeprecatedMethod>
