@@ -232,7 +232,7 @@ readonly class UserPreferences
                 continue;
             }
 
-            Core::arrayWrite($path, $cfg, $value);
+            $cfg = Core::arrayWrite($path, $cfg, $value);
         }
 
         return $cfg;
