@@ -8,8 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Utils\NestedArray;
 
 use function __;
 use function _pgettext;
@@ -187,7 +187,7 @@ class ConfigFile
 
         // if the path isn't protected it may be removed
         if (isset($this->persistKeys[$canonicalPath])) {
-            Core::arrayWrite($path, $_SESSION[$this->id], $value);
+            $_SESSION[$this->id] = NestedArray::set($path, $_SESSION[$this->id], $value);
 
             return;
         }
@@ -200,19 +200,19 @@ class ConfigFile
             // get original config values not overwritten by user
             // preferences to allow for overwriting options set in
             // config.inc.php with default values
-            $instanceDefaultValue = Core::arrayRead($canonicalPath, $this->baseConfig);
+            $instanceDefaultValue = NestedArray::get($canonicalPath, $this->baseConfig);
             // remove if it has a default value and base config (config.inc.php)
             // uses default value
             $removePath = $value === $defaultValue && $instanceDefaultValue === $defaultValue;
         }
 
         if ($removePath) {
-            Core::arrayRemove($path, $_SESSION[$this->id]);
+            $_SESSION[$this->id] = NestedArray::remove($path, $_SESSION[$this->id]);
 
             return;
         }
 
-        Core::arrayWrite($path, $_SESSION[$this->id], $value);
+        $_SESSION[$this->id] = NestedArray::set($path, $_SESSION[$this->id], $value);
     }
 
     /**
@@ -279,7 +279,7 @@ class ConfigFile
      */
     public function get(string $path, mixed $default = null): mixed
     {
-        return Core::arrayRead($path, $_SESSION[$this->id], $default);
+        return NestedArray::get($path, $_SESSION[$this->id], $default);
     }
 
     /**
@@ -291,7 +291,7 @@ class ConfigFile
      */
     public function getDefault(string $canonicalPath, mixed $default = null): mixed
     {
-        return Core::arrayRead($canonicalPath, $this->defaultCfg, $default);
+        return NestedArray::get($canonicalPath, $this->defaultCfg, $default);
     }
 
     /**
@@ -303,7 +303,7 @@ class ConfigFile
      */
     public function getValue(string $path, mixed $default = null): mixed
     {
-        $v = Core::arrayRead($path, $_SESSION[$this->id]);
+        $v = NestedArray::get($path, $_SESSION[$this->id]);
         if ($v !== null) {
             return $v;
         }
@@ -331,7 +331,7 @@ class ConfigFile
      */
     public function getDbEntry(string $path, mixed $default = null): mixed
     {
-        return Core::arrayRead($path, $this->cfgDb, $default);
+        return NestedArray::get($path, $this->cfgDb, $default);
     }
 
     /**
@@ -447,12 +447,12 @@ class ConfigFile
         $c = $_SESSION[$this->id];
         foreach ($this->cfgUpdateReadMapping as $mapTo => $mapFrom) {
             // if the key $c exists in $map_to
-            if (Core::arrayRead($mapTo, $c) === null) {
+            if (NestedArray::get($mapTo, $c) === null) {
                 continue;
             }
 
-            Core::arrayWrite($mapTo, $c, Core::arrayRead($mapFrom, $c));
-            Core::arrayRemove($mapFrom, $c);
+            $c = NestedArray::set($mapTo, $c, NestedArray::get($mapFrom, $c));
+            $c = NestedArray::remove($mapFrom, $c);
         }
 
         return $c;
