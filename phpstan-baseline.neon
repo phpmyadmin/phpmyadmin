@@ -403,25 +403,25 @@ parameters:
 			path: src/Config/ConfigFile.php
 
 		-
-			message: '#^Parameter \#2 \$array of static method PhpMyAdmin\\Core\:\:arrayRead\(\) expects array\<mixed\>, array\<mixed\>\|null given\.$#'
+			message: '#^Parameter \#2 \$array of static method PhpMyAdmin\\Utils\\NestedArray\:\:get\(\) expects array\<mixed\>, array\<mixed\>\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Config/ConfigFile.php
 
 		-
-			message: '#^Parameter \#2 \$array of static method PhpMyAdmin\\Core\:\:arrayRead\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#2 \$array of static method PhpMyAdmin\\Utils\\NestedArray\:\:get\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 4
 			path: src/Config/ConfigFile.php
 
 		-
-			message: '#^Parameter \#2 \$array of static method PhpMyAdmin\\Core\:\:arrayRemove\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#2 \$array of static method PhpMyAdmin\\Utils\\NestedArray\:\:remove\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Config/ConfigFile.php
 
 		-
-			message: '#^Parameter \#2 \$array of static method PhpMyAdmin\\Core\:\:arrayWrite\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#2 \$array of static method PhpMyAdmin\\Utils\\NestedArray\:\:set\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 3
 			path: src/Config/ConfigFile.php
@@ -865,7 +865,7 @@ parameters:
 			path: src/Config/UserPreferences.php
 
 		-
-			message: '#^Parameter \#1 \$path of static method PhpMyAdmin\\Core\:\:arrayWrite\(\) expects string, \(int\|string\) given\.$#'
+			message: '#^Parameter \#1 \$path of static method PhpMyAdmin\\Utils\\NestedArray\:\:set\(\) expects string, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Config/UserPreferences.php
@@ -15037,42 +15037,6 @@ parameters:
 			path: tests/unit/CoreTest.php
 
 		-
-			message: '#^Cannot access offset ''arr1'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
-			path: tests/unit/CoreTest.php
-
-		-
-			message: '#^Cannot access offset ''not_existing'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: tests/unit/CoreTest.php
-
-		-
-			message: '#^Cannot access offset 0 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 11
-			path: tests/unit/CoreTest.php
-
-		-
-			message: '#^Cannot access offset 1 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
-			path: tests/unit/CoreTest.php
-
-		-
-			message: '#^Cannot access offset 2 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: tests/unit/CoreTest.php
-
-		-
-			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 9
-			path: tests/unit/CoreTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -16937,6 +16901,42 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: tests/unit/Utils/HttpRequestTest.php
+
+		-
+			message: '#^Cannot access offset ''arr1'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 5
+			path: tests/unit/Utils/NestedArrayTest.php
+
+		-
+			message: '#^Cannot access offset ''not_existing'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/unit/Utils/NestedArrayTest.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 11
+			path: tests/unit/Utils/NestedArrayTest.php
+
+		-
+			message: '#^Cannot access offset 1 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 6
+			path: tests/unit/Utils/NestedArrayTest.php
+
+		-
+			message: '#^Cannot access offset 2 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: tests/unit/Utils/NestedArrayTest.php
+
+		-
+			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, mixed given\.$#'
+			identifier: argument.type
+			count: 9
+			path: tests/unit/Utils/NestedArrayTest.php
 
 		-
 			message: '''

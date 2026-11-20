@@ -13,7 +13,6 @@ use Psr\Clock\ClockInterface;
 use Twig\Attribute\AsTwigFilter;
 
 use function __;
-use function array_slice;
 use function array_walk_recursive;
 use function chr;
 use function explode;
@@ -269,120 +268,6 @@ class Core
         foreach ($headers as $name => $value) {
             header(sprintf('%s: %s', $name, $value));
         }
-    }
-
-    /**
-     * Returns value of an element in $array given by $path.
-     * $path is a string describing position of an element in an associative array,
-     * eg. Servers/1/host refers to $array[Servers][1][host]
-     *
-     * @param string  $path    path in the array
-     * @param mixed[] $array   the array
-     * @param mixed   $default default value
-     *
-     * @return mixed[]|mixed|null array element or $default
-     *
-     * @psalm-pure
-     */
-    public static function arrayRead(string $path, array $array, mixed $default = null): mixed
-    {
-        $value = $array;
-        foreach (explode('/', $path) as $key) {
-            if (! is_array($value) || ! isset($value[$key])) {
-                return $default;
-            }
-
-            $value = $value[$key];
-        }
-
-        return $value;
-    }
-
-    /**
-     * Stores value in an array
-     *
-     * @param string  $path  path in the array
-     * @param mixed[] $array the array
-     * @param mixed   $value value to store
-     *
-     * @return mixed[] the array with the value stored
-     *
-     * @psalm-pure
-     */
-    public static function arrayWrite(string $path, array $array, mixed $value): array
-    {
-        return self::arrayWriteKeys($array, explode('/', $path), $value);
-    }
-
-    /**
-     * @param mixed[]                $array
-     * @param non-empty-list<string> $keys
-     *
-     * @return mixed[]
-     *
-     * @psalm-pure
-     */
-    private static function arrayWriteKeys(array $array, array $keys, mixed $value): array
-    {
-        $key = $keys[0];
-        $keys = array_slice($keys, 1);
-        if ($keys === []) {
-            $array[$key] = $value;
-
-            return $array;
-        }
-
-        $child = $array[$key] ?? [];
-        $array[$key] = self::arrayWriteKeys(is_array($child) ? $child : [], $keys, $value);
-
-        return $array;
-    }
-
-    /**
-     * Removes value from an array
-     *
-     * @param string  $path  path in the array
-     * @param mixed[] $array the array
-     *
-     * @return mixed[] the array with the value removed
-     *
-     * @psalm-pure
-     */
-    public static function arrayRemove(string $path, array $array): array
-    {
-        return self::arrayRemoveKeys($array, explode('/', $path));
-    }
-
-    /**
-     * @param mixed[]                $array
-     * @param non-empty-list<string> $keys
-     *
-     * @return mixed[]
-     *
-     * @psalm-pure
-     */
-    private static function arrayRemoveKeys(array $array, array $keys): array
-    {
-        $key = $keys[0];
-        $keys = array_slice($keys, 1);
-        if ($keys === [] || ! isset($array[$key])) {
-            unset($array[$key]);
-
-            return $array;
-        }
-
-        if (! is_array($array[$key])) {
-            return $array;
-        }
-
-        $child = self::arrayRemoveKeys($array[$key], $keys);
-        if ($child === []) {
-            unset($array[$key]);
-        } else {
-            $array[$key] = $child;
-        }
-
-        return $array;
     }
 
     /**

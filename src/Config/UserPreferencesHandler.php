@@ -6,12 +6,12 @@ namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Theme\ThemeManager;
+use PhpMyAdmin\Utils\NestedArray;
 
 use function array_replace_recursive;
 use function is_array;
@@ -163,7 +163,7 @@ class UserPreferencesHandler
         // use permanent user preferences if possible
         if ($this->storageType !== '') {
             if ($defaultValue === null) {
-                $defaultValue = Core::arrayRead($cfgPath, $this->defaultSettings);
+                $defaultValue = NestedArray::get($cfgPath, $this->defaultSettings);
             }
 
             $result = $this->userPreferences->persistOption($cfgPath, $newCfgValue, $defaultValue);
@@ -172,7 +172,7 @@ class UserPreferencesHandler
         if ($this->storageType !== 'db' && $cookieName !== '') {
             // fall back to cookies
             if ($defaultValue === null) {
-                $defaultValue = Core::arrayRead($cfgPath, $this->config->settings);
+                $defaultValue = NestedArray::get($cfgPath, $this->config->settings);
             }
 
             $this->config->setCookie($cookieName, (string) $newCfgValue, $defaultValue);
