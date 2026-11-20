@@ -183,6 +183,10 @@ class CoreTest extends AbstractTestCase
             'sarr' => ['arr1' => [1, 2, 3], [3, ['a', 'b', 'c'], 4]],
         ];
 
+        $tmpArr = $arr;
+        Core::arrayRemove('int/x', $arr);
+        self::assertSame($tmpArr, $arr);
+
         Core::arrayRemove('int', $arr);
         self::assertArrayNotHasKey('int', $arr);
 
@@ -224,7 +228,6 @@ class CoreTest extends AbstractTestCase
         self::assertArrayNotHasKey(1, $arr['sarr'][0]);
 
         Core::arrayRemove('sarr/0/2', $arr);
-
         self::assertEmpty($arr);
     }
 

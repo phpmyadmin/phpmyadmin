@@ -329,39 +329,36 @@ class Core
      */
     public static function arrayRemove(string $path, array &$array): void
     {
-        $keys = explode('/', $path);
-        $keysLast = array_pop($keys);
-        $path = [];
-        $depth = 0;
+        $array = self::arrayRemoveKeys($array, explode('/', $path));
+    }
 
-        $path[0] =& $array;
-        $found = true;
-        // go as deep as required or possible
-        foreach ($keys as $key) {
-            if (! isset($path[$depth][$key])) {
-                $found = false;
-                break;
-            }
+    /**
+     * @param mixed[]                $array
+     * @param non-empty-list<string> $keys
+     *
+     * @return mixed[]
+     */
+    private static function arrayRemoveKeys(array $array, array $keys): array
+    {
+        $key = array_shift($keys);
+        if ($keys === [] || ! isset($array[$key])) {
+            unset($array[$key]);
 
-            $depth++;
-            $path[$depth] =& $path[$depth - 1][$key];
+            return $array;
         }
 
-        // if element found, remove it
-        if ($found) {
-            unset($path[$depth][$keysLast]);
-            $depth--;
+        if (! is_array($array[$key])) {
+            return $array;
         }
 
-        // remove empty nested arrays
-        /** @infection-ignore-all */
-        for (; $depth >= 0; $depth--) {
-            if (isset($path[$depth + 1]) && count($path[$depth + 1]) !== 0) {
-                break;
-            }
-
-            unset($path[$depth][$keys[$depth]]);
+        $child = self::arrayRemoveKeys($array[$key], $keys);
+        if ($child === []) {
+            unset($array[$key]);
+        } else {
+            $array[$key] = $child;
         }
+
+        return $array;
     }
 
     /**
