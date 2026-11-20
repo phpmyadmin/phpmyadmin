@@ -117,11 +117,11 @@ final readonly class ImportController implements InvocableController
             ImportSettings::$importType = 'query';
             $format = 'sql';
             $_SESSION['sql_from_query_box'] = true;
-            $delimiter = $request->getParsedBodyParamAsString('sql_delimiter');
-            Assert::stringNotEmpty($delimiter);
 
             // If there is a request to ROLLBACK when finished.
             if ($request->hasBodyParam('rollback_query')) {
+                $delimiter = $request->getParsedBodyParamAsString('sql_delimiter');
+                Assert::stringNotEmpty($delimiter);
                 $this->import->handleRollbackRequest(Import::$importText, $delimiter);
             }
 

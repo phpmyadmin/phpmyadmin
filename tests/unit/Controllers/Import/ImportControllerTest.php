@@ -60,7 +60,6 @@ class ImportControllerTest extends AbstractTestCase
             'parameters' => [':nomEta' => 'Saint-Louis - Châteaulin', ':1' => '4'],
             'sql_query' => Current::$sqlQuery,
             'parameterized' => '1',
-            'sql_delimiter' => ';',
         ]);
 
         $this->dummyDbi->addResult(
