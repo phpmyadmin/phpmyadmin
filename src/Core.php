@@ -13,7 +13,7 @@ use Psr\Clock\ClockInterface;
 use Twig\Attribute\AsTwigFilter;
 
 use function __;
-use function array_shift;
+use function array_slice;
 use function array_walk_recursive;
 use function chr;
 use function explode;
@@ -281,6 +281,8 @@ class Core
      * @param mixed   $default default value
      *
      * @return mixed[]|mixed|null array element or $default
+     *
+     * @psalm-pure
      */
     public static function arrayRead(string $path, array $array, mixed $default = null): mixed
     {
@@ -302,10 +304,14 @@ class Core
      * @param string  $path  path in the array
      * @param mixed[] $array the array
      * @param mixed   $value value to store
+     *
+     * @return mixed[] the array with the value stored
+     *
+     * @psalm-pure
      */
-    public static function arrayWrite(string $path, array &$array, mixed $value): void
+    public static function arrayWrite(string $path, array $array, mixed $value): array
     {
-        $array = self::arrayWriteKeys($array, explode('/', $path), $value);
+        return self::arrayWriteKeys($array, explode('/', $path), $value);
     }
 
     /**
@@ -313,10 +319,13 @@ class Core
      * @param non-empty-list<string> $keys
      *
      * @return mixed[]
+     *
+     * @psalm-pure
      */
     private static function arrayWriteKeys(array $array, array $keys, mixed $value): array
     {
-        $key = array_shift($keys);
+        $key = $keys[0];
+        $keys = array_slice($keys, 1);
         if ($keys === []) {
             $array[$key] = $value;
 
@@ -334,10 +343,14 @@ class Core
      *
      * @param string  $path  path in the array
      * @param mixed[] $array the array
+     *
+     * @return mixed[] the array with the value removed
+     *
+     * @psalm-pure
      */
-    public static function arrayRemove(string $path, array &$array): void
+    public static function arrayRemove(string $path, array $array): array
     {
-        $array = self::arrayRemoveKeys($array, explode('/', $path));
+        return self::arrayRemoveKeys($array, explode('/', $path));
     }
 
     /**
@@ -345,10 +358,13 @@ class Core
      * @param non-empty-list<string> $keys
      *
      * @return mixed[]
+     *
+     * @psalm-pure
      */
     private static function arrayRemoveKeys(array $array, array $keys): array
     {
-        $key = array_shift($keys);
+        $key = $keys[0];
+        $keys = array_slice($keys, 1);
         if ($keys === [] || ! isset($array[$key])) {
             unset($array[$key]);
 

@@ -187,7 +187,7 @@ class ConfigFile
 
         // if the path isn't protected it may be removed
         if (isset($this->persistKeys[$canonicalPath])) {
-            Core::arrayWrite($path, $_SESSION[$this->id], $value);
+            $_SESSION[$this->id] = Core::arrayWrite($path, $_SESSION[$this->id], $value);
 
             return;
         }
@@ -207,12 +207,12 @@ class ConfigFile
         }
 
         if ($removePath) {
-            Core::arrayRemove($path, $_SESSION[$this->id]);
+            $_SESSION[$this->id] = Core::arrayRemove($path, $_SESSION[$this->id]);
 
             return;
         }
 
-        Core::arrayWrite($path, $_SESSION[$this->id], $value);
+        $_SESSION[$this->id] = Core::arrayWrite($path, $_SESSION[$this->id], $value);
     }
 
     /**
@@ -451,8 +451,8 @@ class ConfigFile
                 continue;
             }
 
-            Core::arrayWrite($mapTo, $c, Core::arrayRead($mapFrom, $c));
-            Core::arrayRemove($mapFrom, $c);
+            $c = Core::arrayWrite($mapTo, $c, Core::arrayRead($mapFrom, $c));
+            $c = Core::arrayRemove($mapFrom, $c);
         }
 
         return $c;
