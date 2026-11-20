@@ -91,7 +91,7 @@ class SearchTest extends AbstractTestCase
 
         $expected = 'SELECT DISTINCT * FROM `PMA` WHERE `name` != \'value1\''
             . ' AND `id` > value2 AND `index` IS NULL AND `index2` LIKE \'%value4%\''
-            . ' AND `index3` REGEXP ^value5$ AND `index4` IN (value6) AND `index5`'
+            . ' AND `index3` REGEXP ^(value5)$ AND `index4` IN (value6) AND `index5`'
             . ' BETWEEN value7 AND value8 ORDER BY `name` asc';
         self::assertSame($expected, $this->search->buildSqlQuery());
     }
@@ -201,6 +201,21 @@ class SearchTest extends AbstractTestCase
 
         self::assertSame(
             "SELECT * FROM `PMA` WHERE `id` = '07ca1fdd-4805-11ed-a4dc-0242ac110002'",
+            $this->search->buildSqlQuery()
+        );
+    }
+
+    public function testBuildSqlQueryWithWhereClauseRegexpAlternation(): void
+    {
+        $_POST['zoom_submit'] = true;
+        $_POST['table'] = 'pets';
+        $_POST['criteriaColumnNames'] = ['name'];
+        $_POST['criteriaColumnOperators'] = ['REGEXP ^...$'];
+        $_POST['criteriaValues'] = ['cat|dog'];
+        $_POST['criteriaColumnTypes'] = ['varchar(50)'];
+
+        self::assertSame(
+            "SELECT * FROM `pets` WHERE `name` REGEXP '^(cat|dog)$'",
             $this->search->buildSqlQuery()
         );
     }
