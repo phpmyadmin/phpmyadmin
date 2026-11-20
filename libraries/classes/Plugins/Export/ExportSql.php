@@ -31,6 +31,7 @@ use PhpMyAdmin\Version;
 
 use function __;
 use function array_keys;
+use function array_values;
 use function bin2hex;
 use function count;
 use function defined;
@@ -2267,6 +2268,8 @@ class ExportSql extends ExportPlugin
             return $this->export->outputHandler($head);
         }
 
+        $nonGeneratedColumns = $dbi->getTable($db, $table)->getNonGeneratedColumns(false);
+
         $result = $dbi->tryQuery($sqlQuery, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED);
         // a possible error: the table has crashed
         $tmpError = $dbi->getError();
@@ -2294,12 +2297,24 @@ class ExportSql extends ExportPlugin
 
         $fieldSet = [];
         for ($j = 0; $j < $fieldsCnt; $j++) {
+            if (
+                $nonGeneratedColumns !== []
+                && $fieldsMeta[$j]->orgtable === $table
+                && ! in_array($fieldsMeta[$j]->orgname, $nonGeneratedColumns, true)
+            ) {
+                continue;
+            }
+
             $colAs = $fieldsMeta[$j]->name;
             if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
                 $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
             $fieldSet[$j] = Util::backquoteCompat($colAs, $compat, $sql_backquotes);
+        }
+
+        if ($fieldSet === []) {
+            return true;
         }
 
         if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] === 'UPDATE') {
@@ -2415,6 +2430,10 @@ class ExportSql extends ExportPlugin
             $current_row++;
             $values = [];
             for ($j = 0; $j < $fieldsCnt; $j++) {
+                if (! isset($fieldSet[$j])) {
+                    continue;
+                }
+
                 // NULL
                 if (! isset($row[$j])) {
                     $values[] = 'NULL';
@@ -2460,7 +2479,7 @@ class ExportSql extends ExportPlugin
             // should we make update?
             if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] === 'UPDATE') {
                 $insertLine = $schemaInsert;
-                for ($i = 0; $i < $fieldsCnt; $i++) {
+                foreach (array_values($fieldSet) as $i => $field) {
                     if ($i == 0) {
                         $insertLine .= ' ';
                     }
@@ -2470,7 +2489,7 @@ class ExportSql extends ExportPlugin
                         $insertLine .= ',';
                     }
 
-                    $insertLine .= $fieldSet[$i] . ' = ' . $values[$i];
+                    $insertLine .= $field . ' = ' . $values[$i];
                 }
 
                 [$tmpUniqueCondition, $tmpClauseIsUnique] = Util::getUniqueCondition(

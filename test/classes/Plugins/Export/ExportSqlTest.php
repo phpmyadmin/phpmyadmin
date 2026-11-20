@@ -1186,6 +1186,75 @@ class ExportSqlTest extends AbstractTestCase
         '&quot;name&quot; = NULL WHERE CONCAT(`tbl`.`pma`) IS NULL;', $result);
     }
 
+    public function testExportDataWithGeneratedColumns(): void
+    {
+        $dbi = $this->createMock(DatabaseInterface::class);
+
+        $flags = [];
+        $a = new stdClass();
+        $a->name = 'id';
+        $a->orgname = 'id';
+        $a->table = 'table';
+        $a->orgtable = 'table';
+        $a->length = 11;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG, $a);
+
+        $a = new stdClass();
+        $a->name = 'virt';
+        $a->orgname = 'virt';
+        $a->table = 'table';
+        $a->orgtable = 'table';
+        $a->length = 11;
+        $flags[] = new FieldMetadata(MYSQLI_TYPE_LONG, MYSQLI_NUM_FLAG, $a);
+
+        $resultStub = $this->createMock(DummyResult::class);
+
+        $dbi->expects(self::once())
+            ->method('getFieldsMeta')
+            ->with($resultStub)
+            ->willReturn($flags);
+
+        $dbi->expects(self::once())
+            ->method('tryQuery')
+            ->with('SELECT * FROM `table`', DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_UNBUFFERED)
+            ->willReturn($resultStub);
+
+        $resultStub->expects(self::once())
+            ->method('numFields')
+            ->willReturn(2);
+
+        $resultStub->expects(self::exactly(2))
+            ->method('fetchRow')
+            ->willReturnOnConsecutiveCalls(['1', '2'], []);
+
+        $_table = $this->createMock(Table::class);
+        $_table->expects(self::once())
+            ->method('isMerge')
+            ->willReturn(false);
+        $_table->expects(self::once())
+            ->method('isView')
+            ->willReturn(false);
+        $_table->expects(self::once())
+            ->method('getNonGeneratedColumns')
+            ->with(false)
+            ->willReturn(['id']);
+
+        $dbi->method('getTable')->willReturn($_table);
+
+        $GLOBALS['dbi'] = $dbi;
+        $GLOBALS['sql_compatibility'] = 'NONE';
+        $GLOBALS['sql_backquotes'] = true;
+        $GLOBALS['sql_type'] = 'INSERT';
+        $GLOBALS['sql_insert_syntax'] = 'both';
+
+        ob_start();
+        $this->object->exportData('db', 'table', "\n", 'example.com/err', 'SELECT * FROM `table`');
+        $result = ob_get_clean();
+
+        self::assertIsString($result);
+        self::assertStringContainsString('INSERT INTO `table` (`id`) VALUES' . "\n" . '(1);', $result);
+    }
+
     public function testExportDataWithIsView(): void
     {
         $dbi = $this->createMock(DatabaseInterface::class);
