@@ -3444,7 +3444,7 @@ class Results
             return $transformationPlugin->applyTransformation($result, $transformOptions, $meta);
         }
 
-        $result = Core::mimeDefaultFunction($result);
+        $result = htmlspecialchars($result);
         if (
             ($_SESSION['tmpval']['display_binary']
             && $meta->isType(FieldMetadata::TYPE_STRING))
@@ -3583,7 +3583,7 @@ class Results
                 if ($transformationPlugin !== null) {
                     $value .= $transformationPlugin->applyTransformation($data, $transformOptions, $meta);
                 } else {
-                    $value .= Core::mimeDefaultFunction($data);
+                    $value .= htmlspecialchars($data);
                 }
 
                 $value .= ' <code>[-&gt;' . $dispval . ']</code>';
@@ -3610,10 +3610,10 @@ class Results
                 } elseif ($relationalDisplay === self::RELATIONAL_DISPLAY_COLUMN && $relation->displayField !== '') {
                     // user chose "relational display field" in the
                     // display options, so show display field in the cell
-                    $displayedData = $dispval === null ? '<em>NULL</em>' : Core::mimeDefaultFunction($dispval);
+                    $displayedData = $dispval === null ? '<em>NULL</em>' : htmlspecialchars($dispval);
                 } else {
                     // otherwise display data in the cell
-                    $displayedData = Core::mimeDefaultFunction($displayedData);
+                    $displayedData = htmlspecialchars($displayedData);
                 }
 
                 if ($relationalDisplay === self::RELATIONAL_KEY) {
@@ -3639,7 +3639,7 @@ class Results
         } elseif ($transformationPlugin !== null) {
             $value .= $transformationPlugin->applyTransformation($data, $transformOptions, $meta);
         } else {
-            $value .= Core::mimeDefaultFunction($data);
+            $value .= htmlspecialchars($data);
         }
 
         return $this->template->render('display/results/row_data', [
