@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
@@ -60,8 +59,8 @@ final readonly class ShowCreateController implements InvocableController
             $object = $this->dbi->getTable(Current::$database, $table);
 
             $tables[$object->isView() ? 'views' : 'tables'][] = [
-                'name' => Core::mimeDefaultFunction($table),
-                'show_create' => Core::mimeDefaultFunction($object->showCreate()),
+                'name' => $table,
+                'show_create' => $object->showCreate(),
             ];
         }
 
