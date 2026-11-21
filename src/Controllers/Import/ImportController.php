@@ -38,6 +38,7 @@ use function _ngettext;
 use function in_array;
 use function ini_get;
 use function ini_set;
+use function intdiv;
 use function is_array;
 use function is_link;
 use function is_numeric;
@@ -355,7 +356,7 @@ final readonly class ImportController implements InvocableController
         }
 
         // Just to be sure, there might be lot of memory needed for uncompression
-        ImportSettings::$readLimit = $memoryLimit / 8;
+        ImportSettings::$readLimit = intdiv($memoryLimit, 8);
 
         // handle filenames
         if (
@@ -587,7 +588,7 @@ final readonly class ImportController implements InvocableController
         //  can choke on it so avoid parsing)
         $sqlLength = mb_strlen(Current::$sqlQuery);
         if ($sqlLength <= $this->config->config->MaxCharactersInDisplayedSQL) {
-            [$statementInfo, Current::$database, $tableFromSql, $reloadNeeded] = ParseAnalyze::sqlQuery(
+            [, Current::$database, $tableFromSql, $reloadNeeded] = ParseAnalyze::sqlQuery(
                 Current::$sqlQuery,
                 Current::$database,
                 $request->isAjax(),
