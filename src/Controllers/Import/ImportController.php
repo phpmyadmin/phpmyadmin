@@ -501,7 +501,7 @@ final readonly class ImportController implements InvocableController
         // Reset charset back, if we did some changes
         if ($resetCharset) {
             $this->dbi->query('SET CHARACTER SET ' . $this->dbi->getDefaultCharset());
-            $this->dbi->setCollation($this->dbi->getDefaultCollation());
+            $this->dbi->setCollation($this->dbi->getCollationConnection());
         }
 
         // Show correct message

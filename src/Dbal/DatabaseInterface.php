@@ -122,6 +122,7 @@ class DatabaseInterface
     private string $versionString = '5.50.0';
     /** @var string Server version comment */
     private string $versionComment = '';
+    private string $userConnectionCollation = '';
 
     /** @var Types MySQL types data */
     public Types $types;
@@ -1044,9 +1045,8 @@ class DatabaseInterface
             Context::setMode($version['@@sql_mode']);
         }
 
-        $this->query(
-            sprintf('SET NAMES \'%s\' COLLATE \'%s\';', $this->getDefaultCharset(), $this->getDefaultCollation()),
-        );
+        $this->query(sprintf('SET collation_connection = \'%s\';', $this->getDefaultCollation()));
+        $this->userConnectionCollation = $this->getDefaultCollation();
 
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
@@ -1109,6 +1109,13 @@ class DatabaseInterface
 
             return;
         }
+
+        $this->userConnectionCollation = $collation;
+    }
+
+    public function getCollationConnection(): string
+    {
+        return $this->userConnectionCollation;
     }
 
     /**

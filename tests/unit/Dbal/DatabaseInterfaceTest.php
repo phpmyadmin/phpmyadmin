@@ -217,8 +217,11 @@ final class DatabaseInterfaceTest extends AbstractTestCase
             ->willReturn($versionQueryResult);
 
         $mock->expects(self::once())->method('setVersion')->with($versionQueryResult);
+        $mock->expects(self::once())->method('query')->with('SET collation_connection = \'utf8mb4_general_ci\';');
 
         $mock->postConnect(new Server(['SessionTimeZone' => '']));
+
+        self::assertSame('utf8mb4_general_ci', $mock->getCollationConnection());
     }
 
     /**
@@ -410,13 +413,22 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi->addResult('SET collation_connection = \'utf8mb4_bin_ci\';', true);
         $dummyDbi->addResult('SET collation_connection = \'utf8_czech_ci\';', true);
         $dummyDbi->addResult('SET collation_connection = \'utf8_bin_ci\';', true);
+        $dummyDbi->addResult('SET collation_connection = \'unknown_ci\';', false);
 
         (new ReflectionProperty(DatabaseInterface::class, 'versionInt'))->setValue($dbi, 50504);
         $dbi->setCollation('utf8_czech_ci');
+        self::assertSame('utf8_czech_ci', $dbi->getCollationConnection());
         $dbi->setCollation('utf8mb4_bin_ci');
+        self::assertSame('utf8mb4_bin_ci', $dbi->getCollationConnection());
         (new ReflectionProperty(DatabaseInterface::class, 'versionInt'))->setValue($dbi, 50503);
         $dbi->setCollation('utf8_czech_ci');
+        self::assertSame('utf8_czech_ci', $dbi->getCollationConnection());
         $dbi->setCollation('utf8mb4_bin_ci');
+        self::assertSame('utf8_bin_ci', $dbi->getCollationConnection());
+
+        // A failed SET leaves the active collation unchanged
+        $dbi->setCollation('unknown_ci');
+        self::assertSame('utf8_bin_ci', $dbi->getCollationConnection());
 
         $dummyDbi->assertAllQueriesConsumed();
     }
