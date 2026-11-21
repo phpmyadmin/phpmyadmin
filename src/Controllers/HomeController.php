@@ -118,13 +118,14 @@ final class HomeController implements InvocableController
                 $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
                 $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
                 $charsetsList = [];
+                $collationConnection = $this->dbi->getCollationConnection();
                 foreach ($charsets as $charset) {
                     $collationsList = [];
                     foreach ($collations[$charset->getName()] as $collation) {
                         $collationsList[] = [
                             'name' => $collation->getName(),
                             'description' => $collation->getDescription(),
-                            'is_selected' => $this->dbi->getDefaultCollation() === $collation->getName(),
+                            'is_selected' => $collationConnection === $collation->getName(),
                         ];
                     }
 

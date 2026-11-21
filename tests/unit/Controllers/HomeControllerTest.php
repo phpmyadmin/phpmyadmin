@@ -65,6 +65,7 @@ final class HomeControllerTest extends AbstractTestCase
         $config = Config::$instance = new Config();
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('mysql');
+        $dbiDummy->addResult("SET collation_connection = 'latin1_swedish_ci';", true);
         $dbiDummy->addResult(
             "SHOW SESSION VARIABLES LIKE 'character_set_server';",
             [['character_set_server', 'utf8mb4']],
@@ -72,6 +73,7 @@ final class HomeControllerTest extends AbstractTestCase
         );
         $dbiDummy->addResult('SELECT @@hostname;', [['test-hostname']]);
         $dbi = DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
+        $dbi->setCollation('latin1_swedish_ci');
 
         $controller = new HomeController(
             new ResponseRenderer(),

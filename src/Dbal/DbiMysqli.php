@@ -19,6 +19,7 @@ use function defined;
 use function method_exists;
 use function mysqli_connect_errno;
 use function mysqli_get_client_info;
+use function mysqli_get_server_version;
 use function mysqli_report;
 use function sprintf;
 use function str_contains;
@@ -131,6 +132,9 @@ class DbiMysqli implements DbiExtension
         $mysqli->options(MYSQLI_OPT_LOCAL_INFILE, (int) defined('PMA_ENABLE_LDI'));
 
         mysqli_report(MYSQLI_REPORT_OFF);
+
+        // Keep in sync with DatabaseInterface::getDefaultCharset()
+        $mysqli->set_charset(mysqli_get_server_version($mysqli) > 50503 ? 'utf8mb4' : 'utf8');
 
         return new Connection($mysqli);
     }
