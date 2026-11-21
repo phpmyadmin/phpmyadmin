@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Exceptions\EncodingConversionFailure;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Medium;
@@ -188,9 +189,41 @@ class EncodingTest extends AbstractTestCase
         self::assertContains('utf-8', $result);
     }
 
-    public function testListEncodingsForIso2022CnExt(): void
+    #[RequiresPhpExtension('iconv')]
+    public function testListEncodingsSkipsCharsetsUnknownToIconv(): void
     {
         Encoding::setEngine(Encoding::ENGINE_ICONV);
+        $config = Config::$instance = new Config();
+        $config->set('AvailableCharsets', ['utf-8', 'x-user-defined', 'iso-8859-12', 'iso-8859-1']);
+
+        self::assertSame(['utf-8', 'iso-8859-1'], Encoding::listEncodings());
+    }
+
+    public function testListEncodingsSkipsCharsetsUnknownToMbstring(): void
+    {
+        Encoding::setEngine(Encoding::ENGINE_MBSTRING);
+        $config = Config::$instance = new Config();
+        $config->set('AvailableCharsets', ['utf-8', 'x-user-defined', 'SJIS', 'SHIFT_JIS']);
+
+        self::assertSame(['utf-8', 'SJIS', 'SHIFT_JIS'], Encoding::listEncodings());
+    }
+
+    #[RequiresPhpExtension('iconv')]
+    public function testConvertStringFailure(): void
+    {
+        Encoding::setEngine(Encoding::ENGINE_ICONV);
+
+        $this->expectException(EncodingConversionFailure::class);
+        $this->expectExceptionMessage('The text could not be converted from utf-16 to utf-8.');
+
+        // A single byte is not valid UTF-16
+        Encoding::convertString('utf-16', 'utf-8', 'a');
+    }
+
+    public function testListEncodingsForIso2022CnExt(): void
+    {
+        // No engine, so that only the ISO-2022-CN-EXT filter removes character sets
+        Encoding::setEngine(Encoding::ENGINE_NONE);
         Config::getInstance()->set('AvailableCharsets', [
             'utf-8',
             'ISO-2022-CN',
