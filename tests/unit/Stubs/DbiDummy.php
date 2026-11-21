@@ -69,6 +69,13 @@ class DbiDummy implements DbiExtension
     private array $fifoDatabasesToSelect = [];
 
     /**
+     * Character sets that are expected to be set, in fifo order
+     *
+     * @var list<array{string, bool}>
+     */
+    private array $fifoCharsets = [];
+
+    /**
      * @var array<array<string,array<int,array<string,string|float|int|null>>|bool|string[]|FieldMetadata[]>>
      * @phpstan-var list<array{
      *     query: string,
@@ -120,6 +127,16 @@ class DbiDummy implements DbiExtension
         }
 
         Assert::fail('Non expected select of database: ' . $databaseName);
+    }
+
+    public function setCharset(Connection $connection, string $charset): bool
+    {
+        $expected = array_shift($this->fifoCharsets);
+        if ($expected === null || $expected[0] !== $charset) {
+            Assert::fail('Non expected character set: ' . $charset);
+        }
+
+        return $expected[1];
     }
 
     public function assertAllQueriesConsumed(): void
@@ -289,6 +306,11 @@ class DbiDummy implements DbiExtension
         $this->fifoDatabasesToSelect[] = $databaseName;
     }
 
+    public function addCharset(string $charset, bool $result = true): void
+    {
+        $this->fifoCharsets[] = [$charset, $result];
+    }
+
     /**
      * Adds query result for testing
      *
@@ -346,6 +368,11 @@ class DbiDummy implements DbiExtension
     public function assertAllSelectsConsumed(): void
     {
         Assert::assertSame([], $this->fifoDatabasesToSelect, 'Some database selects were not used!');
+    }
+
+    public function assertAllCharsetsConsumed(): void
+    {
+        Assert::assertSame([], $this->fifoCharsets, 'Some character sets were not set!');
     }
 
     public function assertAllErrorCodesConsumed(): void

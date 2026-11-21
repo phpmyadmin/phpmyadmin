@@ -426,21 +426,13 @@ final readonly class ImportController implements InvocableController
                 return $this->response->response();
             }
         } elseif (! Import::$hasError && Import::$importText === '') {
-            Current::$message = Message::error(
+            return $this->errorResponse(Message::error(
                 __(
                     'No data was received to import. Either no file name was ' .
                     'submitted, or the file size exceeded the maximum size permitted ' .
                     'by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].',
                 ),
-            );
-
-            $_SESSION['Import_message']['message'] = Current::$message->getDisplay();
-
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', Current::$message);
-            $this->response->addHTML(Current::$message);
-
-            return $this->response->response();
+            ));
         }
 
         // Convert the file's charset if necessary
@@ -451,7 +443,17 @@ final readonly class ImportController implements InvocableController
         ) {
             ImportSettings::$charsetConversion = true;
         } elseif (ImportSettings::$charsetOfFile !== '' && ImportSettings::$charsetOfFile !== 'utf-8') {
-            $this->dbi->query('SET NAMES \'' . ImportSettings::$charsetOfFile . '\'');
+            if (! $this->dbi->setCharset(ImportSettings::$charsetOfFile)) {
+                if (isset($importHandle)) {
+                    $importHandle->close();
+                }
+
+                return $this->errorResponse(Message::error(
+                    __('The server does not support the character set %s.'),
+                    [ImportSettings::$charsetOfFile],
+                ));
+            }
+
             // We can not show query in this case, it is in different charset
             ImportSettings::$sqlQueryDisabled = true;
             $resetCharset = true;
@@ -500,7 +502,7 @@ final readonly class ImportController implements InvocableController
 
         // Reset charset back, if we did some changes
         if ($resetCharset) {
-            $this->dbi->query('SET CHARACTER SET ' . $this->dbi->getDefaultCharset());
+            $this->dbi->setCharset($this->dbi->getDefaultCharset());
             $this->dbi->setCollation($this->dbi->getCollationConnection());
         }
 
@@ -725,6 +727,17 @@ final readonly class ImportController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(ImportSettings::$message));
         }
+
+        return $this->response->response();
+    }
+
+    private function errorResponse(Message $message): Response
+    {
+        $_SESSION['Import_message']['message'] = $message->getDisplay();
+
+        $this->response->setRequestStatus(false);
+        $this->response->addJSON('message', $message);
+        $this->response->addHTML($message);
 
         return $this->response->response();
     }
