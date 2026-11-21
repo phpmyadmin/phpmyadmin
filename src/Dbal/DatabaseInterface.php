@@ -1653,6 +1653,15 @@ class DatabaseInterface
         return $this->extension->selectDb($dbname, $this->connections[$connectionType->value]);
     }
 
+    public function setCharset(string $charset, ConnectionType $connectionType = ConnectionType::User): bool
+    {
+        if (! isset($this->connections[$connectionType->value])) {
+            return false;
+        }
+
+        return $this->extension->setCharset($this->connections[$connectionType->value], $charset);
+    }
+
     /**
      * Prepare next result from multi_query
      */

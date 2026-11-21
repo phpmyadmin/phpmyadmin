@@ -401,6 +401,20 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         ];
     }
 
+    public function testSetCharset(): void
+    {
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $dummyDbi->addCharset('sjis');
+        $dummyDbi->addCharset('unknown', false);
+
+        self::assertTrue($dbi->setCharset('sjis'));
+        self::assertFalse($dbi->setCharset('unknown'));
+
+        $dummyDbi->assertAllCharsetsConsumed();
+    }
+
     /**
      * Tests for DBI::setCollation() method.
      */

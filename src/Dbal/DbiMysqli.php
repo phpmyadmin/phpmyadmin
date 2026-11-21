@@ -152,6 +152,14 @@ class DbiMysqli implements DbiExtension
         return $mysqli->select_db((string) $databaseName);
     }
 
+    public function setCharset(Connection $connection, string $charset): bool
+    {
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
+        return $mysqli->set_charset($charset);
+    }
+
     /**
      * runs a query and returns the result
      */
