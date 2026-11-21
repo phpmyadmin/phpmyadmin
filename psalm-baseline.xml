@@ -787,11 +787,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Controllers/Database/Structure/ShowCreateController.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[__construct]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="src/Controllers/Database/StructureController.php">
     <InvalidOperand>
       <code><![CDATA[$currentTable['Data_free']]]></code>
