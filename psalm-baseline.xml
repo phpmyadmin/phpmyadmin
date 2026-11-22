@@ -7053,11 +7053,6 @@
       <code><![CDATA[assertSame]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="tests/unit/Config/SettingsTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[valuesForOBGzipProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="tests/unit/Config/UserPreferencesTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
