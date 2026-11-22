@@ -265,7 +265,8 @@ class NormalizationTest extends AbstractTestCase
         $partialDependencies = ['id' => ['col2']];
         $result = $this->normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
         self::assertSame(__('End of step'), $result['legendText']);
-        self::assertSame('<h3>The second step of normalization is complete for table \'' . $table . '\'.</h3>', $result['headText']);
+        $expected = '<h3>The second step of normalization is complete for table \'' . $table . '\'.</h3>';
+        self::assertSame($expected, $result['headText']);
         self::assertFalse($result['queryError']);
         $partialDependencies = ['id' => ['col2'], 'col1' => ['col2']];
         $result1 = $this->normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
