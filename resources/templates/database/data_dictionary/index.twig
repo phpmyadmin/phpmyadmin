@@ -90,7 +90,7 @@
                 <td rowspan="{{ columns_count }}">{{ index.getName() }}</td>
                 <td rowspan="{{ columns_count }}">{{ index.getType()|default(index.getChoice()) }}</td>
                 <td rowspan="{{ columns_count }}">{{ index.isUnique() ? t('Yes') : t('No') }}</td>
-                <td rowspan="{{ columns_count }}">{{ index.isPacked()|raw }}</td>
+                <td rowspan="{{ columns_count }}">{{ index.isPacked() }}</td>
 
                 {% for column in index.getColumns() %}
                   {% if column.getSeqInIndex() > 1 %}
