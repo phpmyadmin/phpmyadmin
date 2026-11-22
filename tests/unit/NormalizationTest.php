@@ -264,9 +264,9 @@ class NormalizationTest extends AbstractTestCase
         $tablesName->col1 = 'PMA_table1';
         $partialDependencies = ['id' => ['col2']];
         $result = $this->normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
-        self::assertArrayHasKey('legendText', $result);
-        self::assertArrayHasKey('headText', $result);
-        self::assertArrayHasKey('queryError', $result);
+        self::assertSame(__('End of step'), $result['legendText']);
+        self::assertSame('<h3>The second step of normalization is complete for table \'' . $table . '\'.</h3>', $result['headText']);
+        self::assertFalse($result['queryError']);
         $partialDependencies = ['id' => ['col2'], 'col1' => ['col2']];
         $result1 = $this->normalization->createNewTablesFor2NF($partialDependencies, $tablesName, $table, $db);
         self::assertArrayHasKey('extra', $result1);
@@ -317,14 +317,17 @@ class NormalizationTest extends AbstractTestCase
             ],
         ];
         $result = $this->normalization->createNewTablesFor3NF($newTables, $db);
-        self::assertArrayHasKey('legendText', $result);
-        self::assertArrayHasKey('headText', $result);
-        self::assertArrayHasKey('queryError', $result);
+        self::assertSame(__('End of step'), $result['legendText']);
+        self::assertSame('<h3>' . __('The third step of normalization is complete.') . '</h3>', $result['headText']);
+        self::assertFalse($result['queryError']);
+        self::assertArrayHasKey('extra', $result);
+        self::assertSame('', $result['extra']);
         $newTables1 = [];
         $result1 = $this->normalization->createNewTablesFor3NF($newTables1, $db);
-        self::assertArrayHasKey('queryError', $result1);
         self::assertSame(__('End of step'), $result1['legendText']);
+        self::assertSame('<h3>' . __('The third step of normalization is complete.') . '</h3>', $result1['headText']);
         self::assertFalse($result1['queryError']);
+        self::assertArrayNotHasKey('extra', $result1);
     }
 
     /**

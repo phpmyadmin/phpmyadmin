@@ -7453,24 +7453,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Normalization\:\:createNewTablesFor2NF\(\) should return array\{legendText\: string, headText\: string, queryError\: bool, extra\: PhpMyAdmin\\Message\} but returns array\{legendText\: string, headText\: non\-falsy\-string, queryError\: bool, extra\: ''''\|PhpMyAdmin\\Message\}\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Normalization.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Normalization\:\:createNewTablesFor2NF\(\) should return array\{legendText\: string, headText\: string, queryError\: bool, extra\: PhpMyAdmin\\Message\} but returns array\{legendText\: string, headText\: non\-falsy\-string, queryError\: false\}\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Normalization.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Normalization\:\:createNewTablesFor3NF\(\) should return array\{legendText\: string, headText\: string, queryError\: string\|false, extra\?\: string\} but returns array\{legendText\: string, headText\: non\-falsy\-string, queryError\: bool, extra\: ''''\|PhpMyAdmin\\Message\}\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Normalization.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 3
@@ -15832,12 +15814,6 @@ parameters:
 			path: tests/unit/NormalizationTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''extra'' and array\{legendText\: string, headText\: string, queryError\: bool, extra\: PhpMyAdmin\\Message\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/NormalizationTest.php
-
-		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''extra'' and array\{legendText\: string, headText\: string, subText\: string, extra\: string, primary_key\: string\|false\} will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
@@ -15868,18 +15844,6 @@ parameters:
 			path: tests/unit/NormalizationTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''headText'' and array\{legendText\: string, headText\: string, queryError\: bool, extra\: PhpMyAdmin\\Message\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/NormalizationTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''headText'' and array\{legendText\: string, headText\: string, queryError\: string\|false, extra\?\: string\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/NormalizationTest.php
-
-		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''headText'' and array\{legendText\: string, headText\: string, subText\: string, extra\: string, primary_key\: string\|false\} will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
@@ -15899,18 +15863,6 @@ parameters:
 
 		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''headText'' and array\{legendText\: string, headText\: string, subText\: string, hasPrimaryKey\: string, extra\: string\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/NormalizationTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''legendText'' and array\{legendText\: string, headText\: string, queryError\: bool, extra\: PhpMyAdmin\\Message\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/NormalizationTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''legendText'' and array\{legendText\: string, headText\: string, queryError\: string\|false, extra\?\: string\} will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/unit/NormalizationTest.php
@@ -15958,18 +15910,6 @@ parameters:
 			path: tests/unit/NormalizationTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''queryError'' and array\{legendText\: string, headText\: string, queryError\: bool, extra\: PhpMyAdmin\\Message\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/NormalizationTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''queryError'' and array\{legendText\: string, headText\: string, queryError\: string\|false, extra\?\: string\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 2
-			path: tests/unit/NormalizationTest.php
-
-		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''queryError'' and array\{queryError\: bool, message\: PhpMyAdmin\\Message\} will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
@@ -16002,12 +15942,6 @@ parameters:
 		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''PhpMyAdmin\\\\Message'' and PhpMyAdmin\\Message will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/NormalizationTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with '''' and PhpMyAdmin\\Message will always evaluate to false\.$#'
-			identifier: staticMethod.impossibleType
 			count: 1
 			path: tests/unit/NormalizationTest.php
 
