@@ -955,16 +955,6 @@ class SettingsTest extends TestCase
         yield 'invalid value' => [0, 1000];
     }
 
-    /** @return iterable<string, array{mixed, string|bool}> */
-    public static function valuesForOBGzipProvider(): iterable
-    {
-        yield 'null value' => [null, 'auto'];
-        yield 'valid value' => [true, true];
-        yield 'valid value 2' => [false, false];
-        yield 'valid value 3' => ['auto', 'auto'];
-        yield 'valid value with type coercion' => [0, false];
-    }
-
     #[DataProvider('booleanWithDefaultFalseProvider')]
     public function testPersistentConnections(mixed $actual, bool $expected): void
     {
