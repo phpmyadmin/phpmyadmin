@@ -8696,9 +8696,6 @@
       <code><![CDATA[$json['error']]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[clear]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/SystemDatabaseTest.php">
     <DeprecatedMethod>
