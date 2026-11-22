@@ -499,7 +499,7 @@ class Normalization
      * @param string  $table               current table
      * @param string  $db                  current database
      *
-     * @return array{legendText: string, headText: string, queryError: bool, extra: Message}
+     * @return array{legendText: string, headText: string, queryError: bool, extra?: ''|Message}
      */
     public function createNewTablesFor2NF(
         array $partialDependencies,
@@ -653,7 +653,7 @@ class Normalization
      * @param mixed[] $newTables list of new tables to be created
      * @param string  $db        current database
      *
-     * @return array{legendText: string, headText: string, queryError: string|false, extra?: string}
+     * @return array{legendText: string, headText: string, queryError: bool, extra?: ''|Message}
      */
     public function createNewTablesFor3NF(array $newTables, string $db): array
     {
