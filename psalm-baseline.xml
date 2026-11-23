@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="7.17.0@b5ea40db593f3acc7a4a20cc1a9bd338ce3bd405">
+<files psalm-version="7.23.0@c966ac090b283e6650535cb0029ad62ece4535bb">
   <file src="src/Advisory/Advisor.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$pattern]]></code>
@@ -54,6 +54,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[string]]></code>
+    </UnnecessaryVarAnnotation>
     <UnusedClass>
       <code><![CDATA[CacheWarmupCommand]]></code>
     </UnusedClass>
@@ -78,6 +81,11 @@
       <code><![CDATA[FixPoTwigCommand]]></code>
     </UnusedClass>
   </file>
+  <file src="src/Command/SetVersionCommand.php">
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[string]]></code>
+    </UnnecessaryVarAnnotation>
+  </file>
   <file src="src/Command/TwigLintCommand.php">
     <MixedArgumentTypeCoercion>
       <code><![CDATA[static function (int $level, string $message, string $file, int $line) use (&$prevErrorHandler) {
@@ -93,9 +101,6 @@
                     return $prevErrorHandler ? $prevErrorHandler($level, $message, $file, $line) : false;
                 }]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$showDeprecations]]></code>
-    </MixedAssignment>
     <MixedFunctionCall>
       <code><![CDATA[$prevErrorHandler($level, $message, $file, $line)]]></code>
     </MixedFunctionCall>
@@ -357,14 +362,6 @@
       <code><![CDATA[$loginCookieValidity]]></code>
     </MixedAssignment>
   </file>
-  <file src="src/Config/Settings.php">
-    <LessSpecificReturnStatement>
-      <code><![CDATA[strtoupper($settings['TablePrimaryKeyOrder'])]]></code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType>
-      <code><![CDATA['NONE'|'ASC'|'DESC']]></code>
-    </MoreSpecificReturnType>
-  </file>
   <file src="src/Config/SpecialSchemaLinks.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -394,9 +391,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Config/UserPreferencesHandler.php">
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[array_replace_recursive($this->config->settings, $configData)]]></code>
-    </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$configData['lang']]]></code>
       <code><![CDATA[$defaultValue]]></code>
@@ -420,6 +414,9 @@
       <code><![CDATA[$this->storageType]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[array_replace_recursive($this->config->settings, $configData)]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$defaultValue]]></code>
     </PossiblyInvalidArgument>
@@ -516,10 +513,8 @@
       <code><![CDATA[$columns['table_name']]]></code>
       <code><![CDATA[$columns['table_schema']]]></code>
       <code><![CDATA[$foreignDb]]></code>
-      <code><![CDATA[$foreignDb]]></code>
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignField]]></code>
-      <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$foreignTable]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -1591,6 +1586,12 @@
       <code><![CDATA[$_POST['added_fields']]]></code>
       <code><![CDATA[$addFields]]></code>
     </PossiblyInvalidOperand>
+    <PossiblyNullArrayAccess>
+      <code><![CDATA[$_POST['index']['Index_choice']]]></code>
+    </PossiblyNullArrayAccess>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$_POST['index']]]></code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/Controllers/Table/RelationController.php">
     <InvalidArgument>
@@ -2239,6 +2240,10 @@
       <code><![CDATA[$value['foreign_db']]]></code>
       <code><![CDATA[$value['foreign_table']]]></code>
     </PossiblyNullOperand>
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[string]]></code>
+      <code><![CDATA[string]]></code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Database/MultiTableQuery.php">
     <WeakHash>
@@ -2550,6 +2555,14 @@
       <code><![CDATA[$_SESSION['tmpval']['hide_transformation']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['hide_transformation']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['hide_transformation']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -3486,9 +3499,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <RedundantCondition>
-      <code><![CDATA[function_exists('ini_get') && function_exists('ini_set')]]></code>
-    </RedundantCondition>
   </file>
   <file src="src/Http/Middleware/SessionHandling.php">
     <PossiblyUnusedMethod>
@@ -4153,9 +4163,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$config->settings[$pluginType->value][$opt]]]></code>
-    </PossiblyInvalidCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty(Config::getInstance()->settings[$pluginType->value][$opt])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -4208,9 +4215,6 @@
     <PossiblyInvalidPropertyAssignmentValue>
       <code><![CDATA[$password]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <RedundantCondition>
-      <code><![CDATA[function_exists('curl_init') && function_exists('curl_exec')]]></code>
-    </RedundantCondition>
     <RiskyCast>
       <code><![CDATA[$_GET['session_expired']]]></code>
     </RiskyCast>
@@ -4926,8 +4930,6 @@
     <PossiblyFalseOperand>
       <code><![CDATA[$pos]]></code>
       <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$pos]]></code>
     </PossiblyFalseOperand>
   </file>
   <file src="src/Plugins/Schema/Eps/EpsRelationSchema.php">
@@ -5242,19 +5244,15 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArrayAccess>
-      <code><![CDATA[$allowedPrograms[0]]]></code>
-    </MixedArrayAccess>
     <MixedArrayOffset>
       <code><![CDATA[$allowedPrograms[$options[0]]]]></code>
     </MixedArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$program]]></code>
-    </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$options[1]]]></code>
-      <code><![CDATA[$program]]></code>
     </MixedOperand>
+    <NoValue>
+      <code><![CDATA[$program]]></code>
+    </NoValue>
     <PossiblyFalseOperand>
       <code><![CDATA[fgets($pipes[1], 1024)]]></code>
     </PossiblyFalseOperand>
@@ -5597,12 +5595,6 @@
     </UnsafeInstantiation>
   </file>
   <file src="src/Security/WebAuthn/CustomServer.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[$decoded]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array{fmt: string, attStmt: mixed[], authData: string}]]></code>
-    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[[
             'type' => $clientData['type'],
@@ -5610,6 +5602,10 @@
             'origin' => $clientData['origin'],
         ]]]></code>
     </LessSpecificReturnStatement>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$decoded]]></code>
+      <code><![CDATA[array{fmt: string, attStmt: mixed[], authData: string}]]></code>
+    </MixedReturnTypeCoercion>
     <MoreSpecificReturnType>
       <code><![CDATA[array{
      *   type: 'webauthn.create'|'webauthn.get',
@@ -5774,9 +5770,6 @@
       <code><![CDATA[$privilege['Host']]]></code>
       <code><![CDATA[$privilege['User']]]></code>
     </PossiblyNullOperand>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$row1[0]]]></code>
-    </PossiblyUndefinedArrayOffset>
     <RiskyCast>
       <code><![CDATA[$_POST['grant_count']]]></code>
       <code><![CDATA[$_POST['max_connections']]]></code>
@@ -6003,7 +5996,6 @@
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
-      <code><![CDATA[$statementInfo->statement->where[0]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['possible_as_geometry']]]></code>
@@ -6016,16 +6008,10 @@
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
     </MixedOperand>
-    <MixedPropertyFetch>
-      <code><![CDATA[$statementInfo->statement->where[0]->expr]]></code>
-    </MixedPropertyFetch>
     <MixedReturnStatement>
       <code><![CDATA[$unlimNumRows]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
     </MixedReturnStatement>
-    <NoValue>
-      <code><![CDATA[$statementInfo->statement->where]]></code>
-    </NoValue>
     <PossiblyInvalidArgument>
       <code><![CDATA[$numRows]]></code>
       <code><![CDATA[$numRows]]></code>
@@ -6047,9 +6033,6 @@
     <PossiblyNullReference>
       <code><![CDATA[has]]></code>
     </PossiblyNullReference>
-    <RedundantCondition>
-      <code><![CDATA[empty($statementInfo->statement->where)]]></code>
-    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $index->isUnique()]]></code>
       <code><![CDATA[$table]]></code>
@@ -6145,10 +6128,10 @@
       <code><![CDATA[$oFldVal]]></code>
       <code><![CDATA[$submitAttribute]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
+    <PossiblyFalseArgument>
       <code><![CDATA[$formParams['db']]]></code>
       <code><![CDATA[$formParams['table']]]></code>
-    </PossiblyInvalidArgument>
+    </PossiblyFalseArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['after_field']]]></code>
     </PossiblyInvalidCast>
@@ -6648,9 +6631,6 @@
       <code><![CDATA[$httpStatus]]></code>
       <code><![CDATA[$http_response_header]]></code>
     </MixedAssignment>
-    <RedundantCondition>
-      <code><![CDATA[function_exists('curl_init') && function_exists('curl_exec')]]></code>
-    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
@@ -6777,10 +6757,6 @@
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[testAdvisorBytime]]></code>
-      <code><![CDATA[testAdvisorBytime]]></code>
-    </MixedArgument>
   </file>
   <file src="tests/unit/BrowseForeignersTest.php">
     <MixedArgument>
@@ -6794,24 +6770,11 @@
     <MissingParentCall>
       <code><![CDATA[setUp]]></code>
     </MissingParentCall>
-    <MixedArgument>
-      <code><![CDATA[testCacheGet]]></code>
-      <code><![CDATA[testCacheGetDefaultValue]]></code>
-      <code><![CDATA[testCacheHas]]></code>
-      <code><![CDATA[testCachePurge]]></code>
-      <code><![CDATA[testCacheRemove]]></code>
-      <code><![CDATA[testCacheSet]]></code>
-    </MixedArgument>
   </file>
   <file src="tests/unit/Command/SetVersionCommandTest.php">
     <MissingParentCall>
       <code><![CDATA[setUp]]></code>
     </MissingParentCall>
-    <MixedArgument>
-      <code><![CDATA[testGetGeneratedClassInvalidVersion]]></code>
-      <code><![CDATA[testGetGeneratedClassValidVersion]]></code>
-      <code><![CDATA[testGetGeneratedClassValidVersion]]></code>
-    </MixedArgument>
   </file>
   <file src="tests/unit/Command/TwigLintCommandTest.php">
     <DeprecatedMethod>
@@ -6930,14 +6893,6 @@
     <UndefinedAttributeClass>
       <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
     </UndefinedAttributeClass>
-  </file>
-  <file src="tests/unit/Config/Settings/TransformationsTest.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[assertSame]]></code>
-    </DocblockTypeContradiction>
-    <TypeDoesNotContainType>
-      <code><![CDATA[assertSame]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/Config/UserPreferencesTest.php">
     <DeprecatedMethod>
@@ -7118,19 +7073,6 @@
     </UndefinedAttributeClass>
   </file>
   <file src="tests/unit/ConfigTest.php">
-    <PossiblyInvalidArgument>
-      <code><![CDATA[testIsHttps]]></code>
-      <code><![CDATA[testIsHttps]]></code>
-      <code><![CDATA[testIsHttps]]></code>
-      <code><![CDATA[testIsHttps]]></code>
-      <code><![CDATA[testIsHttps]]></code>
-      <code><![CDATA[testIsHttps]]></code>
-      <code><![CDATA[testIsHttps]]></code>
-      <code><![CDATA[testIsHttps]]></code>
-      <code><![CDATA[testIsHttps]]></code>
-      <code><![CDATA[testIsHttps]]></code>
-      <code><![CDATA[testIsHttps]]></code>
-    </PossiblyInvalidArgument>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[assertIsArray]]></code>
     </RedundantConditionGivenDocblockType>
@@ -7614,9 +7556,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[testWithoutTheme]]></code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="tests/unit/Controllers/Triggers/IndexControllerTest.php">
     <DeprecatedMethod>
@@ -7634,10 +7573,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA[testPopulateRequestWithEncryptedQueryParamsWithInvalidParam]]></code>
-      <code><![CDATA[testPopulateRequestWithEncryptedQueryParamsWithInvalidParam]]></code>
-    </InvalidArgument>
     <TypeDoesNotContainType>
       <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
@@ -7717,15 +7652,6 @@
       <code><![CDATA[$config->config->debug->sql]]></code>
       <code><![CDATA[$config->config->debug->sql]]></code>
     </InaccessibleProperty>
-    <MixedArgument>
-      <code><![CDATA[testFormatError]]></code>
-      <code><![CDATA[testFormatError]]></code>
-      <code><![CDATA[testFormatError]]></code>
-      <code><![CDATA[testVersion]]></code>
-      <code><![CDATA[testVersion]]></code>
-      <code><![CDATA[testVersion]]></code>
-      <code><![CDATA[testVersion]]></code>
-    </MixedArgument>
   </file>
   <file src="tests/unit/Dbal/DbiDummyTest.php">
     <DeprecatedMethod>
@@ -7746,17 +7672,12 @@
       <code><![CDATA[assertSame]]></code>
     </DocblockTypeContradiction>
     <MixedArgument>
+      <code><![CDATA[#[DataProvider('providerSetConfigParamsForDisplayTable')]]]></code>
+      <code><![CDATA[#[DataProvider('providerSetConfigParamsForDisplayTable')]]]></code>
+      <code><![CDATA[#[DataProvider('providerSetConfigParamsForDisplayTable')]]]></code>
+      <code><![CDATA[#[DataProvider('providerSetConfigParamsForDisplayTable')]]]></code>
       <code><![CDATA[$output]]></code>
       <code><![CDATA[$output]]></code>
-      <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
-      <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
-      <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
-      <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
-      <code><![CDATA[testGetSortOrderHiddenInputs]]></code>
-      <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>
-      <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>
-      <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>
-      <code><![CDATA[testSetConfigParamsForDisplayTable]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['pftext']]]></code>
@@ -7809,10 +7730,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[testSanitizeUrl]]></code>
-      <code><![CDATA[testSanitizeUrl]]></code>
-    </MixedArgument>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['SERVER_SOFTWARE']]]></code>
       <code><![CDATA[$_SERVER['SERVER_SOFTWARE']]]></code>
@@ -7867,17 +7784,11 @@
     <MixedArgument>
       <code><![CDATA[$temp['POLYGON'][0]]]></code>
       <code><![CDATA[$temp['POLYGON'][1]]]></code>
-      <code><![CDATA[testGetPointOnSurface]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$temp['POLYGON'][0]['data_length']]]></code>
       <code><![CDATA[$temp['POLYGON'][1]['data_length']]]></code>
     </MixedArrayAccess>
-  </file>
-  <file src="tests/unit/Gis/GisGeometryCollectionTest.php">
-    <PossiblyInvalidArgument>
-      <code><![CDATA[testGenerateWkt]]></code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="tests/unit/Gis/GisGeometryTest.php">
     <MixedAssignment>
@@ -7994,12 +7905,6 @@
       <code><![CDATA[new Mt19937(42)]]></code>
     </WeakRandom>
   </file>
-  <file src="tests/unit/Import/ImportTest.php">
-    <MixedArgument>
-      <code><![CDATA[testSkipByteOrderMarksFromContents]]></code>
-      <code><![CDATA[testSkipByteOrderMarksFromContents]]></code>
-    </MixedArgument>
-  </file>
   <file src="tests/unit/Indexes/IndexTest.php">
     <MixedArgument>
       <code><![CDATA[$this->params['columns']]]></code>
@@ -8076,12 +7981,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[testGetIp]]></code>
-      <code><![CDATA[testGetIp]]></code>
-      <code><![CDATA[testGetIp]]></code>
-      <code><![CDATA[testGetIp]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$config->settings['TrustedProxies']]]></code>
     </PossiblyNullArrayOffset>
@@ -8243,9 +8142,6 @@
       <code><![CDATA[['host' => 'a', 'user' => 'user2']]]></code>
       <code><![CDATA[['host' => 'a', 'user' => 'user2']]]></code>
     </InvalidPropertyAssignmentValue>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[testAuthCheck]]></code>
-    </PossiblyInvalidArgument>
     <RedundantCondition>
       <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
@@ -8385,14 +8281,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="tests/unit/Plugins/Transformations/TransformationPluginsTest.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[testTransformation]]></code>
-    </ArgumentTypeCoercion>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[testTransformation]]></code>
-    </PossiblyInvalidArgument>
-  </file>
   <file src="tests/unit/Plugins/TwoFactor/WebAuthnTest.php">
     <WeakRandom>
       <code><![CDATA[new Mt19937(42)]]></code>
@@ -8498,9 +8386,6 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->settings]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedArgument>
-      <code><![CDATA[testRender]]></code>
-    </MixedArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$server['only_db']]]></code>
     </PossiblyInvalidArgument>
@@ -8533,14 +8418,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[testCountQueryResults]]></code>
-      <code><![CDATA[testCountQueryResults]]></code>
-      <code><![CDATA[testCountQueryResults]]></code>
-      <code><![CDATA[testCountQueryResults]]></code>
-      <code><![CDATA[testCountQueryResults]]></code>
-      <code><![CDATA[testCountQueryResults]]></code>
-    </MixedArgument>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -8612,11 +8489,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[testParseQuery]]></code>
-      <code><![CDATA[testParseQuery]]></code>
-      <code><![CDATA[testParseQuery]]></code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="tests/unit/Tracking/TrackingTest.php">
     <DeprecatedMethod>
@@ -8632,16 +8504,6 @@
     </MixedArrayAccess>
   </file>
   <file src="tests/unit/TransformationsTest.php">
-    <MixedArgument>
-      <code><![CDATA[testFixup]]></code>
-      <code><![CDATA[testFixup]]></code>
-      <code><![CDATA[testGetDescription]]></code>
-      <code><![CDATA[testGetDescription]]></code>
-      <code><![CDATA[testGetName]]></code>
-      <code><![CDATA[testGetName]]></code>
-      <code><![CDATA[testGetOptions]]></code>
-      <code><![CDATA[testGetOptions]]></code>
-    </MixedArgument>
     <UndefinedAttributeClass>
       <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
     </UndefinedAttributeClass>
@@ -8694,11 +8556,6 @@
       <code><![CDATA[$_SESSION['cache']['server_2_']['is_superuser']]]></code>
       <code><![CDATA[$_SESSION['cache']['server_2_']['mysql_cur_user']]]></code>
     </MixedArrayAccess>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[testBackquote]]></code>
-      <code><![CDATA[testBackquote]]></code>
-      <code><![CDATA[testBackquote]]></code>
-    </PossiblyInvalidArgument>
     <UndefinedAttributeClass>
       <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
     </UndefinedAttributeClass>
@@ -8707,23 +8564,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[testHandleDisableCheckCleanup]]></code>
-      <code><![CDATA[testHandleDisableCheckCleanup]]></code>
-      <code><![CDATA[testHandleDisableCheckInit]]></code>
-      <code><![CDATA[testHandleDisableCheckInit]]></code>
-      <code><![CDATA[testHandleDisableCheckInitVarFalse]]></code>
-      <code><![CDATA[testHandleDisableCheckInitVarFalse]]></code>
-    </MixedArgument>
-  </file>
-  <file src="tests/unit/Utils/GisTest.php">
-    <MixedArgument>
-      <code><![CDATA[testConvertToWellKnownText]]></code>
-      <code><![CDATA[testConvertToWellKnownText]]></code>
-      <code><![CDATA[testConvertToWellKnownText]]></code>
-      <code><![CDATA[testConvertToWellKnownText]]></code>
-      <code><![CDATA[testConvertToWellKnownText]]></code>
-    </MixedArgument>
   </file>
   <file src="tests/unit/Utils/HttpRequestTest.php">
     <MixedArgument>
