@@ -8,7 +8,7 @@ use PhpMyAdmin\Crypto\Base64;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\TwoFactor;
+use PhpMyAdmin\Security\TwoFactor;
 use PhpMyAdmin\WebAuthn\CustomServer;
 use PhpMyAdmin\WebAuthn\Server;
 use PhpMyAdmin\WebAuthn\WebauthnLibServer;

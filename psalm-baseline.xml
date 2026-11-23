@@ -5625,6 +5625,18 @@
       <code><![CDATA[md5($filename)]]></code>
     </WeakHash>
   </file>
+  <file src="src/Security/TwoFactor.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+    </DeprecatedMethod>
+    <UnsafeInstantiation>
+      <code><![CDATA[new $cls($this)]]></code>
+      <code><![CDATA[new $cls($this)]]></code>
+      <code><![CDATA[new $name($this)]]></code>
+    </UnsafeInstantiation>
+  </file>
   <file src="src/Server/Plugin.php">
     <MixedArgument>
       <code><![CDATA[$state['authVersion'] ?? null]]></code>
@@ -6516,18 +6528,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-  </file>
-  <file src="src/TwoFactor.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
-    <UnsafeInstantiation>
-      <code><![CDATA[new $cls($this)]]></code>
-      <code><![CDATA[new $cls($this)]]></code>
-      <code><![CDATA[new $name($this)]]></code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/UniqueCondition.php">
     <DeprecatedMethod>
@@ -8463,6 +8463,27 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
+  <file src="tests/unit/Security/TwoFactorTest.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+    </DeprecatedMethod>
+    <InaccessibleProperty>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+    </InaccessibleProperty>
+    <MixedArgument>
+      <code><![CDATA[$object->config['settings']['secret']]]></code>
+      <code><![CDATA[$object->config['settings']['secret']]]></code>
+    </MixedArgument>
+  </file>
   <file src="tests/unit/Server/PluginsTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -8658,27 +8679,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-  </file>
-  <file src="tests/unit/TwoFactorTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-    <InaccessibleProperty>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-    </InaccessibleProperty>
-    <MixedArgument>
-      <code><![CDATA[$object->config['settings']['secret']]]></code>
-      <code><![CDATA[$object->config['settings']['secret']]]></code>
-    </MixedArgument>
   </file>
   <file src="tests/unit/TypesTest.php">
     <DeprecatedMethod>
