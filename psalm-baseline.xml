@@ -429,10 +429,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MissingExtensionRequirement>
-      <code><![CDATA[filter_var]]></code>
-      <code><![CDATA[filter_var]]></code>
-    </MissingExtensionRequirement>
     <MixedArgument>
       <code><![CDATA[$args]]></code>
       <code><![CDATA[$args]]></code>
@@ -1019,10 +1015,6 @@
     </UnusedVariable>
   </file>
   <file src="src/Controllers/Import/StatusController.php">
-    <MissingExtensionRequirement>
-      <code><![CDATA[session_start]]></code>
-      <code><![CDATA[session_write_close]]></code>
-    </MissingExtensionRequirement>
     <MixedArgument>
       <code><![CDATA[$_SESSION['Import_message']['message'] ?? '']]></code>
       <code><![CDATA[$request->getQueryParam('id')]]></code>
@@ -1991,9 +1983,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MissingExtensionRequirement>
-      <code><![CDATA[filter_var]]></code>
-    </MissingExtensionRequirement>
     <MixedAssignment>
       <code><![CDATA[$_GET[$urlQueryParamKey]]]></code>
       <code><![CDATA[$_POST[$urlQueryParamKey]]]></code>
@@ -3439,11 +3428,6 @@
       <code><![CDATA[empty($server['ssl_ca'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Http/Factory/UriFactory.php">
-    <MissingExtensionRequirement>
-      <code><![CDATA[filter_var]]></code>
-    </MissingExtensionRequirement>
-  </file>
   <file src="src/Http/Middleware/ConfigErrorAndPermissionChecking.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
@@ -3540,11 +3524,6 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/Http/Middleware/TokenRequestParamChecking.php">
-    <MissingExtensionRequirement>
-      <code><![CDATA[session_id]]></code>
-    </MissingExtensionRequirement>
-  </file>
   <file src="src/Http/Middleware/UriSchemeUpdating.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
@@ -3594,16 +3573,6 @@
       <code><![CDATA[imagesx($this->image)]]></code>
       <code><![CDATA[imagesy($this->image)]]></code>
     </LessSpecificReturnStatement>
-    <MissingExtensionRequirement>
-      <code><![CDATA[imagearc]]></code>
-      <code><![CDATA[imagecolorallocate]]></code>
-      <code><![CDATA[imagecopyresampled]]></code>
-      <code><![CDATA[imagefilledpolygon]]></code>
-      <code><![CDATA[imageline]]></code>
-      <code><![CDATA[imagestring]]></code>
-      <code><![CDATA[imagesx]]></code>
-      <code><![CDATA[imagesy]]></code>
-    </MissingExtensionRequirement>
     <MoreSpecificReturnType>
       <code><![CDATA[int<1, max>]]></code>
       <code><![CDATA[int<1, max>]]></code>
@@ -4218,9 +4187,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MissingExtensionRequirement>
-      <code><![CDATA[session_id]]></code>
-    </MissingExtensionRequirement>
     <MixedArgument>
       <code><![CDATA[$serverCookie]]></code>
       <code><![CDATA[$serverCookie]]></code>
@@ -4283,24 +4249,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MissingExtensionRequirement>
-      <code><![CDATA[session_get_cookie_params]]></code>
-      <code><![CDATA[session_id]]></code>
-      <code><![CDATA[session_id]]></code>
-      <code><![CDATA[session_id]]></code>
-      <code><![CDATA[session_id]]></code>
-      <code><![CDATA[session_name]]></code>
-      <code><![CDATA[session_name]]></code>
-      <code><![CDATA[session_name]]></code>
-      <code><![CDATA[session_name]]></code>
-      <code><![CDATA[session_set_cookie_params]]></code>
-      <code><![CDATA[session_start]]></code>
-      <code><![CDATA[session_start]]></code>
-      <code><![CDATA[session_start]]></code>
-      <code><![CDATA[session_write_close]]></code>
-      <code><![CDATA[session_write_close]]></code>
-      <code><![CDATA[session_write_close]]></code>
-    </MissingExtensionRequirement>
     <MixedArgument>
       <code><![CDATA[$singleSignonCfgUpdate]]></code>
     </MixedArgument>
@@ -4339,10 +4287,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <MissingExtensionRequirement>
-      <code><![CDATA[session_destroy]]></code>
-      <code><![CDATA[session_unset]]></code>
-    </MissingExtensionRequirement>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['browser_access_time'][$guid]]]></code>
     </MixedArrayAssignment>
@@ -4787,9 +4731,6 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/Plugins/Import/ImportOds.php">
-    <MissingExtensionRequirement>
-      <code><![CDATA[simplexml_load_string]]></code>
-    </MissingExtensionRequirement>
     <PossiblyNullArgument>
       <code><![CDATA[$cellAttrs]]></code>
       <code><![CDATA[$sheets]]></code>
@@ -4806,9 +4747,6 @@
     <PossiblyNullReference>
       <code><![CDATA[count]]></code>
     </PossiblyNullReference>
-    <RedundantCondition>
-      <code><![CDATA[$paragraphValue === '' && isset($paragraph->a)]]></code>
-    </RedundantCondition>
   </file>
   <file src="src/Plugins/Import/ImportShp.php">
     <MixedArgument>
@@ -4851,9 +4789,10 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="src/Plugins/Import/ImportXml.php">
-    <MissingExtensionRequirement>
-      <code><![CDATA[simplexml_load_string]]></code>
-    </MissingExtensionRequirement>
+    <MixedArgument>
+      <code><![CDATA[$namespaces['pma']]]></code>
+      <code><![CDATA[$namespaces['pma'] ?? null]]></code>
+    </MixedArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$attrs['name']]]></code>
       <code><![CDATA[$dbAttr['charset']]]></code>
@@ -4861,6 +4800,10 @@
       <code><![CDATA[$dbAttr['name']]]></code>
       <code><![CDATA[$dbAttr['name']]]></code>
     </PossiblyNullArrayAccess>
+    <PossiblyNullIterator>
+      <code><![CDATA[$databaseXml->table]]></code>
+      <code><![CDATA[$tableRowXml->column]]></code>
+    </PossiblyNullIterator>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$xml->children($namespaces['pma'] ?? null)->structure_schemas]]></code>
       <code><![CDATA[$xml->children($namespaces['pma'] ?? null)->structure_schemas->database]]></code>
@@ -4868,9 +4811,6 @@
     <PossiblyNullReference>
       <code><![CDATA[attributes]]></code>
     </PossiblyNullReference>
-    <RedundantCondition>
-      <code><![CDATA[isset($xml->database)]]></code>
-    </RedundantCondition>
     <UnnecessaryVarAnnotation>
       <code><![CDATA[SimpleXMLElement]]></code>
       <code><![CDATA[SimpleXMLElement]]></code>
@@ -4966,11 +4906,6 @@
     <UnusedClass>
       <code><![CDATA[UploadSession]]></code>
     </UnusedClass>
-  </file>
-  <file src="src/Plugins/Schema/Dia/Dia.php">
-    <MissingExtensionRequirement>
-      <code><![CDATA[XMLWriter]]></code>
-    </MissingExtensionRequirement>
   </file>
   <file src="src/Plugins/Schema/Dia/DiaRelationSchema.php">
     <MixedArgumentTypeCoercion>
@@ -5234,9 +5169,6 @@
     </DeprecatedMethod>
   </file>
   <file src="src/Plugins/Schema/Svg/Svg.php">
-    <MissingExtensionRequirement>
-      <code><![CDATA[XMLWriter]]></code>
-    </MissingExtensionRequirement>
     <PossiblyUnusedProperty>
       <code><![CDATA[$author]]></code>
       <code><![CDATA[$title]]></code>
@@ -5970,23 +5902,6 @@
     <InsecureCookie>
       <code><![CDATA[setcookie($httpCookieName, '', 1)]]></code>
     </InsecureCookie>
-    <MissingExtensionRequirement>
-      <code><![CDATA[session_abort]]></code>
-      <code><![CDATA[session_cache_limiter]]></code>
-      <code><![CDATA[session_destroy]]></code>
-      <code><![CDATA[session_id]]></code>
-      <code><![CDATA[session_id]]></code>
-      <code><![CDATA[session_name]]></code>
-      <code><![CDATA[session_name]]></code>
-      <code><![CDATA[session_regenerate_id]]></code>
-      <code><![CDATA[session_save_path]]></code>
-      <code><![CDATA[session_set_cookie_params]]></code>
-      <code><![CDATA[session_start]]></code>
-      <code><![CDATA[session_start]]></code>
-      <code><![CDATA[session_status]]></code>
-      <code><![CDATA[session_unset]]></code>
-      <code><![CDATA[session_write_close]]></code>
-    </MissingExtensionRequirement>
     <MixedArgument>
       <code><![CDATA[$config->getCookie('phpMyAdmin')]]></code>
     </MixedArgument>
@@ -6052,10 +5967,6 @@
     </MixedAssignment>
   </file>
   <file src="src/Sql.php">
-    <MissingExtensionRequirement>
-      <code><![CDATA[session_start]]></code>
-      <code><![CDATA[session_write_close]]></code>
-    </MissingExtensionRequirement>
     <MixedArgument>
       <code><![CDATA[$request->getQueryParam('label')]]></code>
     </MixedArgument>
@@ -8383,13 +8294,6 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
-    <MissingExtensionRequirement>
-      <code><![CDATA[session_get_cookie_params]]></code>
-      <code><![CDATA[session_id]]></code>
-      <code><![CDATA[session_id]]></code>
-      <code><![CDATA[session_name]]></code>
-      <code><![CDATA[session_name]]></code>
-    </MissingExtensionRequirement>
     <RedundantCondition>
       <code><![CDATA[assertSame]]></code>
     </RedundantCondition>
