@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\WebAuthn;
+namespace PhpMyAdmin\Security\WebAuthn;
 
 use PhpMyAdmin\Crypto\Base64;
 use PhpMyAdmin\Security\TwoFactor;

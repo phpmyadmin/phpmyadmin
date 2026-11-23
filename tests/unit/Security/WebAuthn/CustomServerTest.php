@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\WebAuthn;
+namespace PhpMyAdmin\Tests\Security\WebAuthn;
 
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Security\TwoFactor;
-use PhpMyAdmin\WebAuthn\CBORDecoder;
-use PhpMyAdmin\WebAuthn\CustomServer;
-use PhpMyAdmin\WebAuthn\DataStream;
+use PhpMyAdmin\Security\WebAuthn\CBORDecoder;
+use PhpMyAdmin\Security\WebAuthn\CustomServer;
+use PhpMyAdmin\Security\WebAuthn\DataStream;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\WebAuthn;
+namespace PhpMyAdmin\Tests\Security\WebAuthn;
 
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Security\TwoFactor;
-use PhpMyAdmin\WebAuthn\WebauthnLibServer;
+use PhpMyAdmin\Security\WebAuthn\WebauthnLibServer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use PHPUnit\Framework\TestCase;
