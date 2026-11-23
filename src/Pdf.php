@@ -26,7 +26,7 @@ class Pdf extends TCPDF
     /** @var mixed[] */
     public array $footerset = [];
 
-    /** @var mixed[] */
+    /** @var string[] */
     public array $alias = [];
 
     /**

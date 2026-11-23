@@ -3921,27 +3921,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidReturnStatement>
-      <code><![CDATA[[
-            'legendText' => __('End of step'),
-            'headText' => $headText,
-            'queryError' => $error,
-            'extra' => $message,
-        ]]]></code>
-      <code><![CDATA[['legendText' => __('End of step'), 'headText' => $headText, 'queryError' => false]]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array{legendText: string, headText: string, queryError: bool, extra: Message}]]></code>
-      <code><![CDATA[array{legendText: string, headText: string, queryError: string|false, extra?: string}]]></code>
-    </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[[
-            'legendText' => __('End of step'),
-            'headText' => $headText,
-            'queryError' => $error,
-            'extra' => $message,
-        ]]]></code>
-    </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$arrDependson]]></code>
       <code><![CDATA[$col]]></code>
@@ -6987,11 +6966,6 @@
       <code><![CDATA[assertSame]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="tests/unit/Config/SettingsTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[valuesForOBGzipProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="tests/unit/Config/UserPreferencesTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -8202,9 +8176,10 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <DocblockTypeContradiction>
-      <code><![CDATA[assertSame]]></code>
-    </DocblockTypeContradiction>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$result1['extra']]]></code>
+      <code><![CDATA[$result['extra']]]></code>
+    </PossiblyUndefinedArrayOffset>
     <UndefinedAttributeClass>
       <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
     </UndefinedAttributeClass>
@@ -8591,9 +8566,6 @@
       <code><![CDATA[$json['error']]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[clear]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/SystemDatabaseTest.php">
     <DeprecatedMethod>

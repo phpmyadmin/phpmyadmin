@@ -10,7 +10,6 @@ use PhpMyAdmin\Message;
 use function __;
 use function array_pop;
 use function count;
-use function htmlspecialchars;
 
 /**
  * Index manipulation class
@@ -448,7 +447,7 @@ class Index
             return __('No');
         }
 
-        return htmlspecialchars($this->packed);
+        return $this->packed;
     }
 
     /**
