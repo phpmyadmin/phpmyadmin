@@ -1350,9 +1350,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                         }
 
                         // @ts-ignore
-                        const minDate = new Date(event.chart.scales.x.ticks[0].value);
-                        // @ts-ignore
-                        const maxDate = new Date(event.chart.scales.x.ticks[4].value);
+                        const ticks = event.chart.scales.x.ticks;
+                        const minDate = new Date(ticks[0].value);
+                        const maxDate = new Date(ticks[ticks.length - 1].value);
                         getLogAnalyseDialog(minDate, maxDate);
                     },
                 },
