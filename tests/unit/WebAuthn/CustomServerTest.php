@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\WebAuthn;
 
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\TwoFactor;
+use PhpMyAdmin\Security\TwoFactor;
 use PhpMyAdmin\WebAuthn\CBORDecoder;
 use PhpMyAdmin\WebAuthn\CustomServer;
 use PhpMyAdmin\WebAuthn\DataStream;

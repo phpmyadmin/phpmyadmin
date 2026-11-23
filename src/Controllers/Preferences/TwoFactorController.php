@@ -13,7 +13,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
-use PhpMyAdmin\TwoFactor;
+use PhpMyAdmin\Security\TwoFactor;
 
 use function __;
 use function count;

@@ -5,21 +5,24 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Security;
 
 use BaconQrCode\Renderer\ImageRenderer;
 use CodeLts\U2F\U2FServer\U2FServer;
 use PhpMyAdmin\Clock\Clock;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactor\Simple;
 use PhpMyAdmin\Plugins\TwoFactor\WebAuthn;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
+use PhpMyAdmin\Template;
 use PragmaRX\Google2FAQRCode\Google2FA;
 use XMLWriter;
 

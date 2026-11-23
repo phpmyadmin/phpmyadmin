@@ -6,7 +6,7 @@ namespace PhpMyAdmin\WebAuthn;
 
 use Cose\Algorithms;
 use PhpMyAdmin\Crypto\Base64;
-use PhpMyAdmin\TwoFactor;
+use PhpMyAdmin\Security\TwoFactor;
 use Psr\Http\Message\ServerRequestInterface;
 use Random\Randomizer;
 use Symfony\Component\Uid\Uuid;

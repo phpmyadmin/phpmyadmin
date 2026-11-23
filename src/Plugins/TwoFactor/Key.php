@@ -13,7 +13,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\TwoFactor;
+use PhpMyAdmin\Security\TwoFactor;
 use stdClass;
 use Throwable;
 use Twig\Error\LoaderError;

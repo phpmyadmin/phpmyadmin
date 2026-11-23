@@ -11092,6 +11092,24 @@ parameters:
 			path: src/Sanitize.php
 
 		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 2
+			path: src/Security/TwoFactor.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: src/Security/TwoFactor.php
+
+		-
 			message: '#^Parameter \#1 \$name of class PhpMyAdmin\\Server\\Plugin constructor expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -12869,24 +12887,6 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Triggers/Triggers.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/TwoFactor.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/TwoFactor.php
 
 		-
 			message: '''
@@ -16402,6 +16402,39 @@ parameters:
 			path: tests/unit/Routing/RoutingTest.php
 
 		-
+			message: '#^@readonly property PhpMyAdmin\\Config\\Settings\\Debug\:\:\$simple2fa is assigned outside of its declaring class\.$#'
+			identifier: property.readOnlyByPhpDocAssignOutOfClass
+			count: 6
+			path: tests/unit/Security/TwoFactorTest.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 5
+			path: tests/unit/Security/TwoFactorTest.php
+
+		-
+			message: '#^Cannot unset offset ''2fa_code'' on array\<mixed, mixed\>\.$#'
+			identifier: unset.offset
+			count: 1
+			path: tests/unit/Security/TwoFactorTest.php
+
+		-
+			message: '#^Method PhpMyAdmin\\Tests\\Security\\TwoFactorTest\:\:loadResultForConfig\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: tests/unit/Security/TwoFactorTest.php
+
+		-
+			message: '#^Parameter \#1 \$secret of method PragmaRX\\Google2FA\\Google2FA\:\:oathTotp\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/unit/Security/TwoFactorTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -16685,39 +16718,6 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 5
 			path: tests/unit/Triggers/TriggersTest.php
-
-		-
-			message: '#^@readonly property PhpMyAdmin\\Config\\Settings\\Debug\:\:\$simple2fa is assigned outside of its declaring class\.$#'
-			identifier: property.readOnlyByPhpDocAssignOutOfClass
-			count: 6
-			path: tests/unit/TwoFactorTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 5
-			path: tests/unit/TwoFactorTest.php
-
-		-
-			message: '#^Cannot unset offset ''2fa_code'' on array\<mixed, mixed\>\.$#'
-			identifier: unset.offset
-			count: 1
-			path: tests/unit/TwoFactorTest.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Tests\\TwoFactorTest\:\:loadResultForConfig\(\) has parameter \$config with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: tests/unit/TwoFactorTest.php
-
-		-
-			message: '#^Parameter \#1 \$secret of method PragmaRX\\Google2FA\\Google2FA\:\:oathTotp\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: tests/unit/TwoFactorTest.php
 
 		-
 			message: '''
