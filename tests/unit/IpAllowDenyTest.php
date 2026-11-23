@@ -94,13 +94,41 @@ class IpAllowDenyTest extends AbstractTestCase
             ['101.0.0.25', null, '101.0.0.25'],
             // Proxy
             ['101.0.0.25', '192.168.10.10', '192.168.10.10'],
-            // Several proxies
-            ['101.0.0.25', '192.168.10.1, 192.168.100.100', '192.168.10.1'],
+            // Several proxies, the client can set the first address
+            ['101.0.0.25', '192.168.10.1, 192.168.100.100', '192.168.100.100'],
+            // Invalid address set by the client
+            ['101.0.0.25', 'invalid, 192.168.10.10', '192.168.10.10'],
             // Invalid proxy
             ['101.0.0.25', 'invalid', false],
+            // Invalid address after the client address
+            ['101.0.0.25', '192.168.10.1, invalid', false],
             // Direct IP with proxy enabled
             ['101.0.0.25', '192.168.10.10', '101.0.0.25', '10.10.10.10'],
         ];
+    }
+
+    #[DataProvider('providerGetIpWithSeveralTrustedProxies')]
+    public function testGetIpWithSeveralTrustedProxies(string $header, string $expected): void
+    {
+        $_SERVER['REMOTE_ADDR'] = '101.0.0.25';
+        $_SERVER['TEST_FORWARDED_HEADER'] = $header;
+        $this->config->settings['TrustedProxies'] = [
+            '101.0.0.25' => 'TEST_FORWARDED_HEADER',
+            '192.168.100.100' => 'TEST_FORWARDED_HEADER',
+        ];
+
+        $ip = Core::getIp();
+        unset($_SERVER['REMOTE_ADDR'], $_SERVER['TEST_FORWARDED_HEADER']);
+        $this->config->settings['TrustedProxies'] = [];
+
+        self::assertSame($expected, $ip);
+    }
+
+    /** @return iterable<string, array{string, string}> */
+    public static function providerGetIpWithSeveralTrustedProxies(): iterable
+    {
+        yield 'client before a trusted proxy' => ['1.2.3.4, 192.168.100.100', '1.2.3.4'];
+        yield 'only trusted proxies' => ['192.168.100.100', '192.168.100.100'];
     }
 
     #[DataProvider('providerIpMaskTest')]
