@@ -165,6 +165,9 @@ class IpAllowDenyTest extends AbstractTestCase
         yield 'IPv6 CIDR, invalid prefix' => ['2001:db8::/zz', 'fe80::1', false];
         yield 'IPv4 CIDR, any address /0, IPv6 client' => ['0.0.0.0/0', '2001:db8::1', true];
         yield 'IPv4 CIDR, IPv6 client' => ['127.0.0.1/8', '::1', false];
+        yield 'IPv4 CIDR, IPv4-mapped client' => ['10.0.0.0/8', '::ffff:10.0.0.5', true];
+        yield 'IPv6 exact, IPv4-mapped client' => ['::ffff:10.0.0.5', '::ffff:10.0.0.5', true];
+        yield 'IPv4 range, IPv6 client' => ['10.0.0.[1-5]', 'a00:3::', false];
     }
 
     /**
@@ -175,6 +178,9 @@ class IpAllowDenyTest extends AbstractTestCase
         $_SERVER['REMOTE_ADDR'] = '';
         self::assertFalse(
             $this->ipAllowDeny->allow(),
+        );
+        self::assertTrue(
+            $this->ipAllowDeny->deny(),
         );
 
         $_SERVER['REMOTE_ADDR'] = '255.0.1.0';
@@ -229,11 +235,44 @@ class IpAllowDenyTest extends AbstractTestCase
         yield 'IPv4 exact' => ['deny % from 1.2.3.4', true];
         yield 'IPv4 range' => ['deny % from 10.0.0.[1-5]', false];
         yield 'CIDR' => ['deny % from 1.2.3.0/24', true];
+        yield 'CIDR, longest IPv4 prefix' => ['deny % from 1.2.3.4/32', true];
+        yield 'CIDR, longest IPv6 prefix' => ['deny % from 2001:db8::1/128', false];
+        yield 'IPv4 range up to 255' => ['deny % from 1.2.3.[4-255]', true];
         yield 'IPv6 exact' => ['deny % from 2001:db8::1', false];
         yield 'IPv6 range' => ['deny % from 2001:db8::[1-ff]', false];
-        yield 'shortcut' => ['deny % from all', true];
         yield 'without from' => ['deny % 1.2.3.4', true];
         yield 'extra whitespace' => [" deny\t%   from  1.2.3.4 ", true];
+    }
+
+    #[DataProvider('providerShortcut')]
+    public function testShortcut(string $shortcut, string $serverAddress, string $remoteAddress, bool $expected): void
+    {
+        $this->config->selectedServer['AllowDeny']['rules'] = ['allow % from ' . $shortcut];
+        $_SERVER['SERVER_ADDR'] = $serverAddress;
+        $_SERVER['REMOTE_ADDR'] = $remoteAddress;
+
+        $allowed = $this->ipAllowDeny->allow();
+        unset($_SERVER['SERVER_ADDR']);
+
+        self::assertSame($expected, $allowed);
+    }
+
+    /** @return iterable<string, array{string, string, string, bool}> */
+    public static function providerShortcut(): iterable
+    {
+        yield 'all' => ['all', '10.20.30.40', '200.1.2.3', true];
+        yield 'localhost, inside' => ['localhost', '10.20.30.40', '127.255.255.255', true];
+        yield 'localhost, outside' => ['localhost', '10.20.30.40', '128.0.0.1', false];
+        yield 'localhost, IPv6 loopback' => ['localhost', '10.20.30.40', '::1', true];
+        yield 'localhost, other IPv6 address' => ['localhost', '10.20.30.40', '::2', false];
+        yield 'localnetA, inside' => ['localnetA', '10.20.30.40', '10.255.0.1', true];
+        yield 'localnetA, outside' => ['localnetA', '10.20.30.40', '11.20.30.40', false];
+        yield 'localnetB, inside' => ['localnetB', '10.20.30.40', '10.20.255.1', true];
+        yield 'localnetB, outside' => ['localnetB', '10.20.30.40', '10.21.30.40', false];
+        yield 'localnetC, inside' => ['localnetC', '10.20.30.40', '10.20.30.255', true];
+        yield 'localnetC, outside' => ['localnetC', '10.20.30.40', '10.20.31.40', false];
+        yield 'localnetC, IPv6 server' => ['localnetC', '2001:db8::1', '2001:db8::5', false];
+        yield 'localnetC, no server address' => ['localnetC', '', '10.20.30.41', false];
     }
 
     #[DataProvider('providerInvalidRule')]
@@ -257,13 +296,20 @@ class IpAllowDenyTest extends AbstractTestCase
         yield 'unknown shortcut' => ['deny % from everyone'];
         yield 'CIDR, invalid address' => ['deny % from 1.2.3.256/8'];
         yield 'CIDR, invalid prefix' => ['deny % from 1.2.3.0/x'];
+        yield 'CIDR, IPv4 prefix too long' => ['deny % from 1.2.3.0/33'];
+        yield 'CIDR, IPv6 prefix too long' => ['deny % from 2001:db8::/129'];
         yield 'IPv6 range, invalid address' => ['deny % from 2001::db8::[1-2]'];
         yield 'IPv6 range, unclosed bracket' => ['allow root from 2001:db8::[1-'];
+        yield 'IPv6 range, reversed' => ['deny % from 2001:db8::[ff-1]'];
         yield 'IPv6 range, partial group' => ['deny % from 2001:db8::1[0-5]'];
         yield 'IPv6 range, not in last group' => ['deny % from 2001:db8:[1-2]::1'];
         yield 'IPv6, invalid address' => ['deny % from 2001:db8::g'];
         yield 'IPv4, invalid address' => ['deny % from 1.2.3.256'];
         yield 'IPv4 range, too few octets' => ['deny % from 10.0.[1-5]'];
         yield 'IPv4 range, partial octet' => ['deny % from 10.0.0.1[0-5]'];
+        yield 'IPv4 range, reversed' => ['deny % from 10.0.0.[5-1]'];
+        yield 'IPv4 range, end over 255' => ['deny % from 10.0.0.[1-256]'];
+        yield 'IPv4 range, octet over 255' => ['deny % from 10.0.256.[1-5]'];
+        yield 'IPv4 range, octet with leading zero' => ['deny % from 10.0.01.[1-5]'];
     }
 }
