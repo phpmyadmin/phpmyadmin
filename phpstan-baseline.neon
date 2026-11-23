@@ -15381,18 +15381,6 @@ parameters:
 		-
 			message: '#^Cannot access offset ''data_length'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: tests/unit/Gis/GisMultiPolygonTest.php
-
-		-
-			message: '#^Cannot access offset 0 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: tests/unit/Gis/GisMultiPolygonTest.php
-
-		-
-			message: '#^Cannot access offset ''data_length'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: tests/unit/Gis/GisPolygonTest.php
 
