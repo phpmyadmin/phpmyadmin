@@ -69,6 +69,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
             $userPreferences,
             new LanguageManager($config),
             $themeManager,
+            new ErrorHandler(),
         );
 
         parent::__construct(

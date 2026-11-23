@@ -460,6 +460,7 @@ return [
             UserPreferences::class,
             LanguageManager::class,
             ThemeManager::class,
+            ErrorHandler::class,
         ],
     ],
     LanguageManager::class => ['class' => LanguageManager::class, 'factory' => [LanguageManager::class, 'getInstance']],

@@ -14,6 +14,7 @@ use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\Export\ExportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
@@ -202,6 +203,7 @@ final class ExportControllerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
 
         $outputHandler = new OutputHandler();
@@ -377,6 +379,7 @@ final class ExportControllerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
 
         $outputHandler = new OutputHandler();
@@ -543,6 +546,7 @@ final class ExportControllerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
 
         $exportController = new ExportController(
@@ -709,6 +713,7 @@ final class ExportControllerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
 
         $exportController = new ExportController(
