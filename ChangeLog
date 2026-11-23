@@ -102,6 +102,7 @@ phpMyAdmin - ChangeLog
 - issue #20587 Fix undefined global variable $maxsize
 - issue #20594 Fix double escaped table name in the visual query builder
 - issue #20638 Add support for webmozart/assert v2
+- issue #20596 Fix warning when an image transformation gets invalid image data
 
 5.2.3 (2025-10-07)
 - issue #19548 Fix missing tooltip in status monitor log table
