@@ -11110,6 +11110,30 @@ parameters:
 			path: src/Security/TwoFactor.php
 
 		-
+			message: '#^Match arm comparison between 7 and 7 is always true\.$#'
+			identifier: match.alwaysTrue
+			count: 1
+			path: src/Security/WebAuthn/CBORDecoder.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 1
+			path: src/Security/WebAuthn/CBORDecoder.php
+
+		-
+			message: '#^Parameter \#1 \$haystack of function str_ends_with expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Security/WebAuthn/WebauthnLibServer.php
+
+		-
+			message: '#^Parameter \#1 \$string of function rtrim expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Security/WebAuthn/WebauthnLibServer.php
+
+		-
 			message: '#^Parameter \#1 \$name of class PhpMyAdmin\\Server\\Plugin constructor expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -13295,30 +13319,6 @@ parameters:
 			identifier: ternary.shortNotAllowed
 			count: 1
 			path: src/VersionInformation.php
-
-		-
-			message: '#^Match arm comparison between 7 and 7 is always true\.$#'
-			identifier: match.alwaysTrue
-			count: 1
-			path: src/WebAuthn/CBORDecoder.php
-
-		-
-			message: '#^Possibly invalid array key type mixed\.$#'
-			identifier: offsetAccess.invalidOffset
-			count: 1
-			path: src/WebAuthn/CBORDecoder.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function str_ends_with expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '#^Parameter \#1 \$string of function rtrim expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
 
 		-
 			message: '#^Call to function is_array\(\) with array\<string\> will always evaluate to true\.$#'
@@ -16435,6 +16435,36 @@ parameters:
 			path: tests/unit/Security/TwoFactorTest.php
 
 		-
+			message: '#^Call to function base64_decode\(\) requires parameter \#2 to be set\.$#'
+			identifier: function.strict
+			count: 1
+			path: tests/unit/Security/WebAuthn/CBORDecoderTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''attestation'' and array\{challenge\: ''ZtzhX7M96stcA2LzDpX…'', rp\: array\{name\: string, id\: string\}, user\: array\{id\: string, name\: string, displayName\: string\}, pubKeyCredParams\: non\-empty\-list\<array\{alg\: int, type\: ''public\-key''\}\>, authenticatorSelection\: array\<string, string\>, timeout\: int\<1, max\>, attestation\: non\-empty\-string\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/Security/WebAuthn/CustomServerTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''pubKeyCredParams'' and array\{challenge\: ''ZtzhX7M96stcA2LzDpX…'', rp\: array\{name\: string, id\: string\}, user\: array\{id\: string, name\: string, displayName\: string\}, pubKeyCredParams\: list\<array\{alg\: int, type\: ''public\-key''\}\>, authenticatorSelection\: array\<string, string\>, timeout\: int\<1, max\>, attestation\: non\-empty\-string\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/Security/WebAuthn/CustomServerTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''attestation'' and array\{challenge\: ''ZtzhX7M96stcA2LzDpX…'', rp\: array\{name\: string, id\: string\}, user\: array\{id\: string, name\: string, displayName\: string\}, pubKeyCredParams\: non\-empty\-list\<array\{alg\: int, type\: ''public\-key''\}\>, authenticatorSelection\: array\<string, string\>, timeout\: int\<1, max\>, attestation\: non\-empty\-string\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/Security/WebAuthn/WebauthnLibServerTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''pubKeyCredParams'' and array\{challenge\: ''ZtzhX7M96stcA2LzDpX…'', rp\: array\{name\: string, id\: string\}, user\: array\{id\: string, name\: string, displayName\: string\}, pubKeyCredParams\: list\<array\{alg\: int, type\: ''public\-key''\}\>, authenticatorSelection\: array\<string, string\>, timeout\: int\<1, max\>, attestation\: non\-empty\-string\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/Security/WebAuthn/WebauthnLibServerTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -16949,33 +16979,3 @@ parameters:
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: tests/unit/VersionTest.php
-
-		-
-			message: '#^Call to function base64_decode\(\) requires parameter \#2 to be set\.$#'
-			identifier: function.strict
-			count: 1
-			path: tests/unit/WebAuthn/CBORDecoderTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''attestation'' and array\{challenge\: ''ZtzhX7M96stcA2LzDpX…'', rp\: array\{name\: string, id\: string\}, user\: array\{id\: string, name\: string, displayName\: string\}, pubKeyCredParams\: non\-empty\-list\<array\{alg\: int, type\: ''public\-key''\}\>, authenticatorSelection\: array\<string, string\>, timeout\: int\<1, max\>, attestation\: non\-empty\-string\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/WebAuthn/CustomServerTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''pubKeyCredParams'' and array\{challenge\: ''ZtzhX7M96stcA2LzDpX…'', rp\: array\{name\: string, id\: string\}, user\: array\{id\: string, name\: string, displayName\: string\}, pubKeyCredParams\: list\<array\{alg\: int, type\: ''public\-key''\}\>, authenticatorSelection\: array\<string, string\>, timeout\: int\<1, max\>, attestation\: non\-empty\-string\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/WebAuthn/CustomServerTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''attestation'' and array\{challenge\: ''ZtzhX7M96stcA2LzDpX…'', rp\: array\{name\: string, id\: string\}, user\: array\{id\: string, name\: string, displayName\: string\}, pubKeyCredParams\: non\-empty\-list\<array\{alg\: int, type\: ''public\-key''\}\>, authenticatorSelection\: array\<string, string\>, timeout\: int\<1, max\>, attestation\: non\-empty\-string\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/WebAuthn/WebauthnLibServerTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''pubKeyCredParams'' and array\{challenge\: ''ZtzhX7M96stcA2LzDpX…'', rp\: array\{name\: string, id\: string\}, user\: array\{id\: string, name\: string, displayName\: string\}, pubKeyCredParams\: list\<array\{alg\: int, type\: ''public\-key''\}\>, authenticatorSelection\: array\<string, string\>, timeout\: int\<1, max\>, attestation\: non\-empty\-string\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/WebAuthn/WebauthnLibServerTest.php
