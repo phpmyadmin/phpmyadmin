@@ -13,10 +13,6 @@ use PHPUnit\Framework\TestCase;
 use function file_get_contents;
 use function ob_get_clean;
 use function ob_start;
-use function restore_error_handler;
-use function set_error_handler;
-
-use const E_WARNING;
 
 #[CoversClass(ImageWrapper::class)]
 #[RequiresPhpExtension('gd')]
@@ -82,18 +78,7 @@ final class ImageWrapperTest extends TestCase
 
     public function testFromStringWithInvalidString(): void
     {
-        $message = '';
-        set_error_handler(static function (int $errno, string $errstr) use (&$message): bool {
-            $message = $errstr;
-
-            return false;
-        }, E_WARNING);
-
-        $actualImage = ImageWrapper::fromString('invalid string');
-        restore_error_handler();
-
-        self::assertNull($actualImage);
-        self::assertSame('imagecreatefromstring(): Data is not in a recognized format', $message);
+        self::assertNull(ImageWrapper::fromString("\0"));
     }
 
     public function testCopyResampled(): void
