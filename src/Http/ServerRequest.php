@@ -27,8 +27,7 @@ class ServerRequest implements ServerRequestInterface
         return $this->serverRequest->getProtocolVersion();
     }
 
-    /** @inheritDoc */
-    public function withProtocolVersion($version): MessageInterface
+    public function withProtocolVersion(string $version): MessageInterface
     {
         $serverRequest = $this->serverRequest->withProtocolVersion($version);
 
@@ -97,8 +96,7 @@ class ServerRequest implements ServerRequestInterface
         return $this->serverRequest->getRequestTarget();
     }
 
-    /** @inheritDoc */
-    public function withRequestTarget($requestTarget): ServerRequestInterface
+    public function withRequestTarget(string $requestTarget): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withRequestTarget($requestTarget);
 
@@ -110,8 +108,7 @@ class ServerRequest implements ServerRequestInterface
         return $this->serverRequest->getMethod();
     }
 
-    /** @inheritDoc */
-    public function withMethod($method): ServerRequestInterface
+    public function withMethod(string $method): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withMethod($method);
 
@@ -123,8 +120,7 @@ class ServerRequest implements ServerRequestInterface
         return $this->serverRequest->getUri();
     }
 
-    /** @inheritDoc */
-    public function withUri(UriInterface $uri, $preserveHost = false): ServerRequestInterface
+    public function withUri(UriInterface $uri, bool $preserveHost = false): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withUri($uri, $preserveHost);
 
@@ -200,13 +196,12 @@ class ServerRequest implements ServerRequestInterface
     }
 
     /** @inheritDoc */
-    public function getAttribute($name, $default = null)
+    public function getAttribute(string $name, mixed $default = null)
     {
         return $this->serverRequest->getAttribute($name, $default);
     }
 
-    /** @inheritDoc */
-    public function withAttribute($name, $value): ServerRequestInterface
+    public function withAttribute(string $name, mixed $value): ServerRequestInterface
     {
         $serverRequest = $this->serverRequest->withAttribute($name, $value);
 
