@@ -530,10 +530,6 @@ td.disabled {
   white-space: pre-wrap;
 }
 
-.pre_wrap br {
-  display: none;
-}
-
 li.last.database {
   // Avoid having the last item of the tree hidden behind the scroll bar
   margin-bottom: 15px !important;

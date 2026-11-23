@@ -503,6 +503,20 @@ class ResultsTest extends AbstractTestCase
             ],
             [
                 'all',
+                "a  b\nc <b>",
+                'grid_edit',
+                $meta2,
+                [],
+                $urlParams,
+                false,
+                null,
+                [],
+                '<td data-decimals="0" data-type="string" '
+                . 'data-originallength="10" '
+                . 'class="grid_edit pre_wrap">' . "a  b\nc &lt;b&gt;</td>\n",
+            ],
+            [
+                'all',
                 'foo bar baz',
                 'grid_edit',
                 $meta2,

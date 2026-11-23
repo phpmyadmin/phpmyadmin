@@ -23,7 +23,6 @@ use function hash_equals;
 use function hash_hmac;
 use function header;
 use function header_remove;
-use function htmlspecialchars;
 use function http_build_query;
 use function in_array;
 use function is_array;
@@ -37,7 +36,6 @@ use function parse_url;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
-use function str_replace;
 use function stripos;
 use function strlen;
 use function strpos;
@@ -354,21 +352,6 @@ class Core
         ];
 
         return in_array($parsedUrl['host'], $domainAllowList, true);
-    }
-
-    /**
-     * Replace some html-unfriendly stuff
-     *
-     * @param string $buffer String to process
-     *
-     * @return string Escaped and cleaned up text suitable for html
-     */
-    public static function mimeDefaultFunction(string $buffer): string
-    {
-        $buffer = htmlspecialchars($buffer);
-        $buffer = str_replace('  ', ' &nbsp;', $buffer);
-
-        return (string) preg_replace("@((\015\012)|(\015)|(\012))@", '<br>' . "\n", $buffer);
     }
 
     /**
