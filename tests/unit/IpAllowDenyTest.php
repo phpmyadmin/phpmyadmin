@@ -101,99 +101,68 @@ class IpAllowDenyTest extends AbstractTestCase
         ];
     }
 
-    /**
-     * Test for ipMaskTest
-     */
-    public function testIpMaskTest(): void
+    #[DataProvider('providerIpMaskTest')]
+    public function testIpMaskTest(string $testRange, string $ipToTest, bool $expected): void
     {
-        //IPV4 testing
-        $testRange = '255.255.0.0/8';
-        $ipToTest = '10.0.0.0';
-        self::assertFalse(
-            $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest),
-        );
-
-        $testRange = '255.255.0.0/4';
-        $ipToTest = '255.3.0.0';
-        self::assertTrue(
-            $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest),
-        );
-
-        $testRange = '255.255.0.[0-10]';
-        $ipToTest = '255.3.0.3';
-        self::assertFalse(
-            $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest),
-        );
-        $ipToTest = '255.3.0.12';
-        self::assertFalse(
-            $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest),
-        );
-
-        //IPV6 testing
-        //not range
-        $ipToTest = '2001:4998:c:a0d:0000:0000:4998:1020';
-        $testRange = '2001:4998:c:a0d:0000:0000:4998:1020';
-        self::assertTrue(
-            $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest),
-        );
-        $ipToTest = '2001:4998:c:a0d:0000:0000:4998:1020';
-        $testRange = '2001:4998:c:a0d:0000:0000:4998:2020';
-        self::assertFalse(
-            $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest),
-        );
-
-        //range
-        $ipToTest = '2001:4998:c:a0d:0000:0000:4998:1020';
-        $testRange = '2001:4998:c:a0d:0000:0000:4998:[1001-2010]';
-        self::assertTrue(
-            $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest),
-        );
-        $ipToTest = '2001:4998:c:a0d:0000:0000:4998:3020';
-        $testRange = '2001:4998:c:a0d:0000:0000:4998:[1001-2010]';
-        self::assertFalse(
-            $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest),
-        );
-
-        //CDIR
-        $ipToTest = '2001:4998:c:a0d:0000:0000:4998:1020';
-        $testRange = '2001:4998:c:a0d:0000:0000:4998:[1001-2010]';
-        self::assertTrue(
-            $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest),
-        );
-        $ipToTest = '2001:4998:c:a0d:0000:0000:4998:1000';
-        $testRange = '2001:4998:c:a0d:0000:0000:4998:3020/24';
-        self::assertFalse(
-            $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest),
-        );
-    }
-
-    #[DataProvider('providerIpv4Cidr')]
-    public function testIpv4MaskTestWithCidr(string $testRange, string $ipToTest, bool $expected): void
-    {
-        self::assertSame($expected, $this->ipAllowDeny->ipv4MaskTest($testRange, $ipToTest));
+        self::assertSame($expected, $this->ipAllowDeny->ipMaskTest($testRange, $ipToTest));
     }
 
     /** @return iterable<string, array{string, string, bool}> */
-    public static function providerIpv4Cidr(): iterable
+    public static function providerIpMaskTest(): iterable
     {
-        yield 'first bit differs /8' => ['10.0.0.0/8', '138.0.0.1', false];
-        yield 'first bit differs /24' => ['192.168.1.0/24', '64.168.1.7', false];
-        yield 'first bit differs /12' => ['172.16.0.0/12', '44.16.0.1', false];
-        yield 'localhost shortcut' => ['127.0.0.1/8', '255.0.0.1', false];
-        yield 'inside /8' => ['10.0.0.0/8', '10.255.255.255', true];
-        yield 'inside /12' => ['172.16.0.0/12', '172.31.255.255', true];
-        yield 'outside /12' => ['172.16.0.0/12', '172.32.0.0', false];
-        yield 'inside /24' => ['192.168.1.0/24', '192.168.1.200', true];
-        yield 'outside /24' => ['192.168.1.0/24', '192.168.2.1', false];
-        yield 'any address /0' => ['0.0.0.0/0', '200.1.2.3', true];
-        yield 'inside /1' => ['128.0.0.0/1', '200.1.2.3', true];
-        yield 'outside /1' => ['128.0.0.0/1', '100.1.2.3', false];
-        yield 'exact /32' => ['1.2.3.4/32', '1.2.3.4', true];
-        yield 'other /32' => ['1.2.3.4/32', '1.2.3.5', false];
-        yield 'prefix too long, same address' => ['1.2.3.4/33', '1.2.3.4', true];
-        yield 'prefix too long, other address' => ['1.2.3.4/33', '1.2.3.5', false];
-        yield 'invalid subnet' => ['1.2.3.256/8', '1.2.3.4', false];
-        yield 'invalid address' => ['1.2.3.0/24', 'invalid', false];
+        yield 'IPv4 CIDR, host bits set, outside /8' => ['255.255.0.0/8', '10.0.0.0', false];
+        yield 'IPv4 CIDR, host bits set, inside /4' => ['255.255.0.0/4', '255.3.0.0', true];
+        yield 'IPv4 octet differs' => ['255.255.0.[0-10]', '255.3.0.3', false];
+        yield 'IPv4 octet differs, last octet outside range' => ['255.255.0.[0-10]', '255.3.0.12', false];
+        yield 'IPv6 exact' => ['2001:4998:c:a0d:0000:0000:4998:1020', '2001:4998:c:a0d:0000:0000:4998:1020', true];
+        yield 'IPv6 exact, other address' => [
+            '2001:4998:c:a0d:0000:0000:4998:2020',
+            '2001:4998:c:a0d:0000:0000:4998:1020',
+            false,
+        ];
+
+        yield 'IPv6 inside range' => [
+            '2001:4998:c:a0d:0000:0000:4998:[1001-2010]',
+            '2001:4998:c:a0d:0000:0000:4998:1020',
+            true,
+        ];
+
+        yield 'IPv6 outside range' => [
+            '2001:4998:c:a0d:0000:0000:4998:[1001-2010]',
+            '2001:4998:c:a0d:0000:0000:4998:3020',
+            false,
+        ];
+
+        yield 'IPv6 outside CIDR' => [
+            '2001:4998:c:a0d:0000:0000:4998:3020/115',
+            '2001:4998:c:a0d:0000:0000:4998:1000',
+            false,
+        ];
+
+        yield 'IPv4 CIDR, first bit differs /8' => ['10.0.0.0/8', '138.0.0.1', false];
+        yield 'IPv4 CIDR, first bit differs /24' => ['192.168.1.0/24', '64.168.1.7', false];
+        yield 'IPv4 CIDR, first bit differs /12' => ['172.16.0.0/12', '44.16.0.1', false];
+        yield 'IPv4 CIDR, localhost shortcut' => ['127.0.0.1/8', '255.0.0.1', false];
+        yield 'IPv4 CIDR, inside /8' => ['10.0.0.0/8', '10.255.255.255', true];
+        yield 'IPv4 CIDR, outside /12' => ['172.16.0.0/12', '172.32.0.0', false];
+        yield 'IPv4 CIDR, inside /24' => ['192.168.1.0/24', '192.168.1.200', true];
+        yield 'IPv4 CIDR, any address /0' => ['0.0.0.0/0', '200.1.2.3', true];
+        yield 'IPv4 CIDR, outside /1' => ['128.0.0.0/1', '100.1.2.3', false];
+        yield 'IPv4 CIDR, exact /32' => ['1.2.3.4/32', '1.2.3.4', true];
+        yield 'IPv4 CIDR, prefix too long, same address' => ['1.2.3.4/33', '1.2.3.4', true];
+        yield 'IPv4 CIDR, invalid subnet' => ['1.2.3.256/8', '1.2.3.4', false];
+        yield 'IPv4 CIDR, invalid address' => ['1.2.3.0/24', 'invalid', false];
+        yield 'IPv4 inside range' => ['10.0.0.[1-5]', '10.0.0.3', true];
+        yield 'IPv4 outside range' => ['10.0.0.[1-5]', '10.0.0.6', false];
+        yield 'IPv4 partial octet range' => ['10.0.0.1[0-5]', '10.0.0.3', false];
+        yield 'IPv4 too few octets' => ['10.0.0', '10.0.0.3', false];
+        yield 'IPv4 too many octets' => ['10.0.0.3.9', '10.0.0.3', false];
+        yield 'IPv4 range, invalid address' => ['10.0.0.[1-5]', 'invalid', false];
+        yield 'IPv6 malformed range' => ['2001:db8::[1-', '2001:db8::5', false];
+        yield 'IPv6 CIDR, host bits set, lower address' => ['2001:db8::5/64', '2001:db8::1', true];
+        yield 'IPv6 CIDR, invalid prefix' => ['2001:db8::/zz', 'fe80::1', false];
+        yield 'IPv4 CIDR, any address /0, IPv6 client' => ['0.0.0.0/0', '2001:db8::1', true];
+        yield 'IPv4 CIDR, IPv6 client' => ['127.0.0.1/8', '::1', false];
     }
 
     /**
@@ -233,7 +202,7 @@ class IpAllowDenyTest extends AbstractTestCase
         self::assertTrue(
             $this->ipAllowDeny->allow(),
         );
-        $_SERVER['REMOTE_ADDR'] = '2001:4998:c:a0d:0000:0000:4998:1000';
+        $_SERVER['REMOTE_ADDR'] = '2001:4a98:c:a0d:0000:0000:4998:1000';
         self::assertFalse(
             $this->ipAllowDeny->allow(),
         );

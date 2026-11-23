@@ -9,14 +9,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use function bin2hex;
-use function dechex;
+use function count;
 use function explode;
 use function hash_equals;
-use function hexdec;
 use function inet_pton;
 use function intdiv;
 use function mb_strtolower;
-use function mb_substr;
 use function min;
 use function ord;
 use function preg_match;
@@ -24,7 +22,6 @@ use function str_contains;
 use function str_replace;
 use function strlen;
 use function substr;
-use function substr_replace;
 
 /**
  * PhpMyAdmin\IpAllowDeny class
@@ -71,9 +68,8 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      */
-    public function ipv4MaskTest(string $testRange, string $ipToTest): bool
+    private function ipv4MaskTest(string $testRange, string $ipToTest): bool
     {
-        $result = true;
         if (preg_match('|^([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/([0-9]+)$|', $testRange, $regs) === 1) {
             return $this->cidrMatch($regs[1], (int) $regs[2], $ipToTest);
         }
@@ -81,26 +77,38 @@ class IpAllowDeny
         // range based
         $maskocts = explode('.', $testRange);
         $ipocts = explode('.', $ipToTest);
+        if (count($maskocts) !== 4 || count($ipocts) !== 4) {
+            return false;
+        }
 
         // perform a range match
         for ($i = 0; $i < 4; $i++) {
-            if (preg_match('|\[([0-9]+)\-([0-9]+)\]|', $maskocts[$i], $regs) === 1) {
+            if (preg_match('|^\[([0-9]+)\-([0-9]+)\]$|', $maskocts[$i], $regs) === 1) {
                 if ($ipocts[$i] > $regs[2] || $ipocts[$i] < $regs[1]) {
-                    $result = false;
+                    return false;
                 }
             } elseif ($maskocts[$i] !== $ipocts[$i]) {
-                $result = false;
+                return false;
             }
         }
 
-        return $result;
+        return true;
     }
 
     private function cidrMatch(string $subnet, int $prefix, string $ipToTest): bool
     {
         $subnetBin = inet_pton($subnet);
         $ipBin = inet_pton($ipToTest);
-        if ($subnetBin === false || $ipBin === false || strlen($subnetBin) !== strlen($ipBin)) {
+        if ($subnetBin === false || $ipBin === false) {
+            return false;
+        }
+
+        // A /0 prefix matches every address of both families, so the 'all' shortcut (0.0.0.0/0) covers IPv6 clients
+        if ($prefix === 0) {
+            return true;
+        }
+
+        if (strlen($subnetBin) !== strlen($ipBin)) {
             return false;
         }
 
@@ -122,8 +130,6 @@ class IpAllowDeny
 
     /**
      * IPv6 matcher
-     * CIDR section taken from https://stackoverflow.com/a/10086404
-     * Modified for phpMyAdmin
      *
      * Matches:
      * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
@@ -140,28 +146,14 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      */
-    public function ipv6MaskTest(string $testRange, string $ipToTest): bool
+    private function ipv6MaskTest(string $testRange, string $ipToTest): bool
     {
-        $result = true;
-
-        // convert to lowercase for easier comparison
         $testRange = mb_strtolower($testRange);
         $ipToTest = mb_strtolower($ipToTest);
 
-        $isCidr = str_contains($testRange, '/');
-        $isRange = str_contains($testRange, '[');
-        $isSingle = ! $isCidr && ! $isRange;
-
         $ipHex = bin2hex((string) inet_pton($ipToTest));
 
-        if ($isSingle) {
-            $rangeHex = bin2hex((string) inet_pton($testRange));
-
-            return hash_equals($ipHex, $rangeHex);
-        }
-
-        if ($isRange) {
-            // what range do we operate on?
+        if (str_contains($testRange, '[')) {
             $rangeMatch = [];
             if (preg_match('/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $testRange, $rangeMatch) === 1) {
                 $rangeStart = $rangeMatch[1];
@@ -174,53 +166,23 @@ class IpAllowDeny
                 $lastHex = bin2hex((string) inet_pton($lastIp));
 
                 // check if the IP to test is within the range
-                $result = $ipHex >= $firstHex && $ipHex <= $lastHex;
+                return $ipHex >= $firstHex && $ipHex <= $lastHex;
             }
 
-            return $result;
+            return false;
         }
 
-        if ($isCidr) {
-            // Split in address and prefix length
-            [$firstIp, $subnet] = explode('/', $testRange);
-
-            // Parse the address into a binary string
-            $firstBin = inet_pton($firstIp);
-            $firstHex = bin2hex((string) $firstBin);
-
-            $flexbits = 128 - (int) $subnet;
-
-            // Build the hexadecimal string of the last address
-            $lastHex = $firstHex;
-
-            $pos = 31;
-            while ($flexbits > 0) {
-                // Get the character at this position
-                $orig = mb_substr($lastHex, $pos, 1);
-
-                // Convert it to an integer
-                $origval = hexdec($orig);
-
-                // OR it with (2^flexbits)-1, with flexbits limited to 4 at a time
-                $newval = $origval | 2 ** min(4, $flexbits) - 1;
-
-                // Convert it back to a hexadecimal character
-                $new = dechex($newval);
-
-                // And put that character back in the string
-                $lastHex = substr_replace($lastHex, $new, $pos, 1);
-
-                // We processed one nibble, move to previous position
-                /** @infection-ignore-all */
-                $flexbits -= 4;
-                --$pos;
+        if (str_contains($testRange, '/')) {
+            if (preg_match('|^([^/]+)/([0-9]+)$|', $testRange, $regs) !== 1) {
+                return false;
             }
 
-            // check if the IP to test is within the range
-            $result = $ipHex >= $firstHex && $ipHex <= $lastHex;
+            return $this->cidrMatch($regs[1], (int) $regs[2], $ipToTest);
         }
 
-        return $result;
+        $rangeHex = bin2hex((string) inet_pton($testRange));
+
+        return hash_equals($ipHex, $rangeHex);
     }
 
     /**
