@@ -8,11 +8,13 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Utils\NestedArray;
 
+use function __;
 use function array_replace_recursive;
 use function is_array;
 
@@ -215,6 +217,10 @@ class UserPreferencesHandler
             return;
         }
 
-        $this->dbi->setCollation($collationConnection);
+        if ($this->dbi->setCollation($collationConnection)) {
+            return;
+        }
+
+        ErrorHandler::getInstance()->addUserError(__('Failed to set configured collation connection!'));
     }
 }

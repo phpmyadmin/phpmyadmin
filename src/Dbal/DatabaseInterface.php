@@ -1089,7 +1089,7 @@ class DatabaseInterface
      *
      * @param string $collation collation to set
      */
-    public function setCollation(string $collation): void
+    public function setCollation(string $collation): bool
     {
         $charset = $this->getDefaultCharset();
         /* Automatically adjust collation if not supported by server */
@@ -1104,13 +1104,12 @@ class DatabaseInterface
         );
 
         if ($result === false) {
-            $errorHandler = ErrorHandler::getInstance();
-            $errorHandler->addUserError(__('Failed to set configured collation connection!'));
-
-            return;
+            return false;
         }
 
         $this->userConnectionCollation = $collation;
+
+        return true;
     }
 
     public function getCollationConnection(): string
