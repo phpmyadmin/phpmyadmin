@@ -14,6 +14,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\ExportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\OutputHandler;
@@ -68,6 +69,7 @@ final class ExportControllerTest extends AbstractTestCase
             $userPreferences,
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
 
         $pluginFactory = $this->createPluginFactory($dbi, $config);

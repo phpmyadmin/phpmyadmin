@@ -14,6 +14,7 @@ use PhpMyAdmin\Controllers\Table\ExportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
@@ -119,6 +120,7 @@ class ExportControllerTest extends AbstractTestCase
             $userPreferences,
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
         $options = new Options($relation, new TemplateModel($dbi), $userPreferencesHandler);
 
@@ -150,6 +152,7 @@ class ExportControllerTest extends AbstractTestCase
             $userPreferences,
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
         $options = new Options($relation, new TemplateModel($dbi), $userPreferencesHandler);
 

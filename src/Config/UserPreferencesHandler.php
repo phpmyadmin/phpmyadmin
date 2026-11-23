@@ -32,6 +32,7 @@ class UserPreferencesHandler
         private readonly UserPreferences $userPreferences,
         private readonly LanguageManager $languageManager,
         private readonly ThemeManager $themeManager,
+        private readonly ErrorHandler $errorHandler,
     ) {
         $this->defaultSettings = (new Settings([]))->asArray();
     }
@@ -221,6 +222,6 @@ class UserPreferencesHandler
             return;
         }
 
-        ErrorHandler::getInstance()->addUserError(__('Failed to set configured collation connection!'));
+        $this->errorHandler->addUserError(__('Failed to set configured collation connection!'));
     }
 }

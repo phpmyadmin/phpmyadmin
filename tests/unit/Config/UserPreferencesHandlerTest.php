@@ -16,7 +16,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
-use ReflectionProperty;
 
 use function array_map;
 use function array_values;
@@ -34,6 +33,7 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
         $userPreferencesHandler->setUserValue('Lang', 'cs', 'en');
         $userPreferencesHandler->setUserValue('Servers/1/hide_db', 'cfg_val_1', cookieName: 'TEST_COOKIE_USER_VAL');
@@ -50,6 +50,7 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
         $userPreferencesHandler->updateConfigValue('NavigationWidth', 300);
         self::assertSame(300, $config->config->NavigationWidth);
@@ -65,15 +66,14 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
         self::assertSame('val', $userPreferencesHandler->getUserValue('test_val', 'val'));
     }
 
     public function testLoadUserPreferencesReportsRejectedCollation(): void
     {
-        $errorHandlerInstance = new ReflectionProperty(ErrorHandler::class, 'instance');
-        $errorHandlerInstance->setValue(null, new ErrorHandler());
-
+        $errorHandler = new ErrorHandler();
         $config = new Config();
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SET collation_connection = \'unknown_ci\';', false);
@@ -97,11 +97,9 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             $themeManager,
+            $errorHandler,
         );
         $userPreferencesHandler->loadUserPreferences();
-
-        $errorHandler = ErrorHandler::getInstance();
-        $errorHandlerInstance->setValue(null, null);
 
         $dummyDbi->assertAllQueriesConsumed();
         self::assertSame(
