@@ -15,6 +15,8 @@ class IpAllowDenyTest extends AbstractTestCase
 {
     private IpAllowDeny $ipAllowDeny;
 
+    private Config $config;
+
     /**
      * Prepares environment for the test.
      */
@@ -22,7 +24,7 @@ class IpAllowDenyTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $config = Config::getInstance();
+        $config = $this->config = Config::getInstance();
         $config->selectedServer['user'] = 'pma_username';
         $config->selectedServer['AllowDeny']['rules'][] = 'allow % 255.255.255.0/4';
         $config->selectedServer['AllowDeny']['rules'][] = 'allow % from 255.255.2.0/4';
@@ -210,5 +212,58 @@ class IpAllowDenyTest extends AbstractTestCase
         self::assertTrue(
             $this->ipAllowDeny->allow(),
         );
+    }
+
+    #[DataProvider('providerValidRule')]
+    public function testValidRule(string $rule, bool $expected): void
+    {
+        $this->config->selectedServer['AllowDeny']['rules'] = [$rule];
+        $_SERVER['REMOTE_ADDR'] = '1.2.3.4';
+
+        self::assertSame($expected, $this->ipAllowDeny->deny());
+    }
+
+    /** @return iterable<string, array{string, bool}> */
+    public static function providerValidRule(): iterable
+    {
+        yield 'IPv4 exact' => ['deny % from 1.2.3.4', true];
+        yield 'IPv4 range' => ['deny % from 10.0.0.[1-5]', false];
+        yield 'CIDR' => ['deny % from 1.2.3.0/24', true];
+        yield 'IPv6 exact' => ['deny % from 2001:db8::1', false];
+        yield 'IPv6 range' => ['deny % from 2001:db8::[1-ff]', false];
+        yield 'shortcut' => ['deny % from all', true];
+        yield 'without from' => ['deny % 1.2.3.4', true];
+        yield 'extra whitespace' => [" deny\t%   from  1.2.3.4 ", true];
+    }
+
+    #[DataProvider('providerInvalidRule')]
+    public function testInvalidRuleDeniesEveryone(string $rule): void
+    {
+        $this->config->selectedServer['AllowDeny']['rules'] = ['allow % from 1.2.3.4', $rule];
+        $_SERVER['REMOTE_ADDR'] = '1.2.3.4';
+
+        self::assertFalse($this->ipAllowDeny->allow());
+        self::assertTrue($this->ipAllowDeny->deny());
+    }
+
+    /** @return iterable<string, array{string}> */
+    public static function providerInvalidRule(): iterable
+    {
+        yield 'empty' => [''];
+        yield 'type only' => ['deny'];
+        yield 'missing mask' => ['deny % from'];
+        yield 'unknown type' => ['Deny % from 1.2.3.4'];
+        yield 'two masks' => ['deny % from 1.2.3.4 5.6.7.8'];
+        yield 'unknown shortcut' => ['deny % from everyone'];
+        yield 'CIDR, invalid address' => ['deny % from 1.2.3.256/8'];
+        yield 'CIDR, invalid prefix' => ['deny % from 1.2.3.0/x'];
+        yield 'IPv6 range, invalid address' => ['deny % from 2001::db8::[1-2]'];
+        yield 'IPv6 range, unclosed bracket' => ['allow root from 2001:db8::[1-'];
+        yield 'IPv6 range, partial group' => ['deny % from 2001:db8::1[0-5]'];
+        yield 'IPv6 range, not in last group' => ['deny % from 2001:db8:[1-2]::1'];
+        yield 'IPv6, invalid address' => ['deny % from 2001:db8::g'];
+        yield 'IPv4, invalid address' => ['deny % from 1.2.3.256'];
+        yield 'IPv4 range, too few octets' => ['deny % from 10.0.[1-5]'];
+        yield 'IPv4 range, partial octet' => ['deny % from 10.0.0.1[0-5]'];
     }
 }

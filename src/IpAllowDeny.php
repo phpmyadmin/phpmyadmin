@@ -11,6 +11,7 @@ namespace PhpMyAdmin;
 use function bin2hex;
 use function count;
 use function explode;
+use function filter_var;
 use function hash_equals;
 use function inet_pton;
 use function intdiv;
@@ -18,10 +19,17 @@ use function mb_strtolower;
 use function min;
 use function ord;
 use function preg_match;
+use function preg_split;
 use function str_contains;
 use function str_replace;
 use function strlen;
 use function substr;
+use function trim;
+
+use const FILTER_FLAG_IPV4;
+use const FILTER_FLAG_IPV6;
+use const FILTER_VALIDATE_IP;
+use const PREG_SPLIT_NO_EMPTY;
 
 /**
  * PhpMyAdmin\IpAllowDeny class
@@ -214,18 +222,40 @@ class IpAllowDeny
      */
     private function allowDeny(string $type): bool
     {
+        $rules = $this->parseRules();
+        if ($rules === null) {
+            // No allow rule matches and every deny rule matches, so every rule order denies access
+            return $type === 'deny';
+        }
+
         // Grabs true IP of the user and returns if it can't be found
         $remoteIp = Core::getIp();
         if ($remoteIp === '' || $remoteIp === false) {
             return false;
         }
 
-        // copy username
         $username = $this->config->selectedServer['user'];
 
-        // copy rule database
-        $rules = $this->config->selectedServer['AllowDeny']['rules'];
+        foreach ($rules as $rule) {
+            if ($rule['type'] !== $type) {
+                continue;
+            }
 
+            if ($rule['user'] !== '%' && ! hash_equals($rule['user'], $username)) {
+                continue;
+            }
+
+            if ($this->ipMaskTest($rule['mask'], $remoteIp)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /** @return list<array{type: 'allow'|'deny', user: string, mask: string}>|null */
+    private function parseRules(): array|null
+    {
         // lookup table for some name shortcuts
         $shortcuts = ['all' => '0.0.0.0/0', 'localhost' => '127.0.0.1/8'];
 
@@ -236,43 +266,68 @@ class IpAllowDeny
             $shortcuts['localnetC'] = Core::getEnv('SERVER_ADDR') . '/24';
         }
 
-        foreach ($rules as $rule) {
-            // extract rule data
-            $ruleData = explode(' ', $rule);
-
-            // check for rule type
-            if ($ruleData[0] !== $type) {
-                continue;
+        $rules = [];
+        foreach ($this->config->selectedServer['AllowDeny']['rules'] as $rule) {
+            $parts = preg_split('/\s+/', trim($rule), -1, PREG_SPLIT_NO_EMPTY);
+            if ($parts === false) {
+                return null;
             }
 
-            // check for username
-            if (
-                $ruleData[1] !== '%' //wildcarded first
-                && ! hash_equals($ruleData[1], $username)
-            ) {
-                continue;
+            if (count($parts) === 4 && $parts[2] === 'from') {
+                $mask = $parts[3];
+            } elseif (count($parts) === 3 && $parts[2] !== 'from') {
+                $mask = $parts[2];
+            } else {
+                return null;
             }
 
-            // check if the config file has the full string with an extra
-            // 'from' in it and if it does, just discard it
-            if ($ruleData[2] === 'from') {
-                $ruleData[2] = $ruleData[3];
+            $type = $parts[0];
+            if ($type !== 'allow' && $type !== 'deny') {
+                return null;
             }
 
-            // Handle shortcuts with above array
-            if (isset($shortcuts[$ruleData[2]])) {
-                $ruleData[2] = $shortcuts[$ruleData[2]];
+            $mask = $shortcuts[$mask] ?? $mask;
+            if (! $this->isValidMask($mask)) {
+                return null;
             }
 
-            // Add code for host lookups here
-            // Excluded for the moment
+            $rules[] = ['type' => $type, 'user' => $parts[1], 'mask' => $mask];
+        }
 
-            // Do the actual matching now
-            if ($this->ipMaskTest($ruleData[2], $remoteIp)) {
-                return true;
+        return $rules;
+    }
+
+    private function isValidMask(string $mask): bool
+    {
+        if (preg_match('|^([^/]+)/[0-9]+$|', $mask, $regs) === 1) {
+            return filter_var($regs[1], FILTER_VALIDATE_IP) !== false;
+        }
+
+        if (str_contains($mask, ':')) {
+            // The range must be the whole last group, because ipv6MaskTest() compares whole addresses
+            if (preg_match('/^([0-9a-f:]*:)\[([0-9a-f]+)-([0-9a-f]+)\]$/i', $mask, $regs) === 1) {
+                return filter_var($regs[1] . $regs[2], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false
+                    && filter_var($regs[1] . $regs[3], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
+            }
+
+            return filter_var($mask, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
+        }
+
+        if (! str_contains($mask, '[')) {
+            return filter_var($mask, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false;
+        }
+
+        $octets = explode('.', $mask);
+        if (count($octets) !== 4) {
+            return false;
+        }
+
+        foreach ($octets as $octet) {
+            if (preg_match('/^(?:[0-9]+|\[[0-9]+-[0-9]+\])$/', $octet) !== 1) {
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 }

@@ -931,6 +931,15 @@ class AuthenticationCookieTest extends AbstractTestCase
                 ['order' => 'explicit', 'rules' => ['deny user from all', 'allow root 1.2.3.4']],
                 AuthenticationFailure::ALLOW_DENIED,
             ],
+            'rules-invalid-reject' => [
+                'root',
+                'root',
+                '1.2.3.4',
+                true,
+                true,
+                ['order' => 'deny,allow', 'rules' => ['allow root 1.2.3.4', 'deny % from']],
+                AuthenticationFailure::ALLOW_DENIED,
+            ],
         ];
     }
 }
