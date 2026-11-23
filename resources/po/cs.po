@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-22 00:26+0000\n"
-"PO-Revision-Date: 2026-11-06 14:51+0000\n"
+"PO-Revision-Date: 2026-11-24 14:51+0000\n"
 "Last-Translator: Adam Havránek <helak@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "cs/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 2026.11.2.dev0\n"
+"X-Generator: Weblate 2026.12.dev0\n"
 
 #: resources/templates/base.twig:40 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -8757,7 +8757,7 @@ msgstr "Cyrilice"
 #: src/Charsets/Collation.php:166
 msgctxt "Collation"
 msgid "Latin"
-msgstr ""
+msgstr "latina"
 
 #: src/Charsets/Collation.php:178
 msgctxt "Collation variant"
@@ -8905,12 +8905,9 @@ msgid "Thai"
 msgstr "Thajština"
 
 #: src/Charsets/Collation.php:240
-#, fuzzy
-#| msgctxt "Collation"
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Bosnian"
-msgstr "Estonština"
+msgstr "Bosenský"
 
 #: src/Charsets/Collation.php:241
 msgctxt "Collation"
@@ -8945,7 +8942,7 @@ msgstr "Estonština"
 #: src/Charsets/Collation.php:249
 msgctxt "Collation"
 msgid "Galician"
-msgstr ""
+msgstr "Galicijština"
 
 #: src/Charsets/Collation.php:252
 msgctxt "Collation"
@@ -8975,7 +8972,7 @@ msgstr "Litevština"
 #: src/Charsets/Collation.php:259
 msgctxt "Collation"
 msgid "Mongolian"
-msgstr ""
+msgstr "Mongolský"
 
 #: src/Charsets/Collation.php:260
 msgctxt "Collation"
@@ -8985,12 +8982,12 @@ msgstr "Barmština"
 #: src/Charsets/Collation.php:261
 msgctxt "Collation"
 msgid "Norwegian Bokmål"
-msgstr ""
+msgstr "Norština (Bokmål)"
 
 #: src/Charsets/Collation.php:262
 msgctxt "Collation"
 msgid "Norwegian Nynorsk"
-msgstr ""
+msgstr "Norština (nynorsk)"
 
 #: src/Charsets/Collation.php:263
 msgctxt "Collation"
@@ -9010,7 +9007,7 @@ msgstr "Rumunština"
 #: src/Charsets/Collation.php:268
 msgctxt "Collation"
 msgid "Serbian"
-msgstr ""
+msgstr "Srbština"
 
 #: src/Charsets/Collation.php:269
 msgctxt "Collation"
@@ -12357,33 +12354,24 @@ msgstr ""
 "[doc@cfg_blowfish_secret]dokumentaci[/doc]."
 
 #: src/Controllers/HomeController.php:349
-#, fuzzy
-#| msgid ""
-#| "The configuration file needs a valid key for query encryption. A "
-#| "temporary key was automatically generated for you. Please refer to the "
-#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgid ""
 "The configuration file needs a valid key for URL query encryption. A "
 "temporary key was automatically generated for you. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"Konfigurační soubor vyžaduje platný klíč pro šifrování dotazů. Byl pro vás "
-"automaticky vygenerován dočasný klíč. Podrobnosti najdete v "
-"[doc@cfg_URLQueryEncryptionSecretKey]dokumentaci[/doc]."
+"Konfigurační soubor vyžaduje platný klíč pro šifrování dotazů v URL. Byl pro "
+"vás automaticky vygenerován dočasný klíč. Podívejte se prosím do "
+"[doc@cfg_URLQueryEncryptionSecretKey]dokumentace[/doc]."
 
 #: src/Controllers/HomeController.php:359
-#, fuzzy, php-format
-#| msgid ""
-#| "The query encryption key in the configuration file is longer than "
-#| "necessary. It should only be %d bytes long. Please refer to the "
-#| "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
+#, php-format
 msgid ""
 "The URL query encryption key in the configuration file is longer than "
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_URLQueryEncryptionSecretKey]documentation[/doc]."
 msgstr ""
-"Klíč pro šifrování dotazů v konfiguračním souboru je delší, než je nutné. "
-"Měl by mít délku pouze %d bajtů. Podívejte se prosím do "
+"Šifrovací klíč pro dotazy v URL v konfiguračním souboru je delší, než je "
+"nutné. Měl by mít délku pouze %d bajtů. Podívejte se prosím do "
 "[doc@cfg_URLQueryEncryptionSecretKey]dokumentace[/doc]."
 
 #: src/Controllers/HomeController.php:377
@@ -15990,10 +15978,8 @@ msgid "Event %1$s has been created."
 msgstr "Byla vytvořena událost %1$s."
 
 #: src/Events/Events.php:99
-#, fuzzy
-#| msgid "Session not found."
 msgid "Event not found."
-msgstr "Relace nebyla nalezena."
+msgstr "Událost nebyla nalezena."
 
 #: src/Events/Events.php:128
 msgid "Sorry, we failed to restore the dropped event."
@@ -16256,25 +16242,25 @@ msgstr "Ignorován nepodporovaný jazykový kód."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 msgid "The database name must be a non-empty string."
-msgstr "Název databáze nesmí být prázdný."
+msgstr "Název databáze musí být neprázdný řetězec."
 
 #: src/Identifiers/InvalidDatabaseName.php:20
 #, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "Název databáze nesmí být delší než %d znaků."
+msgstr "Název databáze nesmí mít více než %d znaků."
 
 #: src/Identifiers/InvalidDatabaseName.php:25
 msgid "The database name cannot end with a space character."
-msgstr "Jména databáze nesmí být ukončena mezerou."
+msgstr "Název databáze nesmí končit mezerou."
 
 #: src/Identifiers/InvalidTableName.php:14
 msgid "The table name must be a non-empty string."
-msgstr "Název tabulky nesmí být prázdný."
+msgstr "Název tabulky musí být neprázdný řetězec."
 
 #: src/Identifiers/InvalidTableName.php:20
 #, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "Název tabulky nesmí být delší než %d znaků."
+msgstr "Název tabulky nesmí mít více než %d znaků."
 
 #: src/Identifiers/InvalidTableName.php:25
 msgid "The table name cannot end with a space character."
@@ -18433,10 +18419,8 @@ msgid "Trigger %1$s has been created."
 msgstr "Byl vytvořen trigger %1$s."
 
 #: src/Triggers/Triggers.php:102
-#, fuzzy
-#| msgid "Session not found."
 msgid "Trigger not found."
-msgstr "Relace nebyla nalezena."
+msgstr "Spouštěč nebyl nalezen."
 
 #: src/Triggers/Triggers.php:131
 msgid "Sorry, we failed to restore the dropped trigger."
