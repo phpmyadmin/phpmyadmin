@@ -480,6 +480,18 @@ class GeneratorTest extends AbstractTestCase
             ],
             [
                 [
+                    'True_Type' => 'timestamp',
+                    'first_timestamp' => true,
+                    'Extra' => null,
+                    'Key' => '',
+                    'Type' => '',
+                    'Null' => 'NO',
+                ],
+                false,
+                '',
+            ],
+            [
+                [
                     'True_Type' => 'uuid',
                     'first_timestamp' => false,
                     'Key' => '',

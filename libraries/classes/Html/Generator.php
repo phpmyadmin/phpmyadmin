@@ -268,13 +268,11 @@ class Generator
      * @return string An HTML snippet of a dropdown list with function
      *                names appropriate for the requested column.
      *
-     * @global mixed $data data of currently edited row
-     *                     (used to detect whether to choose defaults)
-     * @global array $cfg  PMA configuration
+     * @global array $cfg PMA configuration
      */
     public static function getDefaultFunctionForField(array $field, $insertMode): string
     {
-        global $cfg, $data, $dbi;
+        global $cfg, $dbi;
 
         $defaultFunction = '';
 
@@ -303,7 +301,7 @@ class Generator
             ($field['True_Type'] === 'timestamp')
             && $field['first_timestamp']
             && empty($field['Default'])
-            && empty($data)
+            && $insertMode
             && $field['Extra'] !== 'on update CURRENT_TIMESTAMP'
             && $field['Null'] === 'NO'
         ) {
