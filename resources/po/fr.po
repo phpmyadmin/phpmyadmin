@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-22 00:26+0000\n"
-"PO-Revision-Date: 2026-11-16 11:23+0000\n"
+"PO-Revision-Date: 2026-11-24 14:51+0000\n"
 "Last-Translator: kjo-sdds <kjo-sdds@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -16574,21 +16574,21 @@ msgstr "Ce code de langue non pris en charge est ignoré."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 msgid "The database name must be a non-empty string."
-msgstr "Le nom de la base de données doit être une chaîne non vide."
+msgstr "Le nom de la base de données doit être une chaine non-vide."
 
 #: src/Identifiers/InvalidDatabaseName.php:20
 #, php-format
 msgid "The database name cannot be longer than %d characters."
 msgstr ""
-"Le nom de la base de données ne peut pas être plus grand que %d caractères."
+"Le nom de la base de données ne peut pas être plus long que %d caractères."
 
 #: src/Identifiers/InvalidDatabaseName.php:25
 msgid "The database name cannot end with a space character."
-msgstr "Le nom de la base de données ne peut pas se terminer par une espace."
+msgstr "Le nom de la base de données ne peut pas se terminer par un espace."
 
 #: src/Identifiers/InvalidTableName.php:14
 msgid "The table name must be a non-empty string."
-msgstr "Le nom de la table doit être une chaîne de caractères non vide."
+msgstr "Le nom de la table ne doit pas être une chaine vide."
 
 #: src/Identifiers/InvalidTableName.php:20
 #, php-format
@@ -16597,7 +16597,7 @@ msgstr "Le nom de la table ne peut pas être plus long que %d caractères."
 
 #: src/Identifiers/InvalidTableName.php:25
 msgid "The table name cannot end with a space character."
-msgstr "Le nom de la table ne peut pas se terminer par une espace."
+msgstr "Le nom de la table ne peut pas se terminer par un espace."
 
 #: src/Identifiers/InvalidTriggerName.php:14
 msgid "The trigger name must not be empty."
