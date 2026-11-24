@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2026-11-18 15:48+0000\n"
-"PO-Revision-Date: 2026-11-16 11:35+0000\n"
+"PO-Revision-Date: 2026-11-24 14:51+0000\n"
 "Last-Translator: kjo-sdds <kjo-sdds@users.noreply.hosted.weblate.org>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/fr/"
-">\n"
+"Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
+"fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9305,22 +9305,18 @@ msgstr ""
 "été trouvé dans la base de données %2$s."
 
 #: libraries/classes/Dbal/DatabaseName.php:41
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "The database name must be a non-empty string."
-msgstr "Le nom de la base de données est vide !"
+msgstr "Le nom de la base de données doit être une chaine non-vide."
 
 #: libraries/classes/Dbal/DatabaseName.php:49
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "Merci de saisir au maximum {0} caractères"
+msgstr ""
+"Le nom de la base de données ne peut pas être plus long que %d caractères."
 
 #: libraries/classes/Dbal/DatabaseName.php:57
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The database name cannot end with a space character."
-msgstr "Séparer les mots par une espace (« »)."
+msgstr "Le nom de la base de données ne peut pas se terminer par un espace."
 
 #: libraries/classes/Dbal/DbiMysqli.php:154
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9337,22 +9333,17 @@ msgstr ""
 "masquées par la directive de configuration %s."
 
 #: libraries/classes/Dbal/TableName.php:41
-#, fuzzy
-#| msgid "The table name is empty!"
 msgid "The table name must be a non-empty string."
-msgstr "Le nom de la table est vide !"
+msgstr "Le nom de la table ne doit pas être une chaine vide."
 
 #: libraries/classes/Dbal/TableName.php:49
-#, fuzzy, php-format
-#| msgid "Please enter no more than {0} characters"
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "Merci de saisir au maximum {0} caractères"
+msgstr "Le nom de la table ne peut pas être plus long que %d caractères."
 
 #: libraries/classes/Dbal/TableName.php:57
-#, fuzzy
-#| msgid "Words are separated by a space character (\" \")."
 msgid "The table name cannot end with a space character."
-msgstr "Séparer les mots par une espace (« »)."
+msgstr "Le nom de la table ne peut pas se terminer par un espace."
 
 #: libraries/classes/Display/Results.php:914 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
