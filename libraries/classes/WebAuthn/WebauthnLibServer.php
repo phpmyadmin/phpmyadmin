@@ -21,9 +21,12 @@ use Webmozart\Assert\Assert;
 use function array_map;
 use function base64_encode;
 use function json_decode;
+use function restore_error_handler;
+use function set_error_handler;
 use function sodium_base642bin;
 use function sodium_bin2base64;
 
+use const E_DEPRECATED;
 use const SODIUM_BASE64_VARIANT_ORIGINAL;
 use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
@@ -142,12 +145,21 @@ final class WebauthnLibServer implements Server
             'timeout' => 60000,
         ]);
         Assert::isInstanceOf($requestOptions, PublicKeyCredentialRequestOptions::class);
-        $server->loadAndCheckAssertionResponse(
-            $assertionResponseJson,
-            $requestOptions,
-            $userEntity,
-            $request
-        );
+
+        // Suppress PHP 8.1 deprecation from third-party package
+        set_error_handler(static function (int $level): bool {
+            return $level === E_DEPRECATED;
+        });
+        try {
+            $server->loadAndCheckAssertionResponse(
+                $assertionResponseJson,
+                $requestOptions,
+                $userEntity,
+                $request
+            );
+        } finally {
+            restore_error_handler();
+        }
     }
 
     public function parseAndValidateAttestationResponse(
@@ -191,11 +203,20 @@ final class WebauthnLibServer implements Server
         ];
         $credentialCreationOptions = PublicKeyCredentialCreationOptions::createFromArray($creationOptionsArray);
         Assert::isInstanceOf($credentialCreationOptions, PublicKeyCredentialCreationOptions::class);
-        $publicKeyCredentialSource = $server->loadAndCheckAttestationResponse(
-            $attestationResponse,
-            $credentialCreationOptions,
-            $request
-        );
+
+        // Suppress PHP 8.1 deprecation from third-party package
+        set_error_handler(static function (int $level): bool {
+            return $level === E_DEPRECATED;
+        });
+        try {
+            $publicKeyCredentialSource = $server->loadAndCheckAttestationResponse(
+                $attestationResponse,
+                $credentialCreationOptions,
+                $request
+            );
+        } finally {
+            restore_error_handler();
+        }
 
         return $publicKeyCredentialSource->jsonSerialize();
     }
