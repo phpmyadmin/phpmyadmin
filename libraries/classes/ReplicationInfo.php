@@ -101,20 +101,28 @@ final class ReplicationInfo
     {
         global $urlParams;
 
-        $this->setPrimaryStatus();
-
-        if (! empty($connection)) {
-            $this->setMultiPrimaryStatus();
-
-            if ($this->multiPrimaryStatus) {
-                $this->setDefaultPrimaryConnection($connection);
-                $urlParams['primary_connection'] = $connection;
+		if ($this->dbi->isSuperUser()) {
+            $this->setPrimaryStatus();
+    
+            if (! empty($connection)) {
+                $this->setMultiPrimaryStatus();
+    
+                if ($this->multiPrimaryStatus) {
+                    $this->setDefaultPrimaryConnection($connection);
+                    $urlParams['primary_connection'] = $connection;
+                }
             }
+    
+            $this->setReplicaStatus();
+            $this->setPrimaryInfo();
+            $this->setReplicaInfo();
+        } else {
+            $this->primaryStatus = '?';
+            $this->multiPrimaryStatus = '?';
+            $this->replicaStatus = '?';
+            $this->primaryInfo = ['status' => false];
+            $this->replicaInfo = ['status' => false];
         }
-
-        $this->setReplicaStatus();
-        $this->setPrimaryInfo();
-        $this->setReplicaInfo();
     }
 
     private function setPrimaryStatus(): void
