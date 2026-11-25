@@ -15,6 +15,7 @@ use function __;
 use function array_key_last;
 use function array_shift;
 use function array_slice;
+use function bin2hex;
 use function count;
 use function defined;
 use function explode;
@@ -26,6 +27,7 @@ use function fopen;
 use function fread;
 use function function_exists;
 use function get_defined_constants;
+use function hash_hmac;
 use function implode;
 use function in_array;
 use function ini_get;
@@ -41,6 +43,7 @@ use function mkdir;
 use function ob_end_clean;
 use function ob_start;
 use function parse_url;
+use function random_bytes;
 use function realpath;
 use function rtrim;
 use function setcookie;
@@ -48,6 +51,7 @@ use function sprintf;
 use function str_ends_with;
 use function stripos;
 use function strtolower;
+use function substr;
 use function sys_get_temp_dir;
 use function time;
 use function trim;
@@ -741,5 +745,42 @@ class Config
     public function getChangeLogFilePath(): string
     {
         return CHANGELOG_FILE;
+    }
+
+    /**
+     * Returns an opaque token that changes with every phpMyAdmin version.
+     *
+     * It is used as the cache-busting query string of CSS and JS assets instead of the
+     * plain version number, so that the version is not exposed to unauthenticated
+     * visitors (e.g. on the login page). It is keyed with the blowfish secret so it
+     * cannot be mapped back to a version with a lookup table.
+     */
+    public function getAssetVersion(): string
+    {
+        return substr(hash_hmac('sha256', Version::VERSION, $this->getAssetVersionKey()), 0, 12);
+    }
+
+    /**
+     * Returns the key used to derive the asset version token.
+     *
+     * When no blowfish secret is configured, a random per-session key is used instead,
+     * so that the token does not degrade to a publicly computable hash of the version.
+     */
+    private function getAssetVersionKey(): string
+    {
+        if ($this->config->blowfish_secret !== '') {
+            return $this->config->blowfish_secret;
+        }
+
+        /** @var mixed $key */
+        $key = $_SESSION['asset_version_key'] ?? null;
+        if (is_string($key) && $key !== '') {
+            return $key;
+        }
+
+        $key = bin2hex(random_bytes(16));
+        $_SESSION['asset_version_key'] = $key;
+
+        return $key;
     }
 }
