@@ -14,6 +14,10 @@ use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
 use function basename;
+use function file_put_contents;
+use function sys_get_temp_dir;
+use function tempnam;
+use function unlink;
 
 /**
  * @covers \PhpMyAdmin\Plugins\Import\ImportCsv
@@ -212,6 +216,49 @@ class ImportCsvTest extends AbstractTestCase
         . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`COL 1` varchar(5), `COL 2` varchar(5))'
         . ';;INSERT INTO `CSV_DB 1`.`db_test`'
         . ' (`COL 1`, `COL 2`) VALUES (\'Row 1\', \'Row 2\'),' . "\n" . ' (\'123\', \'456\');;', $sql_query);
+
+        self::assertTrue($GLOBALS['finished']);
+        $this->assertAllQueriesConsumed();
+    }
+
+    /**
+     * Test for doImport with multibyte characters cut in half by the chunks the file is read in
+     */
+    public function testDoImportMultibyteCharactersAcrossChunks(): void
+    {
+        //$sql_query_disabled will show the import SQL detail
+        global $sql_query, $sql_query_disabled;
+        $sql_query_disabled = false;
+        $GLOBALS['import_type'] = 'query';
+        $GLOBALS['csv_terminated'] = ',';
+        // read 10 bytes at a time, so chunks end inside the 3-byte characters
+        $GLOBALS['read_limit'] = 10;
+
+        $file = (string) tempnam(sys_get_temp_dir(), 'pma');
+        file_put_contents($file, '"あいう","かきく"' . "\n" . '"さしす","たちつ"' . "\n");
+
+        parent::setGlobalDbi();
+
+        $this->dummyDbi->addResult(
+            'SHOW DATABASES',
+            []
+        );
+
+        $this->dummyDbi->addResult(
+            'SELECT TABLE_NAME FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'CSV_DB 1\' AND TABLE_NAME = \'db_test\'',
+            []
+        );
+
+        $importHandle = new File($file);
+        $importHandle->open();
+        $this->object->doImport($importHandle);
+        unlink($file);
+
+        self::assertStringContainsString(
+            ' VALUES (\'あいう\', \'かきく\'),' . "\n" . ' (\'さしす\', \'たちつ\');;',
+            $sql_query
+        );
 
         self::assertTrue($GLOBALS['finished']);
         $this->assertAllQueriesConsumed();

@@ -27,13 +27,16 @@ use function count;
 use function mb_strlen;
 use function mb_strtolower;
 use function mb_substr;
+use function ord;
 use function preg_grep;
+use function preg_match;
 use function preg_replace;
 use function preg_split;
 use function rtrim;
 use function str_contains;
 use function strlen;
 use function strtr;
+use function substr;
 use function trim;
 
 /**
@@ -216,6 +219,7 @@ class ImportCsv extends AbstractImportCsv
         $tables = [];
 
         $buffer = '';
+        $partialCharacter = '';
         $col_count = 0;
         $max_cols = 0;
         $csv_terminated_len = mb_strlen($csv_terminated);
@@ -223,14 +227,19 @@ class ImportCsv extends AbstractImportCsv
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing
-                $GLOBALS['offset'] -= strlen($buffer);
+                $GLOBALS['offset'] -= strlen($buffer . $partialCharacter);
                 break;
             }
 
             if ($data !== true) {
-                // Append new data to buffer
-                $buffer .= $data;
+                // Append new data to buffer, after the rest of a character the previous chunk cut off
+                $buffer .= $partialCharacter . $data;
                 unset($data);
+
+                // Hold back a character this chunk cuts off until the next chunk completes it,
+                // the mb_* functions below replace its bytes with "?" on PHP 8.3+
+                $partialCharacter = $finished ? '' : $this->getPartialCharacterAtEnd($buffer);
+                $buffer = substr($buffer, 0, strlen($buffer) - strlen($partialCharacter));
 
                 // Force a trailing new line at EOF to prevent parsing problems
                 if ($finished && $buffer) {
@@ -885,5 +894,22 @@ class ImportCsv extends AbstractImportCsv
     private function setAnalyze($analyze): void
     {
         $this->analyze = $analyze;
+    }
+
+    /**
+     * Returns the bytes of a UTF-8 character that the end of the string cuts off,
+     * or an empty string when the string ends with a whole character
+     */
+    private function getPartialCharacterAtEnd(string $string): string
+    {
+        // A lead byte followed by up to two continuation bytes
+        if (preg_match('/[\xC0-\xF7][\x80-\xBF]{0,2}$/', $string, $matches) !== 1) {
+            return '';
+        }
+
+        $lead = ord($matches[0][0]);
+        $length = $lead >= 0xF0 ? 4 : ($lead >= 0xE0 ? 3 : 2);
+
+        return strlen($matches[0]) < $length ? $matches[0] : '';
     }
 }
