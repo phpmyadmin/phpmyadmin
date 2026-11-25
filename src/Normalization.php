@@ -106,8 +106,6 @@ class Normalization
      * get the html of the form to add the new column to given table
      *
      * @param int     $numFields  number of columns to add
-     * @param string  $db         current database
-     * @param string  $table      current table
      * @param mixed[] $columnMeta array containing default values for the fields
      *
      * @return string HTML
@@ -115,36 +113,32 @@ class Normalization
     public function getHtmlForCreateNewColumn(
         UserPrivileges $userPrivileges,
         int $numFields,
-        string $db,
-        string $table,
         array $columnMeta = [],
     ): string {
         $relationParameters = $this->relation->getRelationParameters();
         $contentCells = [];
         $availableMime = [];
-        $mimeMap = [];
         if ($relationParameters->browserTransformationFeature !== null && $this->config->config->BrowseMIME) {
-            $mimeMap = $this->transformations->getMime($db, $table);
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }
 
-        $commentsMap = $this->relation->getComments($db, $table);
         /** @infection-ignore-all */
         for ($columnNumber = 0; $columnNumber < $numFields; $columnNumber++) {
             $contentCells[$columnNumber] = [
                 'column_number' => $columnNumber,
                 'column_meta' => $columnMeta,
                 'type_upper' => '',
+                'default_value' => '',
                 'length_values_input_size' => 8,
                 'length' => '',
                 'extracted_columnspec' => [],
                 'submit_attribute' => null,
-                'comments_map' => $commentsMap,
+                'comment' => '',
                 'fields_meta' => null,
                 'is_backup' => true,
                 'move_columns' => [],
                 'available_mime' => $availableMime,
-                'mime_map' => $mimeMap,
+                'mime' => [],
             ];
         }
 
