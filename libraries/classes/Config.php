@@ -886,14 +886,29 @@ class Config
             return true;
         }
 
-        return setcookie(
-            $httpCookieName,
-            '',
-            time() - 3600,
-            $this->getRootPath(),
-            '',
-            $this->isHttps()
-        );
+        /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
+        $cookieSameSite = $this->get('CookieSameSite');
+
+        if (PHP_VERSION_ID < 70300) {
+            return setcookie(
+                $httpCookieName,
+                '',
+                time() - 3600,
+                $this->getRootPath() . '; SameSite=' . $cookieSameSite,
+                '',
+                $this->isHttps()
+            );
+        }
+
+        $optionalParams = [
+            'expires' => time() - 3600,
+            'path' => $this->getRootPath(),
+            'domain' => '',
+            'secure' => $this->isHttps(),
+            'samesite' => $cookieSameSite,
+        ];
+
+        return setcookie($httpCookieName, '', $optionalParams);
     }
 
     /**
