@@ -97,6 +97,22 @@ function generateWhereBlock () {
     return query;
 }
 
+function generateOrderBlock() {
+  var parts = [];
+  $('.tableNameSelect').each(function () {
+    var criteriaDiv = $(this).siblings('.jsCriteriaOptions').first();
+    var useCriteria = criteriaDiv.find('input.sort_or:checked');
+    if (useCriteria.length > 0 && $(this).val() !== '' && $(this).siblings('.criteria_col').first().prop('checked')) {
+      var tableName = $(this).val();
+      var tableShort = $(this).siblings('.table_alias').val();
+      var ref = '`' + Functions.escapeBacktick(tableShort !== '' ? tableShort : tableName) + '`';
+      ref += '.`' + Functions.escapeBacktick($(this).parent().find('.opColumn').first().val()) + '`';
+      parts.push(ref + ' ' + useCriteria.val());
+    }
+  });
+  return parts.join(', ');
+}
+
 function generateJoin (newTable, tableAliases, fk) {
     var query = '';
     query += ' \n\tLEFT JOIN ' + '`' + Functions.escapeBacktick(newTable) + '`';
