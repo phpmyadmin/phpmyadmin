@@ -272,7 +272,7 @@ class HttpRequest
             $http_response_header = \http_get_last_response_headers();
         }
 
-        if (! isset($http_response_header)) {
+        if (! isset($http_response_header[0])) {
             return null;
         }
 
