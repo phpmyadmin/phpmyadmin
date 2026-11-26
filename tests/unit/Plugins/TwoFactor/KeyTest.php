@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\TwoFactor;
 
 use PhpMyAdmin\Plugins\TwoFactor\Key;
+use PhpMyAdmin\Security\TwoFactor;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\TwoFactor;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Key::class)]

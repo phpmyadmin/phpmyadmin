@@ -5587,6 +5587,45 @@
       <code><![CDATA[md5($filename)]]></code>
     </WeakHash>
   </file>
+  <file src="src/Security/TwoFactor.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+    </DeprecatedMethod>
+    <UnsafeInstantiation>
+      <code><![CDATA[new $cls($this)]]></code>
+      <code><![CDATA[new $cls($this)]]></code>
+      <code><![CDATA[new $name($this)]]></code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Security/WebAuthn/CustomServer.php">
+    <InvalidReturnStatement>
+      <code><![CDATA[$decoded]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[array{fmt: string, attStmt: mixed[], authData: string}]]></code>
+    </InvalidReturnType>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[[
+            'type' => $clientData['type'],
+            'challenge' => $clientData['challenge'],
+            'origin' => $clientData['origin'],
+        ]]]></code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType>
+      <code><![CDATA[array{
+     *   type: 'webauthn.create'|'webauthn.get',
+     *   challenge: non-empty-string,
+     *   origin: non-empty-string
+     * }]]></code>
+    </MoreSpecificReturnType>
+  </file>
+  <file src="src/Security/WebAuthn/WebauthnLibServer.php">
+    <MixedArgument>
+      <code><![CDATA[$credential['userHandle']]]></code>
+    </MixedArgument>
+  </file>
   <file src="src/Server/Plugin.php">
     <MixedArgument>
       <code><![CDATA[$state['authVersion'] ?? null]]></code>
@@ -6482,18 +6521,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="src/TwoFactor.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-    </DeprecatedMethod>
-    <UnsafeInstantiation>
-      <code><![CDATA[new $cls($this)]]></code>
-      <code><![CDATA[new $cls($this)]]></code>
-      <code><![CDATA[new $name($this)]]></code>
-    </UnsafeInstantiation>
-  </file>
   <file src="src/UniqueCondition.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -6683,33 +6710,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$response]]></code>
     </PossiblyInvalidArgument>
-  </file>
-  <file src="src/WebAuthn/CustomServer.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[$decoded]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array{fmt: string, attStmt: mixed[], authData: string}]]></code>
-    </InvalidReturnType>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[[
-            'type' => $clientData['type'],
-            'challenge' => $clientData['challenge'],
-            'origin' => $clientData['origin'],
-        ]]]></code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType>
-      <code><![CDATA[array{
-     *   type: 'webauthn.create'|'webauthn.get',
-     *   challenge: non-empty-string,
-     *   origin: non-empty-string
-     * }]]></code>
-    </MoreSpecificReturnType>
-  </file>
-  <file src="src/WebAuthn/WebauthnLibServer.php">
-    <MixedArgument>
-      <code><![CDATA[$credential['userHandle']]]></code>
-    </MixedArgument>
   </file>
   <file src="src/ZipExtension.php">
     <ArgumentTypeCoercion>
@@ -8437,6 +8437,39 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
+  <file src="tests/unit/Security/TwoFactorTest.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+    </DeprecatedMethod>
+    <InaccessibleProperty>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+      <code><![CDATA[$config->config->debug->simple2fa]]></code>
+    </InaccessibleProperty>
+    <MixedArgument>
+      <code><![CDATA[$object->config['settings']['secret']]]></code>
+      <code><![CDATA[$object->config['settings']['secret']]]></code>
+    </MixedArgument>
+  </file>
+  <file src="tests/unit/Security/WebAuthn/CustomServerTest.php">
+    <WeakRandom>
+      <code><![CDATA[new Mt19937(42)]]></code>
+      <code><![CDATA[new Mt19937(42)]]></code>
+    </WeakRandom>
+  </file>
+  <file src="tests/unit/Security/WebAuthn/WebauthnLibServerTest.php">
+    <WeakRandom>
+      <code><![CDATA[new Mt19937(42)]]></code>
+      <code><![CDATA[new Mt19937(42)]]></code>
+    </WeakRandom>
+  </file>
   <file src="tests/unit/Server/PluginsTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -8633,27 +8666,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
-  <file src="tests/unit/TwoFactorTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-    <InaccessibleProperty>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-      <code><![CDATA[$config->config->debug->simple2fa]]></code>
-    </InaccessibleProperty>
-    <MixedArgument>
-      <code><![CDATA[$object->config['settings']['secret']]]></code>
-      <code><![CDATA[$object->config['settings']['secret']]]></code>
-    </MixedArgument>
-  </file>
   <file src="tests/unit/TypesTest.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -8825,17 +8837,5 @@
     <UndefinedAttributeClass>
       <code><![CDATA[AllowMockObjectsWithoutExpectations]]></code>
     </UndefinedAttributeClass>
-  </file>
-  <file src="tests/unit/WebAuthn/CustomServerTest.php">
-    <WeakRandom>
-      <code><![CDATA[new Mt19937(42)]]></code>
-      <code><![CDATA[new Mt19937(42)]]></code>
-    </WeakRandom>
-  </file>
-  <file src="tests/unit/WebAuthn/WebauthnLibServerTest.php">
-    <WeakRandom>
-      <code><![CDATA[new Mt19937(42)]]></code>
-      <code><![CDATA[new Mt19937(42)]]></code>
-    </WeakRandom>
   </file>
 </files>

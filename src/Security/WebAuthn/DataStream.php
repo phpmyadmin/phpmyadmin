@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\WebAuthn;
+namespace PhpMyAdmin\Security\WebAuthn;
 
 use function fopen;
 use function fread;
