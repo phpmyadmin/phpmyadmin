@@ -10,6 +10,7 @@ test('loads the current database from an initially unselected database selector'
         '<div id="pma_navigation_tree_content"><ul><li class="database">' +
         '<div><a class="expander"><span class="paths_nav" data-apath="tree-path"></span></a></div>' +
         '<a>mydb</a></li></ul></div></div>';
+
     $('#navi_db_select').val('');
     CommonParams.set('db', 'mydb');
     CommonParams.set('table', '');
@@ -22,5 +23,6 @@ test('loads the current database from an initially unselected database selector'
     expect($('#navi_db_select').val()).toBe('mydb');
     expect($.post).toHaveBeenCalledWith('index.php?route=/navigation',
         expect.objectContaining({ aPath: 'option-path' }), expect.any(Function));
+
     expect($('#pma_navigation_tree_content > .list_container')).toHaveLength(1);
 });
