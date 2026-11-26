@@ -131,6 +131,7 @@ final readonly class ReplaceController implements InvocableController
             $multiEditColumnsNull = $request->getParsedBodyParam('fields_null')['multi_edit'][$rowNumber] ?? [];
             $multiEditColumnsNullPrev =
                 $request->getParsedBodyParam('fields_null_prev')['multi_edit'][$rowNumber] ?? [];
+            $multiEditColumnsEmpty = $request->getParsedBodyParam('fields_empty')['multi_edit'][$rowNumber] ?? [];
             $multiEditAutoIncrement = $request->getParsedBodyParam('auto_increment')['multi_edit'][$rowNumber] ?? [];
             $multiEditVirtual = $request->getParsedBodyParam('virtual')['multi_edit'][$rowNumber] ?? [];
 
@@ -207,6 +208,7 @@ final readonly class ReplaceController implements InvocableController
                     $multiEditSalt[$key] ?? null,
                     $multiEditColumnsPrev[$key] ?? null,
                     $possiblyUploadedVal !== false,
+                    isset($multiEditColumnsEmpty[$key]),
                 );
 
                 if (! isset($multiEditVirtual[$key])) {
