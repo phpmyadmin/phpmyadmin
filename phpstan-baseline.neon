@@ -1831,12 +1831,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: '#^Static property PhpMyAdmin\\Import\\ImportSettings\:\:\$readLimit \(int\) does not accept float\|int\<min, \-1\>\|int\<1, max\>\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: '#^Strict comparison using \=\=\= between 0 and 0 will always evaluate to true\.$#'
 			identifier: identical.alwaysTrue
 			count: 1
@@ -4780,12 +4774,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 5
-			path: src/Encoding.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Encoding\:\:convertString\(\) should return string but returns string\|false\.$#'
-			identifier: return.type
-			count: 1
 			path: src/Encoding.php
 
 		-

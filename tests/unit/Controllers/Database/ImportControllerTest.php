@@ -13,6 +13,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\ImportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Import\ImportForm;
@@ -33,7 +34,10 @@ final class ImportControllerTest extends AbstractTestCase
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         Current::$database = 'test_db';
 
-        $config = new Config();
+        // Charsets known to every iconv implementation, so the rendered list doesn't depend on the host
+        Encoding::setEngine(Encoding::ENGINE_ICONV);
+        $config = Config::$instance = new Config();
+        $config->set('AvailableCharsets', ['iso-8859-1', 'windows-1252', 'utf-8']);
         $config->set('GZipDump', false);
         $config->set('BZipDump', false);
         $config->set('ZipDump', false);

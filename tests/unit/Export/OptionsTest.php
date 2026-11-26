@@ -12,6 +12,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
@@ -52,6 +53,7 @@ class OptionsTest extends AbstractTestCase
             new UserPreferences($dbi, $relation, new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
 
         $this->export = new Options($relation, new TemplateModel($dbi), $userPreferencesHandler);

@@ -122,6 +122,7 @@ class DatabaseInterface
     private string $versionString = '5.50.0';
     /** @var string Server version comment */
     private string $versionComment = '';
+    private string $userConnectionCollation = '';
 
     /** @var Types MySQL types data */
     public Types $types;
@@ -1044,9 +1045,8 @@ class DatabaseInterface
             Context::setMode($version['@@sql_mode']);
         }
 
-        $this->query(
-            sprintf('SET NAMES \'%s\' COLLATE \'%s\';', $this->getDefaultCharset(), $this->getDefaultCollation()),
-        );
+        $this->query(sprintf('SET collation_connection = \'%s\';', $this->getDefaultCollation()));
+        $this->userConnectionCollation = $this->getDefaultCollation();
 
         /* Locale for messages */
         $locale = LanguageManager::getInstance()->getCurrentLanguage()->getMySQLLocale();
@@ -1089,7 +1089,7 @@ class DatabaseInterface
      *
      * @param string $collation collation to set
      */
-    public function setCollation(string $collation): void
+    public function setCollation(string $collation): bool
     {
         $charset = $this->getDefaultCharset();
         /* Automatically adjust collation if not supported by server */
@@ -1104,11 +1104,17 @@ class DatabaseInterface
         );
 
         if ($result === false) {
-            $errorHandler = ErrorHandler::getInstance();
-            $errorHandler->addUserError(__('Failed to set configured collation connection!'));
-
-            return;
+            return false;
         }
+
+        $this->userConnectionCollation = $collation;
+
+        return true;
+    }
+
+    public function getCollationConnection(): string
+    {
+        return $this->userConnectionCollation;
     }
 
     /**
@@ -1644,6 +1650,15 @@ class DatabaseInterface
         }
 
         return $this->extension->selectDb($dbname, $this->connections[$connectionType->value]);
+    }
+
+    public function setCharset(string $charset, ConnectionType $connectionType = ConnectionType::User): bool
+    {
+        if (! isset($this->connections[$connectionType->value])) {
+            return false;
+        }
+
+        return $this->extension->setCharset($this->connections[$connectionType->value], $charset);
     }
 
     /**

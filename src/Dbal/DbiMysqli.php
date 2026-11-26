@@ -19,6 +19,7 @@ use function defined;
 use function method_exists;
 use function mysqli_connect_errno;
 use function mysqli_get_client_info;
+use function mysqli_get_server_version;
 use function mysqli_report;
 use function sprintf;
 use function str_contains;
@@ -132,6 +133,9 @@ class DbiMysqli implements DbiExtension
 
         mysqli_report(MYSQLI_REPORT_OFF);
 
+        // Keep in sync with DatabaseInterface::getDefaultCharset()
+        $mysqli->set_charset(mysqli_get_server_version($mysqli) > 50503 ? 'utf8mb4' : 'utf8');
+
         return new Connection($mysqli);
     }
 
@@ -146,6 +150,14 @@ class DbiMysqli implements DbiExtension
         $mysqli = $connection->connection;
 
         return $mysqli->select_db((string) $databaseName);
+    }
+
+    public function setCharset(Connection $connection, string $charset): bool
+    {
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+
+        return $mysqli->set_charset($charset);
     }
 
     /**

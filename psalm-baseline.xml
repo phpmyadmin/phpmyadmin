@@ -989,20 +989,43 @@
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
+      <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
+      <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
+      <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
+      <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$bookmarkVariables]]></code>
       <code><![CDATA[$consoleMessageId]]></code>
     </MixedAssignment>
-    <PossiblyInvalidPropertyAssignmentValue>
-      <code><![CDATA[$memoryLimit / 8]]></code>
-    </PossiblyInvalidPropertyAssignmentValue>
     <PropertyTypeCoercion>
       <code><![CDATA[$request->getParsedBodyParamAsString('import_type', '')]]></code>
     </PropertyTypeCoercion>
-    <UnusedProperty>
-      <code><![CDATA[$sql]]></code>
-    </UnusedProperty>
+    <RedundantCondition>
+      <code><![CDATA[is_array($_FILES['import_file'])]]></code>
+      <code><![CDATA[is_array($_FILES['import_file'])]]></code>
+      <code><![CDATA[is_string($_FILES['import_file']['name'])]]></code>
+      <code><![CDATA[is_string($_FILES['import_file']['name'])]]></code>
+      <code><![CDATA[is_string($_FILES['import_file']['tmp_name'])]]></code>
+      <code><![CDATA[isset($_FILES['import_file'])
+                    && is_array($_FILES['import_file'])]]></code>
+      <code><![CDATA[isset($_FILES['import_file'])
+                    && is_array($_FILES['import_file'])
+                    && isset($_FILES['import_file']['name'])
+                    && is_string($_FILES['import_file']['name'])]]></code>
+      <code><![CDATA[isset($_FILES['import_file'])
+            && is_array($_FILES['import_file'])]]></code>
+      <code><![CDATA[isset($_FILES['import_file'])
+            && is_array($_FILES['import_file'])
+            && isset($_FILES['import_file']['name'], $_FILES['import_file']['tmp_name'])
+            && is_string($_FILES['import_file']['name'])]]></code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code><![CDATA[Import::$result]]></code>
+      <code><![CDATA[Import::$result]]></code>
+      <code><![CDATA[ImportSettings::$timeoutPassed]]></code>
+      <code><![CDATA[ImportSettings::$timeoutPassed]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/Controllers/Import/StatusController.php">
     <MixedArgument>
@@ -4716,19 +4739,6 @@
     <PossiblyNullReference>
       <code><![CDATA[getMessage]]></code>
     </PossiblyNullReference>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[string[]]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Plugins/Import/ImportFormat.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getClassName]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="src/Plugins/Import/ImportLdi.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[string[]]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportMediawiki.php">
     <InvalidNullableReturnType>
@@ -4740,9 +4750,6 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$cellData[1]]]></code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[string[]]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportOds.php">
     <PossiblyNullArgument>
@@ -4761,9 +4768,6 @@
     <PossiblyNullReference>
       <code><![CDATA[count]]></code>
     </PossiblyNullReference>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[string[]]]></code>
-    </PossiblyUnusedReturnValue>
     <RedundantCondition>
       <code><![CDATA[$paragraphValue === '' && isset($paragraph->a)]]></code>
     </RedundantCondition>
@@ -4801,18 +4805,12 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$pathParts['dirname']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[string[]]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportSql.php">
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['sql_delimiter']]]></code>
       <code><![CDATA[$_REQUEST['sql_compatibility'] ?? null]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[string[]]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportXml.php">
     <PossiblyNullArrayAccess>
@@ -4829,9 +4827,6 @@
     <PossiblyNullReference>
       <code><![CDATA[attributes]]></code>
     </PossiblyNullReference>
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[string[]]]></code>
-    </PossiblyUnusedReturnValue>
     <RedundantCondition>
       <code><![CDATA[isset($xml->database)]]></code>
     </RedundantCondition>
@@ -4930,11 +4925,6 @@
     <UnusedClass>
       <code><![CDATA[UploadSession]]></code>
     </UnusedClass>
-  </file>
-  <file src="src/Plugins/ImportPlugin.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[string[]]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Schema/Dia/DiaRelationSchema.php">
     <MixedArgumentTypeCoercion>
