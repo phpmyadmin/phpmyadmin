@@ -139,6 +139,7 @@ final class DesignerControllerTest extends AbstractTestCase
 
     public function testMainPage(): void
     {
+        Current::$server = 1;
         Current::$database = 'test_db';
 
         $dbiDummy = $this->createDbiDummy();

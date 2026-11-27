@@ -55,7 +55,7 @@ abstract class AbstractTestCase extends TestCase
         $_FILES = [];
         $_REQUEST = [];
 
-        Current::$server = 1;
+        Current::$server = 0;
         Current::$database = '';
         Current::$table = '';
         Current::$sqlQuery = '';

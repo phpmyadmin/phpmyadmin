@@ -25,6 +25,7 @@ class CreateControllerTest extends AbstractTestCase
 {
     public function testCreateController(): void
     {
+        Current::$server = 1;
         Current::$database = 'test_db';
         Current::$table = 'new_test_table';
         $config = Config::getInstance();

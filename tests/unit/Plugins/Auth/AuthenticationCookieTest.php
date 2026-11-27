@@ -312,6 +312,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
     public function testLogout(): void
     {
+        Current::$server = 1;
         $config = Config::getInstance();
         $config->set('LoginCookieDeleteAll', false);
         $config->set('PmaAbsoluteUri', '');
@@ -381,6 +382,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
     public function testAuthCheckDecryptUser(): void
     {
+        Current::$server = 1;
         $_REQUEST['old_usr'] = '';
         $_POST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
@@ -407,6 +409,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
     public function testAuthCheckDecryptPassword(): void
     {
+        Current::$server = 1;
         $_REQUEST['old_usr'] = '';
         $_POST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';
@@ -438,6 +441,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
     public function testAuthCheckAuthFails(): void
     {
+        Current::$server = 1;
         $_REQUEST['old_usr'] = '';
         $_POST['pma_username'] = '';
         $_COOKIE['pmaServer-1'] = 'pmaServ1';

@@ -9,6 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Error\Error;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\I18n\LanguageManager;
@@ -73,6 +74,7 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
 
     public function testLoadUserPreferencesReportsRejectedCollation(): void
     {
+        Current::$server = 1;
         $errorHandler = new ErrorHandler();
         $config = new Config();
         $dummyDbi = $this->createDbiDummy();

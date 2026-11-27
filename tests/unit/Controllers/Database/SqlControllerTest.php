@@ -27,6 +27,7 @@ final class SqlControllerTest extends AbstractTestCase
 {
     public function testController(): void
     {
+        Current::$server = 1;
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         Current::$database = 'test_db';
 

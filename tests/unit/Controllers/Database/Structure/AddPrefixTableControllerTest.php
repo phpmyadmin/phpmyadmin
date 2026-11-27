@@ -31,6 +31,7 @@ final class AddPrefixTableControllerTest extends AbstractTestCase
 {
     public function testAddPrefix(): void
     {
+        Current::$server = 1;
         (new ReflectionProperty(RecentFavoriteTables::class, 'instances'))->setValue(null, []);
         $_SESSION['tmpval'] = [];
         $_SERVER['SCRIPT_NAME'] = 'index.php';
