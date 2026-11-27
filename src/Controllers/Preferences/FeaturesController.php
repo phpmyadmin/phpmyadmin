@@ -52,7 +52,7 @@ final readonly class FeaturesController implements InvocableController
         $result = null;
         if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
             // Load 2FA settings
-            $twoFactor = new TwoFactor($this->config->selectedServer['user']);
+            $twoFactor = new TwoFactor($this->userPreferences, $this->config, $this->config->selectedServer['user']);
             // save settings
             $result = $this->userPreferences->save($configFile->getConfigArray());
             // save back the 2FA setting only

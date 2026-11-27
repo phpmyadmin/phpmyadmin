@@ -8232,7 +8232,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 7
+			count: 8
 			path: src/Plugins/AuthenticationPlugin.php
 
 		-
@@ -8241,7 +8241,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
+			count: 2
 			path: src/Plugins/AuthenticationPlugin.php
 
 		-
@@ -11090,24 +11090,6 @@ parameters:
 			identifier: return.type
 			count: 1
 			path: src/Sanitize.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Security/TwoFactor.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Security/TwoFactor.php
 
 		-
 			message: '#^Match arm comparison between 7 and 7 is always true\.$#'
@@ -16404,15 +16386,6 @@ parameters:
 		-
 			message: '#^@readonly property PhpMyAdmin\\Config\\Settings\\Debug\:\:\$simple2fa is assigned outside of its declaring class\.$#'
 			identifier: property.readOnlyByPhpDocAssignOutOfClass
-			count: 6
-			path: tests/unit/Security/TwoFactorTest.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 5
 			path: tests/unit/Security/TwoFactorTest.php
 

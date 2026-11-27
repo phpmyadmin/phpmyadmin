@@ -6,10 +6,11 @@ namespace PhpMyAdmin\Tests\Security;
 
 use CodeLts\U2F\U2FServer\RegistrationRequest;
 use CodeLts\U2F\U2FServer\SignRequest;
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
@@ -17,6 +18,7 @@ use PhpMyAdmin\Plugins\TwoFactor\Invalid;
 use PhpMyAdmin\Plugins\TwoFactor\Key;
 use PhpMyAdmin\Plugins\TwoFactor\Simple;
 use PhpMyAdmin\Security\TwoFactor;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -37,29 +39,27 @@ use const JSON_UNESCAPED_SLASHES;
 #[CoversClass(Invalid::class)]
 #[CoversClass(Key::class)]
 #[CoversClass(Simple::class)]
-class TwoFactorTest extends AbstractTestCase
+final class TwoFactorTest extends AbstractTestCase
 {
-    protected DatabaseInterface $dbi;
-
     protected DbiDummy $dummyDbi;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->initStorageConfigAndData();
+        $this->dummyDbi = $this->createDbiDummy();
     }
 
     protected function tearDown(): void
     {
         $this->dummyDbi->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllQueriesConsumed();
 
         parent::tearDown();
     }
 
-    private function initStorageConfigAndData(): void
+    private function initStorageConfigAndData(Config $config): void
     {
-        $config = Config::getInstance();
         $config->selectedServer['user'] = 'groot';
         $config->selectedServer['bookmarktable'] = '';
         $config->selectedServer['relation'] = '';
@@ -81,10 +81,6 @@ class TwoFactorTest extends AbstractTestCase
         $config->selectedServer['designer_settings'] = '';
         $config->selectedServer['export_templates'] = '';
 
-        $this->dummyDbi = $this->createDbiDummy();
-        $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
-        DatabaseInterface::$instance = $this->dbi;
-
         $relationParameters = RelationParameters::fromArray([
             RelationParameters::DATABASE => 'phpmyadmin',
             RelationParameters::USER => 'groot',
@@ -100,8 +96,11 @@ class TwoFactorTest extends AbstractTestCase
      * @param string  $user   Username
      * @param mixed[] $config Two factor authentication configuration
      */
-    private function getTwoFactorAndLoadConfig(string $user, array|null $config): TwoFactor
-    {
+    private function getTwoFactorAndLoadConfig(
+        string $user,
+        array|null $config,
+        Config $pmaConfig = new Config(),
+    ): TwoFactor {
         if ($config !== null && ! isset($config['backend'])) {
             $config['backend'] = '';
         }
@@ -110,9 +109,19 @@ class TwoFactorTest extends AbstractTestCase
             $config['settings'] = [];
         }
 
+        $this->initStorageConfigAndData($pmaConfig);
         $this->loadResultForConfig($config);
 
-        return new TwoFactor($user);
+        $dbi = $this->createDatabaseInterface($this->dummyDbi, $pmaConfig);
+        $userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi, $pmaConfig),
+            new Template($pmaConfig),
+            $pmaConfig,
+            new Clock(),
+        );
+
+        return new TwoFactor($userPreferences, $pmaConfig, $user);
     }
 
     /** @param array<string, mixed> $backendSettings */
@@ -193,9 +202,9 @@ class TwoFactorTest extends AbstractTestCase
 
     public function testSimple(): void
     {
-        $config = Config::getInstance();
+        $config = new Config();
         $config->config->debug->simple2fa = true;
-        $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db', 'backend' => 'simple']);
+        $object = $this->getTwoFactorAndLoadConfig('user', ['type' => 'db', 'backend' => 'simple'], $config);
         $backend = $object->getBackend();
         self::assertSame('simple', $backend::$id);
         $config->config->debug->simple2fa = false;
@@ -225,9 +234,9 @@ class TwoFactorTest extends AbstractTestCase
     public function testConfigureSimple(): void
     {
         $request = new ServerRequest(self::createStub(ServerRequestInterface::class));
-        $config = Config::getInstance();
+        $config = new Config();
         $config->config->debug->simple2fa = true;
-        $object = $this->getTwoFactorAndLoadConfig('user', null);
+        $object = $this->getTwoFactorAndLoadConfig('user', null, $config);
 
         $this->dummyDbi->assertAllQueriesConsumed();
 
@@ -249,10 +258,8 @@ class TwoFactorTest extends AbstractTestCase
 
         $this->dummyDbi->assertAllQueriesConsumed();
 
-        $this->initStorageConfigAndData();// Needs a re-init
-
         $config->config->debug->simple2fa = false;
-        $object = $this->getTwoFactorAndLoadConfig('user', null);
+        $object = $this->getTwoFactorAndLoadConfig('user', null, $config);
         self::assertFalse($object->configure($request, 'simple'));
         $this->dummyDbi->assertAllQueriesConsumed();
     }
@@ -360,8 +367,8 @@ class TwoFactorTest extends AbstractTestCase
      */
     public function testKeyAppId(): void
     {
-        $config = Config::getInstance();
-        $object = $this->getTwoFactorAndLoadConfig('user', null);
+        $config = Config::$instance = new Config();
+        $object = $this->getTwoFactorAndLoadConfig('user', null, $config);
         $config->set('PmaAbsoluteUri', 'http://demo.example.com');
         self::assertSame('http://demo.example.com', $object->getBackend()->getAppId(true));
         self::assertSame('demo.example.com', $object->getBackend()->getAppId(false));
@@ -505,14 +512,13 @@ class TwoFactorTest extends AbstractTestCase
      */
     public function testBackends(): void
     {
-        $config = Config::getInstance();
+        $config = new Config();
         $config->config->debug->simple2fa = true;
-        $object = $this->getTwoFactorAndLoadConfig('user', null);
+        $object = $this->getTwoFactorAndLoadConfig('user', null, $config);
         $backends = $object->getAllBackends();
         self::assertCount(
             count($object->getAvailable()),
             $backends,
         );
-        $config->config->debug->simple2fa = false;
     }
 }

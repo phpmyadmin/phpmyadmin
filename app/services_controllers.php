@@ -615,7 +615,7 @@ return [
     ],
     Preferences\TwoFactorController::class => [
         'class' => Preferences\TwoFactorController::class,
-        'arguments' => [ResponseRenderer::class, Relation::class, Config::class],
+        'arguments' => [ResponseRenderer::class, Relation::class, Config::class, UserPreferences::class],
     ],
     SchemaExportController::class => [
         'class' => SchemaExportController::class,
