@@ -37414,6 +37414,11 @@ parameters:
 			path: libraries/classes/UserPreferences.php
 
 		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: libraries/classes/UserPreferences.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\UserPreferences\\:\\:apply\\(\\) has parameter \\$config_data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/UserPreferences.php
@@ -48393,7 +48398,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'UserprefsDisallow' on mixed\\.$#"
-			count: 1
+			count: 2
 			path: test/classes/UserPreferencesTest.php
 
 		-

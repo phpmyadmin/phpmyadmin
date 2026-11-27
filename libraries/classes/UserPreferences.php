@@ -244,6 +244,10 @@ class UserPreferences
                 continue;
             }
 
+            if ($path === 'LoginCookieValidity' && (int) $value < 1) {
+                continue;
+            }
+
             Core::arrayWrite($path, $cfg, $value);
         }
 
