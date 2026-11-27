@@ -20,7 +20,6 @@ use PhpMyAdmin\Url;
 use function __;
 use function file_exists;
 use function in_array;
-use function is_numeric;
 use function is_string;
 
 use const CONFIG_FILE;
@@ -91,7 +90,7 @@ final readonly class FormController implements InvocableController
         }
 
         $page = $this->getPageParam($request->getQueryParam('page'));
-        $id = $this->getIdParam($request->getQueryParam('id'));
+        $id = SetupHelper::getServerId($request->getQueryParam('id'));
         if ($id === 0 && $page === 'servers') {
             // we've just added a new server, get its id
             $id = $formDisplay->getConfigFile()->getServerCount();
@@ -119,17 +118,5 @@ final readonly class FormController implements InvocableController
     private function getPageParam(mixed $pageParam): string
     {
         return in_array($pageParam, ['form', 'config', 'servers'], true) ? $pageParam : 'index';
-    }
-
-    /** @psalm-return int<0, max> */
-    private function getIdParam(mixed $idParam): int
-    {
-        if (! is_numeric($idParam)) {
-            return 0;
-        }
-
-        $id = (int) $idParam;
-
-        return $id >= 1 ? $id : 0;
     }
 }

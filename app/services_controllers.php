@@ -65,6 +65,7 @@ use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Import\Ajax;
+use PhpMyAdmin\Import\ImportForm;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Navigation\Navigation;
@@ -80,10 +81,12 @@ use PhpMyAdmin\Server\Privileges\AccountLocking;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\Status\Processes;
+use PhpMyAdmin\Server\VariableFormatter;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Table\Search;
+use PhpMyAdmin\Table\SearchForm;
 use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -92,6 +95,7 @@ use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UserPassword;
 use PhpMyAdmin\UserPrivilegesFactory;
+use PhpMyAdmin\Utils\IniReader;
 use PhpMyAdmin\VersionInformation;
 use Psr\Clock\ClockInterface;
 use Random\Randomizer;
@@ -171,12 +175,9 @@ return [
         'class' => Database\ImportController::class,
         'arguments' => [
             ResponseRenderer::class,
-            DatabaseInterface::class,
             PageSettings::class,
             DbTableExists::class,
-            Config::class,
-            Ajax::class,
-            PluginFactory::class,
+            ImportForm::class,
         ],
     ],
     Database\MultiTableQuery\QueryController::class => [
@@ -440,6 +441,7 @@ return [
             DatabaseInterface::class,
             BookmarkRepository::class,
             Config::class,
+            IniReader::class,
         ],
     ],
     Import\SimulateDmlController::class => [
@@ -588,6 +590,7 @@ return [
             ThemeManager::class,
             ResponseFactory::class,
             UserPreferencesHandler::class,
+            IniReader::class,
         ],
     ],
     Preferences\NavigationController::class => [
@@ -665,9 +668,7 @@ return [
             ResponseRenderer::class,
             DatabaseInterface::class,
             PageSettings::class,
-            Config::class,
-            Ajax::class,
-            PluginFactory::class,
+            ImportForm::class,
         ],
     ],
     Server\PluginsController::class => [
@@ -813,11 +814,11 @@ return [
     ],
     Server\Variables\SetVariableController::class => [
         'class' => Server\Variables\SetVariableController::class,
-        'arguments' => [ResponseRenderer::class, Template::class, DatabaseInterface::class],
+        'arguments' => [ResponseRenderer::class, VariableFormatter::class, DatabaseInterface::class],
     ],
     Server\VariablesController::class => [
         'class' => Server\VariablesController::class,
-        'arguments' => [ResponseRenderer::class, Template::class, DatabaseInterface::class],
+        'arguments' => [ResponseRenderer::class, VariableFormatter::class, DatabaseInterface::class],
     ],
     Setup\MainController::class => [
         'class' => Setup\MainController::class,
@@ -964,12 +965,9 @@ return [
         'class' => Table\ImportController::class,
         'arguments' => [
             ResponseRenderer::class,
-            DatabaseInterface::class,
             PageSettings::class,
             DbTableExists::class,
-            Config::class,
-            Ajax::class,
-            PluginFactory::class,
+            ImportForm::class,
         ],
     ],
     Table\IndexesController::class => [
@@ -1090,9 +1088,8 @@ return [
         'class' => Table\SearchController::class,
         'arguments' => [
             ResponseRenderer::class,
-            Template::class,
             Search::class,
-            Relation::class,
+            SearchForm::class,
             DatabaseInterface::class,
             DbTableExists::class,
             Config::class,
@@ -1221,8 +1218,8 @@ return [
         'class' => Table\ZoomSearchController::class,
         'arguments' => [
             ResponseRenderer::class,
-            Template::class,
             Search::class,
+            SearchForm::class,
             Relation::class,
             DatabaseInterface::class,
             DbTableExists::class,

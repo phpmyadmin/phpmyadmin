@@ -23,6 +23,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\IniReader;
 
 use function __;
 use function array_merge;
@@ -58,6 +59,7 @@ final readonly class ManageController implements InvocableController
         private ThemeManager $themeManager,
         private ResponseFactory $responseFactory,
         private UserPreferencesHandler $userPreferencesHandler,
+        private IniReader $iniReader,
     ) {
     }
 
@@ -252,7 +254,7 @@ final readonly class ManageController implements InvocableController
 
         $this->response->render('preferences/manage/main', [
             'error' => $error instanceof Message ? $error->getDisplay() : '',
-            'max_upload_size' => Util::getUploadSizeInBytes(),
+            'max_upload_size' => $this->iniReader->getUploadSizeInBytes(),
             'exists_setup_and_not_exists_config' => @file_exists(ROOT_PATH . 'setup/index.php')
                 && ! @file_exists(CONFIG_FILE),
         ]);

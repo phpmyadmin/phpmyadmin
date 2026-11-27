@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\WebAuthn;
+namespace PhpMyAdmin\Tests\Security\WebAuthn;
 
-use PhpMyAdmin\WebAuthn\CBORDecoder;
-use PhpMyAdmin\WebAuthn\DataStream;
-use PhpMyAdmin\WebAuthn\WebAuthnException;
+use PhpMyAdmin\Security\WebAuthn\CBORDecoder;
+use PhpMyAdmin\Security\WebAuthn\DataStream;
+use PhpMyAdmin\Security\WebAuthn\WebAuthnException;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;

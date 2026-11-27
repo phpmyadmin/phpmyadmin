@@ -28,7 +28,7 @@ use function usleep;
  * Import progress bar backend
  */
 #[Route('/import-status', ['GET', 'POST'])]
-class StatusController implements InvocableController
+final class StatusController implements InvocableController
 {
     /** Time to wait before checking for the $_SESSION variable. Default is 0.3 seconds. */
     private static int $sleepMicroseconds = 300000;

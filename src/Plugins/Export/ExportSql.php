@@ -2604,19 +2604,6 @@ class ExportSql extends ExportPlugin
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
     }
 
-    private function setStringValue(mixed $fromRequest, string $fromConfig): string
-    {
-        if (is_string($fromRequest) && $fromRequest !== '') {
-            return $fromRequest;
-        }
-
-        if ($fromConfig !== '') {
-            return $fromConfig;
-        }
-
-        return '';
-    }
-
     /** @return 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL' */
     private function setCompatibility(string $mode): string
     {

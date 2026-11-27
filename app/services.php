@@ -37,6 +37,7 @@ use PhpMyAdmin\Http\Middleware;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Import\Import;
+use PhpMyAdmin\Import\ImportForm;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Navigation\Navigation;
@@ -54,11 +55,13 @@ use PhpMyAdmin\Server\Privileges\AccountLocking;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\Status\Processes;
+use PhpMyAdmin\Server\VariableFormatter;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Table\Search;
+use PhpMyAdmin\Table\SearchForm;
 use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -70,6 +73,7 @@ use PhpMyAdmin\UrlRedirector;
 use PhpMyAdmin\UserPassword;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Utils\HttpRequest;
+use PhpMyAdmin\Utils\IniReader;
 use PhpMyAdmin\VersionInformation;
 use Psr\Clock\ClockInterface;
 use Random\Randomizer;
@@ -120,7 +124,7 @@ return [
     Events::class => ['class' => Events::class, 'arguments' => [DatabaseInterface::class, Config::class]],
     Export::class => [
         'class' => Export::class,
-        'arguments' => [DatabaseInterface::class, OutputHandler::class, PluginFactory::class],
+        'arguments' => [DatabaseInterface::class, OutputHandler::class, PluginFactory::class, IniReader::class],
     ],
     Options::class => [
         'class' => Options::class,
@@ -150,6 +154,10 @@ return [
         'class' => Import::class,
         'arguments' => [DatabaseInterface::class, ResponseRenderer::class, Config::class],
     ],
+    ImportForm::class => [
+        'class' => ImportForm::class,
+        'arguments' => [DatabaseInterface::class, Config::class, Ajax::class, PluginFactory::class, IniReader::class],
+    ],
     SimulateDml::class => ['class' => SimulateDml::class, 'arguments' => [DatabaseInterface::class]],
     InsertEdit::class => [
         'class' => InsertEdit::class,
@@ -161,6 +169,7 @@ return [
             Template::class,
             Config::class,
             ResponseRenderer::class,
+            IniReader::class,
         ],
     ],
     Middleware\ErrorHandling::class => [
@@ -382,6 +391,10 @@ return [
         ],
     ],
     Search::class => ['class' => Search::class, 'arguments' => [DatabaseInterface::class]],
+    SearchForm::class => [
+        'class' => SearchForm::class,
+        'arguments' => [DatabaseInterface::class, Relation::class, Template::class, Config::class],
+    ],
     Template::class => ['class' => Template::class, 'arguments' => [Config::class]],
     ThemeManager::class => ['class' => ThemeManager::class],
     Tracking::class => [
@@ -402,7 +415,7 @@ return [
         'class' => Transformations::class,
         'arguments' => [DatabaseInterface::class, Relation::class],
     ],
-    Triggers::class => ['class' => Triggers::class, 'arguments' => [DatabaseInterface::class]],
+    Triggers::class => ['class' => Triggers::class, 'arguments' => [DatabaseInterface::class, DbTableExists::class]],
     UserPassword::class => [
         'class' => UserPassword::class,
         'arguments' => [Privileges::class, AuthenticationPluginFactory::class, DatabaseInterface::class],
@@ -421,6 +434,7 @@ return [
         'class' => UserPrivilegesFactory::class,
         'arguments' => [DatabaseInterface::class],
     ],
+    VariableFormatter::class => ['class' => VariableFormatter::class, 'arguments' => [Template::class]],
     VersionInformation::class => ['class' => VersionInformation::class],
     BookmarkRepository::class => [
         'class' => BookmarkRepository::class,
@@ -446,10 +460,12 @@ return [
             UserPreferences::class,
             LanguageManager::class,
             ThemeManager::class,
+            ErrorHandler::class,
         ],
     ],
     LanguageManager::class => ['class' => LanguageManager::class, 'factory' => [LanguageManager::class, 'getInstance']],
     ClockInterface::class => ['class' => Clock::class],
+    IniReader::class => ['class' => IniReader::class],
     Randomizer::class => ['class' => Randomizer::class],
     Footer::class => ['class' => Footer::class, 'arguments' => [Template::class, Config::class]],
     UrlRedirector::class => [

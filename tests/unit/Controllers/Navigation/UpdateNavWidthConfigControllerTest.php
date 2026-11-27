@@ -10,6 +10,7 @@ use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Navigation\UpdateNavWidthConfigController;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
@@ -37,6 +38,7 @@ final class UpdateNavWidthConfigControllerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
         $responseRenderer = new ResponseRenderer();
         $controller = new UpdateNavWidthConfigController($responseRenderer, $userPreferencesHandler);
@@ -70,6 +72,7 @@ final class UpdateNavWidthConfigControllerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
         $responseRenderer = new ResponseRenderer();
         $controller = new UpdateNavWidthConfigController($responseRenderer, $userPreferencesHandler);

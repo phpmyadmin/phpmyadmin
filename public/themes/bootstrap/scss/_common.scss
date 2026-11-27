@@ -203,10 +203,6 @@ td.disabled {
   white-space: pre-wrap;
 }
 
-.pre_wrap br {
-  display: none;
-}
-
 /**
  * login form
  */
@@ -1574,7 +1570,7 @@ div#page_content div {
 
 #pma_console {
   position: relative;
-  margin-left: $navigation-width;
+  margin-left: var(--navigation-width);
 
   .templates {
     display: none;

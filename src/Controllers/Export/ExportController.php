@@ -392,8 +392,8 @@ final readonly class ExportController implements InvocableController
             }
 
             $exportPlugin->exportFooter();
-        } catch (ExportException) {
-            // Ignore
+        } catch (ExportException $exception) {
+            Current::$message ??= Message::error($exception->getMessage());
         }
 
         if ($saveOnServer && Current::$message !== null) {

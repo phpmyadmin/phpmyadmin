@@ -17,6 +17,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\Ajax;
+use PhpMyAdmin\Import\ImportForm;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Import\Upload\UploadNoplugin;
@@ -24,6 +25,7 @@ use PhpMyAdmin\Plugins\PluginType;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 use Random\Engine\Mt19937;
@@ -44,7 +46,7 @@ class ImportControllerTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
-        $dummyDbi->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
+        $dummyDbi->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
         $dummyDbi->addResult('SELECT @@local_infile;', [['1']]);
         $dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $dbi;
@@ -100,12 +102,15 @@ class ImportControllerTest extends AbstractTestCase
 
         (new ImportController(
             $response,
-            $dbi,
             $pageSettings,
             new DbTableExists($dbi),
-            $config,
-            new Ajax(new Randomizer(new Mt19937(42))),
-            $this->createPluginFactory($dbi, $config),
+            new ImportForm(
+                $dbi,
+                $config,
+                new Ajax(new Randomizer(new Mt19937(42))),
+                $this->createPluginFactory($dbi, $config),
+                new IniReader(),
+            ),
         ))($request);
         self::assertSame($expected, $response->getHTMLResult());
     }

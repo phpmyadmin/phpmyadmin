@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Exceptions\EncodingConversionFailure;
+use ValueError;
+
+use function __;
 use function array_filter;
-use function array_intersect;
-use function array_map;
+use function array_values;
 use function explode;
 use function fclose;
 use function feof;
@@ -21,10 +24,10 @@ use function mb_convert_kana;
 use function mb_detect_encoding;
 use function mb_list_encodings;
 use function preg_replace;
+use function sprintf;
 use function str_contains;
 use function str_starts_with;
 use function strcasecmp;
-use function strtolower;
 use function strtoupper;
 use function tempnam;
 use function unlink;
@@ -159,6 +162,7 @@ class Encoding
             $iconvExtraParams = $config->config->IconvExtraParams;
         }
 
+        $isCp932Fallback = false;
         if (self::$engine === self::ENGINE_ICONV) {
             if (
                 (self::isSjisWinCharset($srcCharset) || self::isSjisWinCharset($destCharset))
@@ -177,16 +181,28 @@ class Encoding
             $destCharset = self::normalizeIconvCharset($destCharset);
             if ($srcCharset === 'CP932' || $destCharset === 'CP932') {
                 $iconvExtraParams = '';
+                $isCp932Fallback = true;
             }
         }
 
-        $converted = match (self::$engine) {
-            self::ENGINE_ICONV => iconv($srcCharset, $destCharset . $iconvExtraParams, $what),
+        // Handle iconv's false result below instead of emitting a warning.
+        $result = match (self::$engine) {
+            self::ENGINE_ICONV => @iconv($srcCharset, $destCharset . $iconvExtraParams, $what),
             self::ENGINE_MBSTRING => mb_convert_encoding($what, $destCharset, $srcCharset),
             default => $what,
         };
 
-        return $converted === false ? $what : $converted;
+        if ($result === false) {
+            if ($isCp932Fallback) {
+                return $what;
+            }
+
+            throw new EncodingConversionFailure(
+                sprintf(__('The text could not be converted from %s to %s.'), $srcCharset, $destCharset),
+            );
+        }
+
+        return $result;
     }
 
     /**
@@ -358,22 +374,46 @@ class Encoding
             self::initEngine();
         }
 
-        /* Most engines do not support listing */
-        $config = Config::getInstance();
-        if (self::$engine !== self::ENGINE_MBSTRING) {
-            return array_filter($config->config->AvailableCharsets, static function (string $charset): bool {
-                // Removes any ignored character
-                $normalizedCharset = strtoupper((string) preg_replace(['/[^A-Za-z0-9\-\/]/'], '', $charset));
+        return array_values(array_filter(
+            Config::getInstance()->config->AvailableCharsets,
+            static fn (string $charset): bool => ! self::isIso2022CnExt($charset) && self::isCharsetSupported($charset),
+        ));
+    }
 
-                // The character set ISO-2022-CN-EXT can be vulnerable (CVE-2024-2961).
-                return ! str_contains($normalizedCharset, 'ISO-2022-CN-EXT')
-                    && ! str_contains($normalizedCharset, 'ISO2022CNEXT');
-            });
+    /**
+     * The character set ISO-2022-CN-EXT can be vulnerable (CVE-2024-2961).
+     */
+    private static function isIso2022CnExt(string $charset): bool
+    {
+        // Removes any ignored character
+        $normalizedCharset = strtoupper((string) preg_replace(['/[^A-Za-z0-9\-\/]/'], '', $charset));
+
+        return str_contains($normalizedCharset, 'ISO-2022-CN-EXT')
+            || str_contains($normalizedCharset, 'ISO2022CNEXT');
+    }
+
+    /**
+     * Whether the current engine can convert from the given character set
+     */
+    private static function isCharsetSupported(string $charset): bool
+    {
+        if (self::$engine === self::ENGINE_ICONV) {
+            if (self::isSjisWinCharset($charset) && self::canConvertSjisWinWithMbstring()) {
+                return true;
+            }
+
+            // iconv warns and returns false for a character set it does not know
+            return @iconv(self::normalizeIconvCharset($charset), 'utf-8', '') !== false;
         }
 
-        return array_intersect(
-            array_map(strtolower(...), mb_list_encodings()),
-            $config->config->AvailableCharsets,
-        );
+        if (self::$engine === self::ENGINE_MBSTRING) {
+            try {
+                return mb_convert_encoding('', 'utf-8', $charset) !== false;
+            } catch (ValueError) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

@@ -758,9 +758,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             value = value.substring(0, g.maxTruncatedLen) + '...';
                         }
 
-                        // Add <br> before carriage return.
                         let newHtml = escapeHtml(value);
-                        newHtml = newHtml.replace(/\n/g, '<br>\n');
 
                         const decimals = parseInt($thisField.attr('data-decimals'));
 

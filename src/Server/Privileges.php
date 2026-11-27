@@ -1743,11 +1743,11 @@ class Privileges
         unset($result);
 
         $userGroupCount = 0;
+        $groupAssignment = [];
         if ($configurableMenusFeature !== null) {
             $sqlQuery = 'SELECT * FROM ' . Util::backquote($configurableMenusFeature->database)
                 . '.' . Util::backquote($configurableMenusFeature->users);
             $result = $this->dbi->tryQueryAsControlUser($sqlQuery);
-            $groupAssignment = [];
             if ($result) {
                 while ($row = $result->fetchAssoc()) {
                     $groupAssignment[$row['username']] = $row['usergroup'];

@@ -65,7 +65,7 @@ final readonly class ImageWrapper
             return null; // @codeCoverageIgnore
         }
 
-        $image = imagecreatefromstring($data);
+        $image = @imagecreatefromstring($data);
         if ($image === false) {
             return null;
         }

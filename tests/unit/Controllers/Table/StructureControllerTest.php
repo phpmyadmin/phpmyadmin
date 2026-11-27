@@ -55,7 +55,7 @@ class StructureControllerTest extends AbstractTestCase
 
         $this->dummyDbi->addSelectDb('test_db');
         $this->dummyDbi->addSelectDb('test_db');
-        $this->dummyDbi->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [[1]]);
+        $this->dummyDbi->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
         $this->dummyDbi->addResult(
             'SHOW COLLATION',
             [

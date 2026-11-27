@@ -35,7 +35,7 @@ final class SyncFavoriteTablesControllerTest extends AbstractTestCase
         (new ReflectionProperty(RecentFavoriteTables::class, 'instances'))->setValue(null, []);
 
         $recentFavoriteTable = new RecentFavoriteTable(DatabaseName::from('test_db'), TableName::from('test_table'));
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']], ['1']);
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
         $dbiDummy->addResult('SELECT `tables` FROM `pmadb`.`favorite` WHERE `username` = \'root\'', []);
         $dbiDummy->addResult(
             "REPLACE INTO `pmadb`.`favorite` (`username`, `tables`) VALUES ('root', "

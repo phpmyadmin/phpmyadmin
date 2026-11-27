@@ -13,10 +13,8 @@ use Psr\Clock\ClockInterface;
 use Twig\Attribute\AsTwigFilter;
 
 use function __;
-use function array_pop;
 use function array_walk_recursive;
 use function chr;
-use function count;
 use function explode;
 use function filter_var;
 use function function_exists;
@@ -25,7 +23,6 @@ use function hash_equals;
 use function hash_hmac;
 use function header;
 use function header_remove;
-use function htmlspecialchars;
 use function http_build_query;
 use function in_array;
 use function is_array;
@@ -39,7 +36,6 @@ use function parse_url;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
-use function str_replace;
 use function stripos;
 use function strlen;
 use function strpos;
@@ -273,98 +269,6 @@ class Core
     }
 
     /**
-     * Returns value of an element in $array given by $path.
-     * $path is a string describing position of an element in an associative array,
-     * eg. Servers/1/host refers to $array[Servers][1][host]
-     *
-     * @param string  $path    path in the array
-     * @param mixed[] $array   the array
-     * @param mixed   $default default value
-     *
-     * @return mixed[]|mixed|null array element or $default
-     */
-    public static function arrayRead(string $path, array $array, mixed $default = null): mixed
-    {
-        $keys = explode('/', $path);
-        $value =& $array;
-        foreach ($keys as $key) {
-            if (! isset($value[$key])) {
-                return $default;
-            }
-
-            $value =& $value[$key];
-        }
-
-        return $value;
-    }
-
-    /**
-     * Stores value in an array
-     *
-     * @param string  $path  path in the array
-     * @param mixed[] $array the array
-     * @param mixed   $value value to store
-     */
-    public static function arrayWrite(string $path, array &$array, mixed $value): void
-    {
-        $keys = explode('/', $path);
-        $lastKey = array_pop($keys);
-        $a =& $array;
-        foreach ($keys as $key) {
-            if (! isset($a[$key])) {
-                $a[$key] = [];
-            }
-
-            $a =& $a[$key];
-        }
-
-        $a[$lastKey] = $value;
-    }
-
-    /**
-     * Removes value from an array
-     *
-     * @param string  $path  path in the array
-     * @param mixed[] $array the array
-     */
-    public static function arrayRemove(string $path, array &$array): void
-    {
-        $keys = explode('/', $path);
-        $keysLast = array_pop($keys);
-        $path = [];
-        $depth = 0;
-
-        $path[0] =& $array;
-        $found = true;
-        // go as deep as required or possible
-        foreach ($keys as $key) {
-            if (! isset($path[$depth][$key])) {
-                $found = false;
-                break;
-            }
-
-            $depth++;
-            $path[$depth] =& $path[$depth - 1][$key];
-        }
-
-        // if element found, remove it
-        if ($found) {
-            unset($path[$depth][$keysLast]);
-            $depth--;
-        }
-
-        // remove empty nested arrays
-        /** @infection-ignore-all */
-        for (; $depth >= 0; $depth--) {
-            if (isset($path[$depth + 1]) && count($path[$depth + 1]) !== 0) {
-                break;
-            }
-
-            unset($path[$depth][$keys[$depth]]);
-        }
-    }
-
-    /**
      * Returns link to (possibly) external site using defined redirector.
      *
      * @param string $url URL where to go.
@@ -448,21 +352,6 @@ class Core
         ];
 
         return in_array($parsedUrl['host'], $domainAllowList, true);
-    }
-
-    /**
-     * Replace some html-unfriendly stuff
-     *
-     * @param string $buffer String to process
-     *
-     * @return string Escaped and cleaned up text suitable for html
-     */
-    public static function mimeDefaultFunction(string $buffer): string
-    {
-        $buffer = htmlspecialchars($buffer);
-        $buffer = str_replace('  ', ' &nbsp;', $buffer);
-
-        return (string) preg_replace("@((\015\012)|(\015)|(\012))@", '<br>' . "\n", $buffer);
     }
 
     /**

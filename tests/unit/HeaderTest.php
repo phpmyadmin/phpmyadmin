@@ -14,6 +14,7 @@ use PhpMyAdmin\Console\Console;
 use PhpMyAdmin\Console\History;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Message;
@@ -67,6 +68,7 @@ class HeaderTest extends AbstractTestCase
             $userPreferences,
             new LanguageManager($config),
             $themeManager,
+            new ErrorHandler(),
         );
 
         return new Header(
@@ -100,6 +102,7 @@ class HeaderTest extends AbstractTestCase
             $userPreferences,
             new LanguageManager($config),
             $themeManager,
+            new ErrorHandler(),
         );
         $header = new Header(
             $template,
@@ -125,6 +128,7 @@ class HeaderTest extends AbstractTestCase
             'scripts' => $header->getScripts()->getDisplay(),
             'body_id' => 'PMA_header_id',
             'navigation' => '',
+            'navigation_width' => 240,
             'custom_header' => '',
             'load_user_preferences' => '',
             'show_hint' => true,

@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\NestedArray;
 
 use function __;
 use function array_map;
@@ -95,7 +96,7 @@ class Validator
                         continue;
                     }
 
-                    $uv[$i] = Core::arrayRead(
+                    $uv[$i] = NestedArray::get(
                         mb_substr($uv[$i], 6),
                         $config->baseSettings,
                     );

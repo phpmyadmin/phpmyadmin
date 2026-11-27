@@ -396,10 +396,6 @@ img.lightbulb {
   white-space: pre-wrap;
 }
 
-.pre_wrap br {
-  display: none;
-}
-
 /**
  * login form
  */
@@ -1802,7 +1798,7 @@ textarea {
 
 #pma_console {
   position: relative;
-  margin-left: $navi-width;
+  margin-left: var(--navigation-width);
 
   .templates {
     display: none;

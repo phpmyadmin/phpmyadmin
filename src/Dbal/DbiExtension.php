@@ -29,6 +29,8 @@ interface DbiExtension
      */
     public function selectDb(string|DatabaseName $databaseName, Connection $connection): bool;
 
+    public function setCharset(Connection $connection, string $charset): bool;
+
     /**
      * runs a query and returns the result
      *

@@ -22,6 +22,7 @@ use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
@@ -302,7 +303,7 @@ final class ExportMediawikiTest extends AbstractTestCase
         $exportMediawiki = $this->getExportMediawiki($dbi);
         $exportMediawiki->setExportOptions($request, new SettingsExport());
         ob_start();
-        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi));
+        $export = new Export($dbi, new OutputHandler(), $this->createPluginFactory($dbi), new IniReader());
         $export->exportTable(
             'testdb',
             'testtable',

@@ -69,6 +69,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
             $userPreferences,
             new LanguageManager($config),
             $themeManager,
+            new ErrorHandler(),
         );
 
         parent::__construct(
@@ -163,17 +164,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     public function hasSuccessState(): bool
     {
         return $this->isSuccess;
-    }
-
-    /**
-     * This function is used to clear all data to this
-     * stub after any operations.
-     */
-    public function clear(): void
-    {
-        $this->isSuccess = true;
-        $this->json = [];
-        $this->htmlString = '';
     }
 
     /**

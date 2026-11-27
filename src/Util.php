@@ -38,8 +38,6 @@ use function htmlspecialchars;
 use function htmlspecialchars_decode;
 use function implode;
 use function in_array;
-use function ini_get;
-use function ini_parse_quantity;
 use function is_array;
 use function is_object;
 use function is_scalar;
@@ -91,9 +89,6 @@ use const STR_PAD_LEFT;
  */
 class Util
 {
-    public static string|null $uploadMaxFilesize = null;
-    public static string|null $postMaxSize = null;
-
     /**
      * Checks whether configuration value tells to show icons.
      *
@@ -1728,39 +1723,6 @@ class Util
         }
 
         return '';
-    }
-
-    /**
-     * Maximum upload size as limited by PHP
-     * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
-     */
-    public static function getUploadSizeInBytes(): int
-    {
-        $fileSize = self::$uploadMaxFilesize ?? ini_get('upload_max_filesize');
-        if ($fileSize === '' || $fileSize === false) {
-            $fileSize = '5M';
-        }
-
-        $size = self::getRealSize($fileSize);
-        $postSize = self::$postMaxSize ?? ini_get('post_max_size');
-        if ($postSize !== '' && $postSize !== false) {
-            $size = min($size, self::getRealSize($postSize));
-        }
-
-        return $size;
-    }
-
-    /**
-     * Converts numbers like 10M into bytes
-     */
-    public static function getRealSize(string $size): int
-    {
-        if ($size === '') {
-            return 0;
-        }
-
-        // Using error suppression operator because ini_parse_quantity() can throw a warning if the value is invalid
-        return @ini_parse_quantity($size);
     }
 
     public static function unquoteDefaultValue(string $value): string

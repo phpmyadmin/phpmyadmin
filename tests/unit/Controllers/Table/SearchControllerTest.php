@@ -15,6 +15,7 @@ use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
+use PhpMyAdmin\Table\SearchForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -32,7 +33,7 @@ final class SearchControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
         $dbiDummy->addResult(
             'SELECT MIN(`column`) AS `min`, MAX(`column`) AS `max` FROM `test_db`.`test_table`',
             [['1', '2']],
@@ -63,9 +64,8 @@ final class SearchControllerTest extends AbstractTestCase
 
         $controller = new SearchController(
             $responseRenderer,
-            $template,
             new Search($dbi),
-            $relation,
+            new SearchForm($dbi, $relation, $template, $config),
             $dbi,
             new DbTableExists($dbi),
             $config,

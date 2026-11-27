@@ -503,6 +503,20 @@ class ResultsTest extends AbstractTestCase
             ],
             [
                 'all',
+                "a  b\nc <b>",
+                'grid_edit',
+                $meta2,
+                [],
+                $urlParams,
+                false,
+                null,
+                [],
+                '<td data-decimals="0" data-type="string" '
+                . 'data-originallength="10" '
+                . 'class="grid_edit pre_wrap">' . "a  b\nc &lt;b&gt;</td>\n",
+            ],
+            [
+                'all',
                 'foo bar baz',
                 'grid_edit',
                 $meta2,
@@ -646,10 +660,10 @@ class ResultsTest extends AbstractTestCase
         $output = (new ReflectionMethod(DisplayResults::class, 'getRowValues'))->invokeArgs($this->object, [
             ['3600', 'true'],
             0,
-            false,
+            null,
             [],
             'disabled',
-            false,
+            null,
             $query,
             Query::getAll($query)->statement,
         ]);

@@ -28,7 +28,6 @@ use function __;
 use function bin2hex;
 use function htmlspecialchars;
 use function in_array;
-use function is_string;
 use function str_replace;
 
 /**
@@ -485,18 +484,5 @@ class ExportTexytext extends ExportPlugin
             $exportConfig->texytext_null,
         );
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-    }
-
-    private function setStringValue(mixed $fromRequest, string $fromConfig): string
-    {
-        if (is_string($fromRequest) && $fromRequest !== '') {
-            return $fromRequest;
-        }
-
-        if ($fromConfig !== '') {
-            return $fromConfig;
-        }
-
-        return '';
     }
 }

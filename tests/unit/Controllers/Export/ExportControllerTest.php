@@ -14,6 +14,7 @@ use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\Export\ExportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\OutputHandler;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
@@ -25,6 +26,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
+use PhpMyAdmin\Utils\IniReader;
 use PhpMyAdmin\ZipExtension;
 use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -201,13 +203,14 @@ final class ExportControllerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
 
         $outputHandler = new OutputHandler();
         $pluginFactory = $this->createPluginFactory($dbi, $config, $outputHandler);
         $exportController = new ExportController(
             new ResponseRenderer(),
-            new Export($dbi, $outputHandler, $pluginFactory),
+            new Export($dbi, $outputHandler, $pluginFactory, new IniReader()),
             ResponseFactory::create(),
             $config,
             $userPreferencesHandler,
@@ -376,13 +379,14 @@ final class ExportControllerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
 
         $outputHandler = new OutputHandler();
         $pluginFactory = $this->createPluginFactory($dbi, $config, $outputHandler);
         $exportController = new ExportController(
             new ResponseRenderer(),
-            new Export($dbi, $outputHandler, $pluginFactory),
+            new Export($dbi, $outputHandler, $pluginFactory, new IniReader()),
             ResponseFactory::create(),
             $config,
             $userPreferencesHandler,
@@ -542,6 +546,7 @@ final class ExportControllerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
 
         $exportController = new ExportController(
@@ -708,6 +713,7 @@ final class ExportControllerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
 
         $exportController = new ExportController(

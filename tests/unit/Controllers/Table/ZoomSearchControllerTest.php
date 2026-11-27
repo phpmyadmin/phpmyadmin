@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Table\Search;
+use PhpMyAdmin\Table\SearchForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -35,7 +36,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
@@ -44,8 +45,8 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         $template = new Template($config);
         $controller = new ZoomSearchController(
             $response,
-            $template,
             new Search($dbi),
+            new SearchForm($dbi, new Relation($dbi), $template, $config),
             new Relation($dbi),
             $dbi,
             new DbTableExists($dbi),
@@ -84,7 +85,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         $dbiDummy->addSelectDb('test_db');
-        $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
+        $dbiDummy->addResult('SHOW TABLES FROM `test_db` LIKE \'test\\\\_table\';', [['test_table']]);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
@@ -94,8 +95,8 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         $template = new Template($config);
         $controller = new ZoomSearchController(
             $response,
-            $template,
             new Search($dbi),
+            new SearchForm($dbi, new Relation($dbi), $template, $config),
             new Relation($dbi),
             $dbi,
             new DbTableExists($dbi),

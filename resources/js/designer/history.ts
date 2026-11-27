@@ -2,6 +2,7 @@ import $ from 'jquery';
 import { getSqlEditor } from '../modules/functions.ts';
 import getImageTag from '../modules/functions/getImageTag.ts';
 import { DesignerConfig } from './config.ts';
+import { escapeHtml } from '../modules/functions/escape.ts';
 
 /**
  * @fileoverview    function used in this file builds history tab and generates query.
@@ -81,7 +82,7 @@ const display = function (init, finit) {
     const historyArrayLength = DesignerHistory.historyArray.length;
     for (i = 0; i < historyArrayLength; i++) {
         temp = DesignerHistory.historyArray[i].getTab(); // + '.' + DesignerHistory.historyArray[i].getObjNo(); for Self JOIN
-        str += '<h3 class="tiger"><a href="#">' + temp + '</a></h3>';
+        str += '<h3 class="tiger"><a href="#">' + escapeHtml(temp) + '</a></h3>';
         str += '<div class="toggle_container">\n';
         while ((DesignerHistory.historyArray[i].getTab()) === temp) { // + '.' + DesignerHistory.historyArray[i].getObjNo()) === temp) {
             str += '<div class="block"> <table class="table table-sm w-auto mb-0">';

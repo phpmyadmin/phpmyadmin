@@ -8,6 +8,7 @@ use PhpMyAdmin\Exceptions\MismatchedSessionId;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Session;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -58,6 +59,11 @@ final readonly class TokenRequestParamChecking implements MiddlewareInterface
                     ->withQueryParams([])
                     ->withCookieParams([])
                     ->withAttribute('route', '/');
+                /**
+                 * @psalm-suppress DeprecatedProperty
+                 * @phpstan-ignore staticProperty.deprecated
+                 */
+                Routing::$route = '/';
             }
         }
 

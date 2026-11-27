@@ -12,15 +12,11 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Server\VariableFormatter;
 
-use function implode;
 use function in_array;
-use function is_numeric;
 use function str_replace;
 use function strtolower;
-use function trim;
 
 /**
  * Handles viewing and editing server variables
@@ -30,7 +26,7 @@ final readonly class VariablesController implements InvocableController
 {
     public function __construct(
         private ResponseRenderer $response,
-        private Template $template,
+        private VariableFormatter $variableFormatter,
         private DatabaseInterface $dbi,
     ) {
     }
@@ -68,9 +64,9 @@ final readonly class VariablesController implements InvocableController
                     str_replace('_', '&nbsp;', $name),
                 );
 
-                [$formattedValue, $isEscaped] = $this->formatVariable($name, $value);
+                [$formattedValue, $isEscaped] = $this->variableFormatter->format($name, $value);
                 if ($hasSessionValue) {
-                    [$sessionFormattedValue] = $this->formatVariable($name, $serverVarsSession[$name]);
+                    [$sessionFormattedValue] = $this->variableFormatter->format($name, $serverVarsSession[$name]);
                 }
 
                 $variables[] = [
@@ -93,39 +89,5 @@ final readonly class VariablesController implements InvocableController
         ]);
 
         return $this->response->response();
-    }
-
-    /**
-     * Format Variable
-     *
-     * @param string     $name  variable name
-     * @param int|string $value variable value
-     *
-     * @return array{int|string, bool} formatted string and bool if string is HTML formatted
-     */
-    private function formatVariable(string $name, int|string $value): array
-    {
-        $isHtmlFormatted = false;
-        $formattedValue = $value;
-
-        if (is_numeric($value)) {
-            $variableType = ServerVariablesProvider::getImplementation()->getVariableType($name);
-
-            if ($variableType === 'byte') {
-                $isHtmlFormatted = true;
-                /** @var string[] $bytes */
-                $bytes = Util::formatByteDown($value, 3, 3);
-                $formattedValue = trim(
-                    $this->template->render(
-                        'server/variables/format_variable',
-                        ['valueTitle' => Util::formatNumber($value, 0), 'value' => implode(' ', $bytes)],
-                    ),
-                );
-            } else {
-                $formattedValue = Util::formatNumber($value, 0);
-            }
-        }
-
-        return [$formattedValue, $isHtmlFormatted];
     }
 }

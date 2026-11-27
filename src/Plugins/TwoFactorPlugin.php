@@ -11,8 +11,8 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Security\TwoFactor;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\TwoFactor;
 
 use function __;
 use function is_array;

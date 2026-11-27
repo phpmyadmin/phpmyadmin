@@ -69,6 +69,13 @@ class DbiDummy implements DbiExtension
     private array $fifoDatabasesToSelect = [];
 
     /**
+     * Character sets that are expected to be set, in fifo order
+     *
+     * @var list<array{string, bool}>
+     */
+    private array $fifoCharsets = [];
+
+    /**
      * @var array<array<string,array<int,array<string,string|float|int|null>>|bool|string[]|FieldMetadata[]>>
      * @phpstan-var list<array{
      *     query: string,
@@ -120,6 +127,16 @@ class DbiDummy implements DbiExtension
         }
 
         Assert::fail('Non expected select of database: ' . $databaseName);
+    }
+
+    public function setCharset(Connection $connection, string $charset): bool
+    {
+        $expected = array_shift($this->fifoCharsets);
+        if ($expected === null || $expected[0] !== $charset) {
+            Assert::fail('Non expected character set: ' . $charset);
+        }
+
+        return $expected[1];
     }
 
     public function assertAllQueriesConsumed(): void
@@ -289,6 +306,11 @@ class DbiDummy implements DbiExtension
         $this->fifoDatabasesToSelect[] = $databaseName;
     }
 
+    public function addCharset(string $charset, bool $result = true): void
+    {
+        $this->fifoCharsets[] = [$charset, $result];
+    }
+
     /**
      * Adds query result for testing
      *
@@ -346,6 +368,11 @@ class DbiDummy implements DbiExtension
     public function assertAllSelectsConsumed(): void
     {
         Assert::assertSame([], $this->fifoDatabasesToSelect, 'Some database selects were not used!');
+    }
+
+    public function assertAllCharsetsConsumed(): void
+    {
+        Assert::assertSame([], $this->fifoCharsets, 'Some character sets were not set!');
     }
 
     public function assertAllErrorCodesConsumed(): void
@@ -472,18 +499,15 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SELECT `COLLATION_NAME` AS `Collation`,'
                     . ' `CHARACTER_SET_NAME` AS `Charset`,'
-                    . ' `ID` AS `Id`,'
-                    . ' `IS_DEFAULT` AS `Default`,'
-                    . ' `IS_COMPILED` AS `Compiled`,'
-                    . ' `SORTLEN` AS `Sortlen`'
+                    . ' `IS_DEFAULT` AS `Default`'
                     . ' FROM `information_schema`.`COLLATIONS`',
-                'columns' => ['Collation', 'Charset', 'Id', 'Default', 'Compiled', 'Sortlen'],
+                'columns' => ['Collation', 'Charset', 'Default'],
                 'result' => [
-                    ['utf8mb4_general_ci', 'utf8mb4', '45', 'Yes', 'Yes', '1'],
-                    ['armscii8_general_ci', 'armscii8', '32', 'Yes', 'Yes', '1'],
-                    ['utf8_general_ci', 'utf8', '33', 'Yes', 'Yes', '1'],
-                    ['utf8_bin', 'utf8', '83', '', 'Yes', '1'],
-                    ['latin1_swedish_ci', 'latin1', '8', 'Yes', 'Yes', '1'],
+                    ['utf8mb4_general_ci', 'utf8mb4', 'Yes'],
+                    ['armscii8_general_ci', 'armscii8', 'Yes'],
+                    ['utf8_general_ci', 'utf8', 'Yes'],
+                    ['utf8_bin', 'utf8', ''],
+                    ['latin1_swedish_ci', 'latin1', 'Yes'],
                 ],
             ],
             [
@@ -2394,22 +2418,17 @@ class DbiDummy implements DbiExtension
                 'result' => [['984']],
             ],
             [
-                'query' => 'SELECT `collapp`.`FULL_COLLATION_NAME` AS `Collation`,'
-                        . ' `collapp`.`CHARACTER_SET_NAME` AS `Charset`,'
-                        . ' `collapp`.`ID` AS `Id`,'
-                        . ' `collapp`.`IS_DEFAULT` AS `Default`,'
-                        . ' `coll`.`IS_COMPILED` AS `Compiled`,'
-                        . ' `coll`.`SORTLEN` AS `Sortlen`'
-                        . ' FROM `information_schema`.`COLLATION_CHARACTER_SET_APPLICABILITY` `collapp`'
-                        . ' LEFT JOIN `information_schema`.`COLLATIONS` `coll`'
-                        . ' ON `collapp`.`COLLATION_NAME`=`coll`.`COLLATION_NAME`',
-                'columns' => ['Collation', 'Charset', 'Id', 'Default', 'Compiled', 'Sortlen'],
+                'query' => 'SELECT `FULL_COLLATION_NAME` AS `Collation`,'
+                        . ' `CHARACTER_SET_NAME` AS `Charset`,'
+                        . ' `IS_DEFAULT` AS `Default`'
+                        . ' FROM `information_schema`.`COLLATION_CHARACTER_SET_APPLICABILITY`',
+                'columns' => ['Collation', 'Charset', 'Default'],
                 'result' => [
-                    ['utf8mb4_general_ci', 'utf8mb4', '45', 'Yes', 'Yes', '1'],
-                    ['armscii8_general_ci', 'armscii8', '32', 'Yes', 'Yes', '1'],
-                    ['utf8_general_ci', 'utf8', '33', 'Yes', 'Yes', '1'],
-                    ['utf8_bin', 'utf8', '83', '', 'Yes', '1'],
-                    ['latin1_swedish_ci', 'latin1', '8', 'Yes', 'Yes', '1'],
+                    ['utf8mb4_general_ci', 'utf8mb4', 'Yes'],
+                    ['armscii8_general_ci', 'armscii8', 'Yes'],
+                    ['utf8_general_ci', 'utf8', 'Yes'],
+                    ['utf8_bin', 'utf8', ''],
+                    ['latin1_swedish_ci', 'latin1', 'Yes'],
                 ],
             ],
             [

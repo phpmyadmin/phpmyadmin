@@ -9,11 +9,16 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\Config\UserPreferencesHandler;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Error\Error;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
+
+use function array_map;
+use function array_values;
 
 #[CoversClass(UserPreferencesHandler::class)]
 final class UserPreferencesHandlerTest extends AbstractTestCase
@@ -28,6 +33,7 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
         $userPreferencesHandler->setUserValue('Lang', 'cs', 'en');
         $userPreferencesHandler->setUserValue('Servers/1/hide_db', 'cfg_val_1', cookieName: 'TEST_COOKIE_USER_VAL');
@@ -44,6 +50,7 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
         $userPreferencesHandler->updateConfigValue('NavigationWidth', 300);
         self::assertSame(300, $config->config->NavigationWidth);
@@ -59,7 +66,48 @@ final class UserPreferencesHandlerTest extends AbstractTestCase
             new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
             new LanguageManager($config),
             new ThemeManager(),
+            new ErrorHandler(),
         );
         self::assertSame('val', $userPreferencesHandler->getUserValue('test_val', 'val'));
+    }
+
+    public function testLoadUserPreferencesReportsRejectedCollation(): void
+    {
+        $errorHandler = new ErrorHandler();
+        $config = new Config();
+        $dummyDbi = $this->createDbiDummy();
+        $dummyDbi->addResult('SET collation_connection = \'unknown_ci\';', false);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $themeManager = new ThemeManager();
+
+        $_SESSION['cache'] = [
+            'server_1' => [
+                'userprefs' => [
+                    'DefaultConnectionCollation' => 'unknown_ci',
+                    'ThemeDefault' => $themeManager->theme->getId(),
+                ],
+                'userprefs_type' => 'session',
+                'config_mtime' => $config->sourceMtime,
+            ],
+        ];
+
+        $userPreferencesHandler = new UserPreferencesHandler(
+            $config,
+            $dbi,
+            new UserPreferences($dbi, new Relation($dbi, $config), new Template($config), $config, new Clock()),
+            new LanguageManager($config),
+            $themeManager,
+            $errorHandler,
+        );
+        $userPreferencesHandler->loadUserPreferences();
+
+        $dummyDbi->assertAllQueriesConsumed();
+        self::assertSame(
+            ['Failed to set configured collation connection!'],
+            array_values(array_map(
+                static fn (Error $error): string => $error->getMessage(),
+                $errorHandler->getCurrentErrors(),
+            )),
+        );
     }
 }

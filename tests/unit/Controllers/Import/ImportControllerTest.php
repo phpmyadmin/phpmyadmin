@@ -11,6 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Import\ImportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Sql;
@@ -20,7 +21,9 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Utils\IniReader;
 use PHPUnit\Framework\Attributes\CoversClass;
+use ReflectionProperty;
 
 #[CoversClass(ImportController::class)]
 class ImportControllerTest extends AbstractTestCase
@@ -108,6 +111,7 @@ class ImportControllerTest extends AbstractTestCase
             $this->dbi,
             $bookmarkRepository,
             $config,
+            new IniReader(),
         );
 
         $this->dummyDbi->addSelectDb('pma_test');
@@ -126,6 +130,70 @@ class ImportControllerTest extends AbstractTestCase
             $output,
         );
 
+        $this->dummyDbi->assertAllQueriesConsumed();
+    }
+
+    public function testUnsupportedCharsetOfFile(): void
+    {
+        $this->setLanguage();
+
+        $config = Config::$instance = new Config();
+        Current::$database = 'pma_test';
+        Current::$table = '';
+        Current::$sqlQuery = 'SELECT 1';
+        Current::$message = null;
+        Encoding::setEngine(Encoding::ENGINE_NONE);
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com')->withParsedBody([
+            'db' => Current::$database,
+            'sql_query' => Current::$sqlQuery,
+            'charset_of_file' => 'unknown<b>',
+        ]);
+
+        $this->dummyDbi->addSelectDb('pma_test');
+        $this->dummyDbi->addCharset('unknown<b>', false);
+
+        $responseRenderer = new ResponseRenderer();
+        $relation = new Relation($this->dbi, $config);
+        $bookmarkRepository = new BookmarkRepository($this->dbi, $relation, $config);
+        $template = new Template($config);
+        $sql = new Sql(
+            $this->dbi,
+            $relation,
+            self::createStub(RelationCleanup::class),
+            self::createStub(Transformations::class),
+            $template,
+            $bookmarkRepository,
+            $config,
+            $responseRenderer,
+            new ThemeManager(),
+        );
+
+        $importController = new ImportController(
+            $responseRenderer,
+            new Import($this->dbi, $responseRenderer, $config),
+            $sql,
+            $this->dbi,
+            $bookmarkRepository,
+            $config,
+            new IniReader(),
+        );
+
+        try {
+            $importController($request);
+        } finally {
+            (new ReflectionProperty(Encoding::class, 'engine'))->setValue(null, null);
+        }
+
+        self::assertFalse($responseRenderer->hasSuccessState());
+        // The header would show Current::$message a second time
+        self::assertNull(Current::$message);
+        self::assertStringContainsString(
+            'The server does not support the character set unknown&lt;b&gt;.',
+            $responseRenderer->getHTMLResult(),
+        );
+        $this->dummyDbi->assertAllSelectsConsumed();
+        $this->dummyDbi->assertAllCharsetsConsumed();
         $this->dummyDbi->assertAllQueriesConsumed();
     }
 }

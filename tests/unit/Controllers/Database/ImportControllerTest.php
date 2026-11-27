@@ -13,13 +13,15 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Database\ImportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\Ajax;
+use PhpMyAdmin\Import\ImportForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Tests\Stubs\IniReaderStub;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
-use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Random\Engine\Mt19937;
 use Random\Randomizer;
@@ -32,10 +34,10 @@ final class ImportControllerTest extends AbstractTestCase
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         Current::$database = 'test_db';
 
-        Util::$uploadMaxFilesize = '2M';
-        Util::$postMaxSize = '8M';
-
-        $config = new Config();
+        // Charsets known to every iconv implementation, so the rendered list doesn't depend on the host
+        Encoding::setEngine(Encoding::ENGINE_ICONV);
+        $config = Config::$instance = new Config();
+        $config->set('AvailableCharsets', ['iso-8859-1', 'windows-1252', 'utf-8']);
         $config->set('GZipDump', false);
         $config->set('BZipDump', false);
         $config->set('ZipDump', false);
@@ -47,9 +49,6 @@ final class ImportControllerTest extends AbstractTestCase
             ->withQueryParams(['route' => '/database/import', 'db' => 'test_db']);
 
         $response = ($this->getImportController($dbiDummy, $config))($request);
-
-        Util::$uploadMaxFilesize = null;
-        Util::$postMaxSize = null;
 
         $dbiDummy->assertAllSelectsConsumed();
         self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
@@ -68,12 +67,15 @@ final class ImportControllerTest extends AbstractTestCase
 
         return new ImportController(
             $responseRenderer,
-            $dbi,
             new PageSettings($userPreferences, $responseRenderer),
             new DbTableExists($dbi),
-            $config,
-            new Ajax(new Randomizer(new Mt19937(42))),
-            $this->createPluginFactory($dbi, $config),
+            new ImportForm(
+                $dbi,
+                $config,
+                new Ajax(new Randomizer(new Mt19937(42))),
+                $this->createPluginFactory($dbi, $config),
+                new IniReaderStub(['upload_max_filesize' => '2M', 'post_max_size' => '8M']),
+            ),
         );
     }
 }

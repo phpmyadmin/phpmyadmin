@@ -16,6 +16,7 @@
     ignoreInternalFunctionNullReturn="true"
     ensureOverrideAttribute="false"
     strictBinaryOperands="false"
+    runTaintAnalysis="false"
 >
     <projectFiles>
         <directory name="app"/>

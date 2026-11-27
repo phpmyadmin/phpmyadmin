@@ -9,6 +9,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Exceptions\EncodingConversionFailure;
 use PhpMyAdmin\File;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Message;
@@ -325,7 +326,17 @@ final class Import
         ImportSettings::$offset += $size;
 
         if (ImportSettings::$charsetConversion) {
-            return Encoding::convertString(ImportSettings::$charsetOfFile, 'utf-8', $result);
+            try {
+                return Encoding::convertString(ImportSettings::$charsetOfFile, 'utf-8', $result);
+            } catch (EncodingConversionFailure) {
+                Current::$message = Message::error(
+                    __('The file is not valid in the character set %s.'),
+                    [ImportSettings::$charsetOfFile],
+                );
+                self::$hasError = true;
+
+                return false;
+            }
         }
 
         if (ImportSettings::$offset === $size) {
@@ -927,10 +938,10 @@ final class Import
         ImportSettings::$importNotice = $message;
     }
 
-    public function handleRollbackRequest(string $sqlQuery): void
+    /** @param non-empty-string $sqlDelimiter */
+    public function handleRollbackRequest(string $sqlQueries, string $sqlDelimiter): void
     {
-        $sqlDelimiter = $_POST['sql_delimiter'];
-        $queries = explode($sqlDelimiter, $sqlQuery);
+        $queries = explode($sqlDelimiter, $sqlQueries);
         foreach ($queries as $sqlQuery) {
             if ($sqlQuery === '') {
                 continue;

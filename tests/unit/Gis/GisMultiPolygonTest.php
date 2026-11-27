@@ -17,47 +17,39 @@ use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 #[RunTestsInSeparateProcesses]
 class GisMultiPolygonTest extends AbstractTestCase
 {
-    /**
-     * Provide some common data to data providers
-     *
-     * @return mixed[][]
-     */
-    private static function getData(): array
-    {
-        return [
-            'MULTIPOLYGON' => [
+    private const DATA = [
+        'MULTIPOLYGON' => [
+            'data_length' => 2,
+            0 => [
                 'data_length' => 2,
                 0 => [
-                    'data_length' => 2,
-                    0 => [
-                        'data_length' => 5,
-                        0 => ['x' => 35, 'y' => 10],
-                        1 => ['x' => 10, 'y' => 20],
-                        2 => ['x' => 15, 'y' => 40],
-                        3 => ['x' => 45, 'y' => 45],
-                        4 => ['x' => 35, 'y' => 10],
-                    ],
-                    1 => [
-                        'data_length' => 4,
-                        0 => ['x' => 20, 'y' => 30],
-                        1 => ['x' => 35, 'y' => 32],
-                        2 => ['x' => 30, 'y' => 20],
-                        3 => ['x' => 20, 'y' => 30],
-                    ],
+                    'data_length' => 5,
+                    0 => ['x' => 35, 'y' => 10],
+                    1 => ['x' => 10, 'y' => 20],
+                    2 => ['x' => 15, 'y' => 40],
+                    3 => ['x' => 45, 'y' => 45],
+                    4 => ['x' => 35, 'y' => 10],
                 ],
                 1 => [
-                    'data_length' => 1,
-                    0 => [
-                        'data_length' => 4,
-                        0 => ['x' => 123, 'y' => 0],
-                        1 => ['x' => 23, 'y' => 30],
-                        2 => ['x' => 17, 'y' => 63],
-                        3 => ['x' => 123, 'y' => 0],
-                    ],
+                    'data_length' => 4,
+                    0 => ['x' => 20, 'y' => 30],
+                    1 => ['x' => 35, 'y' => 32],
+                    2 => ['x' => 30, 'y' => 20],
+                    3 => ['x' => 20, 'y' => 30],
                 ],
             ],
-        ];
-    }
+            1 => [
+                'data_length' => 1,
+                0 => [
+                    'data_length' => 4,
+                    0 => ['x' => 123, 'y' => 0],
+                    1 => ['x' => 23, 'y' => 30],
+                    2 => ['x' => 17, 'y' => 63],
+                    3 => ['x' => 123, 'y' => 0],
+                ],
+            ],
+        ],
+    ];
 
     /**
      * Test for generateWkt
@@ -81,7 +73,7 @@ class GisMultiPolygonTest extends AbstractTestCase
      */
     public static function providerForTestGenerateWkt(): array
     {
-        $temp = [self::getData()];
+        $temp = [self::DATA];
 
         $temp1 = $temp;
         $temp1[0]['MULTIPOLYGON']['data_length'] = 0;
@@ -145,7 +137,7 @@ class GisMultiPolygonTest extends AbstractTestCase
             [
                 "'MULTIPOLYGON(((35 10,10 20,15 40,45 45,35 10),"
                 . "(20 30,35 32,30 20,20 30)),((123 0,23 30,17 63,123 0)))',124",
-                ['srid' => 124, 0 => self::getData()],
+                ['srid' => 124, 0 => self::DATA],
             ],
         ];
     }

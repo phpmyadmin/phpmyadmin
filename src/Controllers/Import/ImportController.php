@@ -29,13 +29,16 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
+use PhpMyAdmin\Utils\IniReader;
 use Throwable;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function _ngettext;
 use function in_array;
 use function ini_get;
 use function ini_set;
+use function intdiv;
 use function is_array;
 use function is_link;
 use function is_numeric;
@@ -58,6 +61,7 @@ final readonly class ImportController implements InvocableController
         private DatabaseInterface $dbi,
         private BookmarkRepository $bookmarkRepository,
         private Config $config,
+        private IniReader $iniReader,
     ) {
     }
 
@@ -117,7 +121,9 @@ final readonly class ImportController implements InvocableController
 
             // If there is a request to ROLLBACK when finished.
             if ($request->hasBodyParam('rollback_query')) {
-                $this->import->handleRollbackRequest(Import::$importText);
+                $delimiter = $request->getParsedBodyParamAsString('sql_delimiter');
+                Assert::stringNotEmpty($delimiter);
+                $this->import->handleRollbackRequest(Import::$importText, $delimiter);
             }
 
             // refresh navigation and main panels
@@ -338,7 +344,7 @@ final readonly class ImportController implements InvocableController
 
         // We can not read all at once, otherwise we can run out of memory
         // Calculate value of the limit
-        $memoryLimit = Util::getRealSize(ini_get('memory_limit'));
+        $memoryLimit = $this->iniReader->getMemoryLimitInBytes();
         // 2 MB as default
         if ($memoryLimit === 0) {
             $memoryLimit = 2 * 1024 * 1024;
@@ -350,7 +356,7 @@ final readonly class ImportController implements InvocableController
         }
 
         // Just to be sure, there might be lot of memory needed for uncompression
-        ImportSettings::$readLimit = $memoryLimit / 8;
+        ImportSettings::$readLimit = intdiv($memoryLimit, 8);
 
         // handle filenames
         if (
@@ -421,21 +427,13 @@ final readonly class ImportController implements InvocableController
                 return $this->response->response();
             }
         } elseif (! Import::$hasError && Import::$importText === '') {
-            Current::$message = Message::error(
+            return $this->errorResponse(Message::error(
                 __(
                     'No data was received to import. Either no file name was ' .
                     'submitted, or the file size exceeded the maximum size permitted ' .
                     'by your PHP configuration. See [doc@faq1-16]FAQ 1.16[/doc].',
                 ),
-            );
-
-            $_SESSION['Import_message']['message'] = Current::$message->getDisplay();
-
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', Current::$message);
-            $this->response->addHTML(Current::$message);
-
-            return $this->response->response();
+            ));
         }
 
         // Convert the file's charset if necessary
@@ -446,7 +444,17 @@ final readonly class ImportController implements InvocableController
         ) {
             ImportSettings::$charsetConversion = true;
         } elseif (ImportSettings::$charsetOfFile !== '' && ImportSettings::$charsetOfFile !== 'utf-8') {
-            $this->dbi->query('SET NAMES \'' . ImportSettings::$charsetOfFile . '\'');
+            if (! $this->dbi->setCharset(ImportSettings::$charsetOfFile)) {
+                if (isset($importHandle)) {
+                    $importHandle->close();
+                }
+
+                return $this->errorResponse(Message::error(
+                    __('The server does not support the character set %s.'),
+                    [ImportSettings::$charsetOfFile],
+                ));
+            }
+
             // We can not show query in this case, it is in different charset
             ImportSettings::$sqlQueryDisabled = true;
             $resetCharset = true;
@@ -495,8 +503,8 @@ final readonly class ImportController implements InvocableController
 
         // Reset charset back, if we did some changes
         if ($resetCharset) {
-            $this->dbi->query('SET CHARACTER SET ' . $this->dbi->getDefaultCharset());
-            $this->dbi->setCollation($this->dbi->getDefaultCollation());
+            $this->dbi->setCharset($this->dbi->getDefaultCharset());
+            $this->dbi->setCollation($this->dbi->getCollationConnection());
         }
 
         // Show correct message
@@ -580,7 +588,7 @@ final readonly class ImportController implements InvocableController
         //  can choke on it so avoid parsing)
         $sqlLength = mb_strlen(Current::$sqlQuery);
         if ($sqlLength <= $this->config->config->MaxCharactersInDisplayedSQL) {
-            [$statementInfo, Current::$database, $tableFromSql, $reloadNeeded] = ParseAnalyze::sqlQuery(
+            [, Current::$database, $tableFromSql, $reloadNeeded] = ParseAnalyze::sqlQuery(
                 Current::$sqlQuery,
                 Current::$database,
                 $request->isAjax(),
@@ -720,6 +728,17 @@ final readonly class ImportController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(ImportSettings::$message));
         }
+
+        return $this->response->response();
+    }
+
+    private function errorResponse(Message $message): Response
+    {
+        $_SESSION['Import_message']['message'] = $message->getDisplay();
+
+        $this->response->setRequestStatus(false);
+        $this->response->addJSON('message', $message);
+        $this->response->addHTML($message);
 
         return $this->response->response();
     }

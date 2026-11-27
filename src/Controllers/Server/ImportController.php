@@ -4,30 +4,17 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Charsets;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\Import\Ajax;
-use PhpMyAdmin\Import\Import;
-use PhpMyAdmin\Import\ImportSettings;
+use PhpMyAdmin\Import\ImportForm;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\PluginFactory;
-use PhpMyAdmin\Plugins\PluginType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
-use PhpMyAdmin\Util;
-use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
-use function is_numeric;
-use function is_string;
 
 #[Route('/server/import', ['GET', 'POST'])]
 final readonly class ImportController implements InvocableController
@@ -36,9 +23,7 @@ final readonly class ImportController implements InvocableController
         private ResponseRenderer $response,
         private DatabaseInterface $dbi,
         private PageSettings $pageSettings,
-        private Config $config,
-        private Ajax $ajax,
-        private PluginFactory $pluginFactory,
+        private ImportForm $importForm,
     ) {
     }
 
@@ -54,12 +39,8 @@ final readonly class ImportController implements InvocableController
             $this->dbi->selectDb('mysql');
         }
 
-        $uploadId = $this->ajax->uploadProgressSetup();
-
-        ImportSettings::$importType = 'server';
-        $importList = $this->pluginFactory->getAllImportPlugins();
-
-        if ($importList === []) {
+        $templateParams = $this->importForm->getTemplateParams($request, 'server', []);
+        if ($templateParams === null) {
             $this->response->addHTML(Message::error(__(
                 'Could not load import plugins, please check your installation!',
             )));
@@ -67,78 +48,11 @@ final readonly class ImportController implements InvocableController
             return $this->response->response();
         }
 
-        $offset = null;
-        if (isset($_REQUEST['offset']) && is_numeric($_REQUEST['offset'])) {
-            $offset = (int) $_REQUEST['offset'];
-        }
-
-        $timeoutPassed = $_REQUEST['timeout_passed'] ?? null;
-        $localImportFile = $_REQUEST['local_import_file'] ?? null;
-        $compressions = Import::getCompressions($this->config);
-
-        $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
-
-        $idKey = $_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey();
-        $hiddenInputs = [$idKey => $uploadId, 'import_type' => 'server'];
-
-        $pluginName = $this->getFormat($request->getParam('format'));
-        $pluginName = Plugins::validatePluginNameOrUseDefault($importList, $pluginName);
-
-        $choice = Plugins::getChoice($importList, $pluginName);
-        $options = Plugins::getOptions(PluginType::Import, $importList);
-        $skipQueriesDefault = $this->getSkipQueries($request->getParam('skip_queries'));
-        $isAllowInterruptChecked = Plugins::checkboxCheck(PluginType::Import, 'allow_interrupt');
-        $maxUploadSize = Util::getUploadSizeInBytes();
-
         $this->response->render('server/import/index', [
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
-            'upload_id' => $uploadId,
-            'handler' => $_SESSION[Ajax::SESSION_KEY]['handler'],
-            'hidden_inputs' => $hiddenInputs,
-            'db' => Current::$database,
-            'table' => Current::$table,
-            'max_upload_size' => $maxUploadSize,
-            'formatted_maximum_upload_size' => Util::getFormattedMaximumUploadSize($maxUploadSize),
-            'plugins_choice' => $choice,
-            'options' => $options,
-            'skip_queries_default' => $skipQueriesDefault,
-            'is_allow_interrupt_checked' => $isAllowInterruptChecked,
-            'local_import_file' => $localImportFile,
-            'is_upload' => $this->config->isUploadEnabled(),
-            'upload_dir' => $this->config->config->UploadDir ,
-            'timeout_passed_global' => ImportSettings::$timeoutPassed,
-            'compressions' => $compressions,
-            'is_encoding_supported' => Encoding::isSupported(),
-            'encodings' => Encoding::listEncodings(),
-            'import_charset' => $this->config->config->Import->charset,
-            'timeout_passed' => $timeoutPassed,
-            'offset' => $offset,
-            'can_convert_kanji' => Encoding::canConvertKanji(),
-            'charsets' => $charsets,
-            'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
-            'user_upload_dir' => Util::userDir($this->config->selectedServer['user'], $this->config->config->UploadDir),
-            'local_files' => Import::getLocalFiles($this->config, $importList),
-        ]);
+        ] + $templateParams);
 
         return $this->response->response();
-    }
-
-    private function getFormat(mixed $formatParam): string
-    {
-        if (is_string($formatParam) && $formatParam !== '') {
-            return $formatParam;
-        }
-
-        return $this->config->settings['Import']['format'];
-    }
-
-    private function getSkipQueries(mixed $skipQueriesParam): int
-    {
-        if (is_numeric($skipQueriesParam) && $skipQueriesParam >= 0) {
-            return (int) $skipQueriesParam;
-        }
-
-        return $this->config->settings['Import']['skip_queries'];
     }
 }

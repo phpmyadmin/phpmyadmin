@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\Foreigners;
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -19,23 +17,14 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Routing\Route;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
-use PhpMyAdmin\Template;
+use PhpMyAdmin\Table\SearchColumns;
+use PhpMyAdmin\Table\SearchForm;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Utils\Gis;
 
 use function __;
 use function array_keys;
-use function in_array;
-use function mb_strtolower;
-use function md5;
-use function preg_match;
-use function preg_replace;
-use function str_ireplace;
-use function str_replace;
-use function strncasecmp;
-use function strtoupper;
 
 /**
  * Handles table search tab.
@@ -46,106 +35,15 @@ use function strtoupper;
 #[Route('/table/search', ['GET', 'POST'])]
 final class SearchController implements InvocableController
 {
-    /**
-     * Names of columns
-     *
-     * @var list<string>
-     */
-    private array $columnNames = [];
-    /**
-     * Types of columns
-     *
-     * @var list<string>
-     */
-    private array $columnTypes = [];
-    /**
-     * Types of columns without any replacement
-     *
-     * @var list<string>
-     */
-    private array $originalColumnTypes = [];
-    /**
-     * Collations of columns
-     *
-     * @var list<string>
-     */
-    private array $columnCollations = [];
-    /**
-     * Null Flags of columns
-     *
-     * @var list<bool>
-     */
-    private array $columnNullFlags = [];
-    /**
-     * Whether a geometry column is present
-     */
-    private bool $geomColumnFlag = false;
-
-    private Foreigners $foreigners;
-
     public function __construct(
         private readonly ResponseRenderer $response,
-        private readonly Template $template,
         private readonly Search $search,
-        private readonly Relation $relation,
+        private readonly SearchForm $searchForm,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
         private readonly Config $config,
         private readonly Sql $sql,
     ) {
-    }
-
-    /**
-     * Gets all the columns of a table along with their types, collations
-     * and whether null or not.
-     */
-    private function loadTableInfo(): void
-    {
-        // Gets the list and number of columns
-        $columns = $this->dbi->getColumns(Current::$database, Current::$table);
-        // Get details about the geometry functions
-        $geomTypes = Gis::getDataTypes();
-
-        foreach ($columns as $row) {
-            // set column name
-            $this->columnNames[] = $row->field;
-
-            $type = $row->type;
-            // before any replacement
-            $this->originalColumnTypes[] = mb_strtolower($type);
-            // check whether table contains geometric columns
-            if (in_array($type, $geomTypes, true)) {
-                $this->geomColumnFlag = true;
-            }
-
-            // reformat mysql query output
-            if (strncasecmp($type, 'set', 3) === 0 || strncasecmp($type, 'enum', 4) === 0) {
-                $type = str_replace(',', ', ', $type);
-            } else {
-                // strip the "BINARY" attribute, except if we find "BINARY(" because
-                // this would be a BINARY or VARBINARY column type
-                if (preg_match('@BINARY[\(]@i', $type) !== 1) {
-                    $type = str_ireplace('BINARY', '', $type);
-                }
-
-                $type = str_ireplace('ZEROFILL', '', $type);
-                $type = str_ireplace('UNSIGNED', '', $type);
-                $type = mb_strtolower($type);
-            }
-
-            if ($type === '') {
-                $type = '&nbsp;';
-            }
-
-            $this->columnTypes[] = $type;
-            $this->columnNullFlags[] = $row->isNull;
-            $this->columnCollations[] = ! empty($row->collation) && $row->collation !== 'NULL'
-                ? $row->collation
-                : '';
-        }
-
-        // Retrieve foreign keys
-        $this->foreigners = $this->relation->getForeigners(Current::$database, Current::$table);
     }
 
     /**
@@ -173,7 +71,7 @@ final class SearchController implements InvocableController
             return $this->response->respondWithErrorMessage(__('No table selected.'));
         }
 
-        $this->loadTableInfo();
+        $columns = $this->searchForm->getColumns($databaseName->getName(), $tableName->getName());
 
         $this->response->addScriptFiles([
             'makegrid.js',
@@ -194,7 +92,7 @@ final class SearchController implements InvocableController
          * No selection criteria received -> display the selection form
          */
         if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns'])) {
-            $this->displaySelectionFormAction();
+            $this->displaySelectionFormAction($columns);
         } else {
             $this->doSelectionAction($request);
         }
@@ -234,15 +132,20 @@ final class SearchController implements InvocableController
     /**
      * Display selection form action
      */
-    private function displaySelectionFormAction(): void
+    private function displaySelectionFormAction(SearchColumns $columns): void
     {
         if (UrlParams::$goto === '') {
             UrlParams::$goto = Url::getFromRoute($this->config->config->DefaultTabTable);
         }
 
         $properties = [];
-        foreach (array_keys($this->columnNames) as $columnIndex) {
-            $properties[$columnIndex] = $this->getColumnProperties($columnIndex, $columnIndex);
+        foreach (array_keys($columns->names) as $columnIndex) {
+            $properties[$columnIndex] = $this->searchForm->getColumnProperties(
+                $columns,
+                $columnIndex,
+                $columnIndex,
+                'tbl_search_form',
+            );
         }
 
         $this->response->render('table/search/index', [
@@ -250,10 +153,10 @@ final class SearchController implements InvocableController
             'table' => Current::$table,
             'goto' => UrlParams::$goto,
             'properties' => $properties,
-            'geom_column_flag' => $this->geomColumnFlag,
-            'column_names' => $this->columnNames,
-            'column_types' => $this->columnTypes,
-            'column_collations' => $this->columnCollations,
+            'geom_column_flag' => $columns->hasGeometry,
+            'column_names' => $columns->names,
+            'column_types' => $columns->types,
+            'column_collations' => $columns->collations,
             'default_sliders_state' => $this->config->config->InitialSlidersState,
             'max_rows' => $this->config->config->maxRows,
         ]);
@@ -283,97 +186,5 @@ final class SearchController implements InvocableController
             . Util::backquote(Current::$table);
 
         return $this->dbi->fetchSingleRow($sqlQuery);
-    }
-
-    /**
-     * Provides a column's type, collation, operators list, and criteria value
-     * to display in table search form
-     *
-     * @param int $searchIndex Row number in table search form
-     * @param int $columnIndex Column index in ColumnNames array
-     *
-     * @return array<string, string> Array containing column's properties
-     */
-    private function getColumnProperties(int $searchIndex, int $columnIndex): array
-    {
-        $selectedOperator = $_POST['criteriaColumnOperators'][$searchIndex] ?? '';
-        $enteredValue = $_POST['criteriaValues'] ?? '';
-        //Gets column's type and collation
-        $type = $this->columnTypes[$columnIndex];
-        $collation = $this->columnCollations[$columnIndex];
-        $cleanType = preg_replace('@\(.*@s', '', $type);
-        //Gets column's comparison operators depending on column type
-        $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
-            $cleanType,
-            $this->columnNullFlags[$columnIndex],
-            $selectedOperator,
-        );
-        $func = $this->template->render('table/search/column_comparison_operators', [
-            'search_index' => $searchIndex,
-            'type_operators' => $typeOperators,
-        ]);
-        //Gets link to browse foreign data(if any) and criteria inputbox
-        $foreignData = $this->relation->getForeignData(
-            $this->foreigners,
-            $this->columnNames[$columnIndex],
-            false,
-            '',
-            '',
-        );
-        $htmlAttributes = '';
-        $isInteger = in_array($cleanType, $this->dbi->types->getIntegerTypes(), true);
-        $isFloat = in_array($cleanType, $this->dbi->types->getFloatTypes(), true);
-        if ($isInteger) {
-            $extractedColumnspec = Util::extractColumnSpec($this->originalColumnTypes[$columnIndex]);
-            $isUnsigned = $extractedColumnspec['unsigned'];
-            $minMaxValues = $this->dbi->types->getIntegerRange($cleanType, ! $isUnsigned);
-            $htmlAttributes = 'data-min="' . $minMaxValues[0] . '" '
-                            . 'data-max="' . $minMaxValues[1] . '"';
-        }
-
-        $htmlAttributes .= ' onfocus="return '
-                        . 'verifyAfterSearchFieldChange(' . $searchIndex . ', \'#tbl_search_form\')"';
-
-        $foreignDropdown = '';
-
-        $searchColumnInForeigners = $this->relation->searchColumnInForeigners(
-            $this->foreigners,
-            $this->columnNames[$columnIndex],
-        );
-
-        $hasForeigner = $searchColumnInForeigners !== false && $searchColumnInForeigners !== [];
-
-        if ($hasForeigner && $foreignData->dispRow !== null) {
-            $foreignDropdown = $this->relation->foreignDropdown(
-                $foreignData->dispRow,
-                $foreignData->foreignField ?? '',
-                $foreignData->foreignDisplay,
-                '',
-                $this->config->config->ForeignKeyMaxLimit,
-            );
-        }
-
-        $value = $this->template->render('table/search/input_box', [
-            'str' => '',
-            'column_type' => $type,
-            'column_data_type' => $isInteger ? 'INT' : ($isFloat ? 'FLOAT' : strtoupper($cleanType)),
-            'html_attributes' => $htmlAttributes,
-            'column_id' => 'fieldID_',
-            'in_zoom_search_edit' => false,
-            'column_name' => $this->columnNames[$columnIndex],
-            'column_name_hash' => md5($this->columnNames[$columnIndex]),
-            'foreign_data' => $foreignData,
-            'table' => Current::$table,
-            'column_index' => $searchIndex,
-            'criteria_values' => $enteredValue,
-            'db' => Current::$database,
-            'in_fbs' => true,
-            'foreign_dropdown' => $foreignDropdown,
-            'has_foreigner' => $hasForeigner,
-            'is_integer' => $isInteger,
-            'is_float' => $isFloat,
-        ]);
-
-        return ['type' => $type, 'collation' => $collation, 'func' => $func, 'value' => $value];
     }
 }

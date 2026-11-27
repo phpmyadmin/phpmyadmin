@@ -23,7 +23,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use function __;
 use function bin2hex;
 use function implode;
-use function is_string;
 use function str_replace;
 use function strcspn;
 use function strlen;
@@ -264,18 +263,5 @@ class ExportCsv extends ExportPlugin
 
         $this->setupExportConfiguration();
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-    }
-
-    private function setStringValue(mixed $fromRequest, string $fromConfig): string
-    {
-        if (is_string($fromRequest) && $fromRequest !== '') {
-            return $fromRequest;
-        }
-
-        if ($fromConfig !== '') {
-            return $fromConfig;
-        }
-
-        return '';
     }
 }

@@ -229,10 +229,6 @@ td.disabled {
   white-space: pre-wrap;
 }
 
-.pre_wrap br {
-  display: none;
-}
-
 /**
  * login form
  */
@@ -1611,7 +1607,7 @@ textarea {
 
 #pma_console {
   position: relative;
-  margin-left: 240px;
+  margin-left: var(--navigation-width);
   z-index: 100;
 
   .templates {

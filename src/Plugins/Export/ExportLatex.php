@@ -31,7 +31,6 @@ use function array_values;
 use function assert;
 use function bin2hex;
 use function in_array;
-use function is_string;
 use function mb_strpos;
 use function mb_substr;
 use function str_repeat;
@@ -627,18 +626,5 @@ class ExportLatex extends ExportPlugin
             $exportConfig->latex_structure_label,
         );
         // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-    }
-
-    private function setStringValue(mixed $fromRequest, string $fromConfig): string
-    {
-        if (is_string($fromRequest) && $fromRequest !== '') {
-            return $fromRequest;
-        }
-
-        if ($fromConfig !== '') {
-            return $fromConfig;
-        }
-
-        return '';
     }
 }

@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -16,6 +15,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\NestedArray;
 use Psr\Clock\ClockInterface;
 
 use function __;
@@ -232,7 +232,7 @@ readonly class UserPreferences
                 continue;
             }
 
-            Core::arrayWrite($path, $cfg, $value);
+            $cfg = NestedArray::set($path, $cfg, $value);
         }
 
         return $cfg;
