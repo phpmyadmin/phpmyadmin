@@ -34,6 +34,8 @@ All notable changes of the phpMyAdmin 6.0 release series are documented in this 
 * [#19691](https://github.com/phpmyadmin/phpmyadmin/pull/19691): Show hostname on main page
 * [#19751](https://github.com/phpmyadmin/phpmyadmin/pull/19751): Add Go button at the top of the insert row table
 * [#19812](https://github.com/phpmyadmin/phpmyadmin/pull/19812): Add show create table shortcuts when viewing tables
+* Signon scripts receive the server number, can report the identity of the user and no longer require `SignonURL`
+* Add signon example for authenticating reverse proxies (OAuth 2.0, OpenID Connect)
 
 ### Changed
 

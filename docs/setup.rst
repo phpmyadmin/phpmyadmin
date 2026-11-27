@@ -1157,7 +1157,10 @@ Signon authentication mode
   :config:option:`$cfg['Servers'][$i]['SignonScript']`).
 * When no credentials are available, the user is being redirected to
   :config:option:`$cfg['Servers'][$i]['SignonURL']`, where you should handle
-  the login process.
+  the login process. When a signon script is used, this URL is optional:
+  without it, the user is shown an error page instead.
+* The setup script can not configure a signon script; set it in
+  :file:`config.inc.php`.
 
 The very basic example of saving credentials in a session is available as
 :file:`examples/signon.php`:
@@ -1178,6 +1181,89 @@ in :file:`examples/signon-script.php`:
 
 .. literalinclude:: ../examples/signon-script.php
     :language: php
+
+.. _auth_signon_proxy:
+
+Signon behind an authenticating reverse proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When phpMyAdmin runs behind a reverse proxy that authenticates the users, for
+example using OAuth 2.0 or OpenID Connect (oauth2-proxy, Authelia, Authentik
+and similar), a signon script can log them in automatically. The proxy passes
+the identity of the user in a request header and the script maps it to the
+MySQL user and password to log in with, as shown in
+:file:`examples/signon-proxy-header.php`:
+
+.. literalinclude:: ../examples/signon-proxy-header.php
+    :language: php
+
+.. code-block:: php
+
+    $cfg['Servers'][$i]['auth_type'] = 'signon';
+    $cfg['Servers'][$i]['SignonScript'] = '/etc/phpmyadmin/signon-proxy-header.php';
+    $cfg['Servers'][$i]['LogoutURL'] = 'https://pma.example.com/oauth2/sign_out';
+
+The proxy has to set the header itself, replacing whatever the client sent.
+With nginx (or nginx proxy manager) and oauth2-proxy started with
+``--set-xauthrequest``, the location passing requests to phpMyAdmin looks like
+this:
+
+.. code-block:: nginx
+
+    location / {
+        auth_request /oauth2/auth;
+        error_page 401 = /oauth2/sign_in;
+
+        auth_request_set $email $upstream_http_x_auth_request_email;
+        proxy_set_header X-Forwarded-Email $email;
+
+        proxy_pass http://phpmyadmin;
+    }
+
+The ``proxy_set_header`` line has to be in the same ``location`` block as
+``proxy_pass``: nginx does not inherit ``proxy_set_header`` from the
+``server`` block into a location that sets any header itself, and the header
+sent by the client would then reach phpMyAdmin. To verify the setup, send the
+header yourself through the proxy (for example with a browser extension or
+``curl``) and check that you are still logged in as yourself.
+
+.. warning::
+
+    Anybody who can reach phpMyAdmin without passing through the proxy could
+    send the header themselves. The script therefore only accepts it from the
+    addresses listed in ``SIGNON_TRUSTED_PROXIES``, and the proxy has to
+    remove the header from incoming requests before adding its own.
+
+    * List only the address of the proxy, never the network of a container
+      platform or its gateway, as every other container could then pretend to
+      be anybody. Give the proxy container a fixed address and do not publish
+      the port of phpMyAdmin; refused requests are reported in the PHP error
+      log together with the address they came from.
+    * Modules rewriting the client address, such as ``mod_remoteip`` or the
+      nginx ``realip`` module, make phpMyAdmin see the client instead of the
+      proxy, so the check fails.
+    * Depending on the web server, PHP makes headers named
+      ``X_Forwarded_Email`` or ``X.Forwarded.Email`` available under the same
+      name as ``X-Forwarded-Email``. The script refuses such requests where
+      PHP sees the original header names (Apache module, built-in web
+      server), but not with PHP-FPM or CGI. The web server in front of PHP
+      has to drop these headers: nginx and Apache do so by default, so do not
+      enable ``underscores_in_headers`` or disable ``ignore_invalid_headers``.
+
+* The MySQL passwords are stored in the script, so protect it the same way
+  as :file:`config.inc.php` with :ref:`auth_config`.
+* The identity is only as trustworthy as the proxy makes it: use a claim the
+  identity provider verifies (for example a verified e-mail address) and
+  restrict who may sign in at the proxy.
+* Set :config:option:`$cfg['Servers'][$i]['LogoutURL']` to the sign out
+  :term:`URL` of the proxy, otherwise logging out of phpMyAdmin logs the user
+  straight back in. How long a login lasts is decided by the proxy.
+* Consider setting :config:option:`$cfg['ShowChgPassword']` to ``false``, as
+  a password changed from within phpMyAdmin no longer matches the script.
+* Identities mapped to the same MySQL user share its phpMyAdmin preferences
+  and two-factor authentication settings, and the authentication log
+  (:config:option:`$cfg['AuthLog']`) records the MySQL user for successful
+  logins; refused logins are recorded with the identity.
 
 .. seealso::
     :config:option:`$cfg['Servers'][$i]['auth_type']`,
