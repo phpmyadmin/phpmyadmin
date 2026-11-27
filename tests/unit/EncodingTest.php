@@ -163,8 +163,9 @@ class EncodingTest extends AbstractTestCase
     #[RequiresPhpExtension('iconv')]
     public function testIconvCp932ReturnsOriginalWhenConversionFails(): void
     {
+        $config = Config::$instance = new Config();
+        $config->set('IconvExtraParams', '//TRANSLIT//IGNORE');
         Encoding::setEngine(Encoding::ENGINE_ICONV);
-        Config::getInstance()->set('IconvExtraParams', '//TRANSLIT//IGNORE');
 
         $input = 'テスト😀';
         self::assertSame($input, Encoding::convertString('UTF-8', 'CP932', $input));
