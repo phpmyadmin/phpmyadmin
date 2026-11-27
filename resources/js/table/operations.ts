@@ -261,7 +261,6 @@ AJAX.registerOnload('table/operations.js', function () {
             const argsep = CommonParams.get('arg_separator');
             const submitData = $form.serialize() + argsep + 'ajax_page_request=true';
             ajaxShowMessage(window.Messages.strProcessingRequest);
-            AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
 

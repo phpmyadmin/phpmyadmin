@@ -66,12 +66,10 @@ AJAX.registerOnload('table/tracking.js', function () {
             const question = window.Messages.strDeleteTrackingVersionMultiple;
             $button.confirm(question, $form.attr('action'), function (url) {
                 ajaxShowMessage();
-                AJAX.source = $form;
                 $.post(url, submitData, AJAX.responseHandler);
             });
         } else {
             ajaxShowMessage();
-            AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
     });
@@ -85,7 +83,6 @@ AJAX.registerOnload('table/tracking.js', function () {
         const question = window.Messages.strDeleteTrackingVersion;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             ajaxShowMessage();
-            AJAX.source = $anchor;
             const argSep = CommonParams.get('arg_separator');
             let params = getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';
@@ -102,7 +99,6 @@ AJAX.registerOnload('table/tracking.js', function () {
         const question = window.Messages.strDeletingTrackingEntry;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             ajaxShowMessage();
-            AJAX.source = $anchor;
             const argSep = CommonParams.get('arg_separator');
             let params = getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';

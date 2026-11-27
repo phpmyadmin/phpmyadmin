@@ -284,7 +284,6 @@ AJAX.registerOnload('table/structure.js', function () {
 
         $thisAnchor.confirm(question, $thisAnchor.attr('href'), function (url) {
             ajaxShowMessage();
-            AJAX.source = $this;
 
             let params = getJsConfirmCommonParam(this, $thisAnchor.getPostData());
             params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
@@ -432,7 +431,6 @@ AJAX.registerOnload('table/structure.js', function () {
         const submitData = $form.serialize() + argsep + 'ajax_page_request=true';
 
         ajaxShowMessage();
-        AJAX.source = $form;
 
         $.post(this.formAction, submitData, AJAX.responseHandler);
     });
@@ -447,7 +445,6 @@ AJAX.registerOnload('table/structure.js', function () {
         function submitPartitionAction (url) {
             const params = 'ajax_page_request=true&' + $link.getPostData();
             ajaxShowMessage();
-            AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
         }
 
@@ -476,7 +473,6 @@ AJAX.registerOnload('table/structure.js', function () {
                 'ajax_page_request': true,
             }, $link.getPostData());
             ajaxShowMessage();
-            AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
         });
     });

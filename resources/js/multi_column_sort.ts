@@ -18,13 +18,11 @@ AJAX.registerOnload('multi_column_sort.js', function () {
         const argsep = CommonParams.get('arg_separator');
         if (event.ctrlKey || event.altKey) {
             event.preventDefault();
-            AJAX.source = $(this);
             ajaxShowMessage();
             orderUrlRemove += argsep + 'ajax_page_request=true';
             $.post('index.php?route=/sql', orderUrlRemove, AJAX.responseHandler);
         } else if (event.shiftKey) {
             event.preventDefault();
-            AJAX.source = $(this);
             ajaxShowMessage();
             orderUrlAdd += argsep + 'ajax_page_request=true';
             $.post('index.php?route=/sql', orderUrlAdd, AJAX.responseHandler);

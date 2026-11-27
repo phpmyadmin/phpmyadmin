@@ -56,12 +56,10 @@ AJAX.registerOnload('database/tracking.js', function () {
             const question = window.Messages.strDeleteTrackingDataMultiple;
             $button.confirm(question, $form.attr('action'), function (url) {
                 ajaxShowMessage(window.Messages.strDeletingTrackingData);
-                AJAX.source = $form;
                 $.post(url, submitData, AJAX.responseHandler);
             });
         } else {
             ajaxShowMessage();
-            AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         }
     });
@@ -76,7 +74,6 @@ AJAX.registerOnload('database/tracking.js', function () {
         const argsep = CommonParams.get('arg_separator');
         const submitData = $form.serialize() + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
         ajaxShowMessage();
-        AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
 
@@ -89,7 +86,6 @@ AJAX.registerOnload('database/tracking.js', function () {
         const question = window.Messages.strDeleteTrackingData;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             ajaxShowMessage(window.Messages.strDeletingTrackingData);
-            AJAX.source = $anchor;
             const argSep = CommonParams.get('arg_separator');
             let params = getJsConfirmCommonParam(this, $anchor.getPostData());
             params += argSep + 'ajax_page_request=1';

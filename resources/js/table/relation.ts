@@ -4,7 +4,6 @@ import { CommonParams } from '../modules/common.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
-import refreshMainContent from '../modules/functions/refreshMainContent.ts';
 import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**

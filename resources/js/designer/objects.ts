@@ -1,17 +1,14 @@
 const DesignerObjects = {
     PdfPage: function (dbName, pageDescr, tblCords) {
-        // no dot set the auto increment before put() in the database
-        // issue #12900
-        // eslint-disable-next-line no-unused-vars
-        var pgNr;
+        // Do not set this.pgNr here. IndexedDB generates the key on put(),
+        // and a null key makes put() fail (issue #12900).
         this.dbName = dbName;
         this.pageDescr = pageDescr;
         this.tblCords = tblCords;
     },
     TableCoordinate: function (dbName, tableName, pdfPgNr, x, y) {
-        // no dot set the auto increment before put() in the database
-        // issue #12900
-        // var id;
+        // Do not set this.id here. IndexedDB generates the key on put(),
+        // and a null key makes put() fail (issue #12900).
         this.dbName = dbName;
         this.tableName = tableName;
         this.pdfPgNr = pdfPgNr;

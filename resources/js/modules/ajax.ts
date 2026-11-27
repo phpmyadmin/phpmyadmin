@@ -14,18 +14,12 @@ import { sprintf } from 'locutus/php/strings/sprintf';
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
- *
- * @test-module AJAX
  */
 const AJAX = {
     /**
      * @var {boolean} active Whether we are busy
      */
     active: false,
-    /**
-     * @var {object} source The object whose event initialized the request
-     */
-    source: null,
     /**
      * @var {object} xhr A reference to the ajax request that is currently running
      */
@@ -304,14 +298,13 @@ const AJAX = {
             }
         }
 
-        AJAX.source = $(this);
 
         $('html, body').animate({ scrollTop: 0 }, 'fast');
 
         const url = isLink ? href : $(this).attr('action');
         const argsep = CommonParams.get('arg_separator');
         let params = 'ajax_page_request=true';
-        const dataPost = AJAX.source.getPostData();
+        const dataPost = $(this).getPostData();
         if (! isLink) {
             params += argsep + $(this).serialize();
         } else if (dataPost) {

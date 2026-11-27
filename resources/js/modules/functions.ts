@@ -292,20 +292,7 @@ export function getSqlEditor ($textarea, options = undefined, resize = undefined
  * Clear text selection
  */
 function clearSelection () {
-    // @ts-ignore
-    if (document.selection && document.selection.empty) {
-        // @ts-ignore
-        document.selection.empty();
-    } else if (window.getSelection) {
-        const sel = window.getSelection();
-        if (sel.empty) {
-            sel.empty();
-        }
-
-        if (sel.removeAllRanges) {
-            sel.removeAllRanges();
-        }
-    }
+    window.getSelection().removeAllRanges();
 }
 
 /**
@@ -505,8 +492,7 @@ export function displayPasswordGenerateButton () {
  */
 export function confirmLink (theLink, theSqlQuery) {
     // Confirmation is not required in the configuration file
-    // or browser is Opera (crappy js implementation)
-    if (window.Messages.strDoYouReally === '' || typeof (window.opera) !== 'undefined') {
+    if (window.Messages.strDoYouReally === '') {
         return true;
     }
 
@@ -2425,14 +2411,6 @@ export function onloadEnumSetEditor (): void {
         });
 
         // Show the dialog
-        let width = parseInt(
-            ((parseInt($('html').css('font-size'), 10) / 13) * 340).toString(),
-            10,
-        );
-        if (! width) {
-            width = 340;
-        }
-
         $('#enumEditorModal').modal('show');
         $('#enumEditorModal').find('.modal-body').first().html(dialog);
         $('#enumEditorModal .values tbody').sortable({

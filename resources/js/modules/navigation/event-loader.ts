@@ -221,7 +221,6 @@ export default function onloadNavigation () {
         $(document).on('click', 'a.showUnhide.ajax', function (event) {
             event.preventDefault();
             const $msg = ajaxShowMessage();
-            const argSep = CommonParams.get('arg_separator');
             const params = $(this).getPostData();
             $.post($(this).attr('href'), params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {

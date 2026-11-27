@@ -29,8 +29,7 @@
                             value="select_all_{{ t_n_url }}"
                             id="select_all_{{ i }}"
                             title="{{ t('Select all') }}"
-                            table_name="{{ table_name }}"
-                            db_name="{{ db }}">
+                            table_name="{{ table_name }}">
                     </td>
                 {% endif %}
                 <td class="small_tab"
@@ -92,7 +91,6 @@
                                 style="margin: 0;"
                                 title="{{ t('Select "%s"')|format(col_name) }}"
                                 id_check_all="select_all_{{ i }}"
-                                db_name="{{ db }}"
                                 table_name="{{ table_name }}"
                                 col_name="{{ col_name }}">
                         </td>
@@ -109,7 +107,6 @@
                         <td class="small_tab_pref small_tab_pref_click_opt"
                             {# Escaped 2 times to be able to use it in innerHtml #}
                             option_col_name_modal="<strong>{{ t('Add an option for column "%s".')|format(col_name)|escape('html')|escape('html') }}</strong>"
-                            db_name="{{ db }}"
                             table_name="{{ table_name }}"
                             col_name="{{ col_name }}"
                             db_table_name_url="{{ t_n_url }}">

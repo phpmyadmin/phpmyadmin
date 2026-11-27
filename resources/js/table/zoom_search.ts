@@ -24,26 +24,6 @@ function displayHelp () {
 }
 
 /**
- * Extend the array object for max function
- * @param {number[]} array
- * @return {number}
- **/
-// @ts-ignore
-Array.max = function (array) {
-    return Math.max.apply(Math, array);
-};
-
-/**
- * Extend the array object for min function
- * @param {number[]} array
- * @return {number}
- **/
-// @ts-ignore
-Array.min = function (array) {
-    return Math.min.apply(Math, array);
-};
-
-/**
  * Checks if a string contains only numeric value
  * @param {string} n (to be checked)
  * @return {boolean}

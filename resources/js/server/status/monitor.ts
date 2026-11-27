@@ -455,7 +455,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         return false;
     });
 
-    $('#monitorDoneRearrangeChartButton').on('click', function (event) {
+    $('#monitorDoneRearrangeChartButton').on('click', function () {
         editMode = false;
         $('#chartGrid').sortableTable('destroy');
         saveMonitor();
@@ -544,7 +544,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         saveMonitor(); // Save settings
     });
 
-    $('#monitorAddNewChartButton').on('click', function (event) {
+    $('#monitorAddNewChartButton').on('click', function () {
         $('#addChartButton').on('click', function () {
             const type = $('input[name="chartType"]:checked').val();
 

@@ -15,8 +15,6 @@ import { sprintf } from 'locutus/php/strings/sprintf';
 
 /**
  * @fileoverview    functions used wherever an sql query form is used
- *
- * @test-module Sql
  */
 
 /**
@@ -560,7 +558,6 @@ AJAX.registerOnload('sql.js', function () {
         }
 
         ajaxShowMessage();
-        const argsep = CommonParams.get('arg_separator');
         $.post($(this).attr('action'), $(this).serialize(), function (data) {
             if (data.success) {
                 ajaxShowMessage(data.message);
@@ -944,7 +941,6 @@ AJAX.registerOnload('sql.js', function () {
         const $form = $(this);
 
         const $msgbox = ajaxShowMessage();
-        const argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize(), function (data) {
             ajaxRemoveMessage($msgbox);
             const $sqlqueryresults = $form.parents('.sqlqueryresults');
@@ -992,7 +988,6 @@ AJAX.registerOnload('sql.js', function () {
             const argsep = CommonParams.get('arg_separator');
             const submitData = $form.serialize() + argsep + 'ajax_page_request=true';
             ajaxShowMessage();
-            AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
         };
 
@@ -1094,7 +1089,6 @@ AJAX.registerOnload('sql.js', function () {
         const argsep = CommonParams.get('arg_separator');
         let submitData = $form.serialize() + argsep + 'ajax_page_request=true' + argsep;
         ajaxShowMessage();
-        AJAX.source = $form;
 
         let url;
         if (action === 'edit') {
@@ -1200,7 +1194,6 @@ function browseForeignDialog ($thisA) {
     const showAllId = '#foreign_showAll';
     const tableId = '#browse_foreign_table';
     const filterId = '#input_foreign_filter';
-    const argSep = CommonParams.get('arg_separator');
     const params = $thisA.getPostData();
 
     let browseForeignModal = document.getElementById('browseForeignModal');

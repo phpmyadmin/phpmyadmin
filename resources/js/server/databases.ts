@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
 import { Navigation } from '../modules/navigation.ts';
-import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml } from '../modules/functions/escape.ts';
@@ -98,16 +97,6 @@ const CreateDatabase = {
         event.preventDefault();
 
         const $form = $(this);
-
-        // TODO Remove this section when all browsers support HTML5 "required" property
-        const newDbNameInput = $form.find('input[name=new_db]');
-        if (newDbNameInput.val() === '') {
-            newDbNameInput.trigger('focus');
-            alert(window.Messages.strFormEmpty);
-
-            return;
-        }
-        // end remove
 
         ajaxShowMessage(window.Messages.strProcessingRequest);
 

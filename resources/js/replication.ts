@@ -97,7 +97,6 @@ AJAX.registerOnload('replication.js', function () {
         const question = window.Messages.strResetReplicaWarning;
         $anchor.confirm(question, $anchor.attr('href'), function (url) {
             ajaxShowMessage();
-            AJAX.source = $anchor;
             const params = getJsConfirmCommonParam({
                 'ajax_page_request': true,
             }, $anchor.getPostData());
