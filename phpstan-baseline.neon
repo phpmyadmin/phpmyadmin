@@ -11917,12 +11917,6 @@ parameters:
 			path: src/Setup/Index.php
 
 		-
-			message: '#^Access to an undefined property PhpMyAdmin\\SqlParser\\Statement\:\:\$where\.$#'
-			identifier: property.notFound
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: '#^Binary operation "\+" between int\<min, \-1\>\|int\<1, max\> and int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -11977,18 +11971,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Cannot access offset 0 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Sql.php
-
-		-
-			message: '#^Cannot access property \$expr on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Sql.php
-
-		-
 			message: '#^Cannot call method has\(\) on PhpMyAdmin\\SqlParser\\Components\\OptionsArray\|null\.$#'
 			identifier: method.nonObject
 			count: 1
@@ -12003,7 +11985,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 3
+			count: 2
 			path: src/Sql.php
 
 		-
@@ -12074,12 +12056,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$string of function bin2hex expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Sql.php
-
-		-
-			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Sql.php
