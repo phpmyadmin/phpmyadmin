@@ -39,6 +39,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
     public function testIndexAction(): void
     {
+        Current::$server = 1;
         $config = Config::getInstance();
         $config->selectedServer['only_db'] = '';
 

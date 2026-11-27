@@ -44,6 +44,7 @@ class BinlogControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
+        Current::$server = 1;
         $response = new ResponseRenderer();
 
         $controller = new BinlogController($response, DatabaseInterface::getInstance(), Config::getInstance());

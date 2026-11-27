@@ -24,6 +24,7 @@ class AddFieldControllerTest extends AbstractTestCase
 {
     public function testInvoke(): void
     {
+        Current::$server = 1;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $config = Config::getInstance();

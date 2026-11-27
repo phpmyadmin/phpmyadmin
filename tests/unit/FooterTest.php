@@ -103,6 +103,7 @@ class FooterTest extends AbstractTestCase
      */
     public function testDisplay(): void
     {
+        Current::$server = 1;
         $config = Config::getInstance();
         $footer = new Footer(new Template($config), $config);
         $scripts = <<<'HTML'

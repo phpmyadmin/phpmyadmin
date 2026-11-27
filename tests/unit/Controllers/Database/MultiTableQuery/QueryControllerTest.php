@@ -27,6 +27,7 @@ final class QueryControllerTest extends AbstractTestCase
 {
     public function testController(): void
     {
+        Current::$server = 1;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
 

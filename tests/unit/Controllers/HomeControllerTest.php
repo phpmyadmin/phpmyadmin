@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\HomeController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -62,6 +63,7 @@ final class HomeControllerTest extends AbstractTestCase
 
     public function testHomeController(): void
     {
+        Current::$server = 1;
         $config = Config::$instance = new Config();
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('mysql');

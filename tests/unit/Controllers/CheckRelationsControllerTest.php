@@ -58,6 +58,7 @@ final class CheckRelationsControllerTest extends AbstractTestCase
     #[Test]
     public function createConfigStorage(): void
     {
+        Current::$server = 1;
         $relationParameters = RelationParameters::fromArray([]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
         Tracker::enable();

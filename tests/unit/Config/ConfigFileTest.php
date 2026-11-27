@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Settings;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Medium;
@@ -35,6 +36,7 @@ class ConfigFileTest extends AbstractTestCase
     {
         parent::setUp();
 
+        Current::$server = 1;
         $this->object = new ConfigFile();
     }
 

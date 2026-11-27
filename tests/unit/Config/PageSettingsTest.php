@@ -62,6 +62,7 @@ class PageSettingsTest extends AbstractTestCase
     #[BackupStaticProperties(true)]
     public function testShowGroupBrowse(): void
     {
+        Current::$server = 1;
         $config = Config::getInstance();
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences(
