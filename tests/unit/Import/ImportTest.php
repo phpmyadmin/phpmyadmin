@@ -293,7 +293,7 @@ final class ImportTest extends AbstractTestCase
     /**
      * Data provider for testSkipByteOrderMarksFromContents
      *
-     * @return mixed[][]
+     * @return array<array{string, string}>
      */
     public static function providerContentWithByteOrderMarks(): array
     {

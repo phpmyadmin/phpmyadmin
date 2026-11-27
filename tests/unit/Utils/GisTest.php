@@ -62,7 +62,7 @@ class GisTest extends AbstractTestCase
         ));
     }
 
-    /** @return mixed[][] */
+    /** @return array<int, array{string, string[], string, bool, int}> */
     public static function providerConvertToWellKnownText(): array
     {
         return [

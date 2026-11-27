@@ -414,8 +414,8 @@ class TransformationPluginsTest extends AbstractTestCase
     /**
      * @return iterable<array-key, array{
      *     0: TransformationsPlugin,
-     *     1: array{0: string, 1?: mixed[], 2?: FieldMetadata|null},
-     *     2: string|int,
+     *     1: list{0: string, 1?: mixed[], 2?: FieldMetadata},
+     *     2: string,
      *     3?: bool,
      *     4?: string
      * }>
@@ -653,12 +653,7 @@ class TransformationPluginsTest extends AbstractTestCase
     /**
      * Tests for applyTransformation, isSuccess, getError
      *
-     * @param TransformationsPlugin $object      instance of the plugin
-     * @param array                 $applyArgs   arguments for applyTransformation
-     * @param string                $transformed the expected output of applyTransformation
-     * @param bool                  $success     the expected output of isSuccess
-     * @param string                $error       the expected output of getError
-     * @psalm-param array{string, array, FieldMetadata|null} $applyArgs
+     * @param list{0: string, 1?: mixed[], 2?: FieldMetadata} $applyArgs
      */
     #[DataProvider('transformationDataProvider')]
     public function testTransformation(

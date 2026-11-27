@@ -63,7 +63,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
     /**
      * Data provider for testGenerateWkt() test case
      *
-     * @return array<array{array<mixed>, int, string|null, string}>
+     * @return array<array{array<mixed>, int, string, string}>
      */
     public static function providerForTestGenerateWkt(): array
     {

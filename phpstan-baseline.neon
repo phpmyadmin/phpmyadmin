@@ -16267,12 +16267,6 @@ parameters:
 			path: tests/unit/Plugins/Schema/SvgRelationSchemaTest.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Tests\\Plugins\\Transformations\\TransformationPluginsTest\:\:testTransformation\(\) has parameter \$applyArgs with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: tests/unit/Plugins/Transformations/TransformationPluginsTest.php
-
-		-
 			message: '#^PHPDoc tag @var with type array\{backend\: string, settings\: array\<mixed\>\} is not subtype of native type array\{backend\: '''', settings\: array\{\}\}\.$#'
 			identifier: varTag.nativeType
 			count: 1

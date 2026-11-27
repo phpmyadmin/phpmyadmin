@@ -310,7 +310,7 @@ class SqlTest extends AbstractTestCase
         );
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{0: string|null, 1: array<string, int|string>, 2: int, 3: int, 4?: bool, 5?: string}> */
     public static function dataProviderCountQueryResults(): array
     {
         // sql query

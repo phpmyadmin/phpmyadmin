@@ -65,7 +65,7 @@ class ForeignKeyTest extends AbstractTestCase
         );
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{string, string}> */
     public static function providerCheckInit(): array
     {
         return [['', 'OFF'], ['0', 'OFF'], ['1', 'ON']];
@@ -109,7 +109,7 @@ class ForeignKeyTest extends AbstractTestCase
         self::assertFalse(ForeignKey::handleDisableCheckInit());
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{bool, string}> */
     public static function providerCheckCleanup(): array
     {
         return [[true, 'ON'], [false, 'OFF']];
