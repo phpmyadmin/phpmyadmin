@@ -8449,12 +8449,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Casting to string something that''s already string\.$#'
-			identifier: cast.useless
-			count: 2
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 10

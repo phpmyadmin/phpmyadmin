@@ -1181,14 +1181,14 @@ class ExportSql extends ExportPlugin
             };
 
             $sqlQuery .= Util::backquote($relationParameters->db)
-                . '.' . Util::backquote((string) $relationParams[$type])
+                . '.' . Util::backquote($relationParams[$type])
                 . ' WHERE ' . Util::backquote($dbNameColumn)
                 . ' = ' . $this->dbi->quoteString($db);
             if ($table !== null) {
                 $sqlQuery .= ' AND `table_name` = ' . $this->dbi->quoteString($table);
             }
 
-            $this->exportData((string) $relationParameters->db, (string) $relationParams[$type], $sqlQuery, $aliases);
+            $this->exportData((string) $relationParameters->db, $relationParams[$type], $sqlQuery, $aliases);
         }
     }
 
