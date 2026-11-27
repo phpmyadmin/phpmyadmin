@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Database\Designer\DesignerTable;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -97,6 +98,72 @@ class TemplateTest extends AbstractTestCase
     {
         $this->expectException(LoaderError::class);
         $this->template->render('template not found');
+    }
+
+    public function testRenderDesignerTableWithoutColumnMetadata(): void
+    {
+        $result = $this->template->render('database/designer/database_tables', [
+            'tables' => [new DesignerTable('test_db', 'sales', 'DuckDB', null)],
+            'tab_pos' => [],
+            'default_tab_pos' => ['test_db.sales' => ['X' => 0, 'Y' => 0]],
+            'display_page' => -1,
+            'tab_column' => [],
+            'tables_all_keys' => [],
+            'columns_type' => [],
+            'has_query' => false,
+        ]);
+
+        self::assertStringContainsString('table_name_url="sales"', $result);
+        self::assertStringNotContainsString('id_tr_', $result);
+    }
+
+    public function testRenderStructureTableWithoutRowCount(): void
+    {
+        $result = $this->template->render('database/structure/structure_table_row', [
+            'curr' => 1,
+            'table_is_view' => false,
+            'current_table' => [
+                'TABLE_NAME' => 'sales',
+                'TABLE_ROWS' => null,
+                'ENGINE' => 'DuckDB',
+                'Comment' => '',
+            ],
+            'input_class' => 'checkall',
+            'table_url_params' => ['db' => 'test_db', 'table' => 'sales'],
+            'browse_table_label_title' => '',
+            'browse_table_label_truename' => 'sales',
+            'tracking_icon' => '',
+            'server_replica_status' => false,
+            'num_favorite_tables' => 0,
+            'may_have_rows' => false,
+            'db' => 'test_db',
+            'db_is_system_schema' => false,
+            'empty_table_sql_query' => '',
+            'drop_query' => '',
+            'drop_message' => '',
+            'collation' => '',
+            'is_show_db_details' => true,
+            'is_show_stats' => false,
+            'formatted_size' => '',
+            'unit' => '',
+            'overhead' => '',
+            'show_charset' => false,
+            'charset' => '',
+            'show_comment' => false,
+            'show_creation' => false,
+            'show_last_update' => false,
+            'show_last_check' => false,
+            'create_time' => '',
+            'update_time' => '',
+            'check_time' => '',
+            'ignored' => false,
+            'do' => false,
+            'already_favorite' => false,
+            'limit_chars' => 80,
+        ]);
+
+        self::assertStringContainsString('data-filter-row="SALES"', $result);
+        self::assertStringNotContainsString('tbl_rows', $result);
     }
 
     /**
