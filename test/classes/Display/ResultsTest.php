@@ -1810,6 +1810,7 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetSingleAndMultiSortUrlsWithFunctionColumnFromDerivedTable(): void
     {
+        /** @var string[] $data */
         $data = $this->callFunction(
             $this->object,
             DisplayResults::class,
