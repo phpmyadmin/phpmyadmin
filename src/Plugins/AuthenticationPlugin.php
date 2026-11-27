@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins;
 
 use Exception;
+use PhpMyAdmin\Clock\Clock;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferences;
+use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Footer;
@@ -299,10 +302,19 @@ abstract class AuthenticationPlugin
      */
     public function checkTwoFactor(ServerRequest $request): Response|null
     {
-        $twofactor = new TwoFactor($this->user);
+        $config = Config::getInstance();
+        $dbi = DatabaseInterface::getInstance($config);
+        $userPreferences = new UserPreferences(
+            $dbi,
+            new Relation($dbi, $config),
+            $this->template,
+            $config,
+            new Clock(),
+        );
+        $twoFactor = new TwoFactor($userPreferences, $config, $this->user);
 
         /* Do we need to show the form? */
-        if ($twofactor->check($request)) {
+        if ($twoFactor->check($request)) {
             return null;
         }
 
@@ -315,8 +327,8 @@ abstract class AuthenticationPlugin
             __('You have enabled two factor authentication, please confirm your login.'),
         ));
         $this->responseRenderer->addHTML($this->template->render('login/twofactor', [
-            'form' => $twofactor->render($request),
-            'show_submit' => $twofactor->showSubmit(),
+            'form' => $twoFactor->render($request),
+            'show_submit' => $twoFactor->showSubmit(),
         ]));
         $this->responseRenderer->addHTML($this->template->render('login/footer'));
         $this->responseRenderer->addHTML(Footer::renderFooter());

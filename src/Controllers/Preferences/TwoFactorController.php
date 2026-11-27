@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Preferences;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Config\UserPreferences;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
@@ -21,8 +22,12 @@ use function count;
 #[Route('/preferences/two-factor', ['GET', 'POST'])]
 final readonly class TwoFactorController implements InvocableController
 {
-    public function __construct(private ResponseRenderer $response, private Relation $relation, private Config $config)
-    {
+    public function __construct(
+        private ResponseRenderer $response,
+        private Relation $relation,
+        private Config $config,
+        private UserPreferences $userPreferences,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response
@@ -35,7 +40,7 @@ final readonly class TwoFactorController implements InvocableController
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
-        $twoFactor = new TwoFactor($this->config->selectedServer['user']);
+        $twoFactor = new TwoFactor($this->userPreferences, $this->config, $this->config->selectedServer['user']);
 
         if ($request->hasBodyParam('2fa_remove')) {
             if (! $twoFactor->check($request, true)) {
