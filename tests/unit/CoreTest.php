@@ -398,8 +398,8 @@ class CoreTest extends AbstractTestCase
     }
 
     /**
-     * @param string[] $encrypted
-     * @param string[] $decrypted
+     * @param mixed[] $encrypted
+     * @param mixed[] $decrypted
      */
     #[DataProvider('providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam')]
     public function testPopulateRequestWithEncryptedQueryParamsWithInvalidParam(
@@ -426,7 +426,7 @@ class CoreTest extends AbstractTestCase
         self::assertSame($decrypted, $_REQUEST);
     }
 
-    /** @return array<int, array<int, array<string, string|mixed[]>>> */
+    /** @return array<array{array<mixed>, array<mixed>}> */
     public static function providerForTestPopulateRequestWithEncryptedQueryParamsWithInvalidParam(): array
     {
         return [[[], []], [['eq' => []], []], [['eq' => ''], []], [['eq' => 'invalid'], []]];

@@ -141,7 +141,7 @@ class PolygonTest extends AbstractTestCase
     /**
      * data provider for testGetPointOnSurface
      *
-     * @return list{list{mixed}, list{mixed}}
+     * @return list{list{Polygon}, list{Polygon}}
      */
     public static function providerForTestGetPointOnSurface(): array
     {

@@ -389,19 +389,21 @@ class Sql
     /**
      * Function to check whether this query is for just browsing
      */
-    public static function isJustBrowsing(StatementInfo $statementInfo, bool $findRealEnd = false): bool
+    public static function isJustBrowsing(StatementInfo $statementInfo): bool
     {
-        return ! $statementInfo->flags->isGroup
+        $statement = $statementInfo->statement;
+
+        return $statement instanceof SelectStatement
+            && ! $statementInfo->flags->isGroup
             && ! $statementInfo->flags->isFunc
             && ! $statementInfo->flags->union
             && ! $statementInfo->flags->distinct
             && $statementInfo->flags->selectFrom
-            && (count($statementInfo->selectTables) === 1)
-            && (empty($statementInfo->statement->where)
-                || (count($statementInfo->statement->where) === 1
-                    && $statementInfo->statement->where[0]->expr === '1'))
+            && count($statementInfo->selectTables) === 1
+            && ($statement->where === null
+                || $statement->where === []
+                || (count($statement->where) === 1 && $statement->where[0]->expr === '1'))
             && ! $statementInfo->flags->group
-            && ! $findRealEnd
             && ! $statementInfo->flags->isSubQuery
             && ! $statementInfo->flags->join
             && ! $statementInfo->flags->having;

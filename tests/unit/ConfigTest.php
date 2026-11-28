@@ -227,7 +227,7 @@ class ConfigTest extends AbstractTestCase
     /**
      * Data provider for https detection
      *
-     * @return array<array<string|int|bool>>
+     * @return array<array{string, string, string, string, string, string, string, string, string, int, bool}>
      */
     public static function httpsParams(): array
     {

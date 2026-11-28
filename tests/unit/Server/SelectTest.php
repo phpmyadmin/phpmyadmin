@@ -76,7 +76,7 @@ class SelectTest extends AbstractTestCase
         self::assertStringContainsString($server['user'], $html);
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{bool}> */
     public static function renderDataProvider(): array
     {
         return [

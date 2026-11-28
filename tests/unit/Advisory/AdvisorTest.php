@@ -36,7 +36,7 @@ class AdvisorTest extends AbstractTestCase
         self::assertSame($expected, $result);
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{float, string}> */
     public static function advisorTimes(): array
     {
         return [

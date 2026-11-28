@@ -54,7 +54,6 @@
         "ext-json": "*",
         "ext-mysqli": "*",
         "ext-openssl": "*",
-        "ext-pcre": "*",
         "ext-session": "*",
         "ext-simplexml": "*",
         "ext-sodium": "*",

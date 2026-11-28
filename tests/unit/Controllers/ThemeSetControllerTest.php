@@ -66,12 +66,10 @@ class ThemeSetControllerTest extends AbstractTestCase
         (new ThemeSetController(new ResponseRenderer(), $themeManager, $userPreferences, $config))($request);
     }
 
-    /**
-     * @return iterable<int, array<int, bool|string|string[]|null>>
-     * @psalm-return iterable<int, array{bool, string[]|string|null}>
-     */
+    /** @return iterable<array{bool, string}> */
     public static function providerForTestWithoutTheme(): iterable
     {
-        return [[true, ''], [false, '']];
+        yield [true, ''];
+        yield [false, ''];
     }
 }

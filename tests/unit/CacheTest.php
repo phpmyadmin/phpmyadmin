@@ -17,7 +17,7 @@ class CacheTest extends AbstractTestCase
         Cache::purge();
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{string, mixed}> */
     public static function dataProviderCacheKeyValues(): array
     {
         return [

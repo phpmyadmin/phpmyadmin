@@ -940,7 +940,7 @@ class UtilTest extends AbstractTestCase
         self::assertSame($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
     }
 
-    /** @return array<int|string, string|null>[] */
+    /** @return array<array{string, string, string}> */
     public static function providerForTestBackquote(): array
     {
         return [

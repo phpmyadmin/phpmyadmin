@@ -92,14 +92,14 @@ class AuthenticationHttpTest extends AbstractTestCase
     }
 
     /**
-     * @param string      $user           test username
-     * @param string      $pass           test password
-     * @param string      $userIndex      index to test username against
-     * @param string      $passIndex      index to test username against
-     * @param string|bool $expectedReturn expected return value from test
-     * @param string      $expectedUser   expected username to be set
-     * @param string      $expectedPass   expected password to be set
-     * @param string|bool $oldUsr         value for $_REQUEST['old_usr']
+     * @param string $user           test username
+     * @param string $pass           test password
+     * @param string $userIndex      index to test username against
+     * @param string $passIndex      index to test username against
+     * @param bool   $expectedReturn expected return value from test
+     * @param string $expectedUser   expected username to be set
+     * @param string $expectedPass   expected password to be set
+     * @param string $oldUsr         value for $_REQUEST['old_usr']
      */
     #[DataProvider('readCredentialsProvider')]
     public function testAuthCheck(
@@ -107,10 +107,10 @@ class AuthenticationHttpTest extends AbstractTestCase
         string $pass,
         string $userIndex,
         string $passIndex,
-        string|bool $expectedReturn,
+        bool $expectedReturn,
         string $expectedUser,
         string $expectedPass,
-        string|bool $oldUsr = '',
+        string $oldUsr = '',
     ): void {
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;
@@ -132,7 +132,7 @@ class AuthenticationHttpTest extends AbstractTestCase
 
     /**
      * @return array<array{
-     *     0: string, 1: string, 2: string, 3: string, 4: string|bool, 5: string, 6: string|bool, 7?: string|bool
+     *     0: string, 1: string, 2: string, 3: string, 4: bool, 5: string, 6: string, 7?: string
      * }>
      */
     public static function readCredentialsProvider(): array

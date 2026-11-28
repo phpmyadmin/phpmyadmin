@@ -29,7 +29,7 @@ class SetVersionCommandTest extends AbstractTestCase
         $this->command = new SetVersionCommand();
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{string}> */
     public static function dataProviderBadVersions(): array
     {
         return [
@@ -64,7 +64,7 @@ class SetVersionCommandTest extends AbstractTestCase
         (new ReflectionMethod(SetVersionCommand::class, 'getGeneratedClass'))->invokeArgs($this->command, [$version]);
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{string, string}> */
     public static function dataProviderGoodVersions(): array
     {
         return [

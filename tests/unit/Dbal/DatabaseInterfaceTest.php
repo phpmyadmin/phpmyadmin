@@ -319,7 +319,7 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         );
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{int, string, string}> */
     public static function errorData(): array
     {
         return [
@@ -390,7 +390,7 @@ final class DatabaseInterfaceTest extends AbstractTestCase
         self::assertSame($upgrade, $verInt < $mysqlMinVersion);
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{string, int, int, bool}> */
     public static function versionData(): array
     {
         return [

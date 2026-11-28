@@ -14,8 +14,8 @@ use RecursiveIteratorIterator;
 use SplFileInfo;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Twig\Cache\CacheInterface;
 
@@ -35,13 +35,13 @@ final class CacheWarmupCommand extends Command
 {
     protected function configure(): void
     {
-        $this->addOption('twig', null, null, 'Warm up twig templates cache.');
-        $this->addOption('routing', null, null, 'Warm up routing cache.');
-        $this->addOption('twig-po', null, null, 'Warm up twig templates and write file mappings.');
+        $this->addOption('twig', null, InputOption::VALUE_NONE, 'Warm up twig templates cache.');
+        $this->addOption('routing', null, InputOption::VALUE_NONE, 'Warm up routing cache.');
+        $this->addOption('twig-po', null, InputOption::VALUE_NONE, 'Warm up twig templates and write file mappings.');
         $this->addOption(
             'env',
             null,
-            InputArgument::OPTIONAL,
+            InputOption::VALUE_REQUIRED,
             'Defines the environment (production or development) for twig warmup',
             'production',
         );

@@ -50,7 +50,7 @@ class TransformationsTest extends AbstractTestCase
     /**
      * Data provided for parsing options
      *
-     * @return mixed[][]
+     * @return array<array{string, string[]}>
      */
     public static function getOptionsData(): array
     {
@@ -233,7 +233,7 @@ class TransformationsTest extends AbstractTestCase
         );
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{string, string}> */
     public static function fixupData(): array
     {
         return [
@@ -260,7 +260,7 @@ class TransformationsTest extends AbstractTestCase
         );
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{string, string}> */
     public static function providerGetDescription(): array
     {
         return [
@@ -285,7 +285,7 @@ class TransformationsTest extends AbstractTestCase
         );
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{string, string}> */
     public static function providerGetName(): array
     {
         return [['../../../../test', ''], ['Input/Text_Plain_SqlEditor', 'SQL'], ['Output/Text_Plain_Sql', 'SQL']];

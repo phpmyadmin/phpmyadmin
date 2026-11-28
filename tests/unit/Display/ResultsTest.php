@@ -674,7 +674,7 @@ class ResultsTest extends AbstractTestCase
         self::assertStringContainsString('>T<', $output);
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{string, string, array<string, string>, string, string}> */
     public static function dataProviderGetSortOrderHiddenInputs(): array
     {
         // SQL to add the column

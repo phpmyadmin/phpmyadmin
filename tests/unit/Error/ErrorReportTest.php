@@ -289,7 +289,7 @@ class ErrorReportTest extends AbstractTestCase
     /**
      * The urls to be tested for sanitization
      *
-     * @return mixed[][]
+     * @return array<array{string, array<string>}>
      */
     public static function urlsToSanitize(): array
     {
