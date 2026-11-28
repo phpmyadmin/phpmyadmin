@@ -437,7 +437,7 @@
         {{ t('Add %s column(s)')|format(num_fields)|raw }}
         <input type="hidden" name="field_where" value="after">&nbsp;
         {# I tried displaying the drop-down inside the label but with Firefox the drop-down was blinking #}
-        <select name="after_field">
+        <select name="after_field" class="search">
             <option value="first" data-pos="first">
                 {{ t('at beginning of table') }}
             </option>
