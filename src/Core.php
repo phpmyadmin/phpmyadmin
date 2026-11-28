@@ -15,6 +15,7 @@ use Twig\Attribute\AsTwigFilter;
 use function __;
 use function array_walk_recursive;
 use function chr;
+use function count;
 use function explode;
 use function filter_var;
 use function function_exists;
@@ -40,6 +41,7 @@ use function stripos;
 use function strlen;
 use function strpos;
 use function substr;
+use function trim;
 use function unserialize;
 use function urldecode;
 
@@ -402,21 +404,24 @@ class Core
         /**
          * Parse header in form:
          * X-Forwarded-For: client, proxy1, proxy2
+         * Each proxy appends the address it received the request from, so only the end of the list is reliable.
+         * The client can write anything at the start. The client address is the last one that is not a trusted proxy.
          */
-        // Get header content
-        $value = self::getEnv($config->settings['TrustedProxies'][$directIp]);
-        // Grab first element what is client adddress
-        $value = explode(',', $value)[0];
-        // checks that the header contains only one IP address,
-        $isIp = filter_var($value, FILTER_VALIDATE_IP);
+        $addresses = explode(',', self::getEnv($config->settings['TrustedProxies'][$directIp]));
+        for ($i = count($addresses) - 1; $i > 0; $i--) {
+            $address = trim($addresses[$i]);
+            if (filter_var($address, FILTER_VALIDATE_IP) === false) {
+                return false;
+            }
 
-        if ($isIp !== false) {
-            // True IP behind a proxy
-            return $value;
+            if (! isset($config->settings['TrustedProxies'][$address])) {
+                return $address;
+            }
         }
 
-        // We could not parse header
-        return false;
+        $address = trim($addresses[0]);
+
+        return filter_var($address, FILTER_VALIDATE_IP) === false ? false : $address;
     }
 
     /**

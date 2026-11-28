@@ -9,22 +9,31 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use function bin2hex;
-use function dechex;
+use function count;
 use function explode;
+use function filter_var;
 use function hash_equals;
 use function hexdec;
+use function inet_ntop;
 use function inet_pton;
 use function intdiv;
 use function mb_strtolower;
-use function mb_substr;
 use function min;
 use function ord;
 use function preg_match;
+use function preg_split;
 use function str_contains;
+use function str_repeat;
 use function str_replace;
+use function str_starts_with;
 use function strlen;
 use function substr;
-use function substr_replace;
+use function trim;
+
+use const FILTER_FLAG_IPV4;
+use const FILTER_FLAG_IPV6;
+use const FILTER_VALIDATE_IP;
+use const PREG_SPLIT_NO_EMPTY;
 
 /**
  * PhpMyAdmin\IpAllowDeny class
@@ -46,12 +55,32 @@ class IpAllowDeny
      */
     public function ipMaskTest(string $testRange, string $ipToTest): bool
     {
+        $mappedIpv4 = $this->getMappedIpv4($ipToTest);
+        if ($mappedIpv4 !== null && $this->ipMaskTest($testRange, $mappedIpv4)) {
+            return true;
+        }
+
         if (str_contains($testRange, ':') || str_contains($ipToTest, ':')) {
             // assume IPv6
             return $this->ipv6MaskTest($testRange, $ipToTest);
         }
 
         return $this->ipv4MaskTest($testRange, $ipToTest);
+    }
+
+    /**
+     * Returns the IPv4 address from an IPv4-mapped IPv6 address, for example 10.0.0.5 from ::ffff:10.0.0.5
+     */
+    private function getMappedIpv4(string $ip): string|null
+    {
+        $ipBin = inet_pton($ip);
+        if ($ipBin === false || strlen($ipBin) !== 16 || ! str_starts_with($ipBin, str_repeat("\0", 10) . "\xff\xff")) {
+            return null;
+        }
+
+        $ipv4 = inet_ntop(substr($ipBin, 12));
+
+        return $ipv4 === false ? null : $ipv4;
     }
 
     /**
@@ -71,9 +100,8 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      */
-    public function ipv4MaskTest(string $testRange, string $ipToTest): bool
+    private function ipv4MaskTest(string $testRange, string $ipToTest): bool
     {
-        $result = true;
         if (preg_match('|^([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/([0-9]+)$|', $testRange, $regs) === 1) {
             return $this->cidrMatch($regs[1], (int) $regs[2], $ipToTest);
         }
@@ -81,26 +109,38 @@ class IpAllowDeny
         // range based
         $maskocts = explode('.', $testRange);
         $ipocts = explode('.', $ipToTest);
+        if (count($maskocts) !== 4 || count($ipocts) !== 4) {
+            return false;
+        }
 
         // perform a range match
         for ($i = 0; $i < 4; $i++) {
-            if (preg_match('|\[([0-9]+)\-([0-9]+)\]|', $maskocts[$i], $regs) === 1) {
+            if (preg_match('|^\[([0-9]+)\-([0-9]+)\]$|', $maskocts[$i], $regs) === 1) {
                 if ($ipocts[$i] > $regs[2] || $ipocts[$i] < $regs[1]) {
-                    $result = false;
+                    return false;
                 }
             } elseif ($maskocts[$i] !== $ipocts[$i]) {
-                $result = false;
+                return false;
             }
         }
 
-        return $result;
+        return true;
     }
 
     private function cidrMatch(string $subnet, int $prefix, string $ipToTest): bool
     {
         $subnetBin = inet_pton($subnet);
         $ipBin = inet_pton($ipToTest);
-        if ($subnetBin === false || $ipBin === false || strlen($subnetBin) !== strlen($ipBin)) {
+        if ($subnetBin === false || $ipBin === false) {
+            return false;
+        }
+
+        // A /0 prefix matches every address of both families, so the 'all' shortcut (0.0.0.0/0) covers IPv6 clients
+        if ($prefix === 0) {
+            return true;
+        }
+
+        if (strlen($subnetBin) !== strlen($ipBin)) {
             return false;
         }
 
@@ -122,8 +162,6 @@ class IpAllowDeny
 
     /**
      * IPv6 matcher
-     * CIDR section taken from https://stackoverflow.com/a/10086404
-     * Modified for phpMyAdmin
      *
      * Matches:
      * xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
@@ -140,28 +178,14 @@ class IpAllowDeny
      * @param string $testRange string of IP range to match
      * @param string $ipToTest  string of IP to test against range
      */
-    public function ipv6MaskTest(string $testRange, string $ipToTest): bool
+    private function ipv6MaskTest(string $testRange, string $ipToTest): bool
     {
-        $result = true;
-
-        // convert to lowercase for easier comparison
         $testRange = mb_strtolower($testRange);
         $ipToTest = mb_strtolower($ipToTest);
 
-        $isCidr = str_contains($testRange, '/');
-        $isRange = str_contains($testRange, '[');
-        $isSingle = ! $isCidr && ! $isRange;
-
         $ipHex = bin2hex((string) inet_pton($ipToTest));
 
-        if ($isSingle) {
-            $rangeHex = bin2hex((string) inet_pton($testRange));
-
-            return hash_equals($ipHex, $rangeHex);
-        }
-
-        if ($isRange) {
-            // what range do we operate on?
+        if (str_contains($testRange, '[')) {
             $rangeMatch = [];
             if (preg_match('/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $testRange, $rangeMatch) === 1) {
                 $rangeStart = $rangeMatch[1];
@@ -173,54 +197,28 @@ class IpAllowDeny
                 $lastIp = str_replace($rangeMatch[0], $rangeEnd, $testRange);
                 $lastHex = bin2hex((string) inet_pton($lastIp));
 
+                if ($ipHex === '' || strlen($ipHex) !== strlen($firstHex)) {
+                    return false;
+                }
+
                 // check if the IP to test is within the range
-                $result = $ipHex >= $firstHex && $ipHex <= $lastHex;
+                return $ipHex >= $firstHex && $ipHex <= $lastHex;
             }
 
-            return $result;
+            return false;
         }
 
-        if ($isCidr) {
-            // Split in address and prefix length
-            [$firstIp, $subnet] = explode('/', $testRange);
-
-            // Parse the address into a binary string
-            $firstBin = inet_pton($firstIp);
-            $firstHex = bin2hex((string) $firstBin);
-
-            $flexbits = 128 - (int) $subnet;
-
-            // Build the hexadecimal string of the last address
-            $lastHex = $firstHex;
-
-            $pos = 31;
-            while ($flexbits > 0) {
-                // Get the character at this position
-                $orig = mb_substr($lastHex, $pos, 1);
-
-                // Convert it to an integer
-                $origval = hexdec($orig);
-
-                // OR it with (2^flexbits)-1, with flexbits limited to 4 at a time
-                $newval = $origval | 2 ** min(4, $flexbits) - 1;
-
-                // Convert it back to a hexadecimal character
-                $new = dechex($newval);
-
-                // And put that character back in the string
-                $lastHex = substr_replace($lastHex, $new, $pos, 1);
-
-                // We processed one nibble, move to previous position
-                /** @infection-ignore-all */
-                $flexbits -= 4;
-                --$pos;
+        if (str_contains($testRange, '/')) {
+            if (preg_match('|^([^/]+)/([0-9]+)$|', $testRange, $regs) !== 1) {
+                return false;
             }
 
-            // check if the IP to test is within the range
-            $result = $ipHex >= $firstHex && $ipHex <= $lastHex;
+            return $this->cidrMatch($regs[1], (int) $regs[2], $ipToTest);
         }
 
-        return $result;
+        $rangeHex = bin2hex((string) inet_pton($testRange));
+
+        return hash_equals($ipHex, $rangeHex);
     }
 
     /**
@@ -252,65 +250,124 @@ class IpAllowDeny
      */
     private function allowDeny(string $type): bool
     {
-        // Grabs true IP of the user and returns if it can't be found
+        $rules = $this->parseRules();
+        if ($rules === null) {
+            // No allow rule matches and every deny rule matches, so every rule order denies access
+            return $type === 'deny';
+        }
+
         $remoteIp = Core::getIp();
         if ($remoteIp === '' || $remoteIp === false) {
-            return false;
+            return $type === 'deny';
         }
 
-        // copy username
         $username = $this->config->selectedServer['user'];
 
-        // copy rule database
-        $rules = $this->config->selectedServer['AllowDeny']['rules'];
-
-        // lookup table for some name shortcuts
-        $shortcuts = ['all' => '0.0.0.0/0', 'localhost' => '127.0.0.1/8'];
-
-        // Provide some useful shortcuts if server gives us address:
-        if (Core::getEnv('SERVER_ADDR') !== '') {
-            $shortcuts['localnetA'] = Core::getEnv('SERVER_ADDR') . '/8';
-            $shortcuts['localnetB'] = Core::getEnv('SERVER_ADDR') . '/16';
-            $shortcuts['localnetC'] = Core::getEnv('SERVER_ADDR') . '/24';
-        }
-
         foreach ($rules as $rule) {
-            // extract rule data
-            $ruleData = explode(' ', $rule);
-
-            // check for rule type
-            if ($ruleData[0] !== $type) {
+            if ($rule['type'] !== $type) {
                 continue;
             }
 
-            // check for username
-            if (
-                $ruleData[1] !== '%' //wildcarded first
-                && ! hash_equals($ruleData[1], $username)
-            ) {
+            if ($rule['user'] !== '%' && ! hash_equals($rule['user'], $username)) {
                 continue;
             }
 
-            // check if the config file has the full string with an extra
-            // 'from' in it and if it does, just discard it
-            if ($ruleData[2] === 'from') {
-                $ruleData[2] = $ruleData[3];
-            }
-
-            // Handle shortcuts with above array
-            if (isset($shortcuts[$ruleData[2]])) {
-                $ruleData[2] = $shortcuts[$ruleData[2]];
-            }
-
-            // Add code for host lookups here
-            // Excluded for the moment
-
-            // Do the actual matching now
-            if ($this->ipMaskTest($ruleData[2], $remoteIp)) {
+            if ($this->ipMaskTest($rule['mask'], $remoteIp)) {
                 return true;
             }
         }
 
         return false;
+    }
+
+    /** @return list<array{type: 'allow'|'deny', user: string, mask: string}>|null */
+    private function parseRules(): array|null
+    {
+        // lookup table for some name shortcuts
+        $shortcuts = ['all' => ['0.0.0.0/0'], 'localhost' => ['127.0.0.1/8', '::1/128']];
+
+        // The prefix lengths are IPv4 network sizes, on IPv6 they would cover a large part of the internet
+        $serverAddress = Core::getEnv('SERVER_ADDR');
+        if (filter_var($serverAddress, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false) {
+            $shortcuts['localnetA'] = [$serverAddress . '/8'];
+            $shortcuts['localnetB'] = [$serverAddress . '/16'];
+            $shortcuts['localnetC'] = [$serverAddress . '/24'];
+        }
+
+        $rules = [];
+        foreach ($this->config->selectedServer['AllowDeny']['rules'] as $rule) {
+            $parts = preg_split('/\s+/', trim($rule), -1, PREG_SPLIT_NO_EMPTY);
+            if ($parts === false) {
+                return null;
+            }
+
+            if (count($parts) === 4 && $parts[2] === 'from') {
+                $mask = $parts[3];
+            } elseif (count($parts) === 3 && $parts[2] !== 'from') {
+                $mask = $parts[2];
+            } else {
+                return null;
+            }
+
+            $type = $parts[0];
+            if ($type !== 'allow' && $type !== 'deny') {
+                return null;
+            }
+
+            foreach ($shortcuts[$mask] ?? [$mask] as $resolvedMask) {
+                if (! $this->isValidMask($resolvedMask)) {
+                    return null;
+                }
+
+                $rules[] = ['type' => $type, 'user' => $parts[1], 'mask' => $resolvedMask];
+            }
+        }
+
+        return $rules;
+    }
+
+    private function isValidMask(string $mask): bool
+    {
+        if (preg_match('|^([^/]+)/([0-9]+)$|', $mask, $regs) === 1) {
+            return filter_var($regs[1], FILTER_VALIDATE_IP) !== false
+                && (int) $regs[2] <= (str_contains($regs[1], ':') ? 128 : 32);
+        }
+
+        if (str_contains($mask, ':')) {
+            // The range must be the whole last group, because ipv6MaskTest() compares whole addresses
+            if (preg_match('/^([0-9a-f:]*:)\[([0-9a-f]+)-([0-9a-f]+)\]$/i', $mask, $regs) === 1) {
+                return filter_var($regs[1] . $regs[2], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false
+                    && filter_var($regs[1] . $regs[3], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false
+                    && hexdec($regs[2]) <= hexdec($regs[3]);
+            }
+
+            return filter_var($mask, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
+        }
+
+        if (! str_contains($mask, '[')) {
+            return filter_var($mask, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false;
+        }
+
+        $octets = explode('.', $mask);
+        if (count($octets) !== 4) {
+            return false;
+        }
+
+        foreach ($octets as $octet) {
+            if (preg_match('/^\[([0-9]+)-([0-9]+)\]$/', $octet, $regs) === 1) {
+                $first = (int) $regs[1];
+                $last = (int) $regs[2];
+            } elseif (preg_match('/^(?:0|[1-9][0-9]*)$/', $octet) === 1) {
+                $first = $last = (int) $octet;
+            } else {
+                return false;
+            }
+
+            if ($first > $last || $last > 255) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
