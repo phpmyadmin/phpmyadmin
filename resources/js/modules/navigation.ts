@@ -396,13 +396,7 @@ function showCurrent (skipTreeAnimation = false): void {
             $('#pma_navigation_tree').find('> div'), db, 'database', ! table
         );
 
-        if ($('#navi_db_select').length &&
-            $('option:selected', $('#navi_db_select')).length
-        ) {
-            if (! Navigation.selectCurrentDatabase()) {
-                return;
-            }
-
+        if ($('#navi_db_select').length && Navigation.selectCurrentDatabase()) {
             // If loaded database in navigation is not same as current one
             if ($('#pma_navigation_tree_content').find('span.loaded_db').first().text()
                 !== $('#navi_db_select').val()
